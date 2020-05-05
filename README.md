@@ -1,7 +1,7 @@
 # Neon Law Interface
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/4088488b04552036f7a2/maintainability)](https://codeclimate.com/repos/5e7561df19c89d018d0039c7/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/4088488b04552036f7a2/test_coverage)](https://codeclimate.com/repos/5e7561df19c89d018d0039c7/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a9de7883f94a89b722a5/maintainability)](https://codeclimate.com/github/NeonLaw/interface/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a9de7883f94a89b722a5/test_coverage)](https://codeclimate.com/github/NeonLaw/interface/test_coverage)
 [![Continuous Integration](https://github.com/NeonLaw/interface/workflows/continuous_integration/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Acontinuous_integration)
 [![Staging](https://github.com/neonlaw/interface/workflows/staging/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Astaging)
 [![Production](https://github.com/neonlaw/interface/workflows/production/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Aproduction)
