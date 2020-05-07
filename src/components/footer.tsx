@@ -8,13 +8,10 @@ import {
   Text,
   useColorMode,
 } from '@chakra-ui/core';
-import {
-  FaFacebookF, FaLinkedinIn, FaMailchimp, FaTwitter
-} from 'react-icons/fa';
-import { Button } from '@components/button';
 import { LanguageDropdown } from '@components/languageDropdown';
 import { Link } from 'gatsby';
 import React from 'react';
+import { SocialMediaIcons } from '@components/socialMediaIcons';
 
 export const Footer = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -64,48 +61,7 @@ export const Footer = () => {
         fontSize="lg"
       >
         <Flex direction="column">
-          <Box display={['block', 'block', 'none']} mb="7px">
-            <Button>
-              <a
-                href="https://www.twitter.com/neonlaw"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="@Neon Law on Twitter"
-              >
-                <FaTwitter style={{ display: 'inline' }} />
-              </a>
-            </Button>
-            <Button>
-              <a
-                href="https://www.facebook.com/neonlaw"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Neon Law Facebook page"
-              >
-                <FaFacebookF style={{ display: 'inline' }} />
-              </a>
-            </Button>
-            <Button>
-              <a
-                href="https://www.linkedin.com/company/neon-law"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Neon Law LinkedIn page"
-              >
-                <FaLinkedinIn style={{ display: 'inline' }} />
-              </a>
-            </Button>
-            <Button>
-              <a
-                href="https://mailchi.mp/f364242f585f/neonlaw"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Neon Law Monthly - an Email Newsletter"
-              >
-                <FaMailchimp style={{ display: 'inline' }} />
-              </a>
-            </Button>
-          </Box>
+          <SocialMediaIcons display={['block', 'block', 'none']} mb="7px" />
           <Box as={Link} to="/about-us" padding="7px 0">
             About Us
           </Box>
@@ -146,52 +102,7 @@ export const Footer = () => {
           <Text onClick={toggleColorMode} cursor="pointer" padding="7px 0">
             Switch to {colorMode === 'dark' ? 'Light' : 'Dark'} Mode
           </Text>
-          <Flex
-            flexDirection="row"
-            display={['none', 'none', 'block']}
-            justifyContent="space-between"
-          >
-            <Button>
-              <a
-                href="https://www.twitter.com/neonlaw"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="@Neon Law on Twitter"
-              >
-                <FaTwitter style={{ display: 'inline' }} />
-              </a>
-            </Button>
-            <Button>
-              <a
-                href="https://www.facebook.com/neonlaw"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Neon Law Facebook page"
-              >
-                <FaFacebookF style={{ display: 'inline' }} />
-              </a>
-            </Button>
-            <Button>
-              <a
-                href="https://www.linkedin.com/company/neon-law"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Neon Law LinkedIn page"
-              >
-                <FaLinkedinIn style={{ display: 'inline' }} />
-              </a>
-            </Button>
-            <Button>
-              <a
-                href="https://mailchi.mp/f364242f585f/neonlaw"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Neon Law Monthly - an Email Newsletter"
-              >
-                <FaMailchimp style={{ display: 'inline' }} />
-              </a>
-            </Button>
-          </Flex>
+          <SocialMediaIcons display={['none', 'none', 'block']} />
           <Box
             display={['block', 'block', 'none']}
             as={Link}
