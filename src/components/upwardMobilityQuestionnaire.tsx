@@ -17,6 +17,7 @@ import { useParams } from '@reach/router';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export const UpwardMobilityQuestionnaire = (props: any) => {
   /* eslint-enable @typescript-eslint/no-unused-vars */
+  alert('rar');
 
   const updateAnswers = (questionId, answer) => {
     const answers = JSON.parse(

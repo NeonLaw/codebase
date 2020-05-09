@@ -7,7 +7,7 @@ import { Seo } from '@components/seo';
 import {
   UpwardMobilityQuestionnaire
 } from '@components/upwardMobilityQuestionnaire';
-import { navigate } from 'gatsby';
+import { navigate } from 'gatsby-plugin-intl';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const UpwardMobilityHome = (props) => {
@@ -36,9 +36,17 @@ const UpwardMobilityHome = (props) => {
 const UpwardMobilityRouter = () => {
   return (
     <PublicLayout>
-      <Router>
-        <UpwardMobilityQuestionnaire path="/upward-mobility/:questionId" />
-        <UpwardMobilityHome path="/upward-mobility" />
+      <Router basepath="/upward-mobility">
+        <UpwardMobilityQuestionnaire path=":questionId" />
+        <UpwardMobilityHome path="/" />
+      </Router>
+      <Router basepath="/es/upward-mobility">
+        <UpwardMobilityQuestionnaire path=":questionId" />
+        <UpwardMobilityHome path="/" />
+      </Router>
+      <Router basepath="/en/upward-mobility">
+        <UpwardMobilityQuestionnaire path=":questionId" />
+        <UpwardMobilityHome path="/" />
       </Router>
     </PublicLayout>
   );
