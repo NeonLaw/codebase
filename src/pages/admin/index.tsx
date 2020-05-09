@@ -3,20 +3,22 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/core';
+import { AdminLayout } from '@layouts/admin';
 import React from 'react';
 
 const PortalPage = () => {
-
   return (
-    <Box>
-      <Heading>
-        Admin Portal
-      </Heading>
+    <AdminLayout>
+      <Box>
+        <Heading>
+          Admin Portal
+        </Heading>
 
-      <Text>
-        Choose an Option on your Left.
-      </Text>
-    </Box>
+        <Text>
+          Choose an Option on your Left.
+        </Text>
+      </Box>
+    </AdminLayout>
   );
 };
 

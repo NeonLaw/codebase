@@ -1,4 +1,5 @@
 import { Heading, Text } from '@chakra-ui/core';
+import { AdminLayout } from '@layouts/admin';
 import React from 'react';
 import { Table } from '@components/table';
 import gql from 'graphql-tag';
@@ -35,12 +36,12 @@ const AdminQuestions = () => {
   ];
 
   return (
-    <>
+    <AdminLayout>
       <Heading textAlign="center" marginBottom="20px">
         Questions
       </Heading>
       <Table columns={columns} data={data.allQuestions.nodes} />
-    </>
+    </AdminLayout>
   );
 };
 

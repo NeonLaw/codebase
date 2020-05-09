@@ -3,21 +3,23 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/core';
+import { LawyersLayout } from '@layouts/lawyers';
 import React from 'react';
 
 const LawyersPage = () => {
 
   return (
-    <Box>
-      <Heading>
-        Lawyer Portal
-      </Heading>
+    <LawyersLayout>
+      <Box>
+        <Heading>
+          Lawyer Portal
+        </Heading>
 
-      <Text>
-        Create a new Wills Packet
-      </Text>
-
-    </Box>
+        <Text>
+          Create a new Wills Packet
+        </Text>
+      </Box>
+    </LawyersLayout>
   );
 };
 
