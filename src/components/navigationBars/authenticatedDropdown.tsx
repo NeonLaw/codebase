@@ -11,7 +11,7 @@ import {
   useColorMode
 } from '@chakra-ui/core';
 import { AuthenticationContext } from '@utils/authenticationContext';
-import { Link } from 'gatsby';
+import { Link } from '@components/link';
 import React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';

@@ -1,28 +1,10 @@
 {
     "auth": {
-        "signupMessage": "Bienvenidos a Justicia para Rickie Slaughter!",
         "login": "Inciar Sesión"
     },
     "languages": {
         "language": "Idioma",
         "english": "Inglés",
         "spanish": "Español"
-    },
-    "header": {
-        "title": "Justicia para Rickie Slaugter",
-        "blog": "Blog",
-        "causes": "Causas",
-        "contact": "Contacto",
-        "litigation": "Litigio",
-        "passItOn": "Pásala",
-        "about": "Sobre Nosotros",
-        "noFaultDivorce": "Divorcio Sin Culpa",
-        "trafficTickets": "Multas de Tráfico",
-        "services": "Servicios",
-        "justiceForRickieSlaughter": "Justicia para Rickie Slaughter"
-    },
-    "footer": {
-        "callUs": "Llamenos al",
-        "builtWith": "Hecho con"
     }
 }

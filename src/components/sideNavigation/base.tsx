@@ -1,6 +1,6 @@
 import { Box, useColorMode } from '@chakra-ui/core';
 import { AuthenticationContext } from '@utils/authenticationContext';
-import { Link } from 'gatsby';
+import { Link } from 'gatsby-plugin-intl';
 import React from 'react';
 import { navigate } from 'gatsby';
 

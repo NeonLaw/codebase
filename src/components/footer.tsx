@@ -9,7 +9,7 @@ import {
   useColorMode,
 } from '@chakra-ui/core';
 import { LanguageDropdown } from '@components/languageDropdown';
-import { Link } from 'gatsby';
+import { Link } from '@components/link';
 import React from 'react';
 import { SocialMediaIcons } from '@components/socialMediaIcons';
 

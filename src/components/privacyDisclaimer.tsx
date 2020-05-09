@@ -1,7 +1,7 @@
 import { Box, Flex } from '@chakra-ui/core';
 import React, { useEffect, useState } from 'react';
 import { Button } from '@components/button';
-import { Link } from 'gatsby';
+import { Link } from '@components/link';
 
 export const PrivacyDisclaimer = () => {
   const [disclaimerAcceptance, accept] = useState(false);

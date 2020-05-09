@@ -28,3 +28,4 @@ export const BaseLayout: React.FC = ({ children }) => {
     </AuthenticationProvider>
   );
 };
+

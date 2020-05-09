@@ -2,7 +2,7 @@
 // @ts-nocheck
 /* eslint-enable */
 import { Box } from '@chakra-ui/core';
-import { Link } from 'gatsby';
+import { Link } from '@components/link';
 import React from 'react';
 
 export const DesktopHalfMobileFullCard = ({

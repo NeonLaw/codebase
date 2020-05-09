@@ -1,27 +1,10 @@
 {
     "auth": {
-        "signupMessage": "Welcome to Neon Law!",
         "login": "Login"
     },
     "languages": {
         "language": "Language",
         "english": "English",
         "spanish": "Spanish"
-    },
-    "header": {
-        "title": "Neon Law",
-        "blog": "Blog",
-        "causes": "Causes",
-        "contact": "Contact",
-        "litigation": "Litigation",
-        "passItOn": "Pass It On",
-        "noFaultDivorce": "No Fault Divorce",
-        "trafficTickets": "Traffic Tickets",
-        "about": "About Us",
-        "services": "Services"
-    },
-    "footer": {
-        "callUs": "Call us at",
-        "builtWith": "Built with"
     }
 }

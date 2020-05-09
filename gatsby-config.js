@@ -10,6 +10,14 @@ module.exports = {
     'gatsby-plugin-typescript',
     {
       options: {
+        defaultLanguage: 'en',
+        languages: ['en', 'es'],
+        path: `${__dirname}/src/intl`,
+      },
+      resolve: 'gatsby-plugin-intl',
+    },
+    {
+      options: {
         directives: {
           'connect-src': '* data: blob: \'unsafe-inline\'',
           'default-src': '*  data: blob: filesystem: about: ' +
@@ -66,14 +74,6 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
     },
     'gatsby-plugin-react-helmet',
-    {
-      options: {
-        defaultLanguage: 'en',
-        languages: ['en'],
-        path: `${__dirname}/src/intl`,
-      },
-      resolve: 'gatsby-plugin-intl',
-    },
     {
       options: {
         anonymize: true,

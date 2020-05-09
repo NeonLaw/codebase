@@ -16,10 +16,11 @@ import {
   MenuList,
   useDisclosure
 } from '@chakra-ui/core';
-import { Link, navigate } from 'gatsby';
 import React, { useState } from 'react';
+import { navigate, useIntl } from 'gatsby-plugin-intl';
 import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { AuthenticationContext } from '@utils/authenticationContext';
+import { Link } from '@components/link';
 import { MdDehaze } from 'react-icons/md';
 
 export const BaseNavigationBar = ({
@@ -28,6 +29,7 @@ export const BaseNavigationBar = ({
   sideNavigationDrawer,
 }) => {
   const { isOpen, onToggle, onClose } = useDisclosure();
+  const intl = useIntl();
 
   const [loginButtonDisabled, disableLoginButton] = useState(false);
 
@@ -109,7 +111,7 @@ export const BaseNavigationBar = ({
                       login();
                     }}
                   >
-                    Create Account or Sign In
+                    {intl.formatMessage({ id: 'auth.login' })}
                   </Button>
                 );
               }}

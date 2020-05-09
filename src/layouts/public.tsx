@@ -4,7 +4,6 @@ import {
 } from '@chakra-ui/core';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { AuthenticationContext } from '@utils/authenticationContext';
-import { BaseLayout } from '@layouts/base';
 import { Breadcrumbs } from '@components/breadcrumbs';
 import { Container } from '@components/container';
 import { Footer } from '@components/footer';
@@ -16,33 +15,15 @@ import { publicClient } from '@utils/authenticationContext';
 
 export const PublicLayout: React.FC = ({ children }) => {
   return (
-    <BaseLayout>
-      <Flex
-        minHeight="100vh"
-        direction="column"
-      >
-        <AuthenticationContext.Consumer>
-          {({ isLoading, apolloClient }) => {
-            if (isLoading) {
-              return (
-                <ApolloProvider client={publicClient}>
-                  <>
-                    <PublicNavigationBar />
-                    <Box
-                      flex={1}
-                      padding="6em 0 4em 0"
-                    >
-                      <Container>
-                        <Breadcrumbs />
-                        {children}
-                      </Container>
-                    </Box>
-                  </>
-                </ApolloProvider>
-              );
-            }
+    <Flex
+      minHeight="100vh"
+      direction="column"
+    >
+      <AuthenticationContext.Consumer>
+        {({ isLoading, apolloClient }) => {
+          if (isLoading) {
             return (
-              <ApolloProvider client={apolloClient}>
+              <ApolloProvider client={publicClient}>
                 <>
                   <PublicNavigationBar />
                   <Box
@@ -57,11 +38,27 @@ export const PublicLayout: React.FC = ({ children }) => {
                 </>
               </ApolloProvider>
             );
-          }}
-        </AuthenticationContext.Consumer>
-        <PrivacyDisclaimer />
-        <Footer />
-      </Flex>
-    </BaseLayout >
+          }
+          return (
+            <ApolloProvider client={apolloClient}>
+              <>
+                <PublicNavigationBar />
+                <Box
+                  flex={1}
+                  padding="6em 0 4em 0"
+                >
+                  <Container>
+                    <Breadcrumbs />
+                    {children}
+                  </Container>
+                </Box>
+              </>
+            </ApolloProvider>
+          );
+        }}
+      </AuthenticationContext.Consumer>
+      <PrivacyDisclaimer />
+      <Footer />
+    </Flex>
   );
 };

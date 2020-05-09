@@ -1,8 +1,8 @@
+import { BaseLayout } from './src/layouts/base';
 import React from 'react';
-import { RenderLayout } from './src/utils/renderLayout';
 
-export const wrapRootElement = ({ element }) => {
-  return <RenderLayout>{element}</RenderLayout>;
+export const wrapPageElement = ({ element, props }) => {
+  return <BaseLayout {...props}>{element}</BaseLayout>;
 };
 
 export const onPreRenderHTML = (

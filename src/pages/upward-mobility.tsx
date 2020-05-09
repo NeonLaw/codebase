@@ -1,5 +1,6 @@
 import { Heading, Text } from '@chakra-ui/core';
 import { Button } from '@components/button';
+import { PublicLayout } from '@layouts/public';
 import React from 'react';
 import { Router } from '@reach/router';
 import { Seo } from '@components/seo';
@@ -12,7 +13,7 @@ import { navigate } from 'gatsby';
 const UpwardMobilityHome = (props) => {
   /* eslint-enable @typescript-eslint/no-unused-vars */
   return (
-    <>
+    <PublicLayout>
       <Seo title="Upward Mobility" />
       <Heading textAlign="center">
         Upward Mobility
@@ -28,7 +29,7 @@ const UpwardMobilityHome = (props) => {
       >
         Take Questionnaire
       </Button>
-    </>
+    </PublicLayout>
   );
 };
 

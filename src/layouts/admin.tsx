@@ -6,7 +6,6 @@ import { AdminNavigationBar } from '@components/navigationBars/admin';
 import { AdminSideNav } from '@components/sideNavigation/admin';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { AuthenticationContext } from '@utils/authenticationContext';
-import { BaseLayout } from '@layouts/base';
 import { Container } from '@components/container';
 import { Footer } from '@components/footer';
 import { LoadingPage } from '@components/loadingPage';
@@ -14,44 +13,42 @@ import React from 'react';
 
 export const AdminLayout: React.FC = ({ children }) => {
   return (
-    <BaseLayout>
-      <AuthenticationContext.Consumer>
-        {({ isLoading, apolloClient }) => {
-          if (isLoading) {
-            return <LoadingPage />;
-          }
-          return (
-            <ApolloProvider client={apolloClient}>
-              <>
-                <AdminNavigationBar />
+    <AuthenticationContext.Consumer>
+      {({ isLoading, apolloClient }) => {
+        if (isLoading) {
+          return <LoadingPage />;
+        }
+        return (
+          <ApolloProvider client={apolloClient}>
+            <>
+              <AdminNavigationBar />
+              <Flex
+                flex="1"
+                direction="row"
+              >
+                <AdminSideNav />
                 <Flex
+                  minHeight="100vh"
                   flex="1"
-                  direction="row"
+                  width="100%"
+                  direction="column"
+                  marginLeft={['none', 'none', '10em']}
                 >
-                  <AdminSideNav />
-                  <Flex
-                    minHeight="100vh"
+                  <Box
                     flex="1"
-                    width="100%"
-                    direction="column"
-                    marginLeft={['none', 'none', '10em']}
+                    paddingTop="4em"
                   >
-                    <Box
-                      flex="1"
-                      paddingTop="4em"
-                    >
-                      <Container>
-                        {children}
-                      </Container>
-                    </Box>
-                    <Footer />
-                  </Flex>
+                    <Container>
+                      {children}
+                    </Container>
+                  </Box>
+                  <Footer />
                 </Flex>
-              </>
-            </ApolloProvider>
-          );
-        }}
-      </AuthenticationContext.Consumer>
-    </BaseLayout>
+              </Flex>
+            </>
+          </ApolloProvider>
+        );
+      }}
+    </AuthenticationContext.Consumer>
   );
 };

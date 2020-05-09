@@ -11,7 +11,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions;
 
-  if (page.path.match(/^\/upward-mobility\/.*/)) {
+  if (page.path.match(/^\/upward-mobility\/.+/)) {
     createPage({
       component: path.resolve('src/pages/upward-mobility.tsx'),
       matchPath: '/upward-mobility/*',

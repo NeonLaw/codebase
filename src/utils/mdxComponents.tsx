@@ -13,13 +13,15 @@ import {
   Text,
   useColorMode,
 } from '@chakra-ui/core';
-import { Link, navigate } from 'gatsby';
 import { CodeBlock } from '@components/codeBlock';
 import {
   DesktopHalfMobileFullCard
 } from '@components/desktopHalfMobileFullCard';
+import { Link } from '@components/link';
+import { PublicLayout } from '@layouts/public';
 import React from 'react';
 import { colors } from '@themes/neonLaw';
+import { navigate } from 'gatsby-plugin-intl';
 
 const Pre = props => <Box my="2em" rounded="sm" {...props} />;
 
@@ -80,6 +82,7 @@ export const MDXComponents = {
   DesktopHalfMobileFullCard,
   Flex,
   Link,
+  PublicLayout,
   Text,
   a: ({ href, ...props }) => {
     const httpRegex = new RegExp('^http');

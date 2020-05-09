@@ -21,6 +21,18 @@ Then navigate to `http://127.0.0.1:8000` to see the website ran on your machine.
 
 > You must be connected to the Internet to work on this application.
 
+## Working on this Repo
+
+We welcome any contributions to this repo and are humbled you would dedicate
+the time to improve this project. To create a PR to this repo, please do the
+following:
+
+* Fork this repo
+* Create a PR to the `development` branch
+
+By making a PR, you consent that all resultant code shall be open sourced
+under the same Apache License Version 2.0 that this repo is.
+
 ## Third Party SaaS Services
 
 This application uses Zendesk Chat to host chat with visitors and Google
@@ -28,15 +40,9 @@ Analytics for data collection.
 
 ## Staging Environment
 
-The staging environment has a layer of HTTP Basic authentication, to get
-those credentials, please contact us at support@neonlaw.com.
-
-To change the username and password, you will need to update the
-`staging_htpasswd` file. You can do so via:
-
-```
-sudo htpasswd -c ./staging_htpasswd neon_law
-```
+The staging environment is hosted at https://www.neonlaw.net has a layer of
+HTTP Basic authentication, to get those credentials, please contact us at
+support@neonlaw.com.
 
 Then enter in the password when prompted.
 
