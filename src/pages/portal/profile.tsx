@@ -1,5 +1,6 @@
 import { Heading, Text } from '@chakra-ui/core';
 import { AuthenticationContext } from '@utils/authenticationContext';
+import { PortalLayout } from '@layouts/portal';
 import React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
@@ -35,7 +36,7 @@ const PortalProfile = () => {
   const currentUser = data.getCurrentUser;
 
   return (
-    <>
+    <PortalLayout>
       <Heading textAlign="center" marginTop="20px">
         Your Profile
       </Heading>
@@ -52,7 +53,7 @@ const PortalProfile = () => {
         Your role is {currentUser.role}
       </Text>
 
-    </>
+    </PortalLayout>
   );
 };
 

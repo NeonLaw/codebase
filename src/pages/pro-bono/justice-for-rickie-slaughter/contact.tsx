@@ -6,12 +6,12 @@ import {
   Textarea
 } from '@chakra-ui/core';
 import { Button } from '@components/button';
+import { PublicLayout } from '@layouts/public';
 import React from 'react';
 
 const ContactRickiePage = () => {
   return (
-    <>
-
+    <PublicLayout>
       <Heading textAlign="center" marginTop="20px">
         Contact Rickie Slaughter
       </Heading>
@@ -51,7 +51,7 @@ const ContactRickiePage = () => {
           <Button color="black">Send Information</Button>
         </Stack>
       </form>
-    </>
+    </PublicLayout>
   );
 };
 

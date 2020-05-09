@@ -1,4 +1,10 @@
 module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+    'jest/globals': true,
+    node: true,
+  },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -6,13 +12,17 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:jsdoc/recommended',
   ],
-  ignorePatterns: [".cache/", 'build/', "node_modules/", "public/"],
+  ignorePatterns: ['.cache/', 'build/', 'node_modules/', 'public/'],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
   plugins: ['react', '@typescript-eslint', 'import', 'jest', 'jsdoc'],
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/interface-name-prefix': 'error',
-    '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/no-var-requires': 'off',
@@ -21,20 +31,9 @@ module.exports = {
     'quotes': [2, 'single'],
     'react/no-children-prop': 'off',
     'react/prop-types': 'off',
-    'semi': ["error", "always"],
+    'semi': ['error', 'always'],
     'sort-imports': 'error',
     'sort-keys': 'error',
-  },
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  },
-  parser: '@typescript-eslint/parser',
-  env: {
-    node: true,
-    browser: true,
-    es6: true,
-    'jest/globals': true,
   },
   settings: {
     react: {

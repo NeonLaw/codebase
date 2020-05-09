@@ -13,7 +13,7 @@ import { navigate } from 'gatsby';
 const UpwardMobilityHome = (props) => {
   /* eslint-enable @typescript-eslint/no-unused-vars */
   return (
-    <PublicLayout>
+    <>
       <Seo title="Upward Mobility" />
       <Heading textAlign="center">
         Upward Mobility
@@ -29,16 +29,18 @@ const UpwardMobilityHome = (props) => {
       >
         Take Questionnaire
       </Button>
-    </PublicLayout>
+    </>
   );
 };
 
 const UpwardMobilityRouter = () => {
   return (
-    <Router>
-      <UpwardMobilityQuestionnaire path="/upward-mobility/:questionId" />
-      <UpwardMobilityHome path="/upward-mobility" />
-    </Router>
+    <PublicLayout>
+      <Router>
+        <UpwardMobilityQuestionnaire path="/upward-mobility/:questionId" />
+        <UpwardMobilityHome path="/upward-mobility" />
+      </Router>
+    </PublicLayout>
   );
 };
 
