@@ -3,6 +3,7 @@ name: continuous_integration
 
 on:
   - push
+  - pull_request
 
 jobs:
   test_suite:
