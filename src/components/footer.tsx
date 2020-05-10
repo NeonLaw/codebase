@@ -10,9 +10,9 @@ import {
 } from '@chakra-ui/core';
 import { LanguageDropdown } from '@components/languageDropdown';
 import { Link } from '@components/link';
-import { useIntl } from 'gatsby-plugin-intl';
 import React from 'react';
 import { SocialMediaIcons } from '@components/socialMediaIcons';
+import { useIntl } from 'gatsby-plugin-intl';
 
 export const Footer = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -35,7 +35,7 @@ export const Footer = () => {
           textAlign="center"
           fontWeight="medium"
         >
-          {intl.formatMessage({ id: 'footer.heading' })} 
+          {intl.formatMessage({ id: 'footer.heading' })}
         </Heading>
         <Text
           padding="1em"
