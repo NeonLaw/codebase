@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - development
+      - environment-variables
 
 jobs:
   deploy_development_docker_image:
@@ -19,6 +20,12 @@ jobs:
             --build-arg GATSBY_ACTIVE_ENV=development \
             -f Dockerfile \
             .
+
+      - name: Authenticate to the Docker Hub
+        run: |-
+          docker login \
+            -u ${{ secrets.DOCKER_HUB_USERNAME }} \
+            -p ${{ secrets.DOCKER_HUB_PASSWORD }}
 
       - name: Build the development Docker image to Docker hub
         run: docker push neonlaw/interface
