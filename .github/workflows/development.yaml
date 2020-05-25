@@ -1,0 +1,24 @@
+---
+name: development
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  deploy_development_docker_image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the development Docker image
+        run: |-
+          docker build \
+            --tag "neonlaw/interface:latest" \
+            --build-arg GATSBY_ACTIVE_ENV=development \
+            -f Dockerfile \
+            .
+
+      - name: Build the development Docker image to Docker hub
+        run: docker push neonlaw/interface
