@@ -30,9 +30,9 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          start: yarn develop
-          wait-on: "http://0.0.0.0:8000"
-          wait-on-timeout: 120
+          start: yarn develop --verbose
+          wait-on: "http://127.0.0.1:8000"
+          wait-on-timeout: 180
       - name: Run Yarn Build.
         run: yarn build
         env:

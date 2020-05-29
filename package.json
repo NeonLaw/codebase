@@ -95,7 +95,7 @@
     "check-types": "tsc -p .",
     "cy:open": "cypress open",
     "dev": "yarn run develop",
-    "develop": "gatsby develop -H 0.0.0.0",
+    "develop": "gatsby develop -H 127.0.0.1",
     "start": "yarn run develop",
     "lint": "eslint './**/*.{js,jsx,ts,tsx}'",
     "serve": "gatsby serve",
