@@ -84,7 +84,7 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^4.0.4",
     "gatsby-cli": "^2.12.37",
-    "gatsby-cypress": "^0.4.1",
+    "gatsby-cypress": "^0.4.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.1",
     "start-server-and-test": "^1.11.0",
