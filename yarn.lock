@@ -8941,12 +8941,12 @@ gatsby-plugin-intl@^0.3.3:
     intl "^1.2.5"
     react-intl "^3.12.0"
 
-gatsby-plugin-layout@^1.3.2:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-1.3.2.tgz#7c5416897bfef25d417b09856307720e63f4c700"
-  integrity sha512-/oc7iJLBjXOs3r3deBUN3YfPZwajvB+18sXjXE25dj7kWHn5qJkCHlLwgfbveLVSuLUxC8ftT31xYMuWc3X3KQ==
+gatsby-plugin-layout@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-1.3.3.tgz#26a387b5eb470a758ee925ed44f24ec19ad74d40"
+  integrity sha512-8+MXyqgM1e6r7aiK9YG+RGLYuy7CKajhcQsks2lY5pl0Na6zrPiOK5ejooq8P+c4FN9a0lugNoJ0TvhW0AZCCw==
   dependencies:
-    "@babel/runtime" "^7.9.6"
+    "@babel/runtime" "^7.10.2"
 
 gatsby-plugin-manifest@^2.4.9:
   version "2.4.9"
