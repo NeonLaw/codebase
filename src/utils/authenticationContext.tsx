@@ -39,8 +39,8 @@ export class AuthenticationProvider extends Component {
   config = {
     audience: 'https://api.neonlaw.com',
     /* eslint-disable @typescript-eslint/camelcase */
-    client_id: process.env.AUTH0_CLIENT_ID,
-    domain: process.env.AUTH0_DOMAIN,
+    client_id: process.env.AUTH0_CLIENT_ID as string,
+    domain: process.env.AUTH0_DOMAIN as string,
     redirect_uri: process.env.AUTH0_CALLBACK,
     /* eslint-enable @typescript-eslint/camelcase */
     responseType: 'token id_token',
