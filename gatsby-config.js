@@ -107,7 +107,16 @@ module.exports = {
         sitemap: `${process.env.SITE_URL}/sitemap.xml`,
       },
       resolve: 'gatsby-plugin-robots-txt',
-    }
+    },
+    {
+      options: {
+        prefixes: [
+          '/upward-mobility/*',
+          '/portal/*',
+        ]
+      },
+      resolve: 'gatsby-plugin-create-client-paths',
+    },
   ],
   siteMetadata: {
     author: '@neonlaw',

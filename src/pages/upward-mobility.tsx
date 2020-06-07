@@ -39,14 +39,6 @@ const UpwardMobilityRouter = () => {
         <UpwardMobilityQuestionnaire path=":questionId" />
         <UpwardMobilityHome path="/" />
       </Router>
-      <Router basepath="/es/upward-mobility">
-        <UpwardMobilityQuestionnaire path=":questionId" />
-        <UpwardMobilityHome path="/" />
-      </Router>
-      <Router basepath="/en/upward-mobility">
-        <UpwardMobilityQuestionnaire path=":questionId" />
-        <UpwardMobilityHome path="/" />
-      </Router>
     </PublicLayout>
   );
 };

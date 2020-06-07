@@ -16,10 +16,12 @@ You must have node installed on your machine and yarn as a global node package.
 
 ```bash
 yarn
-yarn dev
+yarn e2e-test
 ```
 
-Then navigate to `http://127.0.0.1:8000` to see the website ran on your machine.
+Then navigate to `http://127.0.0.1:8000` to see the website ran on your
+machine. We recommend starting the development server with `e2e-test` because
+all actions should have a corresponding Cypress test.
 
 > You must be connected to the Internet to work on this application.
 

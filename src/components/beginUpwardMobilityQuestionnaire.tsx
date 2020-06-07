@@ -23,7 +23,7 @@ export const BeginUpwardMobilityQuestionnaire = () => {
       </Text>
 
       <Button
-        onClick={() => { navigate(`${basePath}/${decisionTree['begin']}`); }}>
+        onClick={() => { navigate(`/${basePath}/${decisionTree['begin']}`); }}>
         {intl.formatMessage({ id: 'beginUpwardMQ.beginButton' })}
       </Button>
     </>

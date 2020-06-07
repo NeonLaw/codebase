@@ -20,8 +20,6 @@ import { useParams } from '@reach/router';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export const UpwardMobilityQuestionnaire = (props: any) => {
   /* eslint-enable @typescript-eslint/no-unused-vars */
-  alert('rar');
-
   const intl = useIntl();
 
   const updateAnswers = (questionId, answer) => {
@@ -108,15 +106,6 @@ export const UpwardMobilityQuestionnaire = (props: any) => {
               decisionTree={decisionTree}
             />
           )}
-          {/* {question.questionType == 'date' && (
-        <DateQuestion
-          questionnairePath={basePath}
-          prompt={question.prompt}
-          choices={question.choices}
-          id={question.id}
-          decisionTree={decisionTree}
-        />
-      )} */}
         </Box>
       </Box>
     </>
