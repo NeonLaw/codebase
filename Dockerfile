@@ -7,6 +7,8 @@ ARG AUTH0_CALLBACK
 ARG AUTH0_DOMAIN
 ARG AUTH0_CLIENT_ID
 
+ENV API_URL=$API_URL
+
 WORKDIR /app
 ADD . ./
 RUN yarn install --ignore-optional
