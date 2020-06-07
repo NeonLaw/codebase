@@ -33,6 +33,12 @@ jobs:
           start: yarn develop --verbose
           wait-on: "http://127.0.0.1:8000"
           wait-on-timeout: 180
+        env:
+          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
+          CYPRESS_AUDIENCE_URL: ${{ secrets.CYPRESS_AUDIENCE_URL }}
+          CYPRESS_AUTH_CLIENT_ID: ${{ secrets.CYPRESS_AUTH_CLIENT_ID }}
+          CYPRESS_AUTH_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH_CLIENT_SECRET }}
+          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
       - name: Run Yarn Build.
         run: yarn build
         env:
