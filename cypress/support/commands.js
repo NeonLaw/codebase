@@ -35,7 +35,7 @@ Cypress.Commands.add(
     cy.log('Logging in as portal@neonlaw.com');
     const options = {
       body: {
-        'audience': Cypress.env('AUDIENCE_URL'),
+        'audience': 'https://api.neonlaw.com',
         'client_id': Cypress.env('AUTH_CLIENT_ID'),
         'client_secret': Cypress.env('AUTH_CLIENT_SECRET'),
         'grant_type': 'http://auth0.com/oauth/grant-type/password-realm',
