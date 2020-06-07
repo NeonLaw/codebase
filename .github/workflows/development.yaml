@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - development
+      - change-url
 
 jobs:
   deploy_development_docker_image:
@@ -16,7 +17,7 @@ jobs:
         run: |-
           docker build \
             --tag "neonlaw/interface:latest" \
-            --build-arg GATSBY_ACTIVE_ENV=development \
+            --build-arg GATSBY_ACTIVE_ENV=development-docker \
             -f Dockerfile \
             .
 
