@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - development
+      - pass-envvars
 
 jobs:
   deploy_development_docker_image:
@@ -16,9 +17,16 @@ jobs:
         run: |-
           docker build \
             --tag "neonlaw/interface:latest" \
-            --build-arg GATSBY_ACTIVE_ENV=development-docker \
+            --build-arg GATSBY_ACTIVE_ENV=development \
+            --build-arg GATSBY_AUTH0_CALLBACK="$GATSBY_AUTH0_CALLBACK" \
+            --build-arg GATSBY_AUTH0_DOMAIN="$GATSBY_AUTH0_DOMAIN" \
+            --build-arg GATSBY_AUTH0_CLIENT_ID="$GATSBY_AUTH0_CLIENT_ID" \
             -f Dockerfile \
             .
+        env:
+          GATSBY_AUTH0_CALLBACK: http://127.0.0.1:8000/callback/
+          GATSBY_AUTH0_DOMAIN: neon-law-testing.auth0.com
+          GATSBY_AUTH0_CLIENT_ID: http://127.0.0.1:3000/graphql
 
       - name: Authenticate to the Docker Hub
         run: |-
