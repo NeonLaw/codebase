@@ -112,7 +112,6 @@ module.exports = {
       options: {
         prefixes: [
           '/upward-mobility/*',
-          '/portal/*',
           '/lawyers/*',
           '/admin/*',
         ]

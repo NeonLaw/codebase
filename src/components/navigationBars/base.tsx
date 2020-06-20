@@ -42,10 +42,11 @@ export const BaseNavigationBar = ({
         color="white"
         height="2em"
         width="full"
+        zIndex={4}
         alignItems="center"
       >
         <Text flex="1" textAlign='center'>
-          #BlackLivesMatter
+          Black Lives Matter
         </Text>
       </Flex>
       <Box

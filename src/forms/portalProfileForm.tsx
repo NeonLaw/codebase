@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '@chakra-ui/core';
 import { StringInput } from '@forms/base';
+import { useCurrentUserQuery } from '@utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useUpdatePersonByIdMutation } from '@utils/api';
@@ -8,6 +9,7 @@ import { useUpdatePersonByIdMutation } from '@utils/api';
 
 export const PortalProfileForm = () => {
   const intl = useIntl();
+  const { data } = useCurrentUserQuery();
 
   const [
     updatePersonById
@@ -21,7 +23,9 @@ export const PortalProfileForm = () => {
   } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const onSubmit = async ({ name, id }) => {
+  const onSubmit = async ({ name }) => {
+    const id = data?.getCurrentUser?.id;
+
     await updatePersonById(
       { variables: { id, name } }
     );
