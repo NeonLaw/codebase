@@ -1,15 +1,21 @@
-import { Heading } from '@chakra-ui/core';
+import { Box, Heading } from '@chakra-ui/core';
 import { PortalLayout } from '@layouts/portal';
-import { PortalProfileCard } from '@components/cards/profileCard';
+import { PortalProfileCard } from '@components/cards/portalProfileCard';
 import { PortalProfileForm } from '@forms/portalProfileForm';
 import React from 'react';
 
 const PortalProfilePage = () => {
   return (
     <PortalLayout>
-      <Heading>Your Profile</Heading>
-      <PortalProfileCard />
-      <PortalProfileForm />
+      <Box margin="1rem 0">
+        <Heading textAlign="center">Your Profile</Heading>
+      </Box>
+      <Box margin="1rem 0">
+        <PortalProfileCard />
+      </Box>
+      <Box margin="1rem 0">
+        <PortalProfileForm />
+      </Box>
     </PortalLayout>
   );
 };

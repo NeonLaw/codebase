@@ -38,12 +38,10 @@ export class AuthenticationProvider extends Component {
 
   config = {
     audience: 'https://api.neonlaw.com',
-    cacheLocation: 'localstorage' as 'localstorage',
-    /* eslint-disable @typescript-eslint/camelcase */
-    client_id: process.env.GATSBY_AUTH0_CLIENT_ID as string,
+    cacheLocation: 'localstorage' as const,
+    'client_id': process.env.GATSBY_AUTH0_CLIENT_ID as string,
     domain: process.env.GATSBY_AUTH0_DOMAIN as string,
-    redirect_uri: process.env.GATSBY_AUTH0_CALLBACK,
-    /* eslint-enable @typescript-eslint/camelcase */
+    'redirect_uri': process.env.GATSBY_AUTH0_CALLBACK,
     responseType: 'token id_token',
     scope: 'openid profile email'
   };

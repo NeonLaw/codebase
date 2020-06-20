@@ -1,6 +1,5 @@
 /// <reference types="cypress" />
 /* eslint-disable no-undef */
-/* eslint-disable @typescript-eslint/camelcase */
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite

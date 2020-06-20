@@ -12,6 +12,7 @@ describe('StringInput', () => {
     const { getByTestId } = render(
       <StringInput
         register={register}
+        testId={name}
         errors={errors}
         label={label}
         placeholder={placeholder}

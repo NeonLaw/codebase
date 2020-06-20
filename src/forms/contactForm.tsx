@@ -75,29 +75,31 @@ export const ContactForm = () => {
     );
   }, [register]);
 
-  
+
   return (
     <form onSubmit={handleSubmit(onSubmit as any)}>
       <StringInput
         name="name"
+        testId="contact-form-name"
         label={`${intl.formatMessage({ id: 'contactForm.name.label' })}`}
         errors={errors}
         placeholder={`${intl.formatMessage({ id: 'contactForm.name.ph' })}`}
-        register={register({ required: 'Name is required.'  })}
+        register={register({ required: 'Name is required.' })}
       />
       <StringInput
         name="email"
+        testId="contact-form-email"
         errors={errors}
         label={`${intl.formatMessage({ id: 'contactForm.email.label' })}`}
         placeholder={`${intl.formatMessage({ id: 'contactForm.email.ph' })}`}
-        register={register({ required: 'Email is required.'  })}
+        register={register({ required: 'Email is required.' })}
       />
       <Textarea
         name="message"
         label={`${intl.formatMessage({ id: 'contactForm.message.label' })}`}
         errors={errors}
         placeholder={`${intl.formatMessage({ id: 'contactForm.message.ph' })}`}
-        register={register({ required: 'Message is required.'  })}
+        register={register({ required: 'Message is required.' })}
       />
       <ReCaptchaButton
         onVerifyCaptcha={onVerifyCaptcha}

@@ -39,6 +39,7 @@ export const PortalProfileForm = () => {
     <form onSubmit={handleSubmit(onSubmit as any)}>
       <StringInput
         name="name"
+        testId="portal-profile-form-name"
         label={intl.formatMessage({ id: 'forms.name.label' })}
         errors={errors}
         placeholder={intl.formatMessage({ id: 'forms.name.placeholder' })}
@@ -48,7 +49,11 @@ export const PortalProfileForm = () => {
           )
         }
       />
-      <Button type="submit" isDisabled={isSubmitting}>
+      <Button
+        type="submit"
+        data-testid="portal-profile-form-submit"
+        isDisabled={isSubmitting}
+      >
         Update Profile
       </Button>
     </form>

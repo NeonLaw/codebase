@@ -11,13 +11,14 @@ export const StringInput = ({
   label,
   register,
   name,
-  placeholder
+  placeholder,
+  testId,
 }) => {
   return (
     <FormControl isInvalid={errors && errors[name]}>
       <FormLabel htmlFor="name">{label}</FormLabel>
       <Input
-        data-testid={name}
+        data-testid={testId}
         ref={register}
         name={name}
         placeholder={placeholder}

@@ -61,7 +61,6 @@ module.exports = {
     },
     {
       options: {
-        /* eslint-disable @typescript-eslint/camelcase */
         background_color: '#000',
         display: 'standalone',
         icon: 'src/images/logo.png',
@@ -69,7 +68,6 @@ module.exports = {
         short_name: 'Neon Law',
         start_url: '/',
         theme_color: '#3B27BA',
-        /* eslint-enable @typescript-eslint/camelcase */
       },
       resolve: 'gatsby-plugin-manifest',
     },
