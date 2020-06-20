@@ -22,7 +22,7 @@ describe('Visiting /portal', () => {
         cy.get('[data-testid="portal-profile-form-submit"]').click();
 
         // not necessary locally, but seemingly necessary in CI
-        cy.wait(2000);
+        cy.wait(10000);
 
         cy.get('[data-testid="portal-profile-card-name"]').should(
           'contain',
