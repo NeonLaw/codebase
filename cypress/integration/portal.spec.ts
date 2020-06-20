@@ -21,13 +21,11 @@ describe('Visiting /portal', () => {
         cy.get('[data-testid="portal-profile-form-name"]').type(name);
         cy.get('[data-testid="portal-profile-form-submit"]').click();
 
-        // not necessary locally, but seemingly necessary in CI
-        cy.wait(10000);
-
-        cy.get('[data-testid="portal-profile-card-name"]').should(
-          'contain',
-          name
-        );
+        cy.get('[data-testid="portal-profile-form-name"]').
+          invoke('val').
+          should('not.contain', name);
+        cy.get('[data-testid="portal-profile-card-name"]').
+          should('contain', name);
       });
     });
   });
