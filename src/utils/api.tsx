@@ -68,6 +68,51 @@ export type CreateRoleIfNotExistsPayload = {
 
 
 
+/** All input for the `deleteFlashcardById` mutation. */
+export type DeleteFlashcardByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The unique ID of a flashcard */
+  id: Scalars['UUID'];
+};
+
+/** All input for the `deleteFlashcard` mutation. */
+export type DeleteFlashcardInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `Flashcard` to be deleted. */
+  nodeId: Scalars['ID'];
+};
+
+/** The output of our delete `Flashcard` mutation. */
+export type DeleteFlashcardPayload = {
+  __typename?: 'DeleteFlashcardPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Flashcard` that was deleted by this mutation. */
+  flashcard?: Maybe<Flashcard>;
+  deletedFlashcardId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Flashcard`. May be used by Relay 1. */
+  flashcardEdge?: Maybe<FlashcardsEdge>;
+};
+
+
+/** The output of our delete `Flashcard` mutation. */
+export type DeleteFlashcardPayloadFlashcardEdgeArgs = {
+  orderBy?: Maybe<Array<FlashcardsOrderBy>>;
+};
+
 /** All input for the `deletePersonById` mutation. */
 export type DeletePersonByIdInput = {
   /**
@@ -112,6 +157,39 @@ export type DeletePersonPayloadPersonEdgeArgs = {
   orderBy?: Maybe<Array<PeopleOrderBy>>;
 };
 
+export type Flashcard = Node & {
+  __typename?: 'Flashcard';
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID'];
+  /** The unique ID of a flashcard */
+  id: Scalars['UUID'];
+  /** The prompt or sideA of a flashcard */
+  prompt: Scalars['String'];
+  /** The answer of the flashcard */
+  answer: Scalars['String'];
+  topic: Scalars['String'];
+  createdAt: Scalars['Datetime'];
+  updatedAt: Scalars['Datetime'];
+};
+
+/** A `Flashcard` edge in the connection. */
+export type FlashcardsEdge = {
+  __typename?: 'FlashcardsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `Flashcard` at the end of the edge. */
+  node: Flashcard;
+};
+
+/** Methods to use when ordering `Flashcard`. */
+export enum FlashcardsOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
+
 /** The root mutation type which contains root level fields which mutate data. */
 export type Mutation = {
   __typename?: 'Mutation';
@@ -119,6 +197,10 @@ export type Mutation = {
   updatePerson?: Maybe<UpdatePersonPayload>;
   /** Updates a single `Person` using a unique key and a patch. */
   updatePersonById?: Maybe<UpdatePersonPayload>;
+  /** Deletes a single `Flashcard` using its globally unique id. */
+  deleteFlashcard?: Maybe<DeleteFlashcardPayload>;
+  /** Deletes a single `Flashcard` using a unique key. */
+  deleteFlashcardById?: Maybe<DeleteFlashcardPayload>;
   /** Deletes a single `Person` using its globally unique id. */
   deletePerson?: Maybe<DeletePersonPayload>;
   /** Deletes a single `Person` using a unique key. */
@@ -137,6 +219,18 @@ export type MutationUpdatePersonArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdatePersonByIdArgs = {
   input: UpdatePersonByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteFlashcardArgs = {
+  input: DeleteFlashcardInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteFlashcardByIdArgs = {
+  input: DeleteFlashcardByIdInput;
 };
 
 
@@ -221,8 +315,11 @@ export type Query = Node & {
   nodeId: Scalars['ID'];
   /** Fetches an object given its globally unique `ID`. */
   node?: Maybe<Node>;
+  flashcardById?: Maybe<Flashcard>;
   personById?: Maybe<Person>;
   getCurrentUser?: Maybe<Person>;
+  /** Reads a single `Flashcard` using its globally unique `ID`. */
+  flashcard?: Maybe<Flashcard>;
   /** Reads a single `Person` using its globally unique `ID`. */
   person?: Maybe<Person>;
 };
@@ -235,8 +332,20 @@ export type QueryNodeArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryFlashcardByIdArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryPersonByIdArgs = {
   id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryFlashcardArgs = {
+  nodeId: Scalars['ID'];
 };
 
 
