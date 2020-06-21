@@ -2,7 +2,7 @@
 
 describe('Bar Prep Flashcards', () => {
   it('changes the url when a topic button is clicked', () => {
-    cy.visit('/blog/bar-prep/flashcards');
+    cy.visit('/bar-prep/flashcards');
     cy.contains('Business Associations').click();
     cy.contains('Civil Procedure').click();
     cy.contains('Community Property').click();
