@@ -1,15 +1,8 @@
 /* eslint-disable no-undef */
 
-describe('Blog page', () => {
+describe('CIDR blocks blog page', () => {
   it('has an edit button that loads the edit page on GitHub', () => {
-    cy.visit('/blog');
-    cy.get('[data-cy="edit-on-github"]').should('be.visible');
-  });
-});
-
-describe('Setting Up Shop', () => {
-  it('has an edit button that loads the edit page on GitHub', () => {
-    cy.visit('/blog/setting-up-shop');
+    cy.visit('/blog/cir-blocks');
     cy.get('[data-cy="edit-on-github"]').should('be.visible');
   });
 });
