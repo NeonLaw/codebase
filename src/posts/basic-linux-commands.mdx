@@ -1,6 +1,9 @@
-<PublicLayout>
-
-# Basic Linux Commands
+---
+title: Basic Linux Commands
+slug: /basic-linux-commands
+updatedAt: June 21, 2020
+tags: programming,linux
+---
 
 As part of DevOps interviews, it is common to be asked about common Linux
 commands and how you would use diagnose certain issues including
@@ -9,10 +12,15 @@ permissions to a given file?" With any of these commands, you can type in
 `man`, which is short for `manual`, to learn more about what each command
 entails.
 
-What happens when you run a command in the terminal?
-The Shell process kickstarts a child process to run a new command, such as ls, or listing files. The terminal process will wait until the child process is finished and will return the output to the shell, which unless otherwise configured, will print that to the screen.
+## What happens when you run a command in the terminal?
 
-bzip2
+The Shell process kickstarts a child process to run a new command, such as
+ls, or listing files. The terminal process will wait until the child process
+is finished and will return the output to the shell, which unless otherwise
+configured, will print that to the screen.
+
+### `bzip2`
+
 A way to compress files that result in a newly compressed file with the same
 modification date, permissions, and ownership as the original file.
 
@@ -229,5 +237,3 @@ For instance:
 
 find . -name "*.png" -type f -print0 | xargs -0 tar -cvzf images.tar.gz
 This command creates a tar of all the .png files found in the current folder or its subfolders.
-
-</PublicLayout>

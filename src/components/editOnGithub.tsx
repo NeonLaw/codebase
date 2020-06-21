@@ -8,7 +8,8 @@ interface EditOnGithubInterface {
 
 export const EditOnGithub = ({ path }: EditOnGithubInterface) => {
   const githubPath =
-    `https://github.com/NeonLaw/interface/edit/development/src/pages/${path}`;
+    'https://github.com/NeonLaw/interface/edit/' +
+    `development/src/posts${path}.mdx`;
 
   return (
     <Box
