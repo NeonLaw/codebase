@@ -20,7 +20,7 @@
     "array-move": "^2.2.2",
     "await-timeout": "^1.1.1",
     "emotion-theming": "^10.0.27",
-    "eslint-plugin-jsdoc": "^27.1.2",
+    "eslint-plugin-jsdoc": "^28.0.0",
     "gatsby": "2.23.7",
     "gatsby-image": "^2.4.7",
     "gatsby-plugin-create-client-paths": "^2.3.4",
