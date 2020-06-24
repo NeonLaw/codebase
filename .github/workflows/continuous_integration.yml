@@ -64,7 +64,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          start: yarn develop --verbose
+          start: GATSBY_API_URL=http://127.0.0.1:3000/graphql yarn develop --verbose
           wait-on: "http://127.0.0.1:8000"
           wait-on-timeout: 180
         env:
@@ -72,7 +72,6 @@ jobs:
           CYPRESS_AUTH_CLIENT_ID: ${{ secrets.CYPRESS_AUTH_CLIENT_ID }}
           CYPRESS_AUTH_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH_CLIENT_SECRET }}
           CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
-          GATSBY_API_URL: "http://127.0.0.1:3000"
       - name: Run Yarn Build.
         run: yarn build
         env:
