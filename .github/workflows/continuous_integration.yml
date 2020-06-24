@@ -47,7 +47,9 @@ jobs:
         run: yarn lint
       - name: Run TypeScript Type Checking.
         run: yarn check-types
-      - run: docker ps -a
+      - run: |
+          docker ps -a
+          curl 127.0.0.1:3000
       - name: Security Scanning
         uses: ajinabraham/njsscan-action@v5
         with:

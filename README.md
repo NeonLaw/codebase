@@ -60,6 +60,13 @@ the terminal.
 yarn graphql-codegen
 ```
 
+## Docker Compose
+
+You can run a version of our API locally via `docker-compose up`. If you
+proceed this way, we recommend you start your development server with `yarn
+develop:ci` instead of `yarn develop` as the latter will point to
+`localhost:3000` instead of `https://api.neonlaw.net/graphql`.
+
 ## Third Party SaaS Services
 
 This application uses:
