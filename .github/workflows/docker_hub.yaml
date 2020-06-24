@@ -1,13 +1,13 @@
 ---
-name: development
+name: docker_hub
 
 on:
   push:
     branches:
-      - development
+      - production
 
 jobs:
-  deploy_development_docker_image:
+  deploy_docker_image:
     runs-on: ubuntu-latest
 
     steps:

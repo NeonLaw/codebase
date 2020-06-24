@@ -16,7 +16,6 @@ import React from 'react';
 import { useCurrentUserQuery } from '@utils/api';
 import { useIntl } from 'gatsby-plugin-intl';
 
-
 const UserAvatar = () => {
   return (
     <AuthenticationContext.Consumer>
