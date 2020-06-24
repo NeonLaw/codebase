@@ -104,7 +104,7 @@
     "cy:open": "cypress open",
     "dev": "yarn run develop",
     "develop": "gatsby develop -H 127.0.0.1",
-    "develop:ci": "GATSBY_API_URL=http://127.0.0.1:3000/graphql gatsby develop -H 127.0.0.1",
+    "develop:ci": "GATSBY_API_URL=http://0.0.0.0:3000/graphql gatsby develop -H 127.0.0.1",
     "start": "yarn run develop",
     "lint": "eslint './**/*.{js,jsx,ts,tsx}'",
     "serve": "gatsby serve",

@@ -1,0 +1,30 @@
+---
+title: File Uploads with Postgraphile
+slug: /file-uploads-with-postgraphile
+updatedAt: 20200621
+tags: programming,postgres
+---
+
+GraphQL isn't a way to do graphql uploads
+
+look into - Matt plugin as a blob
+
+Upload to object store as a temporary object
+
+Prep would - create a javascript function that creates the sign urls
+
+Temporary bucket should be write only
+Move it to the other buckets - public or private
+
+1. Create the signed URL through the GraphQL API
+
+2. Client would upload to that URL
+3. That would go into a temporary bucket - all objects expire in a day
+
+4. The URL would send the URL to GraphQL through the proper place
+  This would be a custom mutation like `setUserAvatar`, `setUserRetainer`
+  `addDocument`, `addAttachment`
+
+5. The temporary URL would be sent as part of the mutation
+
+6. Wrap the resolver - create a signed url to read
