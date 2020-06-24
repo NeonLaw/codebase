@@ -49,7 +49,7 @@ jobs:
         run: yarn check-types
       - run: |
           docker ps -a
-          docker logs $(docker ps -aqf "name=logic")
+          docker logs $(docker ps | grep logic | sed 's/ .*//')
       - name: Security Scanning
         uses: ajinabraham/njsscan-action@v5
         with:
@@ -76,7 +76,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          start: yarn develop:ci
+          start: yarn develop:local
           wait-on: "http://127.0.0.1:8000"
           wait-on-timeout: 180
         env:

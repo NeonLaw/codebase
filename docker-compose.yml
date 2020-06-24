@@ -16,6 +16,8 @@ services:
       - 5432:5432
     command: ["postgres", "-c", "log_statement=all"]
     restart: unless-stopped
+    logging:
+      driver: none
 
   logic:
     image: neonlaw/logic
