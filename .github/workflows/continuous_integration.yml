@@ -34,8 +34,6 @@ jobs:
           NODE_ENV: production
         ports:
           - 3000:3000
-        options:
-          name: "logic"
 
     steps:
       - uses: actions/checkout@v2
@@ -51,8 +49,7 @@ jobs:
         run: yarn check-types
       - run: |
           docker ps -a
-          docker logs logic
-          curl 127.0.0.1:3000
+          docker logs $(docker ps -aqf "name=logic")
       - name: Security Scanning
         uses: ajinabraham/njsscan-action@v5
         with:
