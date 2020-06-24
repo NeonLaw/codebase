@@ -103,12 +103,12 @@
     "check-types": "tsc -p .",
     "cy:open": "cypress open",
     "dev": "yarn run develop",
-    "develop": "gatsby develop -H 127.0.0.1",
-    "develop:ci": "GATSBY_API_URL=http://0.0.0.0:3000/graphql gatsby develop -H 127.0.0.1",
+    "develop": "GATSBY_API_URL=https://api.neonlaw.net/graphql gatsby develop -H 127.0.0.1",
+    "develop:ci": "gatsby develop -H 127.0.0.1",
     "start": "yarn run develop",
     "lint": "eslint './**/*.{js,jsx,ts,tsx}'",
     "serve": "gatsby serve",
-    "e2e-test": "start-server-and-test develop http://localhost:8000 'cypress open'",
+    "e2e-test": "start-server-and-test develop:ci http://localhost:8000 'cypress open'",
     "test": "jest --coverage"
   }
 }
