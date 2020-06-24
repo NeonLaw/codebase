@@ -9,7 +9,7 @@ import { setContext } from 'apollo-link-context';
 
 const link = createHttpLink({
   fetch,
-  uri: process.env.API_URL,
+  uri: process.env.GATSBY_API_URL,
   useGETForQueries: false,
 });
 

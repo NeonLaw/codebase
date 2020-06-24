@@ -73,6 +73,7 @@ jobs:
           CYPRESS_AUTH_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH_CLIENT_SECRET }}
           CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
           GATSBY_API_URL: http://127.0.0.1:3000/graphql
+          GATSBY_AUTH0_CLIENT_ID: http://127.0.0.1:3000/graphql
       - name: Run Yarn Build.
         run: yarn build
         env:
