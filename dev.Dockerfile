@@ -1,4 +1,4 @@
-FROM node:12-buster AS build
+FROM node:12
 
 ARG GATSBY_ACTIVE_ENV
 ARG GATSBY_API_URL
