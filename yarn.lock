@@ -8243,12 +8243,12 @@ gatsby-core-utils@^1.3.6, gatsby-core-utils@^1.3.7, gatsby-core-utils@^1.3.8:
     proper-lockfile "^4.1.1"
     xdg-basedir "^4.0.0"
 
-gatsby-cypress@^0.4.5:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/gatsby-cypress/-/gatsby-cypress-0.4.5.tgz#245000030f67198fc0b2654f95bc61db3cc96b2b"
-  integrity sha512-n86a7VEExKDKWdHTlY1AyQM5KJyjBJeqPmc2fiJQD6fvHQPWWXSJPcSKDMEnDWD9IkwLHU9ZihFXZvP+OHzLEQ==
+gatsby-cypress@^0.4.6:
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/gatsby-cypress/-/gatsby-cypress-0.4.6.tgz#3399f0534da0be6f2d182b820ec6490ec48d1c3b"
+  integrity sha512-SVi3QIg6xebn6r+K9d+/ezc4B9iRTbHepIXmjhKqLwaR5znCd0WVPqR/0oBBuHEZqKl0cGwG7vku5MSIoinaXw==
   dependencies:
-    "@babel/runtime" "^7.10.2"
+    "@babel/runtime" "^7.10.3"
 
 gatsby-graphiql-explorer@^0.4.7:
   version "0.4.7"
