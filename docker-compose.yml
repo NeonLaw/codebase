@@ -5,14 +5,11 @@ services:
   postgres:
     image: postgres:11
     container_name: postgres
-    volumes:
-      - ./pg-init-scripts:/docker-entrypoint-initdb.d
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_HOST: localhost
       POSTGRES_DB: neon_law
-    command: ["postgres", "-c", "log_statement=all"]
     restart: unless-stopped
     logging:
       driver: none
@@ -23,8 +20,6 @@ services:
     restart: unless-stopped
     ports:
       - 3000:3000
-    logging:
-      driver: none
     depends_on:
       - postgres
     environment:
@@ -34,6 +29,8 @@ services:
       - AUTH0_TENANT=neon-law-testing
       - NODE_ENV=production
       - SHOW_GRAPHIQL=true
+    logging:
+      driver: none
 
   interface:
     build:
