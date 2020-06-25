@@ -29,8 +29,6 @@ jobs:
         run: yarn lint
       - name: Run TypeScript Type Checking.
         run: yarn check-types
-      - name: Docker sanity check
-        run: docker logs $(docker ps | grep logic | sed 's/ .*//')
       - name: Security Scanning
         uses: ajinabraham/njsscan-action@v5
         with:
