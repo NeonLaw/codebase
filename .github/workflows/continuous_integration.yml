@@ -58,7 +58,7 @@ jobs:
         with:
           start: docker-compose up
           wait-on: "http://127.0.0.1:8000"
-          wait-on-timeout: 600
+          wait-on-timeout: 900
         env:
           CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
           CYPRESS_AUTH_CLIENT_ID: ${{ secrets.CYPRESS_AUTH_CLIENT_ID }}
