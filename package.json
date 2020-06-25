@@ -82,7 +82,7 @@
     "@typescript-eslint/eslint-plugin": "^3.4.0",
     "@typescript-eslint/parser": "^3.4.0",
     "axe-core": "^3.5.5",
-    "babel-jest": "^26.0.1",
+    "babel-jest": "^26.1.0",
     "babel-preset-gatsby": "^0.4.10",
     "cypress-axe": "^0.8.1",
     "eslint": "^7.3.1",
