@@ -1,13 +1,11 @@
 FROM node:12
 
-ARG GATSBY_API_URL
-
-ENV GATSBY_ACTIVE_ENV="development"
-
 WORKDIR /app
 ADD . ./
 RUN yarn install
-RUN yarn build
+RUN GATSBY_ACTIVE_ENV="development" \
+  GATSBY_API_URL="http://127.0.0.1:3000/graphql" \
+  yarn build
 
 EXPOSE 8000
 
