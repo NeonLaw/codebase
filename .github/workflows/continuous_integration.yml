@@ -17,8 +17,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Run Docker Compose
-        run: docker-compose up -d
       - name: Set up Python 3.x
         uses: actions/setup-python@v1
         with:
@@ -59,7 +57,7 @@ jobs:
         with:
           start: yarn develop:local
           wait-on: "http://127.0.0.1:8000"
-          wait-on-timeout: 180
+          wait-on-timeout: 300
         env:
           CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
           CYPRESS_AUTH_CLIENT_ID: ${{ secrets.CYPRESS_AUTH_CLIENT_ID }}
