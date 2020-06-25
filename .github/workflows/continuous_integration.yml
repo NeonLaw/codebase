@@ -55,7 +55,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          start: yarn develop:local
+          start: docker-compose up
           wait-on: "http://127.0.0.1:8000"
           wait-on-timeout: 300
         env:
