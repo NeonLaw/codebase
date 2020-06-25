@@ -76,7 +76,7 @@
     "@graphql-codegen/typescript-react-apollo": "^1.15.4",
     "@testing-library/cypress": "^6.0.0",
     "@testing-library/jest-dom": "^5.10.1",
-    "@testing-library/react": "^10.4.2",
+    "@testing-library/react": "^10.4.3",
     "@types/jest": "^26.0.3",
     "@types/yup": "^0.29.3",
     "@typescript-eslint/eslint-plugin": "^3.4.0",
