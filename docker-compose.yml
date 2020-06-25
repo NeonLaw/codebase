@@ -40,8 +40,8 @@ services:
       context: ./
       dockerfile: ./Dockerfile
     depends_on:
-      - api
+      - logic
     ports:
       - 8000:80
-    env:
+    environment:
       GATSBY_API_URL: http://127.0.0.1:3000/graphql
