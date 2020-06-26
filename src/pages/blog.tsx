@@ -1,14 +1,11 @@
 import { Flex, Heading, List, ListItem, Text } from '@chakra-ui/core';
 import { Link, graphql } from 'gatsby';
+import { FormattedDate } from 'gatsby-plugin-intl';
 import { PublicLayout } from '@layouts/public';
 import React from 'react';
 
 const BlogIndex = ({ data }) => {
   const { edges } = data.allMdx;
-
-  const sortedPosts = edges.sort((a, b) => {
-    return a.node.frontmatter.updatedAt > b.node.frontmatter.updatedAt ? 1 : -1;
-  });
 
   return (
     <PublicLayout>
@@ -16,7 +13,7 @@ const BlogIndex = ({ data }) => {
         <Heading textAlign="center">Neon Law Blog</Heading>
 
         <List spacing="0.5rem">
-          {sortedPosts.map(({ node: post }) => (
+          {edges.map(({ node: post }) => (
             <ListItem key={post.id}>
               <Link to={'/blog' + post.frontmatter.slug}>
                 <Flex
@@ -25,7 +22,9 @@ const BlogIndex = ({ data }) => {
                 >
                   <Heading size="md">{post.frontmatter.title}</Heading>
                   <Text>
-                    {post.frontmatter.updatedAt}
+                    <FormattedDate
+                      value={new Date(post.frontmatter.updatedAt)}
+                    />
                   </Text>
                 </Flex>
               </Link>
@@ -39,7 +38,17 @@ const BlogIndex = ({ data }) => {
 
 export const pageQuery = graphql`
   query blogIndex {
-    allMdx {
+    allMdx(
+      filter: {
+        fileAbsolutePath: {
+          regex: "/posts/"
+        }
+      },
+      sort: {
+        fields: frontmatter___updatedAt,
+        order: DESC
+      }
+    ) {
       edges {
         node {
           id
