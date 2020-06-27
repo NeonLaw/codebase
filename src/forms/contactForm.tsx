@@ -96,6 +96,7 @@ export const ContactForm = () => {
       />
       <Textarea
         name="message"
+        testId="contact-form-message"
         label={`${intl.formatMessage({ id: 'contactForm.message.label' })}`}
         errors={errors}
         placeholder={`${intl.formatMessage({ id: 'contactForm.message.ph' })}`}
