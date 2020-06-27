@@ -2,13 +2,11 @@
 /// <reference types="cypress" />
 
 describe('Keyboard Navigation Tests', () => {
-  it(
-    'body have user-is-tabbing class only if the user is tabbing',
-    () => {
-      localStorage.setItem('darkMode', 'true');
-      cy.visit('/');
-      cy.get('body').not('user-is-tabbing');
-      cy.get('a').tab();
-      cy.get('body').should('have.class', 'user-is-tabbing');
-    });
+  it('adds a "user-is-tabbing" class if the user is tabbing', () => {
+    cy.visit('/');
+    cy.get('body').not('user-is-tabbing');
+    cy.wait(2000);
+    cy.get('a').tab();
+    cy.get('body').should('have.class', 'user-is-tabbing');
+  });
 });
