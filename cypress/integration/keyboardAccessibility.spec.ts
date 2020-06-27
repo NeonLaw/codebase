@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-
 /// <reference types="cypress" />
 
 describe('Keyboard Navigation Tests', () => {

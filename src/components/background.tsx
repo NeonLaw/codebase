@@ -8,6 +8,7 @@ export const Background = ({ children }) => {
   return (
     <Box
       as="main"
+      role="main"
       bg={colors.background[colorMode]}
       color={colors.text[colorMode]}
     >

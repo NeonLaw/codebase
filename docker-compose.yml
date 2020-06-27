@@ -11,6 +11,8 @@ services:
       POSTGRES_HOST: localhost
       POSTGRES_DB: neon_law
     restart: unless-stopped
+    logging:
+      driver: none
 
   logic:
     image: neonlaw/logic
@@ -27,6 +29,9 @@ services:
       - AUTH0_TENANT=neon-law-testing
       - NODE_ENV=production
       - SHOW_GRAPHIQL=true
+    logging:
+      driver: none
+
   interface:
     build:
       context: ./
