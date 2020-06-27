@@ -7,44 +7,44 @@ describe('Bar Prep Flashcards', () => {
     cy.contains('Business Associations').click();
     cy.url().should(
       'include',
-      '/bar-prep/flashcards?topic=business-associations'
+      '?topic=business-associations'
     );
 
     cy.contains('Civil Procedure').click();
-    cy.url().should('include', '/bar-prep/flashcards?topic=civil-procedure');
+    cy.url().should('include', '?topic=civil-procedure');
 
     cy.contains('Community Property').click();
-    cy.url().should('include', '/bar-prep/flashcards?topic=community-property');
+    cy.url().should('include', '?topic=community-property');
 
     cy.contains('Constitutional Law').click();
-    cy.url().should('include', '/bar-prep/flashcards?topic=constitutional-law');
+    cy.url().should('include', '?topic=constitutional-law');
 
     cy.contains('Contracts').click();
-    cy.url().should('include', '/bar-prep/flashcards?topic=contracts');
+    cy.url().should('include', '?topic=contracts');
 
     cy.contains('Crimes').click();
-    cy.url().should('include', '/bar-prep/flashcards?topic=crimes');
+    cy.url().should('include', '?topic=crimes');
 
     cy.contains('Evidence').click();
-    cy.url().should('include', '/bar-prep/flashcards?topic=evidence');
+    cy.url().should('include', '?topic=evidence');
 
     cy.contains('Professional Responsibility').click();
     cy.url().should(
       'include',
-      '/bar-prep/flashcards?topic=professional-responsibility'
+      '?topic=professional-responsibility'
     );
 
     cy.contains('Real Property').click();
-    cy.url().should('include', '/bar-prep/flashcards?topic=real-property');
+    cy.url().should('include', '?topic=real-property');
 
     cy.contains('Remedies').click();
-    cy.url().should('include', '/bar-prep/flashcards?topic=remedies');
+    cy.url().should('include', '?topic=remedies');
 
     cy.contains('Torts').click();
-    cy.url().should('include', '/bar-prep/flashcards?topic=torts');
+    cy.url().should('include', '?topic=torts');
 
     cy.contains('Wills and Trusts').click();
 
-    cy.url().should('include', '/bar-prep/flashcards?topic=wills-and-trusts');
+    cy.url().should('include', '?topic=wills-and-trusts');
   });
 });
