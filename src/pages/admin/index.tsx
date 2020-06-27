@@ -7,7 +7,7 @@ import { AdminLayout } from '@layouts/admin';
 import React from 'react';
 import { useIntl } from 'gatsby-plugin-intl';
 
-const PortalPage = () => {
+const AdminDashboard = () => {
   const intl = useIntl();
   return (
     <AdminLayout>
@@ -24,4 +24,4 @@ const PortalPage = () => {
   );
 };
 
-export default PortalPage;
+export default AdminDashboard;

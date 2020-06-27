@@ -1,0 +1,14 @@
+query AllFlashcards($topic: String) {
+  allFlashcards(
+    condition: {
+      topic: $topic
+    }
+  ) {
+    nodes {
+      id
+      prompt
+      answer
+      topic
+    }
+  }
+}

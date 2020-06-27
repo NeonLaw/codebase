@@ -15,7 +15,7 @@ export const StringInput = ({
   testId,
 }) => {
   return (
-    <FormControl isInvalid={errors && errors[name]}>
+    <FormControl isInvalid={errors[name]}>
       <FormLabel htmlFor="name">{label}</FormLabel>
       <Input
         data-testid={testId}
@@ -29,6 +29,6 @@ export const StringInput = ({
       <FormErrorMessage>
         {errors && errors[name] && errors[name].message}
       </FormErrorMessage>
-    </FormControl>
+    </FormControl >
   );
 };

@@ -27,12 +27,11 @@ services:
       - AUTH0_TENANT=neon-law-testing
       - NODE_ENV=production
       - SHOW_GRAPHIQL=true
-
-  interface:
-    build:
-      context: ./
-      dockerfile: ./dev.Dockerfile
-    depends_on:
-      - logic
-    ports:
-      - 8000:8000
+  # interface:
+  #   build:
+  #     context: ./
+  #     dockerfile: ./dev.Dockerfile
+  #   depends_on:
+  #     - logic
+  #   ports:
+  #     - 8000:8000

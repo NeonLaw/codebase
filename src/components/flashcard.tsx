@@ -1,12 +1,17 @@
 import { Box, Button, Textarea } from '@chakra-ui/core';
 import React, { useState } from 'react';
+import { useAllFlashcardsQuery } from '@utils/api';
 
 interface FlashcardProps {
-  answer: string;
-  prompt: string;
+  topic: string;
 }
 
-export const Flashcard = ({ prompt, answer }: FlashcardProps) => {
+export const Flashcard = ({ topic }: FlashcardProps) => {
+  const { data } = useAllFlashcardsQuery({ variables: { topic } });
+  const flashcard = data?.allFlashcards?.nodes[0] ||
+    { answer: undefined, prompt: undefined };
+
+  const { prompt, answer } = flashcard;
   const [showPrompt, toggleShowPrompt] = useState(true);
   const [userAnswer, changeUserAnswer] = useState('');
 

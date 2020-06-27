@@ -6,11 +6,7 @@ import { SideNavContent } from '@components/sideNavigation/base';
 export const AdminSideNavContent = () => {
   const links = [
     { label: 'Dashboard', route: '/admin' },
-    { label: 'Users', route: '/admin/users' },
-    { label: 'Questions', route: '/admin/questions' },
-    { label: 'Queue', route: '/admin/queue-jobs' },
-    { label: 'Matters', route: '/admin/matters' },
-    { label: 'Law Firms', route: '/admin/law-firms' }
+    { label: 'Flashcards', route: '/admin/flashcards' },
   ];
   return (
     <SideNavContent links={links} />
@@ -18,7 +14,7 @@ export const AdminSideNavContent = () => {
 };
 
 
-export const AdminSideNav = props => {
+export const AdminSideNav = (props) => {
   return (
     <SideNavContainer {...props}>
       <AdminSideNavContent />

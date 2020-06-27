@@ -87,7 +87,7 @@
     "cypress-axe": "^0.8.1",
     "cypress-plugin-tab": "^1.0.5",
     "eslint": "^7.3.1",
-    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jest": "^23.17.1",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
@@ -108,7 +108,7 @@
     "start": "yarn run develop",
     "lint": "eslint './**/*.{js,jsx,ts,tsx}'",
     "serve": "gatsby serve",
-    "e2e-test": "start-server-and-test develop:ci http://localhost:8000 'cypress open'",
+    "e2e-test": "start-server-and-test develop http://127.0.0.1:8000 'cypress open'",
     "test": "jest --coverage"
   }
 }

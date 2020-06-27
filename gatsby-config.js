@@ -116,9 +116,7 @@ module.exports = {
     {
       options: {
         prefixes: [
-          '/upward-mobility/*',
-          '/lawyers/*',
-          '/admin/*',
+          '/upward-mobility/*'
         ]
       },
       resolve: 'gatsby-plugin-create-client-paths',

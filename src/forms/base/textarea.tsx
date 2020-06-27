@@ -11,12 +11,14 @@ export const Textarea = ({
   label,
   register,
   name,
-  placeholder
+  placeholder,
+  testId
 }) => {
   return (
     <FormControl isInvalid={errors && errors[name]}>
       <FormLabel htmlFor="name">{label}</FormLabel>
       <ChakraTextarea
+        data-testid={testId}
         ref={register}
         name={name}
         placeholder={placeholder}

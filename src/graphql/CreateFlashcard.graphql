@@ -1,0 +1,22 @@
+mutation CreateFlashcard(
+  $answer: String!
+  $prompt: String!
+  $topic: String!
+) {
+  createFlashcard(
+    input: {
+      flashcard: {
+        answer: $answer
+        prompt: $prompt
+        topic: $topic
+      }
+    }
+  ) {
+    flashcard {
+      id
+      answer
+      prompt
+      topic
+    }
+  }
+}

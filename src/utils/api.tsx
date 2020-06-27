@@ -108,7 +108,6 @@ export type DeleteFlashcardByIdInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars['String']>;
-  /** The unique ID of a flashcard */
   id: Scalars['UUID'];
 };
 
@@ -195,7 +194,6 @@ export type Flashcard = Node & {
   __typename?: 'Flashcard';
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID'];
-  /** The unique ID of a flashcard */
   id: Scalars['UUID'];
   /** The prompt or sideA of a flashcard */
   prompt: Scalars['String'];
@@ -220,8 +218,6 @@ export type FlashcardCondition = {
 
 /** An input for mutations affecting `Flashcard` */
 export type FlashcardInput = {
-  /** The unique ID of a flashcard */
-  id?: Maybe<Scalars['UUID']>;
   /** The prompt or sideA of a flashcard */
   prompt: Scalars['String'];
   /** The answer or SideB of the flashcard */
@@ -232,7 +228,6 @@ export type FlashcardInput = {
 
 /** Represents an update to a `Flashcard`. Fields that are set will be updated. */
 export type FlashcardPatch = {
-  /** The unique ID of a flashcard */
   id?: Maybe<Scalars['UUID']>;
   /** The prompt or sideA of a flashcard */
   prompt?: Maybe<Scalars['String']>;
@@ -499,7 +494,6 @@ export type UpdateFlashcardByIdInput = {
   clientMutationId?: Maybe<Scalars['String']>;
   /** An object where the defined keys will be set on the `Flashcard` being updated. */
   flashcardPatch: FlashcardPatch;
-  /** The unique ID of a flashcard */
   id: Scalars['UUID'];
 };
 
@@ -586,6 +580,40 @@ export type UpdatePersonPayloadPersonEdgeArgs = {
 };
 
 
+export type AllFlashcardsQueryVariables = Exact<{
+  topic?: Maybe<Scalars['String']>;
+}>;
+
+
+export type AllFlashcardsQuery = (
+  { __typename?: 'Query' }
+  & { allFlashcards?: Maybe<(
+    { __typename?: 'FlashcardsConnection' }
+    & { nodes: Array<(
+      { __typename?: 'Flashcard' }
+      & Pick<Flashcard, 'id' | 'prompt' | 'answer' | 'topic'>
+    )> }
+  )> }
+);
+
+export type CreateFlashcardMutationVariables = Exact<{
+  answer: Scalars['String'];
+  prompt: Scalars['String'];
+  topic: Scalars['String'];
+}>;
+
+
+export type CreateFlashcardMutation = (
+  { __typename?: 'Mutation' }
+  & { createFlashcard?: Maybe<(
+    { __typename?: 'CreateFlashcardPayload' }
+    & { flashcard?: Maybe<(
+      { __typename?: 'Flashcard' }
+      & Pick<Flashcard, 'id' | 'answer' | 'prompt' | 'topic'>
+    )> }
+  )> }
+);
+
 export type CurrentUserQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -615,6 +643,121 @@ export type UpdatePersonByIdMutation = (
 );
 
 
+export const AllFlashcardsDocument = gql`
+    query AllFlashcards($topic: String) {
+  allFlashcards(condition: {topic: $topic}) {
+    nodes {
+      id
+      prompt
+      answer
+      topic
+    }
+  }
+}
+    `;
+export type AllFlashcardsComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<AllFlashcardsQuery, AllFlashcardsQueryVariables>, 'query'>;
+
+    export const AllFlashcardsComponent = (props: AllFlashcardsComponentProps) => (
+      <ApolloReactComponents.Query<AllFlashcardsQuery, AllFlashcardsQueryVariables> query={AllFlashcardsDocument} {...props} />
+    );
+    
+export type AllFlashcardsProps<TChildProps = {}, TDataName extends string = 'data'> = {
+      [key in TDataName]: ApolloReactHoc.DataValue<AllFlashcardsQuery, AllFlashcardsQueryVariables>
+    } & TChildProps;
+export function withAllFlashcards<TProps, TChildProps = {}, TDataName extends string = 'data'>(operationOptions?: ApolloReactHoc.OperationOption<
+  TProps,
+  AllFlashcardsQuery,
+  AllFlashcardsQueryVariables,
+  AllFlashcardsProps<TChildProps, TDataName>>) {
+    return ApolloReactHoc.withQuery<TProps, AllFlashcardsQuery, AllFlashcardsQueryVariables, AllFlashcardsProps<TChildProps, TDataName>>(AllFlashcardsDocument, {
+      alias: 'allFlashcards',
+      ...operationOptions
+    });
+};
+
+/**
+ * __useAllFlashcardsQuery__
+ *
+ * To run a query within a React component, call `useAllFlashcardsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllFlashcardsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAllFlashcardsQuery({
+ *   variables: {
+ *      topic: // value for 'topic'
+ *   },
+ * });
+ */
+export function useAllFlashcardsQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<AllFlashcardsQuery, AllFlashcardsQueryVariables>) {
+        return ApolloReactHooks.useQuery<AllFlashcardsQuery, AllFlashcardsQueryVariables>(AllFlashcardsDocument, baseOptions);
+      }
+export function useAllFlashcardsLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<AllFlashcardsQuery, AllFlashcardsQueryVariables>) {
+          return ApolloReactHooks.useLazyQuery<AllFlashcardsQuery, AllFlashcardsQueryVariables>(AllFlashcardsDocument, baseOptions);
+        }
+export type AllFlashcardsQueryHookResult = ReturnType<typeof useAllFlashcardsQuery>;
+export type AllFlashcardsLazyQueryHookResult = ReturnType<typeof useAllFlashcardsLazyQuery>;
+export type AllFlashcardsQueryResult = ApolloReactCommon.QueryResult<AllFlashcardsQuery, AllFlashcardsQueryVariables>;
+export const CreateFlashcardDocument = gql`
+    mutation CreateFlashcard($answer: String!, $prompt: String!, $topic: String!) {
+  createFlashcard(input: {flashcard: {answer: $answer, prompt: $prompt, topic: $topic}}) {
+    flashcard {
+      id
+      answer
+      prompt
+      topic
+    }
+  }
+}
+    `;
+export type CreateFlashcardMutationFn = ApolloReactCommon.MutationFunction<CreateFlashcardMutation, CreateFlashcardMutationVariables>;
+export type CreateFlashcardComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<CreateFlashcardMutation, CreateFlashcardMutationVariables>, 'mutation'>;
+
+    export const CreateFlashcardComponent = (props: CreateFlashcardComponentProps) => (
+      <ApolloReactComponents.Mutation<CreateFlashcardMutation, CreateFlashcardMutationVariables> mutation={CreateFlashcardDocument} {...props} />
+    );
+    
+export type CreateFlashcardProps<TChildProps = {}, TDataName extends string = 'mutate'> = {
+      [key in TDataName]: ApolloReactCommon.MutationFunction<CreateFlashcardMutation, CreateFlashcardMutationVariables>
+    } & TChildProps;
+export function withCreateFlashcard<TProps, TChildProps = {}, TDataName extends string = 'mutate'>(operationOptions?: ApolloReactHoc.OperationOption<
+  TProps,
+  CreateFlashcardMutation,
+  CreateFlashcardMutationVariables,
+  CreateFlashcardProps<TChildProps, TDataName>>) {
+    return ApolloReactHoc.withMutation<TProps, CreateFlashcardMutation, CreateFlashcardMutationVariables, CreateFlashcardProps<TChildProps, TDataName>>(CreateFlashcardDocument, {
+      alias: 'createFlashcard',
+      ...operationOptions
+    });
+};
+
+/**
+ * __useCreateFlashcardMutation__
+ *
+ * To run a mutation, you first call `useCreateFlashcardMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateFlashcardMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createFlashcardMutation, { data, loading, error }] = useCreateFlashcardMutation({
+ *   variables: {
+ *      answer: // value for 'answer'
+ *      prompt: // value for 'prompt'
+ *      topic: // value for 'topic'
+ *   },
+ * });
+ */
+export function useCreateFlashcardMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<CreateFlashcardMutation, CreateFlashcardMutationVariables>) {
+        return ApolloReactHooks.useMutation<CreateFlashcardMutation, CreateFlashcardMutationVariables>(CreateFlashcardDocument, baseOptions);
+      }
+export type CreateFlashcardMutationHookResult = ReturnType<typeof useCreateFlashcardMutation>;
+export type CreateFlashcardMutationResult = ApolloReactCommon.MutationResult<CreateFlashcardMutation>;
+export type CreateFlashcardMutationOptions = ApolloReactCommon.BaseMutationOptions<CreateFlashcardMutation, CreateFlashcardMutationVariables>;
 export const CurrentUserDocument = gql`
     query CurrentUser {
   getCurrentUser {
