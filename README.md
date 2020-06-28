@@ -77,5 +77,5 @@ Then enter in the password when prompted.
 
 ## Legal
 
-Copyright 2020 Neon Law. Licensed under the Polyform Noncommercial License
-1.0.0. Please see the [LICENSE](license.md) file for the text.
+Copyright 2020 Neon Law. Licensed under the [Polyform Noncommercial License
+1.0.0](LICENSE.md).
