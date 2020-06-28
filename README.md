@@ -1,7 +1,6 @@
 # Neon Law Interface
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a9de7883f94a89b722a5/maintainability)](https://codeclimate.com/github/NeonLaw/interface/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a9de7883f94a89b722a5/test_coverage)](https://codeclimate.com/github/NeonLaw/interface/test_coverage)
 [![Continuous Integration](https://github.com/NeonLaw/interface/workflows/continuous_integration/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Acontinuous_integration)
@@ -78,5 +77,5 @@ Then enter in the password when prompted.
 
 ## Legal
 
-Copyright 2020 Neon Law. Licensed under the [Apache License Version
-2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
+Copyright 2020 Neon Law. Licensed under the Polyform Noncommercial License
+1.0.0. Please see the [LICENSE](license.md) file for the text.
