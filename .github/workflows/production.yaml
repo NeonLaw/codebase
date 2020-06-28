@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - production
+      - docker-hotfix
 
 jobs:
   deploy_production:
