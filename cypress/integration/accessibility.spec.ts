@@ -30,8 +30,8 @@ describe('Accessibility tests', () => {
   });
   it('Has no detectable accessibility violations on load', () => {
     cy.contains('I Accept').click();
-    cy.checkA11y(null, null, terminalLog);
+    cy.checkA11y(null, { rules: { region: { enabled: false } } }, terminalLog);
     cy.contains('Switch to').click();
-    cy.checkA11y(null, null, terminalLog);
+    cy.checkA11y(null, { rules: { region: { enabled: false } } }, terminalLog);
   });
 });
