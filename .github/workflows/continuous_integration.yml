@@ -41,7 +41,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          start: docker-compose up -f cypress-docker-compose.yml
+          start: docker-compose -f cypress-docker-compose.yml up
           wait-on: "http://127.0.0.1:8000"
           wait-on-timeout: 1200
         env:

@@ -75,6 +75,14 @@ support@neonlaw.com.
 
 Then enter in the password when prompted.
 
+## Local Development
+
+By default, the local development environment is wired up to talk to the
+staging version of our API hosted at https://api.neonlaw.net. If you require
+a localized development environment, you can set `GATSBY_API_URL` to
+`http://localhost:3000/graphql` and start a localized version of the API
+environment via `docker-compose up`.
+
 ## Legal
 
 Copyright 2020 Neon Law. Licensed under the [Polyform Noncommercial License
