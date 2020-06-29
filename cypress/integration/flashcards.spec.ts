@@ -4,6 +4,9 @@ describe('Bar Prep Flashcards', () => {
   it('changes the url when a topic button is clicked', () => {
     cy.visit('/bar-prep/flashcards');
 
+    // Introduce wait to prevent flakiness in specs
+    cy.wait(2000);
+
     cy.contains('Business Associations').click();
     cy.url().should(
       'include',
