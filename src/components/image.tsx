@@ -12,7 +12,7 @@ export const Image = ({ src, alt, aspectRatio }: ImageInterface) => {
   const data = useStaticQuery(
     graphql`
       query {
-        images: allFile(filter: {absolutePath: {regex: "/images/"}}) {
+        images: allFile(filter: {absolutePath: {regex: "/images\//"}}) {
           edges {
             node {
               relativePath
