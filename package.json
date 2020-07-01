@@ -90,7 +90,7 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jest": "^23.17.1",
     "eslint-plugin-react": "^7.20.2",
-    "eslint-plugin-react-hooks": "^4.0.4",
+    "eslint-plugin-react-hooks": "^4.0.5",
     "faker": "^4.1.0",
     "gatsby-cli": "^2.12.51",
     "gatsby-cypress": "^0.4.6",
