@@ -1,5 +1,5 @@
 import { Box, Heading } from '@chakra-ui/core';
-import { PortalLayout } from '@layouts/portal';
+import { PortalLayout } from '@layouts/portalLayout';
 import { PortalProfileCard } from '@components/cards/portalProfileCard';
 import { PortalProfileForm } from '@forms/portalProfileForm';
 import React from 'react';

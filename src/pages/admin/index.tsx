@@ -3,14 +3,14 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/core';
-import { AdminLayout } from '@layouts/adminLayout';
+import { PortalLayout } from '@layouts/portalLayout';
 import React from 'react';
 import { useIntl } from 'gatsby-plugin-intl';
 
 const AdminDashboard = () => {
   const intl = useIntl();
   return (
-    <AdminLayout>
+    <PortalLayout>
       <Box>
         <Heading>
           {intl.formatMessage({ id: 'pages_admin.heading' })}
@@ -20,7 +20,7 @@ const AdminDashboard = () => {
           {intl.formatMessage({ id: 'pages_admin.text' })}
         </Text>
       </Box>
-    </AdminLayout>
+    </PortalLayout>
   );
 };
 

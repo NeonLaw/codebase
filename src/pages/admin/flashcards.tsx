@@ -4,16 +4,16 @@ import {
   Heading,
   useDisclosure,
 } from '@chakra-ui/core';
-import { AdminLayout } from '@layouts/adminLayout';
 import { CreateFlashcardModal } from '@components/modals/createFlashcardModal';
 import { FlashcardTable } from '@components/tables/flashcardTable';
+import { PortalLayout } from '@layouts/portalLayout';
 import React from 'react';
 
 const AdminFlashcards = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <AdminLayout>
+    <PortalLayout>
       <Box>
         <Heading>
           Flashcards
@@ -25,7 +25,7 @@ const AdminFlashcards = () => {
 
         <FlashcardTable />
       </Box>
-    </AdminLayout>
+    </PortalLayout>
   );
 };
 
