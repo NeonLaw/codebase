@@ -40,7 +40,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   pages.forEach(({ node }) => {
     createPage({
-      component: path.resolve('./src/layouts/mdx.tsx'),
+      component: path.resolve('./src/layouts/mdxLayout.tsx'),
       context: { id: node.id },
       path: node.frontmatter.slug,
     });

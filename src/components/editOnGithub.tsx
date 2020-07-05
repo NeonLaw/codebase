@@ -1,4 +1,4 @@
-import { Box, Tooltip } from '@chakra-ui/core';
+import { Box, Flex } from '@chakra-ui/core';
 import { FaPencilAlt } from 'react-icons/fa';
 import React from 'react';
 
@@ -12,18 +12,15 @@ export const EditOnGithub = ({ path }: EditOnGithubInterface) => {
     `/development/src/content${path}.mdx`;
 
   return (
-    <Box
+    <Flex
+      alignItems="center"
       cursor="pointer"
       onClick={() => window.open(githubPath, '_blank')}
       data-cy="edit-on-github"
     >
-      <Tooltip
-        hasArrow={true}
-        label="Edit on GitHub"
-        aria-label="Edit on GitHub"
-      >
-        <Box as={FaPencilAlt} />
-      </Tooltip >
-    </Box>
+      Edit this page on GitHub
+      &nbsp;
+      <Box as={FaPencilAlt} />
+    </Flex>
   );
 };

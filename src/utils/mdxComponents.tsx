@@ -85,10 +85,10 @@ export const MDXComponents = {
   PublicLayout,
   Text,
   a: ({ href, ...props }) => {
-    const httpRegex = new RegExp('^http');
+    const outsideLink = new RegExp('(^http|/audio)');
     const telRegex = new RegExp('^tel');
     const mailRegex = new RegExp('^mail');
-    if (httpRegex.test(href)) {
+    if (outsideLink.test(href)) {
       return (
         <a href={href} target="_blank" rel="noopener noreferrer">
           <UnderlineLink {...props} />

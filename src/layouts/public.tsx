@@ -14,23 +14,8 @@ export const PublicLayout: React.FC = ({ children }) => {
     <Flex minHeight="100vh" direction="column">
       <AuthenticationContext.Consumer>
         {({ isLoading, apolloClient }) => {
-          if (isLoading) {
-            return (
-              <ApolloProvider client={publicClient}>
-                <>
-                  <PublicNavigationBar />
-                  <Box flex={1} padding="8em 0 4em 0">
-                    <Container>
-                      <Breadcrumbs />
-                      {children}
-                    </Container>
-                  </Box>
-                </>
-              </ApolloProvider>
-            );
-          }
           return (
-            <ApolloProvider client={apolloClient}>
+            <ApolloProvider client={isLoading ? publicClient : apolloClient}>
               <>
                 <PublicNavigationBar />
                 <Box flex={1} padding="8em 0 4em 0">
