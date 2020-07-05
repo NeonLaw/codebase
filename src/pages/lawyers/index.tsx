@@ -3,14 +3,14 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/core';
-import { LawyersLayout } from '@layouts/lawyers';
+import { PortalLayout } from '@layouts/portalLayout';
 import React from 'react';
 import { useIntl } from 'gatsby-plugin-intl';
 
 const LawyersPage = () => {
   const intl = useIntl();
   return (
-    <LawyersLayout>
+    <PortalLayout>
       <Box>
         <Heading>
           {intl.formatMessage({ id: 'pages_lawyers.heading' })}
@@ -20,7 +20,7 @@ const LawyersPage = () => {
           {intl.formatMessage({ id: 'pages_lawyers.text' })}
         </Text>
       </Box>
-    </LawyersLayout>
+    </PortalLayout>
   );
 };
 

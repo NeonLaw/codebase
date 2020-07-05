@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/core';
 import React, { useState } from 'react';
 import { Select, StringInput, Textarea } from '@forms/base';
+import { flashcardTopics } from '@forms/options/flashcardTopics';
 import { useCreateFlashcardMutation } from '@utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
@@ -29,7 +30,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
     reset,
   } = useForm({
     defaultValues: {
-      topic: { label: 'Business Associations', value: 'business-associations' },
+      topic: flashcardTopics[0],
     }
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -96,13 +97,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
               testId="create-flashcard-modal-topic"
               control={control}
               errors={errors}
-              options={[
-                {
-                  label: 'Business Associations',
-                  value: 'business-associations'
-                },
-                { label: 'Torts', value: 'torts' },
-              ]}
+              options={flashcardTopics}
             />
           </ModalBody>
 

@@ -24,7 +24,27 @@ export const flashcardTopics = [
     value: 'crimes'
   },
   {
+    label: 'Evidence',
+    value: 'evidence'
+  },
+  {
+    label: 'Professional Responsibility',
+    value: 'professional-responsibility'
+  },
+  {
+    label: 'Real Property',
+    value: 'real-property'
+  },
+  {
+    label: 'Remedies',
+    value: 'remedies'
+  },
+  {
     label: 'Torts',
     value: 'torts'
+  },
+  {
+    label: 'Wills and Trusts',
+    value: 'wills-and-trusts'
   },
 ];
