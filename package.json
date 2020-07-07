@@ -41,7 +41,7 @@
     "gatsby-remark-images": "^3.3.17",
     "gatsby-source-filesystem": "^2.3.18",
     "gatsby-source-graphql": "^2.6.1",
-    "gatsby-transformer-sharp": "^2.5.9",
+    "gatsby-transformer-sharp": "^2.5.10",
     "google-map-react": "^1.1.7",
     "graphql-tag": "^2.10.3",
     "isomorphic-fetch": "^2.2.1",
