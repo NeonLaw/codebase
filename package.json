@@ -68,7 +68,7 @@
     "yup": "^0.29.1"
   },
   "optionalDependencies": {
-    "cypress": "^4.9.0"
+    "cypress": "^4.10.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.16.3",
