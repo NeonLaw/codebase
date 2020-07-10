@@ -40,7 +40,7 @@
     "gatsby-plugin-typescript": "^2.4.13",
     "gatsby-remark-images": "^3.3.18",
     "gatsby-source-filesystem": "^2.3.18",
-    "gatsby-source-graphql": "^2.6.1",
+    "gatsby-source-graphql": "^2.6.2",
     "gatsby-transformer-sharp": "^2.5.10",
     "google-map-react": "^1.1.7",
     "graphql-tag": "^2.10.4",
