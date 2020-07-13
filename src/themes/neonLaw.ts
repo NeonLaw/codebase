@@ -21,12 +21,12 @@ export const colors = {
     dark: 'cyan.200',
     light: 'cyan.800',
     lightBlue: '#1AA6E4',
-    orange: '#f37b19',
-    orangeDark: '#f99c17',
   },
   primaryButtonBgOnHover: { dark: 'cyan.100', light: 'cyan.700' },
   primaryButtonColor: { dark: 'black', light: 'white' },
   text: { dark: 'white', darkLight: '#eee', light: 'black' },
+  orange: '#f37b19',
+  orangeDark: '#f99c17',
 };
 
 export const sizes = {

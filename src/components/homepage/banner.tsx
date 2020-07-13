@@ -38,9 +38,9 @@ export const Banner = ({ title, text, buttonText }: BannerProps) => (
           {text}
         </Text>
         <Button
-          bg={colors.primaryButtonBg.orange}
+          bg={colors.orange}
           _hover={{
-            bg: colors.primaryButtonBg.orangeDark,
+            bg: colors.orangeDark,
           }}
         >
           {buttonText}

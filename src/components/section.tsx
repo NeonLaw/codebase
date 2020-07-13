@@ -14,7 +14,7 @@ const StyledSection = styled.section`
       height: 2px;
       width: 8rem;
       height: 2px;
-      background: ${colors.primaryButtonBg.orangeDark};
+      background: ${colors.orangeDark};
       margin: 1rem 0;
     }
   }

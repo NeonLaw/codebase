@@ -1,6 +1,7 @@
 import { Global, css } from '@emotion/core';
 
 import React from 'react';
+import { colors } from '@themes/neonLaw';
 import { theme } from '@chakra-ui/core';
 
 const BaseStyles = () => (
@@ -18,6 +19,37 @@ const BaseStyles = () => (
 
       body {
         font-size: ${theme.fontSizes.md};
+      }
+
+      /* ---------------------------------- */
+      /* ----- Links & Buttons ----- */
+      /* ---------------------------------- */
+
+      .nav-link {
+        position: relative;
+        transition: all 0.2s;
+        padding-bottom: 0.5em;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 100%;
+          display: block;
+          height: 1px;
+          background: white;
+          transition: all 0.4s cubic-bezier(0, 0.5, 0, 1);
+        }
+
+        &:hover {
+          color: ${colors.orangeDark};
+
+          &::after {
+            right: 0;
+            background: ${colors.orangeDark};
+          }
+        }
       }
 
       /* ---------------------------------- */

@@ -85,6 +85,7 @@ export const BaseNavigationBar = ({
                     cursor="pointer"
                     margin="0 10px"
                     to={link.route}
+                    className="nav-link"
                   >
                     {link.label}
                   </Box>
