@@ -32,7 +32,7 @@
     "gatsby-cypress": "^0.4.10",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.1.0",
-    "start-server-and-test": "^1.11.1",
+    "start-server-and-test": "^1.11.2",
     "ts-jest": "^26.1.1"
   },
   "scripts": {
