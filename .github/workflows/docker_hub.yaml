@@ -19,6 +19,7 @@ jobs:
             --tag "neonlaw/interface:latest" \
             --build-arg GATSBY_ACTIVE_ENV=development \
             --build-arg GATSBY_API_URL="$GATSBY_API_URL" \
+            --build-arg APP_NAME=neon-law \
             -f Dockerfile \
             .
         env:
