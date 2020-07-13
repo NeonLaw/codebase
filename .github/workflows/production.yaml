@@ -88,9 +88,9 @@ jobs:
             -f Dockerfile \
             .
         env:
-          GATSBY_AUTH0_CALLBACK: ${{ secrets.STAGING_AUTH0_CALLBACK }}
-          GATSBY_AUTH0_DOMAIN: ${{ secrets.STAGING_AUTH0_DOMAIN }}
-          GATSBY_AUTH0_CLIENT_ID: ${{ secrets.STAGING_AUTH0_CLIENT_ID }}
+          GATSBY_AUTH0_CALLBACK: ${{ secrets.PRODUCTION_AUTH0_CALLBACK }}
+          GATSBY_AUTH0_DOMAIN: ${{ secrets.PRODUCTION_AUTH0_DOMAIN }}
+          GATSBY_AUTH0_CLIENT_ID: ${{ secrets.PRODUCTION_AUTH0_CLIENT_ID }}
 
       - name: Push the Docker image to Google Container Registry
         run: |-
