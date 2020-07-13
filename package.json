@@ -6,7 +6,7 @@
     "packages/shared"
   ],
   "devDependencies": {
-    "@graphql-codegen/cli": "^1.16.3",
+    "@graphql-codegen/cli": "^1.17.0",
     "@graphql-codegen/typescript-operations": "^1.17.0",
     "@graphql-codegen/typescript-react-apollo": "^1.17.0",
     "@graphql-codegen/typescript": "^1.16.3",
