@@ -7,14 +7,16 @@ import { Container } from './container';
 import { LanguageDropdown } from '@components/languageDropdown';
 import { Link } from '@components/link';
 import React from 'react';
+import { Section } from './section';
 import { SocialMediaIcons } from '@components/socialMediaIcons';
+import { sizes } from '@themes/neonLaw';
 import { useIntl } from 'gatsby-plugin-intl';
 
 export const Footer = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
   const bg = { dark: 'black', light: 'gray.300' };
-  const lighterBg = { dark: 'gray.700', light: 'gray.200' };
+  const lighterBg = { dark: 'gray.700', light: 'gray.50' };
   const intl = useIntl();
   return (
     <Box
@@ -24,19 +26,14 @@ export const Footer = () => {
       textAlign="left"
       as="footer"
     >
-      <Box padding="2em 0">
-        <Heading as="div" size="lg" textAlign="center" fontWeight="medium">
-          {intl.formatMessage({ id: 'footer.heading' })}
-        </Heading>
-        <Text
-          padding="1em"
-          maxWidth="1024px"
-          margin="0 auto"
-          textAlign="center"
-        >
-          {intl.formatMessage({ id: 'footer.text' })}
-        </Text>
-      </Box>
+      <Section>
+        <Box maxWidth={sizes.textContainerSmall}>
+          <Heading as="h3" fontWeight="medium">
+            {intl.formatMessage({ id: 'footer.heading' })}
+          </Heading>
+          <Text>{intl.formatMessage({ id: 'footer.text' })}</Text>
+        </Box>
+      </Section>
       <Box bg={bg[colorMode]}>
         <Container>
           <Flex

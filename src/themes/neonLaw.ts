@@ -24,7 +24,7 @@ export const colors = {
   },
   primaryButtonBgOnHover: { dark: 'cyan.100', light: 'cyan.700' },
   primaryButtonColor: { dark: 'black', light: 'white' },
-  text: { dark: 'white', darkLight: '#eee', light: 'black' },
+  text: { dark: 'white', darkLight: '#eee', light: '#222' },
   orange: '#f37b19',
   orangeDark: '#f99c17',
 };
@@ -34,8 +34,8 @@ export const sizes = {
 };
 
 export const gutters = {
-  large: '120px',
-  largeOne: '100px',
-  xSmall: '20px', // todo convert to rem for better accessibility
-  small: '30px',
+  large: '7.5rem',
+  largeOne: '6.25rem',
+  xSmall: '1.25rem', // todo convert to rem for better accessibility
+  small: '1.875rem',
 };

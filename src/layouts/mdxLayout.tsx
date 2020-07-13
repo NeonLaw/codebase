@@ -1,10 +1,6 @@
-import {
-  Box,
-  Divider,
-  Flex,
-  Heading,
-} from '@chakra-ui/core';
+import { Box, Divider, Flex, Heading } from '@chakra-ui/core';
 import React, { ReactChildren } from 'react';
+
 import { ApolloProvider } from '@apollo/react-hooks';
 import { AuthenticationContext } from '@utils/authenticationContext';
 import { Breadcrumbs } from '@components/breadcrumbs';
@@ -23,25 +19,22 @@ import { publicClient } from '@utils/authenticationContext';
 const MdxLayout: React.FC<{
   data: {
     mdx: {
-      body: string,
+      body: string;
       frontmatter: {
-        title: string,
-        featuredImage?: any,
-        slug: string,
-        description?: string,
-      }
-    }
-  },
-  chlidren: ReactChildren
+        title: string;
+        featuredImage?: any;
+        slug: string;
+        description?: string;
+      };
+    };
+  };
+  chlidren: ReactChildren;
 }> = ({ data }) => {
   const { body, frontmatter } = data.mdx;
   const { title, slug, featuredImage, description } = frontmatter;
 
   return (
-    <Flex
-      minHeight="100vh"
-      direction="column"
-    >
+    <Flex minHeight="100vh" direction="column">
       <Seo title={title} image={featuredImage} description={description} />
       <AuthenticationContext.Consumer>
         {({ isLoading, apolloClient }) => {
@@ -49,28 +42,19 @@ const MdxLayout: React.FC<{
             <ApolloProvider client={isLoading ? publicClient : apolloClient}>
               <>
                 <PublicNavigationBar />
-                <Box
-                  flex={1}
-                  padding="8em 0 4em 0"
-                >
+                <Box flex={1} padding="8em 0 4em 0">
                   <Container>
                     <Breadcrumbs />
-                    <Heading textAlign="center">
-                      {title}
-                    </Heading>
-                    {featuredImage &&
-                      (<Box
-                        borderWidth="1px"
-                        rounded="lg"
-                        overflow="hidden"
-                      >
+                    <Heading textAlign="center">{title}</Heading>
+                    {featuredImage && (
+                      <Box borderWidth="1px" rounded="lg" overflow="hidden">
                         <Image
                           src={featuredImage}
                           alt={title}
                           aspectRatio={16 / 9}
                         />
-                      </Box>)
-                    }
+                      </Box>
+                    )}
                     <MDXRenderer>{body}</MDXRenderer>
                     <Divider margin="1em 0" />
                     <Flex width="100%" justifyContent="space-between">

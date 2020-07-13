@@ -1,7 +1,7 @@
 import { Global, css } from '@emotion/core';
+import { colors, gutters } from '@themes/neonLaw';
 
 import React from 'react';
-import { colors } from '@themes/neonLaw';
 import { theme } from '@chakra-ui/core';
 
 const BaseStyles = () => (
@@ -19,6 +19,15 @@ const BaseStyles = () => (
 
       body {
         font-size: ${theme.fontSizes.md};
+      }
+
+      /* ---------------------------------- */
+      /* ----- Headlines & Paragraphs ----- */
+      /* ---------------------------------- */
+
+      h3 {
+        font-size: 2rem;
+        margin-bottom: ${gutters.xSmall};
       }
 
       /* ---------------------------------- */
