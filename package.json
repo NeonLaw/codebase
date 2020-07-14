@@ -33,7 +33,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.1.0",
     "start-server-and-test": "^1.11.2",
-    "ts-jest": "^26.1.1"
+    "ts-jest": "^26.1.2"
   },
   "scripts": {
     "check-types": "tsc -p .",
