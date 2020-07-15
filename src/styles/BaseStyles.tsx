@@ -59,6 +59,15 @@ const BaseStyles = () => (
             background: ${colors.orangeDark};
           }
         }
+
+        &--active {
+          color: ${colors.orangeDark};
+
+          &::after {
+            right: 0;
+            background: ${colors.orangeDark};
+          }
+        }
       }
 
       /* ---------------------------------- */

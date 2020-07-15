@@ -86,6 +86,7 @@ export const BaseNavigationBar = ({
                     margin="0 10px"
                     to={link.route}
                     className="nav-link"
+                    activeClassName="nav-link--active"
                   >
                     {link.label}
                   </Box>
