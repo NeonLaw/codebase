@@ -21,7 +21,9 @@ export const Banner = ({ title, text, buttonText }: BannerProps) => (
     maxHeight="1200px"
     height="100vh"
     color={colors.text.dark}
-    background={`linear-gradient(to right, rgba(0,0,0, .6), rgba(0,0,0, .9)), url(${BannerBg})`}
+    background={`linear-gradient(
+      to right, rgba(0,0,0, .6), rgba(0,0,0, .9)), 
+      url(${BannerBg})`}
     backgroundSize="cover"
     backgroundPosition="left"
     backgroundAttachment="fixed"
