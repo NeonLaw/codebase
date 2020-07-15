@@ -15,7 +15,6 @@ import { useIntl } from 'gatsby-plugin-intl';
 export const Footer = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
-  const bg = { dark: 'black', light: 'gray.300' };
   const lighterBg = { dark: 'gray.700', light: 'gray.50' };
   const intl = useIntl();
   return (
@@ -34,11 +33,11 @@ export const Footer = () => {
           <Text>{intl.formatMessage({ id: 'footer.text' })}</Text>
         </Box>
       </Section>
-      <Box bg={bg[colorMode]}>
+      <Box bg='black' color="white">
         <Container>
           <Flex
             direction={['column', 'column', 'row']}
-            padding="2em 1em"
+            padding="3em 1em"
             justifyContent="space-between"
             textAlign={['center', 'center', 'left']}
             fontSize="lg"
@@ -91,11 +90,11 @@ export const Footer = () => {
             <Box display={['none', 'none', 'flex']} />
           </Flex>
         </Container>
-      </Box>
-      <Box paddingBottom="1em" bg={bg[colorMode]}>
-        <Text textAlign="center">
+        <Box paddingBottom="1em">
+          <Text textAlign="center">
           Copyright &copy; {new Date().getFullYear()} Shook Law PLLC
-        </Text>
+          </Text>
+        </Box>
       </Box>
     </Box>
   );
