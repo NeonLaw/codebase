@@ -3,6 +3,7 @@
   "workspaces": [
     "packages/law-job-resources",
     "packages/justice-for-rickie-slaughter",
+    "packages/delete-your-data",
     "packages/neon-law",
     "packages/shared"
   ],
