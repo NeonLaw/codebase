@@ -14,14 +14,18 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  PseudoBox,
   Text,
   useDisclosure,
 } from '@chakra-ui/core';
 import React, { useState } from 'react';
+
 import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { AuthenticationContext } from '../../utils/authenticationContext';
+import { Container } from '../container';
 import { Link } from '../../components/link';
 import { MdDehaze } from 'react-icons/md';
+import { colors } from '../../themes/neonLaw';
 import { useIntl } from 'gatsby-plugin-intl';
 
 export const BaseNavigationBar = ({
@@ -61,77 +65,106 @@ export const BaseNavigationBar = ({
         width="full"
         height="4em"
       >
-        <Flex size="100%" px="6" align="center">
-          <Box
-            mr={5}
-            as={Link}
-            cursor="pointer"
-            display="block"
-            to="/"
-            aria-label="Neon Law, Back to homepage"
-            minWidth="3em"
-          >
-            <img src="/images/logo.svg" alt="Neon Law" />
-          </Box>
+        <Container>
+          <Flex size="100%" align="center">
+            <Box
+              mr={5}
+              as={Link}
+              cursor="pointer"
+              display="block"
+              to="/"
+              aria-label="Neon Law, Back to homepage"
+              minWidth="3em"
+            >
+              <img src="/images/logo.svg" alt="Neon Law" />
+            </Box>
 
-          <Flex flexGrow={1} align="center" justify="flex-end">
-            {links.map((link, i) => (
-              <Box display={['none', 'none', 'flex']} key={i} mr="0.5em">
-                <Box as={Link} cursor="pointer" margin="0 10px" to={link.route}>
-                  {link.label}
-                </Box>
-              </Box>
-            ))}
-            {menus.map((menu, i) => (
-              <Box display={['none', 'none', 'flex']} key={i} mr="0.5em">
-                <Menu>
-                  <MenuButton as={Button} rightIcon="chevron-down">
-                    {menu.title}
-                  </MenuButton>
-                  <MenuList placement="bottom-end">
-                    {menu.links.map((link, j) => (
-                      <MenuItem key={j} as={Link} to={link.route}>
-                        {link.label}
-                      </MenuItem>
-                    ))}
-                  </MenuList>
-                </Menu>
-              </Box>
-            ))}
-            <AuthenticationContext.Consumer>
-              {({ isLoading, isAuthenticated, login }) => {
-                if (isLoading) {
-                  return null;
-                }
-                if (isAuthenticated) {
-                  return <AuthenticatedDropdown />;
-                }
-                return (
-                  <Button
-                    bg="transparent"
-                    border="1px"
-                    display={['none', 'none', 'flex']}
-                    disabled={loginButtonDisabled}
-                    onClick={() => {
-                      disableLoginButton(true);
-                      login();
+            <Flex flexGrow={1} align="center" justify="flex-end">
+              {links.map((link, i) => (
+                <Box display={['none', 'none', 'flex']} key={i} mr="0.5em">
+                  <PseudoBox
+                    as={Link}
+                    cursor="pointer"
+                    margin="0 10px"
+                    paddingBottom="0.5em"
+                    to={link.route}
+                    position="relative"
+                    transition="all .2s"
+                    _after={{
+                      background: 'white',
+                      bottom: 0,
+                      content: '""',
+                      display: 'block',
+                      height: '1px',
+                      left: 0,
+                      position: 'absolute',
+                      right: '100%',
+                      transition: 'all 0.4s cubic-bezier(0, 0.5, 0, 1)',
                     }}
+                    _hover={{
+                      '&:after': {
+                        background: colors.orangeDark,
+                        right: 0,
+                      },
+                      color: colors.orangeDark,
+                    }}
+                    activeClassName="nav-link--active"
                   >
-                    {intl.formatMessage({ id: 'auth.login' })}
-                  </Button>
-                );
-              }}
-            </AuthenticationContext.Consumer>
-            <IconButton
-              display={{ md: 'none', sm: 'inline-flex' }}
-              aria-label="Navigation Menu"
-              fontSize="20px"
-              variant="ghost"
-              icon={MdDehaze}
-              onClick={onToggle}
-            />
+                    {link.label}
+                  </PseudoBox>
+                </Box>
+              ))}
+              {menus.map((menu, i) => (
+                <Box display={['none', 'none', 'flex']} key={i} mr="0.5em">
+                  <Menu>
+                    <MenuButton as={Button} rightIcon="chevron-down">
+                      {menu.title}
+                    </MenuButton>
+                    <MenuList placement="bottom-end">
+                      {menu.links.map((link, j) => (
+                        <MenuItem key={j} as={Link} to={link.route}>
+                          {link.label}
+                        </MenuItem>
+                      ))}
+                    </MenuList>
+                  </Menu>
+                </Box>
+              ))}
+              <AuthenticationContext.Consumer>
+                {({ isLoading, isAuthenticated, login }) => {
+                  if (isLoading) {
+                    return null;
+                  }
+                  if (isAuthenticated) {
+                    return <AuthenticatedDropdown />;
+                  }
+                  return (
+                    <Button
+                      bg="transparent"
+                      border="1px"
+                      display={['none', 'none', 'flex']}
+                      disabled={loginButtonDisabled}
+                      onClick={() => {
+                        disableLoginButton(true);
+                        login();
+                      }}
+                    >
+                      {intl.formatMessage({ id: 'auth.login' })}
+                    </Button>
+                  );
+                }}
+              </AuthenticationContext.Consumer>
+              <IconButton
+                display={{ md: 'none', sm: 'inline-flex' }}
+                aria-label="Navigation Menu"
+                fontSize="20px"
+                variant="ghost"
+                icon={MdDehaze}
+                onClick={onToggle}
+              />
+            </Flex>
           </Flex>
-        </Flex>
+        </Container>
       </Box>
       <Drawer isOpen={isOpen} placement="left" size="xs" onClose={onClose}>
         <DrawerOverlay />

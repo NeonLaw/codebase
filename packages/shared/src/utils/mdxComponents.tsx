@@ -11,8 +11,10 @@ import {
   Kbd,
   PseudoBox,
   Text,
+  theme,
   useColorMode,
 } from '@chakra-ui/core';
+
 import { CodeBlock } from '../components/codeBlock';
 import {
   DesktopHalfMobileFullCard
@@ -127,33 +129,17 @@ export const MDXComponents = {
   ),
   br: props => <Box height="24px" {...props} />,
   code: CodeBlock,
-  h1: props => (
-    <Heading
-      as="h1"
-      size="xl"
-      margin="1em 0"
-      textAlign="center"
-      {...props}
-    />),
-  h2: props => (
+  h1: (props) => <Heading as="h1" size="2xl" {...props} />,
+  h2: (props) => (
     <Heading
       as="h2"
       fontWeight="semibold"
-      size="lg"
-      margin="1em 0"
-      textAlign="center"
+      fontSize={theme.fontSizes.xl}
       {...props}
     />
   ),
-  h3: props => (
-    <Heading
-      as="h3"
-      size="md"
-      margin="1em 0"
-      textAlign="center"
-      fontWeight="medium"
-      {...props}
-    />
+  h3: (props) => (
+    <Heading as="h3" size="md" margin="1em 0" fontWeight="medium" {...props} />
   ),
   hr: props => <Box as="hr" borderTopWidth="1px" my={8} {...props} />,
   inlineCode: props => (

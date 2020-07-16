@@ -1,8 +1,8 @@
 import { Box, Flex } from '@chakra-ui/core';
+
 import { ApolloProvider } from '@apollo/client';
 import { AuthenticationContext } from '../utils/authenticationContext';
 import { Breadcrumbs } from '../components/breadcrumbs';
-import { Container } from '../components/container';
 import { Footer } from '../components/footer';
 import { PublicNavigationBar } from '../components/navigationBars/public';
 import React from 'react';
@@ -17,11 +17,11 @@ export const PublicLayout: React.FC = ({ children }) => {
             <ApolloProvider client={isLoading ? publicClient : apolloClient}>
               <>
                 <PublicNavigationBar />
-                <Box flex={1} padding="8em 0 4em 0">
-                  <Container>
-                    <Breadcrumbs />
-                    {children}
-                  </Container>
+                <Box flex={1}>
+                  <Breadcrumbs />
+                  {/* todo re-add padding="8em 0 4em 0" to all the pages + todo
+                      re-add the container to all the pages. */}
+                  {children}
                 </Box>
               </>
             </ApolloProvider>

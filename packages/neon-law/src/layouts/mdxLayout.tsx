@@ -1,14 +1,8 @@
-import {
-  Box,
-  Divider,
-  Flex,
-  Heading,
-} from '@chakra-ui/core';
+import { Box, Divider, Flex, Heading } from '@chakra-ui/core';
 import React, { ReactChildren } from 'react';
+
 import { ApolloProvider } from '@apollo/client';
-import {
-  AuthenticationContext
-} from '@neonlaw/shared-ui/src/utils/authenticationContext';
+import { AuthenticationContext } from '@neonlaw/shared-ui/src/utils/authenticationContext';
 import { Breadcrumbs } from '@neonlaw/shared-ui/src/components/breadcrumbs';
 import { Container } from '@neonlaw/shared-ui/src/components/container';
 import { EditOnGithub } from '@neonlaw/shared-ui/src/components/editOnGithub';
@@ -17,41 +11,34 @@ import { Image } from '../components/image';
 import { MDXComponents } from '@neonlaw/shared-ui/src/utils/mdxComponents';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import {
-  PublicNavigationBar
-} from '@neonlaw/shared-ui/src/components/navigationBars/public';
+import { PublicNavigationBar } from '@neonlaw/shared-ui/src/components/navigationBars/public';
 import { Seo } from '../components/seo';
 import { ShareButtons } from '@neonlaw/shared-ui/src/components/shareButtons';
 import { graphql } from 'gatsby';
-import {
-  publicClient
-} from '@neonlaw/shared-ui/src/utils/authenticationContext';
+import { publicClient } from '@neonlaw/shared-ui/src/utils/authenticationContext';
 import { useSiteMetadata } from '../components/hooks';
 
 const MdxLayout: React.FC<{
   data: {
     mdx: {
-      body: string,
+      body: string;
       frontmatter: {
-        title: string,
-        featuredImage?: any,
-        slug: string,
-        description?: string,
+        title: string;
+        featuredImage?: any;
+        slug: string;
+        description?: string;
         widescreen?: string;
-      }
-    }
-  },
-  chlidren: ReactChildren
+      };
+    };
+  };
+  chlidren: ReactChildren;
 }> = ({ data }) => {
   const { body, frontmatter } = data.mdx;
   const { title, slug, featuredImage, description, widescreen } = frontmatter;
   const { siteUrl } = useSiteMetadata();
 
   return (
-    <Flex
-      minHeight="100vh"
-      direction="column"
-    >
+    <Flex minHeight="100vh" direction="column">
       <Seo title={title} image={featuredImage} description={description} />
       <AuthenticationContext.Consumer>
         {({ isLoading, apolloClient }) => {
@@ -71,19 +58,15 @@ const MdxLayout: React.FC<{
                     <Heading textAlign="center" as="h1">
                       {title}
                     </Heading>
-                    {featuredImage &&
-                      (<Box
-                        borderWidth="1px"
-                        rounded="lg"
-                        overflow="hidden"
-                      >
+                    {featuredImage && (
+                      <Box borderWidth="1px" rounded="lg" overflow="hidden">
                         <Image
                           src={featuredImage}
                           alt={title}
                           aspectRatio={widescreen ? 2 : 16 / 9}
                         />
-                      </Box>)
-                    }
+                      </Box>
+                    )}
                     <MDXProvider components={MDXComponents}>
                       <MDXRenderer>{body}</MDXRenderer>
                     </MDXProvider>

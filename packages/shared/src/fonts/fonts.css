@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'HK Grotesk';
+    src: url("/fonts/fonts/hk-grotesk/HKGrotesk-Regular.ttf") format("ttf");
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  @font-face {
+    font-family: 'Jost';
+    src: url("/fonts/fonts/jost/Jost-400-Book.ttf") format("ttf");
+    font-style: normal;
+    font-weight: 400;
+  }
+  

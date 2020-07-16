@@ -9,7 +9,9 @@ import {
   useColorMode,
 } from '@chakra-ui/core';
 import { changeLocale, useIntl } from 'gatsby-plugin-intl';
+
 import React from 'react';
+import { colors } from '../themes/neonLaw';
 
 export const LanguageDropdown = () => {
   const { colorMode } = useColorMode();
@@ -28,6 +30,7 @@ export const LanguageDropdown = () => {
           <MenuList
             placement="top"
             bg={lighterBg[colorMode]}
+            color={colors.text[colorMode]}
           >
             <MenuItem
               _hover={{ backgroundColor: evenLighterBg[colorMode] }}
@@ -58,3 +61,4 @@ export const LanguageDropdown = () => {
     </>
   );
 };
+
