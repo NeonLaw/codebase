@@ -20,10 +20,6 @@ export const PublicLinks = () => {
       label: 'Pure Advice',
       route: '/pure-advice',
     },
-    {
-      label: 'Other Resources',
-      route: '/other-resources'
-    },
   ];
 
   return (
