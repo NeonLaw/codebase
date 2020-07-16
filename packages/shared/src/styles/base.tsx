@@ -36,11 +36,11 @@ const BaseStyles = () => (
 
       .nav-link {
         &--active {
-          color: ${colors.orangeDark};
+          color: ${colors.cyanLight};
 
           &::after {
             right: 0;
-            background: ${colors.orangeDark};
+            background: ${colors.cyanLight};
           }
         }
       }

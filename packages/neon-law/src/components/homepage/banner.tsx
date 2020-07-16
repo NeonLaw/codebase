@@ -41,9 +41,9 @@ export const Banner = ({ title, text, buttonText }: BannerProps) => (
           {text}
         </Text>
         <Button
-          bg={colors.orange}
+          bg={colors.cyanDark}
           _hover={{
-            bg: colors.orangeDark,
+            bg: colors.cyanDark1,
           }}
         >
           {buttonText}
@@ -52,4 +52,3 @@ export const Banner = ({ title, text, buttonText }: BannerProps) => (
     </Container>
   </Box>
 );
-

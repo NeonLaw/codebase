@@ -103,10 +103,10 @@ export const BaseNavigationBar = ({
                     }}
                     _hover={{
                       '&:after': {
-                        background: colors.orangeDark,
+                        background: colors.cyanLight,
                         right: 0,
                       },
-                      color: colors.orangeDark,
+                      color: colors.cyanLight,
                     }}
                     activeClassName="nav-link--active"
                   >

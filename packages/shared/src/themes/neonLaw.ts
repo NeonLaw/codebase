@@ -17,15 +17,17 @@ export const theme = Object.assign(chakraTheme, {
 
 export const colors = {
   background: { dark: 'gray.800', light: 'white' },
+  borderLight: { dark: theme.colors.gray[800], light: theme.colors.gray[50] },
+  cyanDark: theme.colors.cyan[900],
+  cyanDark1: theme.colors.cyan[800],
+  cyanLight: theme.colors.cyan[400],
   link: { dark: 'cyan.400', light: 'cyan.800' },
-  orange: '#f37b19',
-  orangeDark: '#f99c17',
   primaryButtonBg: {
-    dark: 'cyan.200',
-    light: 'cyan.800',
+    dark: 'cyan.400',
+    light: 'cyan.900',
     lightBlue: '#1AA6E4',
   },
-  primaryButtonBgOnHover: { dark: 'cyan.100', light: 'cyan.700' },
+  primaryButtonBgOnHover: { dark: 'cyan.300', light: 'cyan.500' },
   primaryButtonColor: { dark: 'black', light: 'white' },
   text: { dark: 'white', darkLight: '#eee', light: '#222' },
 };
