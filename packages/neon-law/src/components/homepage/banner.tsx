@@ -9,7 +9,7 @@ import { theme } from '@chakra-ui/core';
 interface BannerProps {
   title: string;
   text: string;
-  buttonText: JSX.Element;
+  buttonText: string;
 }
 
 export const Banner = ({ title, text, buttonText }: BannerProps) => (

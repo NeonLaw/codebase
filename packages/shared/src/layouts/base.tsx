@@ -25,10 +25,6 @@ export const BaseLayout: React.FC<{
         <CSSReset />
         <Helmet>
           <link href="/fonts/fonts/font.css" rel="stylesheet" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Jost&display=swap"
-            rel="stylesheet"
-          />
         </Helmet>
         <BaseStyles />
         <ColorModeProvider>

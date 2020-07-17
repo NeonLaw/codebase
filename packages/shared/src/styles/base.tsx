@@ -17,6 +17,10 @@ const BaseStyles = () => (
         --grid-max-width: 1240px;
       }
 
+      html {
+        overflow-x: hidden;
+      }
+
       body {
         font-size: ${theme.fontSizes.md};
       }
@@ -24,6 +28,14 @@ const BaseStyles = () => (
       /* ---------------------------------- */
       /* ----- Headlines & Paragraphs ----- */
       /* ---------------------------------- */
+
+      h1 {
+        font-size: ${theme.fontSizes['2xl']};
+      }
+
+      h2 {
+        font-size: ${theme.fontSizes['xl']};
+      }
 
       h3 {
         font-size: 2rem;
@@ -43,6 +55,14 @@ const BaseStyles = () => (
             background: ${colors.cyanLight};
           }
         }
+      }
+
+      /* ---------------------------------- */
+      /* ----- Images ----- */
+      /* ---------------------------------- */
+
+      img {
+        object-fit: contain;
       }
 
       /* ---------------------------------- */
