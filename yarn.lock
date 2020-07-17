@@ -8199,10 +8199,10 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-gatsby-cli@^2.12.54, gatsby-cli@^2.12.60:
-  version "2.12.60"
-  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.12.60.tgz#2e958fa97d778fafa327fce5e6c351f99f7c2cdd"
-  integrity sha512-hc1pGn6m4Itc+HwIi4+s/esCInZzZit61guatNKzIJez0BTSDFv2EKtTUMuK5O64H/ofX0xfoHeYukOMA0MeIw==
+gatsby-cli@^2.12.60, gatsby-cli@^2.12.61:
+  version "2.12.61"
+  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.12.61.tgz#0b63e79887b3c3f0e02bc45bc746b3fc5b56ce81"
+  integrity sha512-Bdk640xw2fGtog6YUvlWqGVdghzOraEkRkLgdxAHJQWs7U8TiyxVv+urkp8MmIvWK4fe0vdO8VSzg3dmBQytCg==
   dependencies:
     "@babel/code-frame" "^7.10.3"
     "@hapi/joi" "^15.1.1"
@@ -8218,7 +8218,7 @@ gatsby-cli@^2.12.54, gatsby-cli@^2.12.60:
     fs-exists-cached "^1.0.0"
     fs-extra "^8.1.0"
     gatsby-core-utils "^1.3.12"
-    gatsby-recipes "^0.1.51"
+    gatsby-recipes "^0.1.52"
     gatsby-telemetry "^1.3.19"
     hosted-git-info "^3.0.4"
     ink "^2.7.1"
@@ -8502,10 +8502,10 @@ gatsby-react-router-scroll@^3.0.11:
   dependencies:
     "@babel/runtime" "^7.10.3"
 
-gatsby-recipes@^0.1.51:
-  version "0.1.51"
-  resolved "https://registry.yarnpkg.com/gatsby-recipes/-/gatsby-recipes-0.1.51.tgz#6419070fe5ef1332670c5ed235bcddd25db0bcc2"
-  integrity sha512-SBbf5DEOEjJOKtJaXEokAuA1uR36MFbDixnbL8+npaAHQ70+9ExOziDW643yztb/X8JA0sq5y7SDxRwAE9acqA==
+gatsby-recipes@^0.1.52:
+  version "0.1.52"
+  resolved "https://registry.yarnpkg.com/gatsby-recipes/-/gatsby-recipes-0.1.52.tgz#a2806d1a080d47ed4d3249704420a4e232860f6c"
+  integrity sha512-dxba6tO/VpTA5tPXcPuYDyatqEcT5O71eeRvT3vrEQQZzC0mwQzGG6m0BT1Hh1Z61b0LqFUh5trVCxTlFbEQSw==
   dependencies:
     "@babel/core" "^7.10.3"
     "@babel/generator" "^7.10.3"
@@ -9548,19 +9548,12 @@ hosted-git-info@^2.1.4:
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.8.tgz#7539bd4bc1e0e0a895815a2e0262420b12858488"
   integrity sha512-f/wzC2QaWBs7t9IYqB4T3sR1xviIViXJRJTWBlx2Gf3g0Xi5vI7Yy4koXQ1c9OYDGHN9sBy1DQ2AB8fqZBWhUg==
 
-hosted-git-info@^3.0.0:
+hosted-git-info@^3.0.0, hosted-git-info@^3.0.4:
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-3.0.5.tgz#bea87905ef7317442e8df3087faa3c842397df03"
   integrity sha512-i4dpK6xj9BIpVOTboXIlKG9+8HMKggcrMX7WA24xZtKwX0TPelq/rbaS5rCKeNX8sJXZJGdSxpnEGtta+wismQ==
   dependencies:
     lru-cache "^6.0.0"
-
-hosted-git-info@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-3.0.4.tgz#be4973eb1fd2737b11c9c7c19380739bb249f60d"
-  integrity sha512-4oT62d2jwSDBbLLFLZE+1vPuQ1h8p9wjrJ8Mqx5TjsyWmBMV5B13eJqn8pvluqubLf3cJPTfiYCIwNwDNmzScQ==
-  dependencies:
-    lru-cache "^5.1.1"
 
 hpack.js@^2.1.6:
   version "2.1.6"
