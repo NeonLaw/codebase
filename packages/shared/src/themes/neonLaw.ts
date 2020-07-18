@@ -7,8 +7,8 @@ import { theme as chakraTheme } from '@chakra-ui/core';
 export const theme = Object.assign(chakraTheme, {
   fonts: {
     body: '"HK Grotesk",, sans-serif',
-    heading: '"HK Grotesk", sans-serif',
-    mono: 'Menlo, monospace',
+    heading: '"Jost", sans-serif',
+    mono: '"Fira Mono", monospace',
   },
 });
 

@@ -70,7 +70,7 @@
   "scripts": {
     "build": "cp -vr ../shared/src/fonts ./static && gatsby build",
     "cy:open": "cypress open",
-    "dev": "yarn run develop",
+    "dev": "cp -vr ../shared/src/fonts ./static && yarn run develop",
     "develop": "gatsby develop -H 127.0.0.1",
     "start": "cp -vr ../shared/src/fonts ./static && yarn run develop",
     "serve": "gatsby serve",
