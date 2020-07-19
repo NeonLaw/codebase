@@ -1,5 +1,6 @@
 import { Banner } from '../components/homepage/banner';
 import { Box } from '@chakra-ui/core';
+import GetStarted from '@neonlaw/shared-ui/src/components/get-started';
 import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
 import React from 'react';
 import { Section } from '@neonlaw/shared-ui/src/components/section';
@@ -44,6 +45,7 @@ const Home = () => (
           for a free consultation.
         </Box>
       </Section>
+      <GetStarted />
     </>
   </PublicLayout>
 );
