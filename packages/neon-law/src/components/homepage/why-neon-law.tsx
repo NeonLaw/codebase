@@ -53,7 +53,7 @@ export interface ReasonProps {
   image?: string;
 }
 
-const reasons = [
+const reasons: ReasonProps[] = [
   {
     title: (
       <>
@@ -100,7 +100,7 @@ const WhyNeonLaw = () => {
       <h2 className="heading--underlined">Why Neon Law?</h2>
       <p>A justice-first approach to law and litigation.</p>
       <StyledReasons>
-        {reasons.map((reason, i) => (
+        {reasons.map((reason: ReasonProps, i) => (
           <div className="reason" key={new String(reason.title) + `${i}`}>
             <div className="reason__text">
               <h3>{reason.title}</h3>

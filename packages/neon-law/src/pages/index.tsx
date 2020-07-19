@@ -5,6 +5,7 @@ import React from 'react';
 import { Section } from '@neonlaw/shared-ui/src/components/section';
 import { Seo } from '../components/seo';
 import { UnderlineLink } from '@neonlaw/shared-ui/src/utils/mdxComponents';
+import WhatWeCanHelpWith from '../components/homepage/what-we-can-help-with';
 // import { SocialProofLogos } from '../components/homepage/social-proof-logos';
 import WhyNeonLaw from '../components/homepage/why-neon-law';
 import { sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
@@ -13,22 +14,14 @@ const Home = () => (
   <PublicLayout>
     <>
       <Seo title="Homepage" />
-
       <Banner
         title="Lawyers Invested in Making Tomorrow Better than Today"
         text="Our goal is singular - your upward mobility. Join the thousands of people who have entrusted us with providing legal solutions to make their lives better."
         buttonText="Schedule a Free Consultation Now"
       />
-
       {/* <SocialProofLogos /> */}
-
       <WhyNeonLaw />
-
-      <Section>
-        <h2 className="heading--underlined">What We can help with?</h2>
-        <p>A justice-first approach to law and litigation.</p>
-      </Section>
-
+      <WhatWeCanHelpWith />
       <Section>
         <h2 className="heading--underlined">Pro Bono</h2>
         <Box as="p" maxWidth={sizes.textContainerSmall}>
