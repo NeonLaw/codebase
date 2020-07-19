@@ -7,6 +7,8 @@ export const theme = Object.assign(chakraTheme, {
   fontSizes: {
     md: '1.125rem',
     xl: '3.25rem',
+    xl0: '2.50rem',
+    xl1: '2.25rem',
   },
   fonts: {
     body: '"HK Grotesk", sans-serif',
@@ -17,6 +19,7 @@ export const theme = Object.assign(chakraTheme, {
 
 export const colors = {
   background: { dark: 'gray.800', light: 'white' },
+  lighterBg: { dark: 'gray.700', light: 'gray.50' },
   borderLight: { dark: theme.colors.gray[800], light: theme.colors.gray[50] },
   cyanDark: theme.colors.cyan[900],
   cyanDark1: theme.colors.cyan[800],
@@ -37,6 +40,7 @@ export const sizes = {
 };
 
 export const gutters = {
+  huge: '10rem',
   large: '7.5rem',
   largeOne: '6.25rem',
   medium: '3.5rem',

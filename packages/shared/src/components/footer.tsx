@@ -2,6 +2,7 @@
 // @ts-nocheck
 /* eslint-enable */
 import { Box, Flex, Heading, Text, useColorMode } from '@chakra-ui/core';
+import { colors, sizes } from '../themes/neonLaw';
 
 import { Container } from './container';
 import { LanguageDropdown } from './languageDropdown';
@@ -9,20 +10,18 @@ import { Link } from './link';
 import React from 'react';
 import { Section } from './section';
 import { SocialMediaIcons } from './socialMediaIcons';
-import { sizes } from '../themes/neonLaw';
 import { useIntl } from 'gatsby-plugin-intl';
 
 export const Footer = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
-  const lighterBg = { dark: 'gray.700', light: 'gray.50' };
   const intl = useIntl();
 
   const fathomLink = 'https://app.usefathom.com/share/dublghdj/www.neonlaw.com';
 
   return (
     <Box
-      bg={lighterBg[colorMode]}
+      bg={colors.lighterBg[colorMode]}
       color={color[colorMode]}
       width="100%"
       textAlign="left"

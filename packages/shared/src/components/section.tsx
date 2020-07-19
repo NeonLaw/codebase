@@ -1,10 +1,11 @@
+import React, { CSSProperties } from 'react';
 import { colors, gutters } from '../themes/neonLaw';
 
+import { Box } from '@chakra-ui/core';
 import { Container } from './container';
-import React from 'react';
 import styled from '@emotion/styled';
 
-const StyledSection = styled.section`
+const StyledSection = styled(Box)`
   padding: ${gutters.largeOne} 0;
 
   h2 {
@@ -22,10 +23,12 @@ const StyledSection = styled.section`
 
 export const Section = ({
   children,
+  styles,
 }: {
   children: JSX.Element | JSX.Element[];
+  styles?: CSSProperties;
 }) => (
-  <StyledSection>
+  <StyledSection as="section" style={{ ...styles }}>
     <Container>{children}</Container>
   </StyledSection>
 );

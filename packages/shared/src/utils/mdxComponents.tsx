@@ -55,7 +55,7 @@ const TData = (props) => (
   />
 );
 
-const UnderlineLink = (props) => {
+export const UnderlineLink = (props) => {
   const { colorMode } = useColorMode();
 
   return (
