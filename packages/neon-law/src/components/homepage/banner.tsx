@@ -38,6 +38,7 @@ export const Banner = ({ title, text, buttonText }: BannerProps) => (
             theme.fontSizes['xl0'],
             theme.fontSizes.xl,
           ]}
+          fontWeight="400"
         >
           {title}
         </Heading>

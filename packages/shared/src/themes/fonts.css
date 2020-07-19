@@ -259,7 +259,7 @@
   font-weight: 400;
 }
 
-/* @font-face {
+@font-face {
   font-family: 'Jost';
   src: url('/fonts/jost/Jost-500-Medium.tff') format('ttf'),
     url('/fonts/jost/Jost-500-Medium.woff2') format('woff2');
