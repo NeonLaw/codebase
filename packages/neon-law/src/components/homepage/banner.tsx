@@ -30,8 +30,15 @@ export const Banner = ({ title, text, buttonText }: BannerProps) => (
     backgroundAttachment="fixed"
   >
     <Container>
-      <Box maxWidth={sizes.textContainerSmall}>
-        <Heading as="h1" fontSize={theme.fontSizes.xl}>
+      <Box maxWidth={['400px', '500px', sizes.textContainerSmall]}>
+        <Heading
+          as="h1"
+          fontSize={[
+            theme.fontSizes['xl1'],
+            theme.fontSizes['xl0'],
+            theme.fontSizes.xl,
+          ]}
+        >
           {title}
         </Heading>
         <Text
