@@ -47,3 +47,7 @@ export const gutters = {
   small: '1.875rem',
   xSmall: '1.25rem',
 };
+
+export const shadows = {
+  light: '0.625rem 0.625rem 1.25rem rgba(0,0,0, .2)',
+};
