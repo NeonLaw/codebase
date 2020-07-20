@@ -232,16 +232,16 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url("/fonts/jost/Jost-400-Medium.tff") format("ttf"),
-    url("/fonts/jost/Jost-400-Medium.woff2") format("woff2");
+  src: url("/fonts/jost/Jost-500-Medium.tff") format("ttf"),
+    url("/fonts/jost/Jost-500-Medium.woff2") format("woff2");
   font-style: normal;
   font-weight: 500;
 }
 
 @font-face {
   font-family: 'Jost';
-  src: url("/fonts/jost/Jost-400-MediumItalic.tff") format("ttf"),
-    url("/fonts/jost/Jost-400-MediumItalic.woff2") format("woff2");
+  src: url("/fonts/jost/Jost-500-MediumItalic.tff") format("ttf"),
+    url("/fonts/jost/Jost-500-MediumItalic.woff2") format("woff2");
   font-style: italic;
   font-weight: 500;
 }
