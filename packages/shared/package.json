@@ -37,7 +37,7 @@
     "gatsby-plugin-sitemap": "^2.4.11",
     "gatsby-plugin-typescript": "^2.4.13",
     "gatsby-remark-images": "^3.3.19",
-    "gatsby-source-filesystem": "^2.3.19",
+    "gatsby-source-filesystem": "^2.3.20",
     "gatsby-source-graphql": "^2.6.2",
     "gatsby-transformer-sharp": "^2.5.11",
     "google-map-react": "^1.1.7",
