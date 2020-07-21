@@ -51,9 +51,6 @@ const MdxLayout: React.FC<{
         >
           <Container>
             <Breadcrumbs />
-            <Heading textAlign="center">
-              {title}
-            </Heading>
             {featuredImage &&
               (<Box
                 borderWidth="1px"
@@ -67,6 +64,9 @@ const MdxLayout: React.FC<{
                 />
               </Box>)
             }
+            <Heading textAlign="center">
+              {title}
+            </Heading>
             <MDXRenderer>{body}</MDXRenderer>
             <Divider margin="1em 0" />
             <Flex width="100%" justifyContent="space-between">
@@ -92,6 +92,7 @@ export const pageQuery = graphql`
         title
         slug
         description
+        featuredImage
       }
     }
   }
