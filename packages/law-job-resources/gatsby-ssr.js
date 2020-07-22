@@ -4,3 +4,15 @@ import React from 'react';
 export const wrapPageElement = ({ element, props }) => {
   return <BaseLayout {...props}>{element}</BaseLayout>;
 };
+
+export const onPreRenderHTML = (
+  { getHeadComponents, replaceHeadComponents }
+) => {
+  const headComponents = getHeadComponents();
+
+  headComponents.push(
+    <script src="https://cdn.usefathom.com/script.js" site="AYTHNHSX" defer />
+  );
+
+  replaceHeadComponents(headComponents);
+};
