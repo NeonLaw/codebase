@@ -29,6 +29,12 @@ export const onRenderBody = ({ setPostBodyComponents }) => {
       id="ze-snippet"
       key="zendesk"
       src={`https://static.zdassets.com/ekr/snippet.js?key=${zendeskKey}`}
+    />,
+    <script
+      key="fathom"
+      src="https://anglerfish.neonlaw.com/script.js"
+      site="DUBLGHDJ"
+      defer
     />
   ]);
 };

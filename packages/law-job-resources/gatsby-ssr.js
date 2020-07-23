@@ -11,7 +11,11 @@ export const onPreRenderHTML = (
   const headComponents = getHeadComponents();
 
   headComponents.push(
-    <script src="https://cdn.usefathom.com/script.js" site="AYTHNHSX" defer />
+    <script
+      src="https://anglerfish.neonlaw.com/script.js"
+      site="AYTHNHSX"
+      defer
+    />
   );
 
   replaceHeadComponents(headComponents);
