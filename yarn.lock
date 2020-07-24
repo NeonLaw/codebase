@@ -1408,13 +1408,23 @@
     pascal-case "3.1.1"
     tslib "~2.0.0"
 
-"@graphql-codegen/typescript@1.17.0", "@graphql-codegen/typescript@^1.16.3":
+"@graphql-codegen/typescript@1.17.0":
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript/-/typescript-1.17.0.tgz#cbc04744d667e25e679e9e0a2084c03136503de4"
   integrity sha512-G9sbGHSw6cJaZdjjkLzHYR5Vocs1I9mGkkqygS/RLBh+3snuGvt2QClhO47BdBTT1iKY17DrfuyczmYuGGok6A==
   dependencies:
     "@graphql-codegen/plugin-helpers" "1.17.0"
     "@graphql-codegen/visitor-plugin-common" "1.17.0"
+    auto-bind "~4.0.0"
+    tslib "~2.0.0"
+
+"@graphql-codegen/typescript@^1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript/-/typescript-1.17.4.tgz#48069f69a3c9bd3f09d77a89fdf2b4e8f8d1f495"
+  integrity sha512-1ja2nCqIQ/5ERJ3msPkLIqFyaYUNBb0PPht8DK2PcEsJv9fZQT6hczZap5vF4pG1eg4b097+4OzjqmMMsclLxg==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "1.17.4"
+    "@graphql-codegen/visitor-plugin-common" "1.17.4"
     auto-bind "~4.0.0"
     tslib "~2.0.0"
 
@@ -1425,6 +1435,21 @@
   dependencies:
     "@graphql-codegen/plugin-helpers" "1.17.0"
     "@graphql-tools/relay-operation-optimizer" "6.0.12"
+    array.prototype.flatmap "1.2.3"
+    auto-bind "~4.0.0"
+    dependency-graph "0.9.0"
+    graphql-tag "2.10.4"
+    parse-filepath "1.0.2"
+    pascal-case "3.1.1"
+    tslib "~2.0.0"
+
+"@graphql-codegen/visitor-plugin-common@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/visitor-plugin-common/-/visitor-plugin-common-1.17.4.tgz#5dacb5686e54fb8588faa68ee1997fd4576e83a0"
+  integrity sha512-llrvE8E4AyWGjpt/Uf/FTBG1FSXA2oE1mwPatn9j51KsHJ9YQlJ9wt6/af0TqhcnWkLnB6oDtzr+HHb0isnVzw==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "1.17.4"
+    "@graphql-tools/relay-operation-optimizer" "6.0.15"
     array.prototype.flatmap "1.2.3"
     auto-bind "~4.0.0"
     dependency-graph "0.9.0"
@@ -1583,6 +1608,14 @@
     "@graphql-tools/utils" "6.0.12"
     relay-compiler "9.1.0"
 
+"@graphql-tools/relay-operation-optimizer@6.0.15":
+  version "6.0.15"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/relay-operation-optimizer/-/relay-operation-optimizer-6.0.15.tgz#f991499c54945cb8fa2396bb5292252fbda0a773"
+  integrity sha512-Y4h2kclKh5HvyvmoxeZiDhqdhMKfLKamOYx6UVpFsbeKb6Tt9RCNPVhpa+YToXxUXl0PvjhxZWeQ4lZY0GE0ug==
+  dependencies:
+    "@graphql-tools/utils" "6.0.15"
+    relay-compiler "10.0.0"
+
 "@graphql-tools/schema@6.0.11", "@graphql-tools/schema@^6.0.11":
   version "6.0.11"
   resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-6.0.11.tgz#4623c3662a8843822e36139855504ef8d7d89088"
@@ -1626,6 +1659,14 @@
   version "6.0.12"
   resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-6.0.12.tgz#3c58729f1bdb7881e675544016b56e0508c2541b"
   integrity sha512-MuFSkxXCe2QoD5QJPJ/1WIm0YnBzzXpkq9d/XznVAWptHFRwtwIbZ1xcREjYquFvoZ7ddsjZfyvUN/5ulmHhhg==
+  dependencies:
+    "@ardatan/aggregate-error" "0.0.1"
+    camel-case "4.1.1"
+
+"@graphql-tools/utils@6.0.15":
+  version "6.0.15"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-6.0.15.tgz#6d54d383285bea3c22797531933b62a408e78e49"
+  integrity sha512-VG5cMLPgh9RDLGHamGpXVnBrNw7bZGT46LrxK7IIqDZI9H0GPsRCo8+p+CfDkw0IlDiEECb624WVCpm9IYNecA==
   dependencies:
     "@ardatan/aggregate-error" "0.0.1"
     camel-case "4.1.1"
@@ -15281,6 +15322,28 @@ regjsparser@^0.6.4:
   dependencies:
     jsesc "~0.5.0"
 
+relay-compiler@10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-10.0.0.tgz#04d50d8ec53e3f683bc379b756cf0542a76105af"
+  integrity sha512-EVBMcMCiP+waOPR2930cNCCsac1sNhfQayzS+bOEMz2Lls5Bx7grhaadkBZLTEdCHQ1kf7lrsmcMDqj9mxABFw==
+  dependencies:
+    "@babel/core" "^7.0.0"
+    "@babel/generator" "^7.5.0"
+    "@babel/parser" "^7.0.0"
+    "@babel/runtime" "^7.0.0"
+    "@babel/traverse" "^7.0.0"
+    "@babel/types" "^7.0.0"
+    babel-preset-fbjs "^3.3.0"
+    chalk "^4.0.0"
+    fb-watchman "^2.0.0"
+    fbjs "^1.0.0"
+    glob "^7.1.1"
+    immutable "~3.7.6"
+    nullthrows "^1.1.1"
+    relay-runtime "10.0.0"
+    signedsource "^1.0.0"
+    yargs "^15.3.1"
+
 relay-compiler@9.1.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-9.1.0.tgz#e2975de85192e2470daad78e30052bf9614d22ed"
@@ -15302,6 +15365,14 @@ relay-compiler@9.1.0:
     relay-runtime "9.1.0"
     signedsource "^1.0.0"
     yargs "^14.2.0"
+
+relay-runtime@10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-10.0.0.tgz#cfceb0f8453b39a385d63093f2dbf1702ddc02b3"
+  integrity sha512-QEpFwEjvGgWgQ0MPJyrZKggaCoGMKwxPQx7NwYl4FcMmxZcicc8wk6vI1iTxl0tsPKgW/YG8FgueQR+X7ZtZqw==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    fbjs "^1.0.0"
 
 relay-runtime@9.1.0:
   version "9.1.0"
