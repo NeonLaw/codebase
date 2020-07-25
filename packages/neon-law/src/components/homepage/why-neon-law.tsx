@@ -63,7 +63,7 @@ const reasons: ReasonProps[] = [
       </>
     ),
     text:
-      "We do not represent shady people and have fired clients after discovering they're racist, transphobic, sexist, or otherwise bad people.",
+      'We do not represent shady people and have fired clients after discovering they\'re racist, transphobic, sexist, or otherwise bad people.',
   },
   {
     title: (

@@ -30,30 +30,30 @@ const StyledFeatures = styled.div`
 
 const features = [
   {
-    text: "I've been injured.",
+    text: 'I\'ve been injured.',
     image: Bandage,
   },
   {
     text: 'I have immigration issues.',
   },
   {
-    text: "I'm in a lot of debt.",
+    text: 'I\'m in a lot of debt.',
   },
   {
-    text: "I can't afford a lawyer.",
+    text: 'I can\'t afford a lawyer.',
   },
   {
-    text: "I'm starting a business.",
+    text: 'I\'m starting a business.',
     image: Bussiness,
   },
   {
-    text: "I've been hacked.",
+    text: 'I\'ve been hacked.',
   },
   {
     text: 'My partner and I want a divorce.',
   },
   {
-    text: "What if I'm not here tomorrow?",
+    text: 'What if I\'m not here tomorrow?',
   },
   //   {
   //     text: 'I want to buy a home.',

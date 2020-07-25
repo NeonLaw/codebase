@@ -1,6 +1,7 @@
 import { Box } from '@chakra-ui/core';
 import { Container } from '@neonlaw/shared-ui/src/components/container';
 import React from 'react';
+import { Section } from '@neonlaw/shared-ui/src/components/section';
 import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
 import styled from '@emotion/styled';
 
@@ -111,11 +112,10 @@ const orgs: Org[] = [
 ];
 
 export const SocialProofLogos = () => (
-  <Box as="section" padding={`${gutters.medium} 0 0`}>
-    <Container>
-      <StyledLogosContainer>
-        {orgs.map((org: Org) => org.logo)}
-      </StyledLogosContainer>
-    </Container>
-  </Box>
+  <Section>
+    <h2>We've worked with</h2>
+    <StyledLogosContainer>
+      {orgs.map((org: Org) => org.logo)}
+    </StyledLogosContainer>
+  </Section>
 );
