@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - production
+      - development
 
 jobs:
   deploy_neon_law_production:
