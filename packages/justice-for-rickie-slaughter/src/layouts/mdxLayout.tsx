@@ -10,6 +10,8 @@ import { Container } from '@neonlaw/shared-ui/src/components/container';
 import { EditOnGithub } from '@neonlaw/shared-ui/src/components/editOnGithub';
 import { Footer } from '../components/footer';
 import { Image } from '../components/image';
+import { MDXComponents } from '@neonlaw/shared-ui/src/utils/mdxComponents';
+import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import {
   PublicNavigationBar
@@ -67,7 +69,9 @@ const MdxLayout: React.FC<{
             <Heading textAlign="center">
               {title}
             </Heading>
-            <MDXRenderer>{body}</MDXRenderer>
+            <MDXProvider components={MDXComponents}>
+              <MDXRenderer>{body}</MDXRenderer>
+            </MDXProvider>
             <Divider margin="1em 0" />
             <Flex width="100%" justifyContent="space-between">
               <ShareButtons siteUrl={siteUrl} slug={slug} />

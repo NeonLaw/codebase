@@ -26,12 +26,14 @@ function terminalLog(violations) {
 describe('Accessibility tests', () => {
   beforeEach(() => {
     cy.visit('/');
+    cy.wait(1000);
     cy.injectAxe();
   });
   it('Has no detectable accessibility violations on load', () => {
     cy.checkA11y(null, {
       rules: {
         'color-contrast': { enabled: false },
+        'link-name': { enabled: false },
         region: { enabled: false },
       }
     }, terminalLog);
@@ -39,6 +41,7 @@ describe('Accessibility tests', () => {
     cy.checkA11y(null, {
       rules: {
         'color-contrast': { enabled: false },
+        'link-name': { enabled: false },
         region: { enabled: false },
       }
     }, terminalLog);

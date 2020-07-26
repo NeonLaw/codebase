@@ -55,7 +55,7 @@ jobs:
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment interface \
-             interface=us.gcr.io/neon-law-production/interface:$GITHUB_SHA
+            interface=us.gcr.io/neon-law-production/interface:$GITHUB_SHA
 
   deploy_law_job_resources_production:
     runs-on: ubuntu-latest
@@ -106,7 +106,7 @@ jobs:
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment law-job-resources \
-             law-job-resources=us.gcr.io/neon-law-production/law-job-resources:$GITHUB_SHA
+            law-job-resources=us.gcr.io/neon-law-production/law-job-resources:$GITHUB_SHA
 
   deploy_justice_for_rickie_slaughter_production:
     runs-on: ubuntu-latest
@@ -157,7 +157,7 @@ jobs:
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment justice-for-rickie-slaughter \
-             justice-for-rickie-slaughter=us.gcr.io/neon-law-production/justice-for-rickie-slaughter:$GITHUB_SHA
+            justice-for-rickie-slaughter=us.gcr.io/neon-law-production/justice-for-rickie-slaughter:$GITHUB_SHA
 
   deploy_delete_your_data_production:
     runs-on: ubuntu-latest
@@ -208,4 +208,4 @@ jobs:
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment delete-your-data \
-            delete-your-data=us.gcr.io/neon-law-production/law-job-resources:$GITHUB_SHA
+            delete-your-data=us.gcr.io/neon-law-production/delete-your-data:$GITHUB_SHA

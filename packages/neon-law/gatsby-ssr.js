@@ -18,7 +18,11 @@ export const onPreRenderHTML = (
 };
 
 export const onRenderBody = ({ setPostBodyComponents }) => {
-  if (process.env.NODE_ENV == 'development') {
+  if (
+    process.env.NODE_ENV == 'development' ||
+    process.env.GATSBY_ACTIVE_ENV == 'development' ||
+    process.env.GATSBY_ACTIVE_ENV == 'staging'
+  ) {
     return;
   }
 
@@ -34,6 +38,7 @@ export const onRenderBody = ({ setPostBodyComponents }) => {
       key="fathom"
       src="https://anglerfish.neonlaw.com/script.js"
       site="DUBLGHDJ"
+      excluded-domains="127.0.0.1,localhost,neonlaw.net"
       defer
     />
   ]);

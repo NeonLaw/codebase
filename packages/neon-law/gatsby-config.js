@@ -60,6 +60,13 @@ module.exports = {
     },
     {
       options: {
+        name: 'content',
+        path: `${__dirname}/src/templates/`,
+      },
+      resolve: 'gatsby-source-filesystem',
+    },
+    {
+      options: {
         background_color: '#000',
         display: 'standalone',
         icon: 'src/images/logo.png',

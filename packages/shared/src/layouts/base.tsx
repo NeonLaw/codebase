@@ -3,8 +3,6 @@ import React, { ReactChildren, useEffect } from 'react';
 
 import { AuthenticationProvider } from '../utils/authenticationContext';
 import { Background } from '../components/background';
-import { MDXComponents } from '../utils/mdxComponents';
-import { MDXProvider } from '@mdx-js/react';
 import { handleFirstTab } from '../utils/accessibility';
 import { theme } from '../themes/neonLaw';
 
@@ -24,9 +22,7 @@ export const BaseLayout: React.FC<{
       <ThemeProvider theme={theme}>
         <CSSReset />
         <ColorModeProvider>
-          <MDXProvider components={MDXComponents}>
-            <Background>{children}</Background>
-          </MDXProvider>
+          <Background>{children}</Background>
         </ColorModeProvider>
       </ThemeProvider>
     </AuthenticationProvider>

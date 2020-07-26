@@ -11,29 +11,29 @@ import React from 'react';
 export const SocialMediaIcons = ({ display }) => (
   <Box display={display} mb="7px">
     <Button
+      aria-label="Visit @NeonLaw on Twitter"
       as="a"
       href="https://www.twitter.com/neonlaw"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="@Neon Law on Twitter"
     >
       <FaTwitter style={{ display: 'inline' }} />
     </Button>
     <Button
+      aria-label="Visit the Neon Law Facebook page"
       as="a"
       href="https://www.facebook.com/neonlaw"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Neon Law Facebook page"
     >
       <FaFacebookF style={{ display: 'inline' }} />
     </Button>
     <Button
+      aria-label="Visit the Neon Law LinkedIn page"
       as="a"
       href="https://www.linkedin.com/company/neon-law"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Neon Law LinkedIn page"
     >
       <FaLinkedinIn style={{ display: 'inline' }} />
     </Button>

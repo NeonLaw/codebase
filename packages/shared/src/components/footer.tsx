@@ -72,6 +72,15 @@ export const Footer = () => {
           <Box as={Link} to="/bar-prep" padding="7px 0">
             {intl.formatMessage({ id: 'footer.bar_prep' })}
           </Box>
+          <Box as={Link} to="/templates" padding="7px 0">
+            Legal Templates
+          </Box>
+          <Box as={Link} to="/pgp" padding="7px 0">
+            PGP Key
+          </Box>
+        </Flex>
+        <Flex direction="column">
+          <LanguageDropdown />
           <Box
             as="a"
             href="https://neonlaw.zendesk.com/"
@@ -81,9 +90,6 @@ export const Footer = () => {
           >
             {intl.formatMessage({ id: 'footer.support' })}
           </Box>
-        </Flex>
-        <Flex direction="column">
-          <LanguageDropdown />
           <Box
             as="a"
             href="https://www.deleteyourdata.com"

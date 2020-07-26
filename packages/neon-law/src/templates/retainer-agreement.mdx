@@ -1,0 +1,129 @@
+---
+title: Retainer Agreement
+slug: /templates/retainer-agreement
+updatedAt: "2020-07-25"
+tags: templates,retainer-agreement
+layout: letter
+description: A Retainer Agreement
+---
+
+export const matter = {
+  shortDescription: "Buying a Home",
+  primaryContact: {
+    name: "Jane Smith",
+    email: "jane.smith@example.com"
+  },
+  primaryAttorney: {
+    name: "Nicholas Shook",
+    email: "nick@neonlaw.com",
+    hourlyRate: "$300"
+  },
+  jurisdictionCourt: '8th District Court',
+  jurisdiction: 'Nevada',
+  description: "Buying your first house at 123 Main Street.",
+  undertaking: "We are reviewing your sales contracts, and the seller's covenants."
+};
+
+export const Interpolation = ({ text }) => text || '';
+
+> This template uses the following scoped variables: <Interpolation text={JSON.stringify({ matter: matter })} />
+
+<LetterHeader from={matter.primaryAttorney} />
+
+Re: <Interpolation text={matter.shortDescription} />
+
+Dear <Interpolation text={matter.primaryContact.name} />:
+
+Thank you for selecting Neon Law to represent you with respect to:
+<Interpolation text={matter.description} />
+
+This letter will confirm our recent discussion regarding the scope and terms
+of our engagement.
+
+Our firm has agreed to represent you in the described matter above. While I
+will be personally supervising this legal matter, I anticipate that other
+lawyers and legal assistants in the firm will also be working on this matter.
+
+We will undertake the following work on your behalf:
+<Interpolation text={matter.undertaking} />
+
+## Payment and Invoicing
+
+You have agreed to pay for our services based on the time we spend working on
+the case. My current hourly rate is <Interpolation text={matter.primaryAttorney.hourlyRate} />.
+The rates of our associates currently range between $200 and $300 per hour.
+Legal assistants, who will be utilized where appropriate to avoid unnecessary
+attorney fees, are charged at $100 per hour. These rates are subject to change
+once a year, usually in December. Generally you will be billed for all time
+spent on your matter, including telephone calls and email.
+
+## Arbitration
+
+Any dispute, claim or controversy arising out of or relating to this
+Agreement or the breach, termination, enforcement, interpretation or validity
+thereof, including the determination of the scope or applicability of this
+agreement to arbitrate, shall be determined by arbitration in <Interpolation text={matter.jurisdiction} />&nbsp;
+before three arbitrators. The arbitration shall be administered by JAMS
+pursuant to its [Comprehensive Arbitration Rules and
+Procedures](https://www.jamsadr.com/rules-comprehensive-arbitration/)
+and in accordance with the
+[Expedited Procedures in those Rules](https://www.jamsadr.com/rules-comprehensive-arbitration/#Rule-16-1).
+Judgment on the Award may be entered in
+<Interpolation text={matter.jurisdictionCourt} />&nbsp;
+This clause shall not preclude parties from seeking provisional remedies in
+aid of arbitration from a court of appropriate jurisdiction.
+
+The parties agree that, wherever practicable, they will seek to appoint a
+fair representation of diverse arbitrators (considering gender, ethnicity and
+sexual orientation), and will request administering institutions to include a
+fair representation of diverse candidates on their rosters and list of
+potential arbitrator appointees.
+
+## No Guarantee
+
+I, Neon Law, or any of our associates cannot guarantee a successful
+conclusion in any case. However, we will use our best efforts on your behalf.
+
+## Associate Counsel
+
+Client agrees that the Firm may, at the Firm's option, participate in a
+division of fees in this case and assume joint responsibility for the
+representation of the Client, either in the event that the Firm retains
+associate counsel or that Client later chooses new counsel, provided that the
+total fee to the Client does not increase as a result of this division of
+fees and that the attorneys involved have agreed to the division of fees and
+assumption of joint responsibility.
+
+## Collection of Unpaid Fees
+
+In the event that Client or Third Party fails to pay the fees agreed to in
+this agreement, Firm is authorized to make all lawful collections efforts,
+including, but not limited to, the use of a collections agency. Client agrees
+to pay all attorneys fees and costs associated with any collection efforts.
+Client further agrees that in order to collect an overdue amounts, Firm may
+disclose information regarding Client's case and Client waives any
+confidentiality they may have so that Firm may do so.
+
+## Thank You
+
+On behalf of Neon Law, I am looking forward to representing you in this
+matter. If you have any questions, please contact me at your earliest
+convenience.
+
+**PLEASE READ THIS DOCUMENT CAREFULLY:**
+
+This Agreement is a formal legal contract for Attorney’s services. It
+protects both you and your attorney, is intended to prevent
+misunderstandings, and it may vary the law otherwise applicable to attorney’s
+liens and resolution of fee disputes. DO NOT SIGN THIS AGREEMENT UNTIL YOU
+HAVE READ IT THOROUGHLY AND ARE SURE YOU UNDERSTAND ITS TERMS. If you do not
+understand it or if it does not contain all the agreements discussed, please
+call it to our attention and be sure this written Agreement contains all
+terms you believe are in effect between us. You have an absolute right to
+discuss this agreement with independent counsel (or any other advisor) before
+entering into this agreement, and we encourage you to do so.
+
+<SignatureBlock
+  signingParty={matter.primaryContact}
+  counterSigningParty={matter.primaryAttorney}
+/>
