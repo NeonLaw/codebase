@@ -19,6 +19,10 @@ const StyledSection = styled(Box)`
       margin: 1rem 0;
     }
   }
+
+  h2 + p {
+    margin-bottom: ${gutters.small};
+  }
 `;
 
 export const Section = ({

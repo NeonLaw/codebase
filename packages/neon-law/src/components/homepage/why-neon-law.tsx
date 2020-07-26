@@ -1,8 +1,9 @@
-import { Box, PseudoBox, useColorMode } from '@chakra-ui/core';
+import { Box, PseudoBox, theme, useColorMode } from '@chakra-ui/core';
 import {
   colors,
   gutters,
   shadows,
+  sizes,
 } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
 import { Link } from '@neonlaw/shared-ui/src/components/link';
@@ -15,11 +16,25 @@ import styled from '@emotion/styled';
 const StyledReasons = styled.div`
   .reason {
     display: flex;
-    align-items: center;
+
+    @media (max-width: 1080px) {
+      flex-direction: column-reverse;
+    }
+
+    @media (min-width: 1081px) {
+      align-items: center;
+    }
 
     &__text {
       flex: 0 0 35%;
-      margin-right: ${gutters.largeOne};
+
+      @media (max-width: 1080px) {
+        max-width: ${sizes.textContainerSmallOne};
+      }
+
+      @media (min-width: 1081px) {
+        margin-right: ${gutters.largeOne};
+      }
     }
 
     h3 {
@@ -36,12 +51,31 @@ const StyledReasons = styled.div`
     }
 
     &__image {
-      min-height: 28rem;
+      min-height: 15rem;
+      width: 100%;
       background: url(${Placeholder});
       background-size: cover;
       background-position: center;
       flex: 1;
       box-shadow: ${shadows.light};
+
+      @media (min-width: 401px) {
+        min-height: 18rem;
+        max-width: 35rem;
+      }
+
+      @media (min-width: 601px) {
+        max-width: ${sizes.textContainerSmall};
+        min-height: 25rem;
+      }
+
+      @media (max-width: 1080px) {
+        margin-bottom: ${gutters.small};
+      }
+
+      @media (min-width: 1081px) {
+        min-height: 28rem;
+      }
     }
 
     &:not(:last-child) {
@@ -136,7 +170,7 @@ const WhyNeonLaw = () => {
                   },
                 }}
               >
-                Read More{' '}
+                Learn More{' '}
                 <Box as="span" fontFamily="sans-serif">
                   &nbsp;&rarr;
                 </Box>
