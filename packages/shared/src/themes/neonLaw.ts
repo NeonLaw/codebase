@@ -33,6 +33,10 @@ export const colors = {
   primaryButtonBgOnHover: { dark: 'cyan.300', light: 'cyan.500' },
   primaryButtonColor: { dark: 'black', light: 'white' },
   text: { dark: 'white', darkLight: '#eee', light: '#222' },
+  borders: {
+    light: theme.colors.gray[100],
+    dark: theme.colors.gray[700],
+  },
 };
 
 export const sizes = {
