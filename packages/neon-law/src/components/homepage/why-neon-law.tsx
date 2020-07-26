@@ -87,6 +87,10 @@ const StyledReasons = styled.div`
 
     &:not(:last-child) {
       margin-bottom: ${gutters.huge};
+
+      @media (max-width: 600px) {
+        margin-bottom: ${gutters.large};
+      }
     }
   }
 `;

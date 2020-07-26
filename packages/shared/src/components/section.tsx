@@ -8,6 +8,10 @@ import styled from '@emotion/styled';
 const StyledSection = styled(Box)`
   padding: ${gutters.largeOne} 0;
 
+  @media (max-width: 600px) {
+    padding: ${gutters.largeTwo} 0;
+  }
+
   h2 {
     &::after {
       content: '';
