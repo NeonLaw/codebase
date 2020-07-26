@@ -41,12 +41,19 @@ const StyledReasons = styled.div`
       font-weight: 300;
       font-size: 1.6rem;
       line-height: 1.3;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.65rem;
+      @media (max-width: 767px) {
+        font-size: 1.3rem;
+      }
 
       strong {
         display: block;
         font-weight: 400;
         font-size: 3rem;
+
+        @media (max-width: 767px) {
+          font-size: 1.9rem;
+        }
       }
     }
 

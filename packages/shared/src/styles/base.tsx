@@ -35,11 +35,19 @@ const BaseStyles = () => (
 
       h2 {
         font-size: ${theme.fontSizes['xl']};
+
+        @media (max-width: 767px) {
+          font-size: 2rem;
+        }
       }
 
       h3 {
         font-size: 2rem;
         margin-bottom: ${gutters.xSmall};
+
+        @media (max-width: 767px) {
+          font-size: 1.5rem;
+        }
       }
 
       /* ---------------------------------- */
