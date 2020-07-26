@@ -1,15 +1,16 @@
+import { Box, PseudoBox, useColorMode } from '@chakra-ui/core';
 import {
   colors,
   gutters,
   shadows,
 } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
+import { Link } from '@neonlaw/shared-ui/src/components/link';
 import Placeholder from '../../images/placeholder.jpg';
 import Placeholder1 from '../../images/placeholder-1.jpg';
 import React from 'react';
 import { Section } from '@neonlaw/shared-ui/src/components/section';
 import styled from '@emotion/styled';
-import { useColorMode } from '@chakra-ui/core';
 
 const StyledReasons = styled.div`
   .reason {
@@ -63,7 +64,7 @@ const reasons: ReasonProps[] = [
       </>
     ),
     text:
-      'We do not represent shady people and have fired clients after discovering they\'re racist, transphobic, sexist, or otherwise bad people.',
+      "We do not represent shady people and have fired clients after discovering they're racist, transphobic, sexist, or otherwise bad people.",
   },
   {
     title: (
@@ -107,6 +108,39 @@ const WhyNeonLaw = () => {
             <div className="reason__text">
               <h3>{reason.title}</h3>
               <p>{reason.text}</p>
+              <PseudoBox
+                as={Link}
+                position="relative"
+                display="inline-block"
+                marginTop={gutters.xSmall}
+                padding=".4rem .3rem"
+                borderBottom={`2px solid ${colors.cyanLight}`}
+                zIndex={1}
+                transition="all .2s"
+                _after={{
+                  content: '""',
+                  display: 'block',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: '100%',
+                  height: '100%',
+                  zIndex: -1,
+                  transition: 'all .2s',
+                }}
+                _hover={{
+                  color: colors.text[colorMode],
+                  '&::after': {
+                    right: 0,
+                    background: colors.cyanLight,
+                  },
+                }}
+              >
+                Read More{' '}
+                <Box as="span" fontFamily="sans-serif">
+                  &nbsp;&rarr;
+                </Box>
+              </PseudoBox>
             </div>
             <div
               className="reason__image"
