@@ -4,7 +4,7 @@ import { Section } from '@neonlaw/shared-ui/src/components/section';
 import { UnderlineLink } from '@neonlaw/shared-ui/src/utils/mdxComponents';
 import { sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
-const ProBono = () => (
+export const ProBono = () => (
   <Section>
     <h2 className="heading--underlined">Pro Bono</h2>
     <Box as="p" maxWidth={sizes.textContainerSmall}>
@@ -30,5 +30,3 @@ const ProBono = () => (
     </Box>
   </Section>
 );
-
-export default ProBono;

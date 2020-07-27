@@ -1,5 +1,3 @@
-import { Box } from '@chakra-ui/core';
-import { Container } from '@neonlaw/shared-ui/src/components/container';
 import React from 'react';
 import { Section } from '@neonlaw/shared-ui/src/components/section';
 import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';

@@ -30,7 +30,7 @@ const StyledExperience = styled.div`
   }
 `;
 
-const Experience = () => (
+export const Experience = () => (
   <Section>
     <StyledExperience>
       <div className="box">

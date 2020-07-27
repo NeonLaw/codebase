@@ -1,15 +1,15 @@
 import { Banner } from '../components/homepage/banner';
-import Experience from '../components/homepage/experience';
-import GetStarted from '@neonlaw/shared-ui/src/components/get-started';
-import InAction from '../components/homepage/in-action';
-import ProBono from '../components/homepage/pro-bono';
+import { Experience } from '../components/homepage/experience';
+import { GetStarted } from '@neonlaw/shared-ui/src/components/get-started';
+import { InAction } from '../components/homepage/in-action';
+import { ProBono } from '../components/homepage/pro-bono';
 import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
 import React from 'react';
 import { Seo } from '../components/seo';
 import { SocialProofLogos } from '../components/homepage/social-proof-logos';
-import Testimonials from '../components/homepage/testimonials';
-import WhatWeCanHelpWith from '../components/homepage/what-we-can-help-with';
-import WhyNeonLaw from '../components/homepage/why-neon-law';
+import { Testimonials } from '../components/homepage/testimonials';
+import { WhatWeCanHelpWith } from '../components/homepage/what-we-can-help-with';
+import { WhyNeonLaw } from '../components/homepage/why-neon-law';
 
 const Home = () => (
   <PublicLayout>

@@ -4,7 +4,7 @@ import { colors, gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
 import InActionBG from '../../images/in-action-bg.jpg';
 import React from 'react';
 
-const InAction = () => (
+export const InAction = () => (
   <Box
     as="section"
     textAlign="center"
@@ -22,5 +22,3 @@ const InAction = () => (
     </Text>
   </Box>
 );
-
-export default InAction;
