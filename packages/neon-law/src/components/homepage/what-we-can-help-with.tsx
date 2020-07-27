@@ -116,6 +116,13 @@ const WhatWeCanHelpWith = () => (
               width: '100%',
             },
           }}
+          _focus={{
+            '&:after': {
+              right: '0',
+              opacity: '.2',
+              width: '100%',
+            },
+          }}
         >
           <Heading as="h3" fontWeight="400">
             {feature.text}
