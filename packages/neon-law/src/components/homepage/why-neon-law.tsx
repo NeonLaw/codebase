@@ -140,11 +140,7 @@ const reasons: ReasonProps[] = [
 const WhyNeonLaw = () => {
   const { colorMode } = useColorMode();
   return (
-    <Section
-      styles={{
-        backgroundColor: `${colors.lighterBg[colorMode]}`,
-      }}
-    >
+    <Section>
       <h2 className="heading--underlined">Why Neon Law?</h2>
       <p>A justice-first approach to law and litigation.</p>
       <StyledReasons>

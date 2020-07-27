@@ -8,6 +8,7 @@ import React from 'react';
 import { Section } from '@neonlaw/shared-ui/src/components/section';
 import { Seo } from '../components/seo';
 import { SocialProofLogos } from '../components/homepage/social-proof-logos';
+import Testimonials from '../components/homepage/testimonials';
 import { UnderlineLink } from '@neonlaw/shared-ui/src/utils/mdxComponents';
 import WhatWeCanHelpWith from '../components/homepage/what-we-can-help-with';
 import WhyNeonLaw from '../components/homepage/why-neon-law';
@@ -24,6 +25,7 @@ const Home = () => (
       />
       <WhyNeonLaw />
       <WhatWeCanHelpWith />
+      <Testimonials />
       <SocialProofLogos />
       <InAction />
       <Experience />
