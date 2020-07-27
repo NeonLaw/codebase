@@ -23,8 +23,8 @@ const Home = () => (
       />
       <WhyNeonLaw />
       <WhatWeCanHelpWith />
-      <InAction />
       <SocialProofLogos />
+      <InAction />
       <Section>
         <h2 className="heading--underlined">Pro Bono</h2>
         <Box as="p" maxWidth={sizes.textContainerSmall}>
