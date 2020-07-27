@@ -1,12 +1,14 @@
 import { Heading, List, ListItem, Text } from '@chakra-ui/core';
+
 import React from 'react';
+import { Section } from './section';
 import { questions } from '../components/upwardMobilityQuestions';
 import { useIntl } from 'gatsby-plugin-intl';
 
 export const FinishUpwardMobilityQuestionnaire = () => {
   const intl = useIntl();
   const savedAnswers: any = JSON.parse(
-    localStorage.getItem('upwardMobility.answers') as any || {}
+    (localStorage.getItem('upwardMobility.answers') as any) || {}
   );
   const answeredQuestionIds: string[] = Object.keys(savedAnswers);
 
@@ -24,26 +26,27 @@ export const FinishUpwardMobilityQuestionnaire = () => {
 
   return (
     <>
-      <Heading textAlign="center">
-        {intl.formatMessage({ id: 'finishUpwardMQ.heading' })}
-      </Heading>
+      <Section>
+        <Heading as="h3" marginTop="4.5rem">
+          {intl.formatMessage({ id: 'finishUpwardMQ.heading' })}
+        </Heading>
 
-      <Text margin="2em 0">
-        {intl.formatMessage({ id: 'finishUpwardMQ.text' })}
-      </Text>
+        <Text margin="2em 0">
+          {intl.formatMessage({ id: 'finishUpwardMQ.text' })}
+        </Text>
 
-      <List marginLeft="2em">
-        {answers.map((question, i) => (
-          <ListItem key={i} margin="2em 0">
-            <Text>
-              {question.prompt}
-            </Text>
-            <Text marginLeft="2em">
-              {question.answer}
-            </Text>
-          </ListItem>
-        ))}
-      </List>
+        <List>
+          {answers.map((question, i) => (
+            <ListItem key={i} margin="2em 0">
+              <Text>{question.prompt}</Text>
+              <Text>
+                Answer:{' '}
+                <span style={{ fontWeight: 500 }}>{question.answer}</span>
+              </Text>
+            </ListItem>
+          ))}
+        </List>
+      </Section>
     </>
   );
 };

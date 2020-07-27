@@ -1,20 +1,12 @@
 import { Box, Progress } from '@chakra-ui/core';
 import { decisionTree, questions } from '../components/upwardMobilityQuestions';
-import {
-  BeginUpwardMobilityQuestionnaire
-} from '../components/beginUpwardMobilityQuestionnaire';
-import {
-  FinishUpwardMobilityQuestionnaire
-} from '../components/finishUpwardMobilityQuestionnaire';
+
+import { BeginUpwardMobilityQuestionnaire } from '../components/beginUpwardMobilityQuestionnaire';
+import { FinishUpwardMobilityQuestionnaire } from '../components/finishUpwardMobilityQuestionnaire';
 import React from 'react';
-import {
-  SingleChoiceQuestion
-} from '../components/questions/singleChoiceQuestion';
+import { SingleChoiceQuestion } from '../components/questions/singleChoiceQuestion';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useParams } from '@reach/router';
-
-
-
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export const UpwardMobilityQuestionnaire = (props: any) => {
@@ -30,7 +22,6 @@ export const UpwardMobilityQuestionnaire = (props: any) => {
   };
 
   const basePath = '/upward-mobility';
-
 
   const { questionId } = useParams();
 
@@ -48,9 +39,7 @@ export const UpwardMobilityQuestionnaire = (props: any) => {
 
   if (!question || !question.prompt) {
     return (
-      <span>
-        {intl.formatMessage({ id: 'upwardMQ.missing_question' })}
-      </span>
+      <span>{intl.formatMessage({ id: 'upwardMQ.missing_question' })}</span>
     );
   }
 
@@ -92,7 +81,7 @@ export const UpwardMobilityQuestionnaire = (props: any) => {
     <>
       <Box borderWidth="1px" rounded="lg">
         <Progress value={calculateProgress(question.id, decisionTree)} />
-        <Box padding="1em 3em">
+        <Box>
           {question.questionType == 'single-choice' && (
             <SingleChoiceQuestion
               updateAnswers={updateAnswers}

@@ -1,12 +1,12 @@
 import { Heading, Text } from '@chakra-ui/core';
+
 import { Button } from '@neonlaw/shared-ui/src/components/button';
 import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
 import React from 'react';
 import { Router } from '@reach/router';
+import { Section } from '@neonlaw/shared-ui/src/components/section';
 import { Seo } from '../components/seo';
-import {
-  UpwardMobilityQuestionnaire
-} from '@neonlaw/shared-ui/src/components/upwardMobilityQuestionnaire';
+import { UpwardMobilityQuestionnaire } from '@neonlaw/shared-ui/src/components/upwardMobilityQuestionnaire';
 import { navigate } from 'gatsby-plugin-intl';
 import { useIntl } from 'gatsby-plugin-intl';
 
@@ -17,17 +17,21 @@ const UpwardMobilityHome = (props) => {
   return (
     <>
       <Seo title="Upward Mobility" />
-      <Heading textAlign="center">
-        {intl.formatMessage({ id: 'pages_upward_mobility.heading' })}
-      </Heading>
-      <Text margin="2em 0">
-        {intl.formatMessage({ id: 'pages_upward_mobility.text' })}
-      </Text>
-      <Button
-        onClick={() => { navigate('/upward-mobility/begin'); }}
-      >
-        {intl.formatMessage({ id: 'pages_upward_mobility.button_takeQ' })}
-      </Button>
+      <Section>
+        <Heading as="h2" marginTop="4.5rem">
+          {intl.formatMessage({ id: 'pages_upward_mobility.heading' })}
+        </Heading>
+        <Text margin="2em 0">
+          {intl.formatMessage({ id: 'pages_upward_mobility.text' })}
+        </Text>
+        <Button
+          onClick={() => {
+            navigate('/upward-mobility/begin');
+          }}
+        >
+          {intl.formatMessage({ id: 'pages_upward_mobility.button_takeQ' })}
+        </Button>
+      </Section>
     </>
   );
 };
