@@ -11,7 +11,7 @@
   "devDependencies": {
     "@graphql-codegen/cli": "^1.17.4",
     "@graphql-codegen/typescript": "^1.17.4",
-    "@graphql-codegen/typescript-operations": "^1.17.0",
+    "@graphql-codegen/typescript-operations": "^1.17.6",
     "@graphql-codegen/typescript-react-apollo": "^1.17.0",
     "@testing-library/cypress": "^6.0.0",
     "@testing-library/jest-dom": "^5.11.1",
