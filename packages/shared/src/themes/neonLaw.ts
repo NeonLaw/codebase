@@ -19,8 +19,8 @@ export const theme = Object.assign(chakraTheme, {
 
 export const colors = {
   background: { dark: theme.colors.gray[800], light: 'white' },
-  lighterBg: { dark: theme.colors.gray[700], light: theme.colors.gray[50] },
   borderLight: { dark: theme.colors.gray[800], light: theme.colors.gray[50] },
+  lighterBg: { dark: theme.colors.gray[700], light: theme.colors.gray[50] },
   cyanDark: theme.colors.cyan[900],
   cyanDark1: theme.colors.cyan[800],
   cyanLight: theme.colors.cyan[400],
@@ -34,8 +34,8 @@ export const colors = {
   primaryButtonColor: { dark: 'black', light: 'white' },
   text: { dark: 'white', darkLight: '#eee', light: '#222' },
   borders: {
-    light: theme.colors.gray[100],
     dark: theme.colors.gray[700],
+    light: theme.colors.gray[100],
   },
 };
 

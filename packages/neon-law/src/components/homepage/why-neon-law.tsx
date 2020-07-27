@@ -151,29 +151,30 @@ const WhyNeonLaw = () => {
               <p>{reason.text}</p>
               <PseudoBox
                 as={Link}
-                position="relative"
+                borderBottom={`2px solid ${colors.cyanLight}`}
                 display="inline-block"
                 marginTop={gutters.xSmall}
                 padding=".4rem .3rem"
-                borderBottom={`2px solid ${colors.cyanLight}`}
-                zIndex={1}
+                position="relative"
                 transition="all .2s"
+                zIndex={1}
                 _after={{
                   content: '""',
                   display: 'block',
+                  height: '100%',
+                  left: 0,
                   position: 'absolute',
                   top: 0,
-                  left: 0,
                   right: '100%',
-                  height: '100%',
-                  zIndex: -1,
                   transition: 'all .2s',
+                  zIndex: -1,
                 }}
                 _hover={{
+                  boxShadow: shadows.light1,
                   color: colors.text[colorMode],
                   '&::after': {
-                    right: 0,
                     background: colors.cyanLight,
+                    right: 0,
                   },
                 }}
               >

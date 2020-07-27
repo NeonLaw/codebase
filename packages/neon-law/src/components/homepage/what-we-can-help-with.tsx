@@ -46,7 +46,7 @@ const features = [
     image: Afford,
   },
   {
-    text: "I'm starting a business.",
+    text: 'I\'m starting a business.',
     image: Bussiness,
   },
   {
@@ -64,7 +64,7 @@ const features = [
     image: Divorce,
   },
   {
-    text: "What if I'm not here tomorrow?",
+    text: 'What if I\'m not here tomorrow?',
     image: Dead,
   },
   //   {
