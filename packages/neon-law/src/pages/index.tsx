@@ -1,5 +1,6 @@
 import { Banner } from '../components/homepage/banner';
 import { Box } from '@chakra-ui/core';
+import Experience from '../components/homepage/experience';
 import GetStarted from '@neonlaw/shared-ui/src/components/get-started';
 import InAction from '../components/homepage/in-action';
 import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
@@ -25,6 +26,7 @@ const Home = () => (
       <WhatWeCanHelpWith />
       <SocialProofLogos />
       <InAction />
+      <Experience />
       <Section>
         <h2 className="heading--underlined">Pro Bono</h2>
         <Box as="p" maxWidth={sizes.textContainerSmall}>
