@@ -60,7 +60,7 @@ export const UnderlineLink = (props) => {
 
   return (
     <PseudoBox
-      as="span"
+      as={Link}
       color={colors.link[colorMode]}
       cursor="pointer"
       textDecoration="underline"
