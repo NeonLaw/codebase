@@ -35,7 +35,7 @@ const BaseStyles = () => (
 
       h2 {
         font-size: ${theme.fontSizes['xl']};
-        font-weight: 400 !important;
+        font-weight: 400;
 
         @media (max-width: 767px) {
           font-size: 2rem;
@@ -44,7 +44,7 @@ const BaseStyles = () => (
 
       h3 {
         font-size: 2rem;
-        font-weight: 400 !important;
+        font-weight: 400;
         margin-bottom: ${gutters.xSmall};
 
         @media (max-width: 767px) {

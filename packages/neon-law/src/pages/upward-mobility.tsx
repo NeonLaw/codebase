@@ -18,7 +18,7 @@ const UpwardMobilityHome = (props) => {
     <>
       <Seo title="Upward Mobility" />
       <Section>
-        <Heading as="h2" marginTop="4.5rem">
+        <Heading as="h2" fontWeight="normal" marginTop="4.5rem">
           {intl.formatMessage({ id: 'pages_upward_mobility.heading' })}
         </Heading>
         <Text margin="2em 0">

@@ -13,7 +13,7 @@ export const BeginUpwardMobilityQuestionnaire = () => {
   return (
     <>
       <Section>
-        <Heading marginTop="4.5rem">
+        <Heading fontWeight="normal" marginTop="4.5rem">
           {intl.formatMessage({ id: 'beginUpwardMQ.heading' })}
         </Heading>
 

@@ -19,8 +19,6 @@ export const PublicLayout: React.FC = ({ children }) => {
                 <PublicNavigationBar />
                 <Box flex={1}>
                   <Breadcrumbs />
-                  {/* todo re-add padding="8em 0 4em 0" to all the pages + todo
-                      re-add the container to all the pages. */}
                   {children}
                 </Box>
               </>

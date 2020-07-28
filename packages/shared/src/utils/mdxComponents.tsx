@@ -121,28 +121,18 @@ export const MDXComponents = {
   ),
   br: (props) => <Box height="24px" {...props} />,
   code: CodeBlock,
-  h1: (props) => (
-    <Heading as="h1" size="xl" margin="1em 0" textAlign="center" {...props} />
-  ),
+  h1: (props) => <Heading as="h1" size="xl" margin="1em 0" {...props} />,
   h2: (props) => (
     <Heading
       as="h2"
-      fontWeight="semibold"
-      size="lg"
-      margin="1em 0"
-      textAlign="center"
+      fontWeight="normal"
+      fontSize="xl1"
+      margin=".5em 0"
       {...props}
     />
   ),
   h3: (props) => (
-    <Heading
-      as="h3"
-      size="md"
-      margin="1em 0"
-      textAlign="center"
-      fontWeight="medium"
-      {...props}
-    />
+    <Heading as="h3" margin="1em 0" fontWeight="normal" {...props} />
   ),
   hr: (props) => <Box as="hr" borderTopWidth="1px" my={8} {...props} />,
   inlineCode: (props) => (

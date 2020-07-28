@@ -27,7 +27,7 @@ export const FinishUpwardMobilityQuestionnaire = () => {
   return (
     <>
       <Section>
-        <Heading as="h3" marginTop="4.5rem">
+        <Heading as="h3" fontWeight="normal" marginTop="4.5rem">
           {intl.formatMessage({ id: 'finishUpwardMQ.heading' })}
         </Heading>
 

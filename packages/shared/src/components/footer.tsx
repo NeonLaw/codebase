@@ -29,7 +29,7 @@ export const Footer = () => {
     >
       <Section>
         <Box maxWidth={sizes.textContainerSmall}>
-          <Heading as="h3" fontWeight="medium">
+          <Heading as="h3" fontWeight="normal">
             {intl.formatMessage({ id: 'footer.heading' })}
           </Heading>
           <Text>{intl.formatMessage({ id: 'footer.text' })}</Text>
