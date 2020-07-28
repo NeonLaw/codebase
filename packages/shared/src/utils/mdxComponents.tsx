@@ -128,9 +128,8 @@ export const MDXComponents = {
     <Heading
       as="h2"
       fontWeight="semibold"
-      size="lg"
-      margin="1em 0"
-      textAlign="center"
+      fontSize="xl1"
+      margin=".5em 0"
       {...props}
     />
   ),

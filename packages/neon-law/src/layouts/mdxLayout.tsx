@@ -15,6 +15,7 @@ import { PublicNavigationBar } from '@neonlaw/shared-ui/src/components/navigatio
 import { Seo } from '../components/seo';
 import { ShareButtons } from '@neonlaw/shared-ui/src/components/shareButtons';
 import { graphql } from 'gatsby';
+import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
 import { publicClient } from '@neonlaw/shared-ui/src/utils/authenticationContext';
 import { useSiteMetadata } from '../components/hooks';
 
@@ -55,7 +56,12 @@ const MdxLayout: React.FC<{
                 >
                   <Container>
                     <Breadcrumbs />
-                    <Heading textAlign="center" as="h1">
+                    <Heading
+                      as="h1"
+                      fontSize="xl"
+                      marginBottom={gutters.xSmall}
+                      fontWeight="400"
+                    >
                       {title}
                     </Heading>
                     {featuredImage && (

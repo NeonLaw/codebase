@@ -8,7 +8,7 @@ import React from 'react';
 export const DesktopHalfMobileFullCard = ({ children, to }) => {
   return (
     <Box
-      flex={['0 0 100%', '0 0 100%', '0 0 100%', '0 50%']}
+      flex={['0 0 100%', '0 0 100%', '0 0 100%', '0 48%']}
       cursor="pointer"
       as={Link}
       to={to}
@@ -18,7 +18,7 @@ export const DesktopHalfMobileFullCard = ({ children, to }) => {
         borderWidth="1px"
         rounded="lg"
         overflow="hidden"
-        margin={['1em', '1em', '2em']}
+        margin={['1em 0', '1em 0', '2em 0']}
       >
         {children}
       </Box>
