@@ -144,24 +144,24 @@ export const Footer = () => {
             </Flex>
             <Box display={['none', 'none', 'flex']} />
           </Flex>
+          <Box paddingBottom="1em">
+            <Text textAlign="center">
+              Copyright &copy; {new Date().getFullYear()} Shook Law PLLC
+            </Text>
+            <Text textAlign="center">
+              This website is monitored with&nbsp;
+              <a
+                style={{ cursor: 'pointer', textDecoration: 'underline' }}
+                href={fathomLink}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Fathom Analytics
+              </a>
+              .
+            </Text>
+          </Box>
         </Container>
-        <Box paddingBottom="1em" bg={bg[colorMode]}>
-          <Text textAlign="center">
-            Copyright &copy; {new Date().getFullYear()} Shook Law PLLC
-          </Text>
-          <Text textAlign="center">
-            This website is monitored with&nbsp;
-            <a
-              style={{ cursor: 'pointer', textDecoration: 'underline' }}
-              href={fathomLink}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Fathom Analytics
-            </a>
-            .
-          </Text>
-        </Box>
       </Box>
     </Box>
   );
