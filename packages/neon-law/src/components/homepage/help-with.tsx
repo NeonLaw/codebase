@@ -48,6 +48,8 @@ export const HelpWith = ({ image, text }: HelpWithProps) => (
       },
     }}
   >
-    <Heading as="h3">{text}</Heading>
+    <Heading as="h3" fontWeight="normal">
+      {text}
+    </Heading>
   </PseudoBox>
 );
