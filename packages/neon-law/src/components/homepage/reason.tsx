@@ -41,7 +41,6 @@ const StyledReason = styled.div`
   }
 
   h3 {
-    font-weight: 300;
     font-size: 1.6rem;
     line-height: 1.3;
     margin-bottom: 0.65rem;
