@@ -8,7 +8,13 @@ import { PublicNavigationBar } from '../components/navigationBars/public';
 import React from 'react';
 import { publicClient } from '../utils/authenticationContext';
 
-export const PublicLayout: React.FC = ({ children }) => {
+export const PublicLayout = ({
+  children,
+  isFooterWhite,
+}: {
+  children: JSX.Element | JSX.Element[];
+  isFooterWhite?: boolean;
+}) => {
   return (
     <Flex minHeight="100vh" direction="column">
       <AuthenticationContext.Consumer>
@@ -26,7 +32,7 @@ export const PublicLayout: React.FC = ({ children }) => {
           );
         }}
       </AuthenticationContext.Consumer>
-      <Footer />
+      <Footer isWhite={isFooterWhite} />
     </Flex>
   );
 };

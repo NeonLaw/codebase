@@ -12,7 +12,7 @@ import { Section } from './section';
 import { SocialMediaIcons } from './socialMediaIcons';
 import { useIntl } from 'gatsby-plugin-intl';
 
-export const Footer = () => {
+export const Footer = ({ isWhite }: { isWhite: boolean | undefined }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
   const intl = useIntl();
@@ -21,8 +21,9 @@ export const Footer = () => {
 
   return (
     <Box
-      bg={colors.lighterBg[colorMode]}
       color={color[colorMode]}
+      bg={!isWhite ? colors.lighterBg[colorMode] : null}
+      borderTop={`1px solid ${colors.borders[colorMode]}`}
       width="100%"
       textAlign="left"
       as="footer"
