@@ -49,12 +49,8 @@ export const questions = [
     questionType: 'single-choice'
   },
   {
-    choices: [
-      '1 day ago',
-      '2 days ago'
-    ],
     id: 'when-did-you-file-for-bankruptcy',
     prompt: 'When did you file for bankruptcy?',
-    questionType: 'single-choice'
+    questionType: 'single-date'
   }
 ];
