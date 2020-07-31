@@ -18,10 +18,10 @@ export const matter = {
     email: "nick@neonlaw.com",
     hourlyRate: "$300"
   },
-  jurisdictionCourt: '8th District Court',
+  jurisdictionCourt: 'the 8th District Court of the State of Nevada',
   jurisdiction: 'Nevada',
   description: "Buying your first house at 123 Main Street.",
-  undertaking: "We are reviewing your sales contracts, and the seller's covenants."
+  undertaking: "We are reviewing your sales contracts and the seller's covenants."
 };
 
 export const Interpolation = ({ text }) => text || '';
@@ -53,9 +53,9 @@ You have agreed to pay for our services based on the time we spend working on
 the case. My current hourly rate is <Interpolation text={matter.primaryAttorney.hourlyRate} />.
 The rates of our associates currently range between $200 and $300 per hour.
 Legal assistants, who will be utilized where appropriate to avoid unnecessary
-attorney fees, are charged at $100 per hour. These rates are subject to change
+attorney fees are charged at $100 per hour. These rates are subject to change
 once a year, usually in December. Generally you will be billed for all time
-spent on your matter, including telephone calls and email.
+spent on your matter, including telephone calls and emails.
 
 ## Arbitration
 
@@ -100,7 +100,7 @@ In the event that Client or Third Party fails to pay the fees agreed to in
 this agreement, Firm is authorized to make all lawful collections efforts,
 including, but not limited to, the use of a collections agency. Client agrees
 to pay all attorneys fees and costs associated with any collection efforts.
-Client further agrees that in order to collect an overdue amounts, Firm may
+Client further agrees that in order to collect any overdue amounts, Firm may
 disclose information regarding Client's case and Client waives any
 confidentiality they may have so that Firm may do so.
 

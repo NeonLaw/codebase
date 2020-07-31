@@ -11,6 +11,9 @@ import React from 'react';
 import {
   SingleChoiceQuestion
 } from '../components/questions/singleChoiceQuestion';
+import {
+  SingleDateQuestion
+} from '../components/questions/singleDateQuestion';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useParams } from '@reach/router';
 
@@ -87,13 +90,22 @@ export const UpwardMobilityQuestionnaire = (props: any) => {
     <>
       <Box borderWidth="1px" rounded="lg">
         <Progress value={calculateProgress(question.id, decisionTree)} />
-        <Box>
-          {question.questionType == 'single-choice' && (
+        <Box padding="1em 3em">
+          {question.questionType === 'single-choice' && (
             <SingleChoiceQuestion
               updateAnswers={updateAnswers}
               questionnairePath={basePath}
               prompt={question.prompt}
-              choices={question.choices}
+              choices={question.choices || []}
+              id={question.id}
+              decisionTree={decisionTree}
+            />
+          )}
+          {question.questionType === 'single-date' && (
+            <SingleDateQuestion
+              updateAnswers={updateAnswers}
+              questionnairePath={basePath}
+              prompt={question.prompt}
               id={question.id}
               decisionTree={decisionTree}
             />

@@ -1,3 +1,10 @@
 version: "2"
 exclude_patterns:
   - "packages/shared/src/utils/api.tsx"
+  - "packages/delete-your-data/gatsby-*"
+  - "packages/law-job-resources/gatsby-*"
+  - "packages/neon-law/gatsby-*"
+  - "packages/justice-for-rickie-slaughter/gatsby-*"
+  - "**/*.png"
+  - "**/*.pdf"
+  - "**/*.jpg"
