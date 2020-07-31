@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+/* eslint-enable */
 import { Heading, PseudoBox, theme } from '@chakra-ui/core';
 
 import { Link } from '@neonlaw/shared-ui/src/components/link';
@@ -16,7 +19,7 @@ export const HelpWith = ({ image, text }: HelpWithProps) => (
     padding="5rem 3rem"
     display="block"
     background={`
-      linear-gradient(rgba(0, 0, 0, 0.45), rgba(0,0,0, 1)), 
+      linear-gradient(rgba(0, 0, 0, 0.45), rgba(0,0,0, 1)),
       url(${image})
     `}
     backgroundSize="cover"
