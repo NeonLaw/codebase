@@ -4,7 +4,7 @@ import { Link } from '@neonlaw/shared-ui/src/components/link';
 import React from 'react';
 
 export interface HelpWithProps {
-  text: string | JSX.Element;
+  text: string;
   image: string;
 }
 
@@ -48,8 +48,10 @@ export const HelpWith = ({ image, text }: HelpWithProps) => (
       },
     }}
   >
-    <Heading as="h3" fontWeight="normal">
-      {text}
-    </Heading>
+    <Heading
+      as="h3"
+      fontWeight="normal"
+      dangerouslySetInnerHTML={{ __html: text }}
+    />
   </PseudoBox>
 );

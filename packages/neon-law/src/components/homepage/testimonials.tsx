@@ -3,6 +3,7 @@ import { Testimonial, TestimonialProps } from './testimonial';
 import React from 'react';
 import { Section } from '@neonlaw/shared-ui/src/components/section';
 import styled from '@emotion/styled';
+import { useIntl } from 'gatsby-plugin-intl';
 
 const StyledTestimonials = styled.div`
   display: flex;
@@ -10,33 +11,31 @@ const StyledTestimonials = styled.div`
   justify-content: space-between;
 `;
 
-const testimonails: TestimonialProps[] = [
-  {
-    quote:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ex adipisci blanditiis quis quidem ducimus providen.',
-    author: 'Jhon Doe',
-  },
-  {
-    quote:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ex adipisci blanditiis quis quidem ducimus providen.',
-    author: 'Jhon Doe',
-  },
-  {
-    quote:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ex adipisci blanditiis quis quidem ducimus providen.',
-    author: 'Jhon Doe',
-  },
-  {
-    quote:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ex adipisci blanditiis quis quidem ducimus providen.',
-    author: 'Jhon Doe',
-  },
-];
-
 export const Testimonials = () => {
+  const intl = useIntl();
+
+  const testimonails: TestimonialProps[] = [
+    {
+      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
+      author: intl.formatMessage({ id: 'testimonials.quote1.author' }),
+    },
+    {
+      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
+      author: intl.formatMessage({ id: 'testimonials.quote1.author' }),
+    },
+    {
+      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
+      author: intl.formatMessage({ id: 'testimonials.quote1.author' }),
+    },
+    {
+      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
+      author: intl.formatMessage({ id: 'testimonials.quote1.author' }),
+    },
+  ];
+
   return (
     <Section>
-      <h2>What People say about us?</h2>
+      <h2>{intl.formatMessage({ id: 'testimonials.title' })}</h2>
       <StyledTestimonials>
         {testimonails.map((t: TestimonialProps, i: any) => (
           <Testimonial key={t.author + i} {...t} />

@@ -12,81 +12,86 @@ import Injured from '../../images/what-we-can-help-with/injured.jpg';
 import React from 'react';
 import Rights from '../../images/what-we-can-help-with/rights-violated.jpg';
 import { Section } from '@neonlaw/shared-ui/src/components/section';
+import { useIntl } from 'gatsby-plugin-intl';
 
-const features: HelpWithProps[] = [
-  {
-    text: (
-      <>
-        I've been <br />
-        injured.
-      </>
-    ),
-    image: Injured,
-  },
-  {
-    text: 'I have immigration issues.',
-    image: Immigration,
-  },
-  {
-    text: (
-      <>
-        I'm in a lot of <br />
-        debt.
-      </>
-    ),
-    image: Debt,
-  },
-  {
-    text: (
-      <>
-        I can't afford a <br />
-        lawyer.
-      </>
-    ),
-    image: Afford,
-  },
-  {
-    text: 'I\'m starting a business.',
-    image: Bussiness,
-  },
-  {
-    text: (
-      <>
-        I've been
-        <br />
-        hacked.
-      </>
-    ),
-    image: Hacked,
-  },
-  {
-    text: 'My partner and I want a divorce.',
-    image: Divorce,
-  },
-  {
-    text: 'What if I\'m not here tomorrow?',
-    image: Dead,
-  },
-  //   {
-  //     text: 'I want to buy a home.',
-  //   },
-  {
-    text: 'My rights have been violated.',
-    image: Rights,
-  },
-];
+export const WhatWeCanHelpWith = () => {
+  const intl = useIntl();
+  const features: HelpWithProps[] = [
+    {
+      text: intl.formatMessage({
+        id: 'we_can_help_with.injured',
+      }),
+      image: Injured,
+    },
+    {
+      text: intl.formatMessage({
+        id: 'we_can_help_with.immigration',
+      }),
+      image: Immigration,
+    },
+    {
+      text: intl.formatMessage({
+        id: 'we_can_help_with.debt',
+      }),
+      image: Debt,
+    },
+    {
+      text: intl.formatMessage({
+        id: 'we_can_help_with.afford',
+      }),
+      image: Afford,
+    },
+    {
+      text: intl.formatMessage({
+        id: 'we_can_help_with.bussiness',
+      }),
+      image: Bussiness,
+    },
+    {
+      text: intl.formatMessage({
+        id: 'we_can_help_with.hacked',
+      }),
+      image: Hacked,
+    },
+    {
+      text: intl.formatMessage({
+        id: 'we_can_help_with.divorce',
+      }),
+      image: Divorce,
+    },
+    {
+      text: intl.formatMessage({
+        id: 'we_can_help_with.dead',
+      }),
+      image: Dead,
+    },
+    // {
+    //   text: intl.formatMessage({
+    //     id: 'we_can_help_with.buy_a_home',
+    //   }),
+    // },
+    {
+      text: intl.formatMessage({
+        id: 'we_can_help_with.rights',
+      }),
+      image: Rights,
+    },
+  ];
 
-export const WhatWeCanHelpWith = () => (
-  <Section>
-    <h2 className="heading--underlined">What We can help with?</h2>
-    <Box
-      display="grid"
-      gridGap="1rem"
-      gridTemplateColumns="repeat(auto-fill, minmax(300px, 1fr))"
-    >
-      {features.map((feature: HelpWithProps, i: number) => (
-        <HelpWith key={feature.text + `${i}`} {...feature} />
-      ))}
-    </Box>
-  </Section>
-);
+  return (
+    <Section>
+      <h2 className="heading--underlined">
+        {intl.formatMessage({ id: 'we_can_help_with.title' })}
+      </h2>
+      <Box
+        display="grid"
+        gridGap="1rem"
+        gridTemplateColumns="repeat(auto-fill, minmax(300px, 1fr))"
+      >
+        {features.map((feature: HelpWithProps, i: number) => (
+          <HelpWith key={feature.text + `${i}`} {...feature} />
+        ))}
+      </Box>
+    </Section>
+  );
+};

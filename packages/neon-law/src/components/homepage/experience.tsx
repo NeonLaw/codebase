@@ -3,6 +3,7 @@ import { colors, gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
 import React from 'react';
 import { Section } from '@neonlaw/shared-ui/src/components/section';
 import styled from '@emotion/styled';
+import { useIntl } from 'gatsby-plugin-intl';
 
 const StyledExperience = styled.div`
   display: flex;
@@ -30,23 +31,42 @@ const StyledExperience = styled.div`
   }
 `;
 
-export const Experience = () => (
-  <Section>
-    <StyledExperience>
-      <div className="box">
-        <h3>0,000+</h3>
-        <p>client engagements Lorem, ipsum dolor sit amet dolor.</p>
-      </div>
-      <div className="box">
-        <h3>10+ Years</h3>
-        <p>of average experience among our lawyers, Lorem ipsum dolor.</p>
-      </div>
-      <div className="box">
-        <h3>99%</h3>
-        <p>of clients say they would recommend NeonLaw. Lorem ipsum dolor.</p>
-      </div>
-    </StyledExperience>
-  </Section>
-);
+export const Experience = () => {
+  const intl = useIntl();
+
+  const experiences = [
+    {
+      title: intl.formatMessage({ id: 'experience.client_engagements.title' }),
+      text: intl.formatMessage({ id: 'experience.client_engagements.text' }),
+    },
+    {
+      title: intl.formatMessage({ id: 'experience.years.title' }),
+      text: intl.formatMessage({ id: 'experience.years.text' }),
+    },
+    {
+      title: intl.formatMessage({
+        id: 'experience.recommendation_percentage.title',
+      }),
+      text: intl.formatMessage({
+        id: 'experience.recommendation_percentage.text',
+      }),
+    },
+  ];
+
+  return (
+    <Section>
+      <StyledExperience>
+        {experiences.map(
+          ({ title, text }: { title: string; text: string }, i: number) => (
+            <div key={title} className="box">
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          )
+        )}
+      </StyledExperience>
+    </Section>
+  );
+};
 
 export default Experience;

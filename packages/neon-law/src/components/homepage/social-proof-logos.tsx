@@ -2,6 +2,7 @@ import React from 'react';
 import { Section } from '@neonlaw/shared-ui/src/components/section';
 import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
 import styled from '@emotion/styled';
+import { useIntl } from 'gatsby-plugin-intl';
 
 const StyledLogosContainer = styled.div`
   display: flex;
@@ -109,11 +110,15 @@ const orgs: Org[] = [
   },
 ];
 
-export const SocialProofLogos = () => (
-  <Section>
-    <h2>We've worked with</h2>
-    <StyledLogosContainer>
-      {orgs.map((org: Org) => org.logo)}
-    </StyledLogosContainer>
-  </Section>
-);
+export const SocialProofLogos = () => {
+  const intl = useIntl();
+
+  return (
+    <Section>
+      <h2>{intl.formatMessage({ id: 'worked_with.title' })}</h2>
+      <StyledLogosContainer>
+        {orgs.map((org: Org) => org.logo)}
+      </StyledLogosContainer>
+    </Section>
+  );
+};

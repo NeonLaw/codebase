@@ -10,9 +10,10 @@ import { Link } from '@neonlaw/shared-ui/src/components/link';
 import Placeholder from '../../images/placeholder.jpg';
 import React from 'react';
 import styled from '@emotion/styled';
+import { useIntl } from 'gatsby-plugin-intl';
 
 export interface ReasonProps {
-  title: string | JSX.Element;
+  title: string;
   text: string;
   image?: string;
 }
@@ -99,10 +100,12 @@ const StyledReason = styled.div`
 export const Reason = ({ title, text, image }: ReasonProps) => {
   const { colorMode } = useColorMode();
 
+  const intl = useIntl();
+
   return (
     <StyledReason>
       <div className="text">
-        <h3>{title}</h3>
+        <h3 dangerouslySetInnerHTML={{ __html: title }} />
         <p>{text}</p>
         <PseudoBox
           as={Link}
@@ -133,7 +136,7 @@ export const Reason = ({ title, text, image }: ReasonProps) => {
             },
           }}
         >
-          Learn More{' '}
+          {intl.formatMessage({ id: 'why_neon_law.btn_text' })}{' '}
           <Box as="span" fontFamily="sans-serif">
             &nbsp;&rarr;
           </Box>

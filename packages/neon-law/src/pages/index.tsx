@@ -14,18 +14,20 @@ import { WhatWeCanHelpWith } from '../components/homepage/what-we-can-help-with'
 import { WhyNeonLaw } from '../components/homepage/why-neon-law';
 import { colors } from '@neonlaw/shared-ui/src/themes/neonLaw';
 import { useColorMode } from '@chakra-ui/core';
+import { useIntl } from 'gatsby-plugin-intl';
 
 const Home = () => {
   const { colorMode } = useColorMode();
+  const intl = useIntl();
 
   return (
     <PublicLayout isFooterWhite={true}>
       <>
         <Seo title="Homepage" />
         <Banner
-          title="Lawyers Invested in Making Tomorrow Better than Today"
-          text="Our goal is singular - your upward mobility. Join the thousands of people who have entrusted us with providing legal solutions to make their lives better."
-          buttonText="Schedule a Free Consultation Now"
+          title={intl.formatMessage({ id: 'banner.title' })}
+          text={intl.formatMessage({ id: 'banner.text' })}
+          buttonText={intl.formatMessage({ id: 'banner.btn_text' })}
         />
         <Global
           styles={css`
