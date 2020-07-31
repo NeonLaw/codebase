@@ -10,7 +10,9 @@ import React from 'react';
 import { Seo } from '../components/seo';
 import { SocialProofLogos } from '../components/homepage/social-proof-logos';
 import { Testimonials } from '../components/homepage/testimonials';
-import { WhatWeCanHelpWith } from '../components/homepage/what-we-can-help-with';
+import {
+  WhatWeCanHelpWith
+} from '../components/homepage/what-we-can-help-with';
 import { WhyNeonLaw } from '../components/homepage/why-neon-law';
 import { colors } from '@neonlaw/shared-ui/src/themes/neonLaw';
 import { useColorMode } from '@chakra-ui/core';

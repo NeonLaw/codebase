@@ -15,35 +15,38 @@ export const HelpWith = ({ image, text }: HelpWithProps) => (
     position="relative"
     padding="5rem 3rem"
     display="block"
-    background={`linear-gradient(rgba(0, 0, 0, 0.45), rgba(0,0,0, 1)), url(${image})`}
+    background={`
+      linear-gradient(rgba(0, 0, 0, 0.45), rgba(0,0,0, 1)), 
+      url(${image})
+    `}
     backgroundSize="cover"
     backgroundPosition="center"
     color={theme.colors.white}
     textAlign="center"
     _after={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: '100%',
+      background: 'cyan',
       content: '""',
       display: 'block',
       height: '100%',
-      width: '0%',
-      background: 'cyan',
+      left: 0,
       opacity: 0,
+      position: 'absolute',
+      right: '100%',
+      top: 0,
       transition: 'all .3s ease-in',
+      width: '0%',
     }}
     _hover={{
       '&:after': {
-        right: '0',
         opacity: '.2',
+        right: '0',
         width: '100%',
       },
     }}
     _focus={{
       '&:after': {
-        right: '0',
         opacity: '.2',
+        right: '0',
         width: '100%',
       },
     }}

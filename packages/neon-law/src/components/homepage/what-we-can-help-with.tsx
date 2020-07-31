@@ -18,52 +18,52 @@ export const WhatWeCanHelpWith = () => {
   const intl = useIntl();
   const features: HelpWithProps[] = [
     {
+      image: Injured,
       text: intl.formatMessage({
         id: 'we_can_help_with.injured',
       }),
-      image: Injured,
     },
     {
+      image: Immigration,
       text: intl.formatMessage({
         id: 'we_can_help_with.immigration',
       }),
-      image: Immigration,
     },
     {
+      image: Debt,
       text: intl.formatMessage({
         id: 'we_can_help_with.debt',
       }),
-      image: Debt,
     },
     {
+      image: Afford,
       text: intl.formatMessage({
         id: 'we_can_help_with.afford',
       }),
-      image: Afford,
     },
     {
+      image: Bussiness,
       text: intl.formatMessage({
         id: 'we_can_help_with.bussiness',
       }),
-      image: Bussiness,
     },
     {
+      image: Hacked,
       text: intl.formatMessage({
         id: 'we_can_help_with.hacked',
       }),
-      image: Hacked,
     },
     {
+      image: Divorce,
       text: intl.formatMessage({
         id: 'we_can_help_with.divorce',
       }),
-      image: Divorce,
     },
     {
+      image: Dead,
       text: intl.formatMessage({
         id: 'we_can_help_with.dead',
       }),
-      image: Dead,
     },
     // {
     //   text: intl.formatMessage({
@@ -71,10 +71,10 @@ export const WhatWeCanHelpWith = () => {
     //   }),
     // },
     {
+      image: Rights,
       text: intl.formatMessage({
         id: 'we_can_help_with.rights',
       }),
-      image: Rights,
     },
   ];
 

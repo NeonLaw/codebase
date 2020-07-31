@@ -122,18 +122,18 @@ export const Reason = ({ title, text, image }: ReasonProps) => {
             height: '100%',
             left: 0,
             position: 'absolute',
-            top: 0,
             right: '100%',
+            top: 0,
             transition: 'all .2s',
             zIndex: -1,
           }}
           _hover={{
-            boxShadow: shadows.light1,
-            color: colors.text[colorMode],
             '&::after': {
               background: colors.cyanLight,
               right: 0,
             },
+            boxShadow: shadows.light1,
+            color: colors.text[colorMode],
           }}
         >
           {intl.formatMessage({ id: 'why_neon_law.btn_text' })}{' '}

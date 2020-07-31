@@ -12,7 +12,7 @@ import { Section } from './section';
 import { SocialMediaIcons } from './socialMediaIcons';
 import { useIntl } from 'gatsby-plugin-intl';
 
-export const Footer = ({ isWhite }: { isWhite: boolean | undefined }) => {
+export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
   const intl = useIntl();

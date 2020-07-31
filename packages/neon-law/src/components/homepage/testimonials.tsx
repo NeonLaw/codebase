@@ -16,20 +16,20 @@ export const Testimonials = () => {
 
   const testimonails: TestimonialProps[] = [
     {
-      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
       author: intl.formatMessage({ id: 'testimonials.quote1.author' }),
+      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
     },
     {
-      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
       author: intl.formatMessage({ id: 'testimonials.quote1.author' }),
+      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
     },
     {
-      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
       author: intl.formatMessage({ id: 'testimonials.quote1.author' }),
+      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
     },
     {
-      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
       author: intl.formatMessage({ id: 'testimonials.quote1.author' }),
+      quote: intl.formatMessage({ id: 'testimonials.quote1.text' }),
     },
   ];
 

@@ -36,19 +36,19 @@ export const Experience = () => {
 
   const experiences = [
     {
-      title: intl.formatMessage({ id: 'experience.client_engagements.title' }),
       text: intl.formatMessage({ id: 'experience.client_engagements.text' }),
+      title: intl.formatMessage({ id: 'experience.client_engagements.title' }),
     },
     {
-      title: intl.formatMessage({ id: 'experience.years.title' }),
       text: intl.formatMessage({ id: 'experience.years.text' }),
+      title: intl.formatMessage({ id: 'experience.years.title' }),
     },
     {
-      title: intl.formatMessage({
-        id: 'experience.recommendation_percentage.title',
-      }),
       text: intl.formatMessage({
         id: 'experience.recommendation_percentage.text',
+      }),
+      title: intl.formatMessage({
+        id: 'experience.recommendation_percentage.title',
       }),
     },
   ];
@@ -57,7 +57,7 @@ export const Experience = () => {
     <Section>
       <StyledExperience>
         {experiences.map(
-          ({ title, text }: { title: string; text: string }, i: number) => (
+          ({ title, text }: { title: string; text: string }) => (
             <div key={title} className="box">
               <h3>{title}</h3>
               <p>{text}</p>

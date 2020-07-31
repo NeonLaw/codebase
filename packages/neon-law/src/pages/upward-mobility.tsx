@@ -6,7 +6,9 @@ import React from 'react';
 import { Router } from '@reach/router';
 import { Section } from '@neonlaw/shared-ui/src/components/section';
 import { Seo } from '../components/seo';
-import { UpwardMobilityQuestionnaire } from '@neonlaw/shared-ui/src/components/upwardMobilityQuestionnaire';
+import {
+  UpwardMobilityQuestionnaire
+} from '@neonlaw/shared-ui/src/components/upwardMobilityQuestionnaire';
 import { navigate } from 'gatsby-plugin-intl';
 import { useIntl } from 'gatsby-plugin-intl';
 

@@ -12,7 +12,10 @@ export const InAction = () => {
     <Box
       as="section"
       textAlign="center"
-      background={`linear-gradient(rgba(0,0,0, .7), rgba(0,0,0, .9)),url(${InActionBG})`}
+      background={`
+        linear-gradient(rgba(0,0,0, .7), rgba(0,0,0, .9)),
+        url(${InActionBG})
+      `}
       backgroundSize="cover"
       backgroundPosition="center"
       backgroundAttachment="fixed"

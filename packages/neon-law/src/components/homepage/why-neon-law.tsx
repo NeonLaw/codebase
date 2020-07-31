@@ -10,26 +10,26 @@ export const WhyNeonLaw = () => {
 
   const reasons: ReasonProps[] = [
     {
+      text: intl.formatMessage({ id: 'why_neon_law.good_people.text' }),
       title: intl.formatMessage({
         id: 'why_neon_law.good_people.title',
       }),
-      text: intl.formatMessage({ id: 'why_neon_law.good_people.text' }),
     },
     {
+      image: Placeholder1,
+      text: intl.formatMessage({ id: 'why_neon_law.good_causes.text' }),
       title: intl.formatMessage({
         id: 'why_neon_law.good_causes.title',
       }),
-      text: intl.formatMessage({ id: 'why_neon_law.good_causes.text' }),
-      image: Placeholder1,
     },
     {
-      title: intl.formatMessage({
-        id: 'why_neon_law.tech-to-make-affordable.title',
-      }),
+      image: Placeholder1,
       text: intl.formatMessage({
         id: 'why_neon_law.tech-to-make-affordable.text',
       }),
-      image: Placeholder1,
+      title: intl.formatMessage({
+        id: 'why_neon_law.tech-to-make-affordable.title',
+      }),
     },
   ];
   return (

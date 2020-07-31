@@ -2,7 +2,9 @@ import { Box, Divider, Flex, Heading } from '@chakra-ui/core';
 import React, { ReactChildren } from 'react';
 
 import { ApolloProvider } from '@apollo/client';
-import { AuthenticationContext } from '@neonlaw/shared-ui/src/utils/authenticationContext';
+import {
+  AuthenticationContext
+} from '@neonlaw/shared-ui/src/utils/authenticationContext';
 import { Breadcrumbs } from '@neonlaw/shared-ui/src/components/breadcrumbs';
 import { Container } from '@neonlaw/shared-ui/src/components/container';
 import { EditOnGithub } from '@neonlaw/shared-ui/src/components/editOnGithub';
@@ -11,12 +13,16 @@ import { Image } from '../components/image';
 import { MDXComponents } from '@neonlaw/shared-ui/src/utils/mdxComponents';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { PublicNavigationBar } from '@neonlaw/shared-ui/src/components/navigationBars/public';
+import {
+  PublicNavigationBar
+} from '@neonlaw/shared-ui/src/components/navigationBars/public';
 import { Seo } from '../components/seo';
 import { ShareButtons } from '@neonlaw/shared-ui/src/components/shareButtons';
 import { graphql } from 'gatsby';
 import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
-import { publicClient } from '@neonlaw/shared-ui/src/utils/authenticationContext';
+import {
+  publicClient
+} from '@neonlaw/shared-ui/src/utils/authenticationContext';
 import { useSiteMetadata } from '../components/hooks';
 
 const MdxLayout: React.FC<{

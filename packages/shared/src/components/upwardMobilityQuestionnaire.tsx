@@ -1,10 +1,16 @@
 import { Box, Progress } from '@chakra-ui/core';
 import { decisionTree, questions } from '../components/upwardMobilityQuestions';
 
-import { BeginUpwardMobilityQuestionnaire } from '../components/beginUpwardMobilityQuestionnaire';
-import { FinishUpwardMobilityQuestionnaire } from '../components/finishUpwardMobilityQuestionnaire';
+import {
+  BeginUpwardMobilityQuestionnaire
+} from '../components/beginUpwardMobilityQuestionnaire';
+import {
+  FinishUpwardMobilityQuestionnaire
+} from '../components/finishUpwardMobilityQuestionnaire';
 import React from 'react';
-import { SingleChoiceQuestion } from '../components/questions/singleChoiceQuestion';
+import {
+  SingleChoiceQuestion
+} from '../components/questions/singleChoiceQuestion';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useParams } from '@reach/router';
 

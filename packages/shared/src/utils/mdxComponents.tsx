@@ -15,7 +15,9 @@ import {
 } from '@chakra-ui/core';
 
 import { CodeBlock } from '../components/codeBlock';
-import { DesktopHalfMobileFullCard } from '../components/desktopHalfMobileFullCard';
+import {
+  DesktopHalfMobileFullCard
+} from '../components/desktopHalfMobileFullCard';
 import { Link } from '../components/link';
 import { PublicLayout } from '../layouts/publicLayout';
 import React from 'react';
