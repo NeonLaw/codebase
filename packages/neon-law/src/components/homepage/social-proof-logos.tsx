@@ -42,7 +42,6 @@ const orgs: Org[] = [
   {
     logo: (
       <svg
-        id="prefix__Layer_1"
         x={0}
         y={0}
         viewBox="0 0 2000 700"
@@ -57,7 +56,6 @@ const orgs: Org[] = [
   {
     logo: (
       <svg
-        id="prefix__Layer_1"
         x={0}
         y={0}
         viewBox="0 0 2000 700"
@@ -72,7 +70,6 @@ const orgs: Org[] = [
   {
     logo: (
       <svg
-        id="prefix__Layer_1"
         x={0}
         y={0}
         viewBox="0 0 2000 700"
@@ -86,7 +83,6 @@ const orgs: Org[] = [
   {
     logo: (
       <svg
-        id="prefix__Layer_1"
         x={0}
         y={0}
         viewBox="0 0 2000 700"
@@ -100,7 +96,6 @@ const orgs: Org[] = [
   {
     logo: (
       <svg
-        id="prefix__Layer_1"
         x={0}
         y={0}
         viewBox="0 0 2000 700"

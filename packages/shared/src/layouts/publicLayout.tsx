@@ -25,7 +25,9 @@ export const PublicLayout = ({
                 <PublicNavigationBar />
                 <Box flex={1}>
                   <Breadcrumbs />
-                  {children}
+                  <main role="main">
+                    {children}
+                  </main>
                 </Box>
               </>
             </ApolloProvider>

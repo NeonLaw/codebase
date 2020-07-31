@@ -14,8 +14,7 @@ interface BannerProps {
 
 export const Banner = ({ title, text, buttonText }: BannerProps) => (
   <Box
-    as="header"
-    role="banner"
+    as="section"
     display="flex"
     alignItems="center"
     maxHeight="1200px"

@@ -41,6 +41,7 @@ export const BaseNavigationBar = ({
   return (
     <>
       <Flex
+        as="header"
         position="fixed"
         bg="black"
         color="white"
@@ -54,7 +55,6 @@ export const BaseNavigationBar = ({
         </Text>
       </Flex>
       <Box
-        as="header"
         top="2em"
         position="fixed"
         zIndex={4}

@@ -55,7 +55,6 @@ const MdxLayout: React.FC<{
                 <PublicNavigationBar />
                 <Box
                   as="main"
-                  role="main"
                   aria-label="Main Content"
                   flex={1}
                   padding="8em 0 4em 0"
