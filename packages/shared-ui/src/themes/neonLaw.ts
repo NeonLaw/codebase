@@ -27,6 +27,10 @@ export const colors = {
   cyanDark: theme.colors.cyan[900],
   cyanDark1: theme.colors.cyan[800],
   cyanLight: theme.colors.cyan[400],
+  inputBorders: {
+    dark: theme.colors.gray[700],
+    light: theme.colors.gray[300],
+  },
   lighterBg: { dark: theme.colors.gray[700], light: theme.colors.gray[50] },
   link: { dark: 'cyan.400', light: 'cyan.800' },
   primaryButtonBg: {

@@ -4,7 +4,7 @@ import { colors, gutters } from '../themes/neonLaw';
 import React from 'react';
 import { theme } from '@chakra-ui/core';
 
-const BaseStyles = () => (
+const BaseStyles = (): JSX.Element => (
   <Global
     styles={css`
       /* ---------------------------------- */
@@ -23,6 +23,21 @@ const BaseStyles = () => (
 
       body {
         font-size: ${theme.fontSizes.md};
+      }
+
+      .nav-content {
+        &-desktop {
+          display: none;
+          @media (min-width: 1201px) {
+            display: flex;
+          }
+        }
+
+        &-mobile {
+          @media (min-width: 1201px) {
+            display: none !important;
+          }
+        }
       }
 
       /* ---------------------------------- */

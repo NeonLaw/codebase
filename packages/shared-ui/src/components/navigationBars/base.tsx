@@ -25,6 +25,7 @@ import { AuthenticationContext } from '../../utils/authenticationContext';
 import { Container } from '../container';
 import { Link } from '../../components/link';
 import { MdDehaze } from 'react-icons/md';
+import { Search } from './search';
 import { colors } from '../../themes/neonLaw';
 import { useIntl } from 'gatsby-plugin-intl';
 
@@ -79,9 +80,11 @@ export const BaseNavigationBar = ({
               <img src="/images/logo.svg" alt="Neon Law" />
             </Box>
 
+            <Search version="desktop" />
+
             <Flex flexGrow={1} align="center" justify="flex-end">
               {links.map((link, i) => (
-                <Box display={['none', 'none', 'flex']} key={i} mr="0.5em">
+                <Box className="nav-content-desktop" key={i} mr="0.5em">
                   <PseudoBox
                     as={Link}
                     cursor="pointer"
@@ -115,10 +118,10 @@ export const BaseNavigationBar = ({
                 </Box>
               ))}
               {menus.map((menu, i) => (
-                <Box display={['none', 'none', 'flex']} key={i} mr="0.5em">
+                <Box className="nav-content-desktop" key={i} mr="0.5em">
                   <Menu>
                     <MenuButton as={Button} rightIcon="chevron-down">
-                      {menu.title}
+                      !!!{menu.title}
                     </MenuButton>
                     <MenuList placement="bottom-end">
                       {menu.links.map((link, j) => (
@@ -142,7 +145,7 @@ export const BaseNavigationBar = ({
                     <Button
                       bg="transparent"
                       border="1px"
-                      display={['none', 'none', 'flex']}
+                      className="nav-content-desktop"
                       disabled={loginButtonDisabled}
                       onClick={() => {
                         disableLoginButton(true);
@@ -155,7 +158,7 @@ export const BaseNavigationBar = ({
                 }}
               </AuthenticationContext.Consumer>
               <IconButton
-                display={{ md: 'none', sm: 'inline-flex' }}
+                className="nav-content-mobile"
                 aria-label="Navigation Menu"
                 fontSize="20px"
                 variant="ghost"
