@@ -1,6 +1,6 @@
 version: "2"
 exclude_patterns:
-  - "packages/shared/src/utils/api.tsx"
+  - "packages/shared-ui/src/utils/api.tsx"
   - "packages/delete-your-data/gatsby-*"
   - "packages/law-job-resources/gatsby-*"
   - "packages/neon-law/gatsby-*"
