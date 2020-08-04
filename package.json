@@ -27,7 +27,7 @@
     "@types/jsonwebtoken": "^8.5.0",
     "@types/node": "^14.0.27",
     "@types/yup": "^0.29.3",
-    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
     "@typescript-eslint/parser": "^3.7.1",
     "axe-core": "^3.5.5",
     "babel-jest": "^26.2.2",
