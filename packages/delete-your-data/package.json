@@ -29,7 +29,7 @@
     "gatsby-plugin-manifest": "^2.4.22",
     "gatsby-plugin-mdx": "^1.2.34",
     "gatsby-plugin-module-resolver": "^1.0.3",
-    "gatsby-plugin-offline": "^3.2.21",
+    "gatsby-plugin-offline": "^3.2.22",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-robots-txt": "^1.5.1",
     "gatsby-plugin-sharp": "^2.6.23",
