@@ -3,6 +3,7 @@
 describe('Visiting /', function () {
   it('renders a link to the contact form', function () {
     cy.visit('/');
-    cy.contains('Contact').click();
+    cy.get('button.nav-content-mobile').click();
+    cy.get('nav[aria-label="Main navigation"]').contains('Contact').click();
   });
 });
