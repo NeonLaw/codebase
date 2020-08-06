@@ -18,7 +18,7 @@
     "apollo-link-context": "^1.0.20",
     "emotion-theming": "^10.0.27",
     "eslint-plugin-jsdoc": "^30.1.0",
-    "graphql-tag": "^2.10.4",
+    "graphql-tag": "^2.11.0",
     "isomorphic-fetch": "^2.2.1",
     "jwt-decode": "^2.2.0",
     "namor": "^2.0.2",

@@ -33,7 +33,7 @@
     "gatsby-source-filesystem": "^2.3.23",
     "gatsby-source-graphql": "^2.6.2",
     "gatsby-transformer-sharp": "^2.5.11",
-    "graphql-tag": "^2.10.4",
+    "graphql-tag": "^2.11.0",
     "qs": "^6.9.4",
     "query-string": "^6.13.1",
     "react": "^16.13.1",
