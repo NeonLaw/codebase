@@ -46,6 +46,7 @@ services:
     restart: always
     depends_on:
       - shell
+      - api
     ports:
       - 8000:8000
     volumes: *javascript-volumes
@@ -59,6 +60,7 @@ services:
     restart: always
     depends_on:
       - shell
+      - api
     ports:
       - 5000:8000
     volumes: *javascript-volumes
@@ -72,6 +74,7 @@ services:
     restart: always
     depends_on:
       - shell
+      - api
     ports:
       - 7000:8000
     volumes: *javascript-volumes
@@ -85,6 +88,7 @@ services:
     restart: always
     depends_on:
       - shell
+      - api
     ports:
       - 6000:8000
     volumes: *javascript-volumes

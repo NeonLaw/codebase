@@ -59,6 +59,20 @@ This starts the following containers:
 * A Language Tool server for grammar correction in your Editor. We recommend
   VSCode and the Language Tool extension for VSCode.
 
+You can start a subset of services with Docker Compose if you do not need to
+run all of the applications. For instance, if you just wanted to start the
+API server, you could run:
+
+```
+docker-compose up api
+```
+
+or if you just wanted a shell environment, you could run:
+
+```
+docker-compose exec -it shell /bin/bash
+```
+
 ## Authentication
 
 This application uses Auth0 with two tenants, one for staging/development, and
