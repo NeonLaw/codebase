@@ -9837,10 +9837,10 @@ google-gax@^2.1.0:
     semver "^6.0.0"
     walkdir "^0.4.0"
 
-google-map-react@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/google-map-react/-/google-map-react-2.0.4.tgz#65a82c049f29fccb82c6edf5473c1b70d425cc7e"
-  integrity sha512-zlyFv3p1zWi8sKSDmSNehEnNPjCxlLslxek2iRMTv4yAxI1bCBp3zBpXEM3xC5juNLBj79l760H1qjn95wRKWA==
+google-map-react@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/google-map-react/-/google-map-react-2.0.8.tgz#94362aac6084fc3a4ef37e79d466f7f721fb4ece"
+  integrity sha512-hZRAD6636i5C/rnYnn8jLlcJRmqIva5K5R1AYeD3xjevlOOwbZ5qKAPbB4yPqahsrz8Yv2fZGzdvWAZk+ppCag==
   dependencies:
     "@mapbox/point-geometry" "^0.1.0"
     eventemitter3 "^4.0.4"
