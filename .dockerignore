@@ -1,6 +1,7 @@
 .cache
 build
 node_modules
+node_modules/
 public
 README.md
 neon_law.egg-info
