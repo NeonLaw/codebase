@@ -16,7 +16,7 @@ RUN yarn install --ignore-optional --silent
 RUN cp -vr packages/shared-ui/fonts packages/$APP_NAME/static
 RUN cd packages/$APP_NAME && yarn build
 
-RUN awk "{gsub(/DOMAIN_NAME/, \"$DOMAIN_NAME\"); print}" staging.nginx.conf > docker.nginx.conf
+RUN awk "{gsub(/DOMAIN_NAME/, \"$DOMAIN_NAME\"); print}" ./docker/staging.nginx.conf > docker.nginx.conf
 
 FROM nginx
 ARG APP_NAME
