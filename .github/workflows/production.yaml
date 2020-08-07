@@ -8,7 +8,7 @@ on:
       - development
 
 jobs:
-  deploy_neon_law_production:
+  deploy_interface_production:
     runs-on: ubuntu-latest
 
     steps:
@@ -35,7 +35,7 @@ jobs:
             --build-arg GATSBY_AUTH0_DOMAIN="$GATSBY_AUTH0_DOMAIN" \
             --build-arg GATSBY_AUTH0_CLIENT_ID="$GATSBY_AUTH0_CLIENT_ID" \
             --build-arg GATSBY_ACTIVE_ENV=production \
-            --build-arg APP_NAME=neon-law \
+            --build-arg APP_NAME=interface \
             --build-arg DOMAIN_NAME=www.neonlaw.com \
             -f docker/production.interface.Dockerfile \
             .
