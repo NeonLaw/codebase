@@ -27,7 +27,6 @@ describe('Visiting /portal', () => {
         cy.get('[data-testid="portal-profile-form-name"]').type(name);
 
         cy.get('[data-testid="portal-profile-form-submit"]').click();
-        cy.wait(5000);
 
         cy.get('[data-testid="portal-profile-form-name"]').
           invoke('val').
