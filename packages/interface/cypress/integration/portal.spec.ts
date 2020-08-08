@@ -17,6 +17,7 @@ describe('Visiting /portal', () => {
       cy.loginAsPortalUser().then(() => {
         cy.visit('/portal');
         cy.contains('Profile').click();
+        cy.reload();
         cy.url().should('include', '/portal/profile');
         cy.get('[data-testid="portal-profile-form-name"]').
           invoke('val').
