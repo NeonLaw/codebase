@@ -73,8 +73,8 @@ jobs:
   interface_e2e_test_suite:
     runs-on: ubuntu-latest
     env:
-      AUTH0_CLIENT_ID: ${{ secrets.LOGIC_AUTH0_CLIENT_ID }}
-      AUTH0_CLIENT_SECRET: ${{ secrets.LOGIC_AUTH0_CLIENT_SECRET }}
+      AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH_CLIENT_ID }}
+      AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH_CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v2
       - name: Run Cypress tests with built application
@@ -85,8 +85,6 @@ jobs:
           wait-on-timeout: 1200
           working-directory: ./packages/interface
         env:
-          AUTH0_AUTH_CLIENT_ID: ${{ secrets.CYPRESS_AUTH_CLIENT_ID }}
-          AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH_CLIENT_SECRET }}
           CYPRESS_AUTH_CLIENT_ID: ${{ secrets.CYPRESS_AUTH_CLIENT_ID }}
           CYPRESS_AUTH_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH_CLIENT_SECRET }}
           CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
