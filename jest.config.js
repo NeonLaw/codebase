@@ -3,7 +3,7 @@ module.exports = {
     __PATH_PREFIX__: '',
   },
   moduleNameMapper: {
-    '.+\\.(css|styl|less|sass|scss)$': 'identity-obj-proxy',
+    '.+\\.(css)$': 'identity-obj-proxy',
     '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|)$':
       '<rootDir>/__mocks__/file-mock.js',
   },

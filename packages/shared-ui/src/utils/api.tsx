@@ -1,14 +1,9 @@
-/* eslint-disable */
-// @ts-nocheck
-/* eslint-enable */
-import gql from 'graphql-tag';
 import * as React from 'react';
-import * as ApolloReactCommon from '@apollo/client';
-import * as ApolloReactComponents from '@apollo/client';
-import * as ApolloReactHoc from '@apollo/client';
-import * as ApolloReactHooks from '@apollo/client';
+import * as Apollo from '@apollo/client';
+import * as ApolloReactComponents from '@apollo/client/react/components';
 export type Maybe<T> = T | null;
-export type Exact<T extends { [key: string]: any }> = { [K in keyof T]: T[K] };
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+const gql = Apollo.gql;
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -886,6 +881,8 @@ export enum PeopleOrderBy {
   IdDesc = 'ID_DESC',
   EmailAsc = 'EMAIL_ASC',
   EmailDesc = 'EMAIL_DESC',
+  SubAsc = 'SUB_ASC',
+  SubDesc = 'SUB_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -902,6 +899,7 @@ export type Person = Node & {
   role: Scalars['String'];
   email: Scalars['String'];
   picture?: Maybe<Scalars['String']>;
+  sub: Scalars['String'];
   /** Reads and enables pagination through a set of `QuestionnaireResponse`. */
   questionnaireResponsesByPersonId: QuestionnaireResponsesConnection;
 };
@@ -921,6 +919,7 @@ export type PersonQuestionnaireResponsesByPersonIdArgs = {
 export type PersonPatch = {
   /** The name of a person */
   name?: Maybe<Scalars['String']>;
+  sub?: Maybe<Scalars['String']>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -1774,17 +1773,13 @@ export type AllFlashcardsQueryVariables = Exact<{
 
 export type AllFlashcardsQuery = (
   { __typename?: 'Query' }
-  & {
-    allFlashcards?: Maybe<(
-      { __typename?: 'FlashcardsConnection' }
-      & {
-        nodes: Array<(
-          { __typename?: 'Flashcard' }
-          & Pick<Flashcard, 'id' | 'prompt' | 'answer' | 'topic'>
-        )>
-      }
-    )>
-  }
+  & { allFlashcards?: Maybe<(
+    { __typename?: 'FlashcardsConnection' }
+    & { nodes: Array<(
+      { __typename?: 'Flashcard' }
+      & Pick<Flashcard, 'id' | 'prompt' | 'answer' | 'topic'>
+    )> }
+  )> }
 );
 
 export type CreateFlashcardMutationVariables = Exact<{
@@ -1796,17 +1791,13 @@ export type CreateFlashcardMutationVariables = Exact<{
 
 export type CreateFlashcardMutation = (
   { __typename?: 'Mutation' }
-  & {
-    createFlashcard?: Maybe<(
-      { __typename?: 'CreateFlashcardPayload' }
-      & {
-        flashcard?: Maybe<(
-          { __typename?: 'Flashcard' }
-          & Pick<Flashcard, 'id' | 'answer' | 'prompt' | 'topic'>
-        )>
-      }
-    )>
-  }
+  & { createFlashcard?: Maybe<(
+    { __typename?: 'CreateFlashcardPayload' }
+    & { flashcard?: Maybe<(
+      { __typename?: 'Flashcard' }
+      & Pick<Flashcard, 'id' | 'answer' | 'prompt' | 'topic'>
+    )> }
+  )> }
 );
 
 export type CurrentUserQueryVariables = Exact<{ [key: string]: never; }>;
@@ -1814,12 +1805,10 @@ export type CurrentUserQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type CurrentUserQuery = (
   { __typename?: 'Query' }
-  & {
-    getCurrentUser?: Maybe<(
-      { __typename?: 'Person' }
-      & Pick<Person, 'id' | 'name' | 'email' | 'picture' | 'role'>
-    )>
-  }
+  & { getCurrentUser?: Maybe<(
+    { __typename?: 'Person' }
+    & Pick<Person, 'id' | 'name' | 'email' | 'picture' | 'role'>
+  )> }
 );
 
 export type UpdatePersonByIdMutationVariables = Exact<{
@@ -1830,17 +1819,13 @@ export type UpdatePersonByIdMutationVariables = Exact<{
 
 export type UpdatePersonByIdMutation = (
   { __typename?: 'Mutation' }
-  & {
-    updatePersonById?: Maybe<(
-      { __typename?: 'UpdatePersonPayload' }
-      & {
-        person?: Maybe<(
-          { __typename?: 'Person' }
-          & Pick<Person, 'id' | 'name'>
-        )>
-      }
-    )>
-  }
+  & { updatePersonById?: Maybe<(
+    { __typename?: 'UpdatePersonPayload' }
+    & { person?: Maybe<(
+      { __typename?: 'Person' }
+      & Pick<Person, 'id' | 'name'>
+    )> }
+  )> }
 );
 
 
@@ -1858,23 +1843,10 @@ export const AllFlashcardsDocument = gql`
     `;
 export type AllFlashcardsComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<AllFlashcardsQuery, AllFlashcardsQueryVariables>, 'query'>;
 
-export const AllFlashcardsComponent = (props: AllFlashcardsComponentProps) => (
-  <ApolloReactComponents.Query<AllFlashcardsQuery, AllFlashcardsQueryVariables> query={AllFlashcardsDocument} {...props} />
-);
-
-export type AllFlashcardsProps<TChildProps = {}, TDataName extends string = 'data'> = {
-  [key in TDataName]: ApolloReactHoc.DataValue<AllFlashcardsQuery, AllFlashcardsQueryVariables>
-} & TChildProps;
-export function withAllFlashcards<TProps, TChildProps = {}, TDataName extends string = 'data'>(operationOptions?: ApolloReactHoc.OperationOption<
-  TProps,
-  AllFlashcardsQuery,
-  AllFlashcardsQueryVariables,
-  AllFlashcardsProps<TChildProps, TDataName>>) {
-  return ApolloReactHoc.withQuery<TProps, AllFlashcardsQuery, AllFlashcardsQueryVariables, AllFlashcardsProps<TChildProps, TDataName>>(AllFlashcardsDocument, {
-    alias: 'allFlashcards',
-    ...operationOptions
-  });
-};
+    export const AllFlashcardsComponent = (props: AllFlashcardsComponentProps) => (
+      <ApolloReactComponents.Query<AllFlashcardsQuery, AllFlashcardsQueryVariables> query={AllFlashcardsDocument} {...props} />
+    );
+    
 
 /**
  * __useAllFlashcardsQuery__
@@ -1892,15 +1864,15 @@ export function withAllFlashcards<TProps, TChildProps = {}, TDataName extends st
  *   },
  * });
  */
-export function useAllFlashcardsQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<AllFlashcardsQuery, AllFlashcardsQueryVariables>) {
-  return ApolloReactHooks.useQuery<AllFlashcardsQuery, AllFlashcardsQueryVariables>(AllFlashcardsDocument, baseOptions);
-}
-export function useAllFlashcardsLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<AllFlashcardsQuery, AllFlashcardsQueryVariables>) {
-  return ApolloReactHooks.useLazyQuery<AllFlashcardsQuery, AllFlashcardsQueryVariables>(AllFlashcardsDocument, baseOptions);
-}
+export function useAllFlashcardsQuery(baseOptions?: Apollo.QueryHookOptions<AllFlashcardsQuery, AllFlashcardsQueryVariables>) {
+        return Apollo.useQuery<AllFlashcardsQuery, AllFlashcardsQueryVariables>(AllFlashcardsDocument, baseOptions);
+      }
+export function useAllFlashcardsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllFlashcardsQuery, AllFlashcardsQueryVariables>) {
+          return Apollo.useLazyQuery<AllFlashcardsQuery, AllFlashcardsQueryVariables>(AllFlashcardsDocument, baseOptions);
+        }
 export type AllFlashcardsQueryHookResult = ReturnType<typeof useAllFlashcardsQuery>;
 export type AllFlashcardsLazyQueryHookResult = ReturnType<typeof useAllFlashcardsLazyQuery>;
-export type AllFlashcardsQueryResult = ApolloReactCommon.QueryResult<AllFlashcardsQuery, AllFlashcardsQueryVariables>;
+export type AllFlashcardsQueryResult = Apollo.QueryResult<AllFlashcardsQuery, AllFlashcardsQueryVariables>;
 export const CreateFlashcardDocument = gql`
     mutation CreateFlashcard($answer: String!, $prompt: String!, $topic: String!) {
   createFlashcard(input: {flashcard: {answer: $answer, prompt: $prompt, topic: $topic}}) {
@@ -1913,26 +1885,13 @@ export const CreateFlashcardDocument = gql`
   }
 }
     `;
-export type CreateFlashcardMutationFn = ApolloReactCommon.MutationFunction<CreateFlashcardMutation, CreateFlashcardMutationVariables>;
+export type CreateFlashcardMutationFn = Apollo.MutationFunction<CreateFlashcardMutation, CreateFlashcardMutationVariables>;
 export type CreateFlashcardComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<CreateFlashcardMutation, CreateFlashcardMutationVariables>, 'mutation'>;
 
-export const CreateFlashcardComponent = (props: CreateFlashcardComponentProps) => (
-  <ApolloReactComponents.Mutation<CreateFlashcardMutation, CreateFlashcardMutationVariables> mutation={CreateFlashcardDocument} {...props} />
-);
-
-export type CreateFlashcardProps<TChildProps = {}, TDataName extends string = 'mutate'> = {
-  [key in TDataName]: ApolloReactCommon.MutationFunction<CreateFlashcardMutation, CreateFlashcardMutationVariables>
-} & TChildProps;
-export function withCreateFlashcard<TProps, TChildProps = {}, TDataName extends string = 'mutate'>(operationOptions?: ApolloReactHoc.OperationOption<
-  TProps,
-  CreateFlashcardMutation,
-  CreateFlashcardMutationVariables,
-  CreateFlashcardProps<TChildProps, TDataName>>) {
-  return ApolloReactHoc.withMutation<TProps, CreateFlashcardMutation, CreateFlashcardMutationVariables, CreateFlashcardProps<TChildProps, TDataName>>(CreateFlashcardDocument, {
-    alias: 'createFlashcard',
-    ...operationOptions
-  });
-};
+    export const CreateFlashcardComponent = (props: CreateFlashcardComponentProps) => (
+      <ApolloReactComponents.Mutation<CreateFlashcardMutation, CreateFlashcardMutationVariables> mutation={CreateFlashcardDocument} {...props} />
+    );
+    
 
 /**
  * __useCreateFlashcardMutation__
@@ -1953,12 +1912,12 @@ export function withCreateFlashcard<TProps, TChildProps = {}, TDataName extends 
  *   },
  * });
  */
-export function useCreateFlashcardMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<CreateFlashcardMutation, CreateFlashcardMutationVariables>) {
-  return ApolloReactHooks.useMutation<CreateFlashcardMutation, CreateFlashcardMutationVariables>(CreateFlashcardDocument, baseOptions);
-}
+export function useCreateFlashcardMutation(baseOptions?: Apollo.MutationHookOptions<CreateFlashcardMutation, CreateFlashcardMutationVariables>) {
+        return Apollo.useMutation<CreateFlashcardMutation, CreateFlashcardMutationVariables>(CreateFlashcardDocument, baseOptions);
+      }
 export type CreateFlashcardMutationHookResult = ReturnType<typeof useCreateFlashcardMutation>;
-export type CreateFlashcardMutationResult = ApolloReactCommon.MutationResult<CreateFlashcardMutation>;
-export type CreateFlashcardMutationOptions = ApolloReactCommon.BaseMutationOptions<CreateFlashcardMutation, CreateFlashcardMutationVariables>;
+export type CreateFlashcardMutationResult = Apollo.MutationResult<CreateFlashcardMutation>;
+export type CreateFlashcardMutationOptions = Apollo.BaseMutationOptions<CreateFlashcardMutation, CreateFlashcardMutationVariables>;
 export const CurrentUserDocument = gql`
     query CurrentUser {
   getCurrentUser {
@@ -1972,23 +1931,10 @@ export const CurrentUserDocument = gql`
     `;
 export type CurrentUserComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<CurrentUserQuery, CurrentUserQueryVariables>, 'query'>;
 
-export const CurrentUserComponent = (props: CurrentUserComponentProps) => (
-  <ApolloReactComponents.Query<CurrentUserQuery, CurrentUserQueryVariables> query={CurrentUserDocument} {...props} />
-);
-
-export type CurrentUserProps<TChildProps = {}, TDataName extends string = 'data'> = {
-  [key in TDataName]: ApolloReactHoc.DataValue<CurrentUserQuery, CurrentUserQueryVariables>
-} & TChildProps;
-export function withCurrentUser<TProps, TChildProps = {}, TDataName extends string = 'data'>(operationOptions?: ApolloReactHoc.OperationOption<
-  TProps,
-  CurrentUserQuery,
-  CurrentUserQueryVariables,
-  CurrentUserProps<TChildProps, TDataName>>) {
-  return ApolloReactHoc.withQuery<TProps, CurrentUserQuery, CurrentUserQueryVariables, CurrentUserProps<TChildProps, TDataName>>(CurrentUserDocument, {
-    alias: 'currentUser',
-    ...operationOptions
-  });
-};
+    export const CurrentUserComponent = (props: CurrentUserComponentProps) => (
+      <ApolloReactComponents.Query<CurrentUserQuery, CurrentUserQueryVariables> query={CurrentUserDocument} {...props} />
+    );
+    
 
 /**
  * __useCurrentUserQuery__
@@ -2005,15 +1951,15 @@ export function withCurrentUser<TProps, TChildProps = {}, TDataName extends stri
  *   },
  * });
  */
-export function useCurrentUserQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<CurrentUserQuery, CurrentUserQueryVariables>) {
-  return ApolloReactHooks.useQuery<CurrentUserQuery, CurrentUserQueryVariables>(CurrentUserDocument, baseOptions);
-}
-export function useCurrentUserLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<CurrentUserQuery, CurrentUserQueryVariables>) {
-  return ApolloReactHooks.useLazyQuery<CurrentUserQuery, CurrentUserQueryVariables>(CurrentUserDocument, baseOptions);
-}
+export function useCurrentUserQuery(baseOptions?: Apollo.QueryHookOptions<CurrentUserQuery, CurrentUserQueryVariables>) {
+        return Apollo.useQuery<CurrentUserQuery, CurrentUserQueryVariables>(CurrentUserDocument, baseOptions);
+      }
+export function useCurrentUserLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<CurrentUserQuery, CurrentUserQueryVariables>) {
+          return Apollo.useLazyQuery<CurrentUserQuery, CurrentUserQueryVariables>(CurrentUserDocument, baseOptions);
+        }
 export type CurrentUserQueryHookResult = ReturnType<typeof useCurrentUserQuery>;
 export type CurrentUserLazyQueryHookResult = ReturnType<typeof useCurrentUserLazyQuery>;
-export type CurrentUserQueryResult = ApolloReactCommon.QueryResult<CurrentUserQuery, CurrentUserQueryVariables>;
+export type CurrentUserQueryResult = Apollo.QueryResult<CurrentUserQuery, CurrentUserQueryVariables>;
 export const UpdatePersonByIdDocument = gql`
     mutation UpdatePersonById($id: UUID!, $name: String!) {
   updatePersonById(input: {id: $id, personPatch: {name: $name}}) {
@@ -2024,26 +1970,13 @@ export const UpdatePersonByIdDocument = gql`
   }
 }
     `;
-export type UpdatePersonByIdMutationFn = ApolloReactCommon.MutationFunction<UpdatePersonByIdMutation, UpdatePersonByIdMutationVariables>;
+export type UpdatePersonByIdMutationFn = Apollo.MutationFunction<UpdatePersonByIdMutation, UpdatePersonByIdMutationVariables>;
 export type UpdatePersonByIdComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<UpdatePersonByIdMutation, UpdatePersonByIdMutationVariables>, 'mutation'>;
 
-export const UpdatePersonByIdComponent = (props: UpdatePersonByIdComponentProps) => (
-  <ApolloReactComponents.Mutation<UpdatePersonByIdMutation, UpdatePersonByIdMutationVariables> mutation={UpdatePersonByIdDocument} {...props} />
-);
-
-export type UpdatePersonByIdProps<TChildProps = {}, TDataName extends string = 'mutate'> = {
-  [key in TDataName]: ApolloReactCommon.MutationFunction<UpdatePersonByIdMutation, UpdatePersonByIdMutationVariables>
-} & TChildProps;
-export function withUpdatePersonById<TProps, TChildProps = {}, TDataName extends string = 'mutate'>(operationOptions?: ApolloReactHoc.OperationOption<
-  TProps,
-  UpdatePersonByIdMutation,
-  UpdatePersonByIdMutationVariables,
-  UpdatePersonByIdProps<TChildProps, TDataName>>) {
-  return ApolloReactHoc.withMutation<TProps, UpdatePersonByIdMutation, UpdatePersonByIdMutationVariables, UpdatePersonByIdProps<TChildProps, TDataName>>(UpdatePersonByIdDocument, {
-    alias: 'updatePersonById',
-    ...operationOptions
-  });
-};
+    export const UpdatePersonByIdComponent = (props: UpdatePersonByIdComponentProps) => (
+      <ApolloReactComponents.Mutation<UpdatePersonByIdMutation, UpdatePersonByIdMutationVariables> mutation={UpdatePersonByIdDocument} {...props} />
+    );
+    
 
 /**
  * __useUpdatePersonByIdMutation__
@@ -2063,9 +1996,9 @@ export function withUpdatePersonById<TProps, TChildProps = {}, TDataName extends
  *   },
  * });
  */
-export function useUpdatePersonByIdMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<UpdatePersonByIdMutation, UpdatePersonByIdMutationVariables>) {
-  return ApolloReactHooks.useMutation<UpdatePersonByIdMutation, UpdatePersonByIdMutationVariables>(UpdatePersonByIdDocument, baseOptions);
-}
+export function useUpdatePersonByIdMutation(baseOptions?: Apollo.MutationHookOptions<UpdatePersonByIdMutation, UpdatePersonByIdMutationVariables>) {
+        return Apollo.useMutation<UpdatePersonByIdMutation, UpdatePersonByIdMutationVariables>(UpdatePersonByIdDocument, baseOptions);
+      }
 export type UpdatePersonByIdMutationHookResult = ReturnType<typeof useUpdatePersonByIdMutation>;
-export type UpdatePersonByIdMutationResult = ApolloReactCommon.MutationResult<UpdatePersonByIdMutation>;
-export type UpdatePersonByIdMutationOptions = ApolloReactCommon.BaseMutationOptions<UpdatePersonByIdMutation, UpdatePersonByIdMutationVariables>;
+export type UpdatePersonByIdMutationResult = Apollo.MutationResult<UpdatePersonByIdMutation>;
+export type UpdatePersonByIdMutationOptions = Apollo.BaseMutationOptions<UpdatePersonByIdMutation, UpdatePersonByIdMutationVariables>;
