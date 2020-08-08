@@ -18,10 +18,12 @@ describe('Visiting /portal', () => {
         cy.visit('/portal');
         cy.contains('Profile').click();
         cy.url().should('include', '/portal/profile');
+        cy.get('[data-testid="portal-profile-form-name"]').
+          invoke('val').
+          should('not.contain', name);
         cy.get('[data-testid="portal-profile-form-name"]').type(name);
 
-        // wait for currentUser to populate form TODO - remove this
-        cy.wait(5000);
+        cy.wait(2000);
 
         cy.get('[data-testid="portal-profile-form-submit"]').click();
 
