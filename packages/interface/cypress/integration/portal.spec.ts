@@ -19,7 +19,7 @@ describe('Visiting /portal', () => {
         cy.contains('Profile').click();
         cy.wait(1000);
         cy.reload();
-        cy.wait(1000);
+        cy.wait(5000);
         cy.url().should('include', '/portal/profile');
         cy.get('[data-testid="portal-profile-form-name"]').
           invoke('val').
