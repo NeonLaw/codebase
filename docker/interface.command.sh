@@ -8,4 +8,4 @@ cp -vr ./packages/shared-ui/fonts ./packages/$PACKAGE_NAME/static
 
 yarn
 
-yarn workspace @neonlaw/$PACKAGE_NAME run start -H 0.0.0.0
+yarn workspace @neonlaw/$PACKAGE_NAME start
