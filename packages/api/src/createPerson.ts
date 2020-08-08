@@ -16,15 +16,16 @@ export const createPerson = async (
 ): Promise<CurrentPersonInterface> => {
   const { client, sub, email, role, name } = args;
 
-  return await client.query(
-    'INSERT INTO person (client, sub, email, role, name) ' +
-    'VALUES ($1, $2, $3, $4, $5) RETURNING (id, role)',
+  const person = await client.query(
+    'INSERT INTO person (sub, email, role, name) ' +
+    'VALUES ($1, $2, $3, $4) RETURNING id, role',
     [
-      client,
       sub,
       email,
       role,
       name
     ]
   );
+
+  return person.rows[0];
 };

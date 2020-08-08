@@ -35,7 +35,7 @@ export const findOrCreatePerson = async (
 
   await client.end();
   return {
-    id: id,
-    role: role
+    id,
+    role
   };
 };

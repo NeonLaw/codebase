@@ -13,6 +13,7 @@ x-shared-variables: &shared-variables
   - CYPRESS_AUDIENCE_URL=$CYPRESS_AUDIENCE_URL
   - CYPRESS_AUTH_CLIENT_ID=$CYPRESS_AUTH_CLIENT_ID
   - CYPRESS_AUTH_CLIENT_SECRET=$CYPRESS_AUTH_CLIENT_SECRET
+  - GATSBY_WEBPACK_PUBLICPATH=/
 
 x-javascript-volumes: &javascript-volumes
   - ./:/app
@@ -27,6 +28,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: neon_law
+    ports:
+      - 5432:5432
     restart: unless-stopped
     logging:
       driver: none
