@@ -16,7 +16,7 @@ export const createPerson = async (
 ): Promise<CurrentPersonInterface> => {
   const { client, sub, email, role, name } = args;
 
-  const person = await client.query(
+  const personQuery = await client.query(
     'INSERT INTO person (sub, email, role, name) ' +
     'VALUES ($1, $2, $3, $4) RETURNING id, role',
     [
@@ -27,5 +27,5 @@ export const createPerson = async (
     ]
   );
 
-  return person.rows[0];
+  return personQuery.rows[0];
 };
