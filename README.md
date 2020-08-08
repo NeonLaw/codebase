@@ -28,7 +28,9 @@ We recommend developing with a containerized setup that best mimic our staging
 and production process. If you have docker and docker-compose installed on
 your machine, you can follow these two steps to start developing.
 
-1. Ensure that you have the proper environment variables.
+1. Ensure that you have the proper environment variables and GCP Credential.
+
+You should have these environment variables on your machine:
 
 * `AUTH0_CLIENT_ID`
 * `AUTH0_CLIENT_SECRET`
@@ -61,17 +63,27 @@ This starts the following containers:
 
 You can start a subset of services with Docker Compose if you do not need to
 run all of the applications. For instance, if you just wanted to start the
-API server, you could run:
+API server and the shell container it depends on, you could run:
 
 ```
 docker-compose up api
 ```
 
-or if you just wanted a shell environment, you could run:
+if you just wanted a shell environment, you could run:
 
 ```
 docker-compose exec -it shell /bin/bash
 ```
+
+and if you just wanted a just the interface environment, you could run:
+
+```
+docker-compose up interface
+```
+
+This will start the `shell`, `postgres`, `api`, and `interface` containers.
+
+
 
 ## Authentication
 
