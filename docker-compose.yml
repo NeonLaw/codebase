@@ -36,6 +36,7 @@ services:
       context: ./
       dockerfile: ./docker/api.Dockerfile
     restart: always
+    container_name: api
     ports:
       - 3000:3000
     depends_on:
@@ -47,9 +48,9 @@ services:
     build:
       context: ./
       dockerfile: ./docker/development.interface.Dockerfile
+    container_name: interface
     restart: always
     depends_on:
-      - shell
       - api
     ports:
       - 8000:8000
@@ -62,8 +63,8 @@ services:
       context: ./
       dockerfile: ./docker/development.interface.Dockerfile
     restart: always
+    container_name: law_job_resources
     depends_on:
-      - shell
       - api
     ports:
       - 5000:8000
@@ -76,8 +77,8 @@ services:
       context: ./
       dockerfile: ./docker/development.interface.Dockerfile
     restart: always
+    container_name: justice_for_rickie_slaughter
     depends_on:
-      - shell
       - api
     ports:
       - 7000:8000
@@ -90,8 +91,8 @@ services:
       context: ./
       dockerfile: ./docker/development.interface.Dockerfile
     restart: always
+    container_name: delete_your_data
     depends_on:
-      - shell
       - api
     ports:
       - 6000:8000
