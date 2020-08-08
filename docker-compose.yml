@@ -2,13 +2,17 @@
 version: "3.8"
 
 x-shared-variables: &shared-variables
-  AUTH0_CLIENT_ID: $AUTH0_CLIENT_ID
-  AUTH0_CLIENT_SECRET: $AUTH0_CLIENT_SECRET
-  AUTH0_TENANT: neon-law-testing
-  DATABASE_URL: postgres://postgres:password@postgres:5432/neon_law
-  GOOGLE_APPLICATION_CREDENTIALS: $GOOGLE_APPLICATION_CREDENTIALS
-  NODE_ENV: development
-  SHOW_GRAPHIQL: "true"
+  - AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID
+  - AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET
+  - AUTH0_TENANT=neon-law-testing
+  - DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law
+  - GOOGLE_APPLICATION_CREDENTIALS=credentials.json
+  - NODE_ENV=development
+  - SHOW_GRAPHIQL=true
+  - CYPRESS_AUTH_URL=$CYPRESS_AUTH_URL
+  - CYPRESS_AUDIENCE_URL=$CYPRESS_AUDIENCE_URL
+  - CYPRESS_AUTH_CLIENT_ID=$CYPRESS_AUTH_CLIENT_ID
+  - CYPRESS_AUTH_CLIENT_SECRET=$CYPRESS_AUTH_CLIENT_SECRET
 
 x-javascript-volumes: &javascript-volumes
   - ./:/app
@@ -36,9 +40,8 @@ services:
       - 3000:3000
     depends_on:
       - shell
+    environment: *shared-variables
     volumes: *javascript-volumes
-    environment:
-      <<: *shared-variables
 
   interface:
     build:
@@ -114,13 +117,7 @@ services:
     volumes:
       - ./:/app
       - node_modules:/app/node_modules
-    environment:
-      <<: *shared-variables
-      NODE_ENV: test
-      CYPRESS_AUTH_URL: $CYPRESS_AUTH_URL
-      CYPRESS_AUDIENCE_URL: $CYPRESS_AUDIENCE_URL
-      CYPRESS_AUTH_CLIENT_ID: $CYPRESS_AUTH_CLIENT_ID
-      CYPRESS_AUTH_CLIENT_SECRET: $CYPRESS_AUTH_CLIENT_SECRET
+    environment: *shared-variables
     restart: unless-stopped
 
 volumes:
