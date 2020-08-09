@@ -59,7 +59,7 @@
   },
   "scripts": {
     "check-types": "tsc -p .",
-    "javascript-lint": "eslint './**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint './**/*.{js,jsx,ts,tsx}'",
     "markdown-lint": "remark -i -e mdx,md --frail .remarkignore .",
     "run-script": "ts-node --transpile-only",
     "test": "jest --forceExit --detectOpenHandles --coverage --coverageProvider=v8"

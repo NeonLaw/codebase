@@ -2,11 +2,10 @@
 // @ts-nocheck
 /* eslint-enable */
 import speech from '@google-cloud/speech';
-import fs from 'fs'
 
 export const transcribeAudio = async (
   gcsUri: string,
-  encoding: string = 'MP3',
+  encoding = 'MP3',
 ): Promise<string> => {
   const client = new speech.v1p1beta1.SpeechClient();
 

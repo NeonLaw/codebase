@@ -39,7 +39,7 @@ jobs:
       - name: Lint Markdown files.
         run: yarn markdown-lint
       - name: Lint JavaScript files.
-        run: yarn javascript-lint
+        run: yarn lint
       - name: Type-check TypeScript Files.
         run: yarn check-types
       - name: Lint Python files.
