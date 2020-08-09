@@ -64,12 +64,18 @@ jobs:
         with:
           project: neonlaw/codebase
       - name: Run Jest tests and publish coverage to Code Climate.
-        uses: paambaati/codeclimate-action@v2.5.5
+        uses: paambaati/codeclimate-action@v2.6.0
         env:
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
           DATABASE_URL: postgres://postgres:password@localhost:5432/neon_law
         with:
-          coverageCommand: yarn test && poetry run -m unittest
+          coverageCommand: yarn test
+      - name: Run Python unit tests and publish coverage to Code Climate.
+        uses: paambaati/codeclimate-action@v2.6.0
+        env:
+          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+        with:
+          coverageCommand: poetry run -m unittest
   interface_e2e_test_suite:
     runs-on: ubuntu-latest
     env:
