@@ -6,7 +6,7 @@ x-shared-variables: &shared-variables
   - AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET
   - AUTH0_TENANT=neon-law-testing.auth0.com
   - DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law
-  - GOOGLE_APPLICATION_CREDENTIALS=credentials.json
+  - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
   - NODE_ENV=development
   - SHOW_GRAPHIQL=true
   - CYPRESS_AUTH_URL=$CYPRESS_AUTH_URL

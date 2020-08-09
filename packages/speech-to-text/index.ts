@@ -2,16 +2,19 @@
 // @ts-nocheck
 /* eslint-enable */
 import speech from '@google-cloud/speech';
+import fs from 'fs'
 
 export const transcribeAudio = async (
-  gcsUri: string
+  gcsUri: string,
+  encoding: string = 'MP3',
 ): Promise<string> => {
-  const client = new speech.SpeechClient();
+  const client = new speech.v1p1beta1.SpeechClient();
 
   const sampleRateHertz = 16000;
   const languageCode = 'en-US';
 
   const config = {
+    encoding,
     languageCode: languageCode,
     sampleRateHertz: sampleRateHertz,
   };
@@ -26,6 +29,7 @@ export const transcribeAudio = async (
 
   // Detects speech in the audio file
   const [response] = await client.recognize(request);
+  console.log(JSON.stringify(response));
   const transcription = response.results
     .map(result => result.alternatives[0].transcript)
     .join('\n');

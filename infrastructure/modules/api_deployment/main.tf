@@ -39,6 +39,14 @@ resource "kubernetes_deployment" "api" {
           }
         }
 
+        volume {
+          name = var.logic_secret_name
+
+          secret {
+            secret_name = var.logic_secret_name
+          }
+        }
+
         container {
           image = var.image_url
           name  = var.app_name
