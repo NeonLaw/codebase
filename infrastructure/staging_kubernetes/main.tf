@@ -10,17 +10,17 @@ data "terraform_remote_state" "staging_gcp" {
   }
 }
 
-provider "kubernetes" {
-  load_config_file = false
+# provider "kubernetes" {
+#   load_config_file = false
 
-  host     = data.terraform_remote_state.staging_gcp.outputs.gke_host
-  username = data.terraform_remote_state.staging_gcp.outputs.gke_username
-  password = data.terraform_remote_state.staging_gcp.outputs.gke_password
+#   host     = data.terraform_remote_state.staging_gcp.outputs.gke_host
+#   username = data.terraform_remote_state.staging_gcp.outputs.gke_username
+#   password = data.terraform_remote_state.staging_gcp.outputs.gke_password
 
-  client_certificate     = base64decode(data.terraform_remote_state.staging_gcp.outputs.gke_client_certificate)
-  client_key             = base64decode(data.terraform_remote_state.staging_gcp.outputs.gke_client_key)
-  cluster_ca_certificate = base64decode(data.terraform_remote_state.staging_gcp.outputs.gke_cluster_ca_certificate)
-}
+#   client_certificate     = base64decode(data.terraform_remote_state.staging_gcp.outputs.gke_client_certificate)
+#   client_key             = base64decode(data.terraform_remote_state.staging_gcp.outputs.gke_client_key)
+#   cluster_ca_certificate = base64decode(data.terraform_remote_state.staging_gcp.outputs.gke_cluster_ca_certificate)
+# }
 
 module "sql_proxy_kubernetes_secret" {
   source       = "../modules/kubernetes_secret"
