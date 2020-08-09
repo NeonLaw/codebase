@@ -9,6 +9,8 @@ export const findOrCreatePerson = async (
   const client = new Client(postgresUrl);
   await client.connect();
 
+  console.info(`An incoming request from sub: ${sub}`);
+
   const currentPersonQuery = await client.query(
     'SELECT id, role FROM person WHERE sub = $1 LIMIT 1',
     [sub]
