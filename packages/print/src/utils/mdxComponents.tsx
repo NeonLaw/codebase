@@ -74,7 +74,6 @@ export const MDXComponents = {
   AspectRatioBox,
   Box,
   Flex,
-  Text,
   Link: ({ href, ...props }) => {
     const telRegex = new RegExp('^tel');
     const mailRegex = new RegExp('^mail');
@@ -94,6 +93,7 @@ export const MDXComponents = {
       </a>
     );
   },
+  Text,
   blockquote: (props) => (
     <Callout
       mt={4}

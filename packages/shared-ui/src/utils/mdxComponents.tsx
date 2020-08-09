@@ -81,8 +81,6 @@ export const MDXComponents = {
   Box,
   DesktopHalfMobileFullCard,
   Flex,
-  PublicLayout,
-  Text,
   Link: ({ href, ...props }) => {
     const outsideLink = new RegExp('(^http|^/audio|^/pdf)');
     const telRegex = new RegExp('^tel');
@@ -110,6 +108,8 @@ export const MDXComponents = {
       </Link>
     );
   },
+  PublicLayout,
+  Text,
   blockquote: (props) => (
     <Callout
       mt={4}
