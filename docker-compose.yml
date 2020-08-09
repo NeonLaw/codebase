@@ -107,7 +107,7 @@ services:
       PACKAGE_NAME: delete-your-data
       GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
 
-  language-tool:
+  language_tool:
     image: silviof/docker-languagetool
     restart: unless-stopped
     logging:
