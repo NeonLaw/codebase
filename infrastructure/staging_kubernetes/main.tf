@@ -52,7 +52,7 @@ module "api_deployment" {
   region                       = data.terraform_remote_state.staging_gcp.outputs.region
   sql_proxy_secret_name        = module.sql_proxy_kubernetes_secret.name
   third_party_saas_secret_name = module.third_party_saas_kubernetes_secret.name
-  logic_secret_name            = module.logic_kubernetes_secret.name
+  logic_secret_name            = "logic"
   master_database_password     = var.master_database_password
 }
 

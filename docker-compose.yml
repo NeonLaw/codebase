@@ -60,6 +60,7 @@ services:
     volumes: *javascript-volumes
     environment:
       PACKAGE_NAME: interface
+      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
 
   law_job_resources:
     build:
@@ -74,6 +75,7 @@ services:
     volumes: *javascript-volumes
     environment:
       PACKAGE_NAME: law-job-resources
+      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
 
   justice_for_rickie_slaughter:
     build:
@@ -87,6 +89,7 @@ services:
       - 7000:8000
     volumes: *javascript-volumes
     environment:
+      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
       PACKAGE_NAME: justice-for-rickie-slaughter
 
   delete_your_data:
@@ -102,6 +105,7 @@ services:
     volumes: *javascript-volumes
     environment:
       PACKAGE_NAME: delete-your-data
+      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
 
   language-tool:
     image: silviof/docker-languagetool
