@@ -11,7 +11,7 @@ on:
       - development
 
 jobs:
-  javascript_test_suite:
+  test_suite:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -75,8 +75,8 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
         with:
-          coverageCommand: poetry run -m unittest
-  interface_e2e_test_suite:
+          coverageCommand: poetry run python -m unittest
+  interface_e2e:
     runs-on: ubuntu-latest
     env:
       AUTH0_CLIENT_ID: ${{ secrets.LOGIC_AUTH0_CLIENT_ID }}
@@ -95,7 +95,7 @@ jobs:
           CYPRESS_AUTH_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH_CLIENT_SECRET }}
           CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
           CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
-  law_job_resources_test_suite:
+  law_job_resources_e2e:
     runs-on: ubuntu-latest
     env:
       AUTH0_CLIENT_ID: ${{ secrets.LOGIC_AUTH0_CLIENT_ID }}
@@ -108,7 +108,7 @@ jobs:
       - name: Build application
         run: yarn build
         working-directory: ./packages/law-job-resources
-  justice_for_rickie_slaughter_test_suite:
+  justice_for_rickie_slaughter_e2e:
     runs-on: ubuntu-latest
     env:
       AUTH0_CLIENT_ID: ${{ secrets.LOGIC_AUTH0_CLIENT_ID }}
@@ -121,7 +121,7 @@ jobs:
       - name: Build application
         run: yarn build
         working-directory: ./packages/justice-for-rickie-slaughter
-  delete_your_data_test_suite:
+  delete_your_data_e2e:
     runs-on: ubuntu-latest
     env:
       AUTH0_CLIENT_ID: ${{ secrets.LOGIC_AUTH0_CLIENT_ID }}
