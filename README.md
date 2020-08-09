@@ -41,7 +41,10 @@ You should have these environment variables on your machine:
 * `CYPRESS_AUTH_CLIENT_SECRET`
 
 You will need to have values for these environment variables sourced in the same
-bash shell as when you run the next step.
+bash shell as when you run the next step. Additionally, you should have the
+file `credentials.json` at the root of this repo if you're doing work that
+talks to our staging GCP environment. This file is excluded from `.git` in
+the `.gitignore` file so you'll need to get this from support@neonlaw.com.
 
 2. Start Docker Compose
 
@@ -130,6 +133,7 @@ software:
 * G Suite
 * GitHub
 * Google Cloud Platform
+* Grammarly
 * Lexis Advance
 * Postgraphile
 * SendGrid
