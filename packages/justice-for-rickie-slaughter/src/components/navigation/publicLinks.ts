@@ -1,5 +1,5 @@
 export const PublicLinks = () => {
-  const links1 = [
+  return [
     {
       label: 'Write Rickie',
       route: '/write-rickie'
@@ -9,8 +9,4 @@ export const PublicLinks = () => {
       route: '/coronavirus-in-prison'
     },
   ];
-
-  return (
-    links1
-  );
 };

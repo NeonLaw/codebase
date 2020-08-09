@@ -16,6 +16,8 @@ export const transcribeAudio = async (
     encoding,
     languageCode: languageCode,
     sampleRateHertz: sampleRateHertz,
+    useEnhanced: true,
+    model: 'phone_call',
   };
   const audio = {
     uri: gcsUri,
@@ -27,12 +29,14 @@ export const transcribeAudio = async (
   };
 
   // Detects speech in the audio file
-  const [response] = await client.recognize(request);
-  console.log(JSON.stringify(response));
+  const [operation] = await client.longRunningRecognize(request);
+  // Get a Promise representation of the final result of the job
+  const [response] = await operation.promise();
+  console.log(JSON.stringify(response))
   const transcription = response.results
     .map(result => result.alternatives[0].transcript)
     .join('\n');
-  console.log('Transcription: ', transcription);
+  console.log(`Transcription: ${transcription}`);
 
   return 'true';
 };

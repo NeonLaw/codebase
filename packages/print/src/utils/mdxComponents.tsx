@@ -75,7 +75,7 @@ export const MDXComponents = {
   Box,
   Flex,
   Text,
-  a: ({ href, ...props }) => {
+  Link: ({ href, ...props }) => {
     const telRegex = new RegExp('^tel');
     const mailRegex = new RegExp('^mail');
     if (telRegex.test(href)) {

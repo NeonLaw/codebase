@@ -81,15 +81,13 @@ export const MDXComponents = {
   Box,
   DesktopHalfMobileFullCard,
   Flex,
-  Link,
   PublicLayout,
   Text,
-  a: ({ href, ...props }) => {
-    const outsideLink = new RegExp('(^http|/audio)');
+  Link: ({ href, ...props }) => {
+    const outsideLink = new RegExp('(^http|^/audio|^/pdf)');
     const telRegex = new RegExp('^tel');
     const mailRegex = new RegExp('^mail');
-    const pdfRegex = new RegExp('pdf$');
-    if (outsideLink.test(href) || pdfRegex.test(href)) {
+    if (outsideLink.test(href)) {
       return (
         <a href={href} target="_blank" rel="noopener noreferrer">
           <UnderlineLink {...props} />
