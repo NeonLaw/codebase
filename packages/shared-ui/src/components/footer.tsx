@@ -22,7 +22,7 @@ export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
   return (
     <Box
       color={color[colorMode]}
-      bg={!isWhite ? colors.lighterBg[colorMode] : null}
+      bg={!isWhite ? colors.lighterBg[colorMode] : colors.background[colorMode]}
       borderTop={`1px solid ${colors.borders[colorMode]}`}
       width="100%"
       textAlign="left"

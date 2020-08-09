@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/core';
+import { Box, Flex, useColorMode } from '@chakra-ui/core';
 
 import { ApolloProvider } from '@apollo/client';
 import { AuthenticationContext } from '../utils/authenticationContext';
@@ -6,17 +6,25 @@ import { Breadcrumbs } from '../components/breadcrumbs';
 import { Footer } from '../components/footer';
 import { PublicNavigationBar } from '../components/navigationBars/public';
 import React from 'react';
+import { colors } from '../themes/neonLaw';
 import { publicClient } from '../utils/authenticationContext';
 
 export const PublicLayout = ({
   children,
   isFooterWhite,
+  isBgLighter,
 }: {
   children: JSX.Element | JSX.Element[];
   isFooterWhite?: boolean;
+  isBgLighter?: boolean;
 }) => {
+  const { colorMode } = useColorMode();
   return (
-    <Flex minHeight="100vh" direction="column">
+    <Flex
+      minHeight="100vh"
+      direction="column"
+      background={isBgLighter ? colors.lighterBg[colorMode] : null}
+    >
       <AuthenticationContext.Consumer>
         {({ isLoading, apolloClient }) => {
           return (
@@ -25,9 +33,7 @@ export const PublicLayout = ({
                 <PublicNavigationBar />
                 <Box flex={1}>
                   <Breadcrumbs />
-                  <main role="main">
-                    {children}
-                  </main>
+                  <main role="main">{children}</main>
                 </Box>
               </>
             </ApolloProvider>
