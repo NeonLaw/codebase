@@ -87,3 +87,4 @@ pyproject.tmp
 setup.py
 
 credentials.json
+__pycache__/

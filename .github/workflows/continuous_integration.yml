@@ -69,7 +69,7 @@ jobs:
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
           DATABASE_URL: postgres://postgres:password@localhost:5432/neon_law
         with:
-          coverageCommand: yarn test
+          coverageCommand: yarn test && poetry run -m unittest
   interface_e2e_test_suite:
     runs-on: ubuntu-latest
     env:
