@@ -83,7 +83,25 @@ docker-compose up interface
 
 This will start the `shell`, `postgres`, `api`, and `interface` containers.
 
+3. VSCode settings (optional)
 
+If you don't already have a favorite editor, we recommend [VSCode by
+Microsoft](https://code.visualstudio.com/). Using VSCode with Docker Compose
+as outlined in the previous step, you can edit files directly in the `shell`
+container. By doing so, you don't need to install *anything* on your host
+machine except for Docker, as Node, Python, Postgres, and anything else we
+may add in the future will all run within Docker containers managed by Docker
+Compose.
+
+To edit within a container, [follow this
+tutorial](https://code.visualstudio.com/docs/remote/containers), which
+assumes that you have the `Remote - Containers` extension installed. Then
+after starting `docker-compose up`, you can attach to the `shell` container,
+which already has node, psql, and python, with our third-party libraries, and
+required environment variables, ready for you. The biggest advantage of
+developing this way is establishing parity between your machine and our
+staging and production environments - we want to eliminate the "works on my
+machine" excuse from our organization.
 
 ## Authentication
 
@@ -112,6 +130,7 @@ software:
 * G Suite
 * GitHub
 * Google Cloud Platform
+* Lexis Advance
 * Postgraphile
 * SendGrid
 * Terraform Cloud
@@ -123,7 +142,7 @@ software:
 
 Our app uses a series of GitHub Actions Workflows to run a suite of automated
 tests and linters. You can find these tests
-[here](https://github.com/neonlaw/codebase).
+[here](https://github.com/neonlaw/codebase/actions).
 
 On pushes to the `development` branch, our staging environment is updated.
 
