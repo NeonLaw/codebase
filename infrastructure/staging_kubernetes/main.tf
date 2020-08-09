@@ -36,11 +36,11 @@ module "third_party_saas_kubernetes_secret" {
   auth0_tenant        = "neon-law-testing.auth0.com"
 }
 
-module "logic_kubernetes_secret" {
-  source       = "../modules/kubernetes_secret"
-  secret_name  = "logic"
-  secret_value = var.logic_gcp_credentials
-}
+# module "logic_kubernetes_secret" {
+#   source       = "../modules/kubernetes_secret"
+#   secret_name  = "logic"
+#   secret_value = var.logic_gcp_credentials
+# }
 
 module "api_deployment" {
   source                       = "../modules/api_deployment"
