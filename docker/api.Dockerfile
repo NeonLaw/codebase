@@ -1,11 +1,5 @@
 FROM nikolaik/python-nodejs:python3.8-nodejs12
 
-# Install dependencies from apt.
-RUN apt-get update -qq \
-  && apt-get install -y ncat \
-  && apt-get clean \
-  && rm -f /var/lib/apt/lists/*_*
-
 ENV DATABASE_URL $DATABASE_URL
 ENV SHADOW_DATABASE_URL $SHADOW_DATABASE_URL
 ENV NODE_ENV $NODE_ENV
