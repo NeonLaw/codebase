@@ -1,8 +1,8 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Box, Flex, Heading, Text, useColorMode } from '@chakra-ui/core';
-import { colors, sizes } from '../themes/neonLaw';
+import { Box, Flex, Heading, Text, theme, useColorMode } from '@chakra-ui/core';
+import { colors, gutters, sizes } from '../themes/neonLaw';
 
 import { Container } from './container';
 import { LanguageDropdown } from './languageDropdown';
@@ -10,7 +10,40 @@ import { Link } from './link';
 import React from 'react';
 import { Section } from './section';
 import { SocialMediaIcons } from './socialMediaIcons';
+import styled from '@emotion/styled';
 import { useIntl } from 'gatsby-plugin-intl';
+
+const StyledLinks = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3rem 1rem;
+  font-size: ${theme.fontSizes['lg']};
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+  }
+
+  & > * {
+    flex: 0 0 25%;
+
+    @media (max-width: 1000px) {
+      flex: 0 0 50%;
+      text-align: center;
+
+      &:nth-of-type(1),
+      &:nth-of-type(2) {
+        margin-bottom: ${gutters.medium};
+      }
+    }
+
+    @media (max-width: 640px) {
+      &:nth-of-type(1),
+      &:nth-of-type(2) {
+        margin-bottom: 0;
+      }
+    }
+  }
+`;
 
 export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -38,13 +71,7 @@ export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
       </Section>
       <Box bg="black" color="white">
         <Container>
-          <Flex
-            direction={['column', 'column', 'row']}
-            padding="3em 1em"
-            justifyContent="space-between"
-            textAlign={['center', 'center', 'left']}
-            fontSize="lg"
-          >
+          <StyledLinks>
             <Flex direction="column">
               <SocialMediaIcons display={['block', 'block', 'none']} mb="7px" />
               <Box as={Link} to="/about-us" padding="7px 0">
@@ -144,7 +171,7 @@ export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
               </Box>
             </Flex>
             <Box display={['none', 'none', 'flex']} />
-          </Flex>
+          </StyledLinks>
           <Box paddingBottom="1em">
             <Text textAlign="center">
               Copyright &copy; {new Date().getFullYear()} Shook Law PLLC

@@ -21,7 +21,7 @@ export const LanguageDropdown = () => {
 
   return (
     <>
-      <Box display={['none', 'none', 'flex']} padding="7px 0">
+      <Box padding="7px 0">
         <Menu>
           <MenuButton>
             {intl.formatMessage({ id: 'languages.language' })}
@@ -34,19 +34,23 @@ export const LanguageDropdown = () => {
           >
             <MenuItem
               _hover={{ backgroundColor: evenLighterBg[colorMode] }}
-              onClick={() => { changeLocale('en'); }}
+              onClick={() => {
+                changeLocale('en');
+              }}
             >
               {intl.formatMessage({ id: 'languages.english' })}
             </MenuItem>
             <MenuItem
               _hover={{ backgroundColor: evenLighterBg[colorMode] }}
-              onClick={() => { changeLocale('es'); }}
+              onClick={() => {
+                changeLocale('es');
+              }}
             >
               {intl.formatMessage({ id: 'languages.spanish' })}
             </MenuItem>
           </MenuList>
         </Menu>
-      </Box >
+      </Box>
       <Box
         cursor="pointer"
         width="100%"
@@ -54,11 +58,8 @@ export const LanguageDropdown = () => {
         textAlign="center"
         padding="7px 0"
       >
-        <Text>
-          {intl.formatMessage({ id: 'languageDropdown.text' })}
-        </Text>
+        <Text>{intl.formatMessage({ id: 'languageDropdown.text' })}</Text>
       </Box>
     </>
   );
 };
-
