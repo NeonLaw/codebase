@@ -6,6 +6,8 @@ x-shared-variables: &shared-variables
   - AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET
   - AUTH0_TENANT=neon-law-testing.auth0.com
   - DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law
+  - SHADOW_DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law_shadow
+  - ROOT_DATABASE_URL=postgres://postgres:password@postgres:5432/postgres
   - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
   - NODE_ENV=development
   - SHOW_GRAPHIQL=true
@@ -31,8 +33,9 @@ services:
     ports:
       - 5432:5432
     restart: unless-stopped
-    logging:
-      driver: none
+    volumes:
+      - ./docker/pg-init-scripts:/docker-entrypoint-initdb.d
+    command: ["postgres", "-c", "log_statement=all"]
 
   api:
     build:

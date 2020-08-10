@@ -3,13 +3,13 @@ import { Storage } from '@google-cloud/storage';
 interface GetSignedUploadUrlParams {
   personUuid: string;
   filename: string;
-  uploadBucketName: string;
 }
 
 export const getSignedUploadUrl = async (
   params: GetSignedUploadUrlParams
 ): Promise<string> => {
-  const { uploadBucketName, filename, personUuid } = params;
+  const { filename, personUuid } = params;
+  const uploadBucketName = 'neon-law-production' as string;
   const storage = new Storage();
 
   const action = 'write' as const;
@@ -34,8 +34,8 @@ export const getSignedUploadUrl = async (
 
 // (async () => {
 //   await getSignedUploadUrl({
-//     personUuid: '1',
 //     filename: 'yes',
+//     personUuid: '1',
 //     uploadBucketName: 'neon-law-production-production-assets'
-//   })
-// })()
+//   });
+// })();
