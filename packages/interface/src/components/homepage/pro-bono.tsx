@@ -15,7 +15,7 @@ export const ProBono = () => {
       </h2>
       <Box as="p" maxWidth={sizes.textContainerSmall}>
         Finally, and most importantly, we are proudest of our commitment to{' '}
-        <UnderlineLink to="/pro-bono/">pro bono</UnderlineLink> work and wish we
+        <UnderlineLink to="/pro-bono/">pro bono</UnderlineLink> work and wish we{' '}
         {/*eslint-disable */}
         could do it full time. 
         If you require assistance and have attained a{' '}
