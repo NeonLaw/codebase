@@ -78,3 +78,25 @@ module "public-bucket" {
     "www.justiceforrickieslaughter.com"
   ]
 }
+
+module "upload-bucket" {
+  source = "../modules/write_only_bucket"
+  bucket_name = "${var.project_id}-uploads"
+  allowed_origins = [
+    "www.deleteyourdata.com",
+    "www.lawjobresources.com",
+    "www.neonlaw.com",
+    "www.justiceforrickieslaughter.com"
+  ]
+}
+
+module "user-bucket" {
+  source = "../modules/private_bucket"
+  bucket_name = "${var.project_id}-user-assets"
+  allowed_origins = [
+    "www.deleteyourdata.com",
+    "www.lawjobresources.com",
+    "www.neonlaw.com",
+    "www.justiceforrickieslaughter.com"
+  ]
+}

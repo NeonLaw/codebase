@@ -2,6 +2,7 @@
   "private": true,
   "workspaces": [
     "packages/api",
+    "packages/cloud-storage-buckets",
     "packages/delete-your-data",
     "packages/justice-for-rickie-slaughter",
     "packages/law-job-resources",

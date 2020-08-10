@@ -22,11 +22,11 @@ data "terraform_remote_state" "staging_gcp" {
 #   cluster_ca_certificate = base64decode(data.terraform_remote_state.staging_gcp.outputs.gke_cluster_ca_certificate)
 # }
 
-module "sql_proxy_kubernetes_secret" {
-  source       = "../modules/kubernetes_secret"
-  secret_name  = "sql-proxy-service-account-token"
-  secret_value = var.sql_proxy_gcp_credentials
-}
+# module "sql_proxy_kubernetes_secret" {
+#   source       = "../modules/kubernetes_secret"
+#   secret_name  = "sql-proxy-service-account-token"
+#   secret_value = var.sql_proxy_gcp_credentials
+# }
 
 # module "third_party_saas_kubernetes_secret" {
 #   source              = "../modules/third_party_saas_kubernetes_secret"

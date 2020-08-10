@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+/* eslint-enable */
 import { Box, Button, Heading, Text } from '@chakra-ui/core';
 import { colors, gutters, sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
@@ -22,7 +25,7 @@ export const Banner = ({ title, text, buttonText }: BannerProps) => (
     height="100vh"
     color={colors.text.dark}
     background={`linear-gradient(
-      to right, rgba(0,0,0, .6), rgba(0,0,0, .9)), 
+      to right, rgba(0,0,0, .6), rgba(0,0,0, .9)),
       url(${BannerBg})`}
     backgroundSize="cover"
     backgroundPosition="left"
@@ -49,9 +52,11 @@ export const Banner = ({ title, text, buttonText }: BannerProps) => (
         </Text>
         <Button
           bg={colors.cyanDark}
-          _hover={{
-            bg: colors.cyanDark1,
-          }}
+          _hover={{ bg: colors.cyanDark1 }}
+          as="a"
+          href="https://neonlaw.cliogrow.com/book/xRg6TK0beg2sHsoIf81FkQ"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {buttonText}
         </Button>
