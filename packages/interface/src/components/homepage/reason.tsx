@@ -1,17 +1,8 @@
-/* eslint-disable */
-// @ts-nocheck
-/* eslint-enable */
-import { Box, PseudoBox, useColorMode } from '@chakra-ui/core';
-import {
-  colors,
-  gutters,
-  shadows,
-  sizes,
-} from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { gutters, shadows, sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
-import { Link } from '@neonlaw/shared-ui/src/components/link';
 import Placeholder from '../../images/placeholder.jpg';
 import React from 'react';
+import { ReadMoreButton } from '@neonlaw/shared-ui/src/components/button';
 import styled from '@emotion/styled';
 import { useIntl } from 'gatsby-plugin-intl';
 
@@ -100,9 +91,7 @@ const StyledReason = styled.div`
   }
 `;
 
-export const Reason = ({ title, text, image }: ReasonProps) => {
-  const { colorMode } = useColorMode();
-
+export const Reason = ({ title, text, image }: ReasonProps): JSX.Element => {
   const intl = useIntl();
 
   return (
@@ -110,40 +99,9 @@ export const Reason = ({ title, text, image }: ReasonProps) => {
       <div className="text">
         <h3 dangerouslySetInnerHTML={{ __html: title }} />
         <p>{text}</p>
-        <PseudoBox
-          as={Link}
-          borderBottom={`2px solid ${colors.cyanLight}`}
-          display="inline-block"
-          marginTop={gutters.xSmall}
-          padding=".4rem .3rem"
-          position="relative"
-          transition="all .2s"
-          zIndex={1}
-          _after={{
-            content: '""',
-            display: 'block',
-            height: '100%',
-            left: 0,
-            position: 'absolute',
-            right: '100%',
-            top: 0,
-            transition: 'all .2s',
-            zIndex: -1,
-          }}
-          _hover={{
-            '&::after': {
-              background: colors.cyanLight,
-              right: 0,
-            },
-            boxShadow: shadows.light1,
-            color: colors.text[colorMode],
-          }}
-        >
-          {intl.formatMessage({ id: 'why_neon_law.btn_text' })}{' '}
-          <Box as="span" fontFamily="sans-serif">
-            &nbsp;&rarr;
-          </Box>
-        </PseudoBox>
+        <ReadMoreButton href="#">
+          {intl.formatMessage({ id: 'why_neon_law.btn_text' })}
+        </ReadMoreButton>
       </div>
       <div
         className="image"

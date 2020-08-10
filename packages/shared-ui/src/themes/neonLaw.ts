@@ -44,7 +44,8 @@ export const colors = {
 };
 
 export const sizes = {
-  textContainerSmall: '700px',
+  textContainerMedium: '850px',
+  textContainerSmall: '800px',
   textContainerSmallOne: '600px',
 };
 
@@ -56,6 +57,7 @@ export const gutters = {
   medium: '3.5rem',
   small: '1.875rem',
   xSmall: '1.25rem',
+  xSmallOne: '1rem',
 };
 
 export const shadows = {
