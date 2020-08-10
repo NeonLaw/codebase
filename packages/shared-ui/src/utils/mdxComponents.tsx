@@ -62,9 +62,9 @@ export const UnderlineLink = (props) => {
 
   return (
     <PseudoBox
-      as={Link}
       color={colors.link[colorMode]}
       cursor="pointer"
+      as={Link}
       textDecoration="underline"
       outline="none"
       _hover={{ opacity: 0.8 }}
@@ -81,35 +81,37 @@ export const MDXComponents = {
   Box,
   DesktopHalfMobileFullCard,
   Flex,
-  Link,
   PublicLayout,
   Text,
   a: ({ href, ...props }) => {
-    const outsideLink = new RegExp('(^http|/audio)');
+    const outsideLink = new RegExp('(^http|^/audio|^/pdf)');
     const telRegex = new RegExp('^tel');
     const mailRegex = new RegExp('^mail');
-    const pdfRegex = new RegExp('pdf$');
-    if (outsideLink.test(href) || pdfRegex.test(href)) {
+    if (outsideLink.test(href)) {
       return (
-        <a href={href} target="_blank" rel="noopener noreferrer">
-          <UnderlineLink {...props} />
-        </a>
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ cursor: 'pointer', textDecoration: 'underline' }}
+          {...props}
+        />
       );
     }
     if (telRegex.test(href)) {
       return (
-        <a href={href}>
-          <UnderlineLink {...props} />
-        </a>
+        <a
+          href={href}
+          style={{ cursor: 'pointer', textDecoration: 'underline' }}
+          {...props}
+        />
       );
     }
     if (mailRegex.test(href)) {
       return <a href={href}>{props.children}</a>;
     }
     return (
-      <Link to={href}>
-        <UnderlineLink {...props} />
-      </Link>
+      <UnderlineLink to={href} {...props} />
     );
   },
   blockquote: (props) => (

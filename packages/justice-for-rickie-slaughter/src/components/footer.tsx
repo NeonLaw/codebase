@@ -27,14 +27,27 @@ export const Footer = () => {
       as="footer"
     >
       Justice For Rickie Slaughter is made and curated by friends of Rickie
-      Slaughter
+      Slaughter.
+      <br />
+      Please sign our&nbsp;
+      <a
+        style={{ cursor: 'pointer', textDecoration: 'underline' }}
+        href="http://chng.it/Wm7XCtm4RD"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Change.org petition
+      </a> and share this website.
       <br />
       This site was built by&nbsp;
-      <a href="https://www.neonlaw.com" target="_blank" rel="noreferrer">
-        Neon Law, the Upward Mobility Law Firm
-      </a>.
-      <br />
-      This website is monitored with&nbsp;
+      <a
+        style={{ cursor: 'pointer', textDecoration: 'underline' }}
+        href="https://www.neonlaw.com"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Neon Law
+      </a>, and is monitored with&nbsp;
       <a
         href={fathomLink}
         style={{ cursor: 'pointer', textDecoration: 'underline' }}

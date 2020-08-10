@@ -26,7 +26,7 @@ export const FlashcardTable = () => {
       accessor: 'prompt',
     },
   ];
-  const nodes = data?.allFlashcards?.nodes;
+  const nodes = data?.allFlashcards?.nodes || [];
 
   return (
     <Table columns={columns} data={nodes} />

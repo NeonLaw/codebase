@@ -21,7 +21,6 @@ const setMap = ({ map, maps }) => {
 };
 
 export const VegasDirections = () => {
-
   return (
     <div style={{ height: '35vh', width: '100%' }}>
       <GoogleMapReact

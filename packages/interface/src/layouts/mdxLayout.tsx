@@ -1,5 +1,6 @@
-import { Box, Divider, Flex, Heading } from '@chakra-ui/core';
+import { Box, Divider, Flex, Heading, useColorMode } from '@chakra-ui/core';
 import React, { ReactChildren } from 'react';
+import { colors, gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
 import { ApolloProvider } from '@apollo/client';
 import {
@@ -19,7 +20,6 @@ import {
 import { Seo } from '../components/seo';
 import { ShareButtons } from '@neonlaw/shared-ui/src/components/shareButtons';
 import { graphql } from 'gatsby';
-import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
 import {
   publicClient
 } from '@neonlaw/shared-ui/src/utils/authenticationContext';
@@ -43,6 +43,7 @@ const MdxLayout: React.FC<{
   const { body, frontmatter } = data.mdx;
   const { title, slug, featuredImage, description, widescreen } = frontmatter;
   const { siteUrl } = useSiteMetadata();
+  const { colorMode } = useColorMode();
 
   return (
     <Flex minHeight="100vh" direction="column">
@@ -53,47 +54,49 @@ const MdxLayout: React.FC<{
             <ApolloProvider client={isLoading ? publicClient : apolloClient}>
               <>
                 <PublicNavigationBar />
-                <Box
-                  as="main"
-                  aria-label="Main Content"
-                  flex={1}
-                  padding="8em 0 4em 0"
-                >
-                  <Container>
-                    <Breadcrumbs />
-                    <Heading
-                      as="h1"
-                      fontSize="xl"
-                      marginBottom={gutters.xSmall}
-                      fontWeight="400"
-                    >
-                      {title}
-                    </Heading>
-                    {featuredImage && (
-                      <Box borderWidth="1px" rounded="lg" overflow="hidden">
-                        <Image
-                          src={featuredImage}
-                          alt={title}
-                          aspectRatio={widescreen ? 2 : 16 / 9}
-                        />
-                      </Box>
-                    )}
-                    <MDXProvider components={MDXComponents}>
-                      <MDXRenderer>{body}</MDXRenderer>
-                    </MDXProvider>
-                    <Divider margin="1em 0" />
-                    <Flex width="100%" justifyContent="space-between">
-                      <ShareButtons slug={slug} siteUrl={siteUrl} />
-                      <EditOnGithub app="neon-law" path={slug} />
-                    </Flex>
-                  </Container>
+                <Box background={colors.lighterBg[colorMode]}>
+                  <Box
+                    as="main"
+                    aria-label="Main Content"
+                    flex={1}
+                    padding="9rem 0 4rem"
+                  >
+                    <Container>
+                      <Breadcrumbs />
+                      <Heading
+                        as="h1"
+                        fontSize="xl"
+                        marginBottom={gutters.xSmall}
+                        fontWeight="400"
+                      >
+                        {title}
+                      </Heading>
+                      {featuredImage && (
+                        <Box borderWidth="1px" rounded="lg" overflow="hidden">
+                          <Image
+                            src={featuredImage}
+                            alt={title}
+                            aspectRatio={widescreen ? 2 : 16 / 9}
+                          />
+                        </Box>
+                      )}
+                      <MDXProvider components={MDXComponents}>
+                        <MDXRenderer>{body}</MDXRenderer>
+                      </MDXProvider>
+                      <Divider margin="1em 0" />
+                      <Flex width="100%" justifyContent="space-between">
+                        <ShareButtons slug={slug} siteUrl={siteUrl} />
+                        <EditOnGithub app="neon-law" path={slug} />
+                      </Flex>
+                    </Container>
+                  </Box>
                 </Box>
               </>
             </ApolloProvider>
           );
         }}
       </AuthenticationContext.Consumer>
-      <Footer />
+      <Footer isWhite={true}/>
     </Flex>
   );
 };
