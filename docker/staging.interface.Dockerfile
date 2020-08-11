@@ -1,7 +1,7 @@
 ARG APP_NAME
 ARG DOMAIN_NAME
 
-FROM node:12 AS build
+FROM neonlaw/base
 
 ARG GATSBY_ACTIVE_ENV
 ARG GATSBY_AUTH0_CALLBACK
@@ -10,8 +10,6 @@ ARG GATSBY_AUTH0_CLIENT_ID
 ARG APP_NAME
 ARG DOMAIN_NAME
 
-WORKDIR /app
-ADD . ./
 RUN yarn install --ignore-optional --silent
 RUN cp -vr packages/shared-ui/fonts packages/$APP_NAME/static
 RUN cd packages/$APP_NAME && yarn build
