@@ -11,9 +11,12 @@ ENV PATH "/root/.poetry/bin:/opt/venv/bin:${PATH}"
 
 # Install dependencies from apt-get
 RUN apt-get update -qqy &&\
-  apt-get -qqyy install pandoc nodejs yarn ncat postgresql postgresql-contrib &&\
+  apt-get -qqyy install nodejs yarn ncat postgresql postgresql-contrib &&\
   apt-get clean &&\
   rm -f /var/lib/apt/lists/*_*
+
+# Install pandoc
+RUN dpkg -i https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-1-amd64.deb
 
 # Install Dependencies
 WORKDIR /app
