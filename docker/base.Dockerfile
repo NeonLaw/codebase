@@ -18,7 +18,7 @@ RUN apt-get update -qqy &&\
 # Install pandoc
 RUN TEMP_DEB="$(mktemp)" &&\
   wget -O "$TEMP_DEB" https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-1-amd64.deb &&\
-  sudo dpkg -i "$TEMP_DEB" &&\
+  dpkg -i "$TEMP_DEB" &&\
   rm -f "$TEMP_DEB"
 
 # Install Dependencies
