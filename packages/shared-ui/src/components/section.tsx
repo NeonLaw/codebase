@@ -20,7 +20,7 @@ const StyledSection = styled(Box)`
       width: 8rem;
       height: 2px;
       background: ${colors.cyanLight};
-      margin: 1rem 0;
+      margin: ${gutters.xSmallOne} 0;
     }
   }
 
