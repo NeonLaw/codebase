@@ -2,6 +2,8 @@
 // @ts-nocheck
 /* eslint-enable */
 import { Box, Button, Heading } from '@chakra-ui/core';
+import { gutters, sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
+
 import {
   FlashcardContainer
 } from '@neonlaw/shared-ui/src/components/flashcardContainer';
@@ -9,6 +11,7 @@ import { Link } from 'gatsby-plugin-intl';
 import { Location } from '@reach/router';
 import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
 import React from 'react';
+import { Section } from '@neonlaw/shared-ui/src/components/section';
 import { Seo } from '../../components/seo';
 import {
   flashcardTopics
@@ -30,22 +33,30 @@ const Flashcards = () => {
         return (
           <PublicLayout>
             <Seo title="Bar Prep Flashcards" />
-            <Heading textAlign="center">
-              Choose a category
-            </Heading>
-            <Box marginTop="1em" marginBottom="1em">
-              {flashcardTopics.map((topic, i) => (
-                <Button
-                  key={i}
-                  as={Link}
-                  to={`${location.pathname}?topic=${topic.value}`}
-                  activeLink={{ backgroundColor: 'red' }}
-                >
-                  {topic.label}
-                </Button>
-              ))}
-            </Box>
-            <FlashcardContainer topic={topic} />
+            
+            <Section>
+              <Heading fontWeight="normal">
+                Choose a category
+              </Heading>
+              <Box
+                display="grid"
+                gridTemplateColumns="repeat(auto-fill, minmax(200px, 1fr))"
+                gridGap={gutters.xSmallOne}
+                margin={`${gutters.xSmallOne} 0`}
+                maxW={sizes.textContainerSmall}>
+                {flashcardTopics.map((topic, i) => (
+                  <Button
+                    key={i}
+                    as={Link}
+                    to={`${location.pathname}?topic=${topic.value}`}
+                    activeLink={{ backgroundColor: 'red' }}
+                  >
+                    {topic.label}
+                  </Button>
+                ))}
+              </Box>
+              <FlashcardContainer topic={topic} />
+            </Section>
           </PublicLayout>
         );
       }}

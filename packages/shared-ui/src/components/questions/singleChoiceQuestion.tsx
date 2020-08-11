@@ -42,7 +42,7 @@ export const SingleChoiceQuestion = ({
   return (
     <>
       <Section>
-        <Heading as="h3" fontWeight="normal" margin="4.5rem 0 1rem">
+        <Heading as="h3" fontWeight="normal">
           {prompt}
         </Heading>
         <RadioGroup onChange={(e) => setValue(e.target.value)} value={value}>

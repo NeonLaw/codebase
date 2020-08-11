@@ -14,6 +14,7 @@ import {
 import {
   SingleDateQuestion
 } from '../components/questions/singleDateQuestion';
+import { gutters } from '../themes/neonLaw';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useParams } from '@reach/router';
 
@@ -88,7 +89,7 @@ export const UpwardMobilityQuestionnaire = (props: any) => {
 
   return (
     <>
-      <Box borderWidth="1px" rounded="lg">
+      <Box margin={`${gutters.large} 0 ${gutters.xSmallOne}`}>
         <Progress value={calculateProgress(question.id, decisionTree)} />
         <Box>
           {question.questionType === 'single-choice' && (
