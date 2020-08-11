@@ -67,6 +67,10 @@ const BaseStyles = (): JSX.Element => (
         }
       }
 
+      code {
+        color: ${colors.text.darkLight} !important;
+      }
+
       /* ---------------------------------- */
       /* ----- Links & Buttons ----- */
       /* ---------------------------------- */
