@@ -15,11 +15,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Build the production Docker image
+      - name: Build the Docker image
         run: |-
           docker build \
             --tag "neonlaw/base:latest" \
-            -f base.Dockerfile \
+            -f ./docker/base.Dockerfile \
             .
 
       - name: Authenticate to the Docker Hub
