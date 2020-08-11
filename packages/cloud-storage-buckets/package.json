@@ -6,6 +6,6 @@
   "license": "PolyForm-Noncommercial-1.0.0",
   "main": "index.ts",
   "dependencies": {
-    "@google-cloud/storage": "5.1.2"
+    "@google-cloud/storage": "5.2.0"
   }
 }
