@@ -39,7 +39,7 @@ export const SingleDateQuestion = ({
   return (
     <Box>
       <Section>
-        <Heading as="h3" fontWeight="normal" margin="4.5rem 0 1rem">
+        <Heading as="h3" fontWeight="normal">
           {prompt}
         </Heading>
         <DatePicker
