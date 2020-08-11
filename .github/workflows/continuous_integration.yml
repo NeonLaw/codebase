@@ -86,7 +86,7 @@ jobs:
       - name: Run Cypress tests with built application
         uses: cypress-io/github-action@v1
         with:
-          start: docker-compose -f ../../docker-compose.yml up api interface
+          start: docker-compose -f ../../docker-compose.yml up interface
           wait-on: "http://127.0.0.1:8000"
           wait-on-timeout: 1500
           working-directory: ./packages/interface
