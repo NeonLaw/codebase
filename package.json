@@ -61,6 +61,8 @@
   },
   "scripts": {
     "check-types": "tsc -p .",
+    "docker-remove-containers": "docker container kill $(docker ps -q)",
+    "docker-prune": "docker system prune -a -f --volumes",
     "lint": "eslint './**/*.{js,jsx,ts,tsx}'",
     "markdown-lint": "remark -i -e mdx,md --frail .remarkignore .",
     "run-script": "ts-node --transpile-only",
