@@ -27,8 +27,6 @@ jobs:
           docker login \
             -u ${{ secrets.DOCKER_HUB_USERNAME }} \
             -p ${{ secrets.DOCKER_HUB_TOKEN }}
-        if: github.ref == '/refs/heads/development'
 
       - name: Push Image to Docker Hub
         run: docker push neonlaw/base
-        if: github.ref == '/refs/heads/development'
