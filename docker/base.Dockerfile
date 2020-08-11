@@ -16,7 +16,10 @@ RUN apt-get update -qqy &&\
   rm -f /var/lib/apt/lists/*_*
 
 # Install pandoc
-RUN dpkg -i https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-1-amd64.deb
+RUN TEMP_DEB="$(mktemp)" &&\
+  wget -O "$TEMP_DEB" https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-1-amd64.deb &&\
+  sudo dpkg -i "$TEMP_DEB" &&\
+  rm -f "$TEMP_DEB"
 
 # Install Dependencies
 WORKDIR /app
