@@ -11,7 +11,7 @@ ENV PATH "/root/.poetry/bin:/opt/venv/bin:${PATH}"
 
 # Install dependencies from apt-get
 RUN apt-get update -qqy &&\
-  apt-get -qqyy install nodejs yarn bat ncat postgresql postgresql-contrib &&\
+  apt-get -qqyy install nodejs yarn ncat postgresql postgresql-contrib &&\
   apt-get clean &&\
   rm -f /var/lib/apt/lists/*_*
 
