@@ -80,30 +80,24 @@ export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
               <Box as={Link} to="/practice-areas" padding="7px 0">
                 {intl.formatMessage({ id: 'footer.practice_areas' })}
               </Box>
-              <Box as={Link} to="/pro-bono" padding="7px 0">
-                {intl.formatMessage({ id: 'footer.pro_bono' })}
-              </Box>
               <Box as={Link} to="/bar-prep" padding="7px 0">
                 {intl.formatMessage({ id: 'footer.bar_prep' })}
               </Box>
               <Box as={Link} to="/templates" padding="7px 0">
                 Legal Templates
               </Box>
-              <Box as={Link} to="/pgp" padding="7px 0">
-                PGP Key
-              </Box>
             </Flex>
             <Flex direction="column">
               <LanguageDropdown />
-              <Box
-                as="a"
-                href="https://neonlaw.zendesk.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                padding="7px 0"
-              >
-                {intl.formatMessage({ id: 'footer.support' })}
-              </Box>
+              <Text onClick={toggleColorMode} cursor="pointer" padding="7px 0">
+                {intl.formatMessage({ id: 'footer.switch' })}
+                {`${
+                  colorMode === 'dark'
+                    ? intl.formatMessage({ id: 'footer.light' })
+                    : intl.formatMessage({ id: 'footer.dark' })
+                  }`}
+                {intl.formatMessage({ id: 'footer.mode' })}
+              </Text>
               <Box
                 as="a"
                 href="https://www.deleteyourdata.com"
@@ -142,24 +136,15 @@ export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
               >
                 {intl.formatMessage({ id: 'footer.support' })}
               </Box>
-              <Box as={Link} to="/privacy-policy" padding="7px 0">
-                {intl.formatMessage({ id: 'footer.privacy_policy' })}
+              <Box as={Link} to="/pgp" padding="7px 0">
+                PGP Key
               </Box>
-              <Box as={Link} to="/terms-of-service" padding="7px 0">
-                {intl.formatMessage({ id: 'footer.terms' })}
+              <Box as={Link} to="/pro-bono" padding="7px 0">
+                {intl.formatMessage({ id: 'footer.pro_bono' })}
               </Box>
             </Flex>
             <Flex direction="column">
               <SocialMediaIcons display={['none', 'none', 'block']} />
-              <Text onClick={toggleColorMode} cursor="pointer" padding="7px 0">
-                {intl.formatMessage({ id: 'footer.switch' })}
-                {`${
-                  colorMode === 'dark'
-                    ? intl.formatMessage({ id: 'footer.light' })
-                    : intl.formatMessage({ id: 'footer.dark' })
-                }`}
-                {intl.formatMessage({ id: 'footer.mode' })}
-              </Text>
               <Box as={Link} to="/privacy-policy" padding="7px 0">
                 {intl.formatMessage({ id: 'footer.privacy_policy' })}
               </Box>
