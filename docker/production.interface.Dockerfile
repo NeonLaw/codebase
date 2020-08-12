@@ -10,7 +10,14 @@ ARG GATSBY_AUTH0_CLIENT_ID
 ARG APP_NAME
 ARG DOMAIN_NAME
 
+WORKDIR /app
+
+COPY package.json .
+COPY yarn.lock .
 RUN yarn install --ignore-optional --silent
+
+COPY . .
+
 RUN cp -vr packages/shared-ui/fonts packages/$APP_NAME/static
 RUN cd packages/$APP_NAME && yarn build
 
