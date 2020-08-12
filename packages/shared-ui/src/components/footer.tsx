@@ -95,7 +95,7 @@ export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
                   colorMode === 'dark'
                     ? intl.formatMessage({ id: 'footer.light' })
                     : intl.formatMessage({ id: 'footer.dark' })
-                  }`}
+                }`}
                 {intl.formatMessage({ id: 'footer.mode' })}
               </Text>
               <Box
