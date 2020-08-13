@@ -1,0 +1,9 @@
+{
+  "dockerComposeFile": "./docker-compose.yml",
+  "service": "shell",
+  "workspaceFolder": "/app",
+  "remoteEnv": {
+    "CYPRESS_AUTH_URL": "${localEnv:CYPRESS_AUTH_URL}"
+  },
+  "shutdownAction": "stopCompose"
+}
