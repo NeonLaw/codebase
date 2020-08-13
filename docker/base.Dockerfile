@@ -22,8 +22,9 @@ RUN TEMP_DEB="$(mktemp)" &&\
   rm -f "$TEMP_DEB"
 
 # Install Visual Studio LiveShare
-wget -O ~/vsls-reqs https://aka.ms/vsls-linux-prereq-script && \
-  chmod +x ~/vsls-reqs && ~/vsls-reqs
+RUN wget -O ~/vsls-reqs https://aka.ms/vsls-linux-prereq-script &&\
+  chmod +x ~/vsls-reqs &&\
+  ~/vsls-reqs
 
 # Install Dependencies
 WORKDIR /app
