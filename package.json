@@ -45,7 +45,7 @@
     "gatsby-cli": "^2.12.87",
     "gatsby-cypress": "^0.4.10",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.2.2",
+    "jest": "^26.4.0",
     "remark-cli": "^8.0.1",
     "remark-comment-config": "^5.1.1",
     "remark-github": "^9.0.1",
