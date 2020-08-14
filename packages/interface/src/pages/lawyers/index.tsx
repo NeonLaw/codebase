@@ -3,8 +3,10 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/core';
+
 import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
 import React from 'react';
+import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
 import { useIntl } from 'gatsby-plugin-intl';
 
 const LawyersPage = () => {
@@ -12,7 +14,7 @@ const LawyersPage = () => {
   return (
     <PortalLayout>
       <Box>
-        <Heading>
+        <Heading fontWeight="normal" marginBottom={gutters.xSmallOne}>
           {intl.formatMessage({ id: 'pages_lawyers.heading' })}
         </Heading>
 

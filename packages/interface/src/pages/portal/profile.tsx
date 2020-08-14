@@ -1,4 +1,6 @@
-import { Box, Heading } from '@chakra-ui/core';
+import { gutters, sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
+
+import { Heading } from '@chakra-ui/core';
 import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
 import {
   PortalProfileCard
@@ -7,19 +9,28 @@ import {
   PortalProfileForm
 } from '@neonlaw/shared-ui/src/forms/portalProfileForm';
 import React from 'react';
+import styled from '@emotion/styled';
+
+const StyledPortalProfilePage = styled.div`
+  max-width: ${sizes.textContainerSmall};
+
+  & > * {
+    margin-bottom: ${gutters.xSmallOne};
+  }
+`;
 
 const PortalProfilePage = () => {
   return (
     <PortalLayout>
-      <Box margin="1rem 0">
-        <Heading textAlign="center">Your Profile</Heading>
-      </Box>
-      <Box margin="1rem 0">
+      <StyledPortalProfilePage>
+        <Heading 
+          fontWeight="normal"
+        >
+          Your Profile
+        </Heading>
         <PortalProfileCard />
-      </Box>
-      <Box margin="1rem 0">
         <PortalProfileForm />
-      </Box>
+      </StyledPortalProfilePage>
     </PortalLayout>
   );
 };

@@ -40,10 +40,10 @@ const Flashcards = () => {
               </Heading>
               <Box
                 display="grid"
-                gridTemplateColumns="repeat(auto-fill, minmax(200px, 1fr))"
+                gridTemplateColumns="repeat(auto-fill, minmax(220px, 1fr))"
                 gridGap={gutters.xSmallOne}
                 margin={`${gutters.xSmallOne} 0`}
-                maxW={sizes.textContainerSmall}>
+                maxW={sizes.textContainerMediumOne}>
                 {flashcardTopics.map((topic, i) => (
                   <Button
                     key={i}

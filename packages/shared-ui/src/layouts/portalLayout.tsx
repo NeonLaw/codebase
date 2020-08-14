@@ -2,6 +2,7 @@ import {
   Box,
   Flex,
 } from '@chakra-ui/core';
+
 import { ApolloProvider } from '@apollo/client';
 import { AuthenticationContext } from '../utils/authenticationContext';
 import { Container } from '../components/container';
@@ -40,7 +41,7 @@ export const PortalLayout = ({ children }) => {
                 >
                   <Box
                     flex="1"
-                    paddingTop="6em"
+                    padding="9rem 0 4rem"
                   >
                     <Container>
                       {children}

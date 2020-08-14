@@ -45,8 +45,10 @@ export const colors = {
 
 export const sizes = {
   textContainerMedium: '850px',
-  textContainerSmall: '800px',
+  textContainerMediumOne: '800px',
+  textContainerSmall: '680px',
   textContainerSmallOne: '600px',
+  textContainerSmallTwo: '620px',
 };
 
 export const gutters = {

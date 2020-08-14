@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+
 import { Button } from '@chakra-ui/core';
 import { StringInput } from '../forms/base';
+import { gutters } from '../themes/neonLaw';
 import { useCurrentUserQuery } from '../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useUpdatePersonByIdMutation } from '../utils/api';
-
 
 export const PortalProfileForm = () => {
   const intl = useIntl();
@@ -53,6 +54,7 @@ export const PortalProfileForm = () => {
         type="submit"
         data-testid="portal-profile-form-submit"
         isDisabled={isSubmitting}
+        marginTop={gutters.xSmallOne}
       >
         Update Profile
       </Button>
