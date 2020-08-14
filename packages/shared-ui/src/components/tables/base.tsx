@@ -1,4 +1,4 @@
-import { Flex, Icon, Text } from '@chakra-ui/core';
+import { Flex, Icon, Text, useColorMode } from '@chakra-ui/core';
 import {
   StyledTable,
   TableCell,
@@ -7,9 +7,11 @@ import {
   TableRow
 } from './styles';
 import { usePagination, useSortBy, useTable } from 'react-table';
+
 import { Card } from '../cards/base';
 import { CardFooter } from '../cards/cardFooter';
 import React from 'react';
+import { colors } from '../../themes/neonLaw';
 import { useMediaQuery } from 'react-responsive';
 
 interface TableInterface {
@@ -26,6 +28,8 @@ export const Table = ({
   const tableColumns = React.useMemo(() => columns, [columns]);
 
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 40em)' });
+
+  const { colorMode } = useColorMode();
 
   const {
     getTableProps,
@@ -65,7 +69,7 @@ export const Table = ({
                 <TableCell
                   p={4}
                   key={column.id}
-                  bg="gray.100"
+                  bg={colors.lighterBg[colorMode]}
                   {...column.getHeaderProps()}
                   justifyContent="space-between"
                   {...column.getSortByToggleProps()}
@@ -140,6 +144,7 @@ export const Table = ({
               onChange={(e) => {
                 setPageSize(Number(e.target.value));
               }}
+              style={{background: colors.lighterBg[colorMode] }}
             >
               {[5, 10, 20, 30, 40, 50].map((pageSize) => (
                 <option key={pageSize} value={pageSize}>

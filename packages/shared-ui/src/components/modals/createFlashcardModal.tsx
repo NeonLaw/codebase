@@ -8,9 +8,13 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
+  theme,
+  useColorMode,
 } from '@chakra-ui/core';
 import React, { useState } from 'react';
 import { Select, StringInput, Textarea } from '../../forms/base';
+
+import { colors } from '../../themes/neonLaw';
 import { flashcardTopics } from '../../forms/options/flashcardTopics';
 import { useCreateFlashcardMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
@@ -53,15 +57,29 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
     });
   };
 
+  const { colorMode } = useColorMode();
+
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal 
+      isOpen={isOpen} 
+      onClose={onClose}
+    >
       <ModalOverlay />
       <ModalContent>
         <Text>
         </Text>
-        <ModalHeader>Create a Flashcard</ModalHeader>
-        <ModalCloseButton />
-        <form onSubmit={handleSubmit(onSubmit as any)}>
+        <ModalHeader 
+          fontWeight="normal" 
+          fontSize={theme.fontSizes['xl0']}
+          color={colors.text[colorMode]}
+        >
+          Create a Flashcard
+        </ModalHeader>
+        <ModalCloseButton style={{color: colors.text[colorMode]}} />
+        <form 
+          onSubmit={handleSubmit(onSubmit as any)}
+          style={{color: colors.text[colorMode]}}
+        >
           <ModalBody>
             {formError}
             <StringInput
