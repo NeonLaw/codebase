@@ -1,6 +1,6 @@
-import * as React from 'react';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactComponents from '@apollo/client/react/components';
+import * as React from 'react';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 const gql = Apollo.gql;
@@ -1913,7 +1913,7 @@ export type CreateFlashcardComponentProps = Omit<ApolloReactComponents.MutationC
  * });
  */
 export function useCreateFlashcardMutation(baseOptions?: Apollo.MutationHookOptions<CreateFlashcardMutation, CreateFlashcardMutationVariables>) {
-        return Apollo.useMutation<CreateFlashcardMutation, CreateFlashcardMutationVariables>(CreateFlashcardDocument, baseOptions);
+  return Apollo.useMutation<CreateFlashcardMutation, CreateFlashcardMutationVariables>(CreateFlashcardDocument, baseOptions);  
       }
 export type CreateFlashcardMutationHookResult = ReturnType<typeof useCreateFlashcardMutation>;
 export type CreateFlashcardMutationResult = Apollo.MutationResult<CreateFlashcardMutation>;

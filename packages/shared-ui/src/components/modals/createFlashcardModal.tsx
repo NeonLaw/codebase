@@ -16,15 +16,38 @@ import { Select, StringInput, Textarea } from '../../forms/base';
 
 import { colors } from '../../themes/neonLaw';
 import { flashcardTopics } from '../../forms/options/flashcardTopics';
+import { gql } from '@apollo/client';
 import { useCreateFlashcardMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
 
 export const CreateFlashcardModal = ({ isOpen, onClose }) => {
   const intl = useIntl();
-  const [
-    createFlashcard
-  ] = useCreateFlashcardMutation();
+
+  const [ createFlashcard ] = useCreateFlashcardMutation({
+    update(cache, {data: { createFlashcard }}) {
+      cache.modify({
+        fields: {
+          allFlashcards(existingFlashCards = []) {
+            const newFlashCardRef = cache.writeFragment({
+              data: createFlashcard,
+              fragment: gql`
+                fragment NewFlashcard on Flashcard {
+                  flashcard {
+                    id
+                    answer
+                    prompt
+                    topic
+                  }
+                }
+              `
+            });
+            return [...existingFlashCards.nodes, newFlashCardRef];
+          }
+        }
+      });
+    }
+  });
 
   const {
     control,
