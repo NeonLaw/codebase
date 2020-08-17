@@ -65,5 +65,5 @@ export const gutters = {
 export const shadows = {
   light: '0.625rem 0.625rem 1.25rem rgba(0,0,0, .2)',
   light1: '0.425rem 0.425rem .85rem rgba(0,0,0, .15)',
-  light2: '0.25rem 0.25rem .5rem rgba(0,0,0, .1)',
+  light2: '0 0.1rem .2rem rgba(0,0,0, .1)',
 };

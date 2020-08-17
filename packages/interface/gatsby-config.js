@@ -60,6 +60,13 @@ module.exports = {
     },
     {
       options: {
+        name: 'blogPosts',
+        path: `${__dirname}/src/blogPosts`,
+      },
+      resolve: 'gatsby-source-filesystem',
+    },
+    {
+      options: {
         background_color: '#000',
         display: 'standalone',
         icon: 'src/images/logo.png',
