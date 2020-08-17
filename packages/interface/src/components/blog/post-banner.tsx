@@ -34,7 +34,7 @@ const StyledPostBanner = styled(Link)`
 
   .text {
     padding: ${gutters.small};
-    border-left: 1px solid #eee;
+    border-left: 1px solid;
 
     @media (max-width: 740px) {
       border-top: 1px solid #eee;
@@ -75,7 +75,7 @@ export const PostBanner = ({
           alt={title}
         />
       </div>
-      <div className="text">
+      <div className="text" style={{ borderColor: colors.borders[colorMode] }}>
         <Heading as="h3" fontWeight="400" marginBottom={gutters.xSmallOne}>
           {title}
         </Heading>
