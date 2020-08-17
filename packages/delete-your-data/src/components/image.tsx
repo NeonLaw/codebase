@@ -37,7 +37,7 @@ export const Image = ({ src, alt, aspectRatio }: ImageInterface) => {
 
   return (
     <GatsbyImage
-      sizes={{ ...fluid, aspectRatio }}
+      fluid={{ ...fluid, aspectRatio }}
       placeholderStyle={{ backgroundColor: 'black' }}
       alt={alt} />
   );
