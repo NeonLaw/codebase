@@ -7,7 +7,7 @@
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.11.0",
     "@chakra-ui/core": "^0.8.0",
-    "@emotion/core": "^10.0.34",
+    "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
     "@hookform/error-message": "^0.0.4",
     "@mdx-js/mdx": "^1.6.16",
