@@ -35,7 +35,6 @@
         "babel-preset-gatsby": "^0.5.4",
         "cypress-axe": "^0.8.1",
         "cypress-plugin-tab": "^1.0.5",
-        "eslint": "^7.5.0",
         "eslint-plugin-import": "^2.22.0",
         "eslint-plugin-jest": "^23.20.0",
         "eslint-plugin-react-hooks": "^4.1.0",

@@ -126,8 +126,8 @@
 
 @font-face {
   font-family: 'CharisSIL';
-  src: url('/fonts/charis/CharisSil-R.tff') format('ttf'),
-    url('/fonts/charis/CharisSil-R.woff2') format('woff2');
+  src: url('/fonts/charis/CharisSIL-R.ttf') format('ttf'),
+    url('/fonts/charis/CharisSIL-R.woff2') format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 400;
@@ -135,8 +135,8 @@
 
 @font-face {
   font-family: 'CharisSIL';
-  src: url('/fonts/charis/CharisSil-I.tff') format('ttf'),
-    url('/fonts/charis/CharisSil-I.woff2') format('woff2');
+  src: url('/fonts/charis/CharisSIL-I.ttf') format('ttf'),
+    url('/fonts/charis/CharisSIL-I.woff2') format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 400;
@@ -144,8 +144,8 @@
 
 @font-face {
   font-family: 'CharisSIL';
-  src: url('/fonts/charis/CharisSil-B.tff') format('ttf'),
-    url('/fonts/charis/CharisSil-B.woff2') format('woff2');
+  src: url('/fonts/charis/CharisSIL-B.ttf') format('ttf'),
+    url('/fonts/charis/CharisSIL-B.woff2') format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 700;
@@ -153,8 +153,8 @@
 
 @font-face {
   font-family: 'CharisSIL';
-  src: url('/fonts/charis/CharisSil-BI.tff') format('ttf'),
-    url('/fonts/charis/CharisSil-BI.woff2') format('woff2');
+  src: url('/fonts/charis/CharisSIL-BI.ttf') format('ttf'),
+    url('/fonts/charis/CharisSIL-BI.woff2') format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 700;
@@ -162,7 +162,7 @@
 
 @font-face {
   font-family: 'Fira Mono';
-  src: url('/fonts/fira-mono/FiraMono-Medium.tff') format('ttf'),
+  src: url('/fonts/fira-mono/FiraMono-Medium.ttf') format('ttf'),
     url('/fonts/fira-mono/FiraMono-Medium.woff2') format('woff2');
   font-style: normal;
   font-display: swap;
@@ -171,7 +171,7 @@
 
 @font-face {
   font-family: 'Fira Mono';
-  src: url('/fonts/fira-mono/FiraMono-Regular.tff') format('ttf'),
+  src: url('/fonts/fira-mono/FiraMono-Regular.ttf') format('ttf'),
     url('/fonts/fira-mono/FiraMono-Regular.woff2') format('woff2');
   font-style: normal;
   font-display: swap;
@@ -180,7 +180,7 @@
 
 @font-face {
   font-family: 'Fira Mono';
-  src: url('/fonts/fira-mono/FiraMono-Bold.tff') format('ttf'),
+  src: url('/fonts/fira-mono/FiraMono-Bold.ttf') format('ttf'),
     url('/fonts/fira-mono/FiraMono-Bold.woff2') format('woff2');
   font-style: normal;
   font-display: swap;
@@ -189,7 +189,7 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-Hairline.tff') format('ttf'),
+  src: url('/fonts/jost/Jost-400-Hairline.ttf') format('ttf'),
     url('/fonts/jost/Jost-400-Hairline.woff2') format('woff2');
   font-style: normal;
   font-display: swap;
@@ -198,7 +198,7 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-HairlineItalic.tff') format('ttf'),
+  src: url('/fonts/jost/Jost-400-HairlineItalic.ttf') format('ttf'),
     url('/fonts/jost/Jost-400-HairlineItalic.woff2') format('woff2');
   font-style: italic;
   font-display: swap;
@@ -207,7 +207,7 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-Thin.tff') format('ttf'),
+  src: url('/fonts/jost/Jost-400-Thin.ttf') format('ttf'),
     url('/fonts/jost/Jost-400-Thin.woff2') format('woff2');
   font-style: normal;
   font-display: swap;
@@ -216,7 +216,7 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-ThinItalic.tff') format('ttf'),
+  src: url('/fonts/jost/Jost-400-ThinItalic.ttf') format('ttf'),
     url('/fonts/jost/Jost-400-ThinItalic.woff2') format('woff2');
   font-style: italic;
   font-display: swap;
@@ -225,7 +225,7 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-Light.tff') format('ttf'),
+  src: url('/fonts/jost/Jost-400-Light.ttf') format('ttf'),
     url('/fonts/jost/Jost-400-Light.woff2') format('woff2');
   font-style: normal;
   font-display: swap;
@@ -234,7 +234,7 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-LightItalic.tff') format('ttf'),
+  src: url('/fonts/jost/Jost-400-LightItalic.ttf') format('ttf'),
     url('/fonts/jost/Jost-400-LightItalic.woff2') format('woff2');
   font-style: italic;
   font-display: swap;
@@ -243,7 +243,7 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-Book.tff') format('ttf'),
+  src: url('/fonts/jost/Jost-400-Book.ttf') format('ttf'),
     url('/fonts/jost/Jost-400-Book.woff2') format('woff2');
   font-style: normal;
   font-display: swap;
@@ -252,7 +252,7 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-BookItalic.tff') format('ttf'),
+  src: url('/fonts/jost/Jost-400-BookItalic.ttf') format('ttf'),
     url('/fonts/jost/Jost-400-BookItalic.woff2') format('woff2');
   font-style: italic;
   font-display: swap;
@@ -261,7 +261,7 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-500-Medium.tff') format('ttf'),
+  src: url('/fonts/jost/Jost-500-Medium.ttf') format('ttf'),
     url('/fonts/jost/Jost-500-Medium.woff2') format('woff2');
   font-style: normal;
   font-display: swap;
@@ -270,7 +270,7 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-500-MediumItalic.tff') format('ttf'),
+  src: url('/fonts/jost/Jost-500-MediumItalic.ttf') format('ttf'),
     url('/fonts/jost/Jost-500-MediumItalic.woff2') format('woff2');
   font-style: italic;
   font-display: swap;

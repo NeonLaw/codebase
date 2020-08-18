@@ -2288,7 +2288,7 @@
   resolved "https://registry.yarnpkg.com/@mapbox/point-geometry/-/point-geometry-0.1.0.tgz#8a83f9335c7860effa2eeeca254332aa0aeed8f2"
   integrity sha1-ioP5M1x4YO/6Lu7KJUMyqgru2PI=
 
-"@mdx-js/mdx@^1.6.16":
+"@mdx-js/mdx@1.6.16", "@mdx-js/mdx@^1.6.16":
   version "1.6.16"
   resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-1.6.16.tgz#f01af0140539c1ce043d246259d8becd2153b2bb"
   integrity sha512-jnYyJ0aCafCIehn3GjYcibIapaLBgs3YkoenNQBPcPFyyuUty7B3B07OE+pMllhJ6YkWeP/R5Ax19x0nqTzgJw==
@@ -2340,7 +2340,7 @@
     unist-builder "2.0.3"
     unist-util-visit "2.0.3"
 
-"@mdx-js/react@^1.5.2", "@mdx-js/react@^1.6.14":
+"@mdx-js/react@1.6.16", "@mdx-js/react@^1.5.2", "@mdx-js/react@^1.6.14":
   version "1.6.16"
   resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.6.16.tgz#538eb14473194d0b3c54020cb230e426174315cd"
   integrity sha512-+FhuSVOPo7+4fZaRwWuCSRUcZkJOkZu0rfAbBKvoCg1LWb1Td8Vzi0DTLORdSvgWNbU6+EL40HIgwTOs00x2Jw==
@@ -2349,6 +2349,15 @@
   version "2.0.0-next.7"
   resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-2.0.0-next.7.tgz#33d3a2a961d5f2ebf36d096642c2a306111feae4"
   integrity sha512-VugV3o0zOD6pABtQEDDWNxiU8f+tS4KMiOgnwNiyxxOEwEZgBnXfMhZYDtHfrnhHxS59ValJ5zITnbdBwPbJkA==
+
+"@mdx-js/runtime@^1.6.14":
+  version "1.6.16"
+  resolved "https://registry.yarnpkg.com/@mdx-js/runtime/-/runtime-1.6.16.tgz#44166bcd2cc49831d1bb62e6c59509a4ec052650"
+  integrity sha512-gpDyzwd4tPpEZL3EHE+v+eqfFxVUhoioRwll0nLwLhXRzJah5ffsmGEhwbkhZjM7LOcr03IjfxN8GLFBZssbKw==
+  dependencies:
+    "@mdx-js/mdx" "1.6.16"
+    "@mdx-js/react" "1.6.16"
+    buble-jsx-only "^0.19.8"
 
 "@mdx-js/runtime@^2.0.0-next.4":
   version "2.0.0-next.7"
