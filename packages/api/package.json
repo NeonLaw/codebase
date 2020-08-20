@@ -6,7 +6,9 @@
   "scripts": {
     "start": "ts-node --transpile-only src/server.ts",
     "test": "jest --forceExit --detectOpenHandles --coverage --coverageProvider=v8",
-    "migrate": "graphile-migrate migrate"
+    "commit": "graphile-migrate commit",
+    "migrate": "graphile-migrate migrate",
+    "watch": "graphile-migrate watch"
   },
   "dependencies": {
     "axios": "^0.19.2",

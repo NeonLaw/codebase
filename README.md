@@ -70,7 +70,7 @@ run all of the applications. For instance, if you just wanted to start the
 API server and the shell container it depends on, you could run:
 
 ```
-docker-compose up api
+docker-compose up postgres api
 ```
 
 if you just wanted a shell environment, you could run:
@@ -82,7 +82,7 @@ docker-compose exec -it shell /bin/bash
 and if you just wanted a just the interface environment, you could run:
 
 ```
-docker-compose up interface
+docker-compose up postgres interface
 ```
 
 This will start the `shell`, `postgres`, `api`, and `interface` containers.
