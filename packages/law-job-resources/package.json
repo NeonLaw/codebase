@@ -37,7 +37,7 @@
     "gatsby-remark-images": "^3.3.22",
     "gatsby-source-filesystem": "^2.3.23",
     "gatsby-source-graphql": "^2.7.1",
-    "gatsby-transformer-sharp": "^2.5.11",
+    "gatsby-transformer-sharp": "^2.5.13",
     "graphql-tag": "^2.11.0",
     "isomorphic-fetch": "^2.2.1",
     "jwt-decode": "^2.2.0",
