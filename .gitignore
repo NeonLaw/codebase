@@ -88,3 +88,5 @@ setup.py
 
 credentials.json
 __pycache__/
+
+dist/
