@@ -18,7 +18,7 @@
     "express-jwt": "^6.0.0",
     "graphile-build-pg": "^4.8.0",
     "graphile-migrate": "^0.3.1",
-    "graphile-utils": "^4.7.0",
+    "graphile-utils": "^4.8.0",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.9.0",
     "pg": "^8.3.2",
