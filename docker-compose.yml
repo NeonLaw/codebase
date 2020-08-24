@@ -43,6 +43,8 @@ services:
       dockerfile: ./docker/api.Dockerfile
     restart: always
     container_name: api
+    depends_on:
+      - shell
     ports:
       - 3000:3000
     environment: *environment-variables
