@@ -141,10 +141,10 @@ export const Table = ({
           {!isTabletOrMobile && (
             <select
               value={pageSize}
-              onChange={(e) => {
+              onBlur={(e) => {
                 setPageSize(Number(e.target.value));
               }}
-              style={{background: colors.lighterBg[colorMode] }}
+              style={{ background: colors.lighterBg[colorMode] }}
             >
               {[5, 10, 20, 30, 40, 50].map((pageSize) => (
                 <option key={pageSize} value={pageSize}>

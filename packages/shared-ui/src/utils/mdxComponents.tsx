@@ -94,8 +94,9 @@ export const MDXComponents = {
           target="_blank"
           rel="noopener noreferrer"
           style={{ cursor: 'pointer', textDecoration: 'underline' }}
-          {...props}
-        />
+        >
+          {props.children}
+        </a>
       );
     }
     if (telRegex.test(href)) {
@@ -103,8 +104,10 @@ export const MDXComponents = {
         <a
           href={href}
           style={{ cursor: 'pointer', textDecoration: 'underline' }}
-          {...props}
-        />
+
+        >
+          {props.children}
+        </a>
       );
     }
     if (mailRegex.test(href)) {

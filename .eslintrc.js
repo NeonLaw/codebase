@@ -11,6 +11,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsdoc/recommended',
+    'plugin:jsx-a11y/recommended'
   ],
   ignorePatterns: [
     '.cache/',
@@ -24,7 +25,14 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'import', 'jest', 'jsdoc'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'import',
+    'jest',
+    'jsdoc',
+    'jsx-a11y'
+  ],
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
