@@ -80,6 +80,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-offline',
     'gatsby-plugin-mdx',
+    'gatsby-plugin-react-axe',
     'gatsby-plugin-sitemap',
     {
       options: {
