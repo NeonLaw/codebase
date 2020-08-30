@@ -2,7 +2,7 @@ import { useSortBy, useTable } from 'react-table';
 import { Box } from '@chakra-ui/core';
 import React from 'react';
 
-export const Table = ({ data, columns }) => {
+export const Table = ({ data, columns, testId }) => {
   const {
     getTableProps,
     getTableBodyProps,
@@ -14,6 +14,7 @@ export const Table = ({ data, columns }) => {
   return (
     <table
       {...getTableProps()}
+      data-testid={testId}
       style={{ minWidth: '100%' }}
     >
       <Box as="thead">

@@ -17,13 +17,15 @@ import { useMediaQuery } from 'react-responsive';
 interface TableInterface {
   columns: any;
   data: any;
+  testId: string;
   tableHeading?: string;
   pageSize?: string;
 }
 
 export const Table = ({
   columns,
-  data
+  data,
+  testId
 }: TableInterface) => {
   const tableColumns = React.useMemo(() => columns, [columns]);
 
@@ -56,7 +58,7 @@ export const Table = ({
 
   return (
     <Card flexDirection="column" flex={1} maxWidth="100%" width="100%">
-      <StyledTable {...getTableProps()}>
+      <StyledTable {...getTableProps()} data-testid={testId} >
         <TableHead>
           {headerGroups.map((headerGroup) => (
             <Flex
@@ -79,11 +81,11 @@ export const Table = ({
                     column.isSortedDesc ? (
                       <Icon name="chevron-up" />
                     ) : (
-                      <Icon name="chevron-down" />
-                    )
+                        <Icon name="chevron-down" />
+                      )
                   ) : (
-                    ''
-                  )}
+                      ''
+                    )}
                 </TableCell>
               ))}
             </Flex>

@@ -27,7 +27,7 @@ const AdminFlashcards = () => {
           Flashcards
         </Heading>
 
-        <Button 
+        <Button
           onClick={onOpen}
           marginBottom={gutters.xSmallOne}
         >

@@ -30,7 +30,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
         fields: {
           allFlashcards(existingFlashCards = []) {
             const newFlashCardRef = cache.writeFragment({
-              data,
+              data: data?.createFlashcard,
               fragment: gql`
                 fragment NewFlashcard on Flashcard {
                   flashcard {

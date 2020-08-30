@@ -79,7 +79,7 @@ Cypress.Commands.add(
 Cypress.Commands.add(
   'loginAsAdminUser',
   () => {
-    cy.log('Logging in as portal@neonlaw.com');
+    cy.log('Logging in as admin@neonlaw.com');
     const clientId = Cypress.env('AUTH_CLIENT_ID');
     const audience = 'https://api.neonlaw.com';
     const scope = 'openid profile email';
