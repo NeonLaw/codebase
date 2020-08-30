@@ -5,23 +5,23 @@ describe('CRUDDing Bar Prep Flashcards', () => {
     cy.loginAsAdminUser().then(() => {
       cy.visit('/admin/flashcards');
 
+      cy.contains('Create Flashcard').click();
+
+      cy
+        .get('[data-testid="create-flashcard-modal-prompt"]')
+        .type('A question');
+
+      cy
+        .get('[data-testid="create-flashcard-modal-answer"]')
+        .type('An answer');
+
+      cy
+        .get('[data-testid="create-flashcard-modal-submit"]')
+        .click();
+
       cy.
         get('[data-testid="admin-flashcards-table"]')
         .should('contain', 'A question');
-
-      // cy.contains('Create Flashcard').click();
-
-      // cy
-      //   .get('[data-testid="create-flashcard-modal-prompt"]')
-      //   .type('A question');
-
-      // cy
-      //   .get('[data-testid="create-flashcard-modal-answer"]')
-      //   .type('An answer');
-
-      // cy
-      //   .get('[data-testid="create-flashcard-modal-submit"]')
-      //   .click();
     });
   });
 });
