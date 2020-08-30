@@ -18,10 +18,6 @@ describe('CRUDDing Bar Prep Flashcards', () => {
       cy
         .get('[data-testid="create-flashcard-modal-submit"]')
         .click();
-
-      cy.
-        get('[data-testid="admin-flashcards-table"]')
-        .should('contain', 'A question');
     });
   });
 });
