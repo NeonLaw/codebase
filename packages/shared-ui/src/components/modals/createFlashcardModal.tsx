@@ -24,13 +24,13 @@ import { useIntl } from 'gatsby-plugin-intl';
 export const CreateFlashcardModal = ({ isOpen, onClose }) => {
   const intl = useIntl();
 
-  const [ createFlashcard ] = useCreateFlashcardMutation({
-    update(cache, {data: { createFlashcard }}) {
+  const [createFlashcard] = useCreateFlashcardMutation({
+    update(cache, { data }) {
       cache.modify({
         fields: {
           allFlashcards(existingFlashCards = []) {
             const newFlashCardRef = cache.writeFragment({
-              data: createFlashcard,
+              data,
               fragment: gql`
                 fragment NewFlashcard on Flashcard {
                   flashcard {
@@ -83,25 +83,25 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
   const { colorMode } = useColorMode();
 
   return (
-    <Modal 
-      isOpen={isOpen} 
+    <Modal
+      isOpen={isOpen}
       onClose={onClose}
     >
       <ModalOverlay />
       <ModalContent>
         <Text>
         </Text>
-        <ModalHeader 
-          fontWeight="normal" 
+        <ModalHeader
+          fontWeight="normal"
           fontSize={theme.fontSizes['xl0']}
           color={colors.text[colorMode]}
         >
           Create a Flashcard
         </ModalHeader>
-        <ModalCloseButton style={{color: colors.text[colorMode]}} />
-        <form 
+        <ModalCloseButton style={{ color: colors.text[colorMode] }} />
+        <form
           onSubmit={handleSubmit(onSubmit as any)}
-          style={{color: colors.text[colorMode]}}
+          style={{ color: colors.text[colorMode] }}
         >
           <ModalBody>
             {formError}
