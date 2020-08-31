@@ -14,7 +14,6 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  PseudoBox,
   Text,
   useDisclosure,
 } from '@chakra-ui/core';
@@ -22,6 +21,7 @@ import React, { useState } from 'react';
 
 import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { AuthenticationContext } from '../../utils/authenticationContext';
+import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
 import { Link } from '../../components/link';
 import { MdDehaze } from 'react-icons/md';
@@ -67,7 +67,7 @@ export const BaseNavigationBar = ({
         height="4em"
       >
         <Container>
-          <Flex size="100%" align="center">
+          <Flex boxSize="100%" align="center">
             <Box
               mr={5}
               as={Link}
@@ -85,7 +85,7 @@ export const BaseNavigationBar = ({
             <Flex flexGrow={1} align="center" justify="flex-end">
               {links.map((link, i) => (
                 <Box className="nav-content-desktop" key={i} mr="0.5em">
-                  <PseudoBox
+                  <Box
                     as={Link}
                     cursor="pointer"
                     margin="0 10px"
@@ -114,16 +114,16 @@ export const BaseNavigationBar = ({
                     activeClassName="nav-link--active"
                   >
                     {link.label}
-                  </PseudoBox>
+                  </Box>
                 </Box>
               ))}
               {menus.map((menu, i) => (
                 <Box className="nav-content-desktop" key={i} mr="0.5em">
-                  <Menu>
-                    <MenuButton as={Button} rightIcon="chevron-down">
-                      !!!{menu.title}
+                  <Menu placement="bottom-end">
+                    <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                      {menu.title}
                     </MenuButton>
-                    <MenuList placement="bottom-end">
+                    <MenuList>
                       {menu.links.map((link, j) => (
                         <MenuItem key={j} as={Link} to={link.route}>
                           {link.label}
@@ -162,8 +162,12 @@ export const BaseNavigationBar = ({
                 aria-label="Navigation Menu"
                 fontSize="20px"
                 variant="ghost"
-                icon={MdDehaze}
-                onClick={onToggle}
+                icon={<MdDehaze />}
+                onClick={() => { 
+                  onToggle();
+                  document.body
+                    .setAttribute('style', 'margin-right: 0 !important');
+                }}
               />
             </Flex>
           </Flex>
@@ -171,7 +175,7 @@ export const BaseNavigationBar = ({
       </Box>
       <Drawer isOpen={isOpen} placement="left" size="xs" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent zIndex="5">
           <DrawerBody padding="0">{sideNavigationDrawer}</DrawerBody>
         </DrawerContent>
       </Drawer>

@@ -23,6 +23,8 @@ export const PublicLayout = ({
     <Flex
       minHeight="100vh"
       direction="column"
+      // eslint-disable-next-line
+      // @ts-ignore
       background={isBgLighter ? colors.lighterBg[colorMode] : null}
     >
       <AuthenticationContext.Consumer>

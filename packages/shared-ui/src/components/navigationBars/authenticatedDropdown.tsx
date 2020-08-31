@@ -10,6 +10,7 @@ import {
   MenuList,
   useColorMode
 } from '@chakra-ui/core';
+
 import { AuthenticationContext } from '../../utils/authenticationContext';
 import { Link } from '../../components/link';
 import React from 'react';
@@ -47,12 +48,13 @@ export const AuthenticatedDropdown = () => {
     <Box
       display={['none', 'none', 'flex']}
       color={color[colorMode]}>
-      <Menu>
+      <Menu
+        placement="bottom-end"
+      >
         <MenuButton>
           <UserAvatar />
         </MenuButton>
         <MenuList
-          placement="bottom-end"
           bg={lighterBg[colorMode]}>
           <MenuItem
             as={Link}

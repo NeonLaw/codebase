@@ -1,15 +1,15 @@
 import {
   Box,
-  Icon,
   Menu,
   MenuButton,
   MenuItem,
   MenuList,
   Text,
-  useColorMode,
+  useColorMode
 } from '@chakra-ui/core';
 import { changeLocale, useIntl } from 'gatsby-plugin-intl';
 
+import { ChevronUpIcon } from '@chakra-ui/icons';
 import React from 'react';
 import { colors } from '../themes/neonLaw';
 
@@ -22,13 +22,14 @@ export const LanguageDropdown = () => {
   return (
     <>
       <Box padding="7px 0">
-        <Menu>
+        <Menu
+          placement="top"
+        >
           <MenuButton>
             {intl.formatMessage({ id: 'languages.language' })}
-            <Icon name="chevron-up" />
+            <ChevronUpIcon />
           </MenuButton>
           <MenuList
-            placement="top"
             bg={lighterBg[colorMode]}
             color={colors.text[colorMode]}
           >

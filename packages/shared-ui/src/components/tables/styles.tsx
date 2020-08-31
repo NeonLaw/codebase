@@ -7,6 +7,7 @@ import {
   space
 } from 'styled-system';
 import { Flex, IconButton } from '@chakra-ui/core';
+
 import React from 'react';
 import styled from '@emotion/styled';
 
@@ -57,7 +58,7 @@ type TableIconButtonProps = SpaceProps & {
   | ((event: React.MouseEvent<HTMLElement, MouseEvent>) => void)
   | undefined;
   isDisabled: boolean;
-  variantColor?: string;
+  colorScheme?: string;
 };
 
 export const TableIconButton: React.FC<TableIconButtonProps> = ({
@@ -65,7 +66,7 @@ export const TableIconButton: React.FC<TableIconButtonProps> = ({
   onClick,
   isDisabled,
   children,
-  variantColor,
+  colorScheme,
   ...rest
 }) => {
   return (
@@ -75,7 +76,7 @@ export const TableIconButton: React.FC<TableIconButtonProps> = ({
       icon={icon}
       borderWidth={1}
       onClick={onClick}
-      variantColor={variantColor}
+      colorScheme={colorScheme}
       isDisabled={isDisabled}
       aria-label="Table Icon button"
     >
@@ -85,5 +86,5 @@ export const TableIconButton: React.FC<TableIconButtonProps> = ({
 };
 
 TableIconButton.defaultProps = {
-  variantColor: 'gray'
+  colorScheme: 'gray'
 };

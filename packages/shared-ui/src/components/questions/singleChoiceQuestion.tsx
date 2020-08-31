@@ -45,9 +45,14 @@ export const SingleChoiceQuestion = ({
         <Heading as="h3" fontWeight="normal">
           {prompt}
         </Heading>
-        <RadioGroup onChange={(e) => setValue(e.target.value)} value={value}>
+        <RadioGroup 
+          onChange={
+            (e: any) => 
+              setValue((e.target as HTMLInputElement).value)}
+          value={value}
+        >
           {choices.map((choice, i) => (
-            <Radio value={i.toString()} key={i}>
+            <Radio width="100%" value={i.toString()} key={i}>
               {choice}
             </Radio>
           ))}

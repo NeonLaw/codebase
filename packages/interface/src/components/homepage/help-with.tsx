@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Heading, PseudoBox, theme } from '@chakra-ui/core';
+import { Box, Heading, theme } from '@chakra-ui/core';
 
 import { Link } from '@neonlaw/shared-ui/src/components/link';
 import React from 'react';
@@ -12,7 +12,7 @@ export interface HelpWithProps {
 }
 
 export const HelpWith = ({ image, text }: HelpWithProps) => (
-  <PseudoBox
+  <Box
     as={Link}
     to="#"
     position="relative"
@@ -27,7 +27,7 @@ export const HelpWith = ({ image, text }: HelpWithProps) => (
     color={theme.colors.white}
     textAlign="center"
     _after={{
-      background: 'cyan',
+      background: theme.colors.cyan['500'],
       content: '""',
       display: 'block',
       height: '100%',
@@ -59,5 +59,5 @@ export const HelpWith = ({ image, text }: HelpWithProps) => (
       fontWeight="normal"
       dangerouslySetInnerHTML={{ __html: text }}
     />
-  </PseudoBox>
+  </Box>
 );

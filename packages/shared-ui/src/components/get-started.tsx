@@ -19,7 +19,7 @@ export const GetStarted = () => {
       >
         {intl.formatMessage({ id: 'get_started.sub_text' })}
       </Box>
-      <Button variantColor="teal">
+      <Button colorScheme="teal">
         {intl.formatMessage({ id: 'get_started.btn_text' })}
       </Button>
     </Section>

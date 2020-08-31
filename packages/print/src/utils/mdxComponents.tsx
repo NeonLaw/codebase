@@ -2,14 +2,12 @@
 import {
   Alert,
   AlertIcon,
-  AspectRatioBox,
+  AspectRatio,
   Box,
-  Callout,
   Code,
   Flex,
   Heading,
   Kbd,
-  PseudoBox,
   Text,
   useColorMode,
 } from '@chakra-ui/core';
@@ -55,7 +53,7 @@ const UnderlineLink = (props) => {
   const { colorMode } = useColorMode();
 
   return (
-    <PseudoBox
+    <Box
       as="span"
       color={colors.link[colorMode]}
       cursor="pointer"
@@ -71,7 +69,7 @@ const UnderlineLink = (props) => {
 export const MDXComponents = {
   Alert,
   AlertIcon,
-  AspectRatioBox,
+  AspectRatio,
   Box,
   Flex,
   Link: ({ href, ...props }) => {
@@ -95,7 +93,7 @@ export const MDXComponents = {
   },
   Text,
   blockquote: (props) => (
-    <Callout
+    <Alert
       mt={4}
       variant="left-accent"
       status="warning"

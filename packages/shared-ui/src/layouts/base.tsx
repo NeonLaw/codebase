@@ -1,4 +1,4 @@
-import { CSSReset, ColorModeProvider, ThemeProvider } from '@chakra-ui/core';
+import { ChakraProvider, ColorModeProvider } from '@chakra-ui/core';
 import React, { ReactChildren, useEffect } from 'react';
 
 import { AuthenticationProvider } from '../utils/authenticationContext';
@@ -20,13 +20,12 @@ export const BaseLayout: React.FC<{
 
   return (
     <AuthenticationProvider>
-      <ThemeProvider theme={theme}>
-        <CSSReset />
+      <ChakraProvider resetCSS theme={theme}>
         <BaseStyles />
         <ColorModeProvider>
           <Background>{children}</Background>
         </ColorModeProvider>
-      </ThemeProvider>
+      </ChakraProvider>
     </AuthenticationProvider>
   );
 };

@@ -1,4 +1,10 @@
-import { Flex, Icon, Text, useColorMode } from '@chakra-ui/core';
+import {
+  ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ChevronUpIcon
+} from '@chakra-ui/icons';
+import { Flex, Text, useColorMode } from '@chakra-ui/core';
 import {
   StyledTable,
   TableCell,
@@ -79,9 +85,9 @@ export const Table = ({
                   <Text fontWeight="bold">{column.render('Header')}</Text>
                   {column.isSorted ? (
                     column.isSortedDesc ? (
-                      <Icon name="chevron-up" />
+                      <ChevronUpIcon />
                     ) : (
-                      <Icon name="chevron-down" />
+                      <ChevronDownIcon />
                     )
                   ) : (
                     ''
@@ -124,13 +130,13 @@ export const Table = ({
             mr={2}
             onClick={() => gotoPage(0)}
             isDisabled={!canPreviousPage}
-            icon={() => <Icon name="chevron-left" />}
+            icon={() => <ChevronLeftIcon />}
           />
           <TableIconButton
             mr={2}
             isDisabled={!canPreviousPage}
             onClick={() => previousPage()}
-            icon={() => <Icon name="chevron-left" />}
+            icon={() => <ChevronLeftIcon />}
           />
         </Flex>
         <Flex justifyContent="center" alignItems="center">
@@ -161,13 +167,13 @@ export const Table = ({
             ml={2}
             isDisabled={!canNextPage}
             onClick={() => nextPage()}
-            icon={() => <Icon name="chevron-right" />}
+            icon={() => <ChevronRightIcon />}
           />
           <TableIconButton
             ml={2}
             onClick={() => gotoPage(pageCount ? pageCount - 1 : 1)}
             isDisabled={!canNextPage}
-            icon={() => <Icon name="chevron-right" />}
+            icon={() => <ChevronRightIcon/>}
           />
         </Flex>
       </CardFooter>

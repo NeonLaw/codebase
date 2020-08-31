@@ -87,72 +87,77 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
       isOpen={isOpen}
       onClose={onClose}
     >
-      <ModalOverlay />
-      <ModalContent>
-        <Text>
-        </Text>
-        <ModalHeader
-          fontWeight="normal"
-          fontSize={theme.fontSizes['xl0']}
-          color={colors.text[colorMode]}
-        >
-          Create a Flashcard
-        </ModalHeader>
-        <ModalCloseButton style={{ color: colors.text[colorMode] }} />
-        <form
-          onSubmit={handleSubmit(onSubmit as any)}
-          style={{ color: colors.text[colorMode] }}
-        >
-          <ModalBody>
-            {formError}
-            <StringInput
-              name="prompt"
-              testId="create-flashcard-modal-prompt"
-              label={intl.formatMessage({ id: 'forms.prompt.label' })}
-              errors={errors}
-              placeholder={intl.formatMessage(
-                { id: 'forms.prompt.placeholder' }
-              )}
-              register={
-                register({
-                  required: intl.formatMessage({ id: 'forms.prompt.required' })
-                })
-              }
-            />
-            <Textarea
-              name="answer"
-              testId="create-flashcard-modal-answer"
-              label={intl.formatMessage({ id: 'forms.answer.label' })}
-              errors={errors}
-              placeholder={intl.formatMessage(
-                { id: 'forms.answer.placeholder' }
-              )}
-              register={
-                register({
-                  required: intl.formatMessage({ id: 'forms.answer.required' })
-                })
-              }
-            />
-            <Select
-              name="topic"
-              testId="create-flashcard-modal-topic"
-              control={control}
-              errors={errors}
-              options={flashcardTopics}
-            />
-          </ModalBody>
+      <ModalOverlay>
+        <ModalContent>
+          <Text>
+          </Text>
+          <ModalHeader
+            fontWeight="normal"
+            fontSize={theme.fontSizes['xl0']}
+            color={colors.text[colorMode]}
+          >
+            Create a Flashcard
+          </ModalHeader>
+          <ModalCloseButton style={{ color: colors.text[colorMode] }} />
+          <form
+            onSubmit={handleSubmit(onSubmit as any)}
+            style={{ color: colors.text[colorMode] }}
+          >
+            <ModalBody>
+              {formError}
+              <StringInput
+                name="prompt"
+                testId="create-flashcard-modal-prompt"
+                label={intl.formatMessage({ id: 'forms.prompt.label' })}
+                errors={errors}
+                placeholder={intl.formatMessage(
+                  { id: 'forms.prompt.placeholder' }
+                )}
+                register={
+                  register({
+                    required: intl.formatMessage({ 
+                      id: 'forms.prompt.required' 
+                    })
+                  })
+                }
+              />
+              <Textarea
+                name="answer"
+                testId="create-flashcard-modal-answer"
+                label={intl.formatMessage({ id: 'forms.answer.label' })}
+                errors={errors}
+                placeholder={intl.formatMessage(
+                  { id: 'forms.answer.placeholder' }
+                )}
+                register={
+                  register({
+                    required: intl.formatMessage({ 
+                      id: 'forms.answer.required' 
+                    })
+                  })
+                }
+              />
+              <Select
+                name="topic"
+                testId="create-flashcard-modal-topic"
+                control={control}
+                errors={errors}
+                options={flashcardTopics}
+              />
+            </ModalBody>
 
-          <ModalFooter>
-            <Button
-              type="submit"
-              data-testid="create-flashcard-modal-submit"
-              isDisabled={isSubmitting}
-            >
-              Create Flashcard
-            </Button>
-          </ModalFooter>
-        </form>
-      </ModalContent>
+            <ModalFooter>
+              <Button
+                type="submit"
+                data-testid="create-flashcard-modal-submit"
+                isDisabled={isSubmitting}
+              >
+                Create Flashcard
+              </Button>
+            </ModalFooter>
+          </form>
+        </ModalContent>
+      </ModalOverlay>
     </Modal>
   );
 };

@@ -43,6 +43,8 @@ export const Section = ({
   const { colorMode } = useColorMode();
   return (
     <StyledSection
+      // eslint-disable-next-line
+      // @ts-ignore
       as="section"
       style={{ ...styles }}
       borderColor={`${colors.borders[colorMode]} !important`}

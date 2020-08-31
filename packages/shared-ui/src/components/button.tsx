@@ -4,7 +4,6 @@
 import {
   Box,
   Button as ChakraButton,
-  PseudoBox,
   useColorMode,
 } from '@chakra-ui/core';
 import { colors, gutters, shadows } from '../themes/neonLaw';
@@ -36,7 +35,7 @@ export const ReadMoreButton = ({ children, ...props }: any) => {
   const { colorMode } = useColorMode();
 
   return (
-    <PseudoBox
+    <Box
       {...props}
       as={Link}
       borderBottom={`2px solid ${colors.cyanLight}`}
@@ -70,6 +69,6 @@ export const ReadMoreButton = ({ children, ...props }: any) => {
       <Box as="span" fontFamily="sans-serif">
         &nbsp;&rarr;
       </Box>
-    </PseudoBox>
+    </Box>
   );
 };
