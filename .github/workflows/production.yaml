@@ -71,19 +71,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
-        with:
-          project_id: neon-law-production
-          service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
-          service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
-          export_default_credentials: true
-
-      - name: |-
-          Configure Docker to use the gcloud command-line tool as a credential
-          helper for authentication
-        run: |-
-          gcloud --quiet auth configure-docker
-
       - name: Build the Docker image
         run: |-
           docker build \
@@ -92,7 +79,7 @@ jobs:
             --build-arg GATSBY_AUTH0_CALLBACK="$GATSBY_AUTH0_CALLBACK" \
             --build-arg GATSBY_AUTH0_DOMAIN="$GATSBY_AUTH0_DOMAIN" \
             --build-arg GATSBY_AUTH0_CLIENT_ID="$GATSBY_AUTH0_CLIENT_ID" \
-            --build-arg GATSBY_AUTH0_TENANT=auth.neonlaw.com
+            --build-arg GATSBY_AUTH0_TENANT=auth.neonlaw.com \
             --build-arg GATSBY_ACTIVE_ENV=production \
             --build-arg DOMAIN_NAME=www.lawjobresources.com \
             --build-arg APP_NAME=law-job-resources \
@@ -102,6 +89,21 @@ jobs:
           GATSBY_AUTH0_CALLBACK: ${{ secrets.PRODUCTION_AUTH0_CALLBACK }}
           GATSBY_AUTH0_DOMAIN: ${{ secrets.PRODUCTION_AUTH0_DOMAIN }}
           GATSBY_AUTH0_CLIENT_ID: ${{ secrets.PRODUCTION_AUTH0_CLIENT_ID }}
+
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          project_id: neon-law-production
+          service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
+          service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
+          export_default_credentials: true
+        if: github.ref == 'refs/heads/production'
+
+      - name: |-
+          Configure Docker to use the gcloud command-line tool as a credential
+          helper for authentication
+        run: |-
+          gcloud --quiet auth configure-docker
+        if: github.ref == 'refs/heads/production'
 
       - name: Push the Docker image to Google Container Registry
         run: |-
@@ -126,19 +128,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
-        with:
-          project_id: neon-law-production
-          service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
-          service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
-          export_default_credentials: true
-
-      - name: |-
-          Configure Docker to use the gcloud command-line tool as a credential
-          helper for authentication
-        run: |-
-          gcloud --quiet auth configure-docker
-
       - name: Build the Docker image
         run: |-
           docker build \
@@ -157,6 +146,21 @@ jobs:
           GATSBY_AUTH0_CALLBACK: ${{ secrets.PRODUCTION_AUTH0_CALLBACK }}
           GATSBY_AUTH0_DOMAIN: ${{ secrets.PRODUCTION_AUTH0_DOMAIN }}
           GATSBY_AUTH0_CLIENT_ID: ${{ secrets.PRODUCTION_AUTH0_CLIENT_ID }}
+
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          project_id: neon-law-production
+          service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
+          service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
+          export_default_credentials: true
+        if: github.ref == 'refs/heads/production'
+
+      - name: |-
+          Configure Docker to use the gcloud command-line tool as a credential
+          helper for authentication
+        run: |-
+          gcloud --quiet auth configure-docker
+        if: github.ref == 'refs/heads/production'
 
       - name: Push the Docker image to Google Container Registry
         run: |-
@@ -181,19 +185,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
-        with:
-          project_id: neon-law-production
-          service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
-          service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
-          export_default_credentials: true
-
-      - name: |-
-          Configure Docker to use the gcloud command-line tool as a credential
-          helper for authentication
-        run: |-
-          gcloud --quiet auth configure-docker
-
       - name: Build the Docker image
         run: |-
           docker build \
@@ -212,6 +203,21 @@ jobs:
           GATSBY_AUTH0_CALLBACK: ${{ secrets.PRODUCTION_AUTH0_CALLBACK }}
           GATSBY_AUTH0_DOMAIN: ${{ secrets.PRODUCTION_AUTH0_DOMAIN }}
           GATSBY_AUTH0_CLIENT_ID: ${{ secrets.PRODUCTION_AUTH0_CLIENT_ID }}
+
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          project_id: neon-law-production
+          service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
+          service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
+          export_default_credentials: true
+        if: github.ref == 'refs/heads/production'
+
+      - name: |-
+          Configure Docker to use the gcloud command-line tool as a credential
+          helper for authentication
+        run: |-
+          gcloud --quiet auth configure-docker
+        if: github.ref == 'refs/heads/production'
 
       - name: Push the Docker image to Google Container Registry
         run: |-
@@ -235,18 +241,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
-        with:
-          project_id: neon-law-production
-          service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
-          service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
-          export_default_credentials: true
-
-      - name: |-
-          Configure Docker to use the gcloud command-line tool as a credential
-          helper for authentication
-        run: |-
-          gcloud --quiet auth configure-docker
 
       - name: Build the Docker image
         run: |-
@@ -255,6 +249,21 @@ jobs:
             --tag "us.gcr.io/neon-law-production/api:latest" \
             -f docker/api.Dockerfile \
             .
+
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          project_id: neon-law-production
+          service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
+          service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
+          export_default_credentials: true
+        if: github.ref == 'refs/heads/production'
+
+      - name: |-
+          Configure Docker to use the gcloud command-line tool as a credential
+          helper for authentication
+        run: |-
+          gcloud --quiet auth configure-docker
+        if: github.ref == 'refs/heads/production'
 
       - name: Push the Docker image to Google Container Registry
         run: |-
