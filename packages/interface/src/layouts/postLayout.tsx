@@ -135,7 +135,7 @@ const PostLayout: React.FC<{
                         <Divider margin="1em 0" />
                         <div className="links">
                           <ShareButtons slug={slug} siteUrl={siteUrl} />
-                          <EditOnGithub app="neon-law" path={slug} />
+                          <EditOnGithub app="interface" path={slug} />
                         </div>
                       </Box>
                     </Container>
