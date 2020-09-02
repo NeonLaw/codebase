@@ -35,7 +35,7 @@ Cypress.Commands.add(
     const clientId = Cypress.env('AUTH_CLIENT_ID');
     const audience = 'https://api.neonlaw.com';
     const scope = 'openid profile email';
-    const jwt_decode = require('jwt-decode');
+    const jwtDecode = require('jwt-decode');
 
     const options = {
       body: {
@@ -63,7 +63,7 @@ Cypress.Commands.add(
           access_token,
           client_id: clientId,
           decodedToken: {
-            user: jwt_decode(id_token),
+            user: jwtDecode(id_token),
           },
           expires_in,
           id_token,
@@ -83,7 +83,7 @@ Cypress.Commands.add(
     const clientId = Cypress.env('AUTH_CLIENT_ID');
     const audience = 'https://api.neonlaw.com';
     const scope = 'openid profile email';
-    const jwt_decode = require('jwt-decode');
+    const jwtDecode = require('jwt-decode');
 
     const options = {
       body: {
@@ -95,6 +95,9 @@ Cypress.Commands.add(
         realm: 'Username-Password-Authentication',
         'scope': scope,
         'username': 'admin@neonlaw.com',
+      },
+      headers: {
+        'Content-Type': 'application/json'
       },
       method: 'POST',
       url: Cypress.env('AUTH_URL'),
@@ -111,7 +114,7 @@ Cypress.Commands.add(
           access_token,
           client_id: clientId,
           decodedToken: {
-            user: jwt_decode(id_token),
+            user: jwtDecode(id_token),
           },
           expires_in,
           id_token,
