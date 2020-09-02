@@ -100,6 +100,23 @@ export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
               </Text>
               <Box
                 as="a"
+                href="https://neonlaw.zendesk.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                padding="7px 0"
+              >
+                {intl.formatMessage({ id: 'footer.support' })}
+              </Box>
+              <Box as={Link} to="/pgp" padding="7px 0">
+                PGP Key
+              </Box>
+            </Flex>
+            <Flex direction="column">
+              <Box as={Link} to="/pro-bono" padding="7px 0">
+                {intl.formatMessage({ id: 'footer.pro_bono' })}
+              </Box>
+              <Box
+                as="a"
                 href="https://www.deleteyourdata.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -124,23 +141,6 @@ export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
                 padding="7px 0"
               >
                 Justice For Rickie Slaughter
-              </Box>
-            </Flex>
-            <Flex direction="column">
-              <Box
-                as="a"
-                href="https://neonlaw.zendesk.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                padding="7px 0"
-              >
-                {intl.formatMessage({ id: 'footer.support' })}
-              </Box>
-              <Box as={Link} to="/pgp" padding="7px 0">
-                PGP Key
-              </Box>
-              <Box as={Link} to="/pro-bono" padding="7px 0">
-                {intl.formatMessage({ id: 'footer.pro_bono' })}
               </Box>
             </Flex>
             <Flex direction="column">

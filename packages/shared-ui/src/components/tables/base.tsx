@@ -24,20 +24,22 @@ interface TableInterface {
   columns: any;
   data: any;
   testId: string;
-  tableHeading?: string;
-  pageSize?: string;
+  rowModal: any;
 }
 
 export const Table = ({
   columns,
   data,
-  testId
+  rowModal,
+  testId,
 }: TableInterface) => {
   const tableColumns = React.useMemo(() => columns, [columns]);
 
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 40em)' });
 
   const { colorMode } = useColorMode();
+
+  console.log(rowModal || 'no row modal provided');
 
   const {
     getTableProps,
@@ -173,7 +175,7 @@ export const Table = ({
             ml={2}
             onClick={() => gotoPage(pageCount ? pageCount - 1 : 1)}
             isDisabled={!canNextPage}
-            icon={() => <ChevronRightIcon/>}
+            icon={() => <ChevronRightIcon />}
           />
         </Flex>
       </CardFooter>

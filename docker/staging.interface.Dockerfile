@@ -14,13 +14,12 @@ WORKDIR /app
 
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --ignore-optional --silent
+RUN yarn install --silent
+RUN poetry install
 
 COPY . .
 
-RUN yarn install --ignore-optional --silent
-RUN cp -vr packages/shared-ui/fonts packages/$APP_NAME/static
-RUN cd packages/$APP_NAME && yarn build
+RUN yarn workspace @neonlaw/$APP_NAME build
 
 RUN awk "{gsub(/DOMAIN_NAME/, \"$DOMAIN_NAME\"); print}" ./docker/staging.nginx.conf > docker.nginx.conf
 

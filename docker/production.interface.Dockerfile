@@ -18,7 +18,8 @@ WORKDIR /app
 
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --ignore-optional --silent
+RUN yarn install --silent
+RUN poetry install
 
 COPY . .
 

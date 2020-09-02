@@ -135,12 +135,15 @@ software:
 * GitHub
 * Google Cloud Platform
 * Grammarly
+* LanguageTool
 * Lexis Advance
+* Mercury Bank
+* PGRita
 * Postgraphile
 * SendGrid
+* Slack
 * Terraform Cloud
 * Transloadit
-* Xero
 * Zendesk Suite
 
 ## Continuous Integration and Deployment

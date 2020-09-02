@@ -5,7 +5,10 @@ on:
   push:
     branches:
       - production
+  pull_request:
+    branches:
       - development
+      - production
 
 jobs:
   deploy_interface_production:
@@ -48,15 +51,18 @@ jobs:
         run: |-
           docker push "us.gcr.io/neon-law-production/interface:$GITHUB_SHA"
           docker push "us.gcr.io/neon-law-production/interface:latest"
+        if: github.ref == 'refs/heads/production'
 
       - name: Get the GKE credentials so we can deploy to the cluster
         run: |-
           gcloud container clusters get-credentials neon-law --region us-west4
+        if: github.ref == 'refs/heads/production'
 
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment interface \
             interface=us.gcr.io/neon-law-production/interface:$GITHUB_SHA
+        if: github.ref == 'refs/heads/production'
 
   deploy_law_job_resources_production:
     runs-on: ubuntu-latest
@@ -99,15 +105,18 @@ jobs:
         run: |-
           docker push "us.gcr.io/neon-law-production/law-job-resources:$GITHUB_SHA"
           docker push "us.gcr.io/neon-law-production/law-job-resources:latest"
+        if: github.ref == 'refs/heads/production'
 
       - name: Get the GKE credentials so we can deploy to the cluster
         run: |-
           gcloud container clusters get-credentials neon-law --region us-west4
+        if: github.ref == 'refs/heads/production'
 
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment law-job-resources \
             law-job-resources=us.gcr.io/neon-law-production/law-job-resources:$GITHUB_SHA
+        if: github.ref == 'refs/heads/production'
 
   deploy_justice_for_rickie_slaughter_production:
     runs-on: ubuntu-latest
@@ -150,15 +159,18 @@ jobs:
         run: |-
           docker push "us.gcr.io/neon-law-production/justice-for-rickie-slaughter:$GITHUB_SHA"
           docker push "us.gcr.io/neon-law-production/justice-for-rickie-slaughter:latest"
+        if: github.ref == 'refs/heads/production'
 
       - name: Get the GKE credentials so we can deploy to the cluster
         run: |-
           gcloud container clusters get-credentials neon-law --region us-west4
+        if: github.ref == 'refs/heads/production'
 
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment justice-for-rickie-slaughter \
             justice-for-rickie-slaughter=us.gcr.io/neon-law-production/justice-for-rickie-slaughter:$GITHUB_SHA
+        if: github.ref == 'refs/heads/production'
 
   deploy_delete_your_data_production:
     runs-on: ubuntu-latest
@@ -201,15 +213,18 @@ jobs:
         run: |-
           docker push "us.gcr.io/neon-law-production/delete-your-data:$GITHUB_SHA"
           docker push "us.gcr.io/neon-law-production/delete-your-data:latest"
+        if: github.ref == 'refs/heads/production'
 
       - name: Get the GKE credentials so we can deploy to the cluster
         run: |-
           gcloud container clusters get-credentials neon-law --region us-west4
+        if: github.ref == 'refs/heads/production'
 
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment delete-your-data \
             delete-your-data=us.gcr.io/neon-law-production/delete-your-data:$GITHUB_SHA
+        if: github.ref == 'refs/heads/production'
 
   deploy_api:
     runs-on: ubuntu-latest
@@ -241,12 +256,15 @@ jobs:
         run: |-
           docker push "us.gcr.io/neon-law-production/api:$GITHUB_SHA"
           docker push "us.gcr.io/neon-law-production/api:latest"
+        if: github.ref == 'refs/heads/production'
 
       - name: Get the GKE credentials so we can deploy to the cluster
         run: |-
           gcloud container clusters get-credentials neon-law --region us-west4
+        if: github.ref == 'refs/heads/production'
 
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment api \
              api=us.gcr.io/neon-law-production/api:$GITHUB_SHA
+        if: github.ref == 'refs/heads/production'

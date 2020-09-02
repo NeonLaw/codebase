@@ -29,6 +29,11 @@ export const FlashcardTable = () => {
   const nodes = data?.allFlashcards?.nodes || [];
 
   return (
-    <Table columns={columns} data={nodes} testId="admin-flashcards-table" />
+    <Table
+      rowModal={{ yes: 'true' }}
+      columns={columns}
+      data={nodes}
+      testId="admin-flashcards-table"
+    />
   );
 };

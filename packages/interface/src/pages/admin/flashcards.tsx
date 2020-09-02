@@ -4,7 +4,6 @@ import {
   Heading,
   useDisclosure,
 } from '@chakra-ui/core';
-
 import {
   CreateFlashcardModal
 } from '@neonlaw/shared-ui/src/components/modals/createFlashcardModal';
@@ -13,9 +12,7 @@ import {
 } from '@neonlaw/shared-ui/src/components/tables/flashcardTable';
 import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
 import React from 'react';
-import {
-  gutters
-} from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
 const AdminFlashcards = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

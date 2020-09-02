@@ -19,7 +19,6 @@
     "outDir": "./build",
     "rootDir": "./",
     "skipLibCheck": true,
-    "sourceMap": true,
     "strict": true,
     "suppressImplicitAnyIndexErrors": true,
     "target": "esnext",
@@ -42,5 +41,5 @@
     "./packages/api/tests/utils/sanitizeSnapshot.ts",
     "./packages/**/*.test.tsx",
     "./packages/api/src/server.ts"
-  ],
+  ]
 }
