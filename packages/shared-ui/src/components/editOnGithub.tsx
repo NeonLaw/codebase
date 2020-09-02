@@ -2,6 +2,7 @@
 // @ts-nocheck
 /* eslint-enable */
 import { Box, Flex } from '@chakra-ui/core';
+
 import { FaPencilAlt } from 'react-icons/fa';
 import React from 'react';
 
@@ -12,11 +13,18 @@ interface EditOnGithubInterface {
 
 export const EditOnGithub = ({ app, path }: EditOnGithubInterface) => {
   const contentPath = path === '/' ? '/index' : path;
-
-  const githubPath =
+  let githubPath;
+  if (path.includes('/blog/')) {
+    githubPath = 
+    'https://github.com/NeonLaw/codebase/blob' +
+    `/development/packages/${app}/src/blogPosts/${
+      contentPath.split('/')[2]
+    }.mdx`;
+  } else {
+    githubPath = 
     'https://github.com/NeonLaw/codebase/blob' +
     `/development/packages/${app}/src/content${contentPath}.mdx`;
-
+  }
   return (
     <Flex
       alignItems="center"
