@@ -15,17 +15,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
-        with:
-          project_id: neon-law-staging
-          service_account_email: github-actions@neon-law-staging.iam.gserviceaccount.com
-          service_account_key: ${{ secrets.STAGING_GCP_CREDENTIALS }}
-          export_default_credentials: true
-      - name: |-
-          Configure Docker to use the gcloud command-line tool as a credential
-          helper for authentication
-        run: |-
-          gcloud --quiet auth configure-docker
       - name: Build the Docker image
         run: |-
           docker build \
@@ -44,6 +33,21 @@ jobs:
           GATSBY_AUTH0_CALLBACK: ${{ secrets.STAGING_AUTH0_CALLBACK }}
           GATSBY_AUTH0_DOMAIN: ${{ secrets.STAGING_AUTH0_DOMAIN }}
           GATSBY_AUTH0_CLIENT_ID: ${{ secrets.STAGING_AUTH0_CLIENT_ID }}
+
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          project_id: neon-law-staging
+          service_account_email: github-actions@neon-law-staging.iam.gserviceaccount.com
+          service_account_key: ${{ secrets.STAGING_GCP_CREDENTIALS }}
+          export_default_credentials: true
+        if: github.ref == 'refs/heads/staging'
+
+      - name: |-
+          Configure Docker to use the gcloud command-line tool as a credential
+          helper for authentication
+        run: |-
+          gcloud --quiet auth configure-docker
+        if: github.ref == 'refs/heads/staging'
 
   #     - name: Push the Docker image to Google Container Registry
   #       run: |-
