@@ -38,8 +38,8 @@ You should have these environment variables on your machine:
 * `AUTH0_TENANT`
 * `CYPRESS_AUTH_URL`
 * `CYPRESS_AUDIENCE_URL`
-* `CYPRESS_AUTH_CLIENT_ID`
-* `CYPRESS_AUTH_CLIENT_SECRET`
+* `CYPRESS_AUTH0_CLIENT_ID`
+* `CYPRESS_AUTH0_CLIENT_SECRET`
 
 You will need to have values for these environment variables sourced in the same
 bash shell as when you run the next step. Additionally, you should have the

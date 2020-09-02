@@ -32,7 +32,7 @@ Cypress.Commands.add(
   'loginAsPortalUser',
   () => {
     cy.log('Logging in as portal@neonlaw.com');
-    const clientId = Cypress.env('AUTH_CLIENT_ID');
+    const clientId = Cypress.env('AUTH0_CLIENT_ID');
     const audience = 'https://api.neonlaw.com';
     const scope = 'openid profile email';
     const jwtDecode = require('jwt-decode');
@@ -41,7 +41,7 @@ Cypress.Commands.add(
       body: {
         'audience': audience,
         'client_id': clientId,
-        'client_secret': Cypress.env('AUTH_CLIENT_SECRET'),
+        'client_secret': Cypress.env('AUTH0_CLIENT_SECRET'),
         'grant_type': 'http://auth0.com/oauth/grant-type/password-realm',
         'password': Cypress.env('PORTAL_USER_PASSWORD'),
         realm: 'Username-Password-Authentication',
@@ -80,7 +80,7 @@ Cypress.Commands.add(
   'loginAsAdminUser',
   () => {
     cy.log('Logging in as admin@neonlaw.com');
-    const clientId = Cypress.env('AUTH_CLIENT_ID');
+    const clientId = Cypress.env('AUTH0_CLIENT_ID');
     const audience = 'https://api.neonlaw.com';
     const scope = 'openid profile email';
     const jwtDecode = require('jwt-decode');
@@ -89,7 +89,7 @@ Cypress.Commands.add(
       body: {
         'audience': audience,
         'client_id': clientId,
-        'client_secret': Cypress.env('AUTH_CLIENT_SECRET'),
+        'client_secret': Cypress.env('AUTH0_CLIENT_SECRET'),
         'grant_type': 'http://auth0.com/oauth/grant-type/password-realm',
         'password': Cypress.env('ADMIN_USER_PASSWORD'),
         realm: 'Username-Password-Authentication',

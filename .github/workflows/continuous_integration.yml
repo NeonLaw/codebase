@@ -91,8 +91,8 @@ jobs:
           wait-on-timeout: 1500
           working-directory: ./packages/interface
         env:
-          CYPRESS_AUTH_CLIENT_ID: ${{ secrets.CYPRESS_AUTH_CLIENT_ID }}
-          CYPRESS_AUTH_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH_CLIENT_SECRET }}
+          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
+          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
           CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
           CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
           CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}

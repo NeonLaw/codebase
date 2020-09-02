@@ -86,11 +86,10 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      id="create-flashcard-modal"
       size="960px"
     >
       <ModalOverlay>
-        <ModalContent>
+        <ModalContent data-testid="create-flashcard-modal">
           <Text>
           </Text>
           <ModalHeader
