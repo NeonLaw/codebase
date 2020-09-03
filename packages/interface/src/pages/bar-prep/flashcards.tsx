@@ -2,7 +2,7 @@
 // @ts-nocheck
 /* eslint-enable */
 import { Box, Button, Heading } from '@chakra-ui/core';
-import { gutters, sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { colors, gutters, sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
 import {
   FlashcardContainer
@@ -33,11 +33,12 @@ const Flashcards = () => {
         return (
           <PublicLayout>
             <Seo title="Bar Prep Flashcards" />
-            
+
             <Section>
               <Heading fontWeight="normal">
                 Choose a category
               </Heading>
+              <FlashcardContainer topic={topic} />
               <Box
                 display="grid"
                 gridTemplateColumns="repeat(auto-fill, minmax(220px, 1fr))"
@@ -47,6 +48,9 @@ const Flashcards = () => {
                 {flashcardTopics.map((topic, i) => (
                   <Button
                     key={i}
+                    bg={colors.cyanDark}
+                    color={colors.text.dark}
+                    _hover={{ backgroundColor: colors.cyanDark1 }}
                     as={Link}
                     to={`${location.pathname}?topic=${topic.value}`}
                     activeLink={{ backgroundColor: 'red' }}
@@ -55,7 +59,6 @@ const Flashcards = () => {
                   </Button>
                 ))}
               </Box>
-              <FlashcardContainer topic={topic} />
             </Section>
           </PublicLayout>
         );
