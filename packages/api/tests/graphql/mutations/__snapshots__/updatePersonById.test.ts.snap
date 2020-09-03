@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the updatePersonById mutation as a lawyer user returns an error when updating another user 1`] = `
+Object {
+  "data": Object {
+    "updatePersonById": null,
+  },
+  "errors": Array [
+    Object {
+      "locations": Array [
+        Object {
+          "column": 7,
+          "line": 2,
+        },
+      ],
+      "message": "No values were updated in collection 'people' because no values you can update were found matching these criteria.",
+      "path": Array [
+        "updatePersonById",
+      ],
+    },
+  ],
+}
+`;
+
+exports[`the updatePersonById mutation as a lawyer user returns the updated user when updating themself 1`] = `
+Object {
+  "data": Object {
+    "updatePersonById": Object {
+      "person": Object {
+        "email": "[email-1]",
+        "id": "[id-1]",
+        "name": "yes",
+      },
+    },
+  },
+}
+`;
+
+exports[`the updatePersonById mutation as a portal user returns an error when updating another user 1`] = `
+Object {
+  "data": Object {
+    "updatePersonById": null,
+  },
+  "errors": Array [
+    Object {
+      "locations": Array [
+        Object {
+          "column": 7,
+          "line": 2,
+        },
+      ],
+      "message": "No values were updated in collection 'people' because no values you can update were found matching these criteria.",
+      "path": Array [
+        "updatePersonById",
+      ],
+    },
+  ],
+}
+`;
+
+exports[`the updatePersonById mutation as a portal user returns the updated user when updating themself 1`] = `
+Object {
+  "data": Object {
+    "updatePersonById": Object {
+      "person": Object {
+        "email": "[email-1]",
+        "id": "[id-1]",
+        "name": "yes",
+      },
+    },
+  },
+}
+`;
+
+exports[`the updatePersonById mutation as an admin user returns the updated user when updating another user 1`] = `
+Object {
+  "data": Object {
+    "updatePersonById": Object {
+      "person": Object {
+        "email": "[email-1]",
+        "id": "[id-1]",
+        "name": "yes",
+      },
+    },
+  },
+}
+`;
+
+exports[`the updatePersonById mutation as an admin user returns the updated user when updating themself 1`] = `
+Object {
+  "data": Object {
+    "updatePersonById": Object {
+      "person": Object {
+        "email": "[email-1]",
+        "id": "[id-1]",
+        "name": "yes",
+      },
+    },
+  },
+}
+`;
+
+exports[`the updatePersonById mutation as an anonymous user returns a null updatePerson object 1`] = `
+Object {
+  "data": Object {
+    "updatePersonById": null,
+  },
+  "errors": Array [
+    Object {
+      "locations": Array [
+        Object {
+          "column": 7,
+          "line": 2,
+        },
+      ],
+      "message": "permission denied for table person",
+      "path": Array [
+        "updatePersonById",
+      ],
+    },
+  ],
+}
+`;

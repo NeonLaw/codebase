@@ -11,27 +11,39 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsdoc/recommended',
+    'plugin:jsx-a11y/recommended'
   ],
   ignorePatterns: [
     '.cache/',
     'build/',
     'node_modules/',
     'public/',
-    'packages/shared/src/utils/api.tsx'
+    'packages/shared-ui/src/utils/api.tsx'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'import', 'jest', 'jsdoc'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'import',
+    'jest',
+    'jsdoc',
+    'jsx-a11y'
+  ],
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/no-var-requires': 'off',
     'indent': ['error', 2, { SwitchCase: 1 }],
+    'jsdoc/require-param-description': 'off',
+    'jsdoc/require-param-type': 'off',
+    'jsdoc/require-returns': 'off',
     'max-len': ['error', { 'code': 80 }],
     'quotes': [2, 'single'],
     'react/no-children-prop': 'off',

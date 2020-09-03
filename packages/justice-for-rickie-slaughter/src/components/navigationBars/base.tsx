@@ -11,6 +11,7 @@ import {
   IconButton,
   useDisclosure
 } from '@chakra-ui/core';
+
 import { MdDehaze } from 'react-icons/md';
 import React from 'react';
 import { navigate } from 'gatsby';
@@ -34,7 +35,7 @@ export const BaseNavigationBar = ({
         width="full"
         height="4em"
       >
-        <Flex size="100%" px="6" align="center">
+        <Flex boxSize="100%" px="6" align="center">
           <Box
             mr={5}
             as="a"
@@ -57,7 +58,7 @@ export const BaseNavigationBar = ({
               aria-label="Navigation Menu"
               fontSize="20px"
               variant="ghost"
-              icon={MdDehaze}
+              icon={<MdDehaze />}
               onClick={onToggle}
             />
           </Flex>

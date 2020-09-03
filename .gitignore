@@ -78,3 +78,15 @@ packages/delete-your-data/static/fonts/**
 !packages/delete-your-data/static/fonts/.gitkeep
 packages/justice-for-rickie-slaughter/static/fonts/**
 !packages/justice-for-rickie-slaughter/static/fonts/.gitkeep
+
+*.tfstate
+*.tfstate.backup
+
+neon_law.egg-info/
+pyproject.tmp
+setup.py
+
+credentials.json
+__pycache__/
+
+dist/

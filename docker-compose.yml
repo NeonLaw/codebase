@@ -1,5 +1,26 @@
 ---
-version: "3.8"
+version: "3.4"
+
+x-environment-variables: &environment-variables
+  - AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID
+  - AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET
+  - AUTH0_TENANT=neon-law-testing.auth0.com
+  - DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law
+  - SHADOW_DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law_shadow
+  - ROOT_DATABASE_URL=postgres://postgres:password@postgres:5432/postgres
+  - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
+  - NODE_ENV=development
+  - SHOW_GRAPHIQL=true
+  - CYPRESS_AUTH_URL=$CYPRESS_AUTH_URL
+  - CYPRESS_AUDIENCE_URL=$CYPRESS_AUDIENCE_URL
+  - CYPRESS_AUTH0_CLIENT_ID=$CYPRESS_AUTH0_CLIENT_ID
+  - CYPRESS_AUTH0_CLIENT_SECRET=$CYPRESS_AUTH0_CLIENT_SECRET
+  - GATSBY_WEBPACK_PUBLICPATH=/
+
+x-node-volumes: &node-volumes
+  - ./:/app
+  - node_modules:/app/node_modules
+  - ./yarn.lock:/app/yarn.lock:ro
 
 services:
   postgres:
@@ -8,26 +29,105 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_HOST: localhost
       POSTGRES_DB: neon_law
+    ports:
+      - 5432:5432
     restart: unless-stopped
-    logging:
-      driver: none
+    volumes:
+      - ./docker/pg-init-scripts:/docker-entrypoint-initdb.d
+    command: ["postgres", "-c", "log_statement=all"]
 
-  logic:
-    image: neonlaw/logic
-    container_name: logic
-    restart: unless-stopped
+  api:
+    build:
+      context: ./
+      dockerfile: ./docker/api.Dockerfile
+    restart: always
+    container_name: api
+    depends_on:
+      - shell
     ports:
       - 3000:3000
+    environment: *environment-variables
+    volumes: *node-volumes
+
+  interface:
+    build:
+      context: ./
+      dockerfile: ./docker/development.interface.Dockerfile
+    container_name: interface
+    restart: always
     depends_on:
-      - postgres
+      - api
+    ports:
+      - 8000:8000
+    volumes: *node-volumes
     environment:
-      - DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law
-      - AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID
-      - AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET
-      - AUTH0_TENANT=neon-law-testing
-      - NODE_ENV=production
-      - SHOW_GRAPHIQL=true
+      PACKAGE_NAME: interface
+      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
+
+  law_job_resources:
+    build:
+      context: ./
+      dockerfile: ./docker/development.interface.Dockerfile
+    restart: always
+    container_name: law_job_resources
+    depends_on:
+      - api
+    ports:
+      - 5000:8000
+    volumes: *node-volumes
+    environment:
+      PACKAGE_NAME: law-job-resources
+      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
+
+  justice_for_rickie_slaughter:
+    build:
+      context: ./
+      dockerfile: ./docker/development.interface.Dockerfile
+    restart: always
+    container_name: justice_for_rickie_slaughter
+    depends_on:
+      - api
+    ports:
+      - 7000:8000
+    volumes: *node-volumes
+    environment:
+      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
+      PACKAGE_NAME: justice-for-rickie-slaughter
+
+  delete_your_data:
+    build:
+      context: ./
+      dockerfile: ./docker/development.interface.Dockerfile
+    restart: always
+    container_name: delete_your_data
+    depends_on:
+      - api
+    ports:
+      - 6000:8000
+    volumes: *node-volumes
+    environment:
+      PACKAGE_NAME: delete-your-data
+      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
+
+  language_tool:
+    image: silviof/docker-languagetool
+    restart: unless-stopped
     logging:
       driver: none
+    ports:
+      - 8001:8010
+
+  shell:
+    build:
+      context: ./
+      dockerfile: ./docker/shell.Dockerfile
+    container_name: shell
+    volumes:
+      - ./:/app
+      - node_modules:/app/node_modules
+    environment: *environment-variables
+    restart: unless-stopped
+
+volumes:
+  node_modules:

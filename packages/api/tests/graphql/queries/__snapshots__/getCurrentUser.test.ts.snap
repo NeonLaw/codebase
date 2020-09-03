@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the getCurrentUser query as a lawyer user returns the current user object 1`] = `
+Object {
+  "data": Object {
+    "getCurrentUser": Object {
+      "id": "[id-1]",
+    },
+  },
+}
+`;
+
+exports[`the getCurrentUser query as a portal user returns the current user object 1`] = `
+Object {
+  "data": Object {
+    "getCurrentUser": Object {
+      "id": "[id-1]",
+    },
+  },
+}
+`;
+
+exports[`the getCurrentUser query as an admin user returns the current user object 1`] = `
+Object {
+  "data": Object {
+    "getCurrentUser": Object {
+      "id": "[id-1]",
+    },
+  },
+}
+`;
+
+exports[`the getCurrentUser query as an anonymous user returns a null current user object 1`] = `
+Object {
+  "data": Object {
+    "getCurrentUser": null,
+  },
+  "errors": Array [
+    Object {
+      "locations": Array [
+        Object {
+          "column": 2,
+          "line": 1,
+        },
+      ],
+      "message": "permission denied for table person",
+      "path": Array [
+        "getCurrentUser",
+      ],
+    },
+  ],
+}
+`;

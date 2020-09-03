@@ -1,0 +1,37 @@
+---
+name: Delete Docker Images hosted on GCP
+
+on:
+  schedule:
+    - cron: 0 4 * * *
+
+jobs:
+  delete_extra_staging_images:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          project_id: neon-law-staging
+          service_account_email: github-actions@neon-law-staging.iam.gserviceaccount.com
+          service_account_key: ${{ secrets.STAGING_GCP_CREDENTIALS }}
+          export_default_credentials: true
+      - run: ./infrastructure/delete-images.sh
+        env:
+          PROJECT_NAME: neon-law-staging
+
+  delete_extra_production_images:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          project_id: neon-law-production
+          service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
+          service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
+          export_default_credentials: true
+      - run: ./infrastructure/delete-images.sh
+        env:
+          PROJECT_NAME: neon-law-production

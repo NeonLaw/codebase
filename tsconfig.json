@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "declaration": true,
+    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
@@ -13,23 +14,32 @@
       "es6",
       "es2015.promise"
     ],
-    "module": "commonjs",
     "moduleResolution": "node",
-    "outDir": "./build",
-    "skipLibCheck": true,
-    "sourceMap": false,
     "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true,
+    "outDir": "./build",
+    "rootDir": "./",
+    "skipLibCheck": true,
     "strict": true,
+    "suppressImplicitAnyIndexErrors": true,
     "target": "esnext",
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
   },
   "include": [
-    "packages/**/*"
+    "./packages/**/*",
+    "./@types/*"
   ],
   "exclude": [
-    "node_modules",
-    "build",
-    "**/*.test.tsx",
-    "packages/neon-law/cypress"
-  ],
+    "./node_modules",
+    "./build",
+    "./packages/interface/cypress",
+    "./packages/api/tests/utils/graphqlHelpers.ts",
+    "./packages/shared-ui/src/utils/api.tsx",
+    "./packages/**/*.test.ts",
+    "./packages/api/tests/utils/dbHelpers.ts",
+    "./packages/api/tests/utils/sanitizeSnapshot.ts",
+    "./packages/**/*.test.tsx",
+    "./packages/api/src/server.ts"
+  ]
 }

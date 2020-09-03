@@ -1,0 +1,29 @@
+{
+  "name": "@neonlaw/api",
+  "version": "0.0.1",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "author": "@neonlaw",
+  "scripts": {
+    "start": "ts-node --transpile-only src/server.ts",
+    "test": "jest --forceExit --detectOpenHandles --coverage --coverageProvider=v8",
+    "commit": "graphile-migrate commit",
+    "migrate": "graphile-migrate migrate",
+    "watch": "graphile-migrate watch"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "graphile-build-pg": "^4.8.0",
+    "graphile-migrate": "^0.3.1",
+    "graphile-utils": "^4.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwks-rsa": "^1.9.0",
+    "pg": "^8.3.2",
+    "postgraphile": "^4.7.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^4.0.2"
+  }
+}

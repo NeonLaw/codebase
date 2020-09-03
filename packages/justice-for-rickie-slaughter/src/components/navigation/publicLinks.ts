@@ -1,32 +1,12 @@
 export const PublicLinks = () => {
-  const links1 = [
+  return [
     {
-      label: 'Hone Your Legal Skills',
-      route: '/hone-your-legal-skills'
+      label: 'Write Rickie',
+      route: '/write-rickie'
     },
     {
-      label: 'Internships',
-      route: '/internships'
-    },
-    {
-      label: 'Preparing Your Application and Networking',
-      route: '/preparing-your-application-and-networking'
-    },
-    {
-      label: 'Law Job Leads',
-      route: '/legal-job-leads',
-    },
-    {
-      label: 'Pure Advice',
-      route: '/pure-advice',
-    },
-    {
-      label: 'Other Resources',
-      route: '/other-resources'
+      label: 'Coronavirus in Prison',
+      route: '/coronavirus-in-prison'
     },
   ];
-
-  return (
-    links1
-  );
 };

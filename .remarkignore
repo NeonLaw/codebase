@@ -1,4 +1,4 @@
 node_modules/
 LICENSE.md
-packages/neon-law/src/content/index.mdx
-packages/neon-law/src/content/about-us.mdx
+packages/interface/src/content/index.mdx
+packages/interface/src/content/about-us.mdx

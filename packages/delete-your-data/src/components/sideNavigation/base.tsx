@@ -31,7 +31,7 @@ export const SideNavContent = ({ links }) => {
           aria-label="Neon Law, Back to homepage"
           width="5em"
         >
-          Justice For Rickie Slaughter
+          Delete Your Data
         </Box>
         {links.map((link, i) => (
           <Box mb="10" key={i}>

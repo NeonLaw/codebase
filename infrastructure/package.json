@@ -1,0 +1,7 @@
+{
+  "name": "@neonlaw/infrastructure",
+  "description": "Terraform Modules for Kubernetes",
+  "version": "0.1.0",
+  "author": "@neonlaw",
+  "license": "PolyForm-Noncommercial-1.0.0"
+}
