@@ -9,19 +9,14 @@
 [![Staging](https://github.com/neonlaw/interface/workflows/staging/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Astaging)
 [![Production](https://github.com/neonlaw/interface/workflows/production/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Aproduction)
 
-This is a monorepo containing three, top-level packages:
+This is a monorepo containing these folders:
 
 * A Yarn Workspace, declared at `package.json` and with packages at
   `./packages`, which contains the bulk of our code.
 * A collection of Terraform modules located in the `./infrastructure` folder,
   for building out our Cloud Computing.
-* A Python module, declared at `pyproject.toml` and with code at `./neon_law`
-  and tests at `./tests`, which contains our NLP work and other tasks we feel
-  are well-suited for Python and its ecosystem.
-
-And build files, including a folder of `Dockerfile`s and `entrypoint` shell
-scripts, located at `./docker`, and `docker-compose` files for local
-development and CI located at the project root.
+* A collection of `Dockerfile`s and entrypoint scripts modules located in the
+  `./docker` folder, for building out our containers.
 
 ## Running Locally
 
