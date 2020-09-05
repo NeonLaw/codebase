@@ -55,10 +55,9 @@ export const FlashcardContainer = ({ topic }: FlashcardContainerProps) => {
               );
             }
             return (
-              <Box margin="0 2px">
+              <Box margin="0 2px" key={i}>
                 <Circle
                   onClick={() => { changeSelectedFlashcard(i); }}
-                  key={i}
                   active={false}
                 />
               </Box>
