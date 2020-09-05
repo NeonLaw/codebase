@@ -16,38 +16,14 @@ import { Select, StringInput, Textarea } from '../../forms/base';
 
 import { colors } from '../../themes/neonLaw';
 import { flashcardTopics } from '../../forms/options/flashcardTopics';
-import { gql } from '@apollo/client';
-import { useCreateFlashcardMutation } from '../../utils/api';
+import { updateFlashcardByIdMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
 
 export const UpdateFlashcardModal = ({ isOpen, onClose }) => {
   const intl = useIntl();
 
-  const [createFlashcard] = useCreateFlashcardMutation({
-    update(cache, { data }) {
-      cache.modify({
-        fields: {
-          allFlashcards(existingFlashCards = []) {
-            const newFlashCardRef = cache.writeFragment({
-              data: data?.createFlashcard,
-              fragment: gql`
-                fragment NewFlashcard on Flashcard {
-                  flashcard {
-                    id
-                    answer
-                    prompt
-                    topic
-                  }
-                }
-              `
-            });
-            return [...existingFlashCards.nodes, newFlashCardRef];
-          }
-        }
-      });
-    }
-  });
+  const [updateFlashcard] = updateFlashcardByIdMutation();
 
   const {
     control,
@@ -65,7 +41,7 @@ export const UpdateFlashcardModal = ({ isOpen, onClose }) => {
 
   const onSubmit = async ({ answer, prompt, topic }) => {
     const topicValue = topic.value;
-    await createFlashcard(
+    await updateFlashcard(
       { variables: { answer, prompt, topic: topicValue } }
     ).then(async () => {
       setFormError('');
@@ -108,7 +84,7 @@ export const UpdateFlashcardModal = ({ isOpen, onClose }) => {
             {formError}
             <StringInput
               name="prompt"
-              testId="create-flashcard-modal-prompt"
+              testId="update-flashcard-modal-prompt"
               label={intl.formatMessage({ id: 'forms.prompt.label' })}
               errors={errors}
               placeholder={intl.formatMessage(
@@ -122,7 +98,7 @@ export const UpdateFlashcardModal = ({ isOpen, onClose }) => {
             />
             <Textarea
               name="answer"
-              testId="create-flashcard-modal-answer"
+              testId="update-flashcard-modal-answer"
               label={intl.formatMessage({ id: 'forms.answer.label' })}
               errors={errors}
               placeholder={intl.formatMessage(
@@ -136,7 +112,7 @@ export const UpdateFlashcardModal = ({ isOpen, onClose }) => {
             />
             <Select
               name="topic"
-              testId="create-flashcard-modal-topic"
+              testId="update-flashcard-modal-topic"
               control={control}
               errors={errors}
               options={flashcardTopics}
@@ -146,7 +122,7 @@ export const UpdateFlashcardModal = ({ isOpen, onClose }) => {
           <ModalFooter>
             <Button
               type="submit"
-              data-testid="create-flashcard-modal-submit"
+              data-testid="update-flashcard-modal-submit"
               isDisabled={isSubmitting}
               width="100%"
             >

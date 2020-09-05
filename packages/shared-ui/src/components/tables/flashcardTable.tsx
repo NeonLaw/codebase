@@ -1,5 +1,8 @@
 import React from 'react';
 import { Table } from './base';
+import {
+  UpdateFlashcardModal
+} from '@neonlaw/shared-ui/src/components/modals/updateFlashcardModal';
 import { useAllFlashcardsQuery } from '../../utils/api';
 
 export const FlashcardTable = () => {
@@ -30,7 +33,7 @@ export const FlashcardTable = () => {
 
   return (
     <Table
-      rowModal={{ yes: 'true' }}
+      rowModal={UpdateFlashcardModal}
       columns={columns}
       data={nodes}
       testId="admin-flashcards-table"
