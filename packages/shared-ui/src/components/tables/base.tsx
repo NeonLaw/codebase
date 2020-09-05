@@ -24,7 +24,7 @@ interface TableInterface {
   columns: any;
   data: any;
   testId: string;
-  onRowClick?(): any;
+  onRowClick?(row: any): any;
 }
 
 export const Table = ({
@@ -106,7 +106,7 @@ export const Table = ({
                   flexDirection="row"
                   {...row.getRowProps()}
                   data-testid="table-row"
-                  onRowClick={onRowClick}
+                  onClick={() => { onRowClick(row); }}
                 >
                   {row.cells.map((cell) => {
                     return (

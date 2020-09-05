@@ -60,10 +60,12 @@ services:
       - api
     ports:
       - 8000:8000
+      - 33000:33000
     volumes: *node-volumes
     environment:
       PACKAGE_NAME: interface
       GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
+      INTERNAL_STATUS_PORT: 33000
 
   law_job_resources:
     build:
@@ -75,10 +77,12 @@ services:
       - api
     ports:
       - 5000:8000
+      - 33001:33001
     volumes: *node-volumes
     environment:
       PACKAGE_NAME: law-job-resources
       GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
+      INTERNAL_STATUS_PORT: 33001
 
   justice_for_rickie_slaughter:
     build:
@@ -90,10 +94,12 @@ services:
       - api
     ports:
       - 7000:8000
+      - 33002:33002
     volumes: *node-volumes
     environment:
       GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
       PACKAGE_NAME: justice-for-rickie-slaughter
+      INTERNAL_STATUS_PORT: 33002
 
   delete_your_data:
     build:
@@ -105,10 +111,12 @@ services:
       - api
     ports:
       - 6000:8000
+      - 33003:33003
     volumes: *node-volumes
     environment:
       PACKAGE_NAME: delete-your-data
       GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
+      INTERNAL_STATUS_PORT: 33002
 
   language_tool:
     image: silviof/docker-languagetool

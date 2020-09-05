@@ -33,6 +33,7 @@ export const FlashcardTable = () => {
       columns={columns}
       data={nodes}
       testId="admin-flashcards-table"
+      onRowClick={(n) => { console.log(n); }}
     />
   );
 };
