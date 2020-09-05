@@ -16,14 +16,14 @@ import { Select, StringInput, Textarea } from '../../forms/base';
 
 import { colors } from '../../themes/neonLaw';
 import { flashcardTopics } from '../../forms/options/flashcardTopics';
-import { updateFlashcardByIdMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
+import { useUpdateFlashcardByIdMutation } from '../../utils/api';
 
 export const UpdateFlashcardModal = ({ isOpen, onClose }) => {
   const intl = useIntl();
 
-  const [updateFlashcard] = updateFlashcardByIdMutation();
+  const [updateFlashcard] = useUpdateFlashcardByIdMutation();
 
   const {
     control,
@@ -39,10 +39,10 @@ export const UpdateFlashcardModal = ({ isOpen, onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
 
-  const onSubmit = async ({ answer, prompt, topic }) => {
+  const onSubmit = async ({ answer, id, prompt, topic }) => {
     const topicValue = topic.value;
     await updateFlashcard(
-      { variables: { answer, prompt, topic: topicValue } }
+      { variables: { answer, id, prompt, topic: topicValue } }
     ).then(async () => {
       setFormError('');
       await reset();
