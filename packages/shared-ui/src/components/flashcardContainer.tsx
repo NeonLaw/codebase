@@ -40,7 +40,7 @@ export const FlashcardContainer = ({ topic }: FlashcardContainerProps) => {
         return null;
       })}
       <Box height="1em" />
-      <Box width="100%">
+      <Flex width="100%">
         <Flex margin="auto">
           {flashcards.map((flashcard, i) => {
             if (i === selectedFlashcard) {
@@ -65,8 +65,8 @@ export const FlashcardContainer = ({ topic }: FlashcardContainerProps) => {
             );
           })}
         </Flex>
-        <Box height="1em" />
-      </Box>
+      </Flex>
+      <Box height="1em" />
     </Box >
   );
 };
