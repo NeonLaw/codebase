@@ -873,6 +873,8 @@ export type Flashcard = Node & {
 export type FlashcardCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `prompt` field. */
+  prompt?: Maybe<Scalars['String']>;
   /** Checks for equality with the object’s `topic` field. */
   topic?: Maybe<Scalars['String']>;
 };
@@ -925,6 +927,8 @@ export enum FlashcardsOrderBy {
   Natural = 'NATURAL',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  PromptAsc = 'PROMPT_ASC',
+  PromptDesc = 'PROMPT_DESC',
   TopicAsc = 'TOPIC_ASC',
   TopicDesc = 'TOPIC_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
@@ -2545,6 +2549,25 @@ export type CurrentUserQuery = (
   )> }
 );
 
+export type UpdateFlashcardByIdMutationVariables = Exact<{
+  id: Scalars['UUID'];
+  answer?: Maybe<Scalars['String']>;
+  prompt?: Maybe<Scalars['String']>;
+  topic?: Maybe<Scalars['String']>;
+}>;
+
+
+export type UpdateFlashcardByIdMutation = (
+  { __typename?: 'Mutation' }
+  & { updateFlashcardById?: Maybe<(
+    { __typename?: 'UpdateFlashcardPayload' }
+    & { flashcard?: Maybe<(
+      { __typename?: 'Flashcard' }
+      & Pick<Flashcard, 'id' | 'answer' | 'prompt' | 'topic'>
+    )> }
+  )> }
+);
+
 export type UpdatePersonByIdMutationVariables = Exact<{
   id: Scalars['UUID'];
   name: Scalars['String'];
@@ -2565,7 +2588,7 @@ export type UpdatePersonByIdMutation = (
 
 export const AllFlashcardsDocument = gql`
     query AllFlashcards($topic: String) {
-  allFlashcards(condition: {topic: $topic}) {
+  allFlashcards(condition: {topic: $topic}, orderBy: PROMPT_DESC) {
     nodes {
       id
       prompt
@@ -2694,6 +2717,52 @@ export function useCurrentUserLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type CurrentUserQueryHookResult = ReturnType<typeof useCurrentUserQuery>;
 export type CurrentUserLazyQueryHookResult = ReturnType<typeof useCurrentUserLazyQuery>;
 export type CurrentUserQueryResult = Apollo.QueryResult<CurrentUserQuery, CurrentUserQueryVariables>;
+export const UpdateFlashcardByIdDocument = gql`
+    mutation UpdateFlashcardById($id: UUID!, $answer: String, $prompt: String, $topic: String) {
+  updateFlashcardById(input: {flashcardPatch: {answer: $answer, prompt: $prompt, topic: $topic}, id: $id}) {
+    flashcard {
+      id
+      answer
+      prompt
+      topic
+    }
+  }
+}
+    `;
+export type UpdateFlashcardByIdMutationFn = Apollo.MutationFunction<UpdateFlashcardByIdMutation, UpdateFlashcardByIdMutationVariables>;
+export type UpdateFlashcardByIdComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<UpdateFlashcardByIdMutation, UpdateFlashcardByIdMutationVariables>, 'mutation'>;
+
+    export const UpdateFlashcardByIdComponent = (props: UpdateFlashcardByIdComponentProps) => (
+      <ApolloReactComponents.Mutation<UpdateFlashcardByIdMutation, UpdateFlashcardByIdMutationVariables> mutation={UpdateFlashcardByIdDocument} {...props} />
+    );
+    
+
+/**
+ * __useUpdateFlashcardByIdMutation__
+ *
+ * To run a mutation, you first call `useUpdateFlashcardByIdMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateFlashcardByIdMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateFlashcardByIdMutation, { data, loading, error }] = useUpdateFlashcardByIdMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      answer: // value for 'answer'
+ *      prompt: // value for 'prompt'
+ *      topic: // value for 'topic'
+ *   },
+ * });
+ */
+export function useUpdateFlashcardByIdMutation(baseOptions?: Apollo.MutationHookOptions<UpdateFlashcardByIdMutation, UpdateFlashcardByIdMutationVariables>) {
+        return Apollo.useMutation<UpdateFlashcardByIdMutation, UpdateFlashcardByIdMutationVariables>(UpdateFlashcardByIdDocument, baseOptions);
+      }
+export type UpdateFlashcardByIdMutationHookResult = ReturnType<typeof useUpdateFlashcardByIdMutation>;
+export type UpdateFlashcardByIdMutationResult = Apollo.MutationResult<UpdateFlashcardByIdMutation>;
+export type UpdateFlashcardByIdMutationOptions = Apollo.BaseMutationOptions<UpdateFlashcardByIdMutation, UpdateFlashcardByIdMutationVariables>;
 export const UpdatePersonByIdDocument = gql`
     mutation UpdatePersonById($id: UUID!, $name: String!) {
   updatePersonById(input: {id: $id, personPatch: {name: $name}}) {

@@ -151,6 +151,11 @@ On pushes to the `development` branch, our staging environment is updated.
 
 On pushes to the `production` branch, our production environment is updated.
 
+## Graphql Codegen
+
+You can run `yarn graphql-codegen` to auto-generate server I/O methods in
+JavaScript.
+
 ## Legal
 
 Copyright 2020 Neon Law. Licensed under the [Polyform Noncommercial License
