@@ -68,6 +68,8 @@
         "lint": "eslint './**/*.{js,jsx,ts,tsx}'",
         "markdown-lint": "remark -i -e mdx,md --frail .remarkignore .",
         "run-script": "ts-node --transpile-only",
+        "sql-proxy-staging": "docker run -v $(pwd)/neon-law-staging.credentials.json:/config -p 127.0.0.1:5432:5432 gcr.io/cloudsql-docker/gce-proxy:1.17 /cloud_sql_proxy -instances=neon-law-staging:us-west4:neon-law=tcp:0.0.0.0:5432 -credential_file=/config",
+        "sql-proxy-production": "docker run -v $(pwd)/neon-law-production.credentials.json:/config -p 127.0.0.1:5432:5432 gcr.io/cloudsql-docker/gce-proxy:1.17 /cloud_sql_proxy -instances=neon-law-production:us-west4:neon-law=tcp:0.0.0.0:5432 -credential_file=/config",
         "test": "jest --forceExit --detectOpenHandles --coverage --coverageProvider=v8"
     },
     "dependencies": {

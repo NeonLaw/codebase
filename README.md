@@ -157,6 +157,25 @@ latest commit from `development`.
 You can run `yarn graphql-codegen` to auto-generate server I/O methods in
 JavaScript.
 
+## Cloud SQL Proxy
+
+If you need to access either the staging or production database on your local
+machine, you can connect to it via Google Cloud SQL Proxy. Before connecting,
+please ensure the Public IP is turned on for these instances (by default they're
+turned off).
+
+Then, you can connect to `staging` and `production` with these respective
+commands:
+
+```
+yarn run sql-proxy-staging
+yarn run sql-proxy-production
+```
+
+With either command (both cannot be ran at the same time), you'll have a
+PostgreSQL database running at `127.0.0.1:5432`, which you can then connect to
+with the GCP SQL credentials for staging and production.
+
 ## Legal
 
 Copyright 2020 Neon Law. Licensed under the [Polyform Noncommercial License
