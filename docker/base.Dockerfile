@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python
 
 # Add Node repositories
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
@@ -22,11 +22,16 @@ RUN wget -O ~/vsls-reqs https://aka.ms/vsls-linux-prereq-script &&\
   chmod +x ~/vsls-reqs &&\
   ~/vsls-reqs
 
-# Install Dependencies
 WORKDIR /app
 
+# Install Dependencies
 COPY package.json .
 COPY yarn.lock .
 RUN yarn install
 
+# Load the codebase to the /app folder of the Docker image
 COPY . .
+
+ENTRYPOINT [ "./docker/entrypoint.sh" ]
+
+CMD [ "tail", "-f", "/dev/null"]

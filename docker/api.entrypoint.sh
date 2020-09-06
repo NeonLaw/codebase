@@ -10,9 +10,6 @@ if [ -d "/secrets" ]; then
   export GOOGLE_APPLICATION_CREDENTIALS="/credentials/credentials.json"
 fi
 
-# Intentionally sleep for SQL Proxy and/or Postgres to start
-sleep 2
-
 yarn
 yarn workspace @neonlaw/api migrate
 

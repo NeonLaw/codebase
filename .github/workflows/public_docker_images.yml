@@ -4,7 +4,7 @@ name: public_docker_images
 on:
   push:
     branches:
-      - github-package-registry
+      - development
   pull_request:
     branches:
       - development
