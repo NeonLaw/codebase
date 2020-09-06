@@ -7,7 +7,6 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  Text,
   theme,
   useColorMode,
 } from '@chakra-ui/core';
@@ -90,8 +89,6 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
     >
       <ModalOverlay>
         <ModalContent data-testid="create-flashcard-modal">
-          <Text>
-          </Text>
           <ModalHeader
             fontWeight="normal"
             fontSize={theme.fontSizes['xl0']}

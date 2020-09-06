@@ -4,6 +4,7 @@ import {
   Heading,
   useDisclosure,
 } from '@chakra-ui/core';
+import React, { useState } from 'react';
 import {
   CreateFlashcardModal
 } from '@neonlaw/shared-ui/src/components/modals/createFlashcardModal';
@@ -11,11 +12,15 @@ import {
   FlashcardTable
 } from '@neonlaw/shared-ui/src/components/tables/flashcardTable';
 import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
-import React from 'react';
+import {
+  UpdateFlashcardModal
+} from '@neonlaw/shared-ui/src/components/modals/updateFlashcardModal';
 import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
 const AdminFlashcards = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [showCreateFlashcardModal, changeShowFlashCardModal] = useState(true);
+  const [currentRow, setCurrentRow] = useState(undefined);
 
   return (
     <PortalLayout>
@@ -31,9 +36,30 @@ const AdminFlashcards = () => {
           Create Flashcard
         </Button>
 
-        <CreateFlashcardModal isOpen={isOpen} onClose={onClose} />
+        <CreateFlashcardModal
+          isOpen={isOpen && showCreateFlashcardModal}
+          onClose={() => {
+            changeShowFlashCardModal(true);
+            onClose();
+          }}
+        />
 
-        <FlashcardTable />
+        <UpdateFlashcardModal
+          isOpen={isOpen && !showCreateFlashcardModal}
+          currentRow={currentRow}
+          onClose={() => {
+            changeShowFlashCardModal(true);
+            onClose();
+          }}
+        />
+
+        <FlashcardTable
+          onRowClick={(row) => {
+            changeShowFlashCardModal(false);
+            setCurrentRow(row);
+            onOpen();
+          }}
+        />
       </Box>
     </PortalLayout>
   );
