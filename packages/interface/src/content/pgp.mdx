@@ -1,13 +1,21 @@
 ---
 title: PGP Key
 slug: /pgp
-updatedAt: "2020-07-31"
+updatedAt: '2020-07-31'
 tags: legal,privacy
 ---
+
+import { PGPKey } from '../components/pgp-key';
+import { Box } from '@chakra-ui/core';
+import { sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
+
+<Box maxW={sizes.textContainerMedium}>
 
 If you have something you'd like to send us via PGP encryption, please
 encrypt your message with this following public key. You can then email us at
 support@neonlaw.com with the message, or contact us.
+
+<PGPKey>
 
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -63,3 +71,7 @@ u24VSNuZ34XE
 =NvHM
 -----END PGP PUBLIC KEY BLOCK-----
 ```
+
+</PGPKey>
+
+</Box>
