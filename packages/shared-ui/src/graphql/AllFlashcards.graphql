@@ -3,6 +3,7 @@ query AllFlashcards($topic: String) {
     condition: {
       topic: $topic
     }
+    orderBy: PROMPT_ASC
   ) {
     nodes {
       id

@@ -24,22 +24,20 @@ interface TableInterface {
   columns: any;
   data: any;
   testId: string;
-  rowModal: any;
+  onRowClick?(row: any): any;
 }
 
 export const Table = ({
   columns,
   data,
-  rowModal,
   testId,
+  onRowClick = () => { return; },
 }: TableInterface) => {
   const tableColumns = React.useMemo(() => columns, [columns]);
 
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 40em)' });
 
   const { colorMode } = useColorMode();
-
-  console.log(rowModal || 'no row modal provided');
 
   const {
     getTableProps,
@@ -108,6 +106,7 @@ export const Table = ({
                   flexDirection="row"
                   {...row.getRowProps()}
                   data-testid="table-row"
+                  onClick={() => { onRowClick(row); }}
                 >
                   {row.cells.map((cell) => {
                     return (

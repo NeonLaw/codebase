@@ -1,0 +1,24 @@
+mutation UpdateFlashcardById(
+  $id: UUID!
+  $answer: String
+  $prompt: String
+  $topic: String
+) {
+  updateFlashcardById(
+    input: {
+      flashcardPatch: {
+        answer: $answer
+        prompt: $prompt
+        topic: $topic
+      }
+      id: $id
+    }
+  ) {
+    flashcard {
+      id
+      answer
+      prompt
+      topic
+    }
+  }
+}

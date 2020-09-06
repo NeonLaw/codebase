@@ -1,9 +1,9 @@
+import { gql } from '@apollo/client';
+import * as React from 'react';
 import * as Apollo from '@apollo/client';
 import * as ApolloReactComponents from '@apollo/client/react/components';
-import * as React from 'react';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-const gql = Apollo.gql;
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -20,6 +20,74 @@ export type Scalars = {
   Datetime: string;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: { [key: string]: any };
+};
+
+/** All input for the create `DocumentCode` mutation. */
+export type CreateDocumentCodeInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `DocumentCode` to be created by this mutation. */
+  documentCode: DocumentCodeInput;
+};
+
+/** The output of our create `DocumentCode` mutation. */
+export type CreateDocumentCodePayload = {
+  __typename?: 'CreateDocumentCodePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `DocumentCode` that was created by this mutation. */
+  documentCode?: Maybe<DocumentCode>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `DocumentCode`. May be used by Relay 1. */
+  documentCodeEdge?: Maybe<DocumentCodesEdge>;
+};
+
+
+/** The output of our create `DocumentCode` mutation. */
+export type CreateDocumentCodePayloadDocumentCodeEdgeArgs = {
+  orderBy?: Maybe<Array<DocumentCodesOrderBy>>;
+};
+
+/** All input for the create `Document` mutation. */
+export type CreateDocumentInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Document` to be created by this mutation. */
+  document: DocumentInput;
+};
+
+/** The output of our create `Document` mutation. */
+export type CreateDocumentPayload = {
+  __typename?: 'CreateDocumentPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Document` that was created by this mutation. */
+  document?: Maybe<Document>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Matter` that is related to this `Document`. */
+  matterByMatterId?: Maybe<Matter>;
+  /** An edge for our `Document`. May be used by Relay 1. */
+  documentEdge?: Maybe<DocumentsEdge>;
+};
+
+
+/** The output of our create `Document` mutation. */
+export type CreateDocumentPayloadDocumentEdgeArgs = {
+  orderBy?: Maybe<Array<DocumentsOrderBy>>;
 };
 
 /** All input for the create `Flashcard` mutation. */
@@ -241,6 +309,96 @@ export type CreateRoleIfNotExistsPayload = {
 
 
 
+/** All input for the `deleteDocumentById` mutation. */
+export type DeleteDocumentByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** All input for the `deleteDocumentCodeById` mutation. */
+export type DeleteDocumentCodeByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** All input for the `deleteDocumentCode` mutation. */
+export type DeleteDocumentCodeInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `DocumentCode` to be deleted. */
+  nodeId: Scalars['ID'];
+};
+
+/** The output of our delete `DocumentCode` mutation. */
+export type DeleteDocumentCodePayload = {
+  __typename?: 'DeleteDocumentCodePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `DocumentCode` that was deleted by this mutation. */
+  documentCode?: Maybe<DocumentCode>;
+  deletedDocumentCodeId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `DocumentCode`. May be used by Relay 1. */
+  documentCodeEdge?: Maybe<DocumentCodesEdge>;
+};
+
+
+/** The output of our delete `DocumentCode` mutation. */
+export type DeleteDocumentCodePayloadDocumentCodeEdgeArgs = {
+  orderBy?: Maybe<Array<DocumentCodesOrderBy>>;
+};
+
+/** All input for the `deleteDocument` mutation. */
+export type DeleteDocumentInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `Document` to be deleted. */
+  nodeId: Scalars['ID'];
+};
+
+/** The output of our delete `Document` mutation. */
+export type DeleteDocumentPayload = {
+  __typename?: 'DeleteDocumentPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Document` that was deleted by this mutation. */
+  document?: Maybe<Document>;
+  deletedDocumentId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Matter` that is related to this `Document`. */
+  matterByMatterId?: Maybe<Matter>;
+  /** An edge for our `Document`. May be used by Relay 1. */
+  documentEdge?: Maybe<DocumentsEdge>;
+};
+
+
+/** The output of our delete `Document` mutation. */
+export type DeleteDocumentPayloadDocumentEdgeArgs = {
+  orderBy?: Maybe<Array<DocumentsOrderBy>>;
+};
+
 /** All input for the `deleteFlashcardById` mutation. */
 export type DeleteFlashcardByIdInput = {
   /**
@@ -283,6 +441,50 @@ export type DeleteFlashcardPayload = {
 /** The output of our delete `Flashcard` mutation. */
 export type DeleteFlashcardPayloadFlashcardEdgeArgs = {
   orderBy?: Maybe<Array<FlashcardsOrderBy>>;
+};
+
+/** All input for the `deleteMatterById` mutation. */
+export type DeleteMatterByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** All input for the `deleteMatter` mutation. */
+export type DeleteMatterInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `Matter` to be deleted. */
+  nodeId: Scalars['ID'];
+};
+
+/** The output of our delete `Matter` mutation. */
+export type DeleteMatterPayload = {
+  __typename?: 'DeleteMatterPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Matter` that was deleted by this mutation. */
+  matter?: Maybe<Matter>;
+  deletedMatterId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Matter`. May be used by Relay 1. */
+  matterEdge?: Maybe<MattersEdge>;
+};
+
+
+/** The output of our delete `Matter` mutation. */
+export type DeleteMatterPayloadMatterEdgeArgs = {
+  orderBy?: Maybe<Array<MattersOrderBy>>;
 };
 
 /** All input for the `deletePersonById` mutation. */
@@ -513,6 +715,141 @@ export type DeleteResponsePayloadResponseEdgeArgs = {
   orderBy?: Maybe<Array<ResponsesOrderBy>>;
 };
 
+export type Document = Node & {
+  __typename?: 'Document';
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID'];
+  id: Scalars['UUID'];
+  filename: Scalars['String'];
+  matterId: Scalars['UUID'];
+  documentCodeId: Scalars['UUID'];
+  /** Reads a single `Matter` that is related to this `Document`. */
+  matterByMatterId?: Maybe<Matter>;
+};
+
+export type DocumentCode = Node & {
+  __typename?: 'DocumentCode';
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID'];
+  id: Scalars['UUID'];
+  name: Scalars['String'];
+  description: Scalars['String'];
+};
+
+/**
+ * A condition to be used against `DocumentCode` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type DocumentCodeCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+};
+
+/** An input for mutations affecting `DocumentCode` */
+export type DocumentCodeInput = {
+  id?: Maybe<Scalars['UUID']>;
+  name: Scalars['String'];
+  description: Scalars['String'];
+};
+
+/** Represents an update to a `DocumentCode`. Fields that are set will be updated. */
+export type DocumentCodePatch = {
+  id?: Maybe<Scalars['UUID']>;
+  name?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+/** A connection to a list of `DocumentCode` values. */
+export type DocumentCodesConnection = {
+  __typename?: 'DocumentCodesConnection';
+  /** A list of `DocumentCode` objects. */
+  nodes: Array<DocumentCode>;
+  /** A list of edges which contains the `DocumentCode` and cursor to aid in pagination. */
+  edges: Array<DocumentCodesEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `DocumentCode` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `DocumentCode` edge in the connection. */
+export type DocumentCodesEdge = {
+  __typename?: 'DocumentCodesEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `DocumentCode` at the end of the edge. */
+  node: DocumentCode;
+};
+
+/** Methods to use when ordering `DocumentCode`. */
+export enum DocumentCodesOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
+
+/**
+ * A condition to be used against `Document` object types. All fields are tested
+ * for equality and combined with a logical ‘and.’
+ */
+export type DocumentCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `matterId` field. */
+  matterId?: Maybe<Scalars['UUID']>;
+};
+
+/** An input for mutations affecting `Document` */
+export type DocumentInput = {
+  id?: Maybe<Scalars['UUID']>;
+  filename: Scalars['String'];
+  matterId: Scalars['UUID'];
+  documentCodeId: Scalars['UUID'];
+};
+
+/** Represents an update to a `Document`. Fields that are set will be updated. */
+export type DocumentPatch = {
+  id?: Maybe<Scalars['UUID']>;
+  filename?: Maybe<Scalars['String']>;
+  matterId?: Maybe<Scalars['UUID']>;
+  documentCodeId?: Maybe<Scalars['UUID']>;
+};
+
+/** A connection to a list of `Document` values. */
+export type DocumentsConnection = {
+  __typename?: 'DocumentsConnection';
+  /** A list of `Document` objects. */
+  nodes: Array<Document>;
+  /** A list of edges which contains the `Document` and cursor to aid in pagination. */
+  edges: Array<DocumentsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `Document` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `Document` edge in the connection. */
+export type DocumentsEdge = {
+  __typename?: 'DocumentsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `Document` at the end of the edge. */
+  node: Document;
+};
+
+/** Methods to use when ordering `Document`. */
+export enum DocumentsOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  MatterIdAsc = 'MATTER_ID_ASC',
+  MatterIdDesc = 'MATTER_ID_DESC',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
+
 /** A flashcard used for studying */
 export type Flashcard = Node & {
   __typename?: 'Flashcard';
@@ -536,6 +873,8 @@ export type Flashcard = Node & {
 export type FlashcardCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `prompt` field. */
+  prompt?: Maybe<Scalars['String']>;
   /** Checks for equality with the object’s `topic` field. */
   topic?: Maybe<Scalars['String']>;
 };
@@ -588,16 +927,84 @@ export enum FlashcardsOrderBy {
   Natural = 'NATURAL',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  PromptAsc = 'PROMPT_ASC',
+  PromptDesc = 'PROMPT_DESC',
   TopicAsc = 'TOPIC_ASC',
   TopicDesc = 'TOPIC_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
 
+export type GetSignedUploadUrlPayload = {
+  __typename?: 'GetSignedUploadUrlPayload';
+  url?: Maybe<Scalars['String']>;
+};
+
+
+export type Matter = Node & {
+  __typename?: 'Matter';
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID'];
+  id: Scalars['UUID'];
+  name: Scalars['String'];
+  createdAt: Scalars['Datetime'];
+  updatedAt: Scalars['Datetime'];
+  folderName: Scalars['String'];
+  primaryContactId?: Maybe<Scalars['UUID']>;
+  /** Reads and enables pagination through a set of `Document`. */
+  documentsByMatterId: DocumentsConnection;
+};
+
+
+export type MatterDocumentsByMatterIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<DocumentsOrderBy>>;
+  condition?: Maybe<DocumentCondition>;
+};
+
+/** Represents an update to a `Matter`. Fields that are set will be updated. */
+export type MatterPatch = {
+  id?: Maybe<Scalars['UUID']>;
+  name?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Datetime']>;
+  updatedAt?: Maybe<Scalars['Datetime']>;
+  folderName?: Maybe<Scalars['String']>;
+  primaryContactId?: Maybe<Scalars['UUID']>;
+};
+
+/** A `Matter` edge in the connection. */
+export type MattersEdge = {
+  __typename?: 'MattersEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `Matter` at the end of the edge. */
+  node: Matter;
+};
+
+/** Methods to use when ordering `Matter`. */
+export enum MattersOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  FolderNameAsc = 'FOLDER_NAME_ASC',
+  FolderNameDesc = 'FOLDER_NAME_DESC',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
 
 /** The root mutation type which contains root level fields which mutate data. */
 export type Mutation = {
   __typename?: 'Mutation';
+  /** Creates a single `Document`. */
+  createDocument?: Maybe<CreateDocumentPayload>;
+  /** Creates a single `DocumentCode`. */
+  createDocumentCode?: Maybe<CreateDocumentCodePayload>;
   /** Creates a single `Flashcard`. */
   createFlashcard?: Maybe<CreateFlashcardPayload>;
   /** Creates a single `Question`. */
@@ -608,10 +1015,22 @@ export type Mutation = {
   createQuestionnaireResponse?: Maybe<CreateQuestionnaireResponsePayload>;
   /** Creates a single `Response`. */
   createResponse?: Maybe<CreateResponsePayload>;
+  /** Updates a single `Document` using its globally unique id and a patch. */
+  updateDocument?: Maybe<UpdateDocumentPayload>;
+  /** Updates a single `Document` using a unique key and a patch. */
+  updateDocumentById?: Maybe<UpdateDocumentPayload>;
+  /** Updates a single `DocumentCode` using its globally unique id and a patch. */
+  updateDocumentCode?: Maybe<UpdateDocumentCodePayload>;
+  /** Updates a single `DocumentCode` using a unique key and a patch. */
+  updateDocumentCodeById?: Maybe<UpdateDocumentCodePayload>;
   /** Updates a single `Flashcard` using its globally unique id and a patch. */
   updateFlashcard?: Maybe<UpdateFlashcardPayload>;
   /** Updates a single `Flashcard` using a unique key and a patch. */
   updateFlashcardById?: Maybe<UpdateFlashcardPayload>;
+  /** Updates a single `Matter` using its globally unique id and a patch. */
+  updateMatter?: Maybe<UpdateMatterPayload>;
+  /** Updates a single `Matter` using a unique key and a patch. */
+  updateMatterById?: Maybe<UpdateMatterPayload>;
   /** Updates a single `Person` using its globally unique id and a patch. */
   updatePerson?: Maybe<UpdatePersonPayload>;
   /** Updates a single `Person` using a unique key and a patch. */
@@ -632,10 +1051,22 @@ export type Mutation = {
   updateResponse?: Maybe<UpdateResponsePayload>;
   /** Updates a single `Response` using a unique key and a patch. */
   updateResponseById?: Maybe<UpdateResponsePayload>;
+  /** Deletes a single `Document` using its globally unique id. */
+  deleteDocument?: Maybe<DeleteDocumentPayload>;
+  /** Deletes a single `Document` using a unique key. */
+  deleteDocumentById?: Maybe<DeleteDocumentPayload>;
+  /** Deletes a single `DocumentCode` using its globally unique id. */
+  deleteDocumentCode?: Maybe<DeleteDocumentCodePayload>;
+  /** Deletes a single `DocumentCode` using a unique key. */
+  deleteDocumentCodeById?: Maybe<DeleteDocumentCodePayload>;
   /** Deletes a single `Flashcard` using its globally unique id. */
   deleteFlashcard?: Maybe<DeleteFlashcardPayload>;
   /** Deletes a single `Flashcard` using a unique key. */
   deleteFlashcardById?: Maybe<DeleteFlashcardPayload>;
+  /** Deletes a single `Matter` using its globally unique id. */
+  deleteMatter?: Maybe<DeleteMatterPayload>;
+  /** Deletes a single `Matter` using a unique key. */
+  deleteMatterById?: Maybe<DeleteMatterPayload>;
   /** Deletes a single `Person` using its globally unique id. */
   deletePerson?: Maybe<DeletePersonPayload>;
   /** Deletes a single `Person` using a unique key. */
@@ -658,6 +1089,19 @@ export type Mutation = {
   deleteResponseById?: Maybe<DeleteResponsePayload>;
   createPrimaryKeyIdIfNotExists?: Maybe<CreatePrimaryKeyIdIfNotExistsPayload>;
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
+  getSignedUploadUrl?: Maybe<GetSignedUploadUrlPayload>;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateDocumentArgs = {
+  input: CreateDocumentInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateDocumentCodeArgs = {
+  input: CreateDocumentCodeInput;
 };
 
 
@@ -692,6 +1136,30 @@ export type MutationCreateResponseArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDocumentArgs = {
+  input: UpdateDocumentInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDocumentByIdArgs = {
+  input: UpdateDocumentByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDocumentCodeArgs = {
+  input: UpdateDocumentCodeInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDocumentCodeByIdArgs = {
+  input: UpdateDocumentCodeByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateFlashcardArgs = {
   input: UpdateFlashcardInput;
 };
@@ -700,6 +1168,18 @@ export type MutationUpdateFlashcardArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateFlashcardByIdArgs = {
   input: UpdateFlashcardByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateMatterArgs = {
+  input: UpdateMatterInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateMatterByIdArgs = {
+  input: UpdateMatterByIdInput;
 };
 
 
@@ -764,6 +1244,30 @@ export type MutationUpdateResponseByIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDocumentArgs = {
+  input: DeleteDocumentInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDocumentByIdArgs = {
+  input: DeleteDocumentByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDocumentCodeArgs = {
+  input: DeleteDocumentCodeInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDocumentCodeByIdArgs = {
+  input: DeleteDocumentCodeByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteFlashcardArgs = {
   input: DeleteFlashcardInput;
 };
@@ -772,6 +1276,18 @@ export type MutationDeleteFlashcardArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteFlashcardByIdArgs = {
   input: DeleteFlashcardByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteMatterArgs = {
+  input: DeleteMatterInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteMatterByIdArgs = {
+  input: DeleteMatterByIdInput;
 };
 
 
@@ -846,6 +1362,12 @@ export type MutationCreateRoleIfNotExistsArgs = {
   input: CreateRoleIfNotExistsInput;
 };
 
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationGetSignedUploadUrlArgs = {
+  filename?: Maybe<Scalars['String']>;
+};
+
 /** An object with a globally unique `ID`. */
 export type Node = {
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -899,7 +1421,7 @@ export type Person = Node & {
   role: Scalars['String'];
   email: Scalars['String'];
   picture?: Maybe<Scalars['String']>;
-  sub: Scalars['String'];
+  sub?: Maybe<Scalars['String']>;
   /** Reads and enables pagination through a set of `QuestionnaireResponse`. */
   questionnaireResponsesByPersonId: QuestionnaireResponsesConnection;
 };
@@ -934,6 +1456,10 @@ export type Query = Node & {
   nodeId: Scalars['ID'];
   /** Fetches an object given its globally unique `ID`. */
   node?: Maybe<Node>;
+  /** Reads and enables pagination through a set of `Document`. */
+  allDocuments?: Maybe<DocumentsConnection>;
+  /** Reads and enables pagination through a set of `DocumentCode`. */
+  allDocumentCodes?: Maybe<DocumentCodesConnection>;
   /** Reads and enables pagination through a set of `Flashcard`. */
   allFlashcards?: Maybe<FlashcardsConnection>;
   /** Reads and enables pagination through a set of `Question`. */
@@ -944,7 +1470,10 @@ export type Query = Node & {
   allQuestionnaireResponses?: Maybe<QuestionnaireResponsesConnection>;
   /** Reads and enables pagination through a set of `Response`. */
   allResponses?: Maybe<ResponsesConnection>;
+  documentById?: Maybe<Document>;
+  documentCodeById?: Maybe<DocumentCode>;
   flashcardById?: Maybe<Flashcard>;
+  matterById?: Maybe<Matter>;
   personById?: Maybe<Person>;
   questionById?: Maybe<Question>;
   questionnaireById?: Maybe<Questionnaire>;
@@ -952,8 +1481,14 @@ export type Query = Node & {
   responseById?: Maybe<Response>;
   getCurrentUser?: Maybe<Person>;
   responsePersonMatch?: Maybe<Scalars['Boolean']>;
+  /** Reads a single `Document` using its globally unique `ID`. */
+  document?: Maybe<Document>;
+  /** Reads a single `DocumentCode` using its globally unique `ID`. */
+  documentCode?: Maybe<DocumentCode>;
   /** Reads a single `Flashcard` using its globally unique `ID`. */
   flashcard?: Maybe<Flashcard>;
+  /** Reads a single `Matter` using its globally unique `ID`. */
+  matter?: Maybe<Matter>;
   /** Reads a single `Person` using its globally unique `ID`. */
   person?: Maybe<Person>;
   /** Reads a single `Question` using its globally unique `ID`. */
@@ -970,6 +1505,30 @@ export type Query = Node & {
 /** The root query type which gives access points into the data universe. */
 export type QueryNodeArgs = {
   nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllDocumentsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<DocumentsOrderBy>>;
+  condition?: Maybe<DocumentCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllDocumentCodesArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<DocumentCodesOrderBy>>;
+  condition?: Maybe<DocumentCodeCondition>;
 };
 
 
@@ -1034,7 +1593,25 @@ export type QueryAllResponsesArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryDocumentByIdArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDocumentCodeByIdArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryFlashcardByIdArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryMatterByIdArgs = {
   id: Scalars['UUID'];
 };
 
@@ -1077,7 +1654,25 @@ export type QueryResponsePersonMatchArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryDocumentArgs = {
+  nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDocumentCodeArgs = {
+  nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryFlashcardArgs = {
+  nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryMatterArgs = {
   nodeId: Scalars['ID'];
 };
 
@@ -1475,6 +2070,102 @@ export enum ResponsesOrderBy {
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
 
+/** All input for the `updateDocumentById` mutation. */
+export type UpdateDocumentByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `Document` being updated. */
+  documentPatch: DocumentPatch;
+  id: Scalars['UUID'];
+};
+
+/** All input for the `updateDocumentCodeById` mutation. */
+export type UpdateDocumentCodeByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `DocumentCode` being updated. */
+  documentCodePatch: DocumentCodePatch;
+  id: Scalars['UUID'];
+};
+
+/** All input for the `updateDocumentCode` mutation. */
+export type UpdateDocumentCodeInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `DocumentCode` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `DocumentCode` being updated. */
+  documentCodePatch: DocumentCodePatch;
+};
+
+/** The output of our update `DocumentCode` mutation. */
+export type UpdateDocumentCodePayload = {
+  __typename?: 'UpdateDocumentCodePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `DocumentCode` that was updated by this mutation. */
+  documentCode?: Maybe<DocumentCode>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `DocumentCode`. May be used by Relay 1. */
+  documentCodeEdge?: Maybe<DocumentCodesEdge>;
+};
+
+
+/** The output of our update `DocumentCode` mutation. */
+export type UpdateDocumentCodePayloadDocumentCodeEdgeArgs = {
+  orderBy?: Maybe<Array<DocumentCodesOrderBy>>;
+};
+
+/** All input for the `updateDocument` mutation. */
+export type UpdateDocumentInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `Document` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `Document` being updated. */
+  documentPatch: DocumentPatch;
+};
+
+/** The output of our update `Document` mutation. */
+export type UpdateDocumentPayload = {
+  __typename?: 'UpdateDocumentPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Document` that was updated by this mutation. */
+  document?: Maybe<Document>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Matter` that is related to this `Document`. */
+  matterByMatterId?: Maybe<Matter>;
+  /** An edge for our `Document`. May be used by Relay 1. */
+  documentEdge?: Maybe<DocumentsEdge>;
+};
+
+
+/** The output of our update `Document` mutation. */
+export type UpdateDocumentPayloadDocumentEdgeArgs = {
+  orderBy?: Maybe<Array<DocumentsOrderBy>>;
+};
+
 /** All input for the `updateFlashcardById` mutation. */
 export type UpdateFlashcardByIdInput = {
   /**
@@ -1520,6 +2211,53 @@ export type UpdateFlashcardPayload = {
 /** The output of our update `Flashcard` mutation. */
 export type UpdateFlashcardPayloadFlashcardEdgeArgs = {
   orderBy?: Maybe<Array<FlashcardsOrderBy>>;
+};
+
+/** All input for the `updateMatterById` mutation. */
+export type UpdateMatterByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `Matter` being updated. */
+  matterPatch: MatterPatch;
+  id: Scalars['UUID'];
+};
+
+/** All input for the `updateMatter` mutation. */
+export type UpdateMatterInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `Matter` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `Matter` being updated. */
+  matterPatch: MatterPatch;
+};
+
+/** The output of our update `Matter` mutation. */
+export type UpdateMatterPayload = {
+  __typename?: 'UpdateMatterPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Matter` that was updated by this mutation. */
+  matter?: Maybe<Matter>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Matter`. May be used by Relay 1. */
+  matterEdge?: Maybe<MattersEdge>;
+};
+
+
+/** The output of our update `Matter` mutation. */
+export type UpdateMatterPayloadMatterEdgeArgs = {
+  orderBy?: Maybe<Array<MattersOrderBy>>;
 };
 
 /** All input for the `updatePersonById` mutation. */
@@ -1811,6 +2549,25 @@ export type CurrentUserQuery = (
   )> }
 );
 
+export type UpdateFlashcardByIdMutationVariables = Exact<{
+  id: Scalars['UUID'];
+  answer?: Maybe<Scalars['String']>;
+  prompt?: Maybe<Scalars['String']>;
+  topic?: Maybe<Scalars['String']>;
+}>;
+
+
+export type UpdateFlashcardByIdMutation = (
+  { __typename?: 'Mutation' }
+  & { updateFlashcardById?: Maybe<(
+    { __typename?: 'UpdateFlashcardPayload' }
+    & { flashcard?: Maybe<(
+      { __typename?: 'Flashcard' }
+      & Pick<Flashcard, 'id' | 'answer' | 'prompt' | 'topic'>
+    )> }
+  )> }
+);
+
 export type UpdatePersonByIdMutationVariables = Exact<{
   id: Scalars['UUID'];
   name: Scalars['String'];
@@ -1831,7 +2588,7 @@ export type UpdatePersonByIdMutation = (
 
 export const AllFlashcardsDocument = gql`
     query AllFlashcards($topic: String) {
-  allFlashcards(condition: {topic: $topic}) {
+  allFlashcards(condition: {topic: $topic}, orderBy: PROMPT_DESC) {
     nodes {
       id
       prompt
@@ -1913,7 +2670,7 @@ export type CreateFlashcardComponentProps = Omit<ApolloReactComponents.MutationC
  * });
  */
 export function useCreateFlashcardMutation(baseOptions?: Apollo.MutationHookOptions<CreateFlashcardMutation, CreateFlashcardMutationVariables>) {
-  return Apollo.useMutation<CreateFlashcardMutation, CreateFlashcardMutationVariables>(CreateFlashcardDocument, baseOptions);  
+        return Apollo.useMutation<CreateFlashcardMutation, CreateFlashcardMutationVariables>(CreateFlashcardDocument, baseOptions);
       }
 export type CreateFlashcardMutationHookResult = ReturnType<typeof useCreateFlashcardMutation>;
 export type CreateFlashcardMutationResult = Apollo.MutationResult<CreateFlashcardMutation>;
@@ -1960,6 +2717,52 @@ export function useCurrentUserLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type CurrentUserQueryHookResult = ReturnType<typeof useCurrentUserQuery>;
 export type CurrentUserLazyQueryHookResult = ReturnType<typeof useCurrentUserLazyQuery>;
 export type CurrentUserQueryResult = Apollo.QueryResult<CurrentUserQuery, CurrentUserQueryVariables>;
+export const UpdateFlashcardByIdDocument = gql`
+    mutation UpdateFlashcardById($id: UUID!, $answer: String, $prompt: String, $topic: String) {
+  updateFlashcardById(input: {flashcardPatch: {answer: $answer, prompt: $prompt, topic: $topic}, id: $id}) {
+    flashcard {
+      id
+      answer
+      prompt
+      topic
+    }
+  }
+}
+    `;
+export type UpdateFlashcardByIdMutationFn = Apollo.MutationFunction<UpdateFlashcardByIdMutation, UpdateFlashcardByIdMutationVariables>;
+export type UpdateFlashcardByIdComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<UpdateFlashcardByIdMutation, UpdateFlashcardByIdMutationVariables>, 'mutation'>;
+
+    export const UpdateFlashcardByIdComponent = (props: UpdateFlashcardByIdComponentProps) => (
+      <ApolloReactComponents.Mutation<UpdateFlashcardByIdMutation, UpdateFlashcardByIdMutationVariables> mutation={UpdateFlashcardByIdDocument} {...props} />
+    );
+    
+
+/**
+ * __useUpdateFlashcardByIdMutation__
+ *
+ * To run a mutation, you first call `useUpdateFlashcardByIdMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateFlashcardByIdMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateFlashcardByIdMutation, { data, loading, error }] = useUpdateFlashcardByIdMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      answer: // value for 'answer'
+ *      prompt: // value for 'prompt'
+ *      topic: // value for 'topic'
+ *   },
+ * });
+ */
+export function useUpdateFlashcardByIdMutation(baseOptions?: Apollo.MutationHookOptions<UpdateFlashcardByIdMutation, UpdateFlashcardByIdMutationVariables>) {
+        return Apollo.useMutation<UpdateFlashcardByIdMutation, UpdateFlashcardByIdMutationVariables>(UpdateFlashcardByIdDocument, baseOptions);
+      }
+export type UpdateFlashcardByIdMutationHookResult = ReturnType<typeof useUpdateFlashcardByIdMutation>;
+export type UpdateFlashcardByIdMutationResult = Apollo.MutationResult<UpdateFlashcardByIdMutation>;
+export type UpdateFlashcardByIdMutationOptions = Apollo.BaseMutationOptions<UpdateFlashcardByIdMutation, UpdateFlashcardByIdMutationVariables>;
 export const UpdatePersonByIdDocument = gql`
     mutation UpdatePersonById($id: UUID!, $name: String!) {
   updatePersonById(input: {id: $id, personPatch: {name: $name}}) {

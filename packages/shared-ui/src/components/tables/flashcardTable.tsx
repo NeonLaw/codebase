@@ -2,7 +2,11 @@ import React from 'react';
 import { Table } from './base';
 import { useAllFlashcardsQuery } from '../../utils/api';
 
-export const FlashcardTable = () => {
+interface FlashcardTableProps {
+  onRowClick(row: any): void;
+}
+
+export const FlashcardTable = (props: FlashcardTableProps) => {
   const { loading, data, error } = useAllFlashcardsQuery();
 
   if (loading) {
@@ -30,10 +34,10 @@ export const FlashcardTable = () => {
 
   return (
     <Table
-      rowModal={{ yes: 'true' }}
       columns={columns}
       data={nodes}
       testId="admin-flashcards-table"
+      onRowClick={props.onRowClick}
     />
   );
 };

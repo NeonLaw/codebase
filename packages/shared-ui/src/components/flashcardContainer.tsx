@@ -40,25 +40,33 @@ export const FlashcardContainer = ({ topic }: FlashcardContainerProps) => {
         return null;
       })}
       <Box height="1em" />
-      <Box width="640px" margin="0 auto">
-        <Flex width="100%" justifyContent="space-between">
+      <Flex width="100%">
+        <Flex margin="auto">
           {flashcards.map((flashcard, i) => {
             if (i === selectedFlashcard) {
               return (
-                <Circle onClick={() => { return; }} key={i} active={true} />
+                <Box margin="0 2px">
+                  <Circle
+                    onClick={() => { return; }}
+                    key={i}
+                    active={true}
+                  />
+                </Box>
               );
             }
             return (
-              <Circle
-                onClick={() => { changeSelectedFlashcard(i); }}
-                key={i}
-                active={false}
-              />
+              <Box margin="0 2px" key={i}>
+                <Circle
+                  key={i}
+                  onClick={() => { changeSelectedFlashcard(i); }}
+                  active={false}
+                />
+              </Box>
             );
           })}
         </Flex>
-        <Box height="1em" />
-      </Box>
+      </Flex>
+      <Box height="1em" />
     </Box >
   );
 };
