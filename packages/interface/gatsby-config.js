@@ -31,7 +31,7 @@ module.exports = {
           'font-src': '* data: blob: \'unsafe-inline\'',
           'frame-src': '* data: blob: \'unsafe-inline\';',
           'img-src': '* data: blob: \'unsafe-inline\'',
-          'script-src': '* \'unsafe-eval\'',
+          'script-src': '* \'unsafe-eval\' \'unsafe-inline\'',
           'style-src': '* data: blob: \'unsafe-inline\'',
         },
         disableOnDev: true,

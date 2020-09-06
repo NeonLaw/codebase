@@ -29,7 +29,7 @@ export const UpdateFlashcardModal = (
   { isOpen, onClose, currentRow }: UpdateFlashcardModalProps
 ) => {
   const intl = useIntl();
-  const id = currentRow?.values.id;
+  const { answer, id, prompt } = currentRow?.values || {};
 
   const [updateFlashcard] = useUpdateFlashcardByIdMutation();
 
@@ -70,16 +70,16 @@ export const UpdateFlashcardModal = (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      size="960px"
+      size="lg"
     >
       <ModalOverlay>
-        <ModalContent data-testid="update-flashcard-modal">
+        <ModalContent data-testid="update-flashcard-modal" marginTop="8em">
           <ModalHeader
             fontWeight="normal"
             fontSize={theme.fontSizes['xl0']}
             color={colors.text[colorMode]}
           >
-            Update Flashcard ${id}
+            Update Flashcard
           </ModalHeader>
           <ModalCloseButton style={{ color: colors.text[colorMode] }} />
           <form
@@ -93,6 +93,7 @@ export const UpdateFlashcardModal = (
                 testId="update-flashcard-modal-prompt"
                 label={intl.formatMessage({ id: 'forms.prompt.label' })}
                 errors={errors}
+                value={prompt}
                 placeholder={intl.formatMessage(
                   { id: 'forms.prompt.placeholder' }
                 )}
@@ -109,6 +110,7 @@ export const UpdateFlashcardModal = (
                 testId="update-flashcard-modal-answer"
                 label={intl.formatMessage({ id: 'forms.answer.label' })}
                 errors={errors}
+                value={answer}
                 placeholder={intl.formatMessage(
                   { id: 'forms.answer.placeholder' }
                 )}

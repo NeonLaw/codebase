@@ -13,6 +13,7 @@ export const StringInput = ({
   name,
   placeholder,
   testId,
+  value = '',
 }) => {
   return (
     <FormControl isInvalid={errors[name]}>
@@ -23,6 +24,7 @@ export const StringInput = ({
         name={name}
         placeholder={placeholder}
         borderColor="gray.300"
+        defaultValue={value}
         _hover={{ borderColor: 'gray.500' }}
         className="outline-bordered"
       />

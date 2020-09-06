@@ -12,7 +12,8 @@ export const Textarea = ({
   register,
   name,
   placeholder,
-  testId
+  testId,
+  value = ''
 }) => {
   return (
     <FormControl isInvalid={errors && errors[name]}>
@@ -23,6 +24,7 @@ export const Textarea = ({
         name={name}
         placeholder={placeholder}
         borderColor="gray.300"
+        defaultValue={value}
         _hover={{ borderColor: 'gray.500' }}
       />
       <FormErrorMessage>

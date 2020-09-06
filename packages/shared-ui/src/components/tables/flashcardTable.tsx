@@ -22,12 +22,16 @@ export const FlashcardTable = (props: FlashcardTableProps) => {
       accessor: 'id',
     },
     {
-      Header: 'Topic',
-      accessor: 'topic',
-    },
-    {
       Header: 'Prompt',
       accessor: 'prompt',
+    },
+    {
+      Header: 'Answer',
+      accessor: 'answer',
+    },
+    {
+      Header: 'Topic',
+      accessor: 'topic',
     },
   ];
   const nodes = data?.allFlashcards?.nodes || [];

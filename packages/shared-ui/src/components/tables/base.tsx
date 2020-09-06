@@ -57,6 +57,9 @@ export const Table = ({
     {
       columns: tableColumns,
       data,
+      initialState: {
+        hiddenColumns: ['id']
+      }
     },
     useSortBy,
     usePagination

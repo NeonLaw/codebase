@@ -48,12 +48,15 @@ const Flashcards = () => {
                 {flashcardTopics.map((topic, i) => (
                   <Button
                     key={i}
-                    bg={colors.cyanDark}
+                    bg={
+                      topicSearchParam === topic.value ?
+                        colors.cyanLight :
+                        colors.cyanDark
+                    }
                     color={colors.text.dark}
                     _hover={{ backgroundColor: colors.cyanDark1 }}
                     as={Link}
                     to={`${location.pathname}?topic=${topic.value}`}
-                    activeLink={{ backgroundColor: 'red' }}
                   >
                     {topic.label}
                   </Button>

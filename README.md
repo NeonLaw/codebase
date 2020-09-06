@@ -144,13 +144,13 @@ software:
 ## Continuous Integration and Deployment
 
 Our app uses a series of GitHub Actions Workflows to run a suite of automated
-tests and linters. You can find these tests
+tests. You can find these tests
 [here](https://github.com/neonlaw/codebase/actions).
 
 On pushes to the `development` branch, our staging environment is updated.
 
-On every weekday at 4:00 am PST, the production environment is updated with
-the latest commit from `development`.
+Every morning at 4:00 am PST, the production environment is updated with the
+latest commit from `development`.
 
 ## Graphql Codegen
 
