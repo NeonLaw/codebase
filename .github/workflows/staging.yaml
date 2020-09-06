@@ -40,14 +40,14 @@ jobs:
           service_account_email: github-actions@neon-law-staging.iam.gserviceaccount.com
           service_account_key: ${{ secrets.STAGING_GCP_CREDENTIALS }}
           export_default_credentials: true
-        if: github.ref == 'refs/heads/staging'
+        if: github.ref == 'refs/heads/development'
 
       - name: |-
           Configure Docker to use the gcloud command-line tool as a credential
           helper for authentication
         run: |-
           gcloud --quiet auth configure-docker
-        if: github.ref == 'refs/heads/staging'
+        if: github.ref == 'refs/heads/development'
 
   #     - name: Push the Docker image to Google Container Registry
   #       run: |-
