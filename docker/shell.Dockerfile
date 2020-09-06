@@ -1,4 +1,4 @@
-FROM neonlaw/base
+FROM docker.pkg.github.com/neonlaw/codebase/base:latest
 
 ENTRYPOINT [ "./docker/shell.entrypoint.sh" ]
 

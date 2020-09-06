@@ -1,4 +1,4 @@
-FROM neonlaw/base
+FROM docker.pkg.github.com/neonlaw/codebase/base:latest
 
 ENV PACKAGE_NAME $PACKAGE_NAME
 

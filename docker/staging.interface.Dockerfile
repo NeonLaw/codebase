@@ -1,7 +1,7 @@
 ARG APP_NAME
 ARG DOMAIN_NAME
 
-FROM neonlaw/base AS build
+FROM docker.pkg.github.com/neonlaw/codebase/base:latest AS build
 
 ARG GATSBY_ACTIVE_ENV
 ARG GATSBY_AUTH0_CALLBACK

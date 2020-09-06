@@ -6,7 +6,7 @@ ARG GATSBY_AUTH0_CLIENT_ID
 ARG GATSBY_AUTH0_DOMAIN
 ARG GATSBY_AUTH0_TENANT
 
-FROM neonlaw/base AS build
+FROM docker.pkg.github.com/neonlaw/codebase/base:latest AS build
 
 ARG APP_NAME
 ARG DOMAIN_NAME

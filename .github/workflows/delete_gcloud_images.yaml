@@ -1,5 +1,5 @@
 ---
-name: Delete Docker Images hosted on GCP
+name: delete_stale_gcp_images
 
 on:
   schedule:

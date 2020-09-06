@@ -1,0 +1,34 @@
+---
+name: public_docker_images
+
+on:
+  push:
+    branches:
+      - github-package-registry
+  pull_request:
+    branches:
+      - development
+
+jobs:
+  deploy_base_docker_image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: |-
+          docker build \
+            --tag "docker.pkg.github.com/neonlaw/codebase/base:latest" \
+            -f ./docker/base.Dockerfile \
+            .
+
+      - name: Authenticate to the GitHub Package Registry
+        run: |-
+          docker login https://docker.pkg.github.com
+            -u USERNAME
+            --password-stdin
+        if: github.ref == 'refs/heads/github-package-registry'
+
+      - name: Push Image to GitHub Package Registry
+        run: docker push docker.pkg.github.com/neonlaw/codebase/base:latest
+        if: github.ref == 'refs/heads/github-package-registry'
