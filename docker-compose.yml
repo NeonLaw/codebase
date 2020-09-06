@@ -129,7 +129,7 @@ services:
   shell:
     build:
       context: ./
-      dockerfile: ./docker/shell.Dockerfile
+      dockerfile: ./docker/base.Dockerfile
     container_name: shell
     volumes:
       - ./:/app
