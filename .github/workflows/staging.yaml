@@ -15,6 +15,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: docker.pkg.github.com
+          username: ${{ secrets.GPR_USERNAME }}
+          password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
+
       - name: Build the Docker image
         run: |-
           docker build \
