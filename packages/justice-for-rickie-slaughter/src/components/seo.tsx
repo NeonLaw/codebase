@@ -1,4 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
+
 import { Helmet } from 'react-helmet';
 import { Location } from '@reach/router';
 import React from 'react';
@@ -12,19 +13,17 @@ interface SeoProps {
   image?: string;
 }
 
-export const Seo: React.FC<SeoProps> = (
-  {
-    description = '',
-    lang = 'en',
-    meta = [],
-    title,
-    image
-  }
-) => {
+export const Seo: React.FC<SeoProps> = ({
+  description = '',
+  lang = 'en',
+  meta = [],
+  title,
+  image,
+}) => {
   const {
     title: metaTitle,
     description: metaDescription,
-    siteUrl
+    siteUrl,
   } = useSiteMetadata();
 
   description = description || metaDescription;
@@ -50,14 +49,12 @@ export const Seo: React.FC<SeoProps> = (
   );
 
   // Find the fixed URL for the image
-  image = data.images.edges.find(n => {
+  image = data.images.edges.find((n) => {
     const filename = n.node.relativePath;
     return filename == image;
   })?.node.childImageSharp.fixed.src;
 
-  image = (image === undefined) ?
-    siteUrl + '/images/logo.png' :
-    siteUrl + image;
+  image = image === undefined ? siteUrl + '/images/logo.png' : siteUrl + image;
 
   return (
     <Location>
@@ -102,7 +99,9 @@ export const Seo: React.FC<SeoProps> = (
               name: 'twitter:creator',
             },
           ].concat(meta)}
-        />
+        >
+          <link rel="stylesheet" href="/leaflet.css" />
+        </Helmet>
       )}
     </Location>
   );
