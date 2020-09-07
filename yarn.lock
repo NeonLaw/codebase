@@ -3977,10 +3977,10 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
-"@types/node@*", "@types/node@>=6", "@types/node@^14.6.3":
-  version "14.6.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.6.3.tgz#cc4f979548ca4d8e7b90bc0180052ab99ee64224"
-  integrity sha512-pC/hkcREG6YfDfui1FBmj8e20jFU5Exjw4NYDm8kEdrW+mOh0T1Zve8DWKnS7ZIZvgncrctcNCXF4Q2I+loyww==
+"@types/node@*", "@types/node@>=6", "@types/node@^14.6.0", "@types/node@^14.6.3":
+  version "14.6.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.6.4.tgz#a145cc0bb14ef9c4777361b7bbafa5cf8e3acb5a"
+  integrity sha512-Wk7nG1JSaMfMpoMJDKUsWYugliB2Vy55pdjLpmLixeyMi7HizW2I/9QoxsPCkXl3dO+ZOVqPumKaDUv5zJu2uQ==
 
 "@types/node@^12.12.47":
   version "12.12.55"
@@ -10842,12 +10842,13 @@ graphile-build@4.8.0:
     pluralize "^7.0.0"
     semver "^6.0.0"
 
-graphile-migrate@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/graphile-migrate/-/graphile-migrate-0.3.1.tgz#01233d4b78cb42d4b0e2debdda65b72c0a04f2b1"
-  integrity sha512-PhG4uKCGhRMQ3TFvkt+XSY5pmRTOP30qn78yekgYZqP5scP2dWAgcsFBPS0lTJBk8prHR6GItB8B/8qbDh81Hg==
+graphile-migrate@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/graphile-migrate/-/graphile-migrate-1.0.1.tgz#9f1146cefed6a9c1dfbb5e267b92d26216e55b5b"
+  integrity sha512-HYOpkV/zeG8v/AOyMPgEzxc8UcFtDOe7H7dRHAzMEdFKooxZ0AxVH8Opwm+z9c1S1CgGzxAHZw2QJbYhZTikGg==
   dependencies:
     "@types/json5" "^0.0.30"
+    "@types/node" "^14.6.0"
     "@types/pg" "^7.14.1"
     chalk "^3.0.0"
     chokidar "^3.3.1"
