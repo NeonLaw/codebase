@@ -267,7 +267,7 @@ jobs:
             delete-your-data=us.gcr.io/neon-law-production/delete-your-data:$GITHUB_SHA
         if: github.ref == 'refs/heads/development'
 
-  deploy_api:
+  deploy_api_production:
     runs-on: ubuntu-latest
 
     steps:
