@@ -35,7 +35,6 @@ const StyledPostTemplate = styled.div`
     .post-wrapper {
         max-width: ${sizes.textContainerMedium};
         margin: 0 auto;
-        background: ${colors.background.light};
         padding: ${gutters.small};
         box-shadow: ${shadows.light2};
 
@@ -109,6 +108,7 @@ const PostLayout: React.FC<{
                     <Container>
                       <Box
                         className="post-wrapper"
+                        background={colors.background[colorMode]}
                         border={`1px solid ${colors.borders[colorMode]}`}
                       >
                         <Breadcrumbs />
