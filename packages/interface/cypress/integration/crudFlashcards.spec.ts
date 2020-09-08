@@ -7,6 +7,8 @@ describe('CRUDDing Bar Prep Flashcards', () => {
     cy.loginAsAdminUser().then(() => {
       cy.visit('/admin/flashcards');
 
+      cy.wait(2000);
+
       cy.contains('Create Flashcard').click();
 
       cy.get('[data-testid="create-flashcard-modal"]')
