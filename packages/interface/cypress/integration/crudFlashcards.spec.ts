@@ -26,10 +26,6 @@ describe('CRUDDing Bar Prep Flashcards', () => {
         .get('[data-testid="create-flashcard-modal-submit"]')
         .click();
 
-      cy
-        .get('[data-testid="create-flashcard-modal-submit"]')
-        .click();
-
       cy.get('[data-testid="create-flashcard-modal"]')
         .should('not.exist');
     });
