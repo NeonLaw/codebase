@@ -22,12 +22,12 @@ module "networking_service_connection" {
   project_id = var.project_id
 }
 
-# module "postgres" {
-#   source        = "../modules/postgres"
-#   zone          = var.zone
-#   region        = var.region
-#   project_id    = var.project_id
-# }
+module "postgres" {
+  source        = "../modules/postgres"
+  zone          = var.zone
+  region        = var.region
+  project_id    = var.project_id
+}
 
 module "container_registry" {
   source     = "../modules/container_registry"
@@ -35,26 +35,26 @@ module "container_registry" {
   project_id = var.project_id
 }
 
-# module "kubernetes_cluster" {
-#   source     = "../modules/google_container_cluster"
-#   region     = var.region
-#   project_id = var.project_id
-# }
+module "kubernetes_cluster" {
+  source     = "../modules/google_container_cluster"
+  region     = var.region
+  project_id = var.project_id
+}
 
-# module "neon-law-ssl-certificate" {
-#   source           = "../modules/ssl_certificate"
-#   certificate_name = "neon-law"
-#   domain_name      = "www.neonlaw.net"
-# }
+module "neon-law-ssl-certificate" {
+  source           = "../modules/ssl_certificate"
+  certificate_name = "neon-law"
+  domain_name      = "www.neonlaw.net"
+}
 
-# module "law-job-resources-ssl-certificate" {
-#   source = "../modules/ssl_certificate"
-#   certificate_name = "law-job-resources"
-#   domain_name      = "www.lawjobresources.net"
-# }
+module "law-job-resources-ssl-certificate" {
+  source = "../modules/ssl_certificate"
+  certificate_name = "law-job-resources"
+  domain_name      = "www.lawjobresources.net"
+}
 
-# module "delete-your-data-ssl-certificate" {
-#   source = "../modules/ssl_certificate"
-#   certificate_name = "delete-your-data"
-#   domain_name      = "www.deleteyourdata.info"
-# }
+module "delete-your-data-ssl-certificate" {
+  source = "../modules/ssl_certificate"
+  certificate_name = "delete-your-data"
+  domain_name      = "www.deleteyourdata.info"
+}
