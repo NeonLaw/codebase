@@ -58,3 +58,11 @@ module "delete-your-data-ssl-certificate" {
   certificate_name = "delete-your-data"
   domain_name      = "www.deleteyourdata.info"
 }
+
+module "user-bucket" {
+  source = "../modules/private_bucket"
+  bucket_name = "${var.project_id}-user-assets"
+  allowed_origins = [
+    "www.neonlaw.net"
+  ]
+}
