@@ -10,5 +10,5 @@ variable auth0_client_id {
 variable auth0_client_secret {
 }
 
-# variable logic_gcp_credentials {
-# }
+variable logic_gcp_credentials {
+}
