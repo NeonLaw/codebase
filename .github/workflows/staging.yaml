@@ -9,6 +9,9 @@ on:
       - development
     types:
       - completed
+  pull_request:
+    branches:
+      - development
 
 jobs:
   deploy_neon_law_staging:
