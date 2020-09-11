@@ -2,9 +2,13 @@
 name: public_docker_images
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - continuous_integration
     branches:
       - development
+    types:
+      - completed
   pull_request:
     branches:
       - development

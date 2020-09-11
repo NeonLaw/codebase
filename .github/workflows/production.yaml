@@ -5,9 +5,10 @@ on:
   pull_request:
     branches:
       - development
-  # Deploy production from development every day at 12:00 pm UTC
+
+  # Deploy production from development at 4:00 am PST, Monday through Thursday
   schedule:
-    - cron: "0 12 * * *"
+    - cron: "0 12 * * MON-THU"
 
 jobs:
   deploy_interface_production:
