@@ -147,8 +147,8 @@ tests. You can find these tests
 
 On pushes to the `development` branch, our staging environment is updated.
 
-Every morning at 4:00 am PST, the production environment is updated with the
-latest commit from `development`.
+On Monday through Thursday at 4:00 am PST, the production environment is 
+updated with the latest commit from `development`.
 
 ## Graphql Codegen
 
