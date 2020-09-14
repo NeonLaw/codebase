@@ -10,7 +10,7 @@ import {
   theme,
   useColorMode,
 } from '@chakra-ui/core';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Select, StringInput, Textarea } from '../../forms/base';
 
 import { colors } from '../../themes/neonLaw';
@@ -39,54 +39,66 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
                     topic
                   }
                 }
-              `
+              `,
             });
             return [...existingFlashCards.nodes, newFlashCardRef];
-          }
-        }
+          },
+        },
       });
-    }
+    },
   });
 
-  const {
-    control,
-    handleSubmit,
-    errors,
-    register,
-    reset,
-  } = useForm({
+  const { control, handleSubmit, errors, register, reset } = useForm({
     defaultValues: {
       topic: flashcardTopics[0],
-    }
+    },
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
+  const formRef = useRef<HTMLFormElement>(null);
 
   const onSubmit = async ({ answer, prompt, topic }) => {
     const topicValue = topic.value;
-    await createFlashcard(
-      { variables: { answer, prompt, topic: topicValue } }
-    ).then(async () => {
-      setFormError('');
-      await reset();
-      onClose();
+    await createFlashcard({ variables: { answer, prompt, topic: topicValue } })
+      .then(async () => {
+        setFormError('');
+        await reset();
+        onClose();
 
-      setIsSubmitting(false);
-    }).catch((apiErrors) => {
-      console.log(apiErrors.graphQLErrors);
-      setFormError(apiErrors.message);
-      setIsSubmitting(false);
-    });
+        setIsSubmitting(false);
+      })
+      .catch((apiErrors) => {
+        console.log(apiErrors.graphQLErrors);
+        setFormError(apiErrors.message);
+        setIsSubmitting(false);
+      });
   };
+
+  const handleShiftEnter =  (e: any) => {
+    if(e.shiftKey && e.key == 'Enter') {
+      const form = formRef.current;
+      e.preventDefault();
+      if(null !== form) {
+        form.dispatchEvent(new Event('submit', {cancelable: true}));
+      }
+    }
+  };
+
+  useEffect(() => {
+    const textArea = document.querySelector('.answer-text');
+
+    if (null !== textArea) {
+      textArea.addEventListener('keydown', handleShiftEnter);
+      return () => {
+        textArea.removeEventListener('keydown', handleShiftEnter );
+      };
+    }
+  });
 
   const { colorMode } = useColorMode();
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={onClose}
-      size="lg"
-    >
+    <Modal isOpen={isOpen} onClose={onClose} size="lg">
       <ModalOverlay>
         <ModalContent data-testid="create-flashcard-modal" marginTop="8em">
           <ModalHeader
@@ -100,6 +112,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
           <form
             onSubmit={handleSubmit(onSubmit as any)}
             style={{ color: colors.text[colorMode] }}
+            ref={formRef}
           >
             <ModalBody>
               {formError}
@@ -108,32 +121,29 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
                 testId="create-flashcard-modal-prompt"
                 label={intl.formatMessage({ id: 'forms.prompt.label' })}
                 errors={errors}
-                placeholder={intl.formatMessage(
-                  { id: 'forms.prompt.placeholder' }
-                )}
-                register={
-                  register({
-                    required: intl.formatMessage({
-                      id: 'forms.prompt.required'
-                    })
-                  })
-                }
+                placeholder={intl.formatMessage({
+                  id: 'forms.prompt.placeholder',
+                })}
+                register={register({
+                  required: intl.formatMessage({
+                    id: 'forms.prompt.required',
+                  }),
+                })}
               />
               <Textarea
+                className="answer-text"
                 name="answer"
                 testId="create-flashcard-modal-answer"
                 label={intl.formatMessage({ id: 'forms.answer.label' })}
                 errors={errors}
-                placeholder={intl.formatMessage(
-                  { id: 'forms.answer.placeholder' }
-                )}
-                register={
-                  register({
-                    required: intl.formatMessage({
-                      id: 'forms.answer.required'
-                    })
-                  })
-                }
+                placeholder={intl.formatMessage({
+                  id: 'forms.answer.placeholder',
+                })}
+                register={register({
+                  required: intl.formatMessage({
+                    id: 'forms.answer.required',
+                  }),
+                })}
               />
               <Select
                 name="topic"
