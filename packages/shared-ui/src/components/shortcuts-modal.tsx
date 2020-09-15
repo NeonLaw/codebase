@@ -46,6 +46,10 @@ const shortcuts: Shortcut[] = [
     key: '/',
   },
   {
+    description: 'Submit form',
+    key: 'Shift + Enter'
+  },
+  {
     description: 'Show all keyboard shortcuts',
     key: 'Shift + /',
   },
