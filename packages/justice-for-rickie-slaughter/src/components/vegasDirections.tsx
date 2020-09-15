@@ -21,6 +21,7 @@ const Wrapper = styled.div`
   .leaflet-container {
     width: 100%;
     height: 35vh;
+    z-index: 1;
   }
 `;
 
@@ -82,8 +83,6 @@ export const VegasDirections = () => {
     [parks.origin.lat, parks.origin.lng],
     [parks.destination.lat, parks.destination.lng],
   ];
-
-  console.log(buildSpline(coords));
 
   return (
     <Wrapper>
