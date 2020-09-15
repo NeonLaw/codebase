@@ -33,6 +33,10 @@ const StyledShortCut = styled.li`
     border-radius: 5px;
     box-shadow: ${shadows.light2};
   }
+
+  body.user-is-tabbing &:focus {
+    outline: var(--outline);
+  }
 `;
 
 interface Shortcut {
@@ -85,6 +89,7 @@ const ShortcutsModal = () => {
                   <StyledShortCut
                     key={key}
                     style={{ borderColor: colors.borders[colorMode] }}
+                    tabIndex={0}
                   >
                     <div className="desc">{description}</div>
                     <div
