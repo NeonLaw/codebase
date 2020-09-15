@@ -22,26 +22,6 @@ module.exports = {
       },
       resolve: 'gatsby-plugin-intl',
     },
-    {
-      options: {
-        directives: {
-          'connect-src': '* data: blob: \'unsafe-inline\'',
-          'default-src': '*  data: blob: filesystem: about: ' +
-            'ws: wss: \'unsafe-inline\' \'unsafe-eval\'',
-          'font-src': '* data: blob: \'unsafe-inline\'',
-          'frame-src': '* data: blob: \'unsafe-inline\';',
-          'img-src': '* data: blob: \'unsafe-inline\'',
-          'script-src': '* \'unsafe-eval\'',
-          'style-src': '* data: blob: \'unsafe-inline\'',
-        },
-        disableOnDev: true,
-        mergeDefaultDirectives: true,
-        mergeScriptHashes: true,
-        mergeStyleHashes: false,
-        reportOnly: false,
-      },
-      resolve: 'gatsby-plugin-csp',
-    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
