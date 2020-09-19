@@ -16,6 +16,7 @@ import { Select, StringInput, Textarea } from '../../forms/base';
 import { colors } from '../../themes/neonLaw';
 import { flashcardTopics } from '../../forms/options/flashcardTopics';
 import { gql } from '@apollo/client';
+import { submitOnShiftEnter } from '../../utils/keyboard';
 import { useCreateFlashcardMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
@@ -74,23 +75,17 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
       });
   };
 
-  const handleShiftEnter =  (e: any) => {
-    if(e.shiftKey && e.key == 'Enter') {
-      const form = formRef.current;
-      e.preventDefault();
-      if(null !== form) {
-        form.dispatchEvent(new Event('submit', {cancelable: true}));
-      }
-    }
+  const keyDownHandler = (e: any) => {
+    submitOnShiftEnter(e, formRef);
   };
 
   useEffect(() => {
     const textArea = document.querySelector('.answer-text');
 
     if (null !== textArea) {
-      textArea.addEventListener('keydown', handleShiftEnter);
+      textArea.addEventListener('keydown', keyDownHandler);
       return () => {
-        textArea.removeEventListener('keydown', handleShiftEnter );
+        textArea.removeEventListener('keydown', keyDownHandler);
       };
     }
   });

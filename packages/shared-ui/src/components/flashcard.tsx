@@ -5,6 +5,7 @@ import { Box, Button, Text, Textarea, useColorMode } from '@chakra-ui/core';
 import React, { useRef, useState } from 'react';
 
 import ReactDiffViewer from 'react-diff-viewer';
+import { isShiftEnterPressed } from '../utils/keyboard';
 
 interface FlashcardProps {
   prompt: string;
@@ -29,7 +30,7 @@ export const Flashcard = ({ prompt, answer }: FlashcardProps) => {
           <Textarea
             ref={textAreaRef}
             onKeyDown={(e: React.KeyboardEvent) => {
-              if (e.shiftKey && e.key == 'Enter') {
+              if (isShiftEnterPressed(e)) {
                 e.preventDefault();
                 toggleShowPrompt(!showPrompt);
                 setTimeout(() => {
