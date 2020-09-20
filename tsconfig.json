@@ -7,13 +7,7 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "lib": [
-      "es2017",
-      "dom",
-      "esnext",
-      "es6",
-      "es2015.promise"
-    ],
+    "lib": ["es2017", "dom", "esnext", "es6", "es2015.promise"],
     "moduleResolution": "node",
     "noImplicitAny": false,
     "outDir": "./build",
@@ -22,18 +16,16 @@
     "strict": true,
     "suppressImplicitAnyIndexErrors": true,
     "target": "esnext",
-    "typeRoots": [
-      "./node_modules/@types"
-    ]
+    "typeRoots": ["./node_modules/@types"]
   },
-  "include": [
-    "./packages/**/*",
-    "./@types/*"
-  ],
+  "include": ["./packages/**/*", "./@types/*"],
   "exclude": [
     "./node_modules",
     "./build",
     "./packages/interface/cypress",
+    "./packages/justice-for-rickie-slaughter/cypress",
+    "./packages/delete-your-data/cypress",
+    "./packages/law-job-resources/cypress",
     "./packages/api/tests/utils/graphqlHelpers.ts",
     "./packages/shared-ui/src/utils/api.tsx",
     "./packages/**/*.test.ts",
