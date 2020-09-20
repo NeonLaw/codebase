@@ -1,17 +1,15 @@
-import {
-  Box,
-  Button,
-  Heading,
-  useDisclosure,
-} from '@chakra-ui/core';
+import { Box, Button, Heading, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
+
 import {
   CreateFlashcardModal
 } from '@neonlaw/shared-ui/src/components/modals/createFlashcardModal';
 import {
   FlashcardTable
 } from '@neonlaw/shared-ui/src/components/tables/flashcardTable';
-import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
+import {
+  PortalLayout
+} from '@neonlaw/shared-ui/src/layouts/portalLayout';
 import {
   UpdateFlashcardModal
 } from '@neonlaw/shared-ui/src/components/modals/updateFlashcardModal';
@@ -29,11 +27,8 @@ const AdminFlashcards = () => {
           Flashcards
         </Heading>
 
-        <Button
-          onClick={onOpen}
-          marginBottom={gutters.xSmallOne}
-        >
-          Create Flashcard
+        <Button onClick={onOpen} marginBottom={gutters.xSmallOne}>
+          Create Flashcard &nbsp;<Kbd border="1px solid #bbb">C</Kbd>
         </Button>
 
         <CreateFlashcardModal
@@ -42,6 +37,7 @@ const AdminFlashcards = () => {
             changeShowFlashCardModal(true);
             onClose();
           }}
+          onOpen={onOpen}
         />
 
         <UpdateFlashcardModal

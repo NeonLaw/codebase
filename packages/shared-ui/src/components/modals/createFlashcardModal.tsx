@@ -21,7 +21,7 @@ import { useCreateFlashcardMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
 
-export const CreateFlashcardModal = ({ isOpen, onClose }) => {
+export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
   const intl = useIntl();
 
   const [createFlashcard] = useCreateFlashcardMutation({
@@ -79,15 +79,26 @@ export const CreateFlashcardModal = ({ isOpen, onClose }) => {
     submitOnShiftEnter(e, formRef);
   };
 
+  const handleCPress = (e) => {
+    if (e.key === 'c') {
+      onOpen();
+    }
+  };
+
   useEffect(() => {
+    window.addEventListener('keypress', handleCPress);
+
     const textArea = document.querySelector('.answer-text');
 
     if (null !== textArea) {
       textArea.addEventListener('keydown', keyDownHandler);
-      return () => {
-        textArea.removeEventListener('keydown', keyDownHandler);
-      };
     }
+    
+    return () => {
+      null !== textArea && 
+      textArea.removeEventListener('keydown', keyDownHandler);
+      window.removeEventListener('keypress', handleCPress);
+    };
   });
 
   const { colorMode } = useColorMode();
