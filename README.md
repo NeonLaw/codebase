@@ -24,15 +24,21 @@ your machine, you can follow these two steps to start developing.
 
 1. Ensure that you have the proper environment variables and GCP Credential.
 
-You should have these environment variables on your machine:
+You should have some, if not all of these environment variables on your machine:
 
 * `AUTH0_CLIENT_ID`
 * `AUTH0_CLIENT_SECRET`
 * `AUTH0_TENANT`
-* `CYPRESS_AUTH_URL`
+
+* `CYPRESS_ADMIN_USER_PASSWORD`
 * `CYPRESS_AUDIENCE_URL`
 * `CYPRESS_AUTH0_CLIENT_ID`
 * `CYPRESS_AUTH0_CLIENT_SECRET`
+* `CYPRESS_AUTH_URL`
+* `CYPRESS_LAWYER_USER_PASSWORD`
+* `CYPRESS_PORTAL_USER_PASSWORD`
+
+* `GOOGLE_APPLICATION_CREDENTIALS`
 
 You will need to have values for these environment variables sourced in the same
 bash shell as when you run the next step. Additionally, you should have the
