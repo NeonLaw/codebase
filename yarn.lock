@@ -9940,14 +9940,6 @@ gatsby-plugin-create-client-paths@^2.3.10:
   dependencies:
     "@babel/runtime" "^7.10.3"
 
-gatsby-plugin-csp@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-csp/-/gatsby-plugin-csp-1.1.3.tgz#27258c0f9b94cf17c55b4d42e520de9870031254"
-  integrity sha512-jTAdWpJXCAaqBXAmf07XVnsgHp7tdtC36XrOQUMRMrEOkEIpM+x+4X3Xma4YAmFbuGH+QKRGmbmCCRNhV//EDA==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    lodash.flatten "^4.4.0"
-
 gatsby-plugin-intl@^0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-intl/-/gatsby-plugin-intl-0.3.3.tgz#3a0e55e6641bfcb09fae20215b8f72e2a0ec3de4"
@@ -13658,7 +13650,7 @@ lodash.filter@^4.4.0:
   resolved "https://registry.yarnpkg.com/lodash.filter/-/lodash.filter-4.6.0.tgz#668b1d4981603ae1cc5a6fa760143e480b4c4ace"
   integrity sha1-ZosdSYFgOuHMWm+nYBQ+SAtMSs4=
 
-lodash.flatten@^4.2.0, lodash.flatten@^4.4.0:
+lodash.flatten@^4.2.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.flatten/-/lodash.flatten-4.4.0.tgz#f31c22225a9632d2bbf8e4addbef240aa765a61f"
   integrity sha1-8xwiIlqWMtK7+OSt2+8kCqdlph8=

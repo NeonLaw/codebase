@@ -4,6 +4,7 @@ import {
   FormErrorMessage,
   FormLabel,
 } from '@chakra-ui/core';
+
 import React from 'react';
 
 export const Textarea = ({
@@ -13,12 +14,14 @@ export const Textarea = ({
   name,
   placeholder,
   testId,
-  value = ''
+  value = '',
+  className = '',
 }) => {
   return (
     <FormControl isInvalid={errors && errors[name]}>
       <FormLabel htmlFor="name">{label}</FormLabel>
       <ChakraTextarea
+        className={className}
         data-testid={testId}
         ref={register}
         name={name}
