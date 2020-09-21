@@ -8,7 +8,8 @@ describe('Verify that availabe Keyboard Shortcuts work', () => {
       cy.wait(2000);
       cy.get('body').contains('Flashcards');
       cy.get('input[version="desktop"]').type('c');
-      cy.get('.chakra-modal__header').contains('Create a Flashcard');
+      cy.get('[data-testid="create-flashcard-modal"]').
+        .should('exist');
     });
   });
 });
