@@ -110,7 +110,7 @@ services:
     depends_on:
       - api
     ports:
-      - 6000:8000
+      - 7777:8000
       - 33003:33003
     volumes: *node-volumes
     environment:

@@ -153,7 +153,7 @@ jobs:
         uses: cypress-io/github-action@v1
         with:
           start: docker-compose -f ../../docker-compose.yml up postgres delete_your_data
-          wait-on: "http://127.0.0.1:6000"
+          wait-on: "http://127.0.0.1:7777"
           wait-on-timeout: 1500
           working-directory: ./packages/delete-your-data
         env:
