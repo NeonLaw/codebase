@@ -8,7 +8,7 @@ describe('Verify that availabe Keyboard Shortcuts work', () => {
       cy.wait(2000);
       cy.get('body').contains('Flashcards');
       cy.get('input[version="desktop"]').type('c');
-      cy.get('[data-testid="create-flashcard-modal"]').
+      cy.get('[data-testid="create-flashcard-modal"]')
         .should('exist');
     });
   });
