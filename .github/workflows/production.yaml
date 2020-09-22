@@ -10,6 +10,10 @@ on:
   schedule:
     - cron: "0 12 * * MON-THU"
 
+  workflow_dispatch:
+    tags:
+      description: Manual production release
+
 jobs:
   deploy_interface_production:
     runs-on: ubuntu-latest
