@@ -1,16 +1,26 @@
 import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  Flex,
+  Text,
+  useColorMode,
+} from '@chakra-ui/core';
+import {
   ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-  ChevronUpIcon
+  ChevronUpIcon,
 } from '@chakra-ui/icons';
-import { Flex, Text, useColorMode } from '@chakra-ui/core';
 import {
   StyledTable,
   TableCell,
   TableHead,
   TableIconButton,
-  TableRow
+  TableRow,
 } from './styles';
 import { usePagination, useSortBy, useTable } from 'react-table';
 
@@ -31,7 +41,9 @@ export const Table = ({
   columns,
   data,
   testId,
-  onRowClick = () => { return; },
+  onRowClick = () => {
+    return;
+  },
 }: TableInterface) => {
   const tableColumns = React.useMemo(() => columns, [columns]);
 
@@ -52,14 +64,14 @@ export const Table = ({
     nextPage,
     previousPage,
     setPageSize,
-    state: { pageIndex, pageSize }
+    state: { pageIndex, pageSize },
   } = useTable(
     {
       columns: tableColumns,
       data,
       initialState: {
-        hiddenColumns: ['id']
-      }
+        hiddenColumns: ['id'],
+      },
     },
     useSortBy,
     usePagination
@@ -67,7 +79,7 @@ export const Table = ({
 
   return (
     <Card flexDirection="column" flex={1} maxWidth="100%" width="100%">
-      <StyledTable {...getTableProps()} data-testid={testId} >
+      <StyledTable {...getTableProps()} data-testid={testId}>
         <TableHead>
           {headerGroups.map((headerGroup) => (
             <Flex
@@ -109,9 +121,9 @@ export const Table = ({
                   flexDirection="row"
                   {...row.getRowProps()}
                   data-testid="table-row"
-                  onClick={() => { onRowClick(row); }}
                 >
                   {row.cells.map((cell) => {
+                    console.log(cell);
                     return (
                       <TableCell
                         key={cell.row.index}
@@ -119,7 +131,42 @@ export const Table = ({
                         p={4}
                         {...cell.getCellProps()}
                       >
-                        {cell.render('Cell')}
+                        {cell.column.Header === 'Answer' ? (
+                          <Accordion
+                            allowMultiple
+                            width="100%"
+                            minWidth="150px"
+                            borderLeftWidth="1px"
+                            borderRightWidth="1px"
+                            onDoubleClick={() => {
+                              onRowClick(row);
+                            }}
+                          >
+                            <AccordionItem>
+                              {({ isExpanded }) => (
+                                <>
+                                  <AccordionButton>
+                                    <Box flex="1" textAlign="left">
+                                      {isExpanded ? 'Hide' : 'Show'} Answer
+                                    </Box>
+                                    <AccordionIcon />
+                                  </AccordionButton>
+                                  <AccordionPanel>
+                                    {cell.render('Cell')}
+                                  </AccordionPanel>
+                                </>
+                              )}
+                            </AccordionItem>
+                          </Accordion>
+                        ) : (
+                          <button
+                            onClick={() => {
+                              onRowClick(row);
+                            }}
+                          >
+                            {cell.render('Cell')}
+                          </button>
+                        )}
                       </TableCell>
                     );
                   })}
