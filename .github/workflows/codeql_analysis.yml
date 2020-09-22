@@ -12,7 +12,7 @@ on:
 
 jobs:
   analyse:
-    name: Analyse
+    name: analyze
     runs-on: ubuntu-latest
 
     steps:

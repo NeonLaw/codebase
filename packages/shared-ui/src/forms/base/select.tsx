@@ -12,15 +12,21 @@ import { default as ReactSelect } from 'react-select';
 import { colors } from '../../themes/neonLaw';
 import { useIntl } from 'gatsby-plugin-intl';
 
-export const Select = ({ control, errors, name, testId, options }) => {
+export const Select = ({
+  control,
+  errors,
+  name,
+  testId,
+  options
+}) => {
   const intl = useIntl();
-  
+
   return (
     <FormControl isInvalid={errors && errors[name]} color={'red'}>
       <FormLabel htmlFor="name">
         {intl.formatMessage({ id: `forms.${name}.label` })}
       </FormLabel>
-      <Box 
+      <Box
         color={colors.text.light}
       >
         <Controller

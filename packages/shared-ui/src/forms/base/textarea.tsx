@@ -13,6 +13,8 @@ export const Textarea = ({
   register,
   name,
   placeholder,
+  onBlur = () => { return; },
+  onFocus = () => { return; },
   testId,
   value = '',
   className = '',
@@ -26,6 +28,8 @@ export const Textarea = ({
         ref={register}
         name={name}
         placeholder={placeholder}
+        onBlur={onBlur}
+        onFocus={onFocus}
         borderColor="gray.300"
         defaultValue={value}
         _hover={{ borderColor: 'gray.500' }}

@@ -59,6 +59,7 @@ export const UpdateFlashcardModal = ({
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [focus, setFocus] = useState(false);
   const [formError, setFormError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -86,7 +87,7 @@ export const UpdateFlashcardModal = ({
   };
 
   const handleDPress = async (e) => {
-    if (e.key === 'd') {
+    if (!focus && e.key === 'd') {
       await deleteFlashcard();
     }
   };
@@ -146,6 +147,8 @@ export const UpdateFlashcardModal = ({
                 testId="update-flashcard-modal-prompt"
                 label={intl.formatMessage({ id: 'forms.prompt.label' })}
                 errors={errors}
+                onFocus={() => { setFocus(true); }}
+                onBlur={() => { setFocus(false); }}
                 value={prompt}
                 placeholder={intl.formatMessage({
                   id: 'forms.prompt.placeholder',
@@ -158,6 +161,8 @@ export const UpdateFlashcardModal = ({
                 name="answer"
                 className="answer"
                 testId="update-flashcard-modal-answer"
+                onFocus={() => { setFocus(true); }}
+                onBlur={() => { setFocus(false); }}
                 label={intl.formatMessage({ id: 'forms.answer.label' })}
                 errors={errors}
                 value={answer}

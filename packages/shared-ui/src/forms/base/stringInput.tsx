@@ -11,6 +11,8 @@ export const StringInput = ({
   label,
   register,
   name,
+  onBlur = () => { return; },
+  onFocus = () => { return; },
   placeholder,
   testId,
   value = '',
@@ -23,6 +25,8 @@ export const StringInput = ({
         ref={register}
         name={name}
         placeholder={placeholder}
+        onBlur={onBlur}
+        onFocus={onFocus}
         borderColor="gray.300"
         defaultValue={value}
         _hover={{ borderColor: 'gray.500' }}
