@@ -8,7 +8,7 @@ on:
 
   # Deploy production from development at 4:00 am PST, Monday through Thursday
   schedule:
-    - cron: "0 12 * * MON-THU"
+    - cron: "0 12 * * 1-4"
 
   workflow_dispatch:
 
