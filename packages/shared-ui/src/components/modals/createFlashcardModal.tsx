@@ -159,6 +159,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
                 control={control}
                 errors={errors}
                 options={flashcardTopics}
+                value={flashcardTopics[0].value}
               />
             </ModalBody>
 

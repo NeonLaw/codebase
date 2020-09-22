@@ -1,9 +1,4 @@
-import {
-  Box,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-} from '@chakra-ui/core';
+import { Box, FormControl, FormErrorMessage, FormLabel } from '@chakra-ui/core';
 
 import { Controller } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
@@ -17,7 +12,8 @@ export const Select = ({
   errors,
   name,
   testId,
-  options
+  options,
+  value = '',
 }) => {
   const intl = useIntl();
 
@@ -26,15 +22,19 @@ export const Select = ({
       <FormLabel htmlFor="name">
         {intl.formatMessage({ id: `forms.${name}.label` })}
       </FormLabel>
-      <Box
-        color={colors.text.light}
-      >
+      <Box color={colors.text.light}>
         <Controller
           as={ReactSelect}
           data-testid={testId}
           name={name}
           control={control}
           options={options}
+          defaultValue={{
+            label: options.find((option) => {
+              return option.value === value;
+            }).label,
+            value: value,
+          }}
         />
       </Box>
       <FormErrorMessage>

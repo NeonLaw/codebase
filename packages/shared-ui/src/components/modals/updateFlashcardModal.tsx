@@ -36,7 +36,7 @@ export const UpdateFlashcardModal = ({
   currentRow,
 }: UpdateFlashcardModalProps) => {
   const intl = useIntl();
-  const { answer, id, prompt } = currentRow?.values || {};
+  const { answer, id, prompt, topic } = currentRow?.values || {};
 
   const [updateFlashcard] = useUpdateFlashcardByIdMutation();
 
@@ -46,15 +46,15 @@ export const UpdateFlashcardModal = ({
         fields: {
           allFlashcards(_, { DELETE }) {
             return DELETE;
-          }
-        }
+          },
+        },
       });
-    }
+    },
   });
 
   const { control, handleSubmit, errors, register, reset } = useForm({
     defaultValues: {
-      topic: flashcardTopics[0],
+      topic: flashcardTopics.find((option) => option.value === topic),
     },
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -147,8 +147,12 @@ export const UpdateFlashcardModal = ({
                 testId="update-flashcard-modal-prompt"
                 label={intl.formatMessage({ id: 'forms.prompt.label' })}
                 errors={errors}
-                onFocus={() => { setFocus(true); }}
-                onBlur={() => { setFocus(false); }}
+                onFocus={() => {
+                  setFocus(true);
+                }}
+                onBlur={() => {
+                  setFocus(false);
+                }}
                 value={prompt}
                 placeholder={intl.formatMessage({
                   id: 'forms.prompt.placeholder',
@@ -161,8 +165,12 @@ export const UpdateFlashcardModal = ({
                 name="answer"
                 className="answer"
                 testId="update-flashcard-modal-answer"
-                onFocus={() => { setFocus(true); }}
-                onBlur={() => { setFocus(false); }}
+                onFocus={() => {
+                  setFocus(true);
+                }}
+                onBlur={() => {
+                  setFocus(false);
+                }}
                 label={intl.formatMessage({ id: 'forms.answer.label' })}
                 errors={errors}
                 value={answer}
@@ -181,6 +189,7 @@ export const UpdateFlashcardModal = ({
                 control={control}
                 errors={errors}
                 options={flashcardTopics}
+                value={topic}
               />
             </ModalBody>
 
@@ -191,10 +200,8 @@ export const UpdateFlashcardModal = ({
                 isDisabled={isSubmitting || isDeleting}
                 width="100%"
               >
-                Update Flashcard
-                &nbsp;<Kbd border="1px solid #bbb">Shift</Kbd>
-                &nbsp;+
-                &nbsp;<Kbd border="1px solid #bbb">Enter</Kbd>
+                Update Flashcard &nbsp;<Kbd border="1px solid #bbb">Shift</Kbd>
+                &nbsp;+ &nbsp;<Kbd border="1px solid #bbb">Enter</Kbd>
               </Button>
             </ModalFooter>
             <ModalFooter>
@@ -208,8 +215,10 @@ export const UpdateFlashcardModal = ({
                 width="100%"
                 colorScheme="red"
               >
-                Delete Flashcard
-                &nbsp;<Kbd border="1px solid #bbb" color="black">D</Kbd>
+                Delete Flashcard &nbsp;
+                <Kbd border="1px solid #bbb" color="black">
+                  D
+                </Kbd>
               </Button>
             </ModalFooter>
           </form>
