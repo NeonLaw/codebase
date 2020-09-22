@@ -2549,6 +2549,22 @@ export type CurrentUserQuery = (
   )> }
 );
 
+export type DeleteFlashcardByIdMutationVariables = Exact<{
+  id: Scalars['UUID'];
+}>;
+
+
+export type DeleteFlashcardByIdMutation = (
+  { __typename?: 'Mutation' }
+  & { deleteFlashcardById?: Maybe<(
+    { __typename?: 'DeleteFlashcardPayload' }
+    & { flashcard?: Maybe<(
+      { __typename?: 'Flashcard' }
+      & Pick<Flashcard, 'id'>
+    )> }
+  )> }
+);
+
 export type UpdateFlashcardByIdMutationVariables = Exact<{
   id: Scalars['UUID'];
   answer?: Maybe<Scalars['String']>;
@@ -2588,7 +2604,7 @@ export type UpdatePersonByIdMutation = (
 
 export const AllFlashcardsDocument = gql`
     query AllFlashcards($topic: String) {
-  allFlashcards(condition: {topic: $topic}, orderBy: PROMPT_DESC) {
+  allFlashcards(condition: {topic: $topic}, orderBy: PROMPT_ASC) {
     nodes {
       id
       prompt
@@ -2717,6 +2733,46 @@ export function useCurrentUserLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type CurrentUserQueryHookResult = ReturnType<typeof useCurrentUserQuery>;
 export type CurrentUserLazyQueryHookResult = ReturnType<typeof useCurrentUserLazyQuery>;
 export type CurrentUserQueryResult = Apollo.QueryResult<CurrentUserQuery, CurrentUserQueryVariables>;
+export const DeleteFlashcardByIdDocument = gql`
+    mutation DeleteFlashcardById($id: UUID!) {
+  deleteFlashcardById(input: {id: $id}) {
+    flashcard {
+      id
+    }
+  }
+}
+    `;
+export type DeleteFlashcardByIdMutationFn = Apollo.MutationFunction<DeleteFlashcardByIdMutation, DeleteFlashcardByIdMutationVariables>;
+export type DeleteFlashcardByIdComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<DeleteFlashcardByIdMutation, DeleteFlashcardByIdMutationVariables>, 'mutation'>;
+
+    export const DeleteFlashcardByIdComponent = (props: DeleteFlashcardByIdComponentProps) => (
+      <ApolloReactComponents.Mutation<DeleteFlashcardByIdMutation, DeleteFlashcardByIdMutationVariables> mutation={DeleteFlashcardByIdDocument} {...props} />
+    );
+    
+
+/**
+ * __useDeleteFlashcardByIdMutation__
+ *
+ * To run a mutation, you first call `useDeleteFlashcardByIdMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteFlashcardByIdMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteFlashcardByIdMutation, { data, loading, error }] = useDeleteFlashcardByIdMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useDeleteFlashcardByIdMutation(baseOptions?: Apollo.MutationHookOptions<DeleteFlashcardByIdMutation, DeleteFlashcardByIdMutationVariables>) {
+        return Apollo.useMutation<DeleteFlashcardByIdMutation, DeleteFlashcardByIdMutationVariables>(DeleteFlashcardByIdDocument, baseOptions);
+      }
+export type DeleteFlashcardByIdMutationHookResult = ReturnType<typeof useDeleteFlashcardByIdMutation>;
+export type DeleteFlashcardByIdMutationResult = Apollo.MutationResult<DeleteFlashcardByIdMutation>;
+export type DeleteFlashcardByIdMutationOptions = Apollo.BaseMutationOptions<DeleteFlashcardByIdMutation, DeleteFlashcardByIdMutationVariables>;
 export const UpdateFlashcardByIdDocument = gql`
     mutation UpdateFlashcardById($id: UUID!, $answer: String, $prompt: String, $topic: String) {
   updateFlashcardById(input: {flashcardPatch: {answer: $answer, prompt: $prompt, topic: $topic}, id: $id}) {

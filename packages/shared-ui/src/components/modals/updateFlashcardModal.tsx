@@ -1,5 +1,6 @@
 import {
   Button,
+  Kbd,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -12,13 +13,16 @@ import {
 } from '@chakra-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
 import { Select, StringInput, Textarea } from '../../forms/base';
+import {
+  useDeleteFlashcardByIdMutation,
+  useUpdateFlashcardByIdMutation,
+} from '../../utils/api';
 
 import { colors } from '../../themes/neonLaw';
 import { flashcardTopics } from '../../forms/options/flashcardTopics';
 import { submitOnShiftEnter } from '../../utils/keyboard';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
-import { useUpdateFlashcardByIdMutation } from '../../utils/api';
 
 interface UpdateFlashcardModalProps {
   isOpen: boolean;
@@ -36,12 +40,25 @@ export const UpdateFlashcardModal = ({
 
   const [updateFlashcard] = useUpdateFlashcardByIdMutation();
 
+  const [deleteFlashcardMutation] = useDeleteFlashcardByIdMutation({
+    update(cache) {
+      cache.modify({
+        fields: {
+          allFlashcards(_, { DELETE }) {
+            return DELETE;
+          }
+        }
+      });
+    }
+  });
+
   const { control, handleSubmit, errors, register, reset } = useForm({
     defaultValues: {
       topic: flashcardTopics[0],
     },
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const [formError, setFormError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -68,15 +85,39 @@ export const UpdateFlashcardModal = ({
     submitOnShiftEnter(e, formRef);
   };
 
+  const handleDPress = async (e) => {
+    if (e.key === 'd') {
+      await deleteFlashcard();
+    }
+  };
+
+  const deleteFlashcard = async () => {
+    const confirmDelete = confirm(
+      'Are you sure you want to delete the flashcard?'
+    );
+
+    if (confirmDelete) {
+      await deleteFlashcardMutation({ variables: { id } });
+      setIsDeleting(false);
+      onClose();
+    }
+  };
+
   useEffect(() => {
+    window.addEventListener('keypress', handleDPress);
+
     const textArea = document.querySelector('.answer');
 
     if (null !== textArea) {
       textArea.addEventListener('keydown', keyDownHandler);
-      return () => {
-        textArea.removeEventListener('keydown', keyDownHandler);
-      };
     }
+    return () => {
+      window.removeEventListener('keypress', handleDPress);
+
+      if (null !== textArea) {
+        textArea.removeEventListener('keydown', keyDownHandler);
+      }
+    };
   });
 
   const { colorMode } = useColorMode();
@@ -142,10 +183,28 @@ export const UpdateFlashcardModal = ({
               <Button
                 type="submit"
                 data-testid="update-flashcard-modal-submit"
-                isDisabled={isSubmitting}
+                isDisabled={isSubmitting || isDeleting}
                 width="100%"
               >
                 Update Flashcard
+                &nbsp;<Kbd border="1px solid #bbb">Shift</Kbd>
+                &nbsp;+
+                &nbsp;<Kbd border="1px solid #bbb">Enter</Kbd>
+              </Button>
+            </ModalFooter>
+            <ModalFooter>
+              <Button
+                data-testid="update-flashcard-modal-delete-button"
+                isDisabled={isSubmitting || isDeleting}
+                onClick={async () => {
+                  setIsDeleting(true);
+                  await deleteFlashcard();
+                }}
+                width="100%"
+                colorScheme="red"
+              >
+                Delete Flashcard
+                &nbsp;<Kbd border="1px solid #bbb" color="black">D</Kbd>
               </Button>
             </ModalFooter>
           </form>

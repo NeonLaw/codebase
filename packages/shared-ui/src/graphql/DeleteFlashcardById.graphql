@@ -1,0 +1,13 @@
+mutation DeleteFlashcardById(
+  $id: UUID!
+) {
+  deleteFlashcardById(
+    input: {
+      id: $id
+    }
+  ) {
+    flashcard {
+      id
+    }
+  }
+}

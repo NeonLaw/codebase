@@ -2,7 +2,7 @@
 
 import * as faker from 'faker';
 
-describe('CRUDDing Bar Prep Flashcards', () => {
+describe('Creating Bar Prep Flashcards', () => {
   it('creates a flashcard and adds that to the flashcard table', () => {
     cy.loginAsAdminUser().then(() => {
       cy.visit('/admin/flashcards');

@@ -93,11 +93,13 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
     if (null !== textArea) {
       textArea.addEventListener('keydown', keyDownHandler);
     }
-    
+
     return () => {
-      null !== textArea && 
-      textArea.removeEventListener('keydown', keyDownHandler);
       window.removeEventListener('keypress', handleCPress);
+
+      if (null !== textArea) {
+        textArea.removeEventListener('keydown', keyDownHandler);
+      }
     };
   });
 
