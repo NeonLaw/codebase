@@ -76,7 +76,7 @@ export const TableIconButton: React.FC<TableIconButtonProps> = ({
       icon={icon}
       borderWidth={1}
       onClick={onClick}
-      colorScheme={colorScheme}
+      colorScheme={colorScheme || 'blue'}
       isDisabled={isDisabled}
       aria-label="Table Icon button"
     >

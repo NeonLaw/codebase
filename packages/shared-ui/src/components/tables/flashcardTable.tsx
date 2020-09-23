@@ -26,12 +26,12 @@ export const FlashcardTable = (props: FlashcardTableProps) => {
       accessor: 'prompt',
     },
     {
-      Header: 'Answer',
-      accessor: 'answer',
-    },
-    {
       Header: 'Topic',
       accessor: 'topic',
+    },
+    {
+      Header: 'Answer',
+      accessor: 'answer',
     },
   ];
   const nodes = data?.allFlashcards?.nodes || [];

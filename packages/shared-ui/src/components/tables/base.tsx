@@ -71,10 +71,12 @@ export const Table = ({
       data,
       initialState: {
         hiddenColumns: ['id'],
+        pageIndex: 0,
+        pageSize: 100,
       },
     },
     useSortBy,
-    usePagination
+    usePagination,
   );
 
   return (
@@ -129,6 +131,9 @@ export const Table = ({
                         key={cell.row.index}
                         justifyContent="flex-start"
                         p={4}
+                        onClick={() => {
+                          onRowClick(row);
+                        }}
                         {...cell.getCellProps()}
                       >
                         {cell.column.Header === 'Answer' ? (
@@ -159,13 +164,9 @@ export const Table = ({
                             </AccordionItem>
                           </Accordion>
                         ) : (
-                          <button
-                            onClick={() => {
-                              onRowClick(row);
-                            }}
-                          >
+                          <Box>
                             {cell.render('Cell')}
-                          </button>
+                          </Box>
                         )}
                       </TableCell>
                     );
@@ -181,13 +182,13 @@ export const Table = ({
             mr={2}
             onClick={() => gotoPage(0)}
             isDisabled={!canPreviousPage}
-            icon={() => <ChevronLeftIcon />}
+            icon={<ChevronLeftIcon />}
           />
           <TableIconButton
             mr={2}
             isDisabled={!canPreviousPage}
             onClick={() => previousPage()}
-            icon={() => <ChevronLeftIcon />}
+            icon={<ChevronLeftIcon />}
           />
         </Flex>
         <Flex justifyContent="center" alignItems="center">
@@ -197,10 +198,11 @@ export const Table = ({
               {pageIndex + 1} of {pageOptions.length}
             </strong>{' '}
           </Text>
+          {/* eslint-disable jsx-a11y/no-onchange */}
           {!isTabletOrMobile && (
             <select
               value={pageSize}
-              onBlur={(e) => {
+              onChange={(e) => {
                 setPageSize(Number(e.target.value));
               }}
               style={{ background: colors.lighterBg[colorMode] }}
@@ -212,19 +214,20 @@ export const Table = ({
               ))}
             </select>
           )}
+          {/* eslint-enable jsx-a11y/no-onchange */}
         </Flex>
         <Flex flexDirection="row">
           <TableIconButton
             ml={2}
             isDisabled={!canNextPage}
             onClick={() => nextPage()}
-            icon={() => <ChevronRightIcon />}
+            icon={<ChevronRightIcon />}
           />
           <TableIconButton
             ml={2}
             onClick={() => gotoPage(pageCount ? pageCount - 1 : 1)}
             isDisabled={!canNextPage}
-            icon={() => <ChevronRightIcon />}
+            icon={<ChevronRightIcon />}
           />
         </Flex>
       </CardFooter>
