@@ -10921,14 +10921,14 @@ graphile-migrate@^1.0.1:
     tslib "^1.10.0"
     yargs "^15.3.1"
 
-graphile-utils@^4.8.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/graphile-utils/-/graphile-utils-4.8.0.tgz#6c2fa6e50e9d58de40837d020a7642f8ddbaaf57"
-  integrity sha512-ZXjz+F9jWSU/vVRr6GSx3KCQ0HuG6qRtfWGdBcP5na2yiz7/2oPEOO0rQz66gjTt7zmA2VM6EisCXvdLCFQNQg==
+graphile-utils@^4.8.0, graphile-utils@^4.9.0:
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/graphile-utils/-/graphile-utils-4.9.0.tgz#205f93fd2ec709670cdf7fecf074690866d7b55e"
+  integrity sha512-HM173CzVWEue+oR3VY/cPM2syw4rLnVUrN7KlBCCjAtGkzvuhn6AXoa9pHhuZzJegcTuW2xo+s7rvMMNicEvKQ==
   dependencies:
     debug "^4.1.1"
     graphql ">=0.9 <0.14 || ^14.0.2"
-    tslib "^1.13.0"
+    tslib "^2.0.1"
 
 graphql-compose@^6.3.8:
   version "6.3.8"
@@ -20536,7 +20536,7 @@ tslib@^1.0.0, tslib@^1.10.0, tslib@^1.11.2, tslib@^1.13.0, tslib@^1.5.0, tslib@^
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
   integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
 
-tslib@^2.0.0, tslib@~2.0.0, tslib@~2.0.1:
+tslib@^2.0.0, tslib@^2.0.1, tslib@~2.0.0, tslib@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.1.tgz#410eb0d113e5b6356490eec749603725b021b43e"
   integrity sha512-SgIkNheinmEBgx1IUNirK0TUD4X9yjjBRTqqjggWCU3pUEqIk3/Uwl3yRixYKT6WjQuGiwDv4NomL3wqRCj+CQ==
