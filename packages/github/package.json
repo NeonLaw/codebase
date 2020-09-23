@@ -6,6 +6,6 @@
   "license": "PolyForm-Noncommercial-1.0.0",
   "main": "index.ts",
   "dependencies": {
-    "@google-cloud/speech": "4.1.1"
+    "@google-cloud/speech": "4.1.3"
   }
 }
