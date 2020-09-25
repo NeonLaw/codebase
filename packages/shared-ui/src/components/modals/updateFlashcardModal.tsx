@@ -203,7 +203,8 @@ export const UpdateFlashcardModal = ({
                 margin="0 1em"
                 colorScheme="teal"
               >
-                Update Flashcard &nbsp;
+                Update Flashcard
+                &nbsp;
                 <Kbd border="1px solid #bbb" color="black">Shift</Kbd>
                 &nbsp;+ &nbsp;
                 <Kbd border="1px solid #bbb" color="black">Enter</Kbd>
