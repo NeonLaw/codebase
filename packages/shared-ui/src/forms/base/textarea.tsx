@@ -18,6 +18,7 @@ export const Textarea = ({
   testId,
   value = '',
   className = '',
+  size = 'md'
 }) => {
   return (
     <FormControl isInvalid={errors && errors[name]}>
@@ -27,6 +28,7 @@ export const Textarea = ({
         data-testid={testId}
         ref={register}
         name={name}
+        rows={size === 'xl' ? 15 : 5}
         placeholder={placeholder}
         onBlur={onBlur}
         onFocus={onFocus}

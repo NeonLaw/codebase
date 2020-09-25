@@ -106,9 +106,9 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
   const { colorMode } = useColorMode();
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="lg">
+    <Modal isOpen={isOpen} onClose={onClose} size="full">
       <ModalOverlay>
-        <ModalContent data-testid="create-flashcard-modal" marginTop="8em">
+        <ModalContent data-testid="create-flashcard-modal" margin="8em 2em">
           <ModalHeader
             fontWeight="normal"
             fontSize={theme.fontSizes['xl0']}
@@ -142,6 +142,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
                 className="answer-text"
                 name="answer"
                 testId="create-flashcard-modal-answer"
+                size="xl"
                 label={intl.formatMessage({ id: 'forms.answer.label' })}
                 errors={errors}
                 placeholder={intl.formatMessage({

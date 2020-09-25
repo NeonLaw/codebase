@@ -124,9 +124,9 @@ export const UpdateFlashcardModal = ({
   const { colorMode } = useColorMode();
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="lg">
+    <Modal isOpen={isOpen} onClose={onClose} size="full">
       <ModalOverlay>
-        <ModalContent data-testid="update-flashcard-modal" marginTop="8em">
+        <ModalContent data-testid="update-flashcard-modal" margin="8em 2em">
           <ModalHeader
             fontWeight="normal"
             fontSize={theme.fontSizes['xl0']}
@@ -164,6 +164,7 @@ export const UpdateFlashcardModal = ({
               <Textarea
                 name="answer"
                 className="answer"
+                size="xl"
                 testId="update-flashcard-modal-answer"
                 onFocus={() => {
                   setFocus(true);
@@ -199,15 +200,18 @@ export const UpdateFlashcardModal = ({
                 data-testid="update-flashcard-modal-submit"
                 isDisabled={isSubmitting || isDeleting}
                 width="100%"
+                margin="0 1em"
+                colorScheme="teal"
               >
-                Update Flashcard &nbsp;<Kbd border="1px solid #bbb">Shift</Kbd>
-                &nbsp;+ &nbsp;<Kbd border="1px solid #bbb">Enter</Kbd>
+                Update Flashcard &nbsp;
+                <Kbd border="1px solid #bbb" color="black">Shift</Kbd>
+                &nbsp;+ &nbsp;
+                <Kbd border="1px solid #bbb" color="black">Enter</Kbd>
               </Button>
-            </ModalFooter>
-            <ModalFooter>
               <Button
                 data-testid="update-flashcard-modal-delete-button"
                 isDisabled={isSubmitting || isDeleting}
+                margin="0 1em"
                 onClick={async () => {
                   setIsDeleting(true);
                   await deleteFlashcard();
