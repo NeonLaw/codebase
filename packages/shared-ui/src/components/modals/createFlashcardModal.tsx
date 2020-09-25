@@ -109,7 +109,10 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="full">
       <ModalOverlay>
-        <ModalContent data-testid="create-flashcard-modal" margin="8em 2em">
+        <ModalContent
+          data-testid="create-flashcard-modal"
+          margin="8em 2em 0 2em"
+        >
           <ModalHeader
             fontWeight="normal"
             fontSize={theme.fontSizes['xl0']}

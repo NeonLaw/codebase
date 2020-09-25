@@ -28,7 +28,7 @@ export const Textarea = ({
         data-testid={testId}
         ref={register}
         name={name}
-        rows={size === 'xl' ? 15 : 5}
+        rows={size === 'xl' ? 10 : 5}
         placeholder={placeholder}
         onBlur={onBlur}
         onFocus={onFocus}

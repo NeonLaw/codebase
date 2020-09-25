@@ -7,9 +7,11 @@ describe('Creating Bar Prep Flashcards', () => {
     cy.loginAsAdminUser().then(() => {
       cy.visit('/admin/flashcards');
 
-      cy.wait(2000);
+      cy.wait(1000);
 
       cy.contains('Create Flashcard').click();
+
+      cy.wait(1000);
 
       cy.get('[data-testid="create-flashcard-modal"]')
         .should('exist');

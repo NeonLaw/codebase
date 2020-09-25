@@ -126,7 +126,10 @@ export const UpdateFlashcardModal = ({
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="full">
       <ModalOverlay>
-        <ModalContent data-testid="update-flashcard-modal" margin="8em 2em">
+        <ModalContent
+          data-testid="update-flashcard-modal"
+          margin="8em 2em 0 2em"
+        >
           <ModalHeader
             fontWeight="normal"
             fontSize={theme.fontSizes['xl0']}
