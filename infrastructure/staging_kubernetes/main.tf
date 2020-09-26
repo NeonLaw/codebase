@@ -77,7 +77,7 @@ module "delete_your_data_deployment" {
 
 module "staging_ingress" {
   source = "../modules/shared_ingress"
-  api_service_name = "api"
+  api_service_name = "staging-api"
 
   neon_law_interface_service_name = "interface"
   neon_law_host = "www.neonlaw.net"

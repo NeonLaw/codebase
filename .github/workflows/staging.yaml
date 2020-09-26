@@ -184,7 +184,7 @@ jobs:
              delete-your-data=us.gcr.io/neon-law-staging/law-job-resources:$GITHUB_SHA
         if: github.ref == 'refs/heads/development'
 
-  deploy_api_staging:
+  deploy_staging_api:
     runs-on: ubuntu-latest
 
     steps:
@@ -234,6 +234,6 @@ jobs:
 
       - name: Deploy latest container with kubectl
         run: |-
-          kubectl set image deployment api \
+          kubectl set image deployment staging-api \
              api=us.gcr.io/neon-law-staging/api:$GITHUB_SHA
         if: github.ref == 'refs/heads/development'
