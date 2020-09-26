@@ -45,7 +45,6 @@ module "logic_kubernetes_secret" {
 module "api_deployment" {
   source                       = "../modules/api_deployment"
   app_name                     = "production-api"
-  new_relic_license_key        = var.new_relic_license_key        =
   image_url                    = "${data.terraform_remote_state.production_gcp.outputs.container_registry}/api:latest"
   database_name                = "neon-law"
   show_graphiql                = "false"
@@ -55,6 +54,7 @@ module "api_deployment" {
   third_party_saas_secret_name = module.third_party_saas_kubernetes_secret.name
   logic_secret_name            = module.logic_kubernetes_secret.name
   master_database_password     = var.master_database_password
+  new_relic_license_key        = var.new_relic_license_key
 }
 
 module "interface_deployment" {
