@@ -76,7 +76,7 @@ export const Table = ({
       },
     },
     useSortBy,
-    usePagination,
+    usePagination
   );
 
   return (
@@ -124,53 +124,48 @@ export const Table = ({
                   {...row.getRowProps()}
                   data-testid="table-row"
                 >
-                  {row.cells.map((cell) => {
-                    console.log(cell);
-                    return (
-                      <TableCell
-                        key={cell.row.index}
-                        justifyContent="flex-start"
-                        p={4}
-                        onClick={() => {
-                          onRowClick(row);
-                        }}
-                        {...cell.getCellProps()}
-                      >
-                        {cell.column.Header === 'Answer' ? (
-                          <Accordion
-                            allowMultiple
-                            width="100%"
-                            minWidth="150px"
-                            borderLeftWidth="1px"
-                            borderRightWidth="1px"
-                            onDoubleClick={() => {
-                              onRowClick(row);
-                            }}
-                          >
-                            <AccordionItem>
-                              {({ isExpanded }) => (
-                                <>
-                                  <AccordionButton>
-                                    <Box flex="1" textAlign="left">
-                                      {isExpanded ? 'Hide' : 'Show'} Answer
-                                    </Box>
-                                    <AccordionIcon />
-                                  </AccordionButton>
-                                  <AccordionPanel>
-                                    {cell.render('Cell')}
-                                  </AccordionPanel>
-                                </>
-                              )}
-                            </AccordionItem>
-                          </Accordion>
-                        ) : (
-                          <Box>
-                            {cell.render('Cell')}
-                          </Box>
-                        )}
-                      </TableCell>
-                    );
-                  })}
+                  {row.cells.map((cell) => (
+                    <TableCell
+                      key={cell.row.index}
+                      justifyContent="flex-start"
+                      p={4}
+                      onClick={() => {
+                        onRowClick(row);
+                      }}
+                      {...cell.getCellProps()}
+                    >
+                      {cell.column.Header === 'Answer' ? (
+                        <Accordion
+                          allowMultiple
+                          width="100%"
+                          minWidth="150px"
+                          borderLeftWidth="1px"
+                          borderRightWidth="1px"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                          }}
+                        >
+                          <AccordionItem>
+                            {({ isExpanded }) => (
+                              <>
+                                <AccordionButton>
+                                  <Box flex="1" textAlign="left">
+                                    {isExpanded ? 'Hide' : 'Show'} Answer
+                                  </Box>
+                                  <AccordionIcon />
+                                </AccordionButton>
+                                <AccordionPanel>
+                                  {cell.render('Cell')}
+                                </AccordionPanel>
+                              </>
+                            )}
+                          </AccordionItem>
+                        </Accordion>
+                      ) : (
+                        <Box>{cell.render('Cell')}</Box>
+                      )}
+                    </TableCell>
+                  ))}
                 </TableRow>
               )
           )}

@@ -91,7 +91,7 @@ export const UpdateFlashcardModal = ({
   };
 
   const handleDPress = async (e) => {
-    if (!focus && e.key === 'd') {
+    if (isOpen && !focus && e.key === 'd') {
       await deleteFlashcard();
     }
   };
