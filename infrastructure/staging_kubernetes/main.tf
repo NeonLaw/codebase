@@ -44,7 +44,7 @@ module "logic_kubernetes_secret" {
 
 module "api_deployment" {
   source                       = "../modules/api_deployment"
-  app_name                     = "api"
+  app_name                     = "staging-api"
   image_url                    = "${data.terraform_remote_state.staging_gcp.outputs.container_registry}/api:latest"
   database_name                = "neon-law"
   show_graphiql                = "true"

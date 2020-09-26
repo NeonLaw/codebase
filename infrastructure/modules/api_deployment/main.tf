@@ -62,6 +62,22 @@ resource "kubernetes_deployment" "api" {
             name  = "SHOW_GRAPHIQL"
             value = var.show_graphiql
           }
+          env {
+            name  = "NEW_RELIC_NO_CONFIG_FILE"
+            value = "true"
+          }
+          env {
+            name  = "NEW_RELIC_DISTRIBUTED_TRACING_ENABLED"
+            value = "true"
+          }
+          env {
+            name  = "NEW_RELIC_LICENSE_KEY"
+            value = var.new_relic_license_key
+          }
+          env {
+            name  = "NEW_RELIC_APP_NAME"
+            value = var.app_name
+          }
 
           volume_mount {
             name       = var.third_party_saas_secret_name
