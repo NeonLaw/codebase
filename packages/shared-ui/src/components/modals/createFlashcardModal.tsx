@@ -14,6 +14,7 @@ import {
 import React, { useEffect, useRef, useState } from 'react';
 import { Select, StringInput, Textarea } from '../../forms/base';
 
+import { SubmissionInProgress } from '../submission-in-progress';
 import { colors } from '../../themes/neonLaw';
 import { flashcardTopics } from '../../forms/options/flashcardTopics';
 import { gql } from '@apollo/client';
@@ -25,7 +26,7 @@ import { useIntl } from 'gatsby-plugin-intl';
 export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
   const intl = useIntl();
 
-  const [createFlashcard] = useCreateFlashcardMutation({
+  const [createFlashcard, { loading }] = useCreateFlashcardMutation({
     update(cache, { data }) {
       cache.modify({
         fields: {
@@ -172,15 +173,19 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
               <Button
                 type="submit"
                 data-testid="create-flashcard-modal-submit"
-                isDisabled={isSubmitting}
+                isDisabled={isSubmitting || loading}
                 width="100%"
                 colorScheme="teal"
               >
-                Create Flashcard
-                &nbsp;
-                <Kbd border="1px solid #bbb" color="black">Shift</Kbd>
+                Create Flashcard &nbsp;
+                <Kbd border="1px solid #bbb" color="black">
+                  Shift
+                </Kbd>
                 &nbsp;+ &nbsp;
-                <Kbd border="1px solid #bbb" color="black">Enter</Kbd>
+                <Kbd border="1px solid #bbb" color="black">
+                  Enter
+                </Kbd>
+                <SubmissionInProgress loading={loading} />
               </Button>
             </ModalFooter>
           </form>

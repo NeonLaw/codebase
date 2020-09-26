@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { Button } from '@chakra-ui/core';
 import { StringInput } from '../forms/base';
+import { SubmissionInProgress } from '../components/submission-in-progress';
 import { gutters } from '../themes/neonLaw';
 import { useCurrentUserQuery } from '../utils/api';
 import { useForm } from 'react-hook-form';
@@ -12,24 +13,15 @@ export const PortalProfileForm = () => {
   const intl = useIntl();
   const { data } = useCurrentUserQuery();
 
-  const [
-    updatePersonById
-  ] = useUpdatePersonByIdMutation();
+  const [updatePersonById, { loading }] = useUpdatePersonByIdMutation();
 
-  const {
-    handleSubmit,
-    errors,
-    register,
-    reset,
-  } = useForm();
+  const { handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async ({ name }) => {
     const id = data?.getCurrentUser?.id;
 
-    await updatePersonById(
-      { variables: { id, name } }
-    );
+    await updatePersonById({ variables: { id, name } });
 
     await reset();
 
@@ -44,19 +36,17 @@ export const PortalProfileForm = () => {
         label={intl.formatMessage({ id: 'forms.name.label' })}
         errors={errors}
         placeholder={intl.formatMessage({ id: 'forms.name.placeholder' })}
-        register={
-          register(
-            { required: intl.formatMessage({ id: 'forms.name.required' }) }
-          )
-        }
+        register={register({
+          required: intl.formatMessage({ id: 'forms.name.required' }),
+        })}
       />
       <Button
         type="submit"
         data-testid="portal-profile-form-submit"
-        isDisabled={isSubmitting}
+        isDisabled={isSubmitting || loading}
         marginTop={gutters.xSmallOne}
       >
-        Update Profile
+        Update Profile <SubmissionInProgress loading={loading} />
       </Button>
     </form>
   );
