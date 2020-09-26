@@ -12,3 +12,6 @@ variable auth0_client_secret {
 
 variable logic_gcp_credentials {
 }
+
+variable new_relic_license_key {
+}
