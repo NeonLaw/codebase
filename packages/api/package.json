@@ -20,7 +20,7 @@
     "graphile-migrate": "^1.0.1",
     "graphile-utils": "^4.9.0",
     "jsonwebtoken": "^8.5.1",
-    "jwks-rsa": "^1.9.0",
+    "jwks-rsa": "^1.10.1",
     "pg": "^8.3.2",
     "postgraphile": "^4.7.0",
     "ts-node": "^8.10.2",
