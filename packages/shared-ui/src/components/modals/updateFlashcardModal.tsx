@@ -87,7 +87,7 @@ export const UpdateFlashcardModal = ({
   };
 
   const handleDPress = async (e) => {
-    if (!focus && e.key === 'd') {
+    if (isOpen && !focus && e.key === 'd') {
       await deleteFlashcard();
     }
   };
@@ -206,11 +206,14 @@ export const UpdateFlashcardModal = ({
                 margin="0 1em"
                 colorScheme="teal"
               >
-                Update Flashcard
-                &nbsp;
-                <Kbd border="1px solid #bbb" color="black">Shift</Kbd>
+                Update Flashcard &nbsp;
+                <Kbd border="1px solid #bbb" color="black">
+                  Shift
+                </Kbd>
                 &nbsp;+ &nbsp;
-                <Kbd border="1px solid #bbb" color="black">Enter</Kbd>
+                <Kbd border="1px solid #bbb" color="black">
+                  Enter
+                </Kbd>
               </Button>
               <Button
                 data-testid="update-flashcard-modal-delete-button"
