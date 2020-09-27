@@ -12,7 +12,7 @@ import {
   useColorMode,
 } from '@chakra-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
-import { Select, StringInput, Textarea } from '../../forms/base';
+import { StringInput, Textarea } from '../../forms/base';
 import {
   useDeleteFlashcardByIdMutation,
   useUpdateFlashcardByIdMutation,
@@ -20,7 +20,6 @@ import {
 
 import { SubmissionInProgress } from '../submission-in-progress';
 import { colors } from '../../themes/neonLaw';
-import { flashcardTopics } from '../../forms/options/flashcardTopics';
 import { submitOnShiftEnter } from '../../utils/keyboard';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
@@ -37,7 +36,7 @@ export const UpdateFlashcardModal = ({
   currentRow,
 }: UpdateFlashcardModalProps) => {
   const intl = useIntl();
-  const { answer, id, prompt, topic } = currentRow?.values || {};
+  const { answer, id, prompt } = currentRow?.values || {};
 
   const [updateFlashcard, { loading }] = useUpdateFlashcardByIdMutation();
 
@@ -57,9 +56,6 @@ export const UpdateFlashcardModal = ({
   });
 
   const { control, handleSubmit, errors, register, reset } = useForm({
-    defaultValues: {
-      topic: flashcardTopics.find((option) => option.value === topic),
-    },
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -67,10 +63,9 @@ export const UpdateFlashcardModal = ({
   const [formError, setFormError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
 
-  const onSubmit = async ({ answer, prompt, topic }) => {
-    const topicValue = topic.value;
+  const onSubmit = async ({ answer, prompt }) => {
     await updateFlashcard({
-      variables: { answer, id, prompt, topic: topicValue },
+      variables: { answer, id, prompt },
     })
       .then(async () => {
         setFormError('');
@@ -190,14 +185,6 @@ export const UpdateFlashcardModal = ({
                     id: 'forms.answer.required',
                   }),
                 })}
-              />
-              <Select
-                name="topic"
-                testId="update-flashcard-modal-topic"
-                control={control}
-                errors={errors}
-                options={flashcardTopics}
-                value={topic}
               />
             </ModalBody>
 

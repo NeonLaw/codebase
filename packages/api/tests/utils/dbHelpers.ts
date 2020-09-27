@@ -118,12 +118,11 @@ export const createUser = async (client: any) => {
 export const createFlashcard = async (client: any) => {
   const answer = faker.lorem.paragraph();
   const prompt = faker.lorem.sentence();
-  const topic = 'business-associations';
 
   const { rows } = await client.query(
-    'INSERT INTO flashcard (prompt, answer, topic) ' +
-    'VALUES ($1, $2, $3) RETURNING (id, prompt, answer)',
-    [prompt, answer, topic]
+    'INSERT INTO flashcard (prompt, answer) ' +
+    'VALUES ($1, $2) RETURNING (id, prompt, answer)',
+    [prompt, answer]
   );
 
   return rows[0];

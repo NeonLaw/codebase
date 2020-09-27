@@ -477,6 +477,8 @@ export type DeleteMatterPayload = {
   deletedMatterId?: Maybe<Scalars['ID']>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Person` that is related to this `Matter`. */
+  personByPrimaryContactId?: Maybe<Person>;
   /** An edge for our `Matter`. May be used by Relay 1. */
   matterEdge?: Maybe<MattersEdge>;
 };
@@ -860,8 +862,6 @@ export type Flashcard = Node & {
   prompt: Scalars['String'];
   /** The answer or SideB of the flashcard */
   answer: Scalars['String'];
-  /** The topic of the flashcard. This maps to a topic administered on the California Bar exam. */
-  topic: Scalars['String'];
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
 };
@@ -875,8 +875,6 @@ export type FlashcardCondition = {
   id?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `prompt` field. */
   prompt?: Maybe<Scalars['String']>;
-  /** Checks for equality with the object’s `topic` field. */
-  topic?: Maybe<Scalars['String']>;
 };
 
 /** An input for mutations affecting `Flashcard` */
@@ -885,8 +883,6 @@ export type FlashcardInput = {
   prompt: Scalars['String'];
   /** The answer or SideB of the flashcard */
   answer: Scalars['String'];
-  /** The topic of the flashcard. This maps to a topic administered on the California Bar exam. */
-  topic: Scalars['String'];
 };
 
 /** Represents an update to a `Flashcard`. Fields that are set will be updated. */
@@ -896,8 +892,6 @@ export type FlashcardPatch = {
   prompt?: Maybe<Scalars['String']>;
   /** The answer or SideB of the flashcard */
   answer?: Maybe<Scalars['String']>;
-  /** The topic of the flashcard. This maps to a topic administered on the California Bar exam. */
-  topic?: Maybe<Scalars['String']>;
 };
 
 /** A connection to a list of `Flashcard` values. */
@@ -929,8 +923,6 @@ export enum FlashcardsOrderBy {
   IdDesc = 'ID_DESC',
   PromptAsc = 'PROMPT_ASC',
   PromptDesc = 'PROMPT_DESC',
-  TopicAsc = 'TOPIC_ASC',
-  TopicDesc = 'TOPIC_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -951,6 +943,8 @@ export type Matter = Node & {
   updatedAt: Scalars['Datetime'];
   folderName: Scalars['String'];
   primaryContactId?: Maybe<Scalars['UUID']>;
+  /** Reads a single `Person` that is related to this `Matter`. */
+  personByPrimaryContactId?: Maybe<Person>;
   /** Reads and enables pagination through a set of `Document`. */
   documentsByMatterId: DocumentsConnection;
 };
@@ -966,6 +960,18 @@ export type MatterDocumentsByMatterIdArgs = {
   condition?: Maybe<DocumentCondition>;
 };
 
+/** A condition to be used against `Matter` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export type MatterCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `folderName` field. */
+  folderName?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `primaryContactId` field. */
+  primaryContactId?: Maybe<Scalars['UUID']>;
+};
+
 /** Represents an update to a `Matter`. Fields that are set will be updated. */
 export type MatterPatch = {
   id?: Maybe<Scalars['UUID']>;
@@ -974,6 +980,19 @@ export type MatterPatch = {
   updatedAt?: Maybe<Scalars['Datetime']>;
   folderName?: Maybe<Scalars['String']>;
   primaryContactId?: Maybe<Scalars['UUID']>;
+};
+
+/** A connection to a list of `Matter` values. */
+export type MattersConnection = {
+  __typename?: 'MattersConnection';
+  /** A list of `Matter` objects. */
+  nodes: Array<Matter>;
+  /** A list of edges which contains the `Matter` and cursor to aid in pagination. */
+  edges: Array<MattersEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `Matter` you could get from the connection. */
+  totalCount: Scalars['Int'];
 };
 
 /** A `Matter` edge in the connection. */
@@ -994,6 +1013,8 @@ export enum MattersOrderBy {
   NameDesc = 'NAME_DESC',
   FolderNameAsc = 'FOLDER_NAME_ASC',
   FolderNameDesc = 'FOLDER_NAME_DESC',
+  PrimaryContactIdAsc = 'PRIMARY_CONTACT_ID_ASC',
+  PrimaryContactIdDesc = 'PRIMARY_CONTACT_ID_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -1424,6 +1445,8 @@ export type Person = Node & {
   sub?: Maybe<Scalars['String']>;
   /** Reads and enables pagination through a set of `QuestionnaireResponse`. */
   questionnaireResponsesByPersonId: QuestionnaireResponsesConnection;
+  /** Reads and enables pagination through a set of `Matter`. */
+  mattersByPrimaryContactId: MattersConnection;
 };
 
 
@@ -1435,6 +1458,17 @@ export type PersonQuestionnaireResponsesByPersonIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<QuestionnaireResponsesOrderBy>>;
   condition?: Maybe<QuestionnaireResponseCondition>;
+};
+
+
+export type PersonMattersByPrimaryContactIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<MattersOrderBy>>;
+  condition?: Maybe<MatterCondition>;
 };
 
 /** Represents an update to a `Person`. Fields that are set will be updated. */
@@ -2250,6 +2284,8 @@ export type UpdateMatterPayload = {
   matter?: Maybe<Matter>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Person` that is related to this `Matter`. */
+  personByPrimaryContactId?: Maybe<Person>;
   /** An edge for our `Matter`. May be used by Relay 1. */
   matterEdge?: Maybe<MattersEdge>;
 };
@@ -2504,9 +2540,7 @@ export type UpdateResponsePayloadResponseEdgeArgs = {
 };
 
 
-export type AllFlashcardsQueryVariables = Exact<{
-  topic?: Maybe<Scalars['String']>;
-}>;
+export type AllFlashcardsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type AllFlashcardsQuery = (
@@ -2515,7 +2549,7 @@ export type AllFlashcardsQuery = (
     { __typename?: 'FlashcardsConnection' }
     & { nodes: Array<(
       { __typename?: 'Flashcard' }
-      & Pick<Flashcard, 'id' | 'prompt' | 'answer' | 'topic'>
+      & Pick<Flashcard, 'id' | 'prompt' | 'answer'>
     )> }
   )> }
 );
@@ -2523,7 +2557,6 @@ export type AllFlashcardsQuery = (
 export type CreateFlashcardMutationVariables = Exact<{
   answer: Scalars['String'];
   prompt: Scalars['String'];
-  topic: Scalars['String'];
 }>;
 
 
@@ -2533,7 +2566,7 @@ export type CreateFlashcardMutation = (
     { __typename?: 'CreateFlashcardPayload' }
     & { flashcard?: Maybe<(
       { __typename?: 'Flashcard' }
-      & Pick<Flashcard, 'id' | 'answer' | 'prompt' | 'topic'>
+      & Pick<Flashcard, 'id' | 'answer' | 'prompt'>
     )> }
   )> }
 );
@@ -2569,7 +2602,6 @@ export type UpdateFlashcardByIdMutationVariables = Exact<{
   id: Scalars['UUID'];
   answer?: Maybe<Scalars['String']>;
   prompt?: Maybe<Scalars['String']>;
-  topic?: Maybe<Scalars['String']>;
 }>;
 
 
@@ -2579,7 +2611,7 @@ export type UpdateFlashcardByIdMutation = (
     { __typename?: 'UpdateFlashcardPayload' }
     & { flashcard?: Maybe<(
       { __typename?: 'Flashcard' }
-      & Pick<Flashcard, 'id' | 'answer' | 'prompt' | 'topic'>
+      & Pick<Flashcard, 'id' | 'answer' | 'prompt'>
     )> }
   )> }
 );
@@ -2603,13 +2635,12 @@ export type UpdatePersonByIdMutation = (
 
 
 export const AllFlashcardsDocument = gql`
-    query AllFlashcards($topic: String) {
-  allFlashcards(condition: {topic: $topic}, orderBy: PROMPT_ASC) {
+    query AllFlashcards {
+  allFlashcards(orderBy: PROMPT_ASC) {
     nodes {
       id
       prompt
       answer
-      topic
     }
   }
 }
@@ -2633,7 +2664,6 @@ export type AllFlashcardsComponentProps = Omit<ApolloReactComponents.QueryCompon
  * @example
  * const { data, loading, error } = useAllFlashcardsQuery({
  *   variables: {
- *      topic: // value for 'topic'
  *   },
  * });
  */
@@ -2647,13 +2677,12 @@ export type AllFlashcardsQueryHookResult = ReturnType<typeof useAllFlashcardsQue
 export type AllFlashcardsLazyQueryHookResult = ReturnType<typeof useAllFlashcardsLazyQuery>;
 export type AllFlashcardsQueryResult = Apollo.QueryResult<AllFlashcardsQuery, AllFlashcardsQueryVariables>;
 export const CreateFlashcardDocument = gql`
-    mutation CreateFlashcard($answer: String!, $prompt: String!, $topic: String!) {
-  createFlashcard(input: {flashcard: {answer: $answer, prompt: $prompt, topic: $topic}}) {
+    mutation CreateFlashcard($answer: String!, $prompt: String!) {
+  createFlashcard(input: {flashcard: {answer: $answer, prompt: $prompt}}) {
     flashcard {
       id
       answer
       prompt
-      topic
     }
   }
 }
@@ -2681,7 +2710,6 @@ export type CreateFlashcardComponentProps = Omit<ApolloReactComponents.MutationC
  *   variables: {
  *      answer: // value for 'answer'
  *      prompt: // value for 'prompt'
- *      topic: // value for 'topic'
  *   },
  * });
  */
@@ -2774,13 +2802,12 @@ export type DeleteFlashcardByIdMutationHookResult = ReturnType<typeof useDeleteF
 export type DeleteFlashcardByIdMutationResult = Apollo.MutationResult<DeleteFlashcardByIdMutation>;
 export type DeleteFlashcardByIdMutationOptions = Apollo.BaseMutationOptions<DeleteFlashcardByIdMutation, DeleteFlashcardByIdMutationVariables>;
 export const UpdateFlashcardByIdDocument = gql`
-    mutation UpdateFlashcardById($id: UUID!, $answer: String, $prompt: String, $topic: String) {
-  updateFlashcardById(input: {flashcardPatch: {answer: $answer, prompt: $prompt, topic: $topic}, id: $id}) {
+    mutation UpdateFlashcardById($id: UUID!, $answer: String, $prompt: String) {
+  updateFlashcardById(input: {flashcardPatch: {answer: $answer, prompt: $prompt}, id: $id}) {
     flashcard {
       id
       answer
       prompt
-      topic
     }
   }
 }
@@ -2809,7 +2836,6 @@ export type UpdateFlashcardByIdComponentProps = Omit<ApolloReactComponents.Mutat
  *      id: // value for 'id'
  *      answer: // value for 'answer'
  *      prompt: // value for 'prompt'
- *      topic: // value for 'topic'
  *   },
  * });
  */

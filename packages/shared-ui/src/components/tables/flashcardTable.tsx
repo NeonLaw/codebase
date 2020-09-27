@@ -26,10 +26,6 @@ export const FlashcardTable = (props: FlashcardTableProps) => {
       accessor: 'prompt',
     },
     {
-      Header: 'Topic',
-      accessor: 'topic',
-    },
-    {
       Header: 'Answer',
       accessor: 'answer',
     },

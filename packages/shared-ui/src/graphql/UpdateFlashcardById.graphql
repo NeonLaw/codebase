@@ -2,14 +2,12 @@ mutation UpdateFlashcardById(
   $id: UUID!
   $answer: String
   $prompt: String
-  $topic: String
 ) {
   updateFlashcardById(
     input: {
       flashcardPatch: {
         answer: $answer
         prompt: $prompt
-        topic: $topic
       }
       id: $id
     }
@@ -18,7 +16,6 @@ mutation UpdateFlashcardById(
       id
       answer
       prompt
-      topic
     }
   }
 }

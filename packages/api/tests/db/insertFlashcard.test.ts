@@ -10,10 +10,9 @@ import {
 } from '../utils/dbHelpers';
 import { describe, expect, it } from '@jest/globals';
 
-describe('INSERT INTO flashcard (topic, answer, prompt) VALUES ();', () => {
+describe('INSERT INTO flashcard (answer, prompt) VALUES ();', () => {
   const answer = faker.lorem.paragraph();
   const prompt = faker.lorem.sentence();
-  const topic = 'wills-and-trusts';
 
   describe('as an anonymous user', () => {
     it('cannot create flashcards', () =>
@@ -23,9 +22,9 @@ describe('INSERT INTO flashcard (topic, answer, prompt) VALUES ();', () => {
         await becomeAnonymousUser(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO flashcard (answer, prompt, topic) ' +
-          'VALUES ($1, $2, $3) RETURNING (id, answer, prompt)',
-          [answer, prompt, topic]
+          'INSERT INTO flashcard (answer, prompt) ' +
+          'VALUES ($1, $2) RETURNING (id, answer, prompt)',
+          [answer, prompt]
         )).rejects.toThrow(
           /permission denied for table flashcard/
         );
@@ -41,9 +40,9 @@ describe('INSERT INTO flashcard (topic, answer, prompt) VALUES ();', () => {
         await becomePortalUser(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO flashcard (answer, prompt, topic) ' +
-          'VALUES ($1, $2, $3) RETURNING (id, answer, prompt)',
-          [answer, prompt, topic]
+          'INSERT INTO flashcard (answer, prompt) ' +
+          'VALUES ($1, $2) RETURNING (id, answer, prompt)',
+          [answer, prompt]
         )).rejects.toThrow(
           /permission denied for table flashcard/
         );
@@ -59,9 +58,9 @@ describe('INSERT INTO flashcard (topic, answer, prompt) VALUES ();', () => {
         await becomeLawyerUser(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO flashcard (answer, prompt, topic) ' +
-          'VALUES ($1, $2, $3) RETURNING (id, answer, prompt)',
-          [answer, prompt, topic]
+          'INSERT INTO flashcard (answer, prompt) ' +
+          'VALUES ($1, $2) RETURNING (id, answer, prompt)',
+          [answer, prompt]
         )).rejects.toThrow(
           /permission denied for table flashcard/
         );
@@ -77,9 +76,9 @@ describe('INSERT INTO flashcard (topic, answer, prompt) VALUES ();', () => {
         await becomeAdminUser(pgClient);
 
         const { rows } = await pgClient.query(
-          'INSERT INTO flashcard (answer, prompt, topic) ' +
-          'VALUES ($1, $2, $3) RETURNING (id, answer, prompt, topic)',
-          [answer, prompt, topic]
+          'INSERT INTO flashcard (answer, prompt) ' +
+          'VALUES ($1, $2) RETURNING (id, answer, prompt)',
+          [answer, prompt]
         );
 
         expect(rows.length).toEqual(1);
@@ -88,7 +87,6 @@ describe('INSERT INTO flashcard (topic, answer, prompt) VALUES ();', () => {
 
         expect(insertResponse).toMatch(prompt);
         expect(insertResponse).toMatch(answer);
-        expect(insertResponse).toMatch(topic);
       })
     );
   });

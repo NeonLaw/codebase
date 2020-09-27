@@ -12,11 +12,10 @@ import {
   useColorMode,
 } from '@chakra-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
-import { Select, StringInput, Textarea } from '../../forms/base';
+import { StringInput, Textarea } from '../../forms/base';
 
 import { SubmissionInProgress } from '../submission-in-progress';
 import { colors } from '../../themes/neonLaw';
-import { flashcardTopics } from '../../forms/options/flashcardTopics';
 import { gql } from '@apollo/client';
 import { submitOnShiftEnter } from '../../utils/keyboard';
 import { useCreateFlashcardMutation } from '../../utils/api';
@@ -39,7 +38,6 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
                     id
                     answer
                     prompt
-                    topic
                   }
                 }
               `,
@@ -51,18 +49,13 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
     },
   });
 
-  const { control, handleSubmit, errors, register, reset } = useForm({
-    defaultValues: {
-      topic: flashcardTopics[0],
-    },
-  });
+  const { handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
 
-  const onSubmit = async ({ answer, prompt, topic }) => {
-    const topicValue = topic.value;
-    await createFlashcard({ variables: { answer, prompt, topic: topicValue } })
+  const onSubmit = async ({ answer, prompt }) => {
+    await createFlashcard({ variables: { answer, prompt } })
       .then(async () => {
         setFormError('');
         await reset();
@@ -158,14 +151,6 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
                     id: 'forms.answer.required',
                   }),
                 })}
-              />
-              <Select
-                name="topic"
-                testId="create-flashcard-modal-topic"
-                control={control}
-                errors={errors}
-                options={flashcardTopics}
-                value={flashcardTopics[0].value}
               />
             </ModalBody>
 

@@ -68,11 +68,6 @@
       "label": "Prompt",
       "placeholder": "Enter the prompt",
       "required": "Prompt is required."
-    },
-    "topic": {
-      "label": "Topic",
-      "placeholder": "Enter the topic",
-      "required": "Topic is required."
     }
   },
   "contactForm": {

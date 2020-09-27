@@ -1,15 +1,11 @@
-query AllFlashcards($topic: String) {
+query AllFlashcards {
   allFlashcards(
-    condition: {
-      topic: $topic
-    }
     orderBy: PROMPT_ASC
   ) {
     nodes {
       id
       prompt
       answer
-      topic
     }
   }
 }

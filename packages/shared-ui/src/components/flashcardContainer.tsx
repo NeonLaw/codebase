@@ -16,12 +16,8 @@ const Circle = ({ onClick, key, active }) => {
   );
 };
 
-interface FlashcardContainerProps {
-  topic: string;
-}
-
-export const FlashcardContainer = ({ topic }: FlashcardContainerProps) => {
-  const { data } = useAllFlashcardsQuery({ variables: { topic } });
+export const FlashcardContainer = () => {
+  const { data } = useAllFlashcardsQuery();
   const flashcards = data?.allFlashcards?.nodes || [];
   const [selectedFlashcard, changeSelectedFlashcard] = useState(0);
 
