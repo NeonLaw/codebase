@@ -11,14 +11,15 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsdoc/recommended',
-    'plugin:jsx-a11y/recommended'
+    'plugin:jsx-a11y/recommended',
+    'prettier',
   ],
   ignorePatterns: [
     '.cache/',
     'build/',
     'node_modules/',
     'public/',
-    'packages/shared-ui/src/utils/api.tsx'
+    'packages/shared-ui/src/utils/api.tsx',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -31,7 +32,8 @@ module.exports = {
     'import',
     'jest',
     'jsdoc',
-    'jsx-a11y'
+    'jsx-a11y',
+    'prettier',
   ],
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -40,21 +42,21 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/no-var-requires': 'off',
-    'indent': ['error', 2, { SwitchCase: 1 }],
+    indent: ['error', 2, { SwitchCase: 1 }],
     'jsdoc/require-param-description': 'off',
     'jsdoc/require-param-type': 'off',
     'jsdoc/require-returns': 'off',
-    'max-len': ['error', { 'code': 80 }],
-    'quotes': [2, 'single'],
+    'max-len': ['error', { code: 80 }],
+    quotes: [2, 'single'],
     'react/no-children-prop': 'off',
     'react/prop-types': 'off',
-    'semi': ['error', 'always'],
+    semi: ['error', 'always'],
     'sort-imports': 'error',
     'sort-keys': 'error',
   },
   settings: {
     react: {
-      version: 'detect'
-    }
-  }
+      version: 'detect',
+    },
+  },
 };
