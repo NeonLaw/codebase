@@ -14,6 +14,7 @@ const BaseStyles = (): JSX.Element => (
       :root {
         --lightBlue: #63b3ed;
         --outline: 2px solid var(--lightBlue);
+        --outline-transparent: 2px solid transparent;
         --grid-max-width: 1240px;
       }
 

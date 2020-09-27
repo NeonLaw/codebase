@@ -1,8 +1,10 @@
-import { Box, Button, Heading } from '@chakra-ui/core';
+import { Box, Heading } from '@chakra-ui/core';
 import React, { useState } from 'react';
 
 import DatePicker from 'react-datepicker';
+import { FlashButton } from '../button';
 import { Section } from '../section';
+import { gutters } from '../../themes/neonLaw';
 import { navigate } from 'gatsby-plugin-intl';
 import { useIntl } from 'gatsby-plugin-intl';
 
@@ -47,16 +49,16 @@ export const SingleDateQuestion = ({
           onChange={(date) => setChosenDate(date)}
         />
         <br />
-        <Button
-          margin="1em 0"
-          onClick={() => {
+        <FlashButton
+          margin={`${gutters.xSmallOne} 0`}
+          action={() => {
             updateAnswers(id, chosenDate);
 
             navigate(nextStepPath());
           }}
         >
           {intl.formatMessage({ id: 'components_questions.submit' })}
-        </Button>
+        </FlashButton>
       </Section>
     </Box>
   );

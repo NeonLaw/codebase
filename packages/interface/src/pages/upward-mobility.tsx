@@ -1,6 +1,6 @@
 import { Heading, Text } from '@chakra-ui/core';
 
-import { Button } from '@neonlaw/shared-ui/src/components/button';
+import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
 import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
 import React from 'react';
 import { Router } from '@reach/router';
@@ -9,6 +9,7 @@ import { Seo } from '../components/seo';
 import {
   UpwardMobilityQuestionnaire
 } from '@neonlaw/shared-ui/src/components/upwardMobilityQuestionnaire';
+import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
 import { navigate } from 'gatsby-plugin-intl';
 import { useIntl } from 'gatsby-plugin-intl';
 
@@ -26,13 +27,14 @@ const UpwardMobilityHome = (props) => {
         <Text margin="2em 0">
           {intl.formatMessage({ id: 'pages_upward_mobility.text' })}
         </Text>
-        <Button
-          onClick={() => {
+        <FlashButton
+          action={() => {
             navigate('/upward-mobility/begin');
           }}
+          margin={`${gutters.xSmallOne} 0`}
         >
           {intl.formatMessage({ id: 'pages_upward_mobility.button_takeQ' })}
-        </Button>
+        </FlashButton>
       </Section>
     </>
   );

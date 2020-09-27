@@ -1,15 +1,13 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import {
-  Box,
-  Button as ChakraButton,
-  useColorMode,
-} from '@chakra-ui/core';
+import { Box, Button as ChakraButton, useColorMode } from '@chakra-ui/core';
+import { Global, css, keyframes } from '@emotion/core';
 import { colors, gutters, shadows } from '../themes/neonLaw';
 
 import { Link } from './link';
 import React from 'react';
+import styled from '@emotion/styled';
 
 export const Button = ({ children, ...props }) => {
   const { colorMode } = useColorMode();
@@ -72,3 +70,66 @@ export const ReadMoreButton = ({ children, ...props }: any) => {
     </Box>
   );
 };
+
+export const flash = keyframes`
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    color: #fff;
+  }
+  60% {
+    opacity: 0;
+    color: #fff;
+  }
+  70% {
+    opacity: 1;
+    color: #fff;
+  }
+  80% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+    color: #fff;
+  }
+  100% {
+    opacity: 0;
+    color: #fff;
+  }
+`;
+
+const FlashButtonWrapper = styled.div`
+  display: inline-block;
+  outline: var(--outline-transparent);
+  outline-offset: 0.3rem;
+  transition: all 0.3s;
+`;
+
+export const FlashButton = ({ action, children, margin = '0', ...props }) => (
+  <FlashButtonWrapper style={{ margin }}>
+    <Button
+      onClick={(e) => {
+        const target = e.target;
+        target.classList.add('flash-btn');
+        target.parentElement.style.outline = 'var(--outline)';
+        setTimeout(() => {
+          action();
+          target.parentElement.style.outline = 'var(--outline-transparent)';
+          target.classList.remove('flash-btn');
+        }, 1500);
+      }}
+      {...props}
+    >
+      <Global
+        styles={css`
+          .flash-btn {
+            animation: ${flash} 1.5s ease-in infinite;
+          }
+        `}
+      />
+      {children}
+    </Button>
+  </FlashButtonWrapper>
+);
