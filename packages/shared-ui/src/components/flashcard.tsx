@@ -12,17 +12,21 @@ interface FlashcardProps {
   answer: string;
 }
 
-export const Flashcard = ({ prompt, answer }: FlashcardProps) => {
+export const Flashcard = ({
+  prompt,
+  answer,
+  showAnswer,
+  toggleShowAnswer
+}: FlashcardProps) => {
   const { colorMode } = useColorMode();
 
   const textAreaRef = useRef(null);
 
-  const [showPrompt, toggleShowPrompt] = useState(true);
   const [userAnswer, changeUserAnswer] = useState('');
 
   return (
     <Box cursor="pointer" border="1px" borderRadius="0.5em" padding="2em">
-      {showPrompt ? (
+      {!showAnswer ? (
         <>
           <Text className fontSize="1.2em" marginBottom="1em">
             {prompt}
@@ -32,7 +36,7 @@ export const Flashcard = ({ prompt, answer }: FlashcardProps) => {
             onKeyDown={(e: React.KeyboardEvent) => {
               if (isShiftEnterPressed(e)) {
                 e.preventDefault();
-                toggleShowPrompt(!showPrompt);
+                toggleShowAnswer(true);
                 setTimeout(() => {
                   document.querySelector('.show-prompt').focus();
                 }, 10);
@@ -73,7 +77,7 @@ export const Flashcard = ({ prompt, answer }: FlashcardProps) => {
             marginTop="1em"
             className="show-prompt"
             onClick={() => {
-              toggleShowPrompt(!showPrompt);
+              toggleShowAnswer(false);
               setTimeout(() => {
                 const text = textAreaRef.current;
                 text.focus();
@@ -81,7 +85,7 @@ export const Flashcard = ({ prompt, answer }: FlashcardProps) => {
               }, 10);
             }}
           >
-            Show Prompt
+              Try Typing the Answer
           </Button>
         </>
       )}

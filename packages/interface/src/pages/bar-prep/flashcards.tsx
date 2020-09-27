@@ -21,7 +21,7 @@ const Flashcards = () => {
           Bar Prep Flashcards
         </Heading>
         <FlashcardContainer />
-        <Text>
+        <Text textDecoration="underline">
           <Link to="/bar-prep">
             Read about our approach to bar prep.
           </Link>

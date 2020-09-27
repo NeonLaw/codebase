@@ -1,8 +1,9 @@
-import { Box, Flex } from '@chakra-ui/core';
+import { Box, Flex, Kbd, Skeleton, Stack, Text } from '@chakra-ui/core';
 import React, { useCallback, useEffect, useState } from 'react';
 import { BsFillCircleFill } from 'react-icons/bs';
 import { Flashcard } from './flashcard';
 import { colors } from '../themes/neonLaw';
+import { isCommandEnterPressed } from '../utils/keyboard';
 import { useAllFlashcardsQuery } from '../utils/api';
 
 const Circle = ({ onClick, key, active }) => {
@@ -20,8 +21,9 @@ export const FlashcardContainer = () => {
   const { data } = useAllFlashcardsQuery();
   const flashcards = data?.allFlashcards?.nodes || [];
   const [selectedFlashcard, changeSelectedFlashcard] = useState(0);
+  const [showFlashcardAnswer, changeShowFlashcardAnswer] = useState(false);
 
-  const arrowKeyDownFunction = useCallback((event) => {
+  const keyDownListener = useCallback((event) => {
     // keyCode 37 is the left arrow
     if (event.keyCode === 37) {
       if (selectedFlashcard === 0) {
@@ -40,22 +42,35 @@ export const FlashcardContainer = () => {
         return changeSelectedFlashcard(selectedFlashcard + 1);
       }
     }
-  }, [flashcards, selectedFlashcard]);
+
+    if (isCommandEnterPressed(event)) {
+      return changeShowFlashcardAnswer(!showFlashcardAnswer);
+    }
+  }, [flashcards, selectedFlashcard, showFlashcardAnswer]);
 
   useEffect(() => {
-    document.addEventListener('keydown', arrowKeyDownFunction, false);
+    document.addEventListener('keydown', keyDownListener, false);
 
     return () => {
-      document.removeEventListener('keydown', arrowKeyDownFunction, false);
+      document.removeEventListener('keydown', keyDownListener, false);
     };
-  }, [arrowKeyDownFunction]);
+  }, [keyDownListener]);
 
   return (
     <Box>
+      {flashcards.length === 0 && (
+        <Stack>
+          <Skeleton height="20px" />
+          <Skeleton height="20px" />
+          <Skeleton height="20px" />
+        </Stack>
+      )}
       {flashcards.length > 0 && flashcards[selectedFlashcard] && (
         <Flashcard
           prompt={flashcards[selectedFlashcard].prompt}
           answer={flashcards[selectedFlashcard].answer}
+          showAnswer={showFlashcardAnswer}
+          toggleShowAnswer={changeShowFlashcardAnswer}
         />
       )}
       <Box height="1em" />
@@ -85,7 +100,35 @@ export const FlashcardContainer = () => {
           })}
         </Flex>
       </Flex>
-      <Box height="1em" />
-    </Box >
+      <Box marginTop="1em">
+        <Text>
+          Press
+          &nbsp;
+          <Kbd border="1px solid #bbb" color="black">
+            Left
+          </Kbd>
+          &nbsp;
+          or
+          &nbsp;
+          <Kbd border="1px solid #bbb" color="black">
+            Right
+          </Kbd>
+          &nbsp;
+          to navigate among the flashcards. Press
+          &nbsp;
+          <Kbd border="1px solid #bbb" color="black">
+            CMD
+          </Kbd>
+          &nbsp;
+          +
+          &nbsp;
+          <Kbd border="1px solid #bbb" color="black">
+            Enter
+          </Kbd>
+          &nbsp;
+          to toggle the answer.
+        </Text>
+      </Box>
+    </Box>
   );
 };

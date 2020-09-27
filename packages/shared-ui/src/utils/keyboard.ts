@@ -9,3 +9,5 @@ export const submitOnShiftEnter = (e: any, ref: any) => {
 };
 
 export const isShiftEnterPressed = (e) => e.shiftKey && e.key == 'Enter';
+
+export const isCommandEnterPressed = (e) => e.metaKey && e.key == 'Enter';
