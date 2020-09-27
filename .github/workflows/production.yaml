@@ -321,5 +321,5 @@ jobs:
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment production-api \
-             api=us.gcr.io/neon-law-production/api:$GITHUB_SHA
+             production-api=us.gcr.io/neon-law-production/api:$GITHUB_SHA
         if: github.ref == 'refs/heads/development'
