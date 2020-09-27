@@ -1,10 +1,11 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
+import { Heading, Text } from '@chakra-ui/core';
 import {
   FlashcardContainer
 } from '@neonlaw/shared-ui/src/components/flashcardContainer';
-import { Heading } from '@chakra-ui/core';
+import { Link } from 'gatsby';
 import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
 import React from 'react';
 import { Section } from '@neonlaw/shared-ui/src/components/section';
@@ -20,6 +21,11 @@ const Flashcards = () => {
           Bar Prep Flashcards
         </Heading>
         <FlashcardContainer />
+        <Text>
+          <Link to="/bar-prep">
+            Read about our approach to bar prep.
+          </Link>
+        </Text>
       </Section>
     </PublicLayout>
   );

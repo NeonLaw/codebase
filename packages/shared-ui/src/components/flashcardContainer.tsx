@@ -30,7 +30,7 @@ export const FlashcardContainer = () => {
     }
     // keyCode 39 is the right arrow
     if (event.keyCode === 39) {
-      if (selectedFlashcard < flashcards.length) {
+      if (selectedFlashcard < (flashcards.length - 1)) {
         return changeSelectedFlashcard(selectedFlashcard + 1);
       }
     }
