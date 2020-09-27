@@ -24,12 +24,18 @@ export const FlashcardContainer = () => {
   const arrowKeyDownFunction = useCallback((event) => {
     // keyCode 37 is the left arrow
     if (event.keyCode === 37) {
+      if (selectedFlashcard === 0) {
+        return changeSelectedFlashcard(flashcards.length - 1);
+      }
       if (selectedFlashcard > 0) {
         return changeSelectedFlashcard(selectedFlashcard - 1);
       }
     }
     // keyCode 39 is the right arrow
     if (event.keyCode === 39) {
+      if (selectedFlashcard === (flashcards.length - 1)) {
+        return changeSelectedFlashcard(0);
+      }
       if (selectedFlashcard < (flashcards.length - 1)) {
         return changeSelectedFlashcard(selectedFlashcard + 1);
       }

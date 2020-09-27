@@ -4,6 +4,7 @@ import {
   FormLabel,
   Input,
 } from '@chakra-ui/core';
+
 import React from 'react';
 
 export const StringInput = ({
@@ -11,11 +12,16 @@ export const StringInput = ({
   label,
   register,
   name,
-  onBlur = () => { return; },
-  onFocus = () => { return; },
+  onBlur = () => {
+    return;
+  },
+  onFocus = () => {
+    return;
+  },
   placeholder,
   testId,
   value = '',
+  styles = {},
 }) => {
   return (
     <FormControl isInvalid={errors[name]}>
@@ -31,10 +37,11 @@ export const StringInput = ({
         defaultValue={value}
         _hover={{ borderColor: 'gray.500' }}
         className="outline-bordered"
+        style={{ ...styles }}
       />
       <FormErrorMessage>
         {errors && errors[name] && errors[name].message}
       </FormErrorMessage>
-    </FormControl >
+    </FormControl>
   );
 };
