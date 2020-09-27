@@ -10,6 +10,8 @@ import { isShiftEnterPressed } from '../utils/keyboard';
 interface FlashcardProps {
   prompt: string;
   answer: string;
+  showAnswer: boolean;
+  toggleShowAnswer: any;
 }
 
 export const Flashcard = ({
