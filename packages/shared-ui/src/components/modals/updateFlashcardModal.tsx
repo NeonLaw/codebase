@@ -55,8 +55,7 @@ export const UpdateFlashcardModal = ({
     },
   });
 
-  const { control, handleSubmit, errors, register, reset } = useForm({
-  });
+  const { handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [focus, setFocus] = useState(false);
