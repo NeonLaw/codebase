@@ -235,5 +235,5 @@ jobs:
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment staging-api \
-             api=us.gcr.io/neon-law-staging/api:$GITHUB_SHA
+             staging-api=us.gcr.io/neon-law-staging/api:$GITHUB_SHA
         if: github.ref == 'refs/heads/development'
