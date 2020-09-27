@@ -83,7 +83,7 @@ module "delete_your_data_deployment" {
 
 module "ingress" {
   source = "../modules/production_ingress"
-  api_service_name = "api"
+  api_service_name = "production-api"
 
   neon_law_interface_service_name = "interface"
   neon_law_host = "www.neonlaw.com"
