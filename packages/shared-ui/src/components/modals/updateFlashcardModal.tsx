@@ -13,13 +13,14 @@ import {
 } from '@chakra-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
 import { StringInput, Textarea } from '../../forms/base';
+import { colors, gutters } from '../../themes/neonLaw';
 import {
   useDeleteFlashcardByIdMutation,
   useUpdateFlashcardByIdMutation,
 } from '../../utils/api';
 
 import { SubmissionInProgress } from '../submission-in-progress';
-import { colors } from '../../themes/neonLaw';
+import styled from '@emotion/styled';
 import { submitOnShiftEnter } from '../../utils/keyboard';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
@@ -29,6 +30,17 @@ interface UpdateFlashcardModalProps {
   onClose(): void;
   currentRow: any;
 }
+
+const StyledModalFooter = styled(ModalFooter)`
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    &:not(:last-of-type) {
+      margin-bottom: ${gutters.xSmallOne};
+    }
+  }
+`;
 
 export const UpdateFlashcardModal = ({
   isOpen,
@@ -122,7 +134,7 @@ export const UpdateFlashcardModal = ({
   const { colorMode } = useColorMode();
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="full">
+    <Modal isOpen={isOpen} onClose={onClose} size="xl">
       <ModalOverlay>
         <ModalContent
           data-testid="update-flashcard-modal"
@@ -161,6 +173,7 @@ export const UpdateFlashcardModal = ({
                 register={register({
                   required: intl.formatMessage({ id: 'forms.prompt.required' }),
                 })}
+                styles={{ marginBottom: gutters.xSmallOne }}
               />
               <Textarea
                 name="answer"
@@ -187,7 +200,7 @@ export const UpdateFlashcardModal = ({
               />
             </ModalBody>
 
-            <ModalFooter>
+            <StyledModalFooter>
               <Button
                 type="submit"
                 data-testid="update-flashcard-modal-submit"
@@ -227,7 +240,7 @@ export const UpdateFlashcardModal = ({
                 </Kbd>
                 <SubmissionInProgress loading={deleteInProgress} />
               </Button>
-            </ModalFooter>
+            </StyledModalFooter>
           </form>
         </ModalContent>
       </ModalOverlay>

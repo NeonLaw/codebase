@@ -13,9 +13,9 @@ import {
 } from '@chakra-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
 import { StringInput, Textarea } from '../../forms/base';
+import { colors, gutters } from '../../themes/neonLaw';
 
 import { SubmissionInProgress } from '../submission-in-progress';
-import { colors } from '../../themes/neonLaw';
 import { gql } from '@apollo/client';
 import { submitOnShiftEnter } from '../../utils/keyboard';
 import { useCreateFlashcardMutation } from '../../utils/api';
@@ -101,7 +101,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
   const { colorMode } = useColorMode();
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="full">
+    <Modal isOpen={isOpen} onClose={onClose} size="xl">
       <ModalOverlay>
         <ModalContent
           data-testid="create-flashcard-modal"
@@ -135,6 +135,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
                     id: 'forms.prompt.required',
                   }),
                 })}
+                styles={{ marginBottom: gutters.xSmall }}
               />
               <Textarea
                 className="answer-text"
