@@ -21,6 +21,7 @@ import { submitOnShiftEnter } from '../../utils/keyboard';
 import { useCreateFlashcardMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
+import { useKeyPressed } from '../../utils/useKeyPressed';
 
 export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
   const intl = useIntl();
@@ -53,6 +54,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
+  const isCPressed = useKeyPressed((e: KeyboardEvent) => e.key === 'c');
 
   const onSubmit = async ({ answer, prompt }) => {
     await createFlashcard({ variables: { answer, prompt } })
@@ -74,14 +76,10 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
     submitOnShiftEnter(e, formRef);
   };
 
-  const handleCPress = (e) => {
-    if (e.key === 'c') {
+  useEffect(() => {
+    if (isCPressed) {
       onOpen();
     }
-  };
-
-  useEffect(() => {
-    window.addEventListener('keypress', handleCPress);
 
     const textArea = document.querySelector('.answer-text');
 
@@ -90,8 +88,6 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
     }
 
     return () => {
-      window.removeEventListener('keypress', handleCPress);
-
       if (null !== textArea) {
         textArea.removeEventListener('keydown', keyDownHandler);
       }
