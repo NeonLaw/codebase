@@ -14,6 +14,7 @@ import {
 import React, { useEffect, useRef, useState } from 'react';
 import { StringInput, Textarea } from '../../forms/base';
 import { colors, gutters } from '../../themes/neonLaw';
+import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 import {
   useDeleteFlashcardByIdMutation,
   useUpdateFlashcardByIdMutation,
@@ -21,9 +22,9 @@ import {
 
 import { SubmissionInProgress } from '../submission-in-progress';
 import styled from '@emotion/styled';
-import { submitOnShiftEnter } from '../../utils/keyboard';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
+import { useOS } from '../../utils/useOS';
 
 interface UpdateFlashcardModalProps {
   isOpen: boolean;
@@ -73,6 +74,7 @@ export const UpdateFlashcardModal = ({
   const [focus, setFocus] = useState(false);
   const [formError, setFormError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
+  const OS = useOS();
 
   const onSubmit = async ({ answer, prompt }) => {
     await updateFlashcard({
@@ -93,7 +95,11 @@ export const UpdateFlashcardModal = ({
   };
 
   const keyDownHandler = (e: any) => {
-    submitOnShiftEnter(e, formRef);
+    if (OS === 'Mac OS') {
+      submitOnMetaEnter(e, formRef);
+    } else {
+      submitOnShiftEnter(e, formRef);
+    }
   };
 
   const handleDPress = async (e) => {
@@ -104,7 +110,7 @@ export const UpdateFlashcardModal = ({
 
   const deleteFlashcard = async () => {
     const confirmDelete = confirm(
-      'Are you sure you want to delete the flashcard?'
+      'Are you sure you want to delete the flashcard?',
     );
 
     if (confirmDelete) {
