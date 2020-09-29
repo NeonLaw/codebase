@@ -21,8 +21,8 @@ import { gql } from '@apollo/client';
 import { useCreateFlashcardMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
-import { useOS } from '../../utils/useOS';
 import { useKeyPressed } from '../../utils/useKeyPressed';
+import { useOS } from '../../utils/useOS';
 
 export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
   const intl = useIntl();
