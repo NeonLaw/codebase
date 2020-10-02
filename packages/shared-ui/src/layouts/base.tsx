@@ -23,7 +23,7 @@ export const BaseLayout: React.FC<{
     <AuthenticationProvider>
       <ChakraProvider resetCSS theme={theme}>
         <BaseStyles />
-        <ColorModeProvider>
+        <ColorModeProvider options={{}}>
           <Background>{children}</Background>
         </ColorModeProvider>
         <ShortcutsModal />
