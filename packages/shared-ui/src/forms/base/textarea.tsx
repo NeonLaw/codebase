@@ -13,12 +13,19 @@ export const Textarea = ({
   register,
   name,
   placeholder,
-  onBlur = () => { return; },
-  onFocus = () => { return; },
+  onBlur = () => {
+    return;
+  },
+  onFocus = () => {
+    return;
+  },
   testId,
   value = '',
   className = '',
-  size = 'md'
+  size = 'md',
+  onKeyDown = (e) => {
+    e;
+  },
 }) => {
   return (
     <FormControl isInvalid={errors && errors[name]}>
@@ -35,6 +42,7 @@ export const Textarea = ({
         borderColor="gray.300"
         defaultValue={value}
         _hover={{ borderColor: 'gray.500' }}
+        onKeyDown={onKeyDown}
       />
       <FormErrorMessage>
         {errors && errors[name] && errors[name].message}

@@ -2,7 +2,8 @@
 // @ts-nocheck
 /* eslint-enable */
 import { Box, Button, Text, useColorMode } from '@chakra-ui/core';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
+
 import ReactDiffViewer from 'react-diff-viewer';
 import { Textarea } from '../forms/base';
 import { isShiftEnterPressed } from '../utils/keyboard';
@@ -18,11 +19,9 @@ export const Flashcard = ({
   prompt,
   answer,
   showAnswer,
-  toggleShowAnswer
+  toggleShowAnswer,
 }: FlashcardProps) => {
   const { colorMode } = useColorMode();
-
-  const textAreaRef = useRef(null);
 
   const [userAnswer, changeUserAnswer] = useState('');
 
@@ -34,14 +33,17 @@ export const Flashcard = ({
             {prompt}
           </Text>
           <Textarea
-            ref={textAreaRef}
+            className="flascard-textarea"
             onKeyDown={(e: React.KeyboardEvent) => {
               if (isShiftEnterPressed(e)) {
                 e.preventDefault();
                 toggleShowAnswer(true);
                 setTimeout(() => {
-                  document.querySelector('.show-prompt').focus();
-                }, 10);
+                  const showPromptButton = document.querySelector(
+                    '.show-prompt',
+                  );
+                  showPromptButton.focus();
+                }, 5);
               }
             }}
             size="xl"
@@ -53,7 +55,7 @@ export const Flashcard = ({
           <Button
             marginTop="1em"
             onClick={() => {
-              toggleShowPrompt(!showPrompt);
+              toggleShowAnswer(!showAnswer);
             }}
           >
             Show Answer
@@ -82,13 +84,13 @@ export const Flashcard = ({
             onClick={() => {
               toggleShowAnswer(false);
               setTimeout(() => {
-                const text = textAreaRef.current;
+                const text = document.querySelector('.flascard-textarea');
                 text.focus();
                 text.setSelectionRange(text.value.length, text.value.length);
-              }, 10);
+              }, 5);
             }}
           >
-              Try Typing the Answer
+            Try Typing the Answer
           </Button>
         </>
       )}
