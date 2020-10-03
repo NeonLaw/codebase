@@ -1,6 +1,8 @@
 export const useOS = () => {
-  const userAgent = window.navigator.userAgent;
-  const platform = window.navigator.platform;
+  const userAgent =
+    typeof window !== 'undefined' ? window.navigator.userAgent : '';
+  const platform =
+    typeof window !== 'undefined' ? window.navigator.platform : '';
   const macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
   const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
   const iosPlatforms = ['iPhone', 'iPad', 'iPod'];
@@ -17,7 +19,7 @@ export const useOS = () => {
   } else if (!os && /Linux/.test(platform)) {
     os = 'Linux';
   } else if (!os) {
-    throw ('Operating System not recognized.');
+    throw 'Operating System not recognized.';
   }
 
   return os;
