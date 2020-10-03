@@ -1,10 +1,10 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Box, Button, Text, Textarea, useColorMode } from '@chakra-ui/core';
+import { Box, Button, Text, useColorMode } from '@chakra-ui/core';
 import React, { useRef, useState } from 'react';
-
 import ReactDiffViewer from 'react-diff-viewer';
+import { Textarea } from '../../forms/base';
 import { isShiftEnterPressed } from '../utils/keyboard';
 
 interface FlashcardProps {
@@ -44,6 +44,7 @@ export const Flashcard = ({
                 }, 10);
               }
             }}
+            size="xl"
             value={userAnswer}
             onChange={(event) => {
               changeUserAnswer(event.target.value);
