@@ -4,7 +4,7 @@
 import { Box, Button, Text, useColorMode } from '@chakra-ui/core';
 import React, { useRef, useState } from 'react';
 import ReactDiffViewer from 'react-diff-viewer';
-import { Textarea } from '../../forms/base';
+import { Textarea } from '../forms/base';
 import { isShiftEnterPressed } from '../utils/keyboard';
 
 interface FlashcardProps {
@@ -60,38 +60,38 @@ export const Flashcard = ({
           </Button>
         </>
       ) : (
-        <>
-          <Text fontSize="1.2em" marginBottom="1em">
-            {prompt}
-          </Text>
-          {answer === userAnswer ? (
-            <Text>You got it!</Text>
-          ) : (
-            <ReactDiffViewer
-              oldValue={answer}
-              newValue={userAnswer}
-              hideLineNumbers={true}
-              showDiffOnly={false}
-              splitView={false}
-              useDarkTheme={colorMode === 'dark'}
-            />
-          )}
-          <Button
-            marginTop="1em"
-            className="show-prompt"
-            onClick={() => {
-              toggleShowAnswer(false);
-              setTimeout(() => {
-                const text = textAreaRef.current;
-                text.focus();
-                text.setSelectionRange(text.value.length, text.value.length);
-              }, 10);
-            }}
-          >
+          <>
+            <Text fontSize="1.2em" marginBottom="1em">
+              {prompt}
+            </Text>
+            {answer === userAnswer ? (
+              <Text>You got it!</Text>
+            ) : (
+                <ReactDiffViewer
+                  oldValue={answer}
+                  newValue={userAnswer}
+                  hideLineNumbers={true}
+                  showDiffOnly={false}
+                  splitView={false}
+                  useDarkTheme={colorMode === 'dark'}
+                />
+              )}
+            <Button
+              marginTop="1em"
+              className="show-prompt"
+              onClick={() => {
+                toggleShowAnswer(false);
+                setTimeout(() => {
+                  const text = textAreaRef.current;
+                  text.focus();
+                  text.setSelectionRange(text.value.length, text.value.length);
+                }, 10);
+              }}
+            >
               Try Typing the Answer
           </Button>
-        </>
-      )}
+          </>
+        )}
     </Box>
   );
 };
