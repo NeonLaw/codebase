@@ -1,11 +1,7 @@
-import {
-  Box,
-  Button,
-  Heading,
-  Text,
-} from '@chakra-ui/core';
+import { Box, Heading, Text } from '@chakra-ui/core';
 import { navigate, useIntl } from 'gatsby-plugin-intl';
 
+import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
 import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
 import React from 'react';
 import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
@@ -23,11 +19,14 @@ const AdminDashboard = () => {
           {intl.formatMessage({ id: 'pages_admin.text' })}
         </Text>
 
-        <Button onClick={() => {
-          navigate('/admin/flashcards');
-        }}>
+        <FlashButton
+          colorScheme="gray"
+          onClick={() => {
+            navigate('/admin/flashcards');
+          }}
+        >
           Flashcards
-        </Button>
+        </FlashButton>
       </Box>
     </PortalLayout>
   );

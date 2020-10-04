@@ -1,12 +1,14 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Box, Button, Heading, Text } from '@chakra-ui/core';
+import { Box, Heading, Text } from '@chakra-ui/core';
 import { colors, gutters, sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
 import BannerBg from '../../images/banner.jpg';
 import { Container } from '@neonlaw/shared-ui/src/components/container';
+import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
 import React from 'react';
+import { getBrowser } from '@neonlaw/shared-ui/src/utils/getBrowser';
 import { theme } from '@chakra-ui/core';
 
 interface BannerProps {
@@ -50,16 +52,18 @@ export const Banner = ({ title, text, buttonText }: BannerProps) => (
         >
           {text}
         </Text>
-        <Button
+        <FlashButton
           bg={colors.cyanDark}
           _hover={{ bg: colors.cyanDark1 }}
-          as="a"
-          href="https://neonlaw.cliogrow.com/book/xRg6TK0beg2sHsoIf81FkQ"
-          target="_blank"
-          rel="noopener noreferrer"
+          onClick={() => {
+            window.open(
+              'https://neonlaw.cliogrow.com/book/xRg6TK0beg2sHsoIf81FkQ',
+              getBrowser() === 'Firefox' ? '_self' : '_blank',
+            );
+          }}
         >
           {buttonText}
-        </Button>
+        </FlashButton>
       </Box>
     </Container>
   </Box>

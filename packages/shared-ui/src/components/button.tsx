@@ -1,7 +1,11 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Box, Button as ChakraButton, useColorMode } from '@chakra-ui/core';
+import {
+  Box,
+  Button as ChakraButton,
+  useColorMode,
+} from '@chakra-ui/core';
 import { Global, css, keyframes } from '@emotion/core';
 import { colors, gutters, shadows } from '../themes/neonLaw';
 
@@ -9,14 +13,16 @@ import { Link } from './link';
 import React from 'react';
 import styled from '@emotion/styled';
 
-export const Button = ({ children, ...props }) => {
+export const Button = ({
+  children,
+  ...props
+}) => {
   const { colorMode } = useColorMode();
-
   return (
     <ChakraButton
       {...props}
       bg={colors.primaryButtonBg[colorMode]}
-      _hover={{ backgroundColor: colors.primaryButtonBgOnHover[colorMode] }}
+      _hover={{ background: colors.primaryButtonBgOnHover[colorMode] }}
       _focus={{
         backgroundColor: colors.primaryButtonBg.lightBlue,
         color: colors.primaryButtonColor.light,
@@ -107,29 +113,56 @@ const FlashButtonWrapper = styled.div`
   transition: all 0.3s;
 `;
 
-export const FlashButton = ({ action, children, margin = '0', ...props }) => (
-  <FlashButtonWrapper style={{ margin }}>
-    <Button
-      onClick={(e) => {
-        const target = e.target;
-        target.classList.add('flash-btn');
-        target.parentElement.style.outline = 'var(--outline)';
-        setTimeout(() => {
-          action();
-          target.parentElement.style.outline = 'var(--outline-transparent)';
-          target.classList.remove('flash-btn');
-        }, 1500);
-      }}
-      {...props}
-    >
-      <Global
-        styles={css`
-          .flash-btn {
-            animation: ${flash} 1.5s ease-in infinite;
-          }
-        `}
-      />
-      {children}
-    </Button>
-  </FlashButtonWrapper>
-);
+export const FlashButton = ({
+  children,
+  styles = {},
+  containerStyles = {},
+  buttonScheme = '',
+  onMouseDown = () => {
+    return;
+  },
+  onMouseOver = () => {
+    return;
+  },
+  onClick = () => {
+    return;
+  },
+  ...props
+}) => {
+  const as = buttonScheme == 'teal' ? Button : ChakraButton;
+  return (
+    <FlashButtonWrapper style={{...containerStyles }}>
+      <Box
+        as={as}
+        onClick={(e) => {
+          const target = e.target;
+          target.classList.add('flash-btn');
+          target.parentElement.style.outline = 'var(--outline)';
+          setTimeout(() => {
+            onClick();
+            target.parentElement.style.outline = 'var(--outline-transparent)';
+            target.style.outline = 'none';
+            target.classList.remove('flash-btn');
+          }, 1500);
+        }}
+        onMouseDown={onMouseDown}
+        onMouseOver={onMouseOver}
+        style={{...styles}}
+        {...props}
+        _focus={{
+          boxShadow: 'none',
+        }}
+      >
+        <Global
+          styles={css`
+            .flash-btn {
+              animation: ${flash} 1.5s ease-in infinite;
+              outline: none !important;
+            }
+          `}
+        />
+        {children}
+      </Box>
+    </FlashButtonWrapper>
+  );
+};

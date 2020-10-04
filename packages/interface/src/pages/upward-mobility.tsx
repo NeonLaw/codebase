@@ -9,7 +9,6 @@ import { Seo } from '../components/seo';
 import {
   UpwardMobilityQuestionnaire
 } from '@neonlaw/shared-ui/src/components/upwardMobilityQuestionnaire';
-import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
 import { navigate } from 'gatsby-plugin-intl';
 import { useIntl } from 'gatsby-plugin-intl';
 
@@ -24,14 +23,14 @@ const UpwardMobilityHome = (props) => {
         <Heading as="h2" fontWeight="normal" marginTop="4.5rem">
           {intl.formatMessage({ id: 'pages_upward_mobility.heading' })}
         </Heading>
-        <Text margin="2em 0">
+        <Text>
           {intl.formatMessage({ id: 'pages_upward_mobility.text' })}
         </Text>
         <FlashButton
-          action={() => {
+          buttonScheme="teal"
+          onClick={() => {
             navigate('/upward-mobility/begin');
           }}
-          margin={`${gutters.xSmallOne} 0`}
         >
           {intl.formatMessage({ id: 'pages_upward_mobility.button_takeQ' })}
         </FlashButton>

@@ -1,7 +1,7 @@
 import { Box, Tooltip } from '@chakra-ui/core';
 import React, { useRef, useState } from 'react';
 
-import { Button } from '@neonlaw/shared-ui/src/components/button';
+import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
 import copy from 'clipboard-copy';
 import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
@@ -11,9 +11,9 @@ export const PGPKey = ({ children }) => {
 
   return (
     <Box overflowX="scroll">
-      <Button
+      <FlashButton
         aria-label="Copy PGP Key to Clip Board"
-        marginTop={gutters.small}
+        containerStyles={{margin: `${gutters.xSmallOne} .5rem`}}
         onClick={() => {
           keyContainerRef.current
             ? copy(keyContainerRef.current.textContent || '')
@@ -34,7 +34,7 @@ export const PGPKey = ({ children }) => {
         >
           Copy to Clipboard
         </Tooltip>
-      </Button>
+      </FlashButton>
       <div ref={keyContainerRef}>{children}</div>
     </Box>
   );

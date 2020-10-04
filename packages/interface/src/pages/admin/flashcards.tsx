@@ -1,9 +1,10 @@
-import { Box, Button, Heading, Kbd, useDisclosure } from '@chakra-ui/core';
+import { Box, Heading, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
 
 import {
   CreateFlashcardModal
 } from '@neonlaw/shared-ui/src/components/modals/createFlashcardModal';
+import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
 import {
   FlashcardTable
 } from '@neonlaw/shared-ui/src/components/tables/flashcardTable';
@@ -27,9 +28,19 @@ const AdminFlashcards = () => {
           Flashcards
         </Heading>
 
-        <Button onClick={onOpen} marginBottom={gutters.xSmallOne}>
-          Create Flashcard &nbsp;<Kbd border="1px solid #bbb">C</Kbd>
-        </Button>
+        <FlashButton 
+          buttonScheme="teal"
+          containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
+          onClick={onOpen} 
+        >
+          Create Flashcard &nbsp;<Kbd 
+            background="inherit" 
+            border="1px solid #bbb"
+            transition="all .2s"
+          >
+            C
+          </Kbd>
+        </FlashButton>
 
         <CreateFlashcardModal
           isOpen={isOpen && showCreateFlashcardModal}

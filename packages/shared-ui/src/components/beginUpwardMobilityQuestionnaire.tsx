@@ -22,7 +22,8 @@ export const BeginUpwardMobilityQuestionnaire = () => {
         </Text>
 
         <FlashButton
-          action={() => {
+          buttonScheme="teal"
+          onClick={() => {
             navigate(`/${basePath}/${decisionTree['begin']}`);
           }}
         >

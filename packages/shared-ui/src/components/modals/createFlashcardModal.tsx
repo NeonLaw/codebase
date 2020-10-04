@@ -1,5 +1,4 @@
 import {
-  Button,
   Kbd,
   Modal,
   ModalBody,
@@ -16,6 +15,7 @@ import { StringInput, Textarea } from '../../forms/base';
 import { colors, gutters } from '../../themes/neonLaw';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 
+import { FlashButton } from '../button';
 import { SubmissionInProgress } from '../submission-in-progress';
 import { gql } from '@apollo/client';
 import { useCreateFlashcardMutation } from '../../utils/api';
@@ -159,11 +159,12 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
             </ModalBody>
 
             <ModalFooter>
-              <Button
+              <FlashButton
                 type="submit"
                 data-testid="create-flashcard-modal-submit"
                 isDisabled={isSubmitting || loading}
-                width="100%"
+                containerStyles={{width: '100%'}}
+                styles={{width: '100%'}}
                 colorScheme="teal"
               >
                 Create Flashcard &nbsp;
@@ -175,7 +176,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
                   Enter
                 </Kbd>
                 <SubmissionInProgress loading={loading} />
-              </Button>
+              </FlashButton>
             </ModalFooter>
           </form>
         </ModalContent>

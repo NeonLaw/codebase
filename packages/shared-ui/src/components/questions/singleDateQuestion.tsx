@@ -50,8 +50,9 @@ export const SingleDateQuestion = ({
         />
         <br />
         <FlashButton
-          margin={`${gutters.xSmallOne} 0`}
-          action={() => {
+          buttonScheme="teal"
+          containerStyles={{margin: `${gutters.xSmallOne} 0`}}
+          onClick={() => {
             updateAnswers(id, chosenDate);
 
             navigate(nextStepPath());

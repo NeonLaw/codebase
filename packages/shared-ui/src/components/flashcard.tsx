@@ -1,11 +1,13 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Box, Button, Text, useColorMode } from '@chakra-ui/core';
+import { Box, Text, useColorMode } from '@chakra-ui/core';
 import React, { useState } from 'react';
 
+import { FlashButton } from './button';
 import ReactDiffViewer from 'react-diff-viewer';
 import { Textarea } from '../forms/base';
+import { gutters } from '../themes/neonLaw';
 import { isShiftEnterPressed } from '../utils/keyboard';
 
 interface FlashcardProps {
@@ -60,14 +62,14 @@ export const Flashcard = ({
               setIsTextAreaFocused(false);
             }}
           />
-          <Button
-            marginTop="1em"
+          <FlashButton
+            containerStyles={{marginTop: gutters.xSmallOne}}
             onClick={() => {
               toggleShowAnswer(!showAnswer);
             }}
           >
             Show Answer
-          </Button>
+          </FlashButton>
         </>
       ) : (
         <>
@@ -86,8 +88,8 @@ export const Flashcard = ({
               useDarkTheme={colorMode === 'dark'}
             />
           )}
-          <Button
-            marginTop="1em"
+          <FlashButton
+            containerStyles={{marginTop: gutters.xSmallOne}}
             className="show-prompt"
             onClick={() => {
               toggleShowAnswer(false);
@@ -100,7 +102,7 @@ export const Flashcard = ({
             }}
           >
             Try Typing the Answer
-          </Button>
+          </FlashButton>
         </>
       )}
     </Box>

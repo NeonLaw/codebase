@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import { FlashButton } from '../../components/button';
 import { Section } from '../section';
+import { gutters } from '../../themes/neonLaw';
 import { navigate } from 'gatsby';
 import { useIntl } from 'gatsby-plugin-intl';
 
@@ -45,10 +46,8 @@ export const SingleChoiceQuestion = ({
         <Heading as="h3" fontWeight="normal">
           {prompt}
         </Heading>
-        <RadioGroup 
-          onChange={
-            (e: any) => 
-              setValue((e.target as HTMLInputElement).value)}
+        <RadioGroup
+          onChange={(e: any) => setValue((e.target as HTMLInputElement).value)}
           value={value}
         >
           {choices.map((choice, i) => (
@@ -58,8 +57,9 @@ export const SingleChoiceQuestion = ({
           ))}
         </RadioGroup>
         <FlashButton
-          margin="1em 0"
-          action={() => {
+          buttonScheme="teal"
+          containerStyles={{margin: `${gutters.xSmallOne} 0`}}
+          onClick={() => {
             const chosenChoice = choices[value];
 
             updateAnswers(id, chosenChoice);

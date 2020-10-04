@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Button } from '@chakra-ui/core';
+import { FlashButton } from '../components/button';
 import { StringInput } from '../forms/base';
 import { SubmissionInProgress } from '../components/submission-in-progress';
 import { gutters } from '../themes/neonLaw';
@@ -40,14 +40,14 @@ export const PortalProfileForm = () => {
           required: intl.formatMessage({ id: 'forms.name.required' }),
         })}
       />
-      <Button
+      <FlashButton
         type="submit"
         data-testid="portal-profile-form-submit"
         isDisabled={isSubmitting || loading}
-        marginTop={gutters.xSmallOne}
+        containerStyles={{marginTop: gutters.xSmallOne}}
       >
         Update Profile <SubmissionInProgress loading={loading} />
-      </Button>
+      </FlashButton>
     </form>
   );
 };

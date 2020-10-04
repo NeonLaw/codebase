@@ -1,5 +1,4 @@
 import {
-  Button,
   Kbd,
   Modal,
   ModalBody,
@@ -20,6 +19,7 @@ import {
   useUpdateFlashcardByIdMutation,
 } from '../../utils/api';
 
+import { FlashButton } from '../button';
 import { SubmissionInProgress } from '../submission-in-progress';
 import styled from '@emotion/styled';
 import { useForm } from 'react-hook-form';
@@ -207,14 +207,17 @@ export const UpdateFlashcardModal = ({
             </ModalBody>
 
             <StyledModalFooter>
-              <Button
+              <FlashButton
                 type="submit"
                 data-testid="update-flashcard-modal-submit"
                 isDisabled={
                   isSubmitting || isDeleting || loading || deleteInProgress
                 }
-                width="100%"
-                margin="0 1em"
+                containerStyles={{
+                  margin: `${gutters.xSmallOne} 0`,
+                  width: '100%',
+                }}
+                styles={{width: '100%'}}
                 colorScheme="teal"
               >
                 Update Flashcard &nbsp;
@@ -226,18 +229,18 @@ export const UpdateFlashcardModal = ({
                   Enter
                 </Kbd>
                 <SubmissionInProgress loading={loading} />
-              </Button>
-              <Button
+              </FlashButton>
+              <FlashButton
                 data-testid="update-flashcard-modal-delete-button"
                 isDisabled={
                   isSubmitting || isDeleting || loading || deleteInProgress
                 }
-                margin="0 1em"
+                containerStyles={{width: '100%'}}
+                styles={{width: '100%'}}
                 onClick={async () => {
                   setIsDeleting(true);
                   await deleteFlashcard();
                 }}
-                width="100%"
                 colorScheme="red"
               >
                 Delete Flashcard &nbsp;
@@ -245,7 +248,7 @@ export const UpdateFlashcardModal = ({
                   D
                 </Kbd>
                 <SubmissionInProgress loading={deleteInProgress} />
-              </Button>
+              </FlashButton>
             </StyledModalFooter>
           </form>
         </ModalContent>
