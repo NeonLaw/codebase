@@ -24,10 +24,14 @@ export const FlashcardContainer = () => {
   const flashcards = data?.allFlashcards?.nodes || [];
   const [selectedFlashcard, changeSelectedFlashcard] = useState(0);
   const [showFlashcardAnswer, changeShowFlashcardAnswer] = useState(false);
+  const [isTextAreaFocused, setIsTextAreaFocused] = useState(false);
   const OS = useOS();
 
   const keyDownListener = useCallback(
     (event) => {
+      if (isTextAreaFocused) {
+        return;
+      }
       // keyCode 37 is the left arrow
       if (event.keyCode === 37) {
         if (selectedFlashcard === 0) {
@@ -55,12 +59,11 @@ export const FlashcardContainer = () => {
         return changeShowFlashcardAnswer(!showFlashcardAnswer);
       }
     },
-    [flashcards, selectedFlashcard, showFlashcardAnswer],
+    [flashcards, selectedFlashcard, showFlashcardAnswer, isTextAreaFocused],
   );
 
   useEffect(() => {
     document.addEventListener('keydown', keyDownListener, false);
-
     return () => {
       document.removeEventListener('keydown', keyDownListener, false);
     };
@@ -81,6 +84,7 @@ export const FlashcardContainer = () => {
           answer={flashcards[selectedFlashcard].answer}
           showAnswer={showFlashcardAnswer}
           toggleShowAnswer={changeShowFlashcardAnswer}
+          setIsTextAreaFocused={setIsTextAreaFocused}
         />
       )}
       <Box height="1em" />

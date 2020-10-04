@@ -13,6 +13,7 @@ interface FlashcardProps {
   answer: string;
   showAnswer: boolean;
   toggleShowAnswer: any;
+  setIsTextAreaFocused: any;
 }
 
 export const Flashcard = ({
@@ -20,6 +21,7 @@ export const Flashcard = ({
   answer,
   showAnswer,
   toggleShowAnswer,
+  setIsTextAreaFocused,
 }: FlashcardProps) => {
   const { colorMode } = useColorMode();
 
@@ -43,13 +45,19 @@ export const Flashcard = ({
                     '.show-prompt',
                   );
                   showPromptButton.focus();
-                }, 5);
+                }, 10);
               }
             }}
             size="xl"
             value={userAnswer}
             onChange={(event) => {
               changeUserAnswer(event.target.value);
+            }}
+            onFocus={() => {
+              setIsTextAreaFocused(true);
+            }}
+            onBlur={() => {
+              setIsTextAreaFocused(false);
             }}
           />
           <Button
@@ -86,8 +94,9 @@ export const Flashcard = ({
               setTimeout(() => {
                 const text = document.querySelector('.flascard-textarea');
                 text.focus();
+                text.value = userAnswer;
                 text.setSelectionRange(text.value.length, text.value.length);
-              }, 5);
+              }, 10);
             }}
           >
             Try Typing the Answer
