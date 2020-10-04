@@ -18,9 +18,10 @@ export const useOS = () => {
     os = 'Android';
   } else if (!os && /Linux/.test(platform)) {
     os = 'Linux';
-  } else if (!os) {
-    throw 'Operating System not recognized.';
   }
+  // else if (!os) {
+  //   throw 'Operating System not recognized.';
+  // }
 
   return os;
 };
