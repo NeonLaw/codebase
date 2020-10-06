@@ -32,8 +32,7 @@ export const FlashcardContainer = () => {
       if (isTextAreaFocused) {
         return;
       }
-      // keyCode 37 is the left arrow
-      if (event.keyCode === 37) {
+      if (event.key === 'ArrowLeft') {
         if (selectedFlashcard === 0) {
           return changeSelectedFlashcard(flashcards.length - 1);
         }
@@ -41,8 +40,7 @@ export const FlashcardContainer = () => {
           return changeSelectedFlashcard(selectedFlashcard - 1);
         }
       }
-      // keyCode 39 is the right arrow
-      if (event.keyCode === 39) {
+      if (event.key === 'ArrowRight') {
         if (selectedFlashcard === flashcards.length - 1) {
           return changeSelectedFlashcard(0);
         }

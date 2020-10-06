@@ -64,7 +64,7 @@ const ShortcutsModal = () => {
   const { colorMode } = useColorMode();
 
   const handleOpenModal = (e: any) => {
-    if (e.shiftKey && e.keyCode == 191) {
+    if (e.key == '?') {
       // detect Shift + / i.e '?'
       onOpen();
     }
