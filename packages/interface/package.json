@@ -43,6 +43,7 @@
     "isomorphic-fetch": "^2.2.1",
     "jwt-decode": "^2.2.0",
     "logrocket": "^1.0.13",
+    "logrocket-react": "^4.0.1",
     "namor": "^2.0.2",
     "prism-react-renderer": "^1.1.1",
     "qs": "^6.9.4",
@@ -79,5 +80,9 @@
     "serve": "gatsby serve",
     "e2e-test": "start-server-and-test develop http://127.0.0.1:8000 'cypress open'",
     "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "babel-plugin-add-react-displayname": "^0.0.5",
+    "babel-preset-gatsby": "^0.5.13"
   }
 }
