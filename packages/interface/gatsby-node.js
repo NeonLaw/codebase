@@ -3,8 +3,8 @@ const path = require('path');
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     node: {
-      fs: 'empty'
-    }
+      fs: 'empty',
+    },
   });
 };
 
@@ -15,9 +15,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   /* eslint-disable no-useless-escape */
   const contentMdxFiles = await graphql(`
     query {
-      allMdx(
-        filter: { fileAbsolutePath: { regex: "/content\//" } }
-      ) {
+      allMdx(filter: { fileAbsolutePath: { regex: "/content//" } }) {
         edges {
           node {
             id
@@ -32,21 +30,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   /* eslint-disable no-useless-escape */
   const blogMdxFiles = await graphql(`
-  query {
-    allMdx(
-      filter: { fileAbsolutePath: { regex: "/blogPosts\//" } }
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            slug
+    query {
+      allMdx(filter: { fileAbsolutePath: { regex: "/blogPosts//" } }) {
+        edges {
+          node {
+            id
+            frontmatter {
+              slug
+            }
           }
         }
       }
     }
-  }
-`);
+  `);
 
   /* eslint-enable no-useless-escape */
 
@@ -80,9 +76,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   /* eslint-disable no-useless-escape */
   const templateMdxFiles = await graphql(`
     query {
-      allMdx(
-        filter: { fileAbsolutePath: { regex: "/templates\//" } }
-      ) {
+      allMdx(filter: { fileAbsolutePath: { regex: "/templates//" } }) {
         edges {
           node {
             id

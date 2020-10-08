@@ -35,6 +35,7 @@ jobs:
             --build-arg GATSBY_AUTH0_DOMAIN="$GATSBY_AUTH0_DOMAIN" \
             --build-arg GATSBY_AUTH0_CLIENT_ID="$GATSBY_AUTH0_CLIENT_ID" \
             --build-arg GATSBY_AUTH0_TENANT=auth.neonlaw.com \
+            --build-arg GATSBY_LOGROCKET_CREDENTIALS='4qbrpw/production-hoje7' \
             --build-arg GATSBY_ACTIVE_ENV=production \
             --build-arg APP_NAME=interface \
             --build-arg DOMAIN_NAME=www.neonlaw.com \

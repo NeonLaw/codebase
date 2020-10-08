@@ -42,6 +42,7 @@
     "graphql-tag": "^2.11.0",
     "isomorphic-fetch": "^2.2.1",
     "jwt-decode": "^2.2.0",
+    "logrocket": "^1.0.13",
     "namor": "^2.0.2",
     "prism-react-renderer": "^1.1.1",
     "qs": "^6.9.4",
