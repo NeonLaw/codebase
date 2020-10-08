@@ -17311,10 +17311,10 @@ react-focus-lock@2.4.1, react-focus-lock@^2.3.1:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
-react-google-recaptcha-v3@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/react-google-recaptcha-v3/-/react-google-recaptcha-v3-1.5.2.tgz#0a20cb133270bd4fbd90a641937142e45d0ff9ae"
-  integrity sha512-lv+uWHZJ7aU5cbDSPYprehnxLAysriyK2V6lNGv3EF7XVffJbV2bJb0b8m4FHi1EYC9+BnvmCZT1n8oupEgYMw==
+react-google-recaptcha-v3@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/react-google-recaptcha-v3/-/react-google-recaptcha-v3-1.6.1.tgz#a263139efa75617efb034d355bf926b4991426a1"
+  integrity sha512-vR0zgvwDc+281qVQULYz5GR7vG/qsaoQnNdhmikFB7rNcgod8mqfKRRpEekfCvLbu26h4Z4bkGuEG7Ay2ulZxg==
   dependencies:
     hoist-non-react-statics "3.3.2"
 
