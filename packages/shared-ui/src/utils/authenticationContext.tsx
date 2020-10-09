@@ -1,13 +1,9 @@
-import {
-  ApolloClient,
-  InMemoryCache,
-  createHttpLink
-} from '@apollo/client';
+import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import React, { Component, createContext } from 'react';
+import LogRocket from 'logrocket';
 import createAuth0Client from '@auth0/auth0-spa-js';
 import fetch from 'isomorphic-fetch';
 import { setContext } from '@apollo/client/link/context';
-
 
 const link = createHttpLink({
   fetch,
@@ -23,12 +19,20 @@ export const publicClient = new ApolloClient({
 const initialState = {
   apolloClient: publicClient,
   auth0Client: null,
-  getIdTokenClaims: () => { return; },
-  getTokenSilently: () => { return; },
+  getIdTokenClaims: () => {
+    return;
+  },
+  getTokenSilently: () => {
+    return;
+  },
   isAuthenticated: false,
   isLoading: true,
-  login: () => { return; },
-  logout: () => { return; },
+  login: () => {
+    return;
+  },
+  logout: () => {
+    return;
+  },
   user: null,
 };
 
@@ -41,11 +45,11 @@ export class AuthenticationProvider extends Component {
   config = {
     audience: 'https://api.neonlaw.com',
     cacheLocation: 'localstorage' as const,
-    'client_id': process.env.GATSBY_AUTH0_CLIENT_ID as string,
+    client_id: process.env.GATSBY_AUTH0_CLIENT_ID as string,
     domain: process.env.GATSBY_AUTH0_DOMAIN as string,
-    'redirect_uri': process.env.GATSBY_AUTH0_CALLBACK,
+    redirect_uri: process.env.GATSBY_AUTH0_CALLBACK,
     responseType: 'token id_token',
-    scope: 'openid profile email'
+    scope: 'openid profile email',
   };
 
   componentDidMount() {
@@ -74,11 +78,10 @@ export class AuthenticationProvider extends Component {
 
     try {
       await (this.state.auth0Client as any).handleRedirectCallback();
-    }
-    catch {
-      (this.state.auth0Client as any).logout(
-        { returnTo: process.env.SITE_URL }
-      );
+    } catch {
+      (this.state.auth0Client as any).logout({
+        returnTo: process.env.SITE_URL,
+      });
     }
     const user = await (this.state.auth0Client as any).getUser();
 
@@ -91,15 +94,19 @@ export class AuthenticationProvider extends Component {
       return;
     }
 
+    LogRocket.identify(
+      process.env.GATSBY_LOGROCKET_CREDENTIALS || '4qbrpw/staging',
+      this.state.user || {},
+    );
+
     const authLink = setContext(async () => {
-      const accessToken = await (
-        this.state.auth0Client as any
-      ).getTokenSilently();
+      const accessToken = await (this.state
+        .auth0Client as any).getTokenSilently();
 
       return {
         headers: {
           authorization: `Bearer ${accessToken}`,
-        }
+        },
       };
     });
 
@@ -109,7 +116,7 @@ export class AuthenticationProvider extends Component {
     });
 
     this.setState({ apolloClient: authenticatedClient });
-  }
+  };
 
   render() {
     const { children } = this.props;
@@ -118,7 +125,7 @@ export class AuthenticationProvider extends Component {
       auth0Client,
       isAuthenticated,
       isLoading,
-      user
+      user,
     } = this.state;
 
     const configObject = {
@@ -132,9 +139,7 @@ export class AuthenticationProvider extends Component {
       logout: () => {
         this.setState({ apolloClient: publicClient });
 
-        (auth0Client as any).logout(
-          { returnTo: process.env.SITE_URL }
-        );
+        (auth0Client as any).logout({ returnTo: process.env.SITE_URL });
       },
       user,
     };

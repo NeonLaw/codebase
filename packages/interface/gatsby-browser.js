@@ -8,8 +8,6 @@ export const wrapPageElement = ({ element, props }) => {
 };
 
 export const onClientEntry = () => {
-  LogRocket.init(
-    process.env.GATSBY_LOGROCKET_CREDENTIALS || '4qbrpw/production-hoje7',
-  );
+  LogRocket.init(process.env.GATSBY_LOGROCKET_CREDENTIALS || '4qbrpw/staging');
   setupLogRocketReact(LogRocket);
 };
