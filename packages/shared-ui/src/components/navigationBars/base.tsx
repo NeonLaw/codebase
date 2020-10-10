@@ -142,18 +142,33 @@ export const BaseNavigationBar = ({
                     return <AuthenticatedDropdown />;
                   }
                   return (
-                    <Button
-                      bg="transparent"
-                      border="1px"
-                      className="nav-content-desktop"
-                      disabled={loginButtonDisabled}
-                      onClick={() => {
-                        disableLoginButton(true);
-                        login();
-                      }}
-                    >
-                      {intl.formatMessage({ id: 'auth.login' })}
-                    </Button>
+                    <Flex>
+                      <Button
+                        bg="transparent"
+                        border="1px"
+                        className="nav-content-desktop"
+                        disabled={loginButtonDisabled}
+                        onClick={() => {
+                          disableLoginButton(true);
+                          login();
+                        }}
+                      >
+                        {intl.formatMessage({ id: 'auth.sign_up' })}
+                      </Button>
+                      <Box width="6px" />
+                      <Button
+                        bg="transparent"
+                        border="1px"
+                        className="nav-content-desktop"
+                        disabled={loginButtonDisabled}
+                        onClick={() => {
+                          disableLoginButton(true);
+                          login();
+                        }}
+                      >
+                        {intl.formatMessage({ id: 'auth.login' })}
+                      </Button>
+                    </Flex>
                   );
                 }}
               </AuthenticationContext.Consumer>
@@ -163,10 +178,12 @@ export const BaseNavigationBar = ({
                 fontSize="20px"
                 variant="ghost"
                 icon={<MdDehaze />}
-                onClick={() => { 
+                onClick={() => {
                   onToggle();
-                  document.body
-                    .setAttribute('style', 'margin-right: 0 !important');
+                  document.body.setAttribute(
+                    'style',
+                    'margin-right: 0 !important',
+                  );
                 }}
               />
             </Flex>

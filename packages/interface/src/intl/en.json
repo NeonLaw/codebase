@@ -1,6 +1,7 @@
 {
   "auth": {
-    "login": "Login"
+    "login": "Login",
+    "sign_up": "Get Legal Help Today"
   },
   "languages": {
     "language": "Language",
