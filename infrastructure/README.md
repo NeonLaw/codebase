@@ -12,32 +12,34 @@ Projects.
 In each of our GCP projects, `Neon-Law-Production` and `Neon-Law-Staging`,
 perform the following steps using the GCP Console.
 
-* Create a service account for Terraform with Project Editor and Compute
+- Create a service account for Terraform with Project Editor and Compute
   Network Admin permissions
-  * Store the Credentials JSON file as the envvar `gcp_credentials` in
+  - Store the Credentials JSON file as the envvar `gcp_credentials` in
     the `staging-gcp` and `production-gcp` Terraform Cloud workspaces
-* Create a service account for CloudSQL with SQL Connect permissions
-  * Store the Credentials JSON file as the envvar `sql_proxy_gcp_credentials` in
+- Create a service account for CloudSQL with SQL Connect permissions
+  - Store the Credentials JSON file as the envvar `sql_proxy_gcp_credentials` in
     the `staging-kubernetes` and `production-kubernetes` Terraform Cloud
     workpsaces.
-* Create a service account for GitHub Actions with Project Editor permissions
-  * Store the Credentials JSON file as the envvar `STAGING_GCP_CREDENTIALS` in
+- Create a service account for GitHub Actions with Project Editor permissions
+  - Store the Credentials JSON file as the envvar `STAGING_GCP_CREDENTIALS` in
     our GitHub organization
-* Create a service account for our backend code with permissions to access the
+- Create a service account for our backend code with permissions to access the
   speech-to-text api.
-  * Store the Credentials JSON file as the envvar `logic_gcp_credentials` in
+  - Store the Credentials JSON file as the envvar `logic_gcp_credentials` in
     the `staging-kubernetes` and `production-kubernetes` Terraform Cloud
     workpsaces.
-* Create a global IP, named `neon-law`. Reserved global IPs are not supported
+- Create a global IP, named `neon-law`. Reserved global IPs are not supported
   in GCP Terraform.
-* Enable the following APIs in the GCP Console
-  * Google Cloud SQL Admin API
-  * Cloud Resource Manager API
-  * Compute Engine API
-  * Container Registry API
-  * Service Networking API
-  * Kubernetes Engine API
-  * Speech-to-Text API
+- Enable the following APIs in the GCP Console
+  - Google Cloud SQL Admin API
+  - Cloud Resource Manager API
+  - Compute Engine API
+  - Container Registry API
+  - Service Networking API
+  - Kubernetes Engine API
+  - Speech-to-Text API
+  - Billing API
+  - Billing Budget API
 
 ## Step 1 - the Staging GCP Module
 
@@ -49,11 +51,11 @@ are required for the `Staging Kubernetes` one.
 After you created the Staging GCP module, you must make a few more manual
 steps before proceeding to the next step:
 
-* In the newly created Cloud SQL instance, create the databases `neon_law` and
+- In the newly created Cloud SQL instance, create the databases `neon_law` and
   `strapi`, and change the database password for the master user, `postgres`
   and save that as the `master_database_password` environment variable in the
   `staging-kubernetes` Terraform workspace on Terraform cloud.
-* Push images to the `api` and `interface` repository. We do so via GitHub
+- Push images to the `api` and `interface` repository. We do so via GitHub
   actions in these respective repositories
 
 > Until Terraform 0.13 is released, you will need to first run this module
