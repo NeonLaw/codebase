@@ -80,7 +80,7 @@ jobs:
       - name: Run Graphql-Codegen
         run: docker exec shell yarn graphql-codegen
       - name: Check if git diff changed
-        run: git diff --exit-code
+        run: git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
   interface_e2e:
     runs-on: ubuntu-latest
     env:
