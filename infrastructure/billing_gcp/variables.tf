@@ -17,8 +17,5 @@ variable environment {
 variable gcp_credentials {
 }
 
-variable billing_account {
-}
-
 variable total_budget {
 }
