@@ -7,8 +7,8 @@ provider "google-beta" {
 }
 
 data "google_billing_account" "account" {
-  provider = google-beta
-  billing_account = var.billing_account
+  open = true
+  display_name = "Neon Law"
 }
 
 resource "google_billing_budget" "budget" {
