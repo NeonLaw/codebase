@@ -59,13 +59,13 @@ resource "kubernetes_manifest" "cloud_cdn_backend_config" {
   manifest = {
     apiVersion = "cloud.google.com/v1beta1"
     kind = "BackendConfig"
-    metadata {
+    metadata = {
       name = "cloud-cdn"
     }
-    spec {
-      cdn {
+    spec = {
+      cdn = {
         enabled = "cdnEnabled"
-        cachePolicy {
+        cachePolicy = {
           includeHost = true
           includeProtocol = false
           includeQueryString = true
