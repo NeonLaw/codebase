@@ -44,3 +44,7 @@ output "region" {
 output "zone" {
   value = "b"
 }
+
+output "gcp_credentials" {
+  value = var.gcp_credentials
+}

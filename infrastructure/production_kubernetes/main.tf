@@ -24,6 +24,7 @@ provider "kubernetes" {
 
 provider "kubernetes-alpha" {
   server_side_planning = true
+  token                = data.terraform_remote_state.production_gcp.outputs.gcp_credentials
 
   host     = data.terraform_remote_state.production_gcp.outputs.gke_host
   username = data.terraform_remote_state.production_gcp.outputs.gke_username
