@@ -11,8 +11,6 @@ data "terraform_remote_state" "production_gcp" {
 }
 
 provider "kubernetes" {
-  load_config_file = false
-
   host     = data.terraform_remote_state.production_gcp.outputs.gke_host
   username = data.terraform_remote_state.production_gcp.outputs.gke_username
   password = data.terraform_remote_state.production_gcp.outputs.gke_password
