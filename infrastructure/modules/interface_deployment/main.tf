@@ -55,7 +55,7 @@ resource "kubernetes_service" "primary" {
 }
 
 resource "kubernetes_manifest" "cloud_cdn_backend_config" {
-  provider = "kubernetes-alpha"
+  provider = kubernetes-alpha
   manifest = {
     apiVersion = "cloud.google.com/v1beta1"
     kind = "BackendConfig"
