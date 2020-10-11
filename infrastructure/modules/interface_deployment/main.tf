@@ -69,7 +69,7 @@ resource "kubernetes_manifest" "cloud_cdn_backend_config" {
           includeHost = true
           includeProtocol = false
           includeQueryString = true
-          queryStringBlacklist = [name]
+          queryStringBlacklist = ["name"]
         }
       }
     }
