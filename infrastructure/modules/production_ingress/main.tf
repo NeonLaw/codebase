@@ -10,16 +10,16 @@ resource "kubernetes_ingress" "primary" {
 
   spec {
     backend {
-      service_name = var.neon_law_interface_service_name
+      service_name = "interface"
       service_port = 80
     }
 
     rule {
-      host = var.neon_law_host
+      host = "www.neonlaw.com"
       http {
         path {
           backend {
-            service_name = var.api_service_name
+            service_name = "api"
             service_port = 80
           }
 
@@ -29,11 +29,11 @@ resource "kubernetes_ingress" "primary" {
     }
 
     rule {
-      host = var.delete_your_data_host
+      host = "www.deleteyourdata.com"
       http {
         path {
           backend {
-            service_name = var.delete_your_data_service_name
+            service_name = "delete-your-data"
             service_port = 80
           }
         }
@@ -41,11 +41,11 @@ resource "kubernetes_ingress" "primary" {
     }
 
     rule {
-      host = var.law_job_resources_host
+      host = "www.lawjobresources.com"
       http {
         path {
           backend {
-            service_name = var.law_job_resources_service_name
+            service_name = "law-job-resources"
             service_port = 80
           }
         }
@@ -53,11 +53,11 @@ resource "kubernetes_ingress" "primary" {
     }
 
     rule {
-      host = var.justice_for_rickie_slaughter_host
+      host = "www.justiceforrickieslaughter.com"
       http {
         path {
           backend {
-            service_name = var.justice_for_rickie_slaughter_service_name
+            service_name = "justice-for-rickie-slaughter"
             service_port = 80
           }
         }

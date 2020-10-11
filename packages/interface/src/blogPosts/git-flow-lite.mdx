@@ -1,0 +1,43 @@
+---
+title: Git Flow Lite
+slug: /blog/git-flow-lite
+updatedAt: '2020-10-10'
+tags: programming,git-flow
+widescreen: true
+description: >
+  Instead of having multiple branches, have one main `development` branch.
+  Staging is deployed upon each commit, and production is deployed on a regular
+  schedule + manually.
+---
+
+[Git Flow](https://nvie.com/posts/a-successful-git-branching-model/) is a
+workflow for teams using GitHub to version releases of their software. There are
+many great reasons why a team should adopt them, especially if your team ships
+versioned software like Desktop or CLI apps you don't have much visibility into.
+
+However, for us, everything we do is at neonlaw.com, or staged at neonlaw.net.
+We don't distribute Desktop or CLI apps because we encourage everyone to use our
+website. As a result, we do everything from one `development` branch, which you
+can see in our [GitHub repository](https://github.com/neonlaw/codebase). We
+implement Continuous Deployment in a much simpler way than GitFlow.
+
+First, every push to the `development` branch automatically pushes new code
+to our staging environment, www.neonlaw.net. And second, `production` is just
+a commit on `development` that has been previously deployed to `staging`. By
+keeping our production and staging deploys in sync with the linear history of
+the `development` branch, we implement ["roll forward
+deployment"](https://www.openmakesoftware.com/rolling-forward-deployment-version/).
+
+This keeps our development cycles tight so we can ensure our latest software
+innovations are used by our team to give our clients the best legal
+representation possible. As a corallarly to our simpler version of GitFlow, we
+encourage our team to put new features behind [feature
+flags](https://www.split.io/product/feature-flags/), so new code can still be
+continuously checked-in.
+
+While this doesn't work for everyone, for us and our use case of keeping
+neonlaw.com up-to-date with our latest innovation, this simple "Git Flow Lite"
+has worked well.
+
+If you or your team have questions about software compliance, including HIPAA,
+SOC, GDPR, or FedRAMP compliance, please [get in touch with us](/contact).

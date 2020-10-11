@@ -22,6 +22,19 @@ provider "kubernetes" {
   cluster_ca_certificate = base64decode(data.terraform_remote_state.production_gcp.outputs.gke_cluster_ca_certificate)
 }
 
+provider "kubernetes-alpha" {
+  server_side_planning = true
+  token                = data.terraform_remote_state.production_gcp.outputs.gcp_credentials
+
+  host     = data.terraform_remote_state.production_gcp.outputs.gke_host
+  username = data.terraform_remote_state.production_gcp.outputs.gke_username
+  password = data.terraform_remote_state.production_gcp.outputs.gke_password
+
+  client_certificate     = base64decode(data.terraform_remote_state.production_gcp.outputs.gke_client_certificate)
+  client_key             = base64decode(data.terraform_remote_state.production_gcp.outputs.gke_client_key)
+  cluster_ca_certificate = base64decode(data.terraform_remote_state.production_gcp.outputs.gke_cluster_ca_certificate)
+}
+
 module "sql_proxy_kubernetes_secret" {
   source       = "../modules/kubernetes_secret"
   secret_name  = "sql-proxy-service-account-token"
@@ -44,7 +57,7 @@ module "logic_kubernetes_secret" {
 
 module "api_deployment" {
   source                       = "../modules/api_deployment"
-  app_name                     = "production-api"
+  app_name                     = "api"
   new_relic_app_name           = "production"
   image_url                    = "${data.terraform_remote_state.production_gcp.outputs.container_registry}/api:latest"
   database_name                = "neon-law"
@@ -84,17 +97,4 @@ module "delete_your_data_deployment" {
 
 module "ingress" {
   source = "../modules/production_ingress"
-  api_service_name = "production-api"
-
-  neon_law_interface_service_name = "interface"
-  neon_law_host = "www.neonlaw.com"
-
-  law_job_resources_service_name = "law-job-resources"
-  law_job_resources_host = "www.lawjobresources.com"
-
-  delete_your_data_service_name = "delete-your-data"
-  delete_your_data_host = "www.deleteyourdata.com"
-
-  justice_for_rickie_slaughter_service_name = "justice-for-rickie-slaughter"
-  justice_for_rickie_slaughter_host = "www.justiceforrickieslaughter.com"
 }
