@@ -16,7 +16,7 @@
     "eslint-plugin-jsdoc": "^30.2.4",
     "graphql-tag": "^2.11.0",
     "isomorphic-fetch": "^2.2.1",
-    "jwt-decode": "^2.2.0",
+    "jwt-decode": "^3.0.0",
     "namor": "^2.0.2",
     "prism-react-renderer": "^1.1.1",
     "qs": "^6.9.4",
