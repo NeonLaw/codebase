@@ -6,7 +6,7 @@
   "license": "PolyForm-Noncommercial-1.0.0",
   "dependencies": {
     "@apollo/client": "3.1.4",
-    "@auth0/auth0-spa-js": "^1.12.0",
+    "@auth0/auth0-spa-js": "^1.12.1",
     "@chakra-ui/core": "1.0.0-rc.3",
     "@chakra-ui/icons": "1.0.0-rc.3",
     "@hookform/error-message": "^0.0.4",
@@ -35,7 +35,7 @@
     "gatsby-remark-images": "^3.3.29",
     "gatsby-source-filesystem": "^2.3.30",
     "gatsby-source-graphql": "^2.7.6",
-    "gatsby-transformer-sharp": "^2.5.14",
+    "gatsby-transformer-sharp": "^2.5.17",
     "graphql-tag": "^2.11.0",
     "isomorphic-fetch": "^2.2.1",
     "jwt-decode": "^3.0.0",
