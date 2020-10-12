@@ -99,7 +99,7 @@ jobs:
         with:
           start: docker-compose -f ../../docker-compose.yml up postgres interface
           wait-on: "http://127.0.0.1:8000"
-          wait-on-timeout: 1500
+          wait-on-timeout: 1800
           working-directory: ./packages/interface
         env:
           CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
@@ -125,7 +125,7 @@ jobs:
         with:
           start: docker-compose -f ../../docker-compose.yml up postgres law_job_resources
           wait-on: "http://127.0.0.1:5000"
-          wait-on-timeout: 1500
+          wait-on-timeout: 1800
           working-directory: ./packages/law-job-resources
         env:
           CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
@@ -151,7 +151,7 @@ jobs:
         with:
           start: docker-compose -f ../../docker-compose.yml up postgres justice_for_rickie_slaughter
           wait-on: "http://127.0.0.1:7000"
-          wait-on-timeout: 1500
+          wait-on-timeout: 1800
           working-directory: ./packages/justice-for-rickie-slaughter
         env:
           CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
@@ -177,7 +177,7 @@ jobs:
         with:
           start: docker-compose -f ../../docker-compose.yml up postgres delete_your_data
           wait-on: "http://127.0.0.1:7777"
-          wait-on-timeout: 1500
+          wait-on-timeout: 1800
           working-directory: ./packages/delete-your-data
         env:
           CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
