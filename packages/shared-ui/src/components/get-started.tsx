@@ -4,7 +4,7 @@ import { Box, } from '@chakra-ui/core';
 import { FlashButton } from './button';
 import React from 'react';
 import { Section } from './section';
-import { getBrowser } from '../utils/getBrowser';
+import { navigate } from 'gatsby';
 import { useIntl } from 'gatsby-plugin-intl';
 
 export const GetStarted = () => {
@@ -22,10 +22,7 @@ export const GetStarted = () => {
       </Box>
       <FlashButton
         onClick={() => {
-          window.open(
-            'https://neonlaw.cliogrow.com/book/xRg6TK0beg2sHsoIf81FkQ',
-            getBrowser() === 'Firefox' ? '_self' : '_blank',
-          );
+          navigate('/contact');
         }}
         buttonScheme="teal"
       >
