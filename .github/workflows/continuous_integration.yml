@@ -73,10 +73,10 @@ jobs:
           password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
       - name: Run Docker Compose
         run: docker-compose up -d
-      - name: Sleep for 1200 seconds
+      - name: Sleep for 100 seconds
         uses: jakejarvis/wait-action@master
         with:
-          time: '1200s'
+          time: '100s'
       - name: Run Graphql-Codegen
         run: docker exec shell yarn graphql-codegen
       - name: Check if git diff changed
