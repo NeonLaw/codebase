@@ -60,9 +60,6 @@ jobs:
           coverageCommand: yarn test
   graphql-codegen-file-spec:
     runs-on: ubuntu-latest
-    env:
-      AUTH0_CLIENT_ID: ${{ secrets.LOGIC_AUTH0_CLIENT_ID }}
-      AUTH0_CLIENT_SECRET: ${{ secrets.LOGIC_AUTH0_CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v2
       - name: Login to GitHub Container Registry
@@ -73,10 +70,10 @@ jobs:
           password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
       - name: Run Docker Compose
         run: docker-compose up -d
-      - name: Sleep for 100 seconds
+      - name: Sleep for 300 seconds
         uses: jakejarvis/wait-action@master
         with:
-          time: '100s'
+          time: '300s'
       - name: Run Graphql-Codegen
         run: docker exec shell yarn graphql-codegen
       - name: Check if git diff changed
