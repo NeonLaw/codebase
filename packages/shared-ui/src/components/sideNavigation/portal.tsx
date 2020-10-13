@@ -1,5 +1,6 @@
+import {CgProfile} from 'react-icons/cg';
+import { MdDashboard } from 'react-icons/md';
 import React from 'react';
-
 import {
   SideNavContainer
 } from '../../components/sideNavigation/sideNavContainer';
@@ -7,11 +8,11 @@ import { SideNavContent } from '../../components/sideNavigation/base';
 
 export const PortalSideNavContent = () => {
   const links = [
-    { label: 'Dashboard', route: '/portal' },
-    { label: 'Profile', route: '/portal/profile' }
+    { icon: <MdDashboard />, label: 'Dashboard', route: '/portal' },
+    { icon: <CgProfile />, label: 'Profile', route: '/portal/profile' }
   ];
   return (
-    <SideNavContent links={links} />
+    <SideNavContent isRenderedOnDashBoard={true} links={links} />
   );
 };
 

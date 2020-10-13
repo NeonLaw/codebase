@@ -14,26 +14,34 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  Text,
   useDisclosure,
 } from '@chakra-ui/core';
 import React, { useState } from 'react';
+import { colors, gutters } from '../../themes/neonLaw';
 
 import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { AuthenticationContext } from '../../utils/authenticationContext';
+import { BlackLivesMatter } from './black-lives-matter';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
 import { Link } from '../../components/link';
 import { MdDehaze } from 'react-icons/md';
 import { Search } from './search';
-import { colors } from '../../themes/neonLaw';
 import { useIntl } from 'gatsby-plugin-intl';
+
+interface BaseNavigationBarProps {
+  portal?: boolean 
+  links?: any 
+  menus?: any 
+  sideNavigationDrawer?: any
+}
 
 export const BaseNavigationBar = ({
   links = [] as any[],
   menus = [] as any[],
   sideNavigationDrawer,
-}) => {
+  portal
+}:BaseNavigationBarProps ) => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const intl = useIntl();
 
@@ -41,46 +49,38 @@ export const BaseNavigationBar = ({
 
   return (
     <>
-      <Flex
-        as="header"
-        position="fixed"
-        bg="black"
-        color="white"
-        height="2em"
-        width="full"
-        zIndex={4}
-        alignItems="center"
-      >
-        <Text flex="1" textAlign="center">
-          Black Lives Matter
-        </Text>
-      </Flex>
+      { 
+        !portal ? <BlackLivesMatter /> : null 
+      }       
       <Box
         top="2em"
-        position="fixed"
+        position={`${!portal ? 'fixed' : ''}`}
+        padding={`${!portal ? 0 : `${gutters.xSmallOne} ${gutters.xSmall}`}`}
         zIndex={4}
-        bg="black"
-        color="white"
+        bg={!portal ? 'black': '#f4f4f4'}
+        color={!portal ? 'white' : 'black'}
         left="0"
         right="0"
         width="full"
-        height="4em"
+        height={!portal ? '4em' : 'auto'}
       >
-        <Container>
+        <Container isFullBleed={portal}>
           <Flex boxSize="100%" align="center">
-            <Box
-              mr={5}
-              as={Link}
-              cursor="pointer"
-              display="block"
-              to="/"
-              aria-label="Neon Law, Back to homepage"
-              minWidth="3em"
-            >
-              <img src="/images/logo.svg" alt="Neon Law" />
-            </Box>
+            {
+              !portal ? <Box
+                mr={5}
+                as={Link}
+                cursor="pointer"
+                display="block"
+                to="/"
+                aria-label="Neon Law, Back to homepage"
+                minWidth="3em"
+              >
+                <img src="/images/logo.svg" alt="Neon Law" />
+              </Box> : null
+            }
 
-            <Search version="desktop" />
+            <Search version="desktop" portal="true"/>
 
             <Flex flexGrow={1} align="center" justify="flex-end">
               {links.map((link, i) => (
@@ -177,6 +177,7 @@ export const BaseNavigationBar = ({
                 aria-label="Navigation Menu"
                 fontSize="20px"
                 variant="ghost"
+                color="black"
                 icon={<MdDehaze />}
                 onClick={() => {
                   onToggle();

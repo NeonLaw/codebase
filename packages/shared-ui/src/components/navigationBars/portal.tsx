@@ -2,8 +2,11 @@ import { BaseNavigationBar } from './base';
 import { PortalSideNavContent } from '../../components/sideNavigation/portal';
 import React from 'react';
 
-export const PortalNavigationBar = () => {
+export const PortalNavigationBar = ({ portal }: { portal?: boolean}) => {
   return (
-    <BaseNavigationBar sideNavigationDrawer={<PortalSideNavContent />} />
+    <BaseNavigationBar 
+      portal={portal}
+      sideNavigationDrawer={<PortalSideNavContent />} 
+    />
   );
 };
