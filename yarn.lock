@@ -11151,10 +11151,10 @@ graphile-build@4.9.0:
     pluralize "^7.0.0"
     semver "^6.0.0"
 
-graphile-migrate@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/graphile-migrate/-/graphile-migrate-1.0.1.tgz#9f1146cefed6a9c1dfbb5e267b92d26216e55b5b"
-  integrity sha512-HYOpkV/zeG8v/AOyMPgEzxc8UcFtDOe7H7dRHAzMEdFKooxZ0AxVH8Opwm+z9c1S1CgGzxAHZw2QJbYhZTikGg==
+graphile-migrate@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/graphile-migrate/-/graphile-migrate-1.0.2.tgz#88cef401bf5d26651d5224757e34b88e4b1aa1fd"
+  integrity sha512-/k0azhuJFstcvqydVGei0w+VtXBrt5pzqJkTxVEEvHKSMDuyoBn0cNeXPIqvX/T4M8HZdoyX13aa5zrXCWViCw==
   dependencies:
     "@types/json5" "^0.0.30"
     "@types/node" "^14.6.0"
