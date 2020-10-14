@@ -52,7 +52,7 @@
         "identity-obj-proxy": "^3.0.0",
         "jest": "^26.4.2",
         "remark-cli": "^8.0.1",
-        "remark-comment-config": "^5.1.1",
+        "remark-comment-config": "^6.0.0",
         "remark-github": "^9.0.1",
         "remark-lint": "^7.0.1",
         "remark-lint-write-good": "^1.2.0",
