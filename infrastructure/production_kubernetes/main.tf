@@ -70,7 +70,7 @@ module "logic_kubernetes_secret" {
 
 module "api_deployment" {
   source                       = "../modules/api_deployment"
-  app_name                     = "api"
+  app_name                     = "production-api"
   new_relic_app_name           = "production"
   image_url                    = "${data.terraform_remote_state.production_gcp.outputs.container_registry}/api:latest"
   database_name                = "neon-law"
