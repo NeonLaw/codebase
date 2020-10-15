@@ -8,7 +8,7 @@ import BannerBg from '../../images/banner.jpg';
 import { Container } from '@neonlaw/shared-ui/src/components/container';
 import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
 import React from 'react';
-import { getBrowser } from '@neonlaw/shared-ui/src/utils/getBrowser';
+import { navigate } from 'gatsby';
 import { theme } from '@chakra-ui/core';
 
 interface BannerProps {
@@ -56,10 +56,7 @@ export const Banner = ({ title, text, buttonText }: BannerProps) => (
           bg={colors.cyanDark}
           _hover={{ bg: colors.cyanDark1 }}
           onClick={() => {
-            window.open(
-              'https://neonlaw.cliogrow.com/book/xRg6TK0beg2sHsoIf81FkQ',
-              getBrowser() === 'Firefox' ? '_self' : '_blank',
-            );
+            navigate('/contact');
           }}
         >
           {buttonText}
