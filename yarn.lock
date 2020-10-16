@@ -18501,7 +18501,7 @@ remark-lint-write-good@^1.2.0:
     unist-util-visit "^1.1.1"
     write-good "^1.0.2"
 
-remark-lint@^7.0.0, remark-lint@^7.0.1:
+remark-lint@^7.0.0:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/remark-lint/-/remark-lint-7.0.1.tgz#665a5cbea9f7c95e64593f69bb6816ee8343ffdf"
   integrity sha512-caZXo3qhuBxzvq9JSJFVQ/ERDq/6TJVgWn0KDwKOIJCGOuLXfQhby5XttUq+Rn7kLbNMtvwfWHJlte14LpaeXQ==
