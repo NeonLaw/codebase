@@ -15,6 +15,7 @@ module.exports = {
     'prettier',
   ],
   ignorePatterns: [
+    '@types/',
     '.cache/',
     'build/',
     'node_modules/',

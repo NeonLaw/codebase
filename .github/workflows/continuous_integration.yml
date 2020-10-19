@@ -58,26 +58,10 @@ jobs:
           DATABASE_URL: postgres://postgres:password@localhost:5432/neon_law
         with:
           coverageCommand: yarn test
-  graphql-codegen-file-spec:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: docker.pkg.github.com
-          username: ${{ secrets.GPR_USERNAME }}
-          password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
-      - name: Run Docker Compose
-        run: docker-compose up -d
-      - name: Sleep for 300 seconds
-        uses: jakejarvis/wait-action@master
-        with:
-          time: '300s'
-      - name: Run Graphql-Codegen
-        run: docker exec shell yarn graphql-codegen
-      - name: Check if git diff changed
-        run: git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
+      - name: Check api.tsx file against staging server
+        run: |
+          yarn graphql-codegen
+          git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
   interface_e2e:
     runs-on: ubuntu-latest
     env:
