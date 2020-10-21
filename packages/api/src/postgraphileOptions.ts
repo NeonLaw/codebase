@@ -1,6 +1,7 @@
 import { gql, makeExtendSchemaPlugin } from 'graphile-utils';
 import { PostGraphileOptions } from 'postgraphile';
 import { getSignedUploadUrl } from '@neonlaw/cloud-storage-buckets';
+import { v4 as uuidv4 } from 'uuid';
 
 const uploadPlugin = makeExtendSchemaPlugin(() => ({
   resolvers: {
@@ -65,6 +66,10 @@ export const postgraphileOptions: PostGraphileOptions = {
     } else {
       settings['role'] = 'anonymous';
     }
+    const traceId = uuidv4();
+
+    settings['application_name'] = traceId;
+    request.set('X-TRACE-ID', traceId);
 
     return settings;
   },
