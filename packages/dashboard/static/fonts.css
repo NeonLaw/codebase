@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/jost/Jost-400-Light.ttf') format('ttf'),
+    url('/fonts/jost/Jost-400-Light.woff2') format('woff2');
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('./fonts/jost/Jost-400-Book.ttf') format('ttf'),
+    url('./fonts/jost/Jost-400-Book.woff2') format('woff2');
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  src: url('/fonts/hk-grotesk/HKGrotesk-Regular.ttf') format('ttf'),
+    url('/fonts/hk-grotesk/HKGrotesk-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  src: url('/fonts/hk-grotesk/HKGrotesk-Medium.ttf') format('ttf'),
+    url('/fonts/hk-grotesk/HKGrotesk-Medium.woff2') format('woff2');
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+}

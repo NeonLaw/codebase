@@ -1,0 +1,84 @@
+/* --------------------------------- */
+/* ----- Basic Setup ----- */
+/* --------------------------------- */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --default-font-size: 1.8rem;
+
+  --gutter-x-small: 1.5rem;
+  --gutter-small: 2rem;
+  --gutter-normal: 3rem;
+  --gutter-medium: 4rem;
+
+  --wrapper-small: 550px;
+
+  --black: #000;
+  --white: #fff;
+  --off-white: #f4f4f4;
+  --off-white-1: #cbd5e0;
+  --cyan-light: #0bc5ea;
+
+  --border-light: 1px solid var(--off-white-1);
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+    url('images/dashboard-bg.jpg');
+  background-size: center;
+  background-position: centers;
+  font-family: 'HK Grotesk', sans-serif;
+  font-size: var(--default-font-size);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* --------------------------------- */
+/* ----- Re-usable stuff ----- */
+/* --------------------------------- */
+
+.wrapper-small {
+  max-width: var(--wrapper-small);
+}
+
+/* --------------------------------- */
+/* ----- Headlines & Paras ----- */
+/* --------------------------------- */
+
+h1 {
+  margin-bottom: var(--gutter-x-small);
+}
+
+/* --------------------------------- */
+/* ----- Lists ----- */
+/* --------------------------------- */
+
+ul {
+  list-style: none;
+}
+
+/* --------------------------------- */
+/* ----- Form Elements ----- */
+/* --------------------------------- */
+
+input,
+button {
+  font-family: inherit;
+  font-size: inherit;
+}

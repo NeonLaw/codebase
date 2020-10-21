@@ -14,7 +14,8 @@
         "packages/questions",
         "packages/shared-ui",
         "packages/speech-to-text",
-        "packages/stripe"
+        "packages/stripe",
+        "packages/dashboard"
     ],
     "devDependencies": {
         "@graphql-codegen/cli": "^1.17.10",
