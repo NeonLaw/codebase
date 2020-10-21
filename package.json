@@ -53,7 +53,7 @@
         "jest": "^26.4.2",
         "remark-cli": "^9.0.0",
         "remark-comment-config": "^6.0.0",
-        "remark-github": "^10.0.0",
+        "remark-github": "^10.0.1",
         "remark-lint": "^8.0.0",
         "remark-lint-write-good": "^1.2.0",
         "remark-preset-lint-consistent": "^4.0.0",
