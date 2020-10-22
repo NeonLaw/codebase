@@ -5,14 +5,14 @@ interface NeonLawPerson {
 
 declare module 'express' {
   interface Request {
-    neonLawPerson?: NeonLawPerson;
+    authenticatedPerson?: NeonLawPerson;
     user?: any;
   }
 }
 
 declare module 'http' {
   interface IncomingMessage {
-    neonLawPerson?: NeonLawPerson;
+    authenticatedPerson?: NeonLawPerson;
     user?: any;
   }
 }

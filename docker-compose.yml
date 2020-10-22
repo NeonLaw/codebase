@@ -36,14 +36,19 @@ services:
     restart: unless-stopped
     volumes:
       - ./docker/pg-init-scripts:/docker-entrypoint-initdb.d
-    command: ["postgres", "-c", "log_statement=all"]
+    command: ["postgres", "-c", "shared_preload_libraries=pg_stat_statements"]
+    logging:
+      driver: none
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.9.2
+    container_name: elasticsearch
     environment:
       - "discovery.type=single-node"
     ports:
       - 9200:9200
+    logging:
+      driver: none
 
   api:
     build:
@@ -74,65 +79,6 @@ services:
       PACKAGE_NAME: interface
       GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
       INTERNAL_STATUS_PORT: 33000
-
-  law_job_resources:
-    build:
-      context: ./
-      dockerfile: ./docker/development.interface.Dockerfile
-    restart: always
-    container_name: law_job_resources
-    depends_on:
-      - api
-    ports:
-      - 5000:8000
-      - 33001:33001
-    volumes: *node-volumes
-    environment:
-      PACKAGE_NAME: law-job-resources
-      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
-      INTERNAL_STATUS_PORT: 33001
-
-  justice_for_rickie_slaughter:
-    build:
-      context: ./
-      dockerfile: ./docker/development.interface.Dockerfile
-    restart: always
-    container_name: justice_for_rickie_slaughter
-    depends_on:
-      - api
-    ports:
-      - 7000:8000
-      - 33002:33002
-    volumes: *node-volumes
-    environment:
-      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
-      PACKAGE_NAME: justice-for-rickie-slaughter
-      INTERNAL_STATUS_PORT: 33002
-
-  delete_your_data:
-    build:
-      context: ./
-      dockerfile: ./docker/development.interface.Dockerfile
-    restart: always
-    container_name: delete_your_data
-    depends_on:
-      - api
-    ports:
-      - 7777:8000
-      - 33003:33003
-    volumes: *node-volumes
-    environment:
-      PACKAGE_NAME: delete-your-data
-      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
-      INTERNAL_STATUS_PORT: 33002
-
-  language_tool:
-    image: silviof/docker-languagetool
-    restart: unless-stopped
-    logging:
-      driver: none
-    ports:
-      - 8001:8010
 
   shell:
     build:

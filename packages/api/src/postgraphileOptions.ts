@@ -1,7 +1,6 @@
 import { gql, makeExtendSchemaPlugin } from 'graphile-utils';
 import { PostGraphileOptions } from 'postgraphile';
 import { getSignedUploadUrl } from '@neonlaw/cloud-storage-buckets';
-import { v4 as uuidv4 } from 'uuid';
 
 const uploadPlugin = makeExtendSchemaPlugin(() => ({
   resolvers: {
@@ -34,14 +33,14 @@ const uploadPlugin = makeExtendSchemaPlugin(() => ({
 
 export const postgraphileOptions: PostGraphileOptions = {
   async additionalGraphQLContextFromRequest(request) {
-    if (!request.neonLawPerson || !request.neonLawPerson.id) {
-      return {};
+    if (request.authenticatedPerson && request.authenticatedPerson.id) {
+      const { id, role } = request.authenticatedPerson;
+      return {
+        authenticatedPerson: { id, role },
+      };
     }
 
-    const { id, role } = request.neonLawPerson;
-    return {
-      neonLawPerson: { id, role }
-    };
+    return {};
   },
   appendPlugins: [uploadPlugin],
   disableQueryLog: false,
@@ -60,16 +59,13 @@ export const postgraphileOptions: PostGraphileOptions = {
     const settings: any = {};
 
     if (request.user) {
-      const { role, id } = request.neonLawPerson;
+      const { role, id } = request.authenticatedPerson;
       settings['role'] = role;
       settings['person.id'] = id;
     } else {
       settings['role'] = 'anonymous';
     }
-    const traceId = uuidv4();
-
-    settings['application_name'] = traceId;
-    request.set('X-TRACE-ID', traceId);
+    settings['application_name'] = request['X-Trace-Id'];
 
     return settings;
   },
