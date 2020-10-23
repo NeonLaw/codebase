@@ -1,7 +1,7 @@
 resource "helm_release" "new_relic" {
   name       = "new-relic-${var.environment}"
   repository = "https://helm-charts.newrelic.com"
-  chart      = "newrelic/newrelic-infrastructure"
+  chart      = "newrelic-infrastructure"
 
   set {
     name  = "cluster"
