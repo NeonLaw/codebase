@@ -125,6 +125,6 @@ module "ingress" {
 }
 
 module "new_relic" {
-  source = "../modules/new_relic"
+  source = "../modules/new_relic_helm"
   environment = "production"
 }
