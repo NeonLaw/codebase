@@ -115,3 +115,9 @@ module "staging_ingress" {
   delete_your_data_service_name = "delete-your-data"
   delete_your_data_host = "www.deleteyourdata.info"
 }
+
+module "new_relic" {
+  source = "../modules/new_relic_helm"
+  environment = "staging"
+  new_relic_license_key = var.new_relic_license_key
+}

@@ -38,6 +38,18 @@ provider "kubernetes" {
   cluster_ca_certificate = base64decode(data.terraform_remote_state.production_gcp.outputs.gke_cluster_ca_certificate)
 }
 
+provider "helm" {
+  kubernetes {
+    host     = data.terraform_remote_state.production_gcp.outputs.gke_host
+    username = data.terraform_remote_state.production_gcp.outputs.gke_username
+    password = data.terraform_remote_state.production_gcp.outputs.gke_password
+
+    client_certificate     = base64decode(data.terraform_remote_state.production_gcp.outputs.gke_client_certificate)
+    client_key             = base64decode(data.terraform_remote_state.production_gcp.outputs.gke_client_key)
+    cluster_ca_certificate = base64decode(data.terraform_remote_state.production_gcp.outputs.gke_cluster_ca_certificate)
+  }
+}
+
 provider "kubernetes-alpha" {
   server_side_planning = true
 
@@ -110,4 +122,10 @@ module "delete_your_data_deployment" {
 
 module "ingress" {
   source = "../modules/production_ingress"
+}
+
+module "new_relic" {
+  source = "../modules/new_relic_helm"
+  environment = "production"
+  new_relic_license_key = var.new_relic_license_key
 }
