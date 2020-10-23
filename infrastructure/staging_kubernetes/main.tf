@@ -119,4 +119,5 @@ module "staging_ingress" {
 module "new_relic" {
   source = "../modules/new_relic_helm"
   environment = "staging"
+  new_relic_license_key = var.new_relic_license_key
 }

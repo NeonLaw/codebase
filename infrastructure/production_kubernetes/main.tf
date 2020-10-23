@@ -127,4 +127,5 @@ module "ingress" {
 module "new_relic" {
   source = "../modules/new_relic_helm"
   environment = "production"
+  new_relic_license_key = var.new_relic_license_key
 }
