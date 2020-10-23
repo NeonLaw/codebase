@@ -1,12 +1,13 @@
-require('newrelic');
-
 import 'dotenv/config';
+import * as expressWinston from 'express-winston';
+import * as winston from 'winston';
 
 import cors from 'cors';
 import express from 'express';
 import { expressJwtSecret } from 'jwks-rsa';
 import { findOrCreatePerson } from './findOrCreatePerson';
 import jwt from 'express-jwt';
+import newrelic from 'newrelic';
 import { postgraphile } from 'postgraphile';
 import { postgraphileOptions } from './postgraphileOptions';
 import { postgresUrl } from './postgresUrl';
@@ -33,7 +34,7 @@ const currentUser: express.RequestHandler = async (request, _, next) => {
   return next();
 };
 
-const customTraceId: express.RequestHandler = async (
+const addTraceHeaders: express.RequestHandler = async (
   request,
   response,
   next
@@ -41,11 +42,45 @@ const customTraceId: express.RequestHandler = async (
   const traceId = uuidv4();
   request['X-Trace-Id'] = traceId;
   response.set('X-Trace-Id', traceId);
+  request['X-Forwarded-For'];
+  return next();
+};
+
+const beginNewRelicTransaction: express.RequestHandler = async (
+  request,
+  _,
+  next
+) => {
+  newrelic.startWebTransaction(request.originalUrl);
+  return next();
+};
+
+const endNewRelicTransaction: express.RequestHandler = async (
+  request,
+  _,
+  next
+) => {
+  newrelic.endTransaction(request.originalUrl);
   return next();
 };
 
 const app = express();
 app.use(cors());
+
+app.use(expressWinston.logger({
+  colorize: false,
+  expressFormat: true,
+  format: winston.format.combine(
+    winston.format.json(),
+    require('@newrelic/winston-enricher')()
+  ),
+  level: 'info',
+  meta: true,
+  msg: 'HTTP {{req.method}} {{req.url}}',
+  transports: [
+    new winston.transports.Console()
+  ],
+}));
 
 app.get('/', function (_, res) {
   res.send('Neon Law API');
@@ -57,8 +92,11 @@ app.get('/api', function (_, res) {
 
 app.use('/api/graphql', checkJwt);
 app.use('/api/graphql', currentUser);
-app.use('/api/graphql', customTraceId);
+app.use('/api/graphql', addTraceHeaders);
+app.use('/api/graphql', beginNewRelicTransaction);
 
 app.use(postgraphile(postgresUrl, 'public', postgraphileOptions));
+
+app.use('/api/graphql', endNewRelicTransaction);
 
 app.listen(3000);
