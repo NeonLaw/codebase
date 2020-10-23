@@ -5,12 +5,12 @@ resource "helm_release" "new_relic" {
 
   set {
     name  = "cluster"
-    value = var.kubernetes_cluster_name
+    value = "neon-law"
   }
 
   set {
     name  = "config.custom_attributes.cluster"
-    value = var.kubernetes_cluster_name
+    value = "neon-law"
   }
 
   set {

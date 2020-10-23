@@ -126,5 +126,5 @@ module "ingress" {
 
 module "new_relic" {
   source = "../modules/new_relic"
-  environment = production
+  environment = "production"
 }
