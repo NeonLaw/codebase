@@ -11,20 +11,25 @@
     "watch": "graphile-migrate watch"
   },
   "dependencies": {
+    "@graphile/pg-pubsub": "^4.9.0",
+    "@graphile/pro": "^0.10.0",
+    "@newrelic/winston-enricher": "^0.1.1",
     "axios": "^0.20.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-jwt": "^6.0.0",
+    "express-winston": "^4.0.5",
     "graphile-build-pg": "^4.9.0",
     "graphile-migrate": "^1.0.2",
     "graphile-utils": "^4.9.0",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.10.1",
+    "newrelic": "latest",
     "pg": "^8.4.1",
     "postgraphile": "^4.9.0",
     "ts-node": "^9.0.0",
-    "newrelic": "latest",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.3",
+    "winston": "^3.3.3"
   }
 }
