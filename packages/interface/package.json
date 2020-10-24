@@ -40,7 +40,7 @@
     "gatsby-source-graphql": "^2.7.6",
     "gatsby-transformer-sharp": "^2.5.19",
     "graphql-tag": "^2.11.0",
-    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-fetch": "^3.0.0",
     "jwt-decode": "^3.0.0",
     "logrocket": "^1.0.14",
     "logrocket-react": "^4.0.1",

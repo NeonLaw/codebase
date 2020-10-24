@@ -36,7 +36,7 @@
     "gatsby-source-graphql": "^2.7.6",
     "gatsby-transformer-sharp": "^2.5.19",
     "graphql-tag": "^2.11.0",
-    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-fetch": "^3.0.0",
     "jwt-decode": "^3.0.0",
     "namor": "^2.0.2",
     "prism-react-renderer": "^1.1.1",
