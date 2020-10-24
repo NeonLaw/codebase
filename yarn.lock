@@ -11219,10 +11219,10 @@ graphile-migrate@^1.0.2:
     tslib "^1.10.0"
     yargs "^15.3.1"
 
-graphile-utils@^4.9.0:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/graphile-utils/-/graphile-utils-4.9.0.tgz#205f93fd2ec709670cdf7fecf074690866d7b55e"
-  integrity sha512-HM173CzVWEue+oR3VY/cPM2syw4rLnVUrN7KlBCCjAtGkzvuhn6AXoa9pHhuZzJegcTuW2xo+s7rvMMNicEvKQ==
+graphile-utils@^4.9.0, graphile-utils@^4.9.2:
+  version "4.9.2"
+  resolved "https://registry.yarnpkg.com/graphile-utils/-/graphile-utils-4.9.2.tgz#5285cec40dfba4732ddd177454d8d8d7afc5c02d"
+  integrity sha512-Dva5W4vzLAzXkqBf6ahQlNDyUTBWrdAy8fCSAwgDZRsc35paB4klXwb20urOChoQdExp7e+3ReQa9C4uVgBlBA==
   dependencies:
     debug "^4.1.1"
     graphql ">=0.9 <0.14 || ^14.0.2"
