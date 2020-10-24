@@ -30,7 +30,7 @@
     "gatsby-plugin-robots-txt": "^1.5.3",
     "gatsby-plugin-sharp": "^2.6.42",
     "gatsby-plugin-sitemap": "^2.4.14",
-    "gatsby-plugin-typescript": "^2.4.22",
+    "gatsby-plugin-typescript": "^2.4.24",
     "gatsby-remark-images": "^3.3.29",
     "gatsby-source-filesystem": "^2.3.35",
     "gatsby-source-graphql": "^2.7.6",
