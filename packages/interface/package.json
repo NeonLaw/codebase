@@ -7,8 +7,8 @@
   "dependencies": {
     "@apollo/client": "3.1.4",
     "@auth0/auth0-spa-js": "^1.13.0",
-    "@chakra-ui/core": "1.0.0-rc.3",
-    "@chakra-ui/icons": "1.0.0-rc.3",
+    "@chakra-ui/core": "1.0.0-rc.7",
+    "@chakra-ui/icons": "1.0.0-rc.7",
     "@hookform/error-message": "^0.0.4",
     "@mdx-js/mdx": "^1.6.16",
     "@mdx-js/react": "^1.6.16",
@@ -68,7 +68,7 @@
     "uuid": "^8.3.1"
   },
   "optionalDependencies": {
-    "cypress": "^5.2.0"
+    "cypress": "^5.4.0"
   },
   "scripts": {
     "copy-fonts": "cp -vr ../shared-ui/fonts ./static",

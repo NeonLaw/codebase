@@ -9,11 +9,11 @@
 
 This is a monorepo containing these folders:
 
-* A Yarn Workspace, declared at `package.json` and with packages at
+- A Yarn Workspace, declared at `package.json` and with packages at
   `./packages`, which contains the bulk of our code.
-* A collection of Terraform modules located in the `./infrastructure` folder,
+- A collection of Terraform modules located in the `./infrastructure` folder,
   for building out our Cloud Computing.
-* A collection of `Dockerfile`s and entrypoint scripts modules located in the
+- A collection of `Dockerfile`s and entrypoint scripts modules located in the
   `./docker` folder, for building out our containers.
 
 ## Running Locally
@@ -26,19 +26,19 @@ your machine, you can follow these two steps to start developing.
 
 You should have some, if not all of these environment variables on your machine:
 
-* `AUTH0_CLIENT_ID`
-* `AUTH0_CLIENT_SECRET`
-* `AUTH0_TENANT`
+- `AUTH0_CLIENT_ID`
+- `AUTH0_CLIENT_SECRET`
+- `AUTH0_TENANT`
 
-* `CYPRESS_ADMIN_USER_PASSWORD`
-* `CYPRESS_AUDIENCE_URL`
-* `CYPRESS_AUTH0_CLIENT_ID`
-* `CYPRESS_AUTH0_CLIENT_SECRET`
-* `CYPRESS_AUTH_URL`
-* `CYPRESS_LAWYER_USER_PASSWORD`
-* `CYPRESS_PORTAL_USER_PASSWORD`
+- `CYPRESS_ADMIN_USER_PASSWORD`
+- `CYPRESS_AUDIENCE_URL`
+- `CYPRESS_AUTH0_CLIENT_ID`
+- `CYPRESS_AUTH0_CLIENT_SECRET`
+- `CYPRESS_AUTH_URL`
+- `CYPRESS_LAWYER_USER_PASSWORD`
+- `CYPRESS_PORTAL_USER_PASSWORD`
 
-* `GOOGLE_APPLICATION_CREDENTIALS`
+- `GOOGLE_APPLICATION_CREDENTIALS`
 
 You will need to have values for these environment variables sourced in the same
 bash shell as when you run the next step. Additionally, you should have the
@@ -54,15 +54,13 @@ docker-compose up
 
 This starts the following containers:
 
-* A shell container that you can use via `docker exec -it shell /bin/bash`
-* Web Servers for:
-  * NeonLaw.com (http://127.0.0.1:8000)
-  * LawJobResources.com (http://127.0.0.1:5000)
-  * DeleteYourData.com (http://127.0.0.1:6000)
-  * JusticeForRickieSlaughter.com (http://127.0.0.1:7000)
-  * The NeonLaw API (http://127.0.0.1:3000)
-* A Language Tool server for grammar correction in your Editor. We recommend
-  VSCode and the Language Tool extension for VSCode.
+- A shell container that you can use via `docker exec -it shell /bin/bash`
+- Web Servers for:
+  - NeonLaw.com (http://127.0.0.1:8000)
+  - LawJobResources.com (http://127.0.0.1:5000)
+  - DeleteYourData.com (http://127.0.0.1:6000)
+  - JusticeForRickieSlaughter.com (http://127.0.0.1:7000)
+  - The NeonLaw API (http://127.0.0.1:3000)
 
 You can start a subset of services with Docker Compose if you do not need to
 run all of the applications. For instance, if you just wanted to start the
@@ -91,7 +89,7 @@ This will start the `shell`, `postgres`, `api`, and `interface` containers.
 If you don't already have a favorite editor, we recommend [VSCode by
 Microsoft](https://code.visualstudio.com/). Using VSCode with Docker Compose
 as outlined in the previous step, you can edit files directly in the `shell`
-container. By doing so, you don't need to install *anything* on your host
+container. By doing so, you don't need to install _anything_ on your host
 machine except for Docker, as Node, Python, Postgres, and anything else we
 may add in the future will all run within Docker containers managed by Docker
 Compose.
@@ -113,9 +111,9 @@ one for our production account. The staging account has the following
 accounts, please contact us at support@neonlaw.com should you need these
 passwords to develop the authenticated portions of our application.
 
-* portal@neonlaw.com, a user with portal permissions
-* lawyer@neonlaw.com, a user with lawyer permissions
-* admin@neonlaw.com, a user with admin permissions
+- portal@neonlaw.com, a user with portal permissions
+- lawyer@neonlaw.com, a user with lawyer permissions
+- admin@neonlaw.com, a user with admin permissions
 
 Read our blog post about
 [Authorization](https://www.neonlaw.com/blog/authorization) to learn more about
@@ -126,24 +124,24 @@ these roles.
 To help us write into this repository and run our business, we use these
 software:
 
-* Auth0
-* Casetext
-* Code Climate
-* Fathom Analytics
-* G Suite
-* GitHub
-* Google Cloud Platform
-* Grammarly
-* LanguageTool
-* Lexis Advance
-* Mercury Bank
-* PGRita
-* Postgraphile
-* SendGrid
-* Slack
-* Terraform Cloud
-* Transloadit
-* Zendesk Suite
+- Auth0
+- Casetext
+- Code Climate
+- Fathom Analytics
+- G Suite
+- GitHub
+- Google Cloud Platform
+- Grammarly
+- LanguageTool
+- Lexis Advance
+- Mercury Bank
+- PGRita
+- Postgraphile
+- SendGrid
+- Slack
+- Terraform Cloud
+- Transloadit
+- Zendesk Suite
 
 ## Continuous Integration and Deployment
 
@@ -153,7 +151,7 @@ tests. You can find these tests
 
 On pushes to the `development` branch, our staging environment is updated.
 
-On Monday through Thursday at 4:00 am PST, the production environment is 
+On Monday through Thursday at 4:00 am PST, the production environment is
 updated with the latest commit from `development`.
 
 ## Graphql Codegen
