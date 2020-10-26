@@ -51,7 +51,9 @@ const beginNewRelicTransaction: express.RequestHandler = async (
   _,
   next
 ) => {
-  newrelic.startWebTransaction(request.originalUrl);
+  if (process.env.NODE_ENV === 'production') {
+    newrelic.startWebTransaction(request.originalUrl);
+  }
   return next();
 };
 
@@ -60,7 +62,9 @@ const endNewRelicTransaction: express.RequestHandler = async (
   _,
   next
 ) => {
-  newrelic.endTransaction(request.originalUrl);
+  if (process.env.NODE_ENV === 'production') {
+    newrelic.endTransaction(request.originalUrl);
+  }
   return next();
 };
 
