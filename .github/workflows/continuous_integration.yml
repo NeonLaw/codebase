@@ -12,6 +12,7 @@ on:
 jobs:
   test_suite:
     runs-on: ubuntu-latest
+    container: cypress:included:5.4.0
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -28,13 +29,7 @@ jobs:
         env:
           COMPOSE_HTTP_TIMEOUT: 300
       - name: Install depedencies
-        run: |
-          docker exec shell yarn
-          yarn
-          npm i -g cypress
-          cypress install
-        env:
-          CYPRESS_CACHE_FOLDER: ./cypress_cache
+        run: docker exec shell yarn
       - name: Lint Markdown files.
         run: docker exec shell yarn markdown-lint
       - name: Lint JavaScript files.
@@ -59,26 +54,34 @@ jobs:
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
         with:
           coverageCommand: docker exec shell yarn test
+      - name: Check api.tsx file against staging server
+        run: |
+          docker exec shell yarn graphql-codegen
+          git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
       - name: Run Cypress tests for the Interface
-        run: yarn workspace @neonlaw/interface cy:open
+        uses: cypress-io/github-action@v2
+        with:
+          project: ./packages/interface
         env:
           CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
           CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
           CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
           CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
           CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
-          CYPRESS_CACHE_FOLDER: ./cypress_cache
       - name: Run Cypress tests for the JusticeForRickieSlaughter
-        run: yarn workspace @neonlaw/justice-for-rickie-slaughter cy:open
+        uses: cypress-io/github-action@v2
+        with:
+          project: ./packages/justice-for-rickie-slaughter
         env:
           CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
           CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
           CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
           CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
           CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD}}
-          CYPRESS_CACHE_FOLDER: ./cypress_cache
       - name: Run Cypress tests for the DeleteYourData
-        run: yarn workspace @neonlaw/delete-your-data cy:open
+        uses: cypress-io/github-action@v2
+        with:
+          project: ./packages/delete-your-data
         env:
           CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
           CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
@@ -86,7 +89,3 @@ jobs:
           CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
           CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD}}
           CYPRESS_CACHE_FOLDER: ./cypress_cache
-      - name: Check api.tsx file against staging server
-        run: |
-          docker exec shell yarn graphql-codegen
-          git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
