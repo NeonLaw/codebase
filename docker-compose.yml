@@ -20,7 +20,6 @@ x-environment-variables: &environment-variables
 
 x-node-volumes: &node-volumes
   - ./:/app
-  - ./yarn.lock:/app/yarn.lock:ro
 
 services:
   postgres:
