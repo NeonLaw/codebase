@@ -32,3 +32,5 @@ packages/law-job-resources/public/**/*
 
 cypress/
 cypress
+cypress_cache/
+cypress_cache
