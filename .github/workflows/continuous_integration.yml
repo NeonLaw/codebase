@@ -27,6 +27,8 @@ jobs:
         run: docker-compose up -d
         env:
           COMPOSE_HTTP_TIMEOUT: 300
+      - name: Clean Yarn Cache
+        run: docker exec shell yarn cache clean
       - name: Install depedencies
         run: docker exec shell yarn --cache-folder ./node_modules
       - name: Lint Markdown files.
