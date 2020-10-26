@@ -47,7 +47,7 @@
         "eslint-plugin-react": "^7.21.5",
         "eslint-plugin-react-hooks": "^4.2.0",
         "faker": "^5.1.0",
-        "gatsby-cli": "^2.12.107",
+        "gatsby-cli": "^2.12.111",
         "gatsby-cypress": "^0.4.10",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^26.4.2",
