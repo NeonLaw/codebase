@@ -1,13 +1,12 @@
 .cache
 build
 node_modules
-node_modules/
+node_modules/**/*
 public
 README.md
 neon_law.egg-info
 yarn-error.log
-packages/*/node_modules/
-packages/*/node_modules
+packages/*/node_modules/*
 
 # Cache files from Gatsby
 packages/interface/.cache
