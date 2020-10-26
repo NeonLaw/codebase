@@ -28,7 +28,7 @@ jobs:
         env:
           COMPOSE_HTTP_TIMEOUT: 300
       - name: Install depedencies
-        run: docker exec shell yarn
+        run: docker exec shell yarn --cache-folder ./node_modules
       - name: Lint Markdown files.
         run: docker exec shell yarn markdown-lint
       - name: Lint JavaScript files.
