@@ -57,32 +57,32 @@ jobs:
         run: |
           docker exec shell yarn graphql-codegen
           git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
-      # - name: Run Cypress tests for the Interface
-      #   uses: cypress-io/github-action@v2
-      #   with:
-      #     project: ./packages/interface
-      #   env:
-      #     CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
-      #     CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
-      #     CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
-      #     CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
-      #     CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
-      #     CYPRESS_CACHE_FOLDER: ./cypress_cache
-      # - name: Run Cypress tests for the JusticeForRickieSlaughter
-      #   run: yarn workspace @neonlaw/justice-for-rickie-slaughter cy:open
-      #   env:
-      #     CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
-      #     CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
-      #     CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
-      #     CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
-      #     CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD}}
-      #     CYPRESS_CACHE_FOLDER: ./cypress_cache
-      # - name: Run Cypress tests for the DeleteYourData
-      #   run: yarn workspace @neonlaw/delete-your-data cy:open
-      #   env:
-      #     CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
-      #     CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
-      #     CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
-      #     CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
-      #     CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD}}
-      #     CYPRESS_CACHE_FOLDER: ./cypress_cache
+      - name: Run Cypress tests for the Interface
+        uses: cypress-io/github-action@v2
+        with:
+          project: ./packages/interface
+        env:
+          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
+          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
+          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
+          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
+          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
+          CYPRESS_CACHE_FOLDER: ./cypress_cache
+      - name: Run Cypress tests for the JusticeForRickieSlaughter
+        run: yarn workspace @neonlaw/justice-for-rickie-slaughter cy:open
+        env:
+          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
+          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
+          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
+          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
+          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD}}
+          CYPRESS_CACHE_FOLDER: ./cypress_cache
+      - name: Run Cypress tests for the DeleteYourData
+        run: yarn workspace @neonlaw/delete-your-data cy:open
+        env:
+          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
+          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
+          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
+          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
+          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD}}
+          CYPRESS_CACHE_FOLDER: ./cypress_cache
