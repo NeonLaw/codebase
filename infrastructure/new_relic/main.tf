@@ -31,7 +31,7 @@ resource "newrelic_synthetics_monitor" "production_api" {
   status = "ENABLED"
   locations = ["AWS_US_EAST_1", "AWS_US_EAST_2", "AWS_US_WEST_1"]
 
-  uri                       = "https://www.neonlaw.com/api"
+  uri                       = "https://www.neonlaw.com/api/"
   validation_string         = "Neon Law API"
   verify_ssl                = true
 }
@@ -55,7 +55,7 @@ resource "newrelic_synthetics_monitor" "staging_api" {
   status = "ENABLED"
   locations = ["AWS_US_EAST_1", "AWS_US_EAST_2", "AWS_US_WEST_1"]
 
-  uri                       = "https://www.neonlaw.net/api/graphiql"
+  uri                       = "https://www.neonlaw.net/api/"
   validation_string         = "Neon Law API"
   verify_ssl                = true
 }

@@ -1,5 +1,5 @@
 ---
-version: "3.4"
+version: "3.8"
 
 x-environment-variables: &environment-variables
   - AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID
@@ -20,8 +20,23 @@ x-environment-variables: &environment-variables
 
 x-node-volumes: &node-volumes
   - ./:/app
-  - node_modules:/app/node_modules
-  - ./yarn.lock:/app/yarn.lock:ro
+  - /app/node_modules/
+  - /app/packages/api/node_modules/
+  - /app/packages/cloud-storage-buckets/node_modules/
+  - /app/packages/delete-your-data/node_modules/
+  - /app/packages/filenames/node_modules/
+  - /app/packages/github/node_modules/
+  - /app/packages/interface/node_modules/
+  - /app/packages/jobs/node_modules/
+  - /app/packages/justice-for-rickie-slaughter/node_modules/
+  - /app/packages/law-job-resources/node_modules/
+  - /app/packages/legal-templates/node_modules/
+  - /app/packages/mercury-bank/node_modules/
+  - /app/packages/print/node_modules/
+  - /app/packages/questions/node_modules/
+  - /app/packages/shared-ui/node_modules/
+  - /app/packages/speech-to-text/node_modules/
+  - /app/packages/stripe/node_modules/
 
 services:
   postgres:
@@ -73,23 +88,69 @@ services:
       - api
     ports:
       - 8000:8000
-      - 33000:33000
+      - 33010:33010
     volumes: *node-volumes
     environment:
       PACKAGE_NAME: interface
       GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
-      INTERNAL_STATUS_PORT: 33000
+      INTERNAL_STATUS_PORT: 33010
 
   shell:
     build:
       context: ./
       dockerfile: ./docker/base.Dockerfile
     container_name: shell
-    volumes:
-      - ./:/app
-      - node_modules:/app/node_modules
+    volumes: *node-volumes
     environment: *environment-variables
     restart: unless-stopped
 
-volumes:
-  node_modules:
+  law_job_resources:
+    build:
+      context: ./
+      dockerfile: ./docker/development.interface.Dockerfile
+    restart: always
+    container_name: law_job_resources
+    depends_on:
+      - api
+    ports:
+      - 5000:8000
+      - 33001:33001
+    volumes: *node-volumes
+    environment:
+      PACKAGE_NAME: law-job-resources
+      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
+      INTERNAL_STATUS_PORT: 33001
+
+  justice_for_rickie_slaughter:
+    build:
+      context: ./
+      dockerfile: ./docker/development.interface.Dockerfile
+    restart: always
+    container_name: justice_for_rickie_slaughter
+    depends_on:
+      - api
+    ports:
+      - 7000:8000
+      - 33002:33002
+    volumes: *node-volumes
+    environment:
+      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
+      PACKAGE_NAME: justice-for-rickie-slaughter
+      INTERNAL_STATUS_PORT: 33002
+
+  delete_your_data:
+    build:
+      context: ./
+      dockerfile: ./docker/development.interface.Dockerfile
+    restart: always
+    container_name: delete_your_data
+    depends_on:
+      - api
+    ports:
+      - 7777:8000
+      - 33003:33003
+    volumes: *node-volumes
+    environment:
+      PACKAGE_NAME: delete-your-data
+      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
+      INTERNAL_STATUS_PORT: 33003

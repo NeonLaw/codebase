@@ -12,35 +12,31 @@ on:
 jobs:
   test_suite:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
-          POSTGRES_HOST: localhost
-          POSTGRES_DB: neon_law
-        ports:
-          - 5432:5432
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: "12"
-      - uses: actions/setup-python@v1
+          node-version: '14'
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
         with:
-          python-version: "3.8"
-      - name: Install third-party dependencies.
-        run: |
-          yarn install --ignore-optional
+          registry: docker.pkg.github.com
+          username: ${{ secrets.GPR_USERNAME }}
+          password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
+      - name: Start Docker Compose
+        run: docker-compose up -d
+        env:
+          COMPOSE_HTTP_TIMEOUT: 300
+      - name: Install depedencies
+        run: docker exec shell yarn --cache-folder ./node_modules
       - name: Lint Markdown files.
-        run: yarn markdown-lint
+        run: docker exec shell yarn markdown-lint
       - name: Lint JavaScript files.
-        run: yarn lint
+        run: docker exec shell yarn lint
       - name: Type-check TypeScript Files.
-        run: yarn check-types
+        run: docker exec shell yarn check-types
       - name: Run Migrations
-        run: yarn migrate
+        run: docker exec shell yarn migrate
         working-directory: ./packages/api
         env:
           DATABASE_URL: postgres://postgres:password@127.0.0.1:5432/neon_law
@@ -55,36 +51,38 @@ jobs:
         uses: paambaati/codeclimate-action@v2.6.0
         env:
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-          DATABASE_URL: postgres://postgres:password@localhost:5432/neon_law
         with:
-          coverageCommand: yarn test
+          coverageCommand: docker exec shell yarn test
       - name: Check api.tsx file against staging server
         run: |
-          yarn graphql-codegen
+          docker exec shell yarn graphql-codegen
           git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
-  interface_e2e:
-    runs-on: ubuntu-latest
-    env:
-      AUTH0_CLIENT_ID: ${{ secrets.LOGIC_AUTH0_CLIENT_ID }}
-      AUTH0_CLIENT_SECRET: ${{ secrets.LOGIC_AUTH0_CLIENT_SECRET }}
-    steps:
-      - uses: actions/checkout@v2
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: docker.pkg.github.com
-          username: ${{ secrets.GPR_USERNAME }}
-          password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
-      - name: Run Cypress tests with built application
-        uses: cypress-io/github-action@v1
-        with:
-          start: docker-compose -f ../../docker-compose.yml up postgres interface
-          wait-on: "http://127.0.0.1:8000"
-          wait-on-timeout: 1800
-          working-directory: ./packages/interface
-        env:
-          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
-          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
-          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
-          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
-          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD}}
+      # - name: Run Cypress tests for the Interface
+      #   uses: cypress-io/github-action@v2
+      #   with:
+      #     project: ./packages/interface
+      #   env:
+      #     CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
+      #     CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
+      #     CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
+      #     CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
+      #     CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
+      #     CYPRESS_CACHE_FOLDER: ./cypress_cache
+      # - name: Run Cypress tests for the JusticeForRickieSlaughter
+      #   run: yarn workspace @neonlaw/justice-for-rickie-slaughter cy:open
+      #   env:
+      #     CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
+      #     CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
+      #     CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
+      #     CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
+      #     CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD}}
+      #     CYPRESS_CACHE_FOLDER: ./cypress_cache
+      # - name: Run Cypress tests for the DeleteYourData
+      #   run: yarn workspace @neonlaw/delete-your-data cy:open
+      #   env:
+      #     CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
+      #     CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
+      #     CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
+      #     CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
+      #     CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD}}
+      #     CYPRESS_CACHE_FOLDER: ./cypress_cache

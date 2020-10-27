@@ -1,7 +1,7 @@
 FROM python
 
 # Add Node repositories
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
@@ -27,7 +27,7 @@ WORKDIR /app
 # Install Dependencies
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install
+RUN yarn install --cache-folder ./node_modules
 
 # Load the codebase to the /app folder of the Docker image
 COPY . .

@@ -1,29 +1,15 @@
 .cache
 build
-node_modules
-node_modules/
 public
 README.md
 neon_law.egg-info
 yarn-error.log
+**/node_modules
+docker
+docker-compose.yml
 
-# Cache files from Gatsby
-packages/interface/.cache
-packages/interface/.cache/**/*
-packages/interface/public
-packages/interface/public/**/*
+**/.cache
+**/public
 
-packages/delete-your-data/.cache
-packages/delete-your-data/.cache/**/*
-packages/delete-your-data/public
-packages/delete-your-data/public/**/*
-
-packages/justice-for-rickie-slaughter/.cache
-packages/justice-for-rickie-slaughter/.cache/**/*
-packages/justice-for-rickie-slaughter/public
-packages/justice-for-rickie-slaughter/public/**/*
-
-packages/law-job-resources/.cache
-packages/law-job-resources/.cache/**/*
-packages/law-job-resources/public
-packages/law-job-resources/public/**/*
+**/cypress
+**/cypress_cache

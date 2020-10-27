@@ -123,6 +123,72 @@ export type CreateFlashcardPayloadFlashcardEdgeArgs = {
   orderBy?: Maybe<Array<FlashcardsOrderBy>>;
 };
 
+/** All input for the create `Letter` mutation. */
+export type CreateLetterInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Letter` to be created by this mutation. */
+  letter: LetterInput;
+};
+
+/** The output of our create `Letter` mutation. */
+export type CreateLetterPayload = {
+  __typename?: 'CreateLetterPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Letter` that was created by this mutation. */
+  letter?: Maybe<Letter>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Letter`. May be used by Relay 1. */
+  letterEdge?: Maybe<LettersEdge>;
+};
+
+
+/** The output of our create `Letter` mutation. */
+export type CreateLetterPayloadLetterEdgeArgs = {
+  orderBy?: Maybe<Array<LettersOrderBy>>;
+};
+
+/** All input for the create `LetterTemplate` mutation. */
+export type CreateLetterTemplateInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `LetterTemplate` to be created by this mutation. */
+  letterTemplate: LetterTemplateInput;
+};
+
+/** The output of our create `LetterTemplate` mutation. */
+export type CreateLetterTemplatePayload = {
+  __typename?: 'CreateLetterTemplatePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `LetterTemplate` that was created by this mutation. */
+  letterTemplate?: Maybe<LetterTemplate>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `LetterTemplate`. May be used by Relay 1. */
+  letterTemplateEdge?: Maybe<LetterTemplatesEdge>;
+};
+
+
+/** The output of our create `LetterTemplate` mutation. */
+export type CreateLetterTemplatePayloadLetterTemplateEdgeArgs = {
+  orderBy?: Maybe<Array<LetterTemplatesOrderBy>>;
+};
+
 /** All input for the `createPrimaryKeyIdIfNotExists` mutation. */
 export type CreatePrimaryKeyIdIfNotExistsInput = {
   /**
@@ -441,6 +507,94 @@ export type DeleteFlashcardPayload = {
 /** The output of our delete `Flashcard` mutation. */
 export type DeleteFlashcardPayloadFlashcardEdgeArgs = {
   orderBy?: Maybe<Array<FlashcardsOrderBy>>;
+};
+
+/** All input for the `deleteLetterById` mutation. */
+export type DeleteLetterByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** All input for the `deleteLetter` mutation. */
+export type DeleteLetterInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `Letter` to be deleted. */
+  nodeId: Scalars['ID'];
+};
+
+/** The output of our delete `Letter` mutation. */
+export type DeleteLetterPayload = {
+  __typename?: 'DeleteLetterPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Letter` that was deleted by this mutation. */
+  letter?: Maybe<Letter>;
+  deletedLetterId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Letter`. May be used by Relay 1. */
+  letterEdge?: Maybe<LettersEdge>;
+};
+
+
+/** The output of our delete `Letter` mutation. */
+export type DeleteLetterPayloadLetterEdgeArgs = {
+  orderBy?: Maybe<Array<LettersOrderBy>>;
+};
+
+/** All input for the `deleteLetterTemplateById` mutation. */
+export type DeleteLetterTemplateByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** All input for the `deleteLetterTemplate` mutation. */
+export type DeleteLetterTemplateInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `LetterTemplate` to be deleted. */
+  nodeId: Scalars['ID'];
+};
+
+/** The output of our delete `LetterTemplate` mutation. */
+export type DeleteLetterTemplatePayload = {
+  __typename?: 'DeleteLetterTemplatePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `LetterTemplate` that was deleted by this mutation. */
+  letterTemplate?: Maybe<LetterTemplate>;
+  deletedLetterTemplateId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `LetterTemplate`. May be used by Relay 1. */
+  letterTemplateEdge?: Maybe<LetterTemplatesEdge>;
+};
+
+
+/** The output of our delete `LetterTemplate` mutation. */
+export type DeleteLetterTemplatePayloadLetterTemplateEdgeArgs = {
+  orderBy?: Maybe<Array<LetterTemplatesOrderBy>>;
 };
 
 /** All input for the `deleteMatterById` mutation. */
@@ -933,6 +1087,135 @@ export type GetSignedUploadUrlPayload = {
 };
 
 
+export type Letter = Node & {
+  __typename?: 'Letter';
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID'];
+  id: Scalars['UUID'];
+  letterTemplateId: Scalars['UUID'];
+  mdx: Scalars['String'];
+  addressorId: Scalars['UUID'];
+  addresseeId: Scalars['UUID'];
+};
+
+/** A condition to be used against `Letter` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export type LetterCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+};
+
+/** An input for mutations affecting `Letter` */
+export type LetterInput = {
+  id?: Maybe<Scalars['UUID']>;
+  letterTemplateId: Scalars['UUID'];
+  mdx: Scalars['String'];
+  addressorId: Scalars['UUID'];
+  addresseeId: Scalars['UUID'];
+};
+
+/** Represents an update to a `Letter`. Fields that are set will be updated. */
+export type LetterPatch = {
+  id?: Maybe<Scalars['UUID']>;
+  letterTemplateId?: Maybe<Scalars['UUID']>;
+  mdx?: Maybe<Scalars['String']>;
+  addressorId?: Maybe<Scalars['UUID']>;
+  addresseeId?: Maybe<Scalars['UUID']>;
+};
+
+/** A connection to a list of `Letter` values. */
+export type LettersConnection = {
+  __typename?: 'LettersConnection';
+  /** A list of `Letter` objects. */
+  nodes: Array<Letter>;
+  /** A list of edges which contains the `Letter` and cursor to aid in pagination. */
+  edges: Array<LettersEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `Letter` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `Letter` edge in the connection. */
+export type LettersEdge = {
+  __typename?: 'LettersEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `Letter` at the end of the edge. */
+  node: Letter;
+};
+
+/** Methods to use when ordering `Letter`. */
+export enum LettersOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
+
+export type LetterTemplate = Node & {
+  __typename?: 'LetterTemplate';
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID'];
+  id: Scalars['UUID'];
+  name: Scalars['String'];
+  css: Scalars['String'];
+};
+
+/**
+ * A condition to be used against `LetterTemplate` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type LetterTemplateCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+};
+
+/** An input for mutations affecting `LetterTemplate` */
+export type LetterTemplateInput = {
+  id?: Maybe<Scalars['UUID']>;
+  name: Scalars['String'];
+  css: Scalars['String'];
+};
+
+/** Represents an update to a `LetterTemplate`. Fields that are set will be updated. */
+export type LetterTemplatePatch = {
+  id?: Maybe<Scalars['UUID']>;
+  name?: Maybe<Scalars['String']>;
+  css?: Maybe<Scalars['String']>;
+};
+
+/** A connection to a list of `LetterTemplate` values. */
+export type LetterTemplatesConnection = {
+  __typename?: 'LetterTemplatesConnection';
+  /** A list of `LetterTemplate` objects. */
+  nodes: Array<LetterTemplate>;
+  /** A list of edges which contains the `LetterTemplate` and cursor to aid in pagination. */
+  edges: Array<LetterTemplatesEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `LetterTemplate` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `LetterTemplate` edge in the connection. */
+export type LetterTemplatesEdge = {
+  __typename?: 'LetterTemplatesEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `LetterTemplate` at the end of the edge. */
+  node: LetterTemplate;
+};
+
+/** Methods to use when ordering `LetterTemplate`. */
+export enum LetterTemplatesOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
+
 export type Matter = Node & {
   __typename?: 'Matter';
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -1028,6 +1311,10 @@ export type Mutation = {
   createDocumentCode?: Maybe<CreateDocumentCodePayload>;
   /** Creates a single `Flashcard`. */
   createFlashcard?: Maybe<CreateFlashcardPayload>;
+  /** Creates a single `Letter`. */
+  createLetter?: Maybe<CreateLetterPayload>;
+  /** Creates a single `LetterTemplate`. */
+  createLetterTemplate?: Maybe<CreateLetterTemplatePayload>;
   /** Creates a single `Question`. */
   createQuestion?: Maybe<CreateQuestionPayload>;
   /** Creates a single `Questionnaire`. */
@@ -1048,6 +1335,14 @@ export type Mutation = {
   updateFlashcard?: Maybe<UpdateFlashcardPayload>;
   /** Updates a single `Flashcard` using a unique key and a patch. */
   updateFlashcardById?: Maybe<UpdateFlashcardPayload>;
+  /** Updates a single `Letter` using its globally unique id and a patch. */
+  updateLetter?: Maybe<UpdateLetterPayload>;
+  /** Updates a single `Letter` using a unique key and a patch. */
+  updateLetterById?: Maybe<UpdateLetterPayload>;
+  /** Updates a single `LetterTemplate` using its globally unique id and a patch. */
+  updateLetterTemplate?: Maybe<UpdateLetterTemplatePayload>;
+  /** Updates a single `LetterTemplate` using a unique key and a patch. */
+  updateLetterTemplateById?: Maybe<UpdateLetterTemplatePayload>;
   /** Updates a single `Matter` using its globally unique id and a patch. */
   updateMatter?: Maybe<UpdateMatterPayload>;
   /** Updates a single `Matter` using a unique key and a patch. */
@@ -1084,6 +1379,14 @@ export type Mutation = {
   deleteFlashcard?: Maybe<DeleteFlashcardPayload>;
   /** Deletes a single `Flashcard` using a unique key. */
   deleteFlashcardById?: Maybe<DeleteFlashcardPayload>;
+  /** Deletes a single `Letter` using its globally unique id. */
+  deleteLetter?: Maybe<DeleteLetterPayload>;
+  /** Deletes a single `Letter` using a unique key. */
+  deleteLetterById?: Maybe<DeleteLetterPayload>;
+  /** Deletes a single `LetterTemplate` using its globally unique id. */
+  deleteLetterTemplate?: Maybe<DeleteLetterTemplatePayload>;
+  /** Deletes a single `LetterTemplate` using a unique key. */
+  deleteLetterTemplateById?: Maybe<DeleteLetterTemplatePayload>;
   /** Deletes a single `Matter` using its globally unique id. */
   deleteMatter?: Maybe<DeleteMatterPayload>;
   /** Deletes a single `Matter` using a unique key. */
@@ -1129,6 +1432,18 @@ export type MutationCreateDocumentCodeArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateFlashcardArgs = {
   input: CreateFlashcardInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateLetterArgs = {
+  input: CreateLetterInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateLetterTemplateArgs = {
+  input: CreateLetterTemplateInput;
 };
 
 
@@ -1189,6 +1504,30 @@ export type MutationUpdateFlashcardArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateFlashcardByIdArgs = {
   input: UpdateFlashcardByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateLetterArgs = {
+  input: UpdateLetterInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateLetterByIdArgs = {
+  input: UpdateLetterByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateLetterTemplateArgs = {
+  input: UpdateLetterTemplateInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateLetterTemplateByIdArgs = {
+  input: UpdateLetterTemplateByIdInput;
 };
 
 
@@ -1297,6 +1636,30 @@ export type MutationDeleteFlashcardArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteFlashcardByIdArgs = {
   input: DeleteFlashcardByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteLetterArgs = {
+  input: DeleteLetterInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteLetterByIdArgs = {
+  input: DeleteLetterByIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteLetterTemplateArgs = {
+  input: DeleteLetterTemplateInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteLetterTemplateByIdArgs = {
+  input: DeleteLetterTemplateByIdInput;
 };
 
 
@@ -1496,6 +1859,10 @@ export type Query = Node & {
   allDocumentCodes?: Maybe<DocumentCodesConnection>;
   /** Reads and enables pagination through a set of `Flashcard`. */
   allFlashcards?: Maybe<FlashcardsConnection>;
+  /** Reads and enables pagination through a set of `Letter`. */
+  allLetters?: Maybe<LettersConnection>;
+  /** Reads and enables pagination through a set of `LetterTemplate`. */
+  allLetterTemplates?: Maybe<LetterTemplatesConnection>;
   /** Reads and enables pagination through a set of `Question`. */
   allQuestions?: Maybe<QuestionsConnection>;
   /** Reads and enables pagination through a set of `Questionnaire`. */
@@ -1507,6 +1874,8 @@ export type Query = Node & {
   documentById?: Maybe<Document>;
   documentCodeById?: Maybe<DocumentCode>;
   flashcardById?: Maybe<Flashcard>;
+  letterById?: Maybe<Letter>;
+  letterTemplateById?: Maybe<LetterTemplate>;
   matterById?: Maybe<Matter>;
   personById?: Maybe<Person>;
   questionById?: Maybe<Question>;
@@ -1521,6 +1890,10 @@ export type Query = Node & {
   documentCode?: Maybe<DocumentCode>;
   /** Reads a single `Flashcard` using its globally unique `ID`. */
   flashcard?: Maybe<Flashcard>;
+  /** Reads a single `Letter` using its globally unique `ID`. */
+  letter?: Maybe<Letter>;
+  /** Reads a single `LetterTemplate` using its globally unique `ID`. */
+  letterTemplate?: Maybe<LetterTemplate>;
   /** Reads a single `Matter` using its globally unique `ID`. */
   matter?: Maybe<Matter>;
   /** Reads a single `Person` using its globally unique `ID`. */
@@ -1575,6 +1948,30 @@ export type QueryAllFlashcardsArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<FlashcardsOrderBy>>;
   condition?: Maybe<FlashcardCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllLettersArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<LettersOrderBy>>;
+  condition?: Maybe<LetterCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllLetterTemplatesArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<LetterTemplatesOrderBy>>;
+  condition?: Maybe<LetterTemplateCondition>;
 };
 
 
@@ -1645,6 +2042,18 @@ export type QueryFlashcardByIdArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryLetterByIdArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryLetterTemplateByIdArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryMatterByIdArgs = {
   id: Scalars['UUID'];
 };
@@ -1701,6 +2110,18 @@ export type QueryDocumentCodeArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QueryFlashcardArgs = {
+  nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryLetterArgs = {
+  nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryLetterTemplateArgs = {
   nodeId: Scalars['ID'];
 };
 
@@ -2245,6 +2666,100 @@ export type UpdateFlashcardPayload = {
 /** The output of our update `Flashcard` mutation. */
 export type UpdateFlashcardPayloadFlashcardEdgeArgs = {
   orderBy?: Maybe<Array<FlashcardsOrderBy>>;
+};
+
+/** All input for the `updateLetterById` mutation. */
+export type UpdateLetterByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `Letter` being updated. */
+  letterPatch: LetterPatch;
+  id: Scalars['UUID'];
+};
+
+/** All input for the `updateLetter` mutation. */
+export type UpdateLetterInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `Letter` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `Letter` being updated. */
+  letterPatch: LetterPatch;
+};
+
+/** The output of our update `Letter` mutation. */
+export type UpdateLetterPayload = {
+  __typename?: 'UpdateLetterPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Letter` that was updated by this mutation. */
+  letter?: Maybe<Letter>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Letter`. May be used by Relay 1. */
+  letterEdge?: Maybe<LettersEdge>;
+};
+
+
+/** The output of our update `Letter` mutation. */
+export type UpdateLetterPayloadLetterEdgeArgs = {
+  orderBy?: Maybe<Array<LettersOrderBy>>;
+};
+
+/** All input for the `updateLetterTemplateById` mutation. */
+export type UpdateLetterTemplateByIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `LetterTemplate` being updated. */
+  letterTemplatePatch: LetterTemplatePatch;
+  id: Scalars['UUID'];
+};
+
+/** All input for the `updateLetterTemplate` mutation. */
+export type UpdateLetterTemplateInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `LetterTemplate` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `LetterTemplate` being updated. */
+  letterTemplatePatch: LetterTemplatePatch;
+};
+
+/** The output of our update `LetterTemplate` mutation. */
+export type UpdateLetterTemplatePayload = {
+  __typename?: 'UpdateLetterTemplatePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `LetterTemplate` that was updated by this mutation. */
+  letterTemplate?: Maybe<LetterTemplate>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `LetterTemplate`. May be used by Relay 1. */
+  letterTemplateEdge?: Maybe<LetterTemplatesEdge>;
+};
+
+
+/** The output of our update `LetterTemplate` mutation. */
+export type UpdateLetterTemplatePayloadLetterTemplateEdgeArgs = {
+  orderBy?: Maybe<Array<LetterTemplatesOrderBy>>;
 };
 
 /** All input for the `updateMatterById` mutation. */
