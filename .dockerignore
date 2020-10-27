@@ -7,6 +7,8 @@ yarn-error.log
 **/node_modules
 docker
 docker-compose.yml
+!docker/production.nginx.conf
+!docker/staging.nginx.conf
 
 **/.cache
 **/public
