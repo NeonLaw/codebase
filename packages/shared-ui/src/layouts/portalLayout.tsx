@@ -9,32 +9,43 @@ import { PortalSideNav } from '../components/sideNavigation/portal';
 import React from 'react';
 import { Redirect } from '@reach/router';
 import styled from '@emotion/styled';
-import {
-  useColorMode,
-} from '@chakra-ui/core';
+import { useColorMode } from '@chakra-ui/core';
 
 const StyledPortalLayout = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: 
-    linear-gradient(to right, rgba(0,0,0, .2), rgba(0,0,0, .5)),
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
     url(${PortalBg});
   background-size: center;
   background-position: centers;
   height: 100vh;
-  
+
   .wrapper {
     position: relative;
     height: 92vh;
     width: 92vw;
     display: flex;
+
+    @media (max-width: 640px) {
+      height: 100vh;
+      width: 100vh;
+    }
   }
 `;
 
 const Aside = styled.div`
+  position: relative;
   width: 12em;
   background: #000000b0;
+
+  @media (max-width: 800px) {
+    width: 9em;
+  }
+
+  @media (max-width: 640px) {
+    width: 6em;
+  }
 `;
 
 const Main = styled.div`
@@ -42,11 +53,14 @@ const Main = styled.div`
 
   .content {
     padding: ${gutters.small};
+
+    @media (max-width: 800px) {
+      padding: ${gutters.xSmallOne};
+    }
   }
 `;
 
 export const PortalLayout = ({ children }) => {
-
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -65,17 +79,17 @@ export const PortalLayout = ({ children }) => {
                 <Aside>
                   <PortalSideNav />
                 </Aside>
-                <Main style={{
-                  background: colorMode === 'dark' ? 
-                    theme.colors.black : theme.colors.white 
-                }}>
+                <Main
+                  style={{
+                    background:
+                      colorMode === 'dark'
+                        ? theme.colors.black
+                        : theme.colors.white,
+                  }}
+                >
                   <PortalNavigationBar portal={true} />
-                  <div className="content">
-                    {children}
-                  </div>
-                  <button 
-                    onClick={() => toggleColorMode()}
-                  >
+                  <div className="content">{children}</div>
+                  <button onClick={() => toggleColorMode()}>
                     {/* Toggle Theme */}
                   </button>
                 </Main>

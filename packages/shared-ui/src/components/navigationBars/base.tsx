@@ -30,18 +30,18 @@ import { Search } from './search';
 import { useIntl } from 'gatsby-plugin-intl';
 
 interface BaseNavigationBarProps {
-  portal?: boolean 
-  links?: any 
-  menus?: any 
-  sideNavigationDrawer?: any
+  portal?: boolean;
+  links?: any;
+  menus?: any;
+  sideNavigationDrawer?: any;
 }
 
 export const BaseNavigationBar = ({
   links = [] as any[],
   menus = [] as any[],
   sideNavigationDrawer,
-  portal
-}:BaseNavigationBarProps ) => {
+  portal,
+}: BaseNavigationBarProps) => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const intl = useIntl();
 
@@ -49,15 +49,13 @@ export const BaseNavigationBar = ({
 
   return (
     <>
-      { 
-        !portal ? <BlackLivesMatter /> : null 
-      }       
+      {!portal ? <BlackLivesMatter /> : null}
       <Box
         top="2em"
         position={`${!portal ? 'fixed' : ''}`}
         padding={`${!portal ? 0 : `${gutters.xSmallOne} ${gutters.xSmall}`}`}
         zIndex={4}
-        bg={!portal ? 'black': '#f4f4f4'}
+        bg={!portal ? 'black' : '#f4f4f4'}
         color={!portal ? 'white' : 'black'}
         left="0"
         right="0"
@@ -66,8 +64,8 @@ export const BaseNavigationBar = ({
       >
         <Container isFullBleed={portal}>
           <Flex boxSize="100%" align="center">
-            {
-              !portal ? <Box
+            {!portal ? (
+              <Box
                 mr={5}
                 as={Link}
                 cursor="pointer"
@@ -77,10 +75,10 @@ export const BaseNavigationBar = ({
                 minWidth="3em"
               >
                 <img src="/images/logo.svg" alt="Neon Law" />
-              </Box> : null
-            }
+              </Box>
+            ) : null}
 
-            <Search version="desktop" portal="true"/>
+            <Search version="desktop" portal={portal} />
 
             <Flex flexGrow={1} align="center" justify="flex-end">
               {links.map((link, i) => (
@@ -172,21 +170,23 @@ export const BaseNavigationBar = ({
                   );
                 }}
               </AuthenticationContext.Consumer>
-              <IconButton
-                className="nav-content-mobile"
-                aria-label="Navigation Menu"
-                fontSize="20px"
-                variant="ghost"
-                color="black"
-                icon={<MdDehaze />}
-                onClick={() => {
-                  onToggle();
-                  document.body.setAttribute(
-                    'style',
-                    'margin-right: 0 !important',
-                  );
-                }}
-              />
+              {!portal ? (
+                <IconButton
+                  className="nav-content-mobile"
+                  aria-label="Navigation Menu"
+                  fontSize="20px"
+                  variant="ghost"
+                  color="black"
+                  icon={<MdDehaze />}
+                  onClick={() => {
+                    onToggle();
+                    document.body.setAttribute(
+                      'style',
+                      'margin-right: 0 !important',
+                    );
+                  }}
+                />
+              ) : null}
             </Flex>
           </Flex>
         </Container>

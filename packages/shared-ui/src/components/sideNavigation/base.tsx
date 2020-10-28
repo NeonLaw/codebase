@@ -10,8 +10,41 @@ import { navigate } from 'gatsby';
 import styled from '@emotion/styled';
 import { useIntl } from 'gatsby-plugin-intl';
 
-const StyledSideNavContent = styled.div`
+const StyledSideNavContent = styled.div<{ isRenderedOnDashBoard?: boolean }>`
+  nav {
+    padding: ${({ isRenderedOnDashBoard }) =>
+      !isRenderedOnDashBoard ? '1.5rem' : gutters.xSmall};
+
+    @media (max-width: 640px) {
+      padding: ${({ isRenderedOnDashBoard }) =>
+        !isRenderedOnDashBoard ? '1.5rem' : '.2em'};
+    }
+  }
+
+  .logo {
+    &-container {
+      display: ${({ isRenderedOnDashBoard }) =>
+        isRenderedOnDashBoard ? 'flex' : ''};
+      height: 100%;
+      width: 100%;
+      justify-content: center;
+    }
+
+    @media (max-width: 640px) {
+      width: ${({ isRenderedOnDashBoard }) =>
+        isRenderedOnDashBoard ? '3.5rem' : ''};
+      margin-top: ${({ isRenderedOnDashBoard }) =>
+        isRenderedOnDashBoard ? gutters.xSmallOne : ''};
+    }
+  }
+
   .links {
+    margin-top: ${gutters.small};
+
+    @media (max-width: 640px) {
+      margin-top: ${gutters.medium};
+    }
+
     & > * {
       &:not(:last-child) {
         margin-bottom: ${gutters.small};
@@ -19,11 +52,21 @@ const StyledSideNavContent = styled.div`
     }
 
     a {
-      display: flex;
-      align-items: center;
-      transition: all .2s;
-      padding: .1rem 1rem;
+      transition: all 0.2s;
+      padding: 0.1rem 1rem;
       border-left: 2px solid transparent;
+
+      @media (max-width: 640px) {
+        display: flex;
+        align-items: center;
+        justify-content: ${({ isRenderedOnDashBoard }) =>
+          isRenderedOnDashBoard ? 'center' : ''};
+        flex-direction: column;
+        font-size: 90%;
+        padding: 0.1rem 0.2rem;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+      }
 
       &:hover {
         color: ${colors.cyanLight};
@@ -33,11 +76,26 @@ const StyledSideNavContent = styled.div`
     .active {
       color: ${colors.cyanLight};
       border-left: 2px solid ${colors.cyanLight};
+
+      @media (max-width: 640px) {
+        border-left: none;
+        border-bottom: 2px solid ${colors.cyanLight};
+      }
     }
 
     svg {
       display: inline-block;
       margin-right: ${gutters.xSmallOne};
+
+      @media (max-width: 800px) {
+        display: none;
+      }
+
+      @media (max-width: 640px) {
+        margin-right: 0;
+        margin-bottom: 0.3rem;
+        display: inline-block;
+      }
     }
   }
 `;
@@ -56,7 +114,7 @@ export const SideNavContent = ({
   const intl = useIntl();
 
   return (
-    <StyledSideNavContent>
+    <StyledSideNavContent isRenderedOnDashBoard={isRenderedOnDashBoard}>
       <Box
         position="relative"
         color={!isRenderedOnDashBoard ? color[colorMode] : theme.colors.white}
@@ -68,21 +126,31 @@ export const SideNavContent = ({
           as="nav"
           height={!isRenderedOnDashBoard ? 'calc(100vh - 6em)' : ''}
           aria-label="Main navigation"
-          p={!isRenderedOnDashBoard ? '6' : gutters.xSmall}
+          style={
+            isRenderedOnDashBoard
+              ? {
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                }
+              : {}
+          }
         >
           <Box
             margin="0 auto"
             as="a"
             cursor="pointer"
-            className={!isRenderedOnDashBoard ? 'nav-content-mobile' : ''}
+            className={`${
+              !isRenderedOnDashBoard ? 'nav-content-mobile' : ''
+            } logo-container`}
             onClick={() => {
               navigate('/');
             }}
             aria-label="Neon Law, Back to homepage"
           >
-            <img src="/images/logo.svg" alt="Neon Law" />
+            <img className="logo" src="/images/logo.svg" alt="Neon Law" />
           </Box>
-          <Box mb="10">
+          <Box mb="10" display={isRenderedOnDashBoard ? 'none' : ''}>
             <Search version="mobile" />
           </Box>
           <div className="links">
@@ -93,9 +161,7 @@ export const SideNavContent = ({
                   activeClassName="active"
                   to={link.route}
                 >
-                  {
-                    isRenderedOnDashBoard ? link.icon : null
-                  }
+                  {isRenderedOnDashBoard ? link.icon : null}
                   {link.label}
                 </Link>
               </Box>
