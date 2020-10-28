@@ -1,18 +1,19 @@
 import {
   Box,
+  Code,
   FormControl,
   FormErrorMessage,
   FormLabel
 } from '@chakra-ui/core';
 import { Editable, Slate, withReact } from 'slate-react';
-import { Editor, Transforms, createEditor } from 'slate';
+import { Editor, Text, Transforms, createEditor } from 'slate';
 import React, { useCallback, useMemo } from 'react';
 import { Controller } from 'react-hook-form';
 
 const CodeElement = props => {
   return (
     <pre {...props.attributes}>
-      <code>{props.children}</code>
+      <Code>{props.children}</Code>
     </pre>
   );
 };
@@ -26,6 +27,7 @@ export const Textarea = ({
   label,
   name,
   testId,
+  placeholder = '',
   control,
 }) => {
   const editor = useMemo(() => withReact(createEditor()), []);
@@ -47,39 +49,62 @@ export const Textarea = ({
 
       <Controller
         render={({ onChange, value }) => {
-          const placeholder = [
+          const placeholderSlate = [
             {
-              children: [{ text: 'Please write here' }],
+              children: [{ text: placeholder }],
               type: 'paragraph',
             },
           ];
           return (
-            <Slate
-              editor={editor}
-              value={value || placeholder}
-              renderElement={renderElement}
-              onChange={onChange}
-              children={<Editable
-                onKeyDown={(event) => {
-                  if (event.key === '`' && event.ctrlKey) {
-                    // Prevent the "`" from being inserted by default.
-                    event.preventDefault();
-                    // Otherwise, set the currently selected blocks type to
-                    // "code".
-                    Transforms.setNodes(
-                      editor,
-                      { type: 'code' },
-                      { match: n => Editor.isBlock(editor, n) }
-                    );
-                  }
-                  return;
-                }}
-              />}
-            />
+            <>
+              <p>{JSON.stringify(value)}</p>
+
+              <Slate
+                editor={editor}
+                value={value || placeholderSlate}
+                renderElement={renderElement}
+                onChange={onChange}
+                children={<Editable
+                  onKeyDown={(event) => {
+                    if (!event.metaKey) {
+                      return;
+                    }
+
+                    switch (event.key) {
+                      case '`': {
+                        event.preventDefault();
+                        const [match] = Editor.nodes(editor, {
+                          match: n => n.type === 'code',
+                        });
+                        Transforms.setNodes(
+                          editor,
+                          { type: match ? 'paragraph' : 'code' },
+                          { match: n => Editor.isBlock(editor, n) }
+                        );
+                        break;
+                      }
+
+                      // When "B" is pressed, bold the text in the selection.
+                      case 'b': {
+                        event.preventDefault();
+                        Transforms.setNodes(
+                          editor,
+                          { bold: true },
+                          { match: n => Text.isText(n), split: true }
+                        );
+                        break;
+                      }
+                    }
+                  }}
+                />}
+              />
+            </>
           );
         }}
         data-testid={testId}
         name={name}
+        placeholder={placeholder}
+        label={label}
         control={control}
       />
 
