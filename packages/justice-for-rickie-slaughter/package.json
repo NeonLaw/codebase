@@ -64,12 +64,11 @@
     "cypress": "^5.5.0"
   },
   "scripts": {
-    "copy-fonts": "cp -vr ../shared-ui/fonts ./static",
-    "build": "yarn copy-fonts && gatsby build",
+    "build": "gatsby build",
     "cy:open": "cypress open",
     "dev": "yarn run develop",
-    "develop": "yarn copy-fonts && gatsby develop -H 127.0.0.1",
-    "start": "yarn copy-fonts && gatsby develop -H 0.0.0.0",
+    "develop": "gatsby develop -H 127.0.0.1",
+    "start": "gatsby develop -H 0.0.0.0",
     "serve": "gatsby serve",
     "e2e-test": "start-server-and-test develop http://127.0.0.1:8000 'cypress open'",
     "test": "jest --coverage"

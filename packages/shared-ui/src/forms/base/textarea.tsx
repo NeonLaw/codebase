@@ -1,11 +1,13 @@
+import React, { useEffect, useMemo, useState } from "react";
+import { RHFInput } from 'react-hook-form-input'
+import { Slate, Editable, withReact } from 'slate-react'
 import {
-  Textarea as ChakraTextarea,
   FormControl,
   FormErrorMessage,
-  FormLabel,
+  FormLabel
 } from '@chakra-ui/core';
+import { createEditor } from 'slate'
 
-import React from 'react';
 
 export const Textarea = ({
   errors,
@@ -14,7 +16,7 @@ export const Textarea = ({
   name,
   placeholder,
   testId,
-  value = '',
+  value = [],
   className = '',
   size = 'md',
   onBlur = () => {
@@ -29,25 +31,35 @@ export const Textarea = ({
   onFocus = () => {
     return;
   },
+  setValue = (_) => {
+  }
 }) => {
+  const editor = useMemo(() => withReact(createEditor()), []);
+  // Keep track of state for the value of the editor.
+  return null
+
   return (
     <FormControl isInvalid={errors && errors[name]}>
       <FormLabel htmlFor="name">{label}</FormLabel>
-      <ChakraTextarea
-        className={className}
+
+      <RHFInput
+        as={
+         <Slate
+            editor={editor}
+            value={value}
+            onChange={newValue => { setValue(newValue) }}
+          >
+           <Editable />
+          </Slate>
+        }
         data-testid={testId}
-        ref={register}
         name={name}
-        rows={size === 'xl' ? 10 : 5}
-        placeholder={placeholder}
         onBlur={onBlur}
-        onFocus={onFocus}
-        borderColor="gray.300"
-        defaultValue={value}
-        _hover={{ borderColor: 'gray.500' }}
-        onKeyDown={onKeyDown}
         onChange={onChange}
+        register={register}
+        setValue={setValue}
       />
+
       <FormErrorMessage>
         {errors && errors[name] && errors[name].message}
       </FormErrorMessage>

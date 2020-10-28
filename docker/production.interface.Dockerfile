@@ -24,6 +24,7 @@ RUN yarn install --silent --cache-folder ./node_modules/
 
 COPY . .
 
+RUN cp -vr ./packages/shared-ui/fonts ./packages/$APP_NAME/static
 RUN yarn workspace @neonlaw/$APP_NAME build
 
 RUN awk "{gsub(/DOMAIN_NAME/, \"$DOMAIN_NAME\"); print}" ./docker/production.nginx.conf > docker.nginx.conf
