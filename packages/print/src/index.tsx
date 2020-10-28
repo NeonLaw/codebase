@@ -13,7 +13,6 @@ import { argv } from 'yargs';
 import mdx from '@mdx-js/mdx';
 import { readFileSync } from 'fs';
 
-
 Font.register({
   family: 'CharisSIL',
   fontStyle: 'normal',

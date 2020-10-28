@@ -16,7 +16,15 @@
     "strict": true,
     "suppressImplicitAnyIndexErrors": true,
     "target": "esnext",
-    "typeRoots": ["./node_modules/@types"]
+    "typeRoots": [
+      "./node_modules/@types",
+      "./packages/api/node_modules/@types",
+      "./packages/delete-your-data/node_modules/@types",
+      "./packages/interface/node_modules/node_modules/@types",
+      "./packages/justice-for-rickie-slaughter/node_modules/@types",
+      "./packages/law-job-resources/node_modules/@types",
+      "./packages/shared-ui/node_modules/@types"
+    ]
   },
   "include": ["./packages/**/*", "./@types/*"],
   "exclude": [

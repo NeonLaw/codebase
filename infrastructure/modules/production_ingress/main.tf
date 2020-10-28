@@ -19,7 +19,7 @@ resource "kubernetes_ingress" "primary" {
       http {
         path {
           backend {
-            service_name = "api"
+            service_name = "production-api"
             service_port = 80
           }
 

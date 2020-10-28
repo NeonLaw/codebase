@@ -38,6 +38,18 @@ provider "kubernetes" {
   cluster_ca_certificate = base64decode(data.terraform_remote_state.staging_gcp.outputs.gke_cluster_ca_certificate)
 }
 
+provider "helm" {
+  kubernetes {
+    host     = data.terraform_remote_state.staging_gcp.outputs.gke_host
+    username = data.terraform_remote_state.staging_gcp.outputs.gke_username
+    password = data.terraform_remote_state.staging_gcp.outputs.gke_password
+
+    client_certificate     = base64decode(data.terraform_remote_state.staging_gcp.outputs.gke_client_certificate)
+    client_key             = base64decode(data.terraform_remote_state.staging_gcp.outputs.gke_client_key)
+    cluster_ca_certificate = base64decode(data.terraform_remote_state.staging_gcp.outputs.gke_cluster_ca_certificate)
+  }
+}
+
 provider "kubernetes-alpha" {
   server_side_planning = true
 
@@ -114,4 +126,10 @@ module "staging_ingress" {
 
   delete_your_data_service_name = "delete-your-data"
   delete_your_data_host = "www.deleteyourdata.info"
+}
+
+module "new_relic" {
+  source = "../modules/new_relic_helm"
+  environment = "staging"
+  new_relic_license_key = var.new_relic_license_key
 }

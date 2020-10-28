@@ -9,7 +9,7 @@ WORKDIR /app
 
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install
+RUN yarn install --cache-folder ./node_modules/
 
 COPY . .
 
