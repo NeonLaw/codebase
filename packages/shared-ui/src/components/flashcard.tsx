@@ -24,7 +24,6 @@ export const Flashcard = ({
   answer,
   showAnswer,
   toggleShowAnswer,
-  setIsTextAreaFocused,
 }: FlashcardProps) => {
   const { colorMode } = useColorMode();
 
@@ -32,7 +31,7 @@ export const Flashcard = ({
   const { control, handleSubmit } = useForm();
 
   const onSubmit = async ({ answer }) => {
-    changeUserAnswer(answer)
+    changeUserAnswer(answer);
   };
   const formRef = useRef<HTMLFormElement>(null);
 
