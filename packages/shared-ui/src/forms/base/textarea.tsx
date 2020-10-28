@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { RHFInput } from 'react-hook-form-input'
+import { Controller } from 'react-hook-form';
 import { Slate, Editable, withReact } from 'slate-react'
 import {
   FormControl,
@@ -12,52 +12,36 @@ import { createEditor } from 'slate'
 export const Textarea = ({
   errors,
   label,
-  register,
   name,
-  placeholder,
   testId,
-  value = [],
-  className = '',
-  size = 'md',
-  onBlur = () => {
-    return;
-  },
-  onKeyDown = () => {
-    return;
-  },
-  onChange = () => {
-    return;
-  },
-  onFocus = () => {
-    return;
-  },
-  setValue = (_) => {
-  }
+  control,
 }) => {
   const editor = useMemo(() => withReact(createEditor()), []);
-  // Keep track of state for the value of the editor.
-  return null
 
   return (
     <FormControl isInvalid={errors && errors[name]}>
       <FormLabel htmlFor="name">{label}</FormLabel>
 
-      <RHFInput
-        as={
-         <Slate
-            editor={editor}
-            value={value}
-            onChange={newValue => { setValue(newValue) }}
-          >
-           <Editable />
-          </Slate>
-        }
+      <Controller
+        render={({ onChange, value }) => {
+          const placeholder = [
+            {
+              type: 'paragraph',
+              children: [{ text: 'Please write here' }],
+            },
+          ]
+          return (
+            <Slate
+                editor={editor}
+                value={value || placeholder}
+                onChange={onChange}
+                children={<Editable />}
+              />
+            );
+        }}
         data-testid={testId}
         name={name}
-        onBlur={onBlur}
-        onChange={onChange}
-        register={register}
-        setValue={setValue}
+        control={control}
       />
 
       <FormErrorMessage>
