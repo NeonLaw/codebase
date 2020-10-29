@@ -5,6 +5,7 @@ import { Box, Text, useColorMode } from '@chakra-ui/core';
 import React, { useRef, useState } from 'react';
 
 import { FlashButton } from './button';
+import { Node } from 'slate';
 import ReactDiffViewer from 'react-diff-viewer';
 import { Textarea } from './inputs';
 import { gutters } from '../themes/neonLaw';
@@ -31,7 +32,8 @@ export const Flashcard = ({
   const { control, handleSubmit } = useForm();
 
   const onSubmit = async ({ answer }) => {
-    changeUserAnswer(answer);
+    const answerText = answer.map(n => Node.string(n)).join('\n');
+    changeUserAnswer(answerText);
   };
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -57,7 +59,7 @@ export const Flashcard = ({
                   const showPromptButton = document.querySelector(
                     '.show-prompt',
                   );
-                  showPromptButton.focus();
+                  showPromptButton && showPromptButton.focus();
                 }, 10);
               }
             }}
@@ -98,6 +100,7 @@ export const Flashcard = ({
               toggleShowAnswer(false);
               setTimeout(() => {
                 const text = document.querySelector('.flascard-textarea');
+                if (!text) { return; }
                 text.focus();
                 text.value = userAnswer;
                 text.setSelectionRange(text.value.length, text.value.length);
