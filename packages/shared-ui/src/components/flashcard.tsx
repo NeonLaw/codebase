@@ -6,7 +6,7 @@ import React, { useRef, useState } from 'react';
 
 import { FlashButton } from './button';
 import ReactDiffViewer from 'react-diff-viewer';
-import { Textarea } from '../forms/base';
+import { Textarea } from './inputs';
 import { gutters } from '../themes/neonLaw';
 import { isShiftEnterPressed } from '../utils/keyboard';
 import { useForm } from 'react-hook-form';
