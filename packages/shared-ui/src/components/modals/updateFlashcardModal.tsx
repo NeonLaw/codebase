@@ -49,7 +49,7 @@ export const UpdateFlashcardModal = ({
   currentRow,
 }: UpdateFlashcardModalProps) => {
   const intl = useIntl();
-  const { answer, id, prompt } = currentRow?.values || {};
+  const { id, prompt } = currentRow?.values || {};
 
   const [updateFlashcard, { loading }] = useUpdateFlashcardByIdMutation();
 

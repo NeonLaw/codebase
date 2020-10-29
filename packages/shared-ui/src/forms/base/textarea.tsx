@@ -22,6 +22,17 @@ const DefaultElement = props => {
   return <Box {...props.attributes}>{props.children}</Box>;
 };
 
+const Leaf = props => {
+  return (
+    <span
+      {...props.attributes}
+      style={{ fontWeight: props.leaf.bold ? 'bold' : 'normal' }}
+    >
+      {props.children}
+    </span>
+  );
+};
+
 export const Textarea = ({
   errors,
   label,
@@ -41,6 +52,11 @@ export const Textarea = ({
       default:
         return <DefaultElement {...props} />;
     }
+  }, []);
+
+
+  const renderLeaf = useCallback(props => {
+    return <Leaf {...props} />;
   }, []);
 
   return (
@@ -65,6 +81,7 @@ export const Textarea = ({
                 renderElement={renderElement}
                 onChange={onChange}
                 children={<Editable
+                  renderLeaf={renderLeaf}
                   onKeyDown={(event) => {
                     if (!event.metaKey) {
                       return;
@@ -73,6 +90,7 @@ export const Textarea = ({
                     switch (event.key) {
                       case '`': {
                         event.preventDefault();
+
                         const [match] = Editor.nodes(editor, {
                           match: n => n.type === 'code',
                         });
@@ -84,12 +102,16 @@ export const Textarea = ({
                         break;
                       }
 
-                      // When "B" is pressed, bold the text in the selection.
                       case 'b': {
                         event.preventDefault();
+
+                        const [match] = Editor.nodes(editor, {
+                          match: n => n.bold === true,
+                          universal: true,
+                        });
                         Transforms.setNodes(
                           editor,
-                          { bold: true },
+                          { bold: match ? null : true },
                           { match: n => Text.isText(n), split: true }
                         );
                         break;
