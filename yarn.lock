@@ -28,10 +28,10 @@
   dependencies:
     tslib "~2.0.1"
 
-"@auth0/auth0-spa-js@^1.13.0":
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/@auth0/auth0-spa-js/-/auth0-spa-js-1.13.0.tgz#80c928891a954cf153ab390e9238240579297059"
-  integrity sha512-oPvG6h0SWWou0bFGfhTmTasq1m+75nEVpbEusC3KrPB1+wh/ieu5/KeBbp/glMB0h7vDeIw1OfUDpp00Myrk5g==
+"@auth0/auth0-spa-js@^1.13.1":
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/@auth0/auth0-spa-js/-/auth0-spa-js-1.13.1.tgz#d594d47c7120ff5a7e81dc8aa07cffa0a3b1477a"
+  integrity sha512-j4U5YUKyYHsGQSx7TIUyuWuKTZqWyom9aqqT6Hg2XzAcrM9tNM5Gja8EqtntCXnVp62FCTCQKUjYHyM+NEpndQ==
   dependencies:
     abortcontroller-polyfill "^1.5.0"
     browser-tabs-lock "1.2.9"
