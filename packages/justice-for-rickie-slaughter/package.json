@@ -25,7 +25,7 @@
     "gatsby-plugin-manifest": "^2.4.34",
     "gatsby-plugin-mdx": "^1.2.51",
     "gatsby-plugin-module-resolver": "^1.0.3",
-    "gatsby-plugin-offline": "^3.2.31",
+    "gatsby-plugin-offline": "^3.2.38",
     "gatsby-plugin-react-helmet": "^3.3.14",
     "gatsby-plugin-react-leaflet": "^2.0.13",
     "gatsby-plugin-robots-txt": "^1.5.3",
