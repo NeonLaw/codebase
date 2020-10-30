@@ -57,17 +57,16 @@ jobs:
         run: |
           docker exec shell yarn graphql-codegen
           git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
-      # - name: Run Cypress tests for the Interface
-      #   uses: cypress-io/github-action@v2
-      #   with:
-      #     working-directory: ./packages/interface
-      #   env:
-      #     CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
-      #     CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
-      #     CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
-      #     CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
-      #     CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
-      #     CYPRESS_CACHE_FOLDER: ./cypress_cache
+      - name: Run Cypress tests for the Interface
+        uses: cypress-io/github-action@v2
+        with:
+          working-directory: ./packages/interface
+        env:
+          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
+          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
+          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
+          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
+          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
       # - name: Run Cypress tests for the JusticeForRickieSlaughter
       #   uses: cypress-io/github-action@v2
       #   with:
