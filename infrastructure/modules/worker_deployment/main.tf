@@ -86,7 +86,6 @@ resource "kubernetes_deployment" "worker_deployment" {
 
           env {
             name = "AUTH0_CLIENT_SECRET"
-            value_from = var.third_party_saas_secret_name
             value_from {
               secret_key_ref {
                 key = "AUTH0_CLIENT_SECRET"
