@@ -100,13 +100,13 @@ module "worker_deployment" {
   source                       = "../modules/worker_deployment"
   app_name                     = "production-workers"
   database_name                = "neon-law"
-  image_url                    = "${data.terraform_remote_state.staging_gcp.outputs.container_registry}/api:latest"
+  image_url                    = "${data.terraform_remote_state.production_gcp.outputs.container_registry}/api:latest"
   logic_secret_name            = module.logic_kubernetes_secret.name
   master_database_password     = var.master_database_password
   new_relic_app_name           = "production"
   new_relic_license_key        = var.new_relic_license_key
-  project_id                   = data.terraform_remote_state.staging_gcp.outputs.project_id
-  region                       = data.terraform_remote_state.staging_gcp.outputs.region
+  project_id                   = data.terraform_remote_state.production_gcp.outputs.project_id
+  region                       = data.terraform_remote_state.production_gcp.outputs.region
   sql_proxy_secret_name        = module.sql_proxy_kubernetes_secret.name
   third_party_saas_secret_name = module.third_party_saas_kubernetes_secret.name
 }

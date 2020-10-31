@@ -1,7 +1,9 @@
+import { AiOutlineOrderedList, AiOutlineUnorderedList } from 'react-icons/ai';
 import { Editable as EditableSlate, useSlate } from 'slate-react';
 import { Editor, Text, Transforms } from 'slate';
+import { FaBold, FaItalic, FaUnderline } from 'react-icons/fa';
 import React, { useCallback } from 'react';
-import { FaBold } from 'react-icons/fa';
+import { BiCodeBlock } from 'react-icons/bi';
 import { IconButton } from '@chakra-ui/core';
 import { Toolbar } from './toolbar';
 
@@ -133,14 +135,14 @@ export const Editable = ({ editor }) => {
     <>
       <Toolbar>
         <MarkButton format="bold" icon={<FaBold />} />
-        <MarkButton format="italic" icon="format_italic" />
-        <MarkButton format="underline" icon="format_underlined" />
-        <MarkButton format="code" icon="code" />
+        <MarkButton format="italic" icon={<FaItalic />} />
+        <MarkButton format="underline" icon={<FaUnderline />} />
+        <MarkButton format="code" icon={<BiCodeBlock />} />
         <BlockButton format="heading-one" icon="looks_one" />
         <BlockButton format="heading-two" icon="looks_two" />
         <BlockButton format="block-quote" icon="format_quote" />
-        <BlockButton format="numbered-list" icon="format_list_numbered" />
-        <BlockButton format="bulleted-list" icon="format_list_bulleted" />
+        <BlockButton format="numbered-list" icon={<AiOutlineOrderedList />} />
+        <BlockButton format="bulleted-list" icon={<AiOutlineUnorderedList />} />
       </Toolbar>
       <EditableSlate
         renderLeaf={renderLeaf}
