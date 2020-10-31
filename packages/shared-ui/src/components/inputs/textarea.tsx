@@ -5,10 +5,12 @@ import {
   FormErrorMessage,
   FormLabel
 } from '@chakra-ui/core';
-import { Editable, Slate, withReact } from 'slate-react';
-import { Editor, Text, Transforms, createEditor } from 'slate';
 import React, { useCallback, useMemo } from 'react';
+import { Slate, withReact } from 'slate-react';
 import { Controller } from 'react-hook-form';
+import { Editable } from './textareaUtils/editable';
+import { createEditor } from 'slate';
+import { withHistory } from 'slate-history';
 
 const CodeElement = props => {
   return (
@@ -22,17 +24,6 @@ const DefaultElement = props => {
   return <Box {...props.attributes}>{props.children}</Box>;
 };
 
-const Leaf = props => {
-  return (
-    <span
-      {...props.attributes}
-      style={{ fontWeight: props.leaf.bold ? 'bold' : 'normal' }}
-    >
-      {props.children}
-    </span>
-  );
-};
-
 export const Textarea = ({
   errors,
   label,
@@ -41,7 +32,7 @@ export const Textarea = ({
   placeholder = '',
   control,
 }) => {
-  const editor = useMemo(() => withReact(createEditor()), []);
+  const editor = useMemo(() => withHistory(withReact(createEditor())), []);
 
   // Define a rendering function based on the element passed to `props`. We use
   // `useCallback` here to memoize the function for subsequent renders.
@@ -54,10 +45,6 @@ export const Textarea = ({
     }
   }, []);
 
-
-  const renderLeaf = useCallback(props => {
-    return <Leaf {...props} />;
-  }, []);
 
   return (
     <FormControl isInvalid={errors && errors[name]}>
@@ -74,51 +61,12 @@ export const Textarea = ({
           return (
             <>
               <p>{JSON.stringify(value)}</p>
-
               <Slate
                 editor={editor}
                 value={value || placeholderSlate}
                 renderElement={renderElement}
                 onChange={onChange}
-                children={<Editable
-                  renderLeaf={renderLeaf}
-                  onKeyDown={(event) => {
-                    if (!event.metaKey) {
-                      return;
-                    }
-
-                    switch (event.key) {
-                      case '`': {
-                        event.preventDefault();
-
-                        const [match] = Editor.nodes(editor, {
-                          match: n => n.type === 'code',
-                        });
-                        Transforms.setNodes(
-                          editor,
-                          { type: match ? 'paragraph' : 'code' },
-                          { match: n => Editor.isBlock(editor, n) }
-                        );
-                        break;
-                      }
-
-                      case 'b': {
-                        event.preventDefault();
-
-                        const [match] = Editor.nodes(editor, {
-                          match: n => n.bold === true,
-                          universal: true,
-                        });
-                        Transforms.setNodes(
-                          editor,
-                          { bold: match ? null : true },
-                          { match: n => Text.isText(n), split: true }
-                        );
-                        break;
-                      }
-                    }
-                  }}
-                />}
+                children={<Editable editor={editor} />}
               />
             </>
           );

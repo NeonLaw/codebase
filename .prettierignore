@@ -1,0 +1,4 @@
+# Ignore Markdown files
+*.md
+*.mdx
+*.markdown

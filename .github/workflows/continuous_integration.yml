@@ -67,7 +67,6 @@ jobs:
       #     CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
       #     CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
       #     CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
-      #     CYPRESS_CACHE_FOLDER: ./cypress_cache
       # - name: Run Cypress tests for the JusticeForRickieSlaughter
       #   uses: cypress-io/github-action@v2
       #   with:
