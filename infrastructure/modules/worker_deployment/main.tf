@@ -1,4 +1,4 @@
-resource "kubernetes_deployment" "api" {
+resource "kubernetes_deployment" "worker_deployment" {
   metadata {
     name = var.app_name
     labels = {
@@ -42,6 +42,8 @@ resource "kubernetes_deployment" "api" {
         container {
           image = var.image_url
           name  = var.app_name
+          command = ["yarn", "workspace", "@neonlaw/workers", "start"]
+
           env {
             name  = "DATABASE_URL"
             value = "postgres://postgres:${var.master_database_password}@127.0.0.1:5432/neon_law"
@@ -49,10 +51,6 @@ resource "kubernetes_deployment" "api" {
           env {
             name  = "NODE_ENV"
             value = "production"
-          }
-          env {
-            name  = "SHOW_GRAPHIQL"
-            value = var.show_graphiql
           }
           env {
             name  = "NEW_RELIC_NO_CONFIG_FILE"
