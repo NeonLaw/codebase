@@ -89,6 +89,7 @@
         "logrocket": "^1.0.14",
         "logrocket-react": "^4.0.1",
         "slate": "^0.59.0",
+        "slate-history": "^0.59.0",
         "slate-react": "^0.59.0",
         "typescript": "^4.0.3"
     }
