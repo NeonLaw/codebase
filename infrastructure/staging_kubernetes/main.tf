@@ -98,7 +98,7 @@ module "api_deployment" {
 }
 
 module "worker_deployment" {
-  source                       = "../modules/api_deployment"
+  source                       = "../modules/worker_deployment"
 
   app_name                     = "staging-workers"
   database_name                = "neon-law"

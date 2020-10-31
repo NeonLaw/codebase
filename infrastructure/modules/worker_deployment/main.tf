@@ -48,22 +48,27 @@ resource "kubernetes_deployment" "worker_deployment" {
             name  = "DATABASE_URL"
             value = "postgres://postgres:${var.master_database_password}@127.0.0.1:5432/neon_law"
           }
+
           env {
             name  = "NODE_ENV"
             value = "production"
           }
+
           env {
             name  = "NEW_RELIC_NO_CONFIG_FILE"
             value = "true"
           }
+
           env {
             name  = "NEW_RELIC_DISTRIBUTED_TRACING_ENABLED"
             value = "true"
           }
+
           env {
             name  = "NEW_RELIC_LICENSE_KEY"
             value = var.new_relic_license_key
           }
+
           env {
             name  = "NEW_RELIC_APP_NAME"
             value = var.new_relic_app_name
@@ -84,10 +89,6 @@ resource "kubernetes_deployment" "worker_deployment" {
             value_from = var.third_party_saas_secret_name
           }
 
-          env {
-            name = "GOOGLE_APPLICATION_CREDENTIALS"
-            value_from = var.logic_secret_name
-          }
           volume_mount {
             name       = var.sql_proxy_secret_name
             read_only  = true
