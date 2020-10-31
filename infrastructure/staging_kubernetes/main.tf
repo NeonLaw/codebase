@@ -82,7 +82,6 @@ module "logic_kubernetes_secret" {
 
 module "api_deployment" {
   source                       = "../modules/api_deployment"
-
   app_name                     = "staging-api"
   database_name                = "neon-law"
   image_url                    = "${data.terraform_remote_state.staging_gcp.outputs.container_registry}/api:latest"
@@ -99,7 +98,6 @@ module "api_deployment" {
 
 module "worker_deployment" {
   source                       = "../modules/worker_deployment"
-
   app_name                     = "staging-workers"
   database_name                = "neon-law"
   image_url                    = "${data.terraform_remote_state.staging_gcp.outputs.container_registry}/api:latest"
