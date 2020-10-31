@@ -26,9 +26,6 @@ variable master_database_password {
 variable third_party_saas_secret_name {
 }
 
-variable show_graphiql {
-}
-
 variable new_relic_license_key {
 }
 
