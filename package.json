@@ -14,7 +14,8 @@
         "packages/questions",
         "packages/shared-ui",
         "packages/speech-to-text",
-        "packages/stripe"
+        "packages/stripe",
+        "packages/workers"
     ],
     "optionalDependencies": {
         "cypress": "^5.5.0"
