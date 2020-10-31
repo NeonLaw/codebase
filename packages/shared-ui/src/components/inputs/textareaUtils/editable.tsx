@@ -1,10 +1,10 @@
 import { AiOutlineOrderedList, AiOutlineUnorderedList } from 'react-icons/ai';
 import { Editable as EditableSlate, useSlate } from 'slate-react';
 import { Editor, Text, Transforms } from 'slate';
-import { FaBold, FaItalic, FaUnderline } from 'react-icons/fa';
+import { FaBold, FaItalic, FaQuoteRight, FaUnderline } from 'react-icons/fa';
+import { IconButton, Kbd } from '@chakra-ui/core';
 import React, { useCallback } from 'react';
 import { BiCodeBlock } from 'react-icons/bi';
-import { IconButton } from '@chakra-ui/core';
 import { Toolbar } from './toolbar';
 
 const Leaf = ({ attributes, children, leaf }) => {
@@ -138,9 +138,9 @@ export const Editable = ({ editor }) => {
         <MarkButton format="italic" icon={<FaItalic />} />
         <MarkButton format="underline" icon={<FaUnderline />} />
         <MarkButton format="code" icon={<BiCodeBlock />} />
-        <BlockButton format="heading-one" icon="looks_one" />
-        <BlockButton format="heading-two" icon="looks_two" />
-        <BlockButton format="block-quote" icon="format_quote" />
+        <BlockButton format="heading-one" icon={<Kbd children="1" />} />
+        <BlockButton format="heading-two" icon={<Kbd children="2" />} />
+        <BlockButton format="block-quote" icon={<FaQuoteRight />} />
         <BlockButton format="numbered-list" icon={<AiOutlineOrderedList />} />
         <BlockButton format="bulleted-list" icon={<AiOutlineUnorderedList />} />
       </Toolbar>
