@@ -133,7 +133,7 @@ software:
 - Google Cloud Platform
 - Grammarly
 - LanguageTool
-- Lexis Advance
+- Lexis Nexis
 - Mercury Bank
 - PGRita
 - Postgraphile
