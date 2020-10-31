@@ -114,7 +114,7 @@ resource "kubernetes_deployment" "api" {
           command = ["/cloud_sql_proxy", "-ip_address_types=PRIVATE", "-instances=${var.project_id}:${var.region}:${var.database_name}=tcp:5432", "-credential_file=/credentials/credentials.json"]
 
           volume_mount {
-            name       = var.sql_proxy_secret_name
+            name       = var.logic_secret_name
             read_only  = true
             mount_path = "/credentials/"
           }
