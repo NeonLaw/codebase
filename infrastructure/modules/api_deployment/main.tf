@@ -73,17 +73,33 @@ resource "kubernetes_deployment" "api" {
 
           env {
             name = "AUTH0_CLIENT_ID"
-            value_from = var.third_party_saas_secret_name
+            value_from {
+              secret_key_ref {
+                key = "AUTH0_CLIENT_ID"
+                name = var.third_party_saas_secret_name
+              }
+            }
           }
 
           env {
             name = "AUTH0_CLIENT_SECRET"
             value_from = var.third_party_saas_secret_name
+            value_from {
+              secret_key_ref {
+                key = "AUTH0_CLIENT_SECRET"
+                name = var.third_party_saas_secret_name
+              }
+            }
           }
 
           env {
             name = "AUTH0_TENANT"
-            value_from = var.third_party_saas_secret_name
+            value_from {
+              secret_key_ref {
+                key = "AUTH0_TENANT"
+                name = var.third_party_saas_secret_name
+              }
+            }
           }
 
           volume_mount {
