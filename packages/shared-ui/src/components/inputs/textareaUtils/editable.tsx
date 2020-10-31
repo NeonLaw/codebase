@@ -1,7 +1,8 @@
 import { Editable as EditableSlate, useSlate } from 'slate-react';
 import { Editor, Text, Transforms } from 'slate';
 import React, { useCallback } from 'react';
-import { Button } from '@chakra-ui/core';
+import { FaBold } from 'react-icons/fa';
+import { IconButton } from '@chakra-ui/core';
 import { Toolbar } from './toolbar';
 
 const Leaf = ({ attributes, children, leaf }) => {
@@ -47,30 +48,30 @@ const MarkButton = ({ format, icon }) => {
   const editor = useSlate();
 
   return (
-    <Button
-      active={isMarkActive(editor, format)}
+    <IconButton
+      aria-label={format}
+      colorScheme={isMarkActive(editor, format) ? 'black' : 'purple'}
       onMouseDown={event => {
         event.preventDefault();
         toggleMark(editor, format);
       }}
-    >
-      <i>{icon}</i>
-    </Button>
+      icon={icon}
+    />
   );
 };
 
 const BlockButton = ({ format, icon }) => {
   const editor = useSlate();
   return (
-    <Button
-      active={isBlockActive(editor, format)}
+    <IconButton
+      aria-label={format}
+      colorScheme={isBlockActive(editor, format) ? 'black' : 'white'}
       onMouseDown={event => {
         event.preventDefault();
         toggleBlock(editor, format);
       }}
-    >
-      <i>{icon}</i>
-    </Button>
+      icon={icon}
+    />
   );
 };
 
@@ -110,7 +111,7 @@ const toggleBlock = (editor, format) => {
   });
 
   if (!isActive && isList) {
-    const block = { type: format, children: [] };
+    const block = { children: [], type: format };
     Transforms.wrapNodes(editor, block);
   }
 };
@@ -131,7 +132,7 @@ export const Editable = ({ editor }) => {
   return (
     <>
       <Toolbar>
-        <MarkButton format="bold" icon="format_bold" />
+        <MarkButton format="bold" icon={<FaBold />} />
         <MarkButton format="italic" icon="format_italic" />
         <MarkButton format="underline" icon="format_underlined" />
         <MarkButton format="code" icon="code" />

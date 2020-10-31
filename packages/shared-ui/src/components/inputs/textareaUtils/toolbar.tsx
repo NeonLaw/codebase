@@ -16,10 +16,6 @@ const Menu = React.forwardRef(
       className={cx(
         className,
         css`
-          & > * {
-            display: inline-block;
-          }
-
           & > * + * {
             margin-left: 15px;
           }

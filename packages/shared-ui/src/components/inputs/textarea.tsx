@@ -59,13 +59,16 @@ export const Textarea = ({
             },
           ];
           return (
-            <Slate
-              editor={editor}
-              value={value || placeholderSlate}
-              renderElement={renderElement}
-              onChange={onChange}
-              children={<Editable editor={editor} />}
-            />
+            <>
+              <p>{JSON.stringify(value)}</p>
+              <Slate
+                editor={editor}
+                value={value || placeholderSlate}
+                renderElement={renderElement}
+                onChange={onChange}
+                children={<Editable editor={editor} />}
+              />
+            </>
           );
         }}
         data-testid={testId}
