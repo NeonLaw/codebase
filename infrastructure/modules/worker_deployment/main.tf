@@ -88,6 +88,11 @@ resource "kubernetes_deployment" "worker_deployment" {
             name = "GOOGLE_APPLICATION_CREDENTIALS"
             value_from = var.logic_secret_name
           }
+          volume_mount {
+            name       = var.sql_proxy_secret_name
+            read_only  = true
+            mount_path = "/credentials/"
+          }
         }
 
         container {

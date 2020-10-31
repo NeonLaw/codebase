@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+if [ -d "/credentials" ]; then
+  export GOOGLE_APPLICATION_CREDENTIALS="/credentials/credentials.json"
+fi
+
 yarn
 yarn workspace @neonlaw/api migrate
 
