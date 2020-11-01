@@ -73,6 +73,7 @@
         "check-types": "tsc -p .",
         "docker-remove-containers": "docker container kill $(docker ps -q)",
         "docker-prune": "docker system prune -a -f --volumes",
+        "e2e": "cypress run --headless --project",
         "lint": "eslint './**/*.{js,jsx,ts,tsx}'",
         "markdown-lint": "remark -i -e mdx,md --frail .remarkignore .",
         "migrate": "yarn workspace @neonlaw/api graphile-migrate migrate",

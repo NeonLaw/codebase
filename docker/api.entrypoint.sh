@@ -5,7 +5,7 @@ if [ -d "/credentials" ]; then
   export GOOGLE_APPLICATION_CREDENTIALS="/credentials/credentials.json"
 fi
 
-yarn
+yarn install --cache-folder ./node_modules/ --prefer-offline
 yarn workspace @neonlaw/api migrate
 
 exec "$@"

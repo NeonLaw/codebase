@@ -5,18 +5,20 @@ x-environment-variables: &environment-variables
   - AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID
   - AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET
   - AUTH0_TENANT=neon-law-testing.auth0.com
-  - DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law
-  - SHADOW_DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law_shadow
-  - ROOT_DATABASE_URL=postgres://postgres:password@postgres:5432/postgres
-  - ELASTICSEARCH_URL=http://elastic:changeme@elasticsearch:9200
-  - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
-  - NODE_ENV=development
-  - SHOW_GRAPHIQL=true
   - CYPRESS_AUTH_URL=$CYPRESS_AUTH_URL
-  - CYPRESS_AUDIENCE_URL=$CYPRESS_AUDIENCE_URL
   - CYPRESS_AUTH0_CLIENT_ID=$CYPRESS_AUTH0_CLIENT_ID
   - CYPRESS_AUTH0_CLIENT_SECRET=$CYPRESS_AUTH0_CLIENT_SECRET
+  - CYPRESS_PORTAL_USER_PASSWORD=$CYPRESS_PORTAL_USER_PASSWORD
+  - CYPRESS_ADMIN_USER_PASSWORD=$CYPRESS_ADMIN_USER_PASSWORD
+  - DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law
+  - ELASTICSEARCH_URL=http://elastic:changeme@elasticsearch:9200
   - GATSBY_WEBPACK_PUBLICPATH=/
+  - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
+  - NEW_RELIC_NO_CONFIG_FILE=true
+  - NODE_ENV=development
+  - ROOT_DATABASE_URL=postgres://postgres:password@postgres:5432/postgres
+  - SHADOW_DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law_shadow
+  - SHOW_GRAPHIQL=true
 
 x-node-volumes: &node-volumes
   - ./:/app
@@ -37,6 +39,7 @@ x-node-volumes: &node-volumes
   - /app/packages/shared-ui/node_modules/
   - /app/packages/speech-to-text/node_modules/
   - /app/packages/stripe/node_modules/
+  - /app/packages/workers/node_modules/
 
 services:
   postgres:
@@ -96,9 +99,7 @@ services:
       INTERNAL_STATUS_PORT: 33010
 
   shell:
-    build:
-      context: ./
-      dockerfile: ./docker/base.Dockerfile
+    image: docker.pkg.github.com/neonlaw/codebase/base
     container_name: shell
     volumes: *node-volumes
     environment: *environment-variables

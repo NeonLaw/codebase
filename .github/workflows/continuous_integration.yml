@@ -27,6 +27,11 @@ jobs:
         run: docker-compose up -d
         env:
           COMPOSE_HTTP_TIMEOUT: 300
+          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
+          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
+          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
+          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
+          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD}}
       - name: Install depedencies
         run: docker exec shell yarn --cache-folder ./node_modules
       - name: Lint Markdown files.
@@ -57,44 +62,48 @@ jobs:
         run: |
           docker exec shell yarn graphql-codegen
           git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
-      - name: Re-Install Node Modules for Cypress
+      - name: Run Apt-Get
         run: |
-          usermod -aG sudo $(whoami)
-          rm -rf node_modules
-          yarn cache clean
-          yarn
+          sudo apt-get update -qqy &&\
+            sudo apt-get -qqyy install \
+            nodejs \
+            yarn \
+            ncat \
+            postgresql \
+            postgresql-contrib \
+            libgtk2.0-0 \
+            libgtk-3-0 \
+            libgbm-dev \
+            libnotify-dev \
+            libgconf-2-4 \
+            libnss3 \
+            libxss1 \
+            libasound2 \
+            libxtst6 \
+            xauth \
+            xvfb &&\
+            apt-get clean &&\
+            rm -f /var/lib/apt/lists/*_*
       - name: Run Cypress tests for the Interface
-        uses: cypress-io/github-action@v2
-        with:
-          working-directory: ./packages/interface
-          install: false
-        env:
-          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
-          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
-          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
-          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
-          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
-      - name: Run Cypress tests for the JusticeForRickieSlaughter
-        uses: cypress-io/github-action@v2
-        with:
-          working-directory: ./packages/justice-for-rickie-slaughter
-          install: false
-        env:
-          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
-          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
-          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
-          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
-          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD}}
-          CYPRESS_CACHE_FOLDER: ./cypress_cache
-      - name: Run Cypress tests for the DeleteYourData
-        uses: cypress-io/github-action@v2
-        with:
-          working-directory: ./packages/delete-your-data
-          install: false
-        env:
-          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
-          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
-          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
-          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
-          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD}}
-          CYPRESS_CACHE_FOLDER: ./cypress_cache
+        run: |
+          docker exec shell e2e ./packages/interface \
+            --spec ./packages/interface/cypress/interface/pgp.spec.ts
+      # - name: Run Cypress tests for the JusticeForRickieSlaughter
+      #   uses: cypress-io/github-action@v2
+      #   with:
+      #     working-directory: ./packages/justice-for-rickie-slaughter
+      #     install: false
+      #   env:
+      #     CYPRESS_CACHE_FOLDER: ./cypress_cache
+      # - name: Run Cypress tests for the DeleteYourData
+      #   uses: cypress-io/github-action@v2
+      #   with:
+      #     working-directory: ./packages/delete-your-data
+      #     install: false
+      #   env:
+      #     CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
+      #     CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
+      #     CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
+      #     CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
+      #     CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD}}
+      #     CYPRESS_CACHE_FOLDER: ./cypress_cache

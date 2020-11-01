@@ -7,11 +7,7 @@ ENV SHOW_GRAPHIQL $SHOW_GRAPHIQL
 
 WORKDIR /app
 
-COPY package.json .
-COPY yarn.lock .
-RUN yarn install --cache-folder ./node_modules/
-
-COPY . .
+COPY . ./
 
 EXPOSE 3000
 ENTRYPOINT [ "./docker/api.entrypoint.sh" ]
