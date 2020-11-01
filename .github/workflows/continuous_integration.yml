@@ -59,9 +59,10 @@ jobs:
           git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
       - name: Re-Install Node Modules for Cypress
         run: |
+          usermod -aG sudo $(whoami)
           rm -rf node_modules
-          sudo yarn cache clean
-          sudo yarn
+          yarn cache clean
+          yarn
       - name: Run Cypress tests for the Interface
         uses: cypress-io/github-action@v2
         with:
