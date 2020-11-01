@@ -41,6 +41,7 @@ export const colors = {
   primaryButtonBgOnHover: { dark: 'cyan.300', light: 'cyan.500' },
   primaryButtonColor: { dark: 'black', light: 'white' },
   text: { dark: 'white', darkLight: '#eee', light: '#222' },
+  textareaBackground: { dark: theme.colors.gray[800], light: 'white' }
 };
 
 export const sizes = {

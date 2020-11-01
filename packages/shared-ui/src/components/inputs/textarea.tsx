@@ -3,7 +3,6 @@ import {
   Code,
   FormControl,
   FormErrorMessage,
-  FormLabel
 } from '@chakra-ui/core';
 import React, { useCallback, useMemo } from 'react';
 import { Slate, withReact } from 'slate-react';
@@ -48,8 +47,6 @@ export const Textarea = ({
 
   return (
     <FormControl isInvalid={errors && errors[name]}>
-      <FormLabel htmlFor="name">{label}</FormLabel>
-
       <Controller
         render={({ onChange, value }) => {
           const placeholderSlate = [
@@ -59,16 +56,13 @@ export const Textarea = ({
             },
           ];
           return (
-            <>
-              <p>{JSON.stringify(value)}</p>
-              <Slate
-                editor={editor}
-                value={value || placeholderSlate}
-                renderElement={renderElement}
-                onChange={onChange}
-                children={<Editable editor={editor} />}
-              />
-            </>
+            <Slate
+              editor={editor}
+              value={value || placeholderSlate}
+              renderElement={renderElement}
+              onChange={onChange}
+              children={<Editable editor={editor} />}
+            />
           );
         }}
         data-testid={testId}

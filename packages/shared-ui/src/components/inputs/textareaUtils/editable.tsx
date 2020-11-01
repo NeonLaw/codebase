@@ -1,11 +1,12 @@
 import { AiOutlineOrderedList, AiOutlineUnorderedList } from 'react-icons/ai';
+import { Box, Divider, IconButton, Kbd, useColorMode } from '@chakra-ui/core';
 import { Editable as EditableSlate, useSlate } from 'slate-react';
 import { Editor, Text, Transforms } from 'slate';
 import { FaBold, FaItalic, FaQuoteRight, FaUnderline } from 'react-icons/fa';
-import { IconButton, Kbd } from '@chakra-ui/core';
 import React, { useCallback } from 'react';
 import { BiCodeBlock } from 'react-icons/bi';
 import { Toolbar } from './toolbar';
+import { colors } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
 const Leaf = ({ attributes, children, leaf }) => {
   if (leaf.bold) {
@@ -130,9 +131,13 @@ const toggleMark = (editor, format) => {
 
 export const Editable = ({ editor }) => {
   const renderLeaf = useCallback(props => <Leaf {...props} />, []);
+  const { colorMode } = useColorMode();
 
   return (
-    <>
+    <Box
+      padding="10px"
+      bg={colors.textareaBackground[colorMode]}
+    >
       <Toolbar>
         <MarkButton format="bold" icon={<FaBold />} />
         <MarkButton format="italic" icon={<FaItalic />} />
@@ -144,6 +149,7 @@ export const Editable = ({ editor }) => {
         <BlockButton format="numbered-list" icon={<AiOutlineOrderedList />} />
         <BlockButton format="bulleted-list" icon={<AiOutlineUnorderedList />} />
       </Toolbar>
+      <Divider />
       <EditableSlate
         renderLeaf={renderLeaf}
         onKeyDown={(event) => {
@@ -183,6 +189,6 @@ export const Editable = ({ editor }) => {
           }
         }}
       />
-    </>
+    </Box>
   );
 };
