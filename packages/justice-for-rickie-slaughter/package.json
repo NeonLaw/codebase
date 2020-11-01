@@ -68,7 +68,7 @@
     "cy:open": "cypress open",
     "dev": "yarn run develop",
     "develop": "gatsby develop -H 127.0.0.1",
-    "start": "gatsby develop -H 0.0.0.0",
+    "start": "gatsby serve -H 0.0.0.0 -p 8000",
     "serve": "gatsby serve",
     "e2e-test": "start-server-and-test develop http://127.0.0.1:8000 'cypress open'",
     "test": "jest --coverage"

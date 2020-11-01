@@ -9,6 +9,12 @@ WORKDIR /app
 
 COPY . ./
 
+RUN yarn install \
+  --silent \
+  --ignore-optional \
+  --prefer-offline \
+  --cache-folder ./node_modules
+
 EXPOSE 3000
 ENTRYPOINT [ "./docker/api.entrypoint.sh" ]
 CMD [ "yarn", "workspace", "@neonlaw/api", "start" ]
