@@ -64,8 +64,7 @@ jobs:
           git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
       - name: Run Apt-Get
         run: |
-          sudo apt-get update -qqy
-          sudo apt-get -qqyy install \
+          docker exec shell apt-get -qqyy install \
             nodejs \
             yarn \
             postgresql \
@@ -81,8 +80,6 @@ jobs:
             libxtst6 \
             xauth \
             xvfb
-          sudo apt-get clean
-          sudo rm -f /var/lib/apt/lists/*_*
       - name: Run Cypress tests for the Interface
         run: |
           docker exec shell yarn e2e ./packages/interface \
