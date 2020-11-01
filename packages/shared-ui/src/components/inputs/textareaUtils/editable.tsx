@@ -1,11 +1,14 @@
 import { AiOutlineOrderedList, AiOutlineUnorderedList } from 'react-icons/ai';
-import { Editable as EditableSlate, useSlate } from 'slate-react';
+import { Box, Divider, Kbd, useColorMode } from '@chakra-ui/core';
 import { Editor, Text, Transforms } from 'slate';
 import { FaBold, FaItalic, FaQuoteRight, FaUnderline } from 'react-icons/fa';
-import { IconButton, Kbd } from '@chakra-ui/core';
 import React, { useCallback } from 'react';
 import { BiCodeBlock } from 'react-icons/bi';
+import { BlockButton } from './blockButton';
+import { Editable as EditableSlate } from 'slate-react';
+import { MarkButton } from './markButton';
 import { Toolbar } from './toolbar';
+import { colors } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
 const Leaf = ({ attributes, children, leaf }) => {
   if (leaf.bold) {
@@ -46,50 +49,6 @@ const Leaf = ({ attributes, children, leaf }) => {
 //   }
 // };
 
-const MarkButton = ({ format, icon }) => {
-  const editor = useSlate();
-
-  return (
-    <IconButton
-      aria-label={format}
-      colorScheme={isMarkActive(editor, format) ? 'black' : 'purple'}
-      onMouseDown={event => {
-        event.preventDefault();
-        toggleMark(editor, format);
-      }}
-      icon={icon}
-    />
-  );
-};
-
-const BlockButton = ({ format, icon }) => {
-  const editor = useSlate();
-  return (
-    <IconButton
-      aria-label={format}
-      colorScheme={isBlockActive(editor, format) ? 'black' : 'white'}
-      onMouseDown={event => {
-        event.preventDefault();
-        toggleBlock(editor, format);
-      }}
-      icon={icon}
-    />
-  );
-};
-
-const isBlockActive = (editor, format) => {
-  const [match] = Editor.nodes(editor, {
-    match: n => n.type === format,
-  });
-
-  return !!match;
-};
-
-const isMarkActive = (editor, format) => {
-  const marks = Editor.marks(editor);
-  return marks ? marks[format] === true : false;
-};
-
 // const HOTKEYS = {
 //   'mod+`': 'code',
 //   'mod+b': 'bold',
@@ -97,42 +56,14 @@ const isMarkActive = (editor, format) => {
 //   'mod+u': 'underline',
 // };
 
-const LIST_TYPES = ['numbered-list', 'bulleted-list'];
-
-const toggleBlock = (editor, format) => {
-  const isActive = isBlockActive(editor, format);
-  const isList = LIST_TYPES.includes(format);
-
-  Transforms.unwrapNodes(editor, {
-    match: n => LIST_TYPES.includes(n.type as string),
-    split: true,
-  });
-
-  Transforms.setNodes(editor, {
-    type: isActive ? 'paragraph' : isList ? 'list-item' : format,
-  });
-
-  if (!isActive && isList) {
-    const block = { children: [], type: format };
-    Transforms.wrapNodes(editor, block);
-  }
-};
-
-const toggleMark = (editor, format) => {
-  const isActive = isMarkActive(editor, format);
-
-  if (isActive) {
-    Editor.removeMark(editor, format);
-  } else {
-    Editor.addMark(editor, format, true);
-  }
-};
-
 export const Editable = ({ editor }) => {
   const renderLeaf = useCallback(props => <Leaf {...props} />, []);
+  const { colorMode } = useColorMode();
 
   return (
-    <>
+    <Box
+      bg={colors.textareaBackground[colorMode]}
+    >
       <Toolbar>
         <MarkButton format="bold" icon={<FaBold />} />
         <MarkButton format="italic" icon={<FaItalic />} />
@@ -144,45 +75,48 @@ export const Editable = ({ editor }) => {
         <BlockButton format="numbered-list" icon={<AiOutlineOrderedList />} />
         <BlockButton format="bulleted-list" icon={<AiOutlineUnorderedList />} />
       </Toolbar>
-      <EditableSlate
-        renderLeaf={renderLeaf}
-        onKeyDown={(event) => {
-          if (!event.metaKey) {
-            return;
-          }
-
-          switch (event.key) {
-            case '`': {
-              event.preventDefault();
-
-              const [match] = Editor.nodes(editor, {
-                match: n => n.type === 'code',
-              });
-              Transforms.setNodes(
-                editor,
-                { type: match ? 'paragraph' : 'code' },
-                { match: n => Editor.isBlock(editor, n) }
-              );
-              break;
+      <Divider />
+      <Box padding="20px">
+        <EditableSlate
+          renderLeaf={renderLeaf}
+          onKeyDown={(event) => {
+            if (!event.metaKey) {
+              return;
             }
 
-            case 'b': {
-              event.preventDefault();
+            switch (event.key) {
+              case '`': {
+                event.preventDefault();
 
-              const [match] = Editor.nodes(editor, {
-                match: n => n.bold === true,
-                universal: true,
-              });
-              Transforms.setNodes(
-                editor,
-                { bold: match ? null : true },
-                { match: n => Text.isText(n), split: true }
-              );
-              break;
+                const [match] = Editor.nodes(editor, {
+                  match: n => n.type === 'code',
+                });
+                Transforms.setNodes(
+                  editor,
+                  { type: match ? 'paragraph' : 'code' },
+                  { match: n => Editor.isBlock(editor, n) }
+                );
+                break;
+              }
+
+              case 'b': {
+                event.preventDefault();
+
+                const [match] = Editor.nodes(editor, {
+                  match: n => n.bold === true,
+                  universal: true,
+                });
+                Transforms.setNodes(
+                  editor,
+                  { bold: match ? null : true },
+                  { match: n => Text.isText(n), split: true }
+                );
+                break;
+              }
             }
-          }
-        }}
-      />
-    </>
+          }}
+        />
+      </Box>
+    </Box>
   );
 };

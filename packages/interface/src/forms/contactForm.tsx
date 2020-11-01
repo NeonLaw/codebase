@@ -21,6 +21,7 @@ export const ContactForm = () => {
         errors={errors}
         name="Inquiry"
         label="Inquiry"
+        placeholder="Write your question here."
       />
     </form>
   );
