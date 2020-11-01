@@ -14,8 +14,6 @@ RUN yarn install \
 
 ADD . ./
 
-RUN yarn workspace @neonlaw/$PACKAGE_NAME build
-
 EXPOSE 8000
 
 CMD [ "./docker/interface.command.sh" ]
