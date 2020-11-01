@@ -85,9 +85,9 @@ jobs:
           sudo rm -f /var/lib/apt/lists/*_*
       - name: Run Cypress tests for the Interface
         run: |
-          docker exec shell e2e ./packages/interface \
+          docker exec shell yarn e2e ./packages/interface \
             --spec ./packages/interface/cypress/interface/pgp.spec.ts
       - name: Run Cypress tests for the JusticeForRickieSlaughter
-        run: docker exec shell e2e ./packages/justice-for-rickie-slaughter
+        run: docker exec shell yarn e2e ./packages/justice-for-rickie-slaughter
       - name: Run Cypress tests for the DeleteYourData
-        run: docker exec shell e2e ./packages/delete-your-data
+        run: docker exec shell yarn e2e ./packages/delete-your-data
