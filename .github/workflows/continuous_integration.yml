@@ -64,8 +64,8 @@ jobs:
           git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
       - name: Run Apt-Get
         run: |
-          sudo apt-get update -qqy &&\
-            sudo apt-get -qqyy install \
+          sudo apt-get update -qqy
+          sudo apt-get -qqyy install \
             nodejs \
             yarn \
             ncat \
@@ -81,9 +81,9 @@ jobs:
             libasound2 \
             libxtst6 \
             xauth \
-            xvfb &&\
-            apt-get clean &&\
-            rm -f /var/lib/apt/lists/*_*
+            xvfb
+          sudo apt-get clean
+          sudo rm -f /var/lib/apt/lists/*_*
       - name: Run Cypress tests for the Interface
         run: |
           docker exec shell e2e ./packages/interface \
