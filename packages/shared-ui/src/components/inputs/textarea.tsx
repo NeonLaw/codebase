@@ -3,6 +3,7 @@ import {
   Code,
   FormControl,
   FormErrorMessage,
+  FormLabel,
 } from '@chakra-ui/core';
 import React, { useCallback, useMemo } from 'react';
 import { Slate, withReact } from 'slate-react';
@@ -47,6 +48,8 @@ export const Textarea = ({
 
   return (
     <FormControl isInvalid={errors && errors[name]}>
+      <FormLabel htmlFor="name">{label}</FormLabel>
+
       <Controller
         render={({ onChange, value }) => {
           const placeholderSlate = [

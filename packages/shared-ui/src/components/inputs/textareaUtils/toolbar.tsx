@@ -4,8 +4,8 @@ import React from 'react';
 export const Toolbar = (props) => (
   <Flex
     width="100%"
-    justifyContent="space-between"
-    padding="10px"
+    justifyContent="left"
+    padding="20px"
     {...props}
   />
 );
