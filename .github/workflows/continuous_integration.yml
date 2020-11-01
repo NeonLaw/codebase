@@ -62,28 +62,6 @@ jobs:
         run: |
           docker exec shell yarn graphql-codegen
           git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
-      - name: Run Apt-Get
-        run: |
-          docker exec shell apt-get -qqyy install \
-            nodejs \
-            yarn \
-            postgresql \
-            postgresql-contrib \
-            libgtk2.0-0 \
-            libgtk-3-0 \
-            libgbm-dev \
-            libnotify-dev \
-            libgconf-2-4 \
-            libnss3 \
-            libxss1 \
-            libasound2 \
-            libxtst6 \
-            xauth \
-            xvfb
-      - name: Sleep for 100 seconds for Gatsby to start up
-        uses: jakejarvis/wait-action@master
-        with:
-          time: '100s'
       - name: Run Cypress tests for the Interface package
         run: |
           docker exec shell yarn e2e ./packages/interface \
