@@ -82,6 +82,7 @@ jobs:
             xvfb
       - name: Run Cypress tests for the Interface
         run: |
+          docker ps
           docker exec shell yarn e2e ./packages/interface \
             --spec ./packages/interface/cypress/interface/pgp.spec.ts
       - name: Run Cypress tests for the JusticeForRickieSlaughter
