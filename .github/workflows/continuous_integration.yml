@@ -60,8 +60,8 @@ jobs:
       - name: Re-Install Node Modules for Cypress
         run: |
           rm -rf node_modules
-          yarn cache clean
-          yarn
+          sudo yarn cache clean
+          sudo yarn
       - name: Run Cypress tests for the Interface
         uses: cypress-io/github-action@v2
         with:
