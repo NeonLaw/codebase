@@ -80,11 +80,10 @@ jobs:
             libxtst6 \
             xauth \
             xvfb
-      - name: Run Cypress tests for the Interface
+      - name: Run Cypress tests for the Interface package
         run: |
-          docker ps
           docker exec shell yarn e2e ./packages/interface \
-            --spec ./packages/interface/cypress/interface/pgp.spec.ts
+            --spec ./packages/interface/cypress/integration/pgp.spec.ts
       - name: Run Cypress tests for the JusticeForRickieSlaughter
         run: docker exec shell yarn e2e ./packages/justice-for-rickie-slaughter
       - name: Run Cypress tests for the DeleteYourData
