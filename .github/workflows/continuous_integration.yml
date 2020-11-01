@@ -82,6 +82,10 @@ jobs:
             libxtst6 \
             xauth \
             xvfb
+      - name: Sleep for 100 seconds for Gatsby to start up
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '100s'
       - name: Run Cypress tests for the Interface package
         run: |
           docker exec shell yarn e2e ./packages/interface \
