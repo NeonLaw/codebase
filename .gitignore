@@ -92,3 +92,6 @@ __pycache__/
 dist/
 
 *credentials.json
+
+**/cypress/plugins
+**/cypress/videos
