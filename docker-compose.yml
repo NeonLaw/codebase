@@ -103,6 +103,7 @@ services:
       INTERNAL_STATUS_PORT: 33010
 
   shell:
+    ipc: host
     image: docker.pkg.github.com/neonlaw/codebase/base
     container_name: shell
     volumes: *node-volumes
