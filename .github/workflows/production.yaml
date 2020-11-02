@@ -36,6 +36,7 @@ jobs:
             --build-arg GATSBY_AUTH0_CLIENT_ID="$GATSBY_AUTH0_CLIENT_ID" \
             --build-arg GATSBY_AUTH0_TENANT=auth.neonlaw.com \
             --build-arg GATSBY_ACTIVE_ENV=production \
+            --build-arg GATSBY_LOGROCKET_CREDENTIALS='4qbrpw/production-hoje7' \
             --build-arg APP_NAME=interface \
             --build-arg DOMAIN_NAME=www.neonlaw.com \
             -f docker/production.interface.Dockerfile \
@@ -101,6 +102,7 @@ jobs:
             --build-arg GATSBY_AUTH0_TENANT=auth.neonlaw.com \
             --build-arg GATSBY_ACTIVE_ENV=production \
             --build-arg DOMAIN_NAME=www.lawjobresources.com \
+            --build-arg GATSBY_LOGROCKET_CREDENTIALS='4qbrpw/production-hoje7' \
             --build-arg APP_NAME=law-job-resources \
             -f docker/production.interface.Dockerfile \
             .
@@ -166,6 +168,7 @@ jobs:
             --build-arg GATSBY_ACTIVE_ENV=production \
             --build-arg APP_NAME=justice-for-rickie-slaughter \
             --build-arg DOMAIN_NAME=www.justiceforrickieslaughter.com \
+            --build-arg GATSBY_LOGROCKET_CREDENTIALS='4qbrpw/production-hoje7' \
             -f docker/production.interface.Dockerfile \
             .
         env:
@@ -231,6 +234,7 @@ jobs:
             --build-arg GATSBY_ACTIVE_ENV=production \
             --build-arg APP_NAME=delete-your-data \
             --build-arg DOMAIN_NAME=www.deleteyourdata.com \
+            --build-arg GATSBY_LOGROCKET_CREDENTIALS='4qbrpw/production-hoje7' \
             -f docker/production.interface.Dockerfile \
             .
         env:
