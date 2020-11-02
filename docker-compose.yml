@@ -13,6 +13,10 @@ x-environment-variables: &environment-variables
   - DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law
   - ELASTICSEARCH_URL=http://elastic:changeme@elasticsearch:9200
   - GATSBY_WEBPACK_PUBLICPATH=/
+  - GATSBY_AUTH0_CALLBACK=http://127.0.0.1:8000/callback/
+  - GATSBY_AUTH0_DOMAIN=neon-law-testing.auth0.com
+  - GATSBY_AUTH0_CLIENT_ID=dplmcTTWBbkd9j5jFd1LMr26c25Iugv7
+  - GATSBY_API_URL=http://api:3000/api/graphql
   - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
   - NEW_RELIC_NO_CONFIG_FILE=true
   - NODE_ENV=development

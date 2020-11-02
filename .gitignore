@@ -95,3 +95,4 @@ dist/
 
 **/cypress/plugins
 **/cypress/videos
+**/cypress/screenshots
