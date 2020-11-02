@@ -38,7 +38,7 @@ jobs:
             --build-arg GATSBY_AUTH0_CLIENT_ID="$GATSBY_AUTH0_CLIENT_ID" \
             --build-arg GATSBY_AUTH0_TENANT=neon-law-staging.auth0.com \
             --build-arg GATSBY_ACTIVE_ENV=staging \
-            --bulid-arg GATSBY_LOGROCKET_CREDENTIALS="4qbrpw/staging" \
+            --build-arg GATSBY_LOGROCKET_CREDENTIALS="4qbrpw/staging" \
             --build-arg APP_NAME=interface \
             --build-arg DOMAIN_NAME=www.neonlaw.net \
             -f docker/staging.interface.Dockerfile \
@@ -54,29 +54,29 @@ jobs:
           service_account_email: github-actions@neon-law-staging.iam.gserviceaccount.com
           service_account_key: ${{ secrets.STAGING_GCP_CREDENTIALS }}
           export_default_credentials: true
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
 
       - name: |-
           Configure Docker to use the gcloud command-line tool as a credential
           helper for authentication
         run: |-
           gcloud --quiet auth configure-docker
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
 
       - name: Push the Docker image to Google Container Registry
         run: |-
           docker push "us.gcr.io/neon-law-staging/interface:$GITHUB_SHA"
           docker push "us.gcr.io/neon-law-staging/interface:latest"
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
       - name: Get the GKE credentials so we can deploy to the cluster
         run: |-
           gcloud container clusters get-credentials neon-law --region us-west4
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment interface \
              interface=us.gcr.io/neon-law-staging/interface:$GITHUB_SHA
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
   deploy_law_job_resources_staging:
     runs-on: ubuntu-latest
     steps:
@@ -98,7 +98,7 @@ jobs:
             --build-arg GATSBY_AUTH0_CLIENT_ID="$GATSBY_AUTH0_CLIENT_ID" \
             --build-arg GATSBY_ACTIVE_ENV=staging \
             --build-arg DOMAIN_NAME=www.lawjobresources.net \
-            --bulid-arg GATSBY_LOGROCKET_CREDENTIALS="4qbrpw/staging" \
+            --build-arg GATSBY_LOGROCKET_CREDENTIALS="4qbrpw/staging" \
             --build-arg APP_NAME=law-job-resources \
             -f ./docker/staging.interface.Dockerfile \
             .
@@ -117,21 +117,21 @@ jobs:
           helper for authentication
         run: |-
           gcloud --quiet auth configure-docker
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
       - name: Push the Docker image to Google Container Registry
         run: |-
           docker push "us.gcr.io/neon-law-staging/law-job-resources:$GITHUB_SHA"
           docker push "us.gcr.io/neon-law-staging/law-job-resources:latest"
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
       - name: Get the GKE credentials so we can deploy to the cluster
         run: |-
           gcloud container clusters get-credentials neon-law --region us-west4
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment law-job-resources \
              law-job-resources=us.gcr.io/neon-law-staging/law-job-resources:$GITHUB_SHA
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
   deploy_delete_your_data_staging:
     runs-on: ubuntu-latest
     steps:
@@ -151,7 +151,7 @@ jobs:
             --build-arg GATSBY_AUTH0_CALLBACK="$GATSBY_AUTH0_CALLBACK" \
             --build-arg GATSBY_AUTH0_DOMAIN="$GATSBY_AUTH0_DOMAIN" \
             --build-arg GATSBY_AUTH0_CLIENT_ID="$GATSBY_AUTH0_CLIENT_ID" \
-            --bulid-arg GATSBY_LOGROCKET_CREDENTIALS="4qbrpw/staging" \
+            --build-arg GATSBY_LOGROCKET_CREDENTIALS="4qbrpw/staging" \
             --build-arg GATSBY_ACTIVE_ENV=staging \
             --build-arg APP_NAME=delete-your-data \
             --build-arg DOMAIN_NAME=www.deleteyourdata.info \
@@ -172,21 +172,21 @@ jobs:
           helper for authentication
         run: |-
           gcloud --quiet auth configure-docker
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
       - name: Push the Docker image to Google Container Registry
         run: |-
           docker push "us.gcr.io/neon-law-staging/delete-your-data:$GITHUB_SHA"
           docker push "us.gcr.io/neon-law-staging/delete-your-data:latest"
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
       - name: Get the GKE credentials so we can deploy to the cluster
         run: |-
           gcloud container clusters get-credentials neon-law --region us-west4
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment delete-your-data \
              delete-your-data=us.gcr.io/neon-law-staging/law-job-resources:$GITHUB_SHA
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
 
   deploy_staging_api:
     runs-on: ubuntu-latest
@@ -208,7 +208,7 @@ jobs:
             --tag "us.gcr.io/neon-law-staging/api:latest" \
             -f docker/api.Dockerfile \
             .
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
 
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
@@ -216,28 +216,28 @@ jobs:
           service_account_email: github-actions@neon-law-staging.iam.gserviceaccount.com
           service_account_key: ${{ secrets.STAGING_GCP_CREDENTIALS }}
           export_default_credentials: true
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
 
       - name: |-
           Configure Docker to use the gcloud command-line tool as a credential
           helper for authentication
         run: |-
           gcloud --quiet auth configure-docker
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
 
       - name: Push the Docker image to Google Container Registry
         run: |-
           docker push "us.gcr.io/neon-law-staging/api:$GITHUB_SHA"
           docker push "us.gcr.io/neon-law-staging/api:latest"
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
 
       - name: Get the GKE credentials so we can deploy to the cluster
         run: |-
           gcloud container clusters get-credentials neon-law --region us-west4
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
 
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment staging-api \
              staging-api=us.gcr.io/neon-law-staging/api:$GITHUB_SHA
-        if: github.ref == "refs/heads/development"
+        if: github.ref == 'refs/heads/development'
