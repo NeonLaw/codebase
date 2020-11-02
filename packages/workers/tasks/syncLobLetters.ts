@@ -9,15 +9,7 @@ const syncLobLetters = async (payload, helpers) => {
 
   for (const letter of letters) {
     await helpers.query(
-      `SELECT find_or_create_letter(
-        ${letter.id},
-        ${letter.description},
-        ${letter.to.id},
-        ${letter.from.id},
-        ${letter.color},
-        ${letter.return_envelope},
-        ${letter.mail_type}
-      );`
+      `SELECT find_or_create_letter_by_lob_identifier(${letter.id});`
     );
   }
 

@@ -109,6 +109,9 @@ services:
     volumes: *node-volumes
     environment: *environment-variables
     restart: unless-stopped
+    depends_on:
+      - elasticsearch
+      - postgres
 
   law_job_resources:
     build:
