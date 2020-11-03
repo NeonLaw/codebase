@@ -327,3 +327,57 @@ jobs:
           kubectl set image deployment production-api \
              production-api=us.gcr.io/neon-law-production/api:$GITHUB_SHA
         if: github.ref == 'refs/heads/development'
+
+  deploy_production_workers:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: docker.pkg.github.com
+          username: ${{ secrets.GPR_USERNAME }}
+          password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
+
+      - name: Build the Docker image
+        run: |-
+          docker build \
+            --tag "us.gcr.io/neon-law-production/workers:$GITHUB_SHA" \
+            --tag "us.gcr.io/neon-law-production/workers:latest" \
+            -f docker/api.Dockerfile \
+            .
+        if: github.ref == 'refs/heads/development'
+
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          project_id: neon-law-production
+          service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
+          service_account_key: ${{ secrets.STAGING_GCP_CREDENTIALS }}
+          export_default_credentials: true
+        if: github.ref == 'refs/heads/development'
+
+      - name: |-
+          Configure Docker to use the gcloud command-line tool as a credential
+          helper for authentication
+        run: |-
+          gcloud --quiet auth configure-docker
+        if: github.ref == 'refs/heads/development'
+
+      - name: Push the Docker image to Google Container Registry
+        run: |-
+          docker push "us.gcr.io/neon-law-production/workers:$GITHUB_SHA"
+          docker push "us.gcr.io/neon-law-production/workers:latest"
+        if: github.ref == 'refs/heads/development'
+
+      - name: Get the GKE credentials so we can deploy to the cluster
+        run: |-
+          gcloud container clusters get-credentials neon-law --region us-west4
+        if: github.ref == 'refs/heads/development'
+
+      - name: Deploy latest container with kubectl
+        run: |-
+          kubectl set image deployment production-workers \
+             production-workers=us.gcr.io/neon-law-production/workers:$GITHUB_SHA
+        if: github.ref == 'refs/heads/development'

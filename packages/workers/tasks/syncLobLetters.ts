@@ -2,18 +2,30 @@ const syncLobLetters = async (payload, helpers) => {
 
   const Lob = require('lob')(process.env.LOB_API_KEY);
 
-  // const oneDayAgo = new Date().toISOString();
-  // await Lob.letters.list({ date_created: oneDayAgo });
+  const { since } = payload;
 
-  const letters = await Lob.letters.list();
+  const letters = since ? await Lob.letters.list({ date_created: since }) :
+    await Lob.letters.list();
 
-  for (const letter of letters) {
-    await helpers.query(
-      `SELECT find_or_create_letter_by_lob_identifier(${letter.id});`
-    );
-  }
+  const objects = letters.map(letter => (
+    {
+      id: letter.id,
+      json: {
+        to: letter.to
+      }
+    }
+  ));
 
-  helpers.logger.info(`Hi ${name}`);
+  await helpers.query(
+    `SELECT find_or_create_letter_by_lob_identifier(el->>'uuid', el->'json')
+     FROM json_array_elements($1) uuid`,
+    [JSON.stringify(objects)]
+  );
+
+
+  since ?
+    helpers.logger.info(`synced letters from Lob since ${since}`) :
+    helpers.logger.info('synced letters from Lob');
 };
 
 export default syncLobLetters;

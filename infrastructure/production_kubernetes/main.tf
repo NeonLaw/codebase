@@ -101,7 +101,7 @@ module "worker_deployment" {
   source                       = "../modules/worker_deployment"
   app_name                     = "production-workers"
   database_name                = "neon-law"
-  image_url                    = "${data.terraform_remote_state.production_gcp.outputs.container_registry}/api:latest"
+  image_url                    = "${data.terraform_remote_state.production_gcp.outputs.container_registry}/workers:latest"
   logic_secret_name            = module.logic_kubernetes_secret.name
   master_database_password     = var.master_database_password
   new_relic_app_name           = "production"
