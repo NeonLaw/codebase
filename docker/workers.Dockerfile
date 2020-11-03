@@ -15,7 +15,7 @@ RUN yarn install \
   --prefer-offline \
   --cache-folder ./node_modules
 
-COPY . ./
+COPY . .
 
 ENTRYPOINT [ "./docker/workers.entrypoint.sh" ]
 CMD [ "yarn", "workspace", "@neonlaw/workers", "start" ]
