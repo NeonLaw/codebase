@@ -1,9 +1,11 @@
---! Previous: sha1:65a692e9f94949e1f9cf2293674e781b1ab0cd72
---! Hash: sha1:618c8b34b4f1bd0b90f834f0f42049990cd0f569
+--! Previous: sha1:4c1fbcaeca0bd5050f42bacfdd38274abe5c11c5
+--! Hash: sha1:d940bf8386c2f8db2629188e8664191f97af06b2
 
 -- Enter migration here
 
-ALTER TABLE private_document ADD COLUMN IF NOT EXISTS person_id uuid NOT NULL;
+ALTER TABLE matter DROP COLUMN IF EXISTS folder_name;
+
+ALTER TABLE response ADD COLUMN IF NOT EXISTS upload_id UUID;
 
 -- The following Do/End block is a way to create a foreign key relationship if one does not exist.
 DO $$
@@ -11,28 +13,15 @@ DO $$
 BEGIN IF NOT EXISTS
   (SELECT 1
    FROM pg_constraint
-   WHERE conname = 'private_document_person_id_fkey') THEN
-ALTER TABLE private_document ADD CONSTRAINT private_document_person_id_fkey
-FOREIGN KEY (person_id) REFERENCES person(id);
+   WHERE conname = 'response_upload_id_fkey') THEN
+ALTER TABLE response ADD CONSTRAINT response_upload_id_fkey
+FOREIGN KEY (upload_id) REFERENCES upload(id);
 
 END IF;
 
 END;
 $$;
 
-ALTER TABLE upload ADD COLUMN IF NOT EXISTS person_id uuid NOT NULL;
+ALTER TABLE address ADD COLUMN IF NOT EXISTS lob_record JSON NOT NULL;
 
--- The following Do/End block is a way to create a foreign key relationship if one does not exist.
-DO $$
-
-BEGIN IF NOT EXISTS
-  (SELECT 1
-   FROM pg_constraint
-   WHERE conname = 'upload_person_id_fkey') THEN
-ALTER TABLE upload ADD CONSTRAINT upload_person_id_fkey
-FOREIGN KEY (person_id) REFERENCES person(id);
-
-END IF;
-
-END;
-$$;
+ALTER TABLE letter ADD COLUMN IF NOT EXISTS lob_record JSON NOT NULL;

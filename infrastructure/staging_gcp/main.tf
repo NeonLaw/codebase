@@ -92,3 +92,11 @@ module "user-bucket" {
     "www.neonlaw.net"
   ]
 }
+
+module "writing-bucket" {
+  source = "../modules/private_bucket"
+  bucket_name = "${var.project_id}-writing"
+  allowed_origins = [
+    "www.neonlaw.net"
+  ]
+}

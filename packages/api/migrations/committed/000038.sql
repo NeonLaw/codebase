@@ -1,23 +1,22 @@
---! Previous: sha1:a3bc47ad940542429fe5f3cdb52ec8324adee2d5
---! Hash: sha1:65a692e9f94949e1f9cf2293674e781b1ab0cd72
+--! Previous: sha1:ac2533df46189aac4fac8f6386cb958829ba3187
+--! Hash: sha1:4c1fbcaeca0bd5050f42bacfdd38274abe5c11c5
 
 -- Enter migration here
 
-ALTER TABLE document DROP COLUMN IF EXISTS document_code_id;
+ALTER TABLE letter DROP COLUMN IF EXISTS letter_template_id;
 
-ALTER TABLE document ADD COLUMN IF NOT EXISTS document_template_id uuid NOT NULL;
+ALTER TABLE letter DROP COLUMN IF EXISTS mdx;
 
--- The following Do/End block is a way to create a foreign key relationship if one does not exist.
-DO $$
+ALTER TABLE document ADD COLUMN IF NOT EXISTS file_extension VARCHAR(16) NOT NULL;
 
-BEGIN IF NOT EXISTS
-  (SELECT 1
-   FROM pg_constraint
-   WHERE conname = 'document_document_template_id_fkey') THEN
-ALTER TABLE document ADD CONSTRAINT document_document_template_id_fkey
-FOREIGN KEY (document_template_id) REFERENCES document_template(id);
-
-END IF;
-
-END;
-$$;
+ALTER TABLE document DROP CONSTRAINT IF EXISTS document_file_extension_check;
+ALTER TABLE document ADD CONSTRAINT document_file_extension_check CHECK (
+  file_extension IN (
+    'docx',
+    'jpg',
+    'mdx',
+    'pdf',
+    'png',
+    'txt'
+  )
+);

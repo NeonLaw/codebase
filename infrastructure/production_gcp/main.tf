@@ -104,3 +104,14 @@ module "user-bucket" {
     "www.justiceforrickieslaughter.com"
   ]
 }
+
+module "writing-bucket" {
+  source = "../modules/private_bucket"
+  bucket_name = "${var.project_id}-writing"
+  allowed_origins = [
+    "www.deleteyourdata.com",
+    "www.lawjobresources.com",
+    "www.neonlaw.com",
+    "www.justiceforrickieslaughter.com"
+  ]
+}
