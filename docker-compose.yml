@@ -85,6 +85,17 @@ services:
     environment: *environment-variables
     volumes: *node-volumes
 
+  workers:
+    build:
+      context: ./
+      dockerfile: ./docker/workers.Dockerfile
+    restart: always
+    container_name: workers
+    depends_on:
+      - shell
+    environment: *environment-variables
+    volumes: *node-volumes
+
   interface:
     build:
       context: ./

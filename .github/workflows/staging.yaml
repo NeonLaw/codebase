@@ -260,7 +260,7 @@ jobs:
           docker build \
             --tag "us.gcr.io/neon-law-staging/workers:$GITHUB_SHA" \
             --tag "us.gcr.io/neon-law-staging/workers:latest" \
-            -f docker/api.Dockerfile \
+            -f docker/workers.Dockerfile \
             .
         if: github.ref == 'refs/heads/development'
 
