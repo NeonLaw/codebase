@@ -18,5 +18,5 @@ RUN yarn install \
 COPY . .
 
 EXPOSE 3000
-ENTRYPOINT [ "./docker/api.entrypoint.sh" ]
+ENTRYPOINT [ "/app/docker/api.entrypoint.sh" ]
 CMD [ "yarn", "workspace", "@neonlaw/api", "start" ]

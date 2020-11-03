@@ -354,7 +354,7 @@ jobs:
         with:
           project_id: neon-law-production
           service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
-          service_account_key: ${{ secrets.STAGING_GCP_CREDENTIALS }}
+          service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
           export_default_credentials: true
         if: github.ref == 'refs/heads/development'
 

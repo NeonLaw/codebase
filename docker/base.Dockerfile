@@ -45,9 +45,8 @@ COPY package.json .
 COPY yarn.lock .
 RUN yarn install --cache-folder ./node_modules
 
-# Load the codebase to the /app folder of the Docker image
 COPY . .
 
-ENTRYPOINT [ "./docker/entrypoint.sh" ]
+ENTRYPOINT [ "/app/docker/entrypoint.sh" ]
 
 CMD [ "tail", "-f", "/dev/null"]

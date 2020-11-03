@@ -17,5 +17,5 @@ RUN yarn install \
 
 COPY . .
 
-ENTRYPOINT [ "./docker/workers.entrypoint.sh" ]
+ENTRYPOINT [ "/app/docker/workers.entrypoint.sh" ]
 CMD [ "yarn", "workspace", "@neonlaw/workers", "start" ]
