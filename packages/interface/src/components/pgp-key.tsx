@@ -1,6 +1,5 @@
 import { Box, Tooltip } from '@chakra-ui/core';
 import React, { useRef, useState } from 'react';
-
 import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
 import copy from 'clipboard-copy';
 import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';

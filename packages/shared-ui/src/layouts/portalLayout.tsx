@@ -32,6 +32,10 @@ const StyledPortalLayout = styled.div`
       width: 100vh;
     }
   }
+
+  h2 {
+    font-size: 2.5rem;
+  }
 `;
 
 const Aside = styled.div`

@@ -85,7 +85,7 @@ module "public-bucket" {
 
 module "upload-bucket" {
   source = "../modules/write_only_bucket"
-  bucket_name = "${var.project_id}-uploads"
+  bucket_name = "${var.project_id}-unprocessed-uploads"
   allowed_origins = [
     "www.deleteyourdata.com",
     "www.lawjobresources.com",
@@ -96,7 +96,18 @@ module "upload-bucket" {
 
 module "user-bucket" {
   source = "../modules/private_bucket"
-  bucket_name = "${var.project_id}-user-assets"
+  bucket_name = "${var.project_id}-private-assets"
+  allowed_origins = [
+    "www.deleteyourdata.com",
+    "www.lawjobresources.com",
+    "www.neonlaw.com",
+    "www.justiceforrickieslaughter.com"
+  ]
+}
+
+module "writing-bucket" {
+  source = "../modules/private_bucket"
+  bucket_name = "${var.project_id}-writing"
   allowed_origins = [
     "www.deleteyourdata.com",
     "www.lawjobresources.com",

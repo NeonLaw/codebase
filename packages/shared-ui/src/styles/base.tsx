@@ -68,6 +68,12 @@ const BaseStyles = (): JSX.Element => (
         }
       }
 
+      h1,
+      h2,
+      h3 {
+        line-height: 1.35 !important;
+      }
+
       code {
         color: ${colors.text.darkLight} !important;
       }

@@ -13,18 +13,18 @@ import { useIntl } from 'gatsby-plugin-intl';
 const StyledSideNavContent = styled.div<{ isRenderedOnDashBoard?: boolean }>`
   nav {
     padding: ${({ isRenderedOnDashBoard }) =>
-      !isRenderedOnDashBoard ? '1.5rem' : gutters.xSmall};
+    !isRenderedOnDashBoard ? '1.5rem' : gutters.xSmall};
 
     @media (max-width: 640px) {
       padding: ${({ isRenderedOnDashBoard }) =>
-        !isRenderedOnDashBoard ? '1.5rem' : '.2em'};
+    !isRenderedOnDashBoard ? '1.5rem' : '.2em'};
     }
   }
 
   .logo {
     &-container {
       display: ${({ isRenderedOnDashBoard }) =>
-        isRenderedOnDashBoard ? 'flex' : ''};
+    isRenderedOnDashBoard ? 'flex' : ''};
       height: 100%;
       width: 100%;
       justify-content: center;
@@ -32,9 +32,9 @@ const StyledSideNavContent = styled.div<{ isRenderedOnDashBoard?: boolean }>`
 
     @media (max-width: 640px) {
       width: ${({ isRenderedOnDashBoard }) =>
-        isRenderedOnDashBoard ? '3.5rem' : ''};
+    isRenderedOnDashBoard ? '3.5rem' : ''};
       margin-top: ${({ isRenderedOnDashBoard }) =>
-        isRenderedOnDashBoard ? gutters.xSmallOne : ''};
+    isRenderedOnDashBoard ? gutters.xSmallOne : ''};
     }
   }
 
@@ -59,8 +59,8 @@ const StyledSideNavContent = styled.div<{ isRenderedOnDashBoard?: boolean }>`
       @media (max-width: 640px) {
         display: flex;
         align-items: center;
-        justify-content: ${({ isRenderedOnDashBoard }) =>
-          isRenderedOnDashBoard ? 'center' : ''};
+        justify-content: ${({ isRenderedOnDashBoard }) => 
+    isRenderedOnDashBoard ? 'center' : ''};
         flex-direction: column;
         font-size: 90%;
         padding: 0.1rem 0.2rem;
@@ -129,10 +129,10 @@ export const SideNavContent = ({
           style={
             isRenderedOnDashBoard
               ? {
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                }
+                alignItems: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+              }
               : {}
           }
         >

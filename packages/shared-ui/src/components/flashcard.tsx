@@ -2,13 +2,15 @@
 // @ts-nocheck
 /* eslint-enable */
 import { Box, Text, useColorMode } from '@chakra-ui/core';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import { FlashButton } from './button';
+import { Node } from 'slate';
 import ReactDiffViewer from 'react-diff-viewer';
-import { Textarea } from '../forms/base';
+import { Textarea } from './inputs';
 import { gutters } from '../themes/neonLaw';
 import { isShiftEnterPressed } from '../utils/keyboard';
+import { useForm } from 'react-hook-form';
 
 interface FlashcardProps {
   prompt: string;
@@ -23,21 +25,32 @@ export const Flashcard = ({
   answer,
   showAnswer,
   toggleShowAnswer,
-  setIsTextAreaFocused,
 }: FlashcardProps) => {
   const { colorMode } = useColorMode();
 
   const [userAnswer, changeUserAnswer] = useState('');
+  const { control, handleSubmit } = useForm();
+
+  const onSubmit = async ({ answer }) => {
+    const answerText = answer.map(n => Node.string(n)).join('\n');
+    changeUserAnswer(answerText);
+  };
+  const formRef = useRef<HTMLFormElement>(null);
 
   return (
     <Box cursor="pointer" border="1px" borderRadius="0.5em" padding="2em">
       {!showAnswer ? (
-        <>
+        <form
+          onSubmit={handleSubmit(onSubmit as any)}
+          ref={formRef}
+        >
           <Text className fontSize="1.2em" marginBottom="1em">
             {prompt}
           </Text>
           <Textarea
             className="flascard-textarea"
+            control={control}
+            name="answer"
             onKeyDown={(e: React.KeyboardEvent) => {
               if (isShiftEnterPressed(e)) {
                 e.preventDefault();
@@ -46,23 +59,15 @@ export const Flashcard = ({
                   const showPromptButton = document.querySelector(
                     '.show-prompt',
                   );
-                  showPromptButton.focus();
+                  showPromptButton && showPromptButton.focus();
                 }, 10);
               }
             }}
             size="xl"
             value={userAnswer}
-            onChange={(event) => {
-              changeUserAnswer(event.target.value);
-            }}
-            onFocus={() => {
-              setIsTextAreaFocused(true);
-            }}
-            onBlur={() => {
-              setIsTextAreaFocused(false);
-            }}
           />
           <FlashButton
+            type="submit"
             containerStyles={{marginTop: gutters.xSmallOne}}
             onClick={() => {
               toggleShowAnswer(!showAnswer);
@@ -70,7 +75,7 @@ export const Flashcard = ({
           >
             Show Answer
           </FlashButton>
-        </>
+        </form>
       ) : (
         <>
           <Text fontSize="1.2em" marginBottom="1em">
@@ -95,6 +100,7 @@ export const Flashcard = ({
               toggleShowAnswer(false);
               setTimeout(() => {
                 const text = document.querySelector('.flascard-textarea');
+                if (!text) { return; }
                 text.focus();
                 text.value = userAnswer;
                 text.setSelectionRange(text.value.length, text.value.length);

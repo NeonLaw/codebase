@@ -1,7 +1,9 @@
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/fonts/hk-grotesk/HKGrotesk-Thin.ttf') format('ttf'),
-    url('/fonts/hk-grotesk/HKGrotesk-Thin.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-Thin.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-Thin.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 200;
@@ -9,8 +11,10 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/fonts/hk-grotesk/HKGrotesk-ThinItalic.ttf') format('ttf'),
-    url('/fonts/hk-grotesk/HKGrotesk-ThinItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-ThinItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-ThinItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 200;
@@ -18,8 +22,10 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/fonts/hk-grotesk/HKGrotesk-Light.ttf') format('ttf'),
-    url('/fonts/hk-grotesk/HKGrotesk-Light.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-Light.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-Light.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 200;
@@ -27,8 +33,10 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/fonts/hk-grotesk/HKGrotesk-LightItalic.ttf') format('ttf'),
-    url('/fonts/hk-grotesk/HKGrotesk-LightItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-LightItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-LightItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 200;
@@ -36,8 +44,10 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/fonts/hk-grotesk/HKGrotesk-Regular.ttf') format('ttf'),
-    url('/fonts/hk-grotesk/HKGrotesk-Regular.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-Regular.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-Regular.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 300;
@@ -45,8 +55,10 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/fonts/hk-grotesk/HKGrotesk-RegularItalic.ttf') format('ttf'),
-    url('/fonts/hk-grotesk/HKGrotesk-RegularItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-RegularItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-RegularItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 300;
@@ -54,8 +66,10 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/fonts/hk-grotesk/HKGrotesk-Medium.ttf') format('ttf'),
-    url('/fonts/hk-grotesk/HKGrotesk-Medium.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-Medium.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-Medium.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 400;
@@ -63,8 +77,10 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/fonts/hk-grotesk/HKGrotesk-MediumItalic.ttf') format('ttf'),
-    url('/fonts/hk-grotesk/HKGrotesk-MediumItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-MediumItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-MediumItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 400;
@@ -72,8 +88,10 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/fonts/hk-grotesk/HKGrotesk-SemiBold.ttf') format('ttf'),
-    url('/fonts/hk-grotesk/HKGrotesk-SemiBold.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-SemiBold.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-SemiBold.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 500;
@@ -81,8 +99,10 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/fonts/hk-grotesk/HKGrotesk-SemiBoldItalic.ttf') format('ttf'),
-    url('/fonts/hk-grotesk/HKGrotesk-SemiBoldItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-SemiBoldItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-SemiBoldItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 500;
@@ -90,8 +110,10 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/fonts/hk-grotesk/HKGrotesk-Bold.ttf') format('ttf'),
-    url('/fonts/hk-grotesk/HKGrotesk-Bold.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-Bold.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-Bold.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 600;
@@ -99,8 +121,10 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/fonts/hk-grotesk/HKGrotesk-BoldItalic.ttf') format('ttf'),
-    url('/fonts/hk-grotesk/HKGrotesk-BoldItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-BoldItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-BoldItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 600;
@@ -108,8 +132,10 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/fonts/hk-grotesk/HKGrotesk-ExtraBold.ttf') format('ttf'),
-    url('/fonts/hk-grotesk/HKGrotesk-ExtraBold.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-ExtraBold.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-ExtraBold.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 700;
@@ -117,8 +143,10 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/fonts/hk-grotesk/HKGrotesk-ExtraBoldItalic.ttf') format('ttf'),
-    url('/fonts/hk-grotesk/HKGrotesk-ExtraBoldItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-ExtraBoldItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/hk-grotesk/HKGrotesk-ExtraBoldItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 700;
@@ -126,8 +154,9 @@
 
 @font-face {
   font-family: 'CharisSIL';
-  src: url('/fonts/charis/CharisSIL-R.ttf') format('ttf'),
-    url('/fonts/charis/CharisSIL-R.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/charis/CharisSIL-R.ttf') format('ttf'),
+    url('https://www.neonlaw.com/fonts/charis/CharisSIL-R.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 400;
@@ -135,8 +164,9 @@
 
 @font-face {
   font-family: 'CharisSIL';
-  src: url('/fonts/charis/CharisSIL-I.ttf') format('ttf'),
-    url('/fonts/charis/CharisSIL-I.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/charis/CharisSIL-I.ttf') format('ttf'),
+    url('https://www.neonlaw.com/fonts/charis/CharisSIL-I.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 400;
@@ -144,8 +174,9 @@
 
 @font-face {
   font-family: 'CharisSIL';
-  src: url('/fonts/charis/CharisSIL-B.ttf') format('ttf'),
-    url('/fonts/charis/CharisSIL-B.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/charis/CharisSIL-B.ttf') format('ttf'),
+    url('https://www.neonlaw.com/fonts/charis/CharisSIL-B.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 700;
@@ -153,8 +184,10 @@
 
 @font-face {
   font-family: 'CharisSIL';
-  src: url('/fonts/charis/CharisSIL-BI.ttf') format('ttf'),
-    url('/fonts/charis/CharisSIL-BI.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/charis/CharisSIL-BI.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/charis/CharisSIL-BI.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 700;
@@ -162,8 +195,10 @@
 
 @font-face {
   font-family: 'Fira Mono';
-  src: url('/fonts/fira-mono/FiraMono-Medium.ttf') format('ttf'),
-    url('/fonts/fira-mono/FiraMono-Medium.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/fira-mono/FiraMono-Medium.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/fira-mono/FiraMono-Medium.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 400;
@@ -171,8 +206,10 @@
 
 @font-face {
   font-family: 'Fira Mono';
-  src: url('/fonts/fira-mono/FiraMono-Regular.ttf') format('ttf'),
-    url('/fonts/fira-mono/FiraMono-Regular.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/fira-mono/FiraMono-Regular.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/fira-mono/FiraMono-Regular.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 500;
@@ -180,8 +217,10 @@
 
 @font-face {
   font-family: 'Fira Mono';
-  src: url('/fonts/fira-mono/FiraMono-Bold.ttf') format('ttf'),
-    url('/fonts/fira-mono/FiraMono-Bold.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/fira-mono/FiraMono-Bold.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/fira-mono/FiraMono-Bold.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 400;
@@ -189,8 +228,10 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-Hairline.ttf') format('ttf'),
-    url('/fonts/jost/Jost-400-Hairline.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-400-Hairline.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-400-Hairline.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 100;
@@ -198,8 +239,10 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-HairlineItalic.ttf') format('ttf'),
-    url('/fonts/jost/Jost-400-HairlineItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-400-HairlineItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-400-HairlineItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 100;
@@ -207,8 +250,9 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-Thin.ttf') format('ttf'),
-    url('/fonts/jost/Jost-400-Thin.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-400-Thin.ttf') format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-400-Thin.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 200;
@@ -216,8 +260,10 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-ThinItalic.ttf') format('ttf'),
-    url('/fonts/jost/Jost-400-ThinItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-400-ThinItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-400-ThinItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 200;
@@ -225,8 +271,10 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-Light.ttf') format('ttf'),
-    url('/fonts/jost/Jost-400-Light.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-400-Light.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-400-Light.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 300;
@@ -234,8 +282,10 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-LightItalic.ttf') format('ttf'),
-    url('/fonts/jost/Jost-400-LightItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-400-LightItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-400-LightItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 300;
@@ -243,8 +293,9 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-Book.ttf') format('ttf'),
-    url('/fonts/jost/Jost-400-Book.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-400-Book.ttf') format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-400-Book.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 400;
@@ -252,8 +303,10 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-400-BookItalic.ttf') format('ttf'),
-    url('/fonts/jost/Jost-400-BookItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-400-BookItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-400-BookItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 400;
@@ -261,8 +314,10 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-500-Medium.ttf') format('ttf'),
-    url('/fonts/jost/Jost-500-Medium.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-500-Medium.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-500-Medium.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 500;
@@ -270,8 +325,10 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-500-MediumItalic.ttf') format('ttf'),
-    url('/fonts/jost/Jost-500-MediumItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-500-MediumItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-500-MediumItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 500;
@@ -279,8 +336,9 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-600-Semi.ttf') format('ttf'),
-    url('/fonts/jost/Jost-600-Semi.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-600-Semi.ttf') format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-600-Semi.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 600;
@@ -288,8 +346,10 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-600-SemiItalic.ttf') format('ttf'),
-    url('/fonts/jost/Jost-600-SemiItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-600-SemiItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-600-SemiItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 600;
@@ -297,8 +357,9 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-700-Bold.ttf') format('ttf'),
-    url('/fonts/jost/Jost-700-Bold.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-700-Bold.ttf') format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-700-Bold.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 700;
@@ -306,8 +367,10 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-700-BoldItalic.ttf') format('ttf'),
-    url('/fonts/jost/Jost-700-BoldItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-700-BoldItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-700-BoldItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 700;
@@ -315,8 +378,10 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-700-Heavy.ttf') format('ttf'),
-    url('/fonts/jost/Jost-700-Heavy.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-700-Heavy.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-700-Heavy.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 800;
@@ -324,8 +389,10 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-700-HeavyItalic.ttf') format('ttf'),
-    url('/fonts/jost/Jost-700-HeavyItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-700-HeavyItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-700-HeavyItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 800;
@@ -333,8 +400,10 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-700-Black.ttf') format('ttf'),
-    url('/fonts/jost/Jost-700-Black.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-700-Black.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-700-Black.woff2')
+      format('woff2');
   font-style: normal;
   font-display: swap;
   font-weight: 900;
@@ -342,8 +411,10 @@
 
 @font-face {
   font-family: 'Jost';
-  src: url('/fonts/jost/Jost-700-BlackItalic.ttf') format('ttf'),
-    url('/fonts/jost/Jost-700-BlackItalic.woff2') format('woff2');
+  src: url('https://www.neonlaw.com/fonts/jost/Jost-700-BlackItalic.ttf')
+      format('ttf'),
+    url('https://www.neonlaw.com/fonts/jost/Jost-700-BlackItalic.woff2')
+      format('woff2');
   font-style: italic;
   font-display: swap;
   font-weight: 900;

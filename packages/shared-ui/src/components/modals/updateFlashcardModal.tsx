@@ -11,7 +11,7 @@ import {
   useColorMode,
 } from '@chakra-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
-import { StringInput, Textarea } from '../../forms/base';
+import { StringInput, Textarea } from '../inputs';
 import { colors, gutters } from '../../themes/neonLaw';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 import {
@@ -49,7 +49,7 @@ export const UpdateFlashcardModal = ({
   currentRow,
 }: UpdateFlashcardModalProps) => {
   const intl = useIntl();
-  const { answer, id, prompt } = currentRow?.values || {};
+  const { id, prompt } = currentRow?.values || {};
 
   const [updateFlashcard, { loading }] = useUpdateFlashcardByIdMutation();
 
@@ -68,7 +68,7 @@ export const UpdateFlashcardModal = ({
     },
   });
 
-  const { handleSubmit, errors, register, reset } = useForm();
+  const { control, handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [focus, setFocus] = useState(false);
@@ -183,25 +183,12 @@ export const UpdateFlashcardModal = ({
               />
               <Textarea
                 name="answer"
-                className="answer"
-                size="xl"
+                control={control}
                 testId="update-flashcard-modal-answer"
-                onFocus={() => {
-                  setFocus(true);
-                }}
-                onBlur={() => {
-                  setFocus(false);
-                }}
                 label={intl.formatMessage({ id: 'forms.answer.label' })}
                 errors={errors}
-                value={answer}
                 placeholder={intl.formatMessage({
                   id: 'forms.answer.placeholder',
-                })}
-                register={register({
-                  required: intl.formatMessage({
-                    id: 'forms.answer.required',
-                  }),
                 })}
               />
             </ModalBody>

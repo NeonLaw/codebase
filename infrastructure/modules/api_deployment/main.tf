@@ -32,14 +32,6 @@ resource "kubernetes_deployment" "api" {
         }
 
         volume {
-          name = var.third_party_saas_secret_name
-
-          secret {
-            secret_name = var.third_party_saas_secret_name
-          }
-        }
-
-        volume {
           name = var.logic_secret_name
 
           secret {
@@ -79,10 +71,34 @@ resource "kubernetes_deployment" "api" {
             value = var.new_relic_app_name
           }
 
-          volume_mount {
-            name       = var.third_party_saas_secret_name
-            read_only  = true
-            mount_path = "/secrets/"
+          env {
+            name = "AUTH0_CLIENT_ID"
+            value_from {
+              secret_key_ref {
+                key = "AUTH0_CLIENT_ID"
+                name = var.third_party_saas_secret_name
+              }
+            }
+          }
+
+          env {
+            name = "AUTH0_CLIENT_SECRET"
+            value_from {
+              secret_key_ref {
+                key = "AUTH0_CLIENT_SECRET"
+                name = var.third_party_saas_secret_name
+              }
+            }
+          }
+
+          env {
+            name = "AUTH0_TENANT"
+            value_from {
+              secret_key_ref {
+                key = "AUTH0_TENANT"
+                name = var.third_party_saas_secret_name
+              }
+            }
           }
 
           volume_mount {
@@ -98,7 +114,7 @@ resource "kubernetes_deployment" "api" {
           command = ["/cloud_sql_proxy", "-ip_address_types=PRIVATE", "-instances=${var.project_id}:${var.region}:${var.database_name}=tcp:5432", "-credential_file=/credentials/credentials.json"]
 
           volume_mount {
-            name       = var.sql_proxy_secret_name
+            name       = var.logic_secret_name
             read_only  = true
             mount_path = "/credentials/"
           }

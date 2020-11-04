@@ -21,7 +21,9 @@ module.exports = {
     'node_modules/*',
     '**/node_modules/*',
     'public/*',
-    'packages/shared-ui/src/utils/api.tsx',
+    '**/public/*',
+    '**/build/*',
+    'packages/shared-ui/src/utils/api.tsx'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {

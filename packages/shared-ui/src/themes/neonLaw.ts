@@ -42,6 +42,15 @@ export const colors = {
   primaryButtonBgOnHover: { dark: 'cyan.300', light: 'cyan.500' },
   primaryButtonColor: { dark: 'black', light: 'white' },
   text: { dark: 'white', darkLight: '#eee', light: '#222' },
+  textareaBackground: { dark: theme.colors.gray[800], light: 'white' },
+  textareaToolbarActiveBackground: {
+    dark: theme.colors.gray[600],
+    light: theme.colors.gray[600],
+  },
+  textareaToolbarBackground: {
+    dark: theme.colors.gray[600],
+    light: theme.colors.gray[600],
+  }
 };
 
 export const sizes = {
@@ -66,5 +75,6 @@ export const gutters = {
 export const shadows = {
   light: '0.625rem 0.625rem 1.25rem rgba(0,0,0, .2)',
   light1: '0.425rem 0.425rem .85rem rgba(0,0,0, .15)',
+  light15: '0 .2rem .3rem rgba(0,0,0, .125)',
   light2: '0 0.1rem .2rem rgba(0,0,0, .1)',
 };

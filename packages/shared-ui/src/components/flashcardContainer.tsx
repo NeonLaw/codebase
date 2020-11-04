@@ -8,11 +8,10 @@ import { colors } from '../themes/neonLaw';
 import { useAllFlashcardsQuery } from '../utils/api';
 import { useOS } from '../utils/useOS';
 
-const Circle = ({ onClick, key, active }) => {
+const Circle = ({ onClick, active }) => {
   return (
     <BsFillCircleFill
       onClick={onClick}
-      key={key}
       style={{ cursor: 'pointer' }}
       color={active ? colors.cyanDark : colors.cyanLight}
     />
@@ -91,12 +90,11 @@ export const FlashcardContainer = () => {
           {flashcards.map((flashcard, i) => {
             if (i === selectedFlashcard) {
               return (
-                <Box margin="0 2px">
+                <Box margin="0 2px" key={i}>
                   <Circle
                     onClick={() => {
                       return;
                     }}
-                    key={i}
                     active={true}
                   />
                 </Box>
@@ -105,7 +103,6 @@ export const FlashcardContainer = () => {
             return (
               <Box margin="0 2px" key={i}>
                 <Circle
-                  key={i}
                   onClick={() => {
                     changeSelectedFlashcard(i);
                   }}

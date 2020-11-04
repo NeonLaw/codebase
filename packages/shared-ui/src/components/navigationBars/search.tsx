@@ -14,7 +14,7 @@ const StyledInput = styled(Input)<{
 
   @media (max-width: 560px) {
     display: ${({ version, isRenderedOnDashboard }) =>
-      version === 'desktop' && !isRenderedOnDashboard ? 'none' : ''};
+    version === 'desktop' && !isRenderedOnDashboard ? 'none' : ''};
     max-width: 300px;
   }
 

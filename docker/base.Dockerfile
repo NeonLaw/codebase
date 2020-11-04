@@ -7,7 +7,23 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 
 # Install dependencies from apt-get
 RUN apt-get update -qqy &&\
-  apt-get -qqyy install nodejs yarn ncat postgresql postgresql-contrib &&\
+  apt-get -qqyy install \
+  nodejs \
+  yarn \
+  ncat \
+  postgresql \
+  postgresql-contrib \
+  libgtk2.0-0 \
+  libgtk-3-0 \
+  libgbm-dev \
+  libnotify-dev \
+  libgconf-2-4 \
+  libnss3 \
+  libxss1 \
+  libasound2 \
+  libxtst6 \
+  xauth \
+  xvfb &&\
   apt-get clean &&\
   rm -f /var/lib/apt/lists/*_*
 
@@ -29,9 +45,8 @@ COPY package.json .
 COPY yarn.lock .
 RUN yarn install --cache-folder ./node_modules
 
-# Load the codebase to the /app folder of the Docker image
 COPY . .
 
-ENTRYPOINT [ "./docker/entrypoint.sh" ]
+ENTRYPOINT [ "/app/docker/entrypoint.sh" ]
 
 CMD [ "tail", "-f", "/dev/null"]

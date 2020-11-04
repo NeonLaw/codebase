@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { FlashButton } from '../components/button';
-import { StringInput } from '../forms/base';
+import { StringInput } from '../components/inputs';
 import { SubmissionInProgress } from '../components/submission-in-progress';
 import { gutters } from '../themes/neonLaw';
 import { useCurrentUserQuery } from '../utils/api';

@@ -1,7 +1,9 @@
 import { CgProfile } from 'react-icons/cg';
 import { MdDashboard } from 'react-icons/md';
 import React from 'react';
-import { SideNavContainer } from '../../components/sideNavigation/sideNavContainer';
+import {
+  SideNavContainer
+} from '../../components/sideNavigation/sideNavContainer';
 import { SideNavContent } from '../../components/sideNavigation/base';
 
 export const PortalSideNavContent = () => {

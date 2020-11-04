@@ -11,7 +11,7 @@ import {
   useColorMode,
 } from '@chakra-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
-import { StringInput, Textarea } from '../../forms/base';
+import { StringInput, Textarea } from '../inputs';
 import { colors, gutters } from '../../themes/neonLaw';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 
@@ -51,7 +51,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
     },
   });
 
-  const { handleSubmit, errors, register, reset } = useForm();
+  const { control, handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
@@ -141,19 +141,13 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
                 styles={{ marginBottom: gutters.xSmall }}
               />
               <Textarea
-                className="answer-text"
+                control={control}
                 name="answer"
                 testId="create-flashcard-modal-answer"
-                size="xl"
                 label={intl.formatMessage({ id: 'forms.answer.label' })}
                 errors={errors}
                 placeholder={intl.formatMessage({
                   id: 'forms.answer.placeholder',
-                })}
-                register={register({
-                  required: intl.formatMessage({
-                    id: 'forms.answer.required',
-                  }),
                 })}
               />
             </ModalBody>
