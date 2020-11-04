@@ -22,6 +22,10 @@ const StyledPortalProfileCard = styled.div`
     font-weight: 600;
   }
 
+  @media(max-width: 640px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 export const PortalProfileCard = () => {

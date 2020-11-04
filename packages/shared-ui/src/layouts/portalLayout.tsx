@@ -17,8 +17,9 @@ const StyledPortalLayout = styled.div`
   align-items: center;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
     url(${PortalBg});
-  background-size: center;
-  background-position: centers;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
 
   .wrapper {
@@ -30,6 +31,7 @@ const StyledPortalLayout = styled.div`
     @media (max-width: 640px) {
       height: 100vh;
       width: 100vh;
+      text-align: center;
     }
   }
 
@@ -91,7 +93,7 @@ export const PortalLayout = ({ children }) => {
                         : theme.colors.white,
                   }}
                 >
-                  <PortalNavigationBar portal={true} />
+                  <PortalNavigationBar isRenderedOnDashboard={true} />
                   <div className="content">{children}</div>
                   <button onClick={() => toggleColorMode()}>
                     {/* Toggle Theme */}

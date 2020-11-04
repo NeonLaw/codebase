@@ -15,7 +15,7 @@ const StyledInput = styled(Input)<{
   @media (max-width: 560px) {
     display: ${({ version, isRenderedOnDashboard }) =>
     version === 'desktop' && !isRenderedOnDashboard ? 'none' : ''};
-    max-width: 300px;
+    max-width: 240px;
   }
 
   @media (min-width: 561px) {
@@ -25,13 +25,13 @@ const StyledInput = styled(Input)<{
 
 interface SearchProps {
   version: 'desktop' | 'mobile';
-  portal?: boolean;
+  isRenderedOnDashboard?: boolean;
 }
 
-export const Search = ({ version, portal }: SearchProps): JSX.Element => {
+export const Search = ({ 
+  version, isRenderedOnDashboard 
+}: SearchProps): JSX.Element => {
   const inputRef = useRef<any>();
-
-  console.log('From Search: ', portal);
 
   const handleSlashPress = (e) => {
     if (e.key === '/') {
@@ -60,7 +60,7 @@ export const Search = ({ version, portal }: SearchProps): JSX.Element => {
 
   return (
     <>
-      {portal === undefined ? (
+      {isRenderedOnDashboard === undefined ? (
         <Global
           styles={css`
             .search-input {
@@ -74,8 +74,8 @@ export const Search = ({ version, portal }: SearchProps): JSX.Element => {
         />
       ) : null}
       <StyledInput
-        isRenderedOnDashboard={portal}
-        className={!portal ? 'search-input' : ''}
+        isRenderedOnDashboard={isRenderedOnDashboard}
+        className={!isRenderedOnDashboard ? 'search-input' : ''}
         version={version}
         ref={inputRef}
         aria-label={message}

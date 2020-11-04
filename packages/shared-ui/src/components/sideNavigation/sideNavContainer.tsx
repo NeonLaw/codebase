@@ -20,16 +20,16 @@ const StyledSideNavContainer = styled.div`
 
 interface SideNavContainerProps {
   children: JSX.Element
-  isRenderedOnPortal?: boolean
+  isRenderedOnDashboard?: boolean
 }
 
 export const SideNavContainer = ({ 
-  children, isRenderedOnPortal 
+  children, isRenderedOnDashboard 
 }: SideNavContainerProps) => (
   <StyledSideNavContainer
     style={{
-      display: isRenderedOnPortal ? 'block' : 'none',
-      margin: isRenderedOnPortal ? 'auto' : '',
+      display: isRenderedOnDashboard ? 'block' : 'none',
+      margin: isRenderedOnDashboard ? 'auto' : '',
     }}
   >
     {children}

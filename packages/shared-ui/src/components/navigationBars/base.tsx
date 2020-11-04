@@ -30,7 +30,7 @@ import { Search } from './search';
 import { useIntl } from 'gatsby-plugin-intl';
 
 interface BaseNavigationBarProps {
-  portal?: boolean;
+  isRenderedOnDashboard?: boolean;
   links?: any;
   menus?: any;
   sideNavigationDrawer?: any;
@@ -40,7 +40,7 @@ export const BaseNavigationBar = ({
   links = [] as any[],
   menus = [] as any[],
   sideNavigationDrawer,
-  portal,
+  isRenderedOnDashboard,
 }: BaseNavigationBarProps) => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const intl = useIntl();
@@ -49,22 +49,24 @@ export const BaseNavigationBar = ({
 
   return (
     <>
-      {!portal ? <BlackLivesMatter /> : null}
+      {!isRenderedOnDashboard ? <BlackLivesMatter /> : null}
       <Box
         top="2em"
-        position={`${!portal ? 'fixed' : ''}`}
-        padding={`${!portal ? 0 : `${gutters.xSmallOne} ${gutters.xSmall}`}`}
+        position={`${!isRenderedOnDashboard ? 'fixed' : ''}`}
+        padding={`${
+          !isRenderedOnDashboard ? 0 : `${gutters.xSmallOne} ${gutters.xSmall}
+          `}`}
         zIndex={4}
-        bg={!portal ? 'black' : '#f4f4f4'}
-        color={!portal ? 'white' : 'black'}
+        bg={!isRenderedOnDashboard ? 'black' : '#f4f4f4'}
+        color={!isRenderedOnDashboard ? 'white' : 'black'}
         left="0"
         right="0"
         width="full"
-        height={!portal ? '4em' : 'auto'}
+        height={!isRenderedOnDashboard ? '4em' : 'auto'}
       >
-        <Container isFullBleed={portal}>
+        <Container isFullBleed={isRenderedOnDashboard}>
           <Flex boxSize="100%" align="center">
-            {!portal ? (
+            {!isRenderedOnDashboard ? (
               <Box
                 mr={5}
                 as={Link}
@@ -78,7 +80,10 @@ export const BaseNavigationBar = ({
               </Box>
             ) : null}
 
-            <Search version="desktop" portal={portal} />
+            <Search 
+              version="desktop" 
+              isRenderedOnDashboard={isRenderedOnDashboard} 
+            />
 
             <Flex flexGrow={1} align="center" justify="flex-end">
               {links.map((link, i) => (
@@ -170,7 +175,7 @@ export const BaseNavigationBar = ({
                   );
                 }}
               </AuthenticationContext.Consumer>
-              {!portal ? (
+              {!isRenderedOnDashboard ? (
                 <IconButton
                   className="nav-content-mobile"
                   aria-label="Navigation Menu"
