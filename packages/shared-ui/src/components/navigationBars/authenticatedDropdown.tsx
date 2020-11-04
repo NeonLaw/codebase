@@ -29,7 +29,7 @@ export const AuthenticatedDropdown = () => {
 
   return (
     <Box
-      display={['none', 'none', 'flex']}
+      display='flex'
       color={color[colorMode]}>
       <Menu
         placement="bottom-end"
