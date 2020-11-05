@@ -14,6 +14,7 @@ import { AuthenticationContext } from '../../utils/authenticationContext';
 import { Link } from '../../components/link';
 import React from 'react';
 import { UserAvatar } from '../userAvatar';
+import { navigate } from 'gatsby';
 import { useCurrentUserQuery } from '../../utils/api';
 import { useIntl } from 'gatsby-plugin-intl';
 
@@ -41,7 +42,7 @@ export const AuthenticatedDropdown = () => {
           bg={lighterBg[colorMode]}>
           <MenuItem
             as={Link}
-            to='/portal'
+            onClick={() => navigate('/portal')}
             _hover={{ backgroundColor: evenLighterBg[colorMode] }}
           >
             {intl.formatMessage({ id: 'components_navbar.auth_portal' })}
@@ -49,7 +50,7 @@ export const AuthenticatedDropdown = () => {
           {(role == 'lawyer' || role == 'admin') && (
             <MenuItem
               as={Link}
-              to='/lawyers'
+              onClick={() => navigate('/lawyers')}
               _hover={{ backgroundColor: evenLighterBg[colorMode] }}
             >
               {intl.formatMessage({ id: 'components_navbar.auth_lawyers' })}
@@ -58,7 +59,7 @@ export const AuthenticatedDropdown = () => {
           {(role == 'admin') && (
             <MenuItem
               as={Link}
-              to='/admin'
+              onClick={() => navigate('/admin')}
               _hover={{ backgroundColor: evenLighterBg[colorMode] }}
             >
               {intl.formatMessage({ id: 'components_navbar.auth_admin' })}

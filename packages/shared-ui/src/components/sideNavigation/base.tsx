@@ -125,7 +125,7 @@ export const SideNavContent = ({
       >
         <Box
           as="nav"
-          height={!isRenderedOnDashboard ? 'calc(100vh - 6em)' : ''}
+          height={!isRenderedOnDashboard ? '100vh' : ''}
           aria-label="Main navigation"
           style={
             isRenderedOnDashboard

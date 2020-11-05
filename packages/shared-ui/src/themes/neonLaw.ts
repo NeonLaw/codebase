@@ -59,6 +59,7 @@ export const sizes = {
   textContainerSmall: '680px',
   textContainerSmallOne: '600px',
   textContainerSmallTwo: '620px',
+  textContainerXSmall: '580px'
 };
 
 export const gutters = {
