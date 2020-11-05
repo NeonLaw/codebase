@@ -2,7 +2,6 @@
 // @ts-nocheck
 /* eslint-enable */
 import {
-  Avatar,
   Box,
   Menu,
   MenuButton,
@@ -14,25 +13,9 @@ import {
 import { AuthenticationContext } from '../../utils/authenticationContext';
 import { Link } from '../../components/link';
 import React from 'react';
+import { UserAvatar } from '../userAvatar';
 import { useCurrentUserQuery } from '../../utils/api';
 import { useIntl } from 'gatsby-plugin-intl';
-
-const UserAvatar = () => {
-  return (
-    <AuthenticationContext.Consumer>
-      {({ user: { name, picture } }) => {
-        return (
-          <Avatar
-            size="sm"
-            cursor="pointer"
-            name={name}
-            src={picture}
-          />
-        );
-      }}
-    </AuthenticationContext.Consumer>
-  );
-};
 
 export const AuthenticatedDropdown = () => {
   const { colorMode } = useColorMode();
@@ -46,7 +29,7 @@ export const AuthenticatedDropdown = () => {
 
   return (
     <Box
-      display={['none', 'none', 'flex']}
+      display='flex'
       color={color[colorMode]}>
       <Menu
         placement="bottom-end"

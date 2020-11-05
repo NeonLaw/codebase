@@ -23,7 +23,7 @@ const AdminFlashcards = () => {
 
   return (
     <PortalLayout>
-      <Box>
+      <Box textAlign="left">
         <Heading fontWeight="normal" marginBottom={gutters.xSmallOne}>
           Flashcards
         </Heading>
