@@ -6,7 +6,7 @@ import {
   becomePortalUser,
   createUser,
   withRootDb
-} from '../utils/dbHelpers';
+} from '../../utils/dbHelpers';
 import { describe, expect, it } from '@jest/globals';
 
 describe('SELECT * FROM person;', () => {

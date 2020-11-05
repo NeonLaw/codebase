@@ -7,7 +7,7 @@ import {
   becomePortalUser,
   createFlashcard,
   withRootDb
-} from '../utils/dbHelpers';
+} from '../../utils/dbHelpers';
 import { describe, expect, it } from '@jest/globals';
 
 describe('INSERT INTO flashcard (answer, prompt) VALUES ();', () => {
