@@ -94,10 +94,12 @@ export class AuthenticationProvider extends Component {
       return;
     }
 
-    LogRocket.identify(
-      process.env.GATSBY_LOGROCKET_CREDENTIALS || '4qbrpw/staging',
-      this.state.user || {},
-    );
+    if (process.env.GATSBY_LOGROCKET_CREDENTIALS) {
+      LogRocket.identify(
+        process.env.GATSBY_LOGROCKET_CREDENTIALS,
+        this.state.user || {},
+      );
+    }
 
     const authLink = setContext(async () => {
       const accessToken = await (this.state

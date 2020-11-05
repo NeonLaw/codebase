@@ -5,6 +5,7 @@ ARG GATSBY_AUTH0_CALLBACK
 ARG GATSBY_AUTH0_CLIENT_ID
 ARG GATSBY_AUTH0_DOMAIN
 ARG GATSBY_AUTH0_TENANT
+ARG GATSBY_LOGROCKET_CREDENTIALS
 
 FROM docker.pkg.github.com/neonlaw/codebase/base:latest AS build
 
@@ -15,6 +16,7 @@ ARG GATSBY_AUTH0_CALLBACK
 ARG GATSBY_AUTH0_CLIENT_ID
 ARG GATSBY_AUTH0_DOMAIN
 ARG GATSBY_AUTH0_TENANT
+ARG GATSBY_LOGROCKET_CREDENTIALS
 
 WORKDIR /app
 
@@ -24,6 +26,7 @@ RUN yarn install --silent --cache-folder ./node_modules/
 
 COPY . .
 
+RUN cp -vr ./packages/shared-ui/fonts ./packages/$APP_NAME/static
 RUN yarn workspace @neonlaw/$APP_NAME build
 
 RUN awk "{gsub(/DOMAIN_NAME/, \"$DOMAIN_NAME\"); print}" ./docker/production.nginx.conf > docker.nginx.conf

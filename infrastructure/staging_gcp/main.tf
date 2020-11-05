@@ -63,9 +63,39 @@ module "delete-your-data-ssl-certificate" {
   domain_name      = "www.deleteyourdata.info"
 }
 
+module "public-bucket" {
+  source = "../modules/public_bucket"
+  bucket_name = "${var.project_id}-public-assets"
+  allowed_origins = [
+    "www.deleteyourdata.com",
+    "www.lawjobresources.com",
+    "www.neonlaw.com",
+    "www.justiceforrickieslaughter.com"
+  ]
+}
+
+module "upload-bucket" {
+  source = "../modules/write_only_bucket"
+  bucket_name = "${var.project_id}-unprocessed-uploads"
+  allowed_origins = [
+    "www.deleteyourdata.com",
+    "www.lawjobresources.com",
+    "www.neonlaw.com",
+    "www.justiceforrickieslaughter.com"
+  ]
+}
+
 module "user-bucket" {
   source = "../modules/private_bucket"
-  bucket_name = "${var.project_id}-user-assets"
+  bucket_name = "${var.project_id}-private-assets"
+  allowed_origins = [
+    "www.neonlaw.net"
+  ]
+}
+
+module "writing-bucket" {
+  source = "../modules/private_bucket"
+  bucket_name = "${var.project_id}-writing"
   allowed_origins = [
     "www.neonlaw.net"
   ]

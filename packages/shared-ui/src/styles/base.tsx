@@ -68,6 +68,12 @@ const BaseStyles = (): JSX.Element => (
         }
       }
 
+      h1,
+      h2,
+      h3 {
+        line-height: 1.35 !important;
+      }
+
       code {
         color: ${colors.text.darkLight} !important;
       }
@@ -139,6 +145,20 @@ const BaseStyles = (): JSX.Element => (
           box-shadow: none;
         }
       }
+
+      /* ---------------------------------- */
+      /* ----- Utils and Helpers ----- */
+      /* ---------------------------------- */
+
+      .full-bleed {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+      } 
+
     `}
   />
 );

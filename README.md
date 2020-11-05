@@ -31,7 +31,6 @@ You should have some, if not all of these environment variables on your machine:
 - `AUTH0_TENANT`
 
 - `CYPRESS_ADMIN_USER_PASSWORD`
-- `CYPRESS_AUDIENCE_URL`
 - `CYPRESS_AUTH0_CLIENT_ID`
 - `CYPRESS_AUTH0_CLIENT_SECRET`
 - `CYPRESS_AUTH_URL`
@@ -133,7 +132,7 @@ software:
 - Google Cloud Platform
 - Grammarly
 - LanguageTool
-- Lexis Advance
+- Lexis Nexis
 - Mercury Bank
 - PGRita
 - Postgraphile

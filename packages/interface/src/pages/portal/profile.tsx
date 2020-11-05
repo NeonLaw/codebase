@@ -1,14 +1,15 @@
+import { Heading, useDisclosure } from '@chakra-ui/core';
 import { gutters, sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
-import { Heading } from '@chakra-ui/core';
+import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
 import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
 import {
   PortalProfileCard
 } from '@neonlaw/shared-ui/src/components/cards/portalProfileCard';
-import {
-  PortalProfileForm
-} from '@neonlaw/shared-ui/src/forms/portalProfileForm';
 import React from 'react';
+import {
+  UpdateProfileModal
+} from '@neonlaw/shared-ui/src/forms/updateProfileModal';
 import styled from '@emotion/styled';
 
 const StyledPortalProfilePage = styled.div`
@@ -20,6 +21,8 @@ const StyledPortalProfilePage = styled.div`
 `;
 
 const PortalProfilePage = () => {
+  const { isOpen, onClose, onOpen } = useDisclosure();
+
   return (
     <PortalLayout>
       <StyledPortalProfilePage>
@@ -29,7 +32,17 @@ const PortalProfilePage = () => {
           Your Profile
         </Heading>
         <PortalProfileCard />
-        <PortalProfileForm />
+        <FlashButton
+          buttonScheme="teal"
+          containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
+          onClick={onOpen} 
+        >
+          Update Profile
+        </FlashButton>
+        <UpdateProfileModal 
+          isOpen={isOpen} 
+          onClose={onClose}
+        />
       </StyledPortalProfilePage>
     </PortalLayout>
   );

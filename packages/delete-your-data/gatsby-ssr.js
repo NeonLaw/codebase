@@ -6,9 +6,9 @@ export const wrapPageElement = ({ element, props }) => {
   return <BaseLayout {...props}>{element}</BaseLayout>;
 };
 
-export const onRenderBody = ({ 
-  setPostBodyComponents, 
-  setPreBodyComponents 
+export const onRenderBody = ({
+  setPostBodyComponents,
+  setPreBodyComponents
 }) => {
   setPreBodyComponents([<ColorModeScript key="chakra-ui-no-flash" />]);
   if (
@@ -19,9 +19,14 @@ export const onRenderBody = ({
     return;
   }
 
-
+  const zendeskKey = '81e26970-baa7-4b83-a913-984711a0b5f1';
 
   setPostBodyComponents([
+    <script
+      id="ze-snippet"
+      key="zendesk"
+      src={`https://static.zdassets.com/ekr/snippet.js?key=${zendeskKey}`}
+    />,
     <script
       key="fathom"
       src="https://anglerfish.neonlaw.com/script.js"
