@@ -29,7 +29,7 @@ const Home = (): JSX.Element => {
         <Banner
           title={intl.formatMessage({ id: 'banner.title' })}
           text={intl.formatMessage({ id: 'banner.text' })}
-          buttonText={intl.formatMessage({ id: 'banner.btn_text' })}
+          buttonText={intl.formatMessage({ id: 'auth.sign_up' })}
         />
         <Global
           styles={css`

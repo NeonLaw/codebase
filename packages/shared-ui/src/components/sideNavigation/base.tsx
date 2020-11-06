@@ -181,15 +181,6 @@ export const SideNavContent = ({
                       }}
                       cursor="pointer"
                     >
-                      {intl.formatMessage({ id: 'auth.sign_up' })}
-                    </Box>
-                    <Box
-                      mb="10"
-                      onClick={() => {
-                        login();
-                      }}
-                      cursor="pointer"
-                    >
                       {intl.formatMessage({ id: 'auth.login' })}
                     </Box>
                   </>

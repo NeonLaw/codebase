@@ -146,18 +146,6 @@ export const BaseNavigationBar = ({
                   }
                   return (
                     <Flex>
-                      <Button
-                        bg="transparent"
-                        border="1px"
-                        className="nav-content-desktop"
-                        disabled={loginButtonDisabled}
-                        onClick={() => {
-                          disableLoginButton(true);
-                          login();
-                        }}
-                      >
-                        {intl.formatMessage({ id: 'auth.sign_up' })}
-                      </Button>
                       <Box width="6px" />
                       <Button
                         bg="transparent"

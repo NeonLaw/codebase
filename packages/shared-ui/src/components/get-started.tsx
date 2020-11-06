@@ -26,7 +26,7 @@ export const GetStarted = () => {
         }}
         buttonScheme="teal"
       >
-        {intl.formatMessage({ id: 'get_started.btn_text' })}
+        {intl.formatMessage({ id: 'auth.sign_up' })}
       </FlashButton>
     </Section>
   );
