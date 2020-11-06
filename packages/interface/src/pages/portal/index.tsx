@@ -13,7 +13,7 @@ const PortalPage = () => {
   const intl = useIntl();
   return (
     <PortalLayout>
-      <Box maxWidth={sizes.textContainerSmall}>
+      <Box maxWidth={sizes.textContainerXSmall}>
         <Heading fontWeight="normal" marginBottom={gutters.xSmallOne}>
           {intl.formatMessage({ id: 'pages_portal.heading' })}
         </Heading>

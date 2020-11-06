@@ -171,6 +171,7 @@ export const BaseNavigationBar = ({
                   variant="ghost"
                   color="black"
                   icon={<MdDehaze />}
+                  textColor="white"
                   onClick={() => {
                     onToggle();
                     document.body.setAttribute(
