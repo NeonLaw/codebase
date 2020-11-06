@@ -10,6 +10,7 @@ import { Link } from './link';
 import React from 'react';
 import { Section } from './section';
 import { SocialMediaIcons } from './socialMediaIcons';
+import { ThemeSwitcher } from './theme-switcher';
 import styled from '@emotion/styled';
 import { useIntl } from 'gatsby-plugin-intl';
 
@@ -46,7 +47,7 @@ const StyledLinks = styled.div`
 `;
 
 export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
   const intl = useIntl();
 
@@ -89,15 +90,7 @@ export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
             </Flex>
             <Flex direction="column">
               <LanguageDropdown />
-              <Text onClick={toggleColorMode} cursor="pointer" padding="7px 0">
-                {intl.formatMessage({ id: 'footer.switch' })}
-                {`${
-                  colorMode === 'dark'
-                    ? intl.formatMessage({ id: 'footer.light' })
-                    : intl.formatMessage({ id: 'footer.dark' })
-                }`}
-                {intl.formatMessage({ id: 'footer.mode' })}
-              </Text>
+              <ThemeSwitcher />
               <Box
                 as="a"
                 href="https://neonlaw.zendesk.com/"

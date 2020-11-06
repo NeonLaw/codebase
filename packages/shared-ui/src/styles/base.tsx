@@ -159,6 +159,28 @@ const BaseStyles = (): JSX.Element => (
         margin-right: -50vw;
       } 
 
+      .visually-hidden {
+        position: absolute;
+        left: -100000rem;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+
+      /* ---------------------------------- */
+      /* ----- Animations ----- */
+      /* ---------------------------------- */
+      
+      @keyframes pulse {
+        0% {
+            transform: scale(.9);
+        }
+        100% {
+            transform: scale(1.02);
+        }
+      }
+
     `}
   />
 );
