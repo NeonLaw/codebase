@@ -56,7 +56,7 @@ export const FlashcardContainer = () => {
         return changeShowFlashcardAnswer(!showFlashcardAnswer);
       }
     },
-    [flashcards, selectedFlashcard, showFlashcardAnswer, isTextAreaFocused],
+    [flashcards, selectedFlashcard, showFlashcardAnswer, isTextAreaFocused, OS],
   );
 
   useEffect(() => {

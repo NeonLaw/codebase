@@ -17,15 +17,9 @@ const syncLobLetters = async (payload, helpers) => {
   ));
 
   await helpers.query(
-    `SELECT find_or_create_letter_by_lob_identifier(el->>'uuid', el->'json')
-     FROM json_array_elements($1) uuid`,
+    'SELECT find_or_create_letters_by_lob_identifier($1)',
     [JSON.stringify(objects)]
   );
-
-
-  since ?
-    helpers.logger.info(`synced letters from Lob since ${since}`) :
-    helpers.logger.info('synced letters from Lob');
 };
 
 export default syncLobLetters;
