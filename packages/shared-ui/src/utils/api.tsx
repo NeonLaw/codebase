@@ -1622,6 +1622,28 @@ export enum DocumentTemplatesOrderBy {
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
 
+/** All input for the `findOrCreateLettersByLobIdentifier` mutation. */
+export type FindOrCreateLettersByLobIdentifierInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  lobLettersJson?: Maybe<Scalars['JSON']>;
+};
+
+/** The output of our `findOrCreateLettersByLobIdentifier` mutation. */
+export type FindOrCreateLettersByLobIdentifierPayload = {
+  __typename?: 'FindOrCreateLettersByLobIdentifierPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
 /** A flashcard used for studying */
 export type Flashcard = Node & {
   __typename?: 'Flashcard';
@@ -1708,10 +1730,10 @@ export type Letter = Node & {
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID'];
   id: Scalars['UUID'];
-  addressorId: Scalars['UUID'];
-  addresseeId: Scalars['UUID'];
+  addressorId?: Maybe<Scalars['UUID']>;
+  addresseeId?: Maybe<Scalars['UUID']>;
   lobIdentifier: Scalars['String'];
-  documentId: Scalars['UUID'];
+  documentId?: Maybe<Scalars['UUID']>;
   lobRecord: Scalars['JSON'];
   /** Reads a single `Person` that is related to this `Letter`. */
   personByAddressorId?: Maybe<Person>;
@@ -1729,6 +1751,8 @@ export type LetterCondition = {
   addressorId?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `addresseeId` field. */
   addresseeId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `lobIdentifier` field. */
+  lobIdentifier?: Maybe<Scalars['String']>;
   /** Checks for equality with the object’s `documentId` field. */
   documentId?: Maybe<Scalars['UUID']>;
 };
@@ -1736,10 +1760,10 @@ export type LetterCondition = {
 /** An input for mutations affecting `Letter` */
 export type LetterInput = {
   id?: Maybe<Scalars['UUID']>;
-  addressorId: Scalars['UUID'];
-  addresseeId: Scalars['UUID'];
+  addressorId?: Maybe<Scalars['UUID']>;
+  addresseeId?: Maybe<Scalars['UUID']>;
   lobIdentifier: Scalars['String'];
-  documentId: Scalars['UUID'];
+  documentId?: Maybe<Scalars['UUID']>;
   lobRecord: Scalars['JSON'];
 };
 
@@ -1784,6 +1808,8 @@ export enum LettersOrderBy {
   AddressorIdDesc = 'ADDRESSOR_ID_DESC',
   AddresseeIdAsc = 'ADDRESSEE_ID_ASC',
   AddresseeIdDesc = 'ADDRESSEE_ID_DESC',
+  LobIdentifierAsc = 'LOB_IDENTIFIER_ASC',
+  LobIdentifierDesc = 'LOB_IDENTIFIER_DESC',
   DocumentIdAsc = 'DOCUMENT_ID_ASC',
   DocumentIdDesc = 'DOCUMENT_ID_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
@@ -2018,6 +2044,7 @@ export type Mutation = {
   deleteWritingById?: Maybe<DeleteWritingPayload>;
   createPrimaryKeyIdIfNotExists?: Maybe<CreatePrimaryKeyIdIfNotExistsPayload>;
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
+  findOrCreateLettersByLobIdentifier?: Maybe<FindOrCreateLettersByLobIdentifierPayload>;
   getSignedUploadUrl?: Maybe<GetSignedUploadUrlPayload>;
 };
 
@@ -2499,6 +2526,12 @@ export type MutationCreatePrimaryKeyIdIfNotExistsArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateRoleIfNotExistsArgs = {
   input: CreateRoleIfNotExistsInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationFindOrCreateLettersByLobIdentifierArgs = {
+  input: FindOrCreateLettersByLobIdentifierInput;
 };
 
 
