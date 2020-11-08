@@ -5,7 +5,7 @@ import {
 } from '../../utils/dbHelpers';
 import { describe, expect, it } from '@jest/globals';
 
-describe('SELECT find_or_create_letter_by_lob_identifier', () => {
+describe('SELECT find_or_create_letters_by_lob_identifier', () => {
   const lobJson = JSON.stringify([{hello: 'yes'}]);
   describe('as an anonymous user', () => {
     it('cannot create letters', () =>
@@ -15,7 +15,7 @@ describe('SELECT find_or_create_letter_by_lob_identifier', () => {
         await becomeAnonymousUser(pgClient);
 
         await expect(pgClient.query(
-          'SELECT find_or_create_letter_by_lob_identifier($1)',
+          'SELECT find_or_create_letters_by_lob_identifier($1)',
           [lobJson]
         )).rejects.toThrow(
           /permission denied for table letter/

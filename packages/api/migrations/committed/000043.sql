@@ -1,9 +1,9 @@
 --! Previous: sha1:45a78342d89bbcb3514a92b8325824a63238c3ad
---! Hash: sha1:d99be29e9804c281af69271999930a3bd6948f3f
+--! Hash: sha1:8dec8b1e9ef865beaa6a6d79c3dedae5e5ae839a
 
 -- Enter migration here
 
-CREATE OR REPLACE FUNCTION find_or_create_letter_by_lob_identifier(lob_letters_json json)
+CREATE OR REPLACE FUNCTION find_or_create_letters_by_lob_identifier(lob_letters_json json)
 RETURNS void AS $$
 DECLARE
   letter JSON;
