@@ -44,7 +44,7 @@ export const onRenderBody = ({
       key="fathom"
       src="https://anglerfish.neonlaw.com/script.js"
       site="DUBLGHDJ"
-      excluded-domains="127.0.0.1,localhost,neonlaw.net"
+      excluded-domains="127.0.0.1,neonlaw.net,interface"
       defer
     />,
   ]);
