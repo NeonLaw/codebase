@@ -17,7 +17,7 @@ const syncLobLetters = async (payload, helpers) => {
   ));
 
   await helpers.query(
-    `SELECT find_or_create_letter_by_lob_identifier(el->>'uuid', el->'json')
+    `SELECT find_or_create_letters_by_lob_identifier(el->>'uuid', el->'json')
      FROM json_array_elements($1) uuid`,
     [JSON.stringify(objects)]
   );

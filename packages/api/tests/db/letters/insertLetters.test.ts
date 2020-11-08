@@ -2,6 +2,8 @@
 import * as faker from 'faker';
 import {
   becomeAnonymousUser,
+  becomeLawyerUser,
+  becomePortalUser,
   createFlashcard,
   withRootDb
 } from '../../utils/dbHelpers';
@@ -20,6 +22,44 @@ describe('INSERT INTO letter;', () => {
         await createFlashcard(pgClient);
 
         await becomeAnonymousUser(pgClient);
+
+        await expect(pgClient.query(
+          'INSERT INTO letter (addressor_id, addressee_id, '+
+          'lob_identifier, document_id, lob_record) ' +
+          'VALUES ($1, $2, $3, $4, $5) RETURNING (id)',
+          [addressorId, addresseeId, lobIdentifier, documentId, lobRecord]
+        )).rejects.toThrow(
+          /permission denied for table letter/
+        );
+      })
+    );
+  });
+
+  describe('as an portal user', () => {
+    it('cannot create letters', () =>
+      withRootDb(async (pgClient: any) => {
+        await createFlashcard(pgClient);
+
+        await becomePortalUser(pgClient);
+
+        await expect(pgClient.query(
+          'INSERT INTO letter (addressor_id, addressee_id, '+
+          'lob_identifier, document_id, lob_record) ' +
+          'VALUES ($1, $2, $3, $4, $5) RETURNING (id)',
+          [addressorId, addresseeId, lobIdentifier, documentId, lobRecord]
+        )).rejects.toThrow(
+          /permission denied for table letter/
+        );
+      })
+    );
+  });
+
+  describe('as an lawyer user', () => {
+    it('cannot create letters', () =>
+      withRootDb(async (pgClient: any) => {
+        await createFlashcard(pgClient);
+
+        await becomeLawyerUser(pgClient);
 
         await expect(pgClient.query(
           'INSERT INTO letter (addressor_id, addressee_id, '+
