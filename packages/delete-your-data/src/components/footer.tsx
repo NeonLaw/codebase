@@ -12,9 +12,6 @@ export const Footer = () => {
   const color = { dark: 'white', light: 'black' };
   const lighterBg = { dark: 'gray.700', light: 'gray.200' };
 
-  const fathomLink =
-    'https://app.usefathom.com/share/aokzddgf/www.deleteyourdata.com';
-
   return (
     <Box
       bg={lighterBg[colorMode]}
@@ -24,20 +21,17 @@ export const Footer = () => {
       padding="2em"
       as="footer"
     >
-      This site was built by&nbsp;
-      <a href="https://www.neonlaw.com" target="_blank" rel="noreferrer">
+      Delete Your Data is a service by&nbsp;
+      <a
+        href="https://www.neonlaw.com"
+        target="_blank"
+        rel="noreferrer"
+        style={{ textDecoration: 'underline' }}
+      >
         Neon Law, the Upward Mobility Law Firm
       </a>.
       <br />
-      This website is monitored with&nbsp;
-      <a
-        href={fathomLink}
-        style={{ cursor: 'pointer', textDecoration: 'underline' }}
-        target="_blank"
-        rel="noreferrer"
-      >
-        Fathom Analytics
-      </a>.
+      Copyright 2020.
     </Box>
   );
 };

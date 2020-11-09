@@ -12,9 +12,6 @@ import { Footer } from '../components/footer';
 import { MDXComponents } from '@neonlaw/shared-ui/src/utils/mdxComponents';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import {
-  PublicNavigationBar
-} from '../components/navigationBars/public';
 import { Seo } from '../components/seo';
 import { ShareButtons } from '@neonlaw/shared-ui/src/components/shareButtons';
 import { graphql } from 'gatsby';
@@ -44,10 +41,9 @@ const MdxLayout: React.FC<{
     >
       <Seo title={title} description={description} />
       <>
-        <PublicNavigationBar />
         <Box
           flex={1}
-          padding="8em 0 4em 0"
+          padding="4em 0"
         >
           <Container>
             <Breadcrumbs />

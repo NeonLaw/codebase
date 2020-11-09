@@ -4,6 +4,7 @@ import {
   AlertIcon,
   AspectRatio,
   Box,
+  Button,
   Code,
   Flex,
   Heading,
@@ -71,6 +72,7 @@ export const MDXComponents = {
   AlertIcon,
   AspectRatio,
   Box,
+  Button,
   Flex,
   Link: ({ href, ...props }) => {
     const telRegex = new RegExp('^tel');
