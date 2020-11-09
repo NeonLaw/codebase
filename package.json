@@ -85,7 +85,7 @@
     "dependencies": {
         "@chakra-ui/core": "^1.0.0-rc.8",
         "@chakra-ui/icons": "^1.0.0-rc.8",
-        "@typescript-eslint/parser": "^4.5.0",
+        "@typescript-eslint/parser": "^4.6.1",
         "clipboard-copy": "^3.1.0",
         "gatsby-plugin-react-axe": "^0.5.0",
         "jwt-decode": "^3.0.0",
