@@ -4739,7 +4739,7 @@ export type CreateQuestionMutation = (
     { __typename?: 'CreateQuestionPayload' }
     & { question?: Maybe<(
       { __typename?: 'Question' }
-      & Pick<Question, 'options' | 'questionType' | 'prompt'>
+      & Pick<Question, 'id' | 'options' | 'questionType' | 'prompt'>
     )> }
   )> }
 );
@@ -4974,6 +4974,7 @@ export const CreateQuestionDocument = gql`
     mutation CreateQuestion($options: [String], $questionType: String!, $prompt: String!) {
   createQuestion(input: {question: {options: $options, questionType: $questionType, prompt: $prompt}}) {
     question {
+      id
       options
       questionType
       prompt
