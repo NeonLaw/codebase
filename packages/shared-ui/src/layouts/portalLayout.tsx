@@ -67,7 +67,7 @@ const Main = styled.div`
 `;
 
 export const PortalLayout = ({ children }) => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
   return (
     <AuthenticationContext.Consumer>
@@ -95,9 +95,6 @@ export const PortalLayout = ({ children }) => {
                 >
                   <PortalNavigationBar isRenderedOnDashboard={true} />
                   <div className="content">{children}</div>
-                  <button onClick={() => toggleColorMode()}>
-                    {/* Toggle Theme */}
-                  </button>
                 </Main>
               </div>
             </StyledPortalLayout>

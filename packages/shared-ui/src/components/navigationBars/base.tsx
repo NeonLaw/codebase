@@ -27,6 +27,7 @@ import { Container } from '../container';
 import { Link } from '../../components/link';
 import { MdDehaze } from 'react-icons/md';
 import { Search } from './search';
+import { ThemeSwitcher } from '../theme-switcher';
 import { useIntl } from 'gatsby-plugin-intl';
 
 interface BaseNavigationBarProps {
@@ -136,6 +137,12 @@ export const BaseNavigationBar = ({
                   </Menu>
                 </Box>
               ))}
+
+              {
+                isRenderedOnDashboard ? 
+                  <ThemeSwitcher isRenderedOnDashboard={true} /> : null
+              }
+
               <AuthenticationContext.Consumer>
                 {({ isLoading, isAuthenticated, login }) => {
                   if (isLoading) {

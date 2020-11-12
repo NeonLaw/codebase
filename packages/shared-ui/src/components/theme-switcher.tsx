@@ -8,10 +8,14 @@ import styled from '@emotion/styled';
 const sunBgColor = '#ffa600';
 const moonBgColor = '#e1e6e9';
 
-const StyledThemeSwitcher = styled.div`
+const StyledThemeSwitcher = styled.div<{isRenderedOnDashboard?: boolean}>`
   display: flex;
   justify-content: center;
-  margin-bottom: ${gutters.small};
+  margin-bottom: ${
+  ({isRenderedOnDashboard}) => isRenderedOnDashboard ? 'none' : gutters.small };
+  margin-right: ${
+  ({isRenderedOnDashboard}) => isRenderedOnDashboard ? 
+    gutters.xSmallOne : null };
 
   label {
     display: flex;
@@ -49,7 +53,9 @@ const StyledThemeSwitcher = styled.div`
   }
 `;
 
-export const ThemeSwitcher = () => {
+export const ThemeSwitcher = ({
+  isRenderedOnDashboard
+}: {isRenderedOnDashboard?: boolean}) => {
   const { toggleColorMode, colorMode } = useColorMode();
 
   const handleToggleTheme = () => {
@@ -61,7 +67,7 @@ export const ThemeSwitcher = () => {
   const moonBg = useColorModeValue('#9f9f9f', moonBgColor);
 
   return (
-    <StyledThemeSwitcher>
+    <StyledThemeSwitcher isRenderedOnDashboard={isRenderedOnDashboard}>
       <label title='Change Color Mode'>
         <svg
           xmlns="http://www.w3.org/2000/svg"
