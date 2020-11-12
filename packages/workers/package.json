@@ -7,7 +7,7 @@
   "dependencies": {
     "@graphile/pg-pubsub": "^4.9.0",
     "@graphile/pro": "^0.10.0",
-    "@newrelic/winston-enricher": "^0.1.1",
+    "@newrelic/winston-enricher": "^1.0.0",
     "graphile-worker": "^0.8.1"
   },
   "scripts": {
