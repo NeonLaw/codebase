@@ -27,6 +27,15 @@ const AdminDashboard = () => {
         >
           Flashcards
         </FlashButton>
+
+        <FlashButton
+          colorScheme="gray"
+          onClick={() => {
+            navigate('/admin/questions');
+          }}
+        >
+          Questions
+        </FlashButton>
       </Box>
     </PortalLayout>
   );

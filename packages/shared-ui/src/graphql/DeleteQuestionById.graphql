@@ -1,0 +1,7 @@
+mutation DeleteQuestionById($id: UUID!) {
+  deleteQuestionById(input: { id: $id }) {
+    question {
+      id
+    }
+  }
+}

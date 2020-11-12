@@ -18,11 +18,11 @@ export const PortalSideNavContent = () => {
   const links = [
     { icon: <AiOutlineShop />, label: 'Portal', route: '/portal/' },
     { icon: <CgProfile />, label: 'Profile', route: '/portal/profile' },
-    role === 'laywer' || role === 'admin' ? { 
-      icon: <VscLaw />, label: 'Laywers', route: '/lawyers' } : null,
-    role === 'admin' ? { 
+    role === 'laywer' || role === 'admin' ? {
+      icon: <VscLaw />, label: 'Lawyers', route: '/lawyers' } : null,
+    role === 'admin' ? {
       icon: <RiAdminLine />, label: 'Admin', route: '/admin' } : null,
-    
+
   ];
   return <SideNavContent isRenderedOnDashboard={true} links={links} />;
 };

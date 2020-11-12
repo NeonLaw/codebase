@@ -1,7 +1,5 @@
 query AllFlashcards {
-  allFlashcards(
-    orderBy: PROMPT_ASC
-  ) {
+  allFlashcards(orderBy: PROMPT_ASC) {
     nodes {
       id
       prompt
