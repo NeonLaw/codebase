@@ -21,7 +21,13 @@
     "switch": "Switch to ",
     "mode": "Mode",
     "dark": "Dark ",
-    "light": "Light "
+    "light": "Light ",
+    "justice_for_rickie_slaughter": "Justice For Rickie Slaughter",
+    "modern_slavery_statement": "Modern Slavery Statement",
+    "pgp_key": "PGP Key",
+    "delete_your_data": "Delete Your Data",
+    "law_job_resources": "Law Job Resources",
+    "templates": "Non-Advice Legal Templates"
   },
   "languageDropdown": {
     "text": "Currently viewing this site in English"

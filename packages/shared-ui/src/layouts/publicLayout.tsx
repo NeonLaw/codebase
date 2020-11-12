@@ -3,7 +3,7 @@ import { Box, Flex, useColorMode } from '@chakra-ui/core';
 import { ApolloProvider } from '@apollo/client';
 import { AuthenticationContext } from '../utils/authenticationContext';
 import { Breadcrumbs } from '../components/breadcrumbs';
-import { Footer } from '../components/footer';
+import { Footer } from '@neonlaw/shared-ui/src/components/footer';
 import { PublicNavigationBar } from '../components/navigationBars/public';
 import React from 'react';
 import { colors } from '../themes/neonLaw';
@@ -11,11 +11,9 @@ import { publicClient } from '../utils/authenticationContext';
 
 export const PublicLayout = ({
   children,
-  isFooterWhite,
   isBgLighter,
 }: {
   children: JSX.Element | JSX.Element[];
-  isFooterWhite?: boolean;
   isBgLighter?: boolean;
 }) => {
   const { colorMode } = useColorMode();
@@ -42,7 +40,10 @@ export const PublicLayout = ({
           );
         }}
       </AuthenticationContext.Consumer>
-      <Footer isWhite={isFooterWhite} />
+      <Footer
+        fathomLink=""
+        currentSite="neon-law"
+      />
     </Flex>
   );
 };

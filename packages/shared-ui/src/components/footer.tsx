@@ -1,8 +1,17 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Box, Flex, Heading, Text, theme, useColorMode } from '@chakra-ui/core';
-import { colors, gutters, sizes } from '../themes/neonLaw';
+import {
+  Box,
+  Flex,
+  Heading,
+  Spacer,
+  Text,
+  theme,
+  useBreakpointValue,
+  useColorMode
+} from '@chakra-ui/core';
+import { colors, sizes } from '../themes/neonLaw';
 
 import { Container } from './container';
 import { LanguageDropdown } from './languageDropdown';
@@ -10,47 +19,48 @@ import { Link } from './link';
 import React from 'react';
 import { Section } from './section';
 import { SocialMediaIcons } from './socialMediaIcons';
-import styled from '@emotion/styled';
 import { useIntl } from 'gatsby-plugin-intl';
 
-const StyledLinks = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 3rem 1rem;
-  font-size: ${theme.fontSizes['lg']};
+const FooterLink = ({ currentSite, site, path, i18nMessage }) => {
+  const intl = useIntl();
 
-  @media (max-width: 640px) {
-    flex-direction: column;
+  if (site === currentSite) {
+    return (
+      <Box as={Link} to={path} padding="7px 0">
+        {intl.formatMessage({ id: i18nMessage })}
+      </Box>
+    );
   }
+  const siteMap = {
+    'delete-your-data': 'https://www.deleteyourdata.com',
+    'justice-for-rickie-slaughter': 'https://www.JusticeForRickieSlaughter.com',
+    'law-job-resources': 'https://www.lawjobresources.com',
+    'neon-law': 'https://www.neonlaw.com',
+  };
 
-  & > * {
-    flex: 0 0 25%;
+  return (
+    <Box
+      as="a"
+      href={`${siteMap[site]}${path}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      padding="7px 0"
+    >
+      {intl.formatMessage({ id: i18nMessage })}
+    </Box>
+  );
+};
 
-    @media (max-width: 1000px) {
-      flex: 0 0 50%;
-      text-align: center;
+interface FooterProps {
+  isWhite?: boolean;
+  currentSite: string;
+  fathomLink: string;
+}
 
-      &:nth-of-type(1),
-      &:nth-of-type(2) {
-        margin-bottom: ${gutters.medium};
-      }
-    }
-
-    @media (max-width: 640px) {
-      &:nth-of-type(1),
-      &:nth-of-type(2) {
-        margin-bottom: 0;
-      }
-    }
-  }
-`;
-
-export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
+export const Footer = ({ isWhite, currentSite, fathomLink }: FooterProps) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
   const intl = useIntl();
-
-  const fathomLink = 'https://app.usefathom.com/share/dublghdj/www.neonlaw.com';
 
   return (
     <Box
@@ -71,22 +81,11 @@ export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
       </Section>
       <Box bg="black" color="white">
         <Container>
-          <StyledLinks>
-            <Flex direction="column">
-              <SocialMediaIcons display={['block', 'block', 'none']} mb="7px" />
-              <Box as={Link} to="/about-us" padding="7px 0">
-                {intl.formatMessage({ id: 'footer.about' })}
-              </Box>
-              <Box as={Link} to="/practice-areas" padding="7px 0">
-                {intl.formatMessage({ id: 'footer.practice_areas' })}
-              </Box>
-              <Box as={Link} to="/bar-prep" padding="7px 0">
-                {intl.formatMessage({ id: 'footer.bar_prep' })}
-              </Box>
-              <Box as={Link} to="/templates" padding="7px 0">
-                Legal Templates
-              </Box>
-            </Flex>
+          <Flex
+            padding="3em 1em"
+            fontSize={theme.fontSizes['lg']}
+            direction={useBreakpointValue({ base: 'column', lg: 'row' })}
+          >
             <Flex direction="column">
               <LanguageDropdown />
               <Text onClick={toggleColorMode} cursor="pointer" padding="7px 0">
@@ -107,62 +106,98 @@ export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
               >
                 {intl.formatMessage({ id: 'footer.support' })}
               </Box>
-              <Box as={Link} to="/pgp" padding="7px 0">
-                PGP Key
-              </Box>
+              <FooterLink
+                currentSite={currentSite}
+                site="neon-law"
+                i18nMessage="footer.pro_bono"
+                path="/pro-bono"
+              />
             </Flex>
+            <Spacer />
             <Flex direction="column">
-              <Box as={Link} to="/pro-bono" padding="7px 0">
-                {intl.formatMessage({ id: 'footer.pro_bono' })}
-              </Box>
-              <Box
-                as="a"
-                href="https://www.deleteyourdata.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                padding="7px 0"
-              >
-                Delete Your Data
-              </Box>
-              <Box
-                as="a"
-                href="https://www.lawjobresources.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                padding="7px 0"
-              >
-                Law Job Resources
-              </Box>
-              <Box
-                as="a"
-                href="https://www.justiceforrickieslaughter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                padding="7px 0"
-              >
-                Justice For Rickie Slaughter
-              </Box>
+              <SocialMediaIcons display={['block', 'block', 'none']} mb="7px" />
+              <FooterLink
+                currentSite={currentSite}
+                site="neon-law"
+                i18nMessage="footer.about"
+                path="/about-us"
+              />
+              <FooterLink
+                currentSite={currentSite}
+                site="neon-law"
+                i18nMessage="footer.practice_areas"
+                path="/practice-areas"
+              />
+              <FooterLink
+                currentSite={currentSite}
+                site="neon-law"
+                i18nMessage="footer.bar_prep"
+                path="/bar-prep"
+              />
+              <FooterLink
+                currentSite={currentSite}
+                site="neon-law"
+                i18nMessage="footer.templates"
+                path="/templates"
+              />
             </Flex>
+            <Spacer />
             <Flex direction="column">
+              <FooterLink
+                currentSite={currentSite}
+                site="neon-law"
+                i18nMessage="footer.privacy_policy"
+                path="/privacy-policy"
+              />
+              <FooterLink
+                currentSite={currentSite}
+                site="neon-law"
+                i18nMessage="footer.terms"
+                path="/terms-of-service"
+              />
+              <FooterLink
+                currentSite={currentSite}
+                site="neon-law"
+                i18nMessage="footer.modern_slavery_statement"
+                path="/modern-slavery-statement"
+              />
+              <FooterLink
+                currentSite={currentSite}
+                site="neon-law"
+                i18nMessage="footer.pgp_key"
+                path="/pgp"
+              />
+            </Flex>
+            <Spacer />
+            <Flex direction="column">
+              <FooterLink
+                currentSite={currentSite}
+                site="delete-your-data"
+                i18nMessage="footer.delete_your_data"
+                path="/"
+              />
+              <FooterLink
+                currentSite={currentSite}
+                site="law-job-resources"
+                i18nMessage="footer.law_job_resources"
+                path="/"
+              />
+              <FooterLink
+                currentSite={currentSite}
+                site="justice-for-rickie-slaughter"
+                i18nMessage="footer.justice_for_rickie_slaughter"
+                path="/"
+              />
               <SocialMediaIcons display={['none', 'none', 'block']} />
-              <Box as={Link} to="/privacy-policy" padding="7px 0">
-                {intl.formatMessage({ id: 'footer.privacy_policy' })}
-              </Box>
-              <Box as={Link} to="/terms-of-service" padding="7px 0">
-                {intl.formatMessage({ id: 'footer.terms' })}
-              </Box>
-              <Box as={Link} to="/modern-slavery-statement" padding="7px 0">
-                Modern Slavery Statement
-              </Box>
             </Flex>
             <Box display={['none', 'none', 'flex']} />
-          </StyledLinks>
+          </Flex>
           <Box paddingBottom="1em">
             <Text textAlign="center">
               Copyright &copy; {new Date().getFullYear()} Shook Law PLLC
             </Text>
             <Text textAlign="center">
-              This website is monitored with&nbsp;
+              This privacy-preserving website is monitored with&nbsp;
               <a
                 style={{ cursor: 'pointer', textDecoration: 'underline' }}
                 href={fathomLink}

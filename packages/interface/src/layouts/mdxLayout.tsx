@@ -44,6 +44,7 @@ const MdxLayout: React.FC<{
   const { title, slug, featuredImage, description, widescreen } = frontmatter;
   const { siteUrl } = useSiteMetadata();
   const { colorMode } = useColorMode();
+  const fathomLink = 'https://app.usefathom.com/share/dublghdj/www.neonlaw.com';
 
   return (
     <Flex minHeight="100vh" direction="column">
@@ -96,7 +97,7 @@ const MdxLayout: React.FC<{
           );
         }}
       </AuthenticationContext.Consumer>
-      <Footer isWhite={true}/>
+      <Footer isWhite={true} fathomLink={fathomLink} currentSite="neon-law" />
     </Flex>
   );
 };

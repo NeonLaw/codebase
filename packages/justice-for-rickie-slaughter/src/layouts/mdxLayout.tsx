@@ -8,7 +8,7 @@ import React, { ReactChildren } from 'react';
 import { Breadcrumbs } from '@neonlaw/shared-ui/src/components/breadcrumbs';
 import { Container } from '@neonlaw/shared-ui/src/components/container';
 import { EditOnGithub } from '@neonlaw/shared-ui/src/components/editOnGithub';
-import { Footer } from '../components/footer';
+import { Footer } from '@neonlaw/shared-ui/src/components/footer';
 import { Image } from '../components/image';
 import { MDXComponents } from '@neonlaw/shared-ui/src/utils/mdxComponents';
 import { MDXProvider } from '@mdx-js/react';
@@ -38,6 +38,10 @@ const MdxLayout: React.FC<{
   const { body, frontmatter } = data.mdx;
   const { title, slug, description, featuredImage } = frontmatter;
   const { siteUrl } = useSiteMetadata();
+  /* eslint-disable max-len */
+  const fathomLink =
+    'https://app.usefathom.com/share/poauyjmq/www.justiceforrickieslaughter.com';
+  /* eslint-enable max-len */
 
   return (
     <Flex
@@ -80,7 +84,11 @@ const MdxLayout: React.FC<{
           </Container>
         </Box>
       </>
-      <Footer />
+      <Footer
+        isWhite={true}
+        fathomLink={fathomLink}
+        currentSite="justice-for-rickie-slaughter"
+      />
     </Flex>
   );
 };

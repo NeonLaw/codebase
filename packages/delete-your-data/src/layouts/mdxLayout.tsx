@@ -8,7 +8,7 @@ import React, { ReactChildren } from 'react';
 import { Breadcrumbs } from '@neonlaw/shared-ui/src/components/breadcrumbs';
 import { Container } from '@neonlaw/shared-ui/src/components/container';
 import { EditOnGithub } from '@neonlaw/shared-ui/src/components/editOnGithub';
-import { Footer } from '../components/footer';
+import { Footer } from '@neonlaw/shared-ui/src/components/footer';
 import { MDXComponents } from '@neonlaw/shared-ui/src/utils/mdxComponents';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -33,6 +33,8 @@ const MdxLayout: React.FC<{
   const { body, frontmatter } = data.mdx;
   const { title, slug, description } = frontmatter;
   const { siteUrl } = useSiteMetadata();
+  const fathomLink =
+    'https://app.usefathom.com/share/aokzddgf/www.deleteyourdata.com';
 
   return (
     <Flex
@@ -61,7 +63,11 @@ const MdxLayout: React.FC<{
           </Container>
         </Box>
       </>
-      <Footer />
+      <Footer
+        isWhite={true}
+        fathomLink={fathomLink}
+        currentSite="delete-your-data"
+      />
     </Flex>
   );
 };

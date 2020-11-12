@@ -61,7 +61,7 @@ const StyledPostTemplate = styled.div`
 
         @media(max-width: 550px) {
             flex-direction: column;
-            
+
             & > *:first-child {
                 margin-bottom: ${gutters.xSmallOne};
             }
@@ -88,6 +88,7 @@ const PostLayout: React.FC<{
   const { title, slug, featuredImage, description, widescreen } = frontmatter;
   const { siteUrl } = useSiteMetadata();
   const { colorMode } = useColorMode();
+  const fathomLink = 'https://app.usefathom.com/share/dublghdj/www.neonlaw.com';
 
   return (
     <Flex minHeight="100vh" direction="column">
@@ -146,7 +147,7 @@ const PostLayout: React.FC<{
           );
         }}
       </AuthenticationContext.Consumer>
-      <Footer isWhite={true} />
+      <Footer isWhite={true} fathomLink={fathomLink} currentSite="neon-law" />
     </Flex>
   );
 };

@@ -10,7 +10,7 @@
   },
   "footer": {
     "bar_prep": "Bar Prep",
-    "heading": "The Upward Mobility Law Firm",
+    "heading": "Delete Your Data is a service from Neon Law",
     "text": "All content presented herein is for informational purposes only. Nothing should be construed as legal advice. Transmission and receipt of this information is not intended to create and does not constitute, an attorney-client relationship with lawyers on this platform. There is no expectation of attorney-client privilege or confidentiality of anything you may communicate to us in this forum. Do not act upon any information presented without seeking professional counsel.",
     "about": "About Us",
     "pro_bono": "Pro Bono",
@@ -21,7 +21,13 @@
     "switch": "Switch to ",
     "mode": "Mode",
     "dark": "Dark ",
-    "light": "Light "
+    "light": "Light ",
+    "justice_for_rickie_slaughter": "Justice For Rickie Slaughter",
+    "modern_slavery_statement": "Modern Slavery Statement",
+    "pgp_key": "PGP Key",
+    "delete_your_data": "Delete Your Data",
+    "law_job_resources": "Law Job Resources",
+    "templates": "Non-Advice Legal Templates"
   },
   "languageDropdown": {
     "text": "Currently viewing this site in English"
