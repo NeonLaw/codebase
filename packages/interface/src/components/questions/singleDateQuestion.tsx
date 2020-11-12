@@ -1,8 +1,8 @@
 import { Heading, useColorMode } from '@chakra-ui/core';
 import React, { useState } from 'react';
 
+import { Button } from '../button';
 import DatePicker from 'react-datepicker';
-import { FlashButton } from '../button';
 import { Section } from '../section';
 import { gutters } from '../../themes/neonLaw';
 import { navigate } from 'gatsby-plugin-intl';
@@ -73,7 +73,8 @@ export const SingleDateQuestion = ({
         customInput={<DateInput />}
       />
       <br />
-      <FlashButton
+      <Button
+        flash={true}
         buttonScheme="teal"
         containerStyles={{margin: `${gutters.xSmallOne} 0`}}
         onClick={() => {
@@ -83,7 +84,7 @@ export const SingleDateQuestion = ({
         }}
       >
         {intl.formatMessage({ id: 'components_questions.submit' })}
-      </FlashButton>
+      </Button>
     </Section>
   );
 };

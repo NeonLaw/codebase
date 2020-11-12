@@ -7,6 +7,7 @@ import {
 } from '@chakra-ui/core';
 import React, { useCallback, useMemo, useState } from 'react';
 import { Slate, withReact } from 'slate-react';
+
 import { Controller } from 'react-hook-form';
 import { Editable } from './textareaUtils/editable';
 import { convertSlateToPlaintext } from '../../utils/slate';
@@ -69,7 +70,7 @@ export const Textarea = ({
                 onChange(plainText);
               }}
               children={
-                <Box data-testId={testId}>
+                <Box data-testid={testId}>
                   <Editable editor={editor} />
                 </Box>
               }

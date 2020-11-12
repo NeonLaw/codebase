@@ -1,7 +1,7 @@
 import { Box, Heading } from '@chakra-ui/core';
 import { navigate, useIntl } from 'gatsby-plugin-intl';
 
-import { FlashButton } from '../../../components/button';
+import { Button } from '../../../components/button';
 import { PortalLayout } from '../../../layouts/portalLayout';
 import React from 'react';
 import { gutters } from '../../../themes/neonLaw';
@@ -15,43 +15,48 @@ const AdminDashboard = () => {
           {intl.formatMessage({ id: 'pages_admin.heading' })}
         </Heading>
 
-        <FlashButton
+        <Button
+          flash={true}
           colorScheme="gray"
           onClick={() => {
             navigate('/portal/admin/flashcards');
           }}
         >
           Flashcards
-        </FlashButton>
+        </Button>
 
-        <FlashButton
+        <Button
+          flash={true}
           colorScheme="gray"
           onClick={() => {
             navigate('/portal/admin/questions');
           }}
         >
           Questions
-        </FlashButton>
+        </Button>
 
-        <FlashButton
+        <Button
+          flash={true}
           colorScheme="gray"
           onClick={() => {
             navigate('/portal/admin/document-templates');
           }}
         >
           Document Templates
-        </FlashButton>
+        </Button>
 
-        <FlashButton
+        <Button
+          flash={true}
           colorScheme="gray"
           onClick={() => {
             navigate('/portal/admin/matter-templates');
           }}
         >
           Matter Templates
-        </FlashButton>
+        </Button>
 
-        <FlashButton
+        <Button
+          flash={true}
           colorScheme="gray"
           onClick={() => {
             navigate('/portal/admin/people');
@@ -59,9 +64,10 @@ const AdminDashboard = () => {
           data-testid="admin-people-link-button"
         >
           People
-        </FlashButton>
+        </Button>
 
-        <FlashButton
+        <Button
+          flash={true}
           colorScheme="gray"
           onClick={() => {
             navigate('/portal/admin/matters');
@@ -69,7 +75,7 @@ const AdminDashboard = () => {
           data-testid="admin-matters-link-button"
         >
           Matters
-        </FlashButton>
+        </Button>
       </Box>
     </PortalLayout>
   );

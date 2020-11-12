@@ -1,7 +1,7 @@
 import { Heading, useDisclosure } from '@chakra-ui/core';
 import { gutters, sizes } from '../../themes/neonLaw';
 
-import { FlashButton } from '../../components/button';
+import { Button } from '../../components/button';
 import { PortalLayout } from '../../layouts/portalLayout';
 import {
   PortalProfileCard
@@ -32,14 +32,15 @@ const PortalSettingsPage = () => {
           Settings
         </Heading>
         <PortalProfileCard />
-        <FlashButton
+        <Button
+          flash={true}
           data-testid="open-update-profile-modal"
           buttonScheme="teal"
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
         >
           Update Profile
-        </FlashButton>
+        </Button>
         <UpdatePersonModal
           isOpen={isOpen}
           onClose={onClose}

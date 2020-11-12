@@ -2,7 +2,7 @@ import { gutters, shadows, sizes } from '../../themes/neonLaw';
 
 import Placeholder from '../../images/placeholder.jpg';
 import React from 'react';
-import { ReadMoreButton } from '../button';
+import { ReadMoreButton } from '../read-more-button';
 import styled from '@emotion/styled';
 import { useIntl } from 'gatsby-plugin-intl';
 

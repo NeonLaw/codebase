@@ -1,4 +1,4 @@
-import { FlashButton } from '../components/button';
+import { Button } from '../components/button';
 import { PublicLayout } from '../layouts/publicLayout';
 import React from 'react';
 import { Router } from '@reach/router';
@@ -25,14 +25,15 @@ const UpwardMobilityHome = (props) => {
         <Text>
           {intl.formatMessage({ id: 'pages_upward_mobility.text' })}
         </Text>
-        <FlashButton
+        <Button
+          flash={true}
           buttonScheme="teal"
           onClick={() => {
             navigate('/upward-mobility/begin');
           }}
         >
           {intl.formatMessage({ id: 'pages_upward_mobility.button_takeQ' })}
-        </FlashButton>
+        </Button>
       </Section>
     </>
   );

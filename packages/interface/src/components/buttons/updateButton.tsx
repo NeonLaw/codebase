@@ -1,4 +1,4 @@
-import { FlashButton } from '../button';
+import { Button } from '../button';
 import React from 'react';
 import { SubmissionInProgress } from '../submissionInProgress';
 import { SubmitForm } from '../keybindings/submitForm';
@@ -20,7 +20,8 @@ export const UpdateButton = ({
   deleteMutationLoading,
 }: UpdateButtonProps) => {
   return (
-    <FlashButton
+    <Button
+      flash={true}
       type="submit"
       data-testid={`update-${dasherizedResourceName}-form-submit`}
       isDisabled={
@@ -38,6 +39,6 @@ export const UpdateButton = ({
       <SubmissionInProgress
         loading={updateMutationLoading || deleteMutationLoading}
       />
-    </FlashButton>
+    </Button>
   );
 };

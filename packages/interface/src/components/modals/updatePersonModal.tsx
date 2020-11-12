@@ -10,7 +10,8 @@ import {
 import React, { useState } from 'react';
 import { StringInput, Switch } from '../../components/inputs';
 import { colors, gutters, theme } from '../../themes/neonLaw';
-import { FlashButton } from '../../components/button';
+
+import { Button } from '../../components/button';
 import { SubmissionInProgress } from '../../components/submissionInProgress';
 import { useCurrentUserQuery } from '../../utils/api';
 import { useForm } from 'react-hook-form';
@@ -79,14 +80,15 @@ export const UpdatePersonModal = ({ isOpen, onClose }) => {
                 errors={errors}
                 register={register()}
               />
-              <FlashButton
+              <Button
+                flash={true}
                 type="submit"
                 data-testid="update-person-form-submit"
                 isDisabled={isSubmitting || loading}
                 containerStyles={{ margin: `${gutters.xSmallOne} 0` }}
               >
                 Update Person <SubmissionInProgress loading={loading} />
-              </FlashButton>
+              </Button>
             </ModalBody>
           </form>
         </ModalContent>

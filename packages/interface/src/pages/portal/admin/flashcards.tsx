@@ -1,10 +1,11 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
+
 import { Breadcrumbs } from '../../../components/breadcrumbs';
+import { Button } from '../../../components/button';
 import {
   CreateFlashcardModal
 } from '../../../components/modals/createFlashcardModal';
-import { FlashButton } from '../../../components/button';
 import {
   FlashcardTable
 } from '../../../components/tables/flashcardTable';
@@ -26,7 +27,8 @@ const AdminFlashcards = () => {
       <Box textAlign="left">
         <Breadcrumbs />
 
-        <FlashButton
+        <Button
+          flash={true}
           buttonScheme="teal"
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
@@ -38,7 +40,7 @@ const AdminFlashcards = () => {
           >
             C
           </Kbd>
-        </FlashButton>
+        </Button>
 
         <CreateFlashcardModal
           isOpen={isOpen && showCreateFlashcardModal}

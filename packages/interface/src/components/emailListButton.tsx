@@ -1,5 +1,5 @@
-
 import { Box, Center } from '@chakra-ui/core';
+
 import { Button } from '../components/button';
 import React from 'react';
 
@@ -17,7 +17,7 @@ export const EmailListButton = () => {
           href={newsletterSignupLink}
           target="_blank"
           rel="noopener noreferrer"
-          display={['inherit', 'inherit', 'none']}
+          display={['flex', 'flex', 'none']}
         >
           Join our e-mail list.
         </Button>
@@ -28,7 +28,7 @@ export const EmailListButton = () => {
           href={newsletterSignupLink}
           target="_blank"
           rel="noopener noreferrer"
-          display={['none', 'none', 'inherit']}
+          display={['none', 'none', 'flex']}
         >
           Sign up for our e-mail list, the Neon Law Monthly.
         </Button>

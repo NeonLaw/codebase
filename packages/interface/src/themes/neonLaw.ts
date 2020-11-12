@@ -30,13 +30,16 @@ export const colors = {
     light: theme.colors.gray[300],
   },
   lighterBg: { dark: theme.colors.gray[700], light: theme.colors.gray[50] },
-  link: { dark: 'cyan.400', light: 'cyan.800' },
+  link: { dark: theme.colors.cyan[400], light: theme.colors.cyan[800] },
   primaryButtonBg: {
-    dark: 'cyan.400',
-    light: 'cyan.900',
+    dark: theme.colors.cyan[400],
+    light: theme.colors.cyan[900],
     lightBlue: '#1AA6E4',
   },
-  primaryButtonBgOnHover: { dark: 'cyan.300', light: 'cyan.500' },
+  primaryButtonBgOnHover: {
+    dark: theme.colors.cyan[300],
+    light: theme.colors.cyan[500],
+  },
   primaryButtonColor: { dark: 'black', light: 'white' },
   primaryColor400: theme.colors.cyan[400],
   primaryColor800: theme.colors.cyan[800],
@@ -59,7 +62,7 @@ export const sizes = {
   textContainerSmall: '680px',
   textContainerSmallOne: '600px',
   textContainerSmallTwo: '620px',
-  textContainerXSmall: '580px'
+  textContainerXSmall: '580px',
 };
 
 export const gutters = {

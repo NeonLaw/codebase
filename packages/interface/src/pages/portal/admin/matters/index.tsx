@@ -1,10 +1,11 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
+
 import { Breadcrumbs } from '../../../../components/breadcrumbs';
+import { Button } from '../../../../components/button';
 import {
   CreateMatterModal
 } from '../../../../components/modals/createMatterModal';
-import { FlashButton } from '../../../../components/button';
 import {
   MatterTable
 } from '../../../../components/tables/matterTable';
@@ -24,7 +25,8 @@ const AdminMatters = () => {
       <Box textAlign="left">
         <Breadcrumbs showHome={false} />
 
-        <FlashButton
+        <Button
+          flash={true}
           buttonScheme="teal"
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
@@ -37,7 +39,7 @@ const AdminMatters = () => {
           >
             C
           </Kbd>
-        </FlashButton>
+        </Button>
 
         <CreateMatterModal
           isOpen={isOpen && showCreateMatterModal}

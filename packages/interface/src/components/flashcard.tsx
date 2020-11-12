@@ -4,7 +4,7 @@
 import { Box, Text, useColorMode } from '@chakra-ui/core';
 import React, { useRef, useState } from 'react';
 
-import { FlashButton } from './button';
+import { Button } from './button';
 import { Node } from 'slate';
 import ReactDiffViewer from 'react-diff-viewer';
 import { Textarea } from './inputs';
@@ -66,7 +66,8 @@ export const Flashcard = ({
             size="xl"
             value={userAnswer}
           />
-          <FlashButton
+          <Button
+            flash={true}
             type="submit"
             containerStyles={{marginTop: gutters.xSmallOne}}
             onClick={() => {
@@ -74,7 +75,7 @@ export const Flashcard = ({
             }}
           >
             Show Answer
-          </FlashButton>
+          </Button>
         </form>
       ) : (
         <>
@@ -93,7 +94,8 @@ export const Flashcard = ({
               useDarkTheme={colorMode === 'dark'}
             />
           )}
-          <FlashButton
+          <Button
+            flash={true}
             containerStyles={{marginTop: gutters.xSmallOne}}
             className="show-prompt"
             onClick={() => {
@@ -108,7 +110,7 @@ export const Flashcard = ({
             }}
           >
             Try Typing the Answer
-          </FlashButton>
+          </Button>
         </>
       )}
     </Box>

@@ -1,10 +1,11 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
+
 import { Breadcrumbs } from '../../../components/breadcrumbs';
+import { Button } from '../../../components/button';
 import {
   CreateQuestionModal
 } from '../../../components/modals/createQuestionModal';
-import { FlashButton } from '../../../components/button';
 import { PortalLayout } from '../../../layouts/portalLayout';
 import {
   QuestionTable
@@ -24,7 +25,8 @@ const AdminQuestions = () => {
       <Box textAlign="left">
         <Breadcrumbs />
 
-        <FlashButton
+        <Button
+          flash={true}
           buttonScheme="teal"
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
@@ -36,7 +38,7 @@ const AdminQuestions = () => {
           >
             C
           </Kbd>
-        </FlashButton>
+        </Button>
 
         <CreateQuestionModal
           isOpen={isOpen && showCreateQuestionModal}

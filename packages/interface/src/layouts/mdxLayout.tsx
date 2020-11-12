@@ -3,9 +3,7 @@ import React, { ReactChildren } from 'react';
 import { colors, gutters } from '../themes/neonLaw';
 
 import { ApolloProvider } from '@apollo/client';
-import {
-  AuthenticationContext
-} from '../utils/authenticationContext';
+import { AuthenticationContext } from '../utils/authenticationContext';
 import { Breadcrumbs } from '../components/breadcrumbs';
 import { Container } from '../components/container';
 import { EditOnGithub } from '../components/editOnGithub';
@@ -14,15 +12,11 @@ import { Image } from '../components/image';
 import { MDXComponents } from '../utils/mdxComponents';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import {
-  PublicNavigationBar
-} from '../components/navigationBars/public';
+import { PublicNavigationBar } from '../components/navigationBars/public';
 import { Seo } from '../components/seo';
 import { ShareButtons } from '../components/shareButtons';
 import { graphql } from 'gatsby';
-import {
-  publicClient
-} from '../utils/authenticationContext';
+import { publicClient } from '../utils/authenticationContext';
 import { useSiteMetadata } from '../components/hooks';
 
 const MdxLayout: React.FC<{
@@ -54,7 +48,10 @@ const MdxLayout: React.FC<{
             <ApolloProvider client={isLoading ? publicClient : apolloClient}>
               <>
                 <PublicNavigationBar />
-                <Box background={colors.lighterBg[colorMode]}>
+                <Box
+                  background={colors.lighterBg[colorMode]}
+                  color={colors.text[colorMode]}
+                >
                   <Box
                     as="main"
                     aria-label="Main Content"

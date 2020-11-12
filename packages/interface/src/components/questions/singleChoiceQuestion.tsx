@@ -1,7 +1,7 @@
 import { Heading, Radio, RadioGroup } from '@chakra-ui/core';
 import React, { useState } from 'react';
 
-import { FlashButton } from '../../components/button';
+import { Button } from '../../components/button';
 import { Section } from '../section';
 import { gutters } from '../../themes/neonLaw';
 import { navigate } from 'gatsby';
@@ -56,7 +56,8 @@ export const SingleChoiceQuestion = ({
             </Radio>
           ))}
         </RadioGroup>
-        <FlashButton
+        <Button
+          flash={true}
           buttonScheme="teal"
           containerStyles={{margin: `${gutters.xSmallOne} 0`}}
           onClick={() => {
@@ -68,7 +69,7 @@ export const SingleChoiceQuestion = ({
           }}
         >
           {intl.formatMessage({ id: 'components_questions.submit' })}
-        </FlashButton>
+        </Button>
       </Section>
     </>
   );
