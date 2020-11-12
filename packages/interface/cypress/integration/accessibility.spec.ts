@@ -37,7 +37,7 @@ describe('Accessibility tests', () => {
         region: { enabled: false },
       }
     }, terminalLog);
-    cy.contains('Switch to').click();
+    cy.get('theme-toggle').click();
     cy.checkA11y(null, {
       rules: {
         'color-contrast': { enabled: false },
