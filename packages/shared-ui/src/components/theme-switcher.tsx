@@ -2,6 +2,7 @@ import { Box, useColorMode, useColorModeValue } from '@chakra-ui/core';
 import { Global, css } from '@emotion/core';
 
 import React from 'react';
+import { gutters } from '../themes/neonLaw';
 import styled from '@emotion/styled';
 
 const sunBgColor = '#ffa600';
@@ -9,6 +10,8 @@ const moonBgColor = '#e1e6e9';
 
 const StyledThemeSwitcher = styled.div`
   display: flex;
+  justify-content: center;
+  margin-bottom: ${gutters.small};
 
   label {
     display: flex;

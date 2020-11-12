@@ -90,7 +90,6 @@ export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
             </Flex>
             <Flex direction="column">
               <LanguageDropdown />
-              <ThemeSwitcher />
               <Box
                 as="a"
                 href="https://neonlaw.zendesk.com/"
@@ -151,6 +150,7 @@ export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
             <Box display={['none', 'none', 'flex']} />
           </StyledLinks>
           <Box paddingBottom="1em">
+            <ThemeSwitcher />
             <Text textAlign="center">
               Copyright &copy; {new Date().getFullYear()} Shook Law PLLC
             </Text>
