@@ -20,7 +20,6 @@ import React from 'react';
 import { Section } from './section';
 import { SocialMediaIcons } from './socialMediaIcons';
 import { ThemeSwitcher } from './theme-switcher';
-import styled from '@emotion/styled';
 import { useIntl } from 'gatsby-plugin-intl';
 
 const FooterLink = ({ currentSite, site, path, i18nMessage }) => {
@@ -59,8 +58,8 @@ interface FooterProps {
   fathomLink: string;
 }
 
-export const Footer = ({ isWhite }: { isWhite?: boolean | undefined }) => {
-  const { colorMode, toggleColorMode } = useColorMode();
+export const Footer = ({ isWhite, currentSite, fathomLink }: FooterProps) => {
+  const { colorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
   const intl = useIntl();
 
