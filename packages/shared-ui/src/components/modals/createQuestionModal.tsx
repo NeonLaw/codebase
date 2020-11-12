@@ -11,7 +11,7 @@ import {
   useColorMode,
 } from '@chakra-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
-import { StringInput, Textarea } from '../inputs';
+import { Select, StringInput } from '../inputs';
 import { colors, gutters } from '../../themes/neonLaw';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 
@@ -60,7 +60,13 @@ export const CreateQuestionModal = ({ isOpen, onClose, onOpen }) => {
   const isCPressed = useKeyPressed((e: KeyboardEvent) => e.key === 'c');
 
   const onSubmit = async ({ options, prompt, questionType }) => {
-    await createQuestion({ variables: { options, prompt, questionType } })
+    await createQuestion({
+      variables: {
+        options,
+        prompt,
+        questionType: questionType.value
+      }
+    })
       .then(async () => {
         setFormError('');
         await reset();
@@ -140,15 +146,22 @@ export const CreateQuestionModal = ({ isOpen, onClose, onOpen }) => {
                 })}
                 styles={{ marginBottom: gutters.xSmall }}
               />
-              <Textarea
-                control={control}
-                name="answer"
-                testId="create-question-modal-answer"
-                label={intl.formatMessage({ id: 'forms.answer.label' })}
+              <Select
+                name="questionType"
+                label={intl.formatMessage({ id: 'forms.questionType.label' })}
+                options={
+                  [
+                    { label: 'Single Choice', value: 'single-choice' },
+                    { label: 'Single Date', value: 'single-date' },
+                    {
+                      label: 'Single File Upload',
+                      value: 'single-file-upload'
+                    },
+                  ]
+                }
                 errors={errors}
-                placeholder={intl.formatMessage({
-                  id: 'forms.answer.placeholder',
-                })}
+                testId="create-question-modal-question-type"
+                control={control}
               />
             </ModalBody>
 

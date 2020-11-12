@@ -65,6 +65,11 @@
       "placeholder": "Enter your name",
       "required": "Name is required."
     },
+    "questionType": {
+      "label": "Question Type",
+      "placeholder": "Enter the question type",
+      "required": "Question Type is required."
+    },
     "prompt": {
       "label": "Prompt",
       "placeholder": "Enter the prompt",

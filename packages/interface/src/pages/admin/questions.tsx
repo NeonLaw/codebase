@@ -5,10 +5,10 @@ import {
   CreateQuestionModal
 } from '@neonlaw/shared-ui/src/components/modals/createQuestionModal';
 import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
+import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
 import {
   QuestionTable
 } from '@neonlaw/shared-ui/src/components/tables/questionTable';
-import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
 import {
   UpdateQuestionModal
 } from '@neonlaw/shared-ui/src/components/modals/updateQuestionModal';

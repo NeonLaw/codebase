@@ -27,7 +27,7 @@ export const QuestionTable = (props: QuestionTableProps) => {
     },
     {
       Header: 'Question Type',
-      accessor: 'question-type',
+      accessor: 'questionType',
     },
   ];
   const nodes = data?.allQuestions?.nodes || [];

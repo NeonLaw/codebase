@@ -13,6 +13,7 @@ mutation CreateQuestion(
     }
   ) {
     question {
+      id
       options
       questionType
       prompt

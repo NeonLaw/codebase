@@ -11,40 +11,57 @@ import {
   useColorMode,
 } from '@chakra-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
-import { StringInput, Textarea } from '../inputs';
+import { Select, StringInput } from '../inputs';
 import { colors, gutters } from '../../themes/neonLaw';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
+import {
+  useDeleteQuestionByIdMutation,
+  useUpdateQuestionByIdMutation,
+} from '../../utils/api';
 
 import { FlashButton } from '../button';
 import { SubmissionInProgress } from '../submission-in-progress';
-import { gql } from '@apollo/client';
-import { useUpdateQuestionMutation } from '../../utils/api';
+import styled from '@emotion/styled';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
-import { useKeyPressed } from '../../utils/useKeyPressed';
 import { useOS } from '../../utils/useOS';
 
-export const UpdateQuestionModal = ({ isOpen, onClose, onOpen }) => {
-  const intl = useIntl();
+interface UpdateQuestionModalProps {
+  isOpen: boolean;
+  onClose(): void;
+  currentRow: any;
+}
 
-  const [updateQuestion, { loading }] = useUpdateQuestionMutation({
-    update(cache, { data }) {
+const StyledModalFooter = styled(ModalFooter)`
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    &:not(:last-of-type) {
+      margin-bottom: ${gutters.xSmallOne};
+    }
+  }
+`;
+
+export const UpdateQuestionModal = ({
+  isOpen,
+  onClose,
+  currentRow,
+}: UpdateQuestionModalProps) => {
+  const intl = useIntl();
+  const { id, prompt } = currentRow?.values || {};
+
+  const [updateQuestion, { loading }] = useUpdateQuestionByIdMutation();
+
+  const [
+    deleteQuestionMutation,
+    { loading: deleteInProgress },
+  ] = useDeleteQuestionByIdMutation({
+    update(cache) {
       cache.modify({
         fields: {
-          allQuestions(existingFlashCards = []) {
-            const newFlashCardRef = cache.writeFragment({
-              data: data?.updateQuestion,
-              fragment: gql`
-                fragment NewQuestion on Question {
-                  question {
-                    id
-                    answer
-                    prompt
-                  }
-                }
-              `,
-            });
-            return [...existingFlashCards.nodes, newFlashCardRef];
+          allQuestions(_, { DELETE }) {
+            return DELETE;
           },
         },
       });
@@ -53,14 +70,16 @@ export const UpdateQuestionModal = ({ isOpen, onClose, onOpen }) => {
 
   const { control, handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [focus, setFocus] = useState(false);
   const [formError, setFormError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
-
   const OS = useOS();
-  const isCPressed = useKeyPressed((e: KeyboardEvent) => e.key === 'c');
 
   const onSubmit = async ({ options, prompt, questionType }) => {
-    await updateQuestion({ variables: { options, prompt, questionType } })
+    await updateQuestion({
+      variables: { id, options, prompt, questionType },
+    })
       .then(async () => {
         setFormError('');
         await reset();
@@ -83,18 +102,35 @@ export const UpdateQuestionModal = ({ isOpen, onClose, onOpen }) => {
     }
   };
 
-  useEffect(() => {
-    if (isCPressed) {
-      onOpen();
+  const handleDPress = async (e) => {
+    if (isOpen && !focus && e.key === 'd') {
+      await deleteQuestion();
     }
+  };
 
-    const textArea = document.querySelector('.answer-text');
+  const deleteQuestion = async () => {
+    const confirmDelete = confirm(
+      'Are you sure you want to delete the question?',
+    );
+
+    if (confirmDelete) {
+      await deleteQuestionMutation({ variables: { id } });
+      setIsDeleting(false);
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keypress', handleDPress);
+
+    const textArea = document.querySelector('.answer');
 
     if (null !== textArea) {
       textArea.addEventListener('keydown', keyDownHandler);
     }
-
     return () => {
+      window.removeEventListener('keypress', handleDPress);
+
       if (null !== textArea) {
         textArea.removeEventListener('keydown', keyDownHandler);
       }
@@ -115,7 +151,7 @@ export const UpdateQuestionModal = ({ isOpen, onClose, onOpen }) => {
             fontSize={theme.fontSizes['xl0']}
             color={colors.text[colorMode]}
           >
-            Update a Question
+            Update Question
           </ModalHeader>
           <ModalCloseButton style={{ color: colors.text[colorMode] }} />
           <form
@@ -130,34 +166,47 @@ export const UpdateQuestionModal = ({ isOpen, onClose, onOpen }) => {
                 testId="update-question-modal-prompt"
                 label={intl.formatMessage({ id: 'forms.prompt.label' })}
                 errors={errors}
+                onFocus={() => { setFocus(true); }}
+                onBlur={() => { setFocus(false); }}
+                value={prompt}
                 placeholder={intl.formatMessage({
                   id: 'forms.prompt.placeholder',
                 })}
                 register={register({
-                  required: intl.formatMessage({
-                    id: 'forms.prompt.required',
-                  }),
+                  required: intl.formatMessage({ id: 'forms.prompt.required' }),
                 })}
-                styles={{ marginBottom: gutters.xSmall }}
+                styles={{ marginBottom: gutters.xSmallOne }}
               />
-              <Textarea
-                control={control}
-                name="answer"
-                testId="update-question-modal-answer"
-                label={intl.formatMessage({ id: 'forms.answer.label' })}
+              <Select
+                name="questionType"
+                label={intl.formatMessage({ id: 'forms.questionType.label' })}
+                options={
+                  [
+                    { label: 'Single Choice', value: 'single-choice' },
+                    { label: 'Single Date', value: 'single-date' },
+                    {
+                      label: 'Single File Upload',
+                      value: 'single-file-upload'
+                    },
+                  ]
+                }
                 errors={errors}
-                placeholder={intl.formatMessage({
-                  id: 'forms.answer.placeholder',
-                })}
+                testId="update-question-modal-question-type"
+                control={control}
               />
             </ModalBody>
 
-            <ModalFooter>
+            <StyledModalFooter>
               <FlashButton
                 type="submit"
                 data-testid="update-question-modal-submit"
-                isDisabled={isSubmitting || loading}
-                containerStyles={{width: '100%'}}
+                isDisabled={
+                  isSubmitting || isDeleting || loading || deleteInProgress
+                }
+                containerStyles={{
+                  margin: `${gutters.xSmallOne} 0`,
+                  width: '100%',
+                }}
                 styles={{width: '100%'}}
                 colorScheme="teal"
               >
@@ -171,7 +220,26 @@ export const UpdateQuestionModal = ({ isOpen, onClose, onOpen }) => {
                 </Kbd>
                 <SubmissionInProgress loading={loading} />
               </FlashButton>
-            </ModalFooter>
+              <FlashButton
+                data-testid="update-question-modal-delete-button"
+                isDisabled={
+                  isSubmitting || isDeleting || loading || deleteInProgress
+                }
+                containerStyles={{width: '100%'}}
+                styles={{width: '100%'}}
+                onClick={async () => {
+                  setIsDeleting(true);
+                  await deleteQuestion();
+                }}
+                colorScheme="red"
+              >
+                Delete Question &nbsp;
+                <Kbd border="1px solid #bbb" color="black">
+                  D
+                </Kbd>
+                <SubmissionInProgress loading={deleteInProgress} />
+              </FlashButton>
+            </StyledModalFooter>
           </form>
         </ModalContent>
       </ModalOverlay>
