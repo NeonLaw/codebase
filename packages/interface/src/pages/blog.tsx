@@ -21,7 +21,7 @@ const BlogIndex = ({ data }) => {
   const { edges } = data.allMdx;
 
   return (
-    <PublicLayout isFooterWhite={true} isBgLighter={true}>
+    <PublicLayout isBgLighter={true}>
       <StyledBlog>
         <Seo title="Blog" />
         <Container>

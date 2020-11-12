@@ -23,7 +23,7 @@ const Home = (): JSX.Element => {
   const intl = useIntl();
 
   return (
-    <PublicLayout isFooterWhite={true}>
+    <PublicLayout>
       <>
         <Seo title="Homepage" />
         <Banner
