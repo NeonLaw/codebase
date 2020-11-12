@@ -1,15 +1,5 @@
-mutation CreateFlashcard(
-  $answer: String!
-  $prompt: String!
-) {
-  createFlashcard(
-    input: {
-      flashcard: {
-        answer: $answer
-        prompt: $prompt
-      }
-    }
-  ) {
+mutation CreateFlashcard($answer: String!, $prompt: String!) {
+  createFlashcard(input: { flashcard: { answer: $answer, prompt: $prompt } }) {
     flashcard {
       id
       answer

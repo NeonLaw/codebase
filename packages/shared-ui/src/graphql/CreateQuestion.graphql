@@ -1,0 +1,22 @@
+mutation CreateQuestion(
+  $options: [String]
+  $questionType: String!
+  $prompt: String!
+) {
+  createQuestion(
+    input: {
+      question: {
+        options: $options
+        questionType: $questionType
+        prompt: $prompt
+      }
+    }
+  ) {
+    question {
+      id
+      options
+      questionType
+      prompt
+    }
+  }
+}

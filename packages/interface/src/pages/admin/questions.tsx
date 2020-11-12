@@ -2,23 +2,21 @@ import { Box, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
 import { Breadcrumbs } from '@neonlaw/shared-ui/src/components/breadcrumbs';
 import {
-  CreateFlashcardModal
-} from '@neonlaw/shared-ui/src/components/modals/createFlashcardModal';
+  CreateQuestionModal
+} from '@neonlaw/shared-ui/src/components/modals/createQuestionModal';
 import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
+import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
 import {
-  FlashcardTable
-} from '@neonlaw/shared-ui/src/components/tables/flashcardTable';
+  QuestionTable
+} from '@neonlaw/shared-ui/src/components/tables/questionTable';
 import {
-  PortalLayout
-} from '@neonlaw/shared-ui/src/layouts/portalLayout';
-import {
-  UpdateFlashcardModal
-} from '@neonlaw/shared-ui/src/components/modals/updateFlashcardModal';
+  UpdateQuestionModal
+} from '@neonlaw/shared-ui/src/components/modals/updateQuestionModal';
 import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
-const AdminFlashcards = () => {
+const AdminQuestions = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [showCreateFlashcardModal, changeShowFlashCardModal] = useState(true);
+  const [showCreateQuestionModal, changeShowFlashCardModal] = useState(true);
   const [currentRow, setCurrentRow] = useState(undefined);
 
   return (
@@ -31,7 +29,7 @@ const AdminFlashcards = () => {
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
         >
-          Create Flashcard &nbsp;<Kbd
+          Create Question &nbsp;<Kbd
             background="inherit"
             border="1px solid #bbb"
             transition="all .2s"
@@ -40,8 +38,8 @@ const AdminFlashcards = () => {
           </Kbd>
         </FlashButton>
 
-        <CreateFlashcardModal
-          isOpen={isOpen && showCreateFlashcardModal}
+        <CreateQuestionModal
+          isOpen={isOpen && showCreateQuestionModal}
           onClose={() => {
             changeShowFlashCardModal(true);
             onClose();
@@ -49,8 +47,8 @@ const AdminFlashcards = () => {
           onOpen={onOpen}
         />
 
-        <UpdateFlashcardModal
-          isOpen={isOpen && !showCreateFlashcardModal}
+        <UpdateQuestionModal
+          isOpen={isOpen && !showCreateQuestionModal}
           currentRow={currentRow}
           onClose={() => {
             changeShowFlashCardModal(true);
@@ -58,7 +56,7 @@ const AdminFlashcards = () => {
           }}
         />
 
-        <FlashcardTable
+        <QuestionTable
           onRowClick={(row) => {
             changeShowFlashCardModal(false);
             setCurrentRow(row);
@@ -70,4 +68,4 @@ const AdminFlashcards = () => {
   );
 };
 
-export default AdminFlashcards;
+export default AdminQuestions;

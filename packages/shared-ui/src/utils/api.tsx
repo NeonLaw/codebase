@@ -4695,6 +4695,20 @@ export type AllFlashcardsQuery = (
   )> }
 );
 
+export type AllQuestionsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllQuestionsQuery = (
+  { __typename?: 'Query' }
+  & { allQuestions?: Maybe<(
+    { __typename?: 'QuestionsConnection' }
+    & { nodes: Array<(
+      { __typename?: 'Question' }
+      & Pick<Question, 'id' | 'options' | 'questionType' | 'prompt'>
+    )> }
+  )> }
+);
+
 export type CreateFlashcardMutationVariables = Exact<{
   answer: Scalars['String'];
   prompt: Scalars['String'];
@@ -4708,6 +4722,24 @@ export type CreateFlashcardMutation = (
     & { flashcard?: Maybe<(
       { __typename?: 'Flashcard' }
       & Pick<Flashcard, 'id' | 'answer' | 'prompt'>
+    )> }
+  )> }
+);
+
+export type CreateQuestionMutationVariables = Exact<{
+  options?: Maybe<Array<Maybe<Scalars['String']>>>;
+  questionType: Scalars['String'];
+  prompt: Scalars['String'];
+}>;
+
+
+export type CreateQuestionMutation = (
+  { __typename?: 'Mutation' }
+  & { createQuestion?: Maybe<(
+    { __typename?: 'CreateQuestionPayload' }
+    & { question?: Maybe<(
+      { __typename?: 'Question' }
+      & Pick<Question, 'id' | 'options' | 'questionType' | 'prompt'>
     )> }
   )> }
 );
@@ -4735,6 +4767,22 @@ export type DeleteFlashcardByIdMutation = (
     & { flashcard?: Maybe<(
       { __typename?: 'Flashcard' }
       & Pick<Flashcard, 'id'>
+    )> }
+  )> }
+);
+
+export type DeleteQuestionByIdMutationVariables = Exact<{
+  id: Scalars['UUID'];
+}>;
+
+
+export type DeleteQuestionByIdMutation = (
+  { __typename?: 'Mutation' }
+  & { deleteQuestionById?: Maybe<(
+    { __typename?: 'DeleteQuestionPayload' }
+    & { question?: Maybe<(
+      { __typename?: 'Question' }
+      & Pick<Question, 'id'>
     )> }
   )> }
 );
@@ -4770,6 +4818,25 @@ export type UpdatePersonByIdMutation = (
     & { person?: Maybe<(
       { __typename?: 'Person' }
       & Pick<Person, 'id' | 'name'>
+    )> }
+  )> }
+);
+
+export type UpdateQuestionByIdMutationVariables = Exact<{
+  id: Scalars['UUID'];
+  options?: Maybe<Array<Maybe<Scalars['String']>>>;
+  questionType: Scalars['String'];
+  prompt: Scalars['String'];
+}>;
+
+
+export type UpdateQuestionByIdMutation = (
+  { __typename?: 'Mutation' }
+  & { updateQuestionById?: Maybe<(
+    { __typename?: 'UpdateQuestionPayload' }
+    & { question?: Maybe<(
+      { __typename?: 'Question' }
+      & Pick<Question, 'id' | 'options' | 'questionType' | 'prompt'>
     )> }
   )> }
 );
@@ -4817,6 +4884,49 @@ export function useAllFlashcardsLazyQuery(baseOptions?: Apollo.LazyQueryHookOpti
 export type AllFlashcardsQueryHookResult = ReturnType<typeof useAllFlashcardsQuery>;
 export type AllFlashcardsLazyQueryHookResult = ReturnType<typeof useAllFlashcardsLazyQuery>;
 export type AllFlashcardsQueryResult = Apollo.QueryResult<AllFlashcardsQuery, AllFlashcardsQueryVariables>;
+export const AllQuestionsDocument = gql`
+    query AllQuestions {
+  allQuestions(orderBy: PROMPT_ASC) {
+    nodes {
+      id
+      options
+      questionType
+      prompt
+    }
+  }
+}
+    `;
+export type AllQuestionsComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<AllQuestionsQuery, AllQuestionsQueryVariables>, 'query'>;
+
+    export const AllQuestionsComponent = (props: AllQuestionsComponentProps) => (
+      <ApolloReactComponents.Query<AllQuestionsQuery, AllQuestionsQueryVariables> query={AllQuestionsDocument} {...props} />
+    );
+    
+
+/**
+ * __useAllQuestionsQuery__
+ *
+ * To run a query within a React component, call `useAllQuestionsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllQuestionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAllQuestionsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useAllQuestionsQuery(baseOptions?: Apollo.QueryHookOptions<AllQuestionsQuery, AllQuestionsQueryVariables>) {
+        return Apollo.useQuery<AllQuestionsQuery, AllQuestionsQueryVariables>(AllQuestionsDocument, baseOptions);
+      }
+export function useAllQuestionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllQuestionsQuery, AllQuestionsQueryVariables>) {
+          return Apollo.useLazyQuery<AllQuestionsQuery, AllQuestionsQueryVariables>(AllQuestionsDocument, baseOptions);
+        }
+export type AllQuestionsQueryHookResult = ReturnType<typeof useAllQuestionsQuery>;
+export type AllQuestionsLazyQueryHookResult = ReturnType<typeof useAllQuestionsLazyQuery>;
+export type AllQuestionsQueryResult = Apollo.QueryResult<AllQuestionsQuery, AllQuestionsQueryVariables>;
 export const CreateFlashcardDocument = gql`
     mutation CreateFlashcard($answer: String!, $prompt: String!) {
   createFlashcard(input: {flashcard: {answer: $answer, prompt: $prompt}}) {
@@ -4860,6 +4970,51 @@ export function useCreateFlashcardMutation(baseOptions?: Apollo.MutationHookOpti
 export type CreateFlashcardMutationHookResult = ReturnType<typeof useCreateFlashcardMutation>;
 export type CreateFlashcardMutationResult = Apollo.MutationResult<CreateFlashcardMutation>;
 export type CreateFlashcardMutationOptions = Apollo.BaseMutationOptions<CreateFlashcardMutation, CreateFlashcardMutationVariables>;
+export const CreateQuestionDocument = gql`
+    mutation CreateQuestion($options: [String], $questionType: String!, $prompt: String!) {
+  createQuestion(input: {question: {options: $options, questionType: $questionType, prompt: $prompt}}) {
+    question {
+      id
+      options
+      questionType
+      prompt
+    }
+  }
+}
+    `;
+export type CreateQuestionMutationFn = Apollo.MutationFunction<CreateQuestionMutation, CreateQuestionMutationVariables>;
+export type CreateQuestionComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<CreateQuestionMutation, CreateQuestionMutationVariables>, 'mutation'>;
+
+    export const CreateQuestionComponent = (props: CreateQuestionComponentProps) => (
+      <ApolloReactComponents.Mutation<CreateQuestionMutation, CreateQuestionMutationVariables> mutation={CreateQuestionDocument} {...props} />
+    );
+    
+
+/**
+ * __useCreateQuestionMutation__
+ *
+ * To run a mutation, you first call `useCreateQuestionMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateQuestionMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createQuestionMutation, { data, loading, error }] = useCreateQuestionMutation({
+ *   variables: {
+ *      options: // value for 'options'
+ *      questionType: // value for 'questionType'
+ *      prompt: // value for 'prompt'
+ *   },
+ * });
+ */
+export function useCreateQuestionMutation(baseOptions?: Apollo.MutationHookOptions<CreateQuestionMutation, CreateQuestionMutationVariables>) {
+        return Apollo.useMutation<CreateQuestionMutation, CreateQuestionMutationVariables>(CreateQuestionDocument, baseOptions);
+      }
+export type CreateQuestionMutationHookResult = ReturnType<typeof useCreateQuestionMutation>;
+export type CreateQuestionMutationResult = Apollo.MutationResult<CreateQuestionMutation>;
+export type CreateQuestionMutationOptions = Apollo.BaseMutationOptions<CreateQuestionMutation, CreateQuestionMutationVariables>;
 export const CurrentUserDocument = gql`
     query CurrentUser {
   getCurrentUser {
@@ -4942,6 +5097,46 @@ export function useDeleteFlashcardByIdMutation(baseOptions?: Apollo.MutationHook
 export type DeleteFlashcardByIdMutationHookResult = ReturnType<typeof useDeleteFlashcardByIdMutation>;
 export type DeleteFlashcardByIdMutationResult = Apollo.MutationResult<DeleteFlashcardByIdMutation>;
 export type DeleteFlashcardByIdMutationOptions = Apollo.BaseMutationOptions<DeleteFlashcardByIdMutation, DeleteFlashcardByIdMutationVariables>;
+export const DeleteQuestionByIdDocument = gql`
+    mutation DeleteQuestionById($id: UUID!) {
+  deleteQuestionById(input: {id: $id}) {
+    question {
+      id
+    }
+  }
+}
+    `;
+export type DeleteQuestionByIdMutationFn = Apollo.MutationFunction<DeleteQuestionByIdMutation, DeleteQuestionByIdMutationVariables>;
+export type DeleteQuestionByIdComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<DeleteQuestionByIdMutation, DeleteQuestionByIdMutationVariables>, 'mutation'>;
+
+    export const DeleteQuestionByIdComponent = (props: DeleteQuestionByIdComponentProps) => (
+      <ApolloReactComponents.Mutation<DeleteQuestionByIdMutation, DeleteQuestionByIdMutationVariables> mutation={DeleteQuestionByIdDocument} {...props} />
+    );
+    
+
+/**
+ * __useDeleteQuestionByIdMutation__
+ *
+ * To run a mutation, you first call `useDeleteQuestionByIdMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteQuestionByIdMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteQuestionByIdMutation, { data, loading, error }] = useDeleteQuestionByIdMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useDeleteQuestionByIdMutation(baseOptions?: Apollo.MutationHookOptions<DeleteQuestionByIdMutation, DeleteQuestionByIdMutationVariables>) {
+        return Apollo.useMutation<DeleteQuestionByIdMutation, DeleteQuestionByIdMutationVariables>(DeleteQuestionByIdDocument, baseOptions);
+      }
+export type DeleteQuestionByIdMutationHookResult = ReturnType<typeof useDeleteQuestionByIdMutation>;
+export type DeleteQuestionByIdMutationResult = Apollo.MutationResult<DeleteQuestionByIdMutation>;
+export type DeleteQuestionByIdMutationOptions = Apollo.BaseMutationOptions<DeleteQuestionByIdMutation, DeleteQuestionByIdMutationVariables>;
 export const UpdateFlashcardByIdDocument = gql`
     mutation UpdateFlashcardById($id: UUID!, $answer: String, $prompt: String) {
   updateFlashcardById(input: {flashcardPatch: {answer: $answer, prompt: $prompt}, id: $id}) {
@@ -5028,3 +5223,49 @@ export function useUpdatePersonByIdMutation(baseOptions?: Apollo.MutationHookOpt
 export type UpdatePersonByIdMutationHookResult = ReturnType<typeof useUpdatePersonByIdMutation>;
 export type UpdatePersonByIdMutationResult = Apollo.MutationResult<UpdatePersonByIdMutation>;
 export type UpdatePersonByIdMutationOptions = Apollo.BaseMutationOptions<UpdatePersonByIdMutation, UpdatePersonByIdMutationVariables>;
+export const UpdateQuestionByIdDocument = gql`
+    mutation UpdateQuestionById($id: UUID!, $options: [String], $questionType: String!, $prompt: String!) {
+  updateQuestionById(input: {questionPatch: {options: $options, questionType: $questionType, prompt: $prompt}, id: $id}) {
+    question {
+      id
+      options
+      questionType
+      prompt
+    }
+  }
+}
+    `;
+export type UpdateQuestionByIdMutationFn = Apollo.MutationFunction<UpdateQuestionByIdMutation, UpdateQuestionByIdMutationVariables>;
+export type UpdateQuestionByIdComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<UpdateQuestionByIdMutation, UpdateQuestionByIdMutationVariables>, 'mutation'>;
+
+    export const UpdateQuestionByIdComponent = (props: UpdateQuestionByIdComponentProps) => (
+      <ApolloReactComponents.Mutation<UpdateQuestionByIdMutation, UpdateQuestionByIdMutationVariables> mutation={UpdateQuestionByIdDocument} {...props} />
+    );
+    
+
+/**
+ * __useUpdateQuestionByIdMutation__
+ *
+ * To run a mutation, you first call `useUpdateQuestionByIdMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateQuestionByIdMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateQuestionByIdMutation, { data, loading, error }] = useUpdateQuestionByIdMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      options: // value for 'options'
+ *      questionType: // value for 'questionType'
+ *      prompt: // value for 'prompt'
+ *   },
+ * });
+ */
+export function useUpdateQuestionByIdMutation(baseOptions?: Apollo.MutationHookOptions<UpdateQuestionByIdMutation, UpdateQuestionByIdMutationVariables>) {
+        return Apollo.useMutation<UpdateQuestionByIdMutation, UpdateQuestionByIdMutationVariables>(UpdateQuestionByIdDocument, baseOptions);
+      }
+export type UpdateQuestionByIdMutationHookResult = ReturnType<typeof useUpdateQuestionByIdMutation>;
+export type UpdateQuestionByIdMutationResult = Apollo.MutationResult<UpdateQuestionByIdMutation>;
+export type UpdateQuestionByIdMutationOptions = Apollo.BaseMutationOptions<UpdateQuestionByIdMutation, UpdateQuestionByIdMutationVariables>;

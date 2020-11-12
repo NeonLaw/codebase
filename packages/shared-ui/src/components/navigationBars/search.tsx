@@ -28,8 +28,8 @@ interface SearchProps {
   isRenderedOnDashboard?: boolean;
 }
 
-export const Search = ({ 
-  version, isRenderedOnDashboard 
+export const Search = ({
+  version, isRenderedOnDashboard
 }: SearchProps): JSX.Element => {
   const inputRef = useRef<any>();
 
@@ -54,7 +54,7 @@ export const Search = ({
     };
   }, []);
 
-  const message = 'Search (Press "/" to focus)';
+  const message = 'Press "/" to Search';
 
   const { colorMode } = useColorMode();
 

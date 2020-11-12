@@ -1,0 +1,24 @@
+mutation UpdateQuestionById(
+  $id: UUID!
+  $options: [String]
+  $questionType: String!
+  $prompt: String!
+) {
+  updateQuestionById(
+    input: {
+      questionPatch: {
+        options: $options
+        questionType: $questionType
+        prompt: $prompt
+      }
+      id: $id
+    }
+  ) {
+    question {
+      id
+      options
+      questionType
+      prompt
+    }
+  }
+}

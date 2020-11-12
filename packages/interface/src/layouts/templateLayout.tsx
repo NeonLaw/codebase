@@ -85,7 +85,10 @@ const TemplateLayout: React.FC<{
           );
         }}
       </AuthenticationContext.Consumer>
-      <Footer />
+      <Footer
+        fathomLink=""
+        currentSite="neon-law"
+      />
     </Flex>
   );
 };

@@ -23,8 +23,8 @@ interface SideNavContainerProps {
   isRenderedOnDashboard?: boolean
 }
 
-export const SideNavContainer = ({ 
-  children, isRenderedOnDashboard 
+export const SideNavContainer = ({
+  children, isRenderedOnDashboard
 }: SideNavContainerProps) => (
   <StyledSideNavContainer
     style={{

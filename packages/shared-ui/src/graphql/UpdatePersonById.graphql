@@ -1,12 +1,5 @@
 mutation UpdatePersonById($id: UUID!, $name: String!) {
-  updatePersonById(
-    input: {
-      id: $id
-      personPatch: {
-        name: $name
-      }
-    }
-  ) {
+  updatePersonById(input: { id: $id, personPatch: { name: $name } }) {
     person {
       id
       name
