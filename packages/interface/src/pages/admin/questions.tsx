@@ -1,6 +1,6 @@
-import { Box, Heading, Kbd, useDisclosure } from '@chakra-ui/core';
+import { Box, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
-
+import { Breadcrumbs } from '@neonlaw/shared-ui/src/components/breadcrumbs';
 import {
   CreateQuestionModal
 } from '@neonlaw/shared-ui/src/components/modals/createQuestionModal';
@@ -22,9 +22,7 @@ const AdminQuestions = () => {
   return (
     <PortalLayout>
       <Box textAlign="left">
-        <Heading fontWeight="normal" marginBottom={gutters.xSmallOne}>
-          Questions
-        </Heading>
+        <Breadcrumbs />
 
         <FlashButton
           buttonScheme="teal"

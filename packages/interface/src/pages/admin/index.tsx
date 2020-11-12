@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from '@chakra-ui/core';
+import { Box, Heading } from '@chakra-ui/core';
 import { navigate, useIntl } from 'gatsby-plugin-intl';
 
 import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
@@ -14,10 +14,6 @@ const AdminDashboard = () => {
         <Heading fontWeight="normal" marginBottom={gutters.xSmallOne}>
           {intl.formatMessage({ id: 'pages_admin.heading' })}
         </Heading>
-
-        <Text marginBottom={gutters.xSmallOne}>
-          {intl.formatMessage({ id: 'pages_admin.text' })}
-        </Text>
 
         <FlashButton
           colorScheme="gray"

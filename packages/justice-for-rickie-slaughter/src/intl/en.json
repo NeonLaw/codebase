@@ -90,8 +90,7 @@
     "send": "Send Message"
   },
   "pages_admin": {
-    "heading": "Admin Portal",
-    "text": "Choose an Option on your Left."
+    "heading": "Admin Portal"
   },
   "pages_lawyers": {
     "settings": "Lawyer Firm Settings",
