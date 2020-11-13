@@ -60,7 +60,7 @@
     "uuid": "^8.3.1"
   },
   "optionalDependencies": {
-    "cypress": "^5.5.0"
+    "cypress": "^5.6.0"
   },
   "scripts": {
     "build": "gatsby build",
