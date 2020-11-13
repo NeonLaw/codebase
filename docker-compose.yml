@@ -28,21 +28,14 @@ x-node-volumes: &node-volumes
   - ./:/app
   - /app/node_modules/
   - /app/packages/api/node_modules/
-  - /app/packages/cloud-storage-buckets/node_modules/
   - /app/packages/delete-your-data/node_modules/
-  - /app/packages/filenames/node_modules/
-  - /app/packages/github/node_modules/
   - /app/packages/interface/node_modules/
-  - /app/packages/jobs/node_modules/
   - /app/packages/justice-for-rickie-slaughter/node_modules/
   - /app/packages/law-job-resources/node_modules/
   - /app/packages/legal-templates/node_modules/
   - /app/packages/mercury-bank/node_modules/
   - /app/packages/print/node_modules/
-  - /app/packages/questions/node_modules/
   - /app/packages/shared-ui/node_modules/
-  - /app/packages/speech-to-text/node_modules/
-  - /app/packages/stripe/node_modules/
   - /app/packages/workers/node_modules/
 
 services:
