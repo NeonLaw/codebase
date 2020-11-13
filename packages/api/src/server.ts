@@ -1,6 +1,8 @@
 import 'dotenv/config';
 import * as expressWinston from 'express-winston';
 import * as winston from 'winston';
+import { default as englishTranslations } from './en.json';
+import { default as spanishTranslations } from './es.json';
 
 import cors from 'cors';
 import express from 'express';
@@ -102,5 +104,13 @@ app.use('/api/graphql', beginNewRelicTransaction);
 app.use(postgraphile(postgresUrl, 'public', postgraphileOptions));
 
 app.use('/api/graphql', endNewRelicTransaction);
+
+app.get('/api/en.json', function (_, res) {
+  res.json(englishTranslations)
+});
+
+app.get('/api/en.json', function (_, res) {
+  res.json(spanishTranslations)
+});
 
 app.listen(3000);

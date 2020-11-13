@@ -16,6 +16,22 @@ module.exports = {
     },
     {
       options: {
+        ext: '.json',
+        name: 'src/intl/en',
+        url: 'https://www.neonlaw.com/api/en.json',
+      },
+      resolve: 'gatsby-source-remote-file',
+    },
+    {
+      options: {
+        ext: '.json',
+        name: 'src/intl/es',
+        url: 'https://www.neonlaw.com/api/es.json',
+      },
+      resolve: 'gatsby-source-remote-file',
+    },
+    {
+      options: {
         defaultLanguage: 'en',
         languages: ['en', 'es'],
         path: `${__dirname}/src/intl`,
