@@ -22,6 +22,7 @@ RUN apt-get update -qqy &&\
   libxss1 \
   libasound2 \
   libxtst6 \
+  wget \
   xauth \
   xvfb &&\
   apt-get clean &&\
