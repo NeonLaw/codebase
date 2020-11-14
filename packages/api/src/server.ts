@@ -108,7 +108,7 @@ app.get('/api/en.json', function (_, res) {
   res.json(englishTranslations);
 });
 
-app.get('/api/en.json', function (_, res) {
+app.get('/api/es.json', function (_, res) {
   res.json(spanishTranslations);
 });
 
