@@ -21,7 +21,13 @@
     "switch": "Switch to ",
     "mode": "Mode",
     "dark": "Dark ",
-    "light": "Light "
+    "light": "Light ",
+    "justice_for_rickie_slaughter": "Justice For Rickie Slaughter",
+    "modern_slavery_statement": "Modern Slavery Statement",
+    "pgp_key": "PGP Key",
+    "delete_your_data": "Delete Your Data",
+    "law_job_resources": "Law Job Resources",
+    "templates": "Non-Advice Legal Templates"
   },
   "languageDropdown": {
     "text": "Currently viewing this site in English"
@@ -64,6 +70,11 @@
       "label": "Your name",
       "placeholder": "Enter your name",
       "required": "Name is required."
+    },
+    "questionType": {
+      "label": "Question Type",
+      "placeholder": "Enter the question type",
+      "required": "Question Type is required."
     },
     "prompt": {
       "label": "Prompt",
@@ -123,5 +134,75 @@
     "practiceAreas": "Practice Areas",
     "blog": "Blog",
     "contact": "Contact"
+  },
+  "banner": {
+    "title": "Lawyers Invested in Making Tomorrow Better than Today",
+    "text": "Our goal is singular - your upward mobility. Join the thousands of people who have entrusted us with providing legal solutions to make their lives better."
+  },
+  "why_neon_law": {
+    "heading": "Why Neon Law?",
+    "sub_text": "A justice-first approach to law and litigation.",
+    "good_people": {
+      "title": "We only represent <strong>Good People</strong>",
+      "text": "We do not represent shady people and have fired clients after discovering they're racist, transphobic, sexist, or otherwise bad people."
+    },
+    "good_causes": {
+      "title": "We only represent <strong>Good Causes</strong>",
+      "text": "We do not represent fossil fuel companies, predatory landlords or creditors, or companies that maliciously use your personal data."
+    },
+    "tech-to-make-affordable": {
+      "title": "We use technology to make <strong>Legal Services<br /> Affordable</strong>",
+      "text": "We leverage document automation, natural language processing, and our own open-source software to deliver cost-effective legal services."
+    },
+    "btn_text": "Learn More"
+  },
+  "we_can_help_with": {
+    "title": "What We can help with?",
+    "injured": "I've been <br />injured.",
+    "immigration": "I have immigration issues.",
+    "debt": "I'm in a lot of <br />debt.",
+    "afford": "I can't afford a <br />lawyer.",
+    "bussiness": "I'm starting a business.",
+    "hacked": "I've been<br /> hacked.",
+    "divorce": "My partner and I want a divorce.",
+    "dead": "What if I'm not here tomorrow?",
+    "buy-a-home": "I want to buy a home.",
+    "rights": "My rights have been violated."
+  },
+  "worked_with": {
+    "title": "We've worked with"
+  },
+  "testimonials": {
+    "title": "What People say about us?",
+    "quote1": {
+      "author": "Joe Tuan",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ex adipisci blanditiis quis quidem ducimus providen."
+    }
+  },
+  "in_action": {
+    "title": "NeonLaw in Action",
+    "sub_text": "We have been reimaging legal work for the past 5 years."
+  },
+  "experience": {
+    "client_engagements": {
+      "title": "1,000+",
+      "text": "of client engagements."
+    },
+    "years": {
+      "title": "20+ Years",
+      "text": "of combined experience among our lawyers."
+    },
+    "recommendation_percentage": {
+      "title": "99%",
+      "text": "of clients say they would recommend Neon Law."
+    }
+  },
+  "pro_bono": {
+    "title": "Pro Bono",
+    "text": ""
+  },
+  "get_started": {
+    "title": "Ready to Get Started",
+    "sub_text": "Please reach out if you need help or have any questions. We are happy to help you out with our services with providing legal solutions to make your life better."
   }
 }

@@ -2,7 +2,7 @@ import { PostGraphileOptions, makePluginHook } from 'postgraphile';
 import { gql, makeExtendSchemaPlugin } from 'graphile-utils';
 import GraphilePro from '@graphile/pro';
 import PgPubsub from '@graphile/pg-pubsub';
-import { getSignedUploadUrl } from '@neonlaw/cloud-storage-buckets';
+// import { getSignedUploadUrl } from '@neonlaw/cloud-storage-buckets';
 import newrelic from 'newrelic';
 
 const uploadPlugin = makeExtendSchemaPlugin(() => ({
@@ -13,11 +13,12 @@ const uploadPlugin = makeExtendSchemaPlugin(() => ({
           return;
         }
 
-        const url = await getSignedUploadUrl({
-          filename: args.filename,
-          personUuid: context.neonLawPerson.id,
-        });
-        return { url };
+        // const url = await getSignedUploadUrl({
+        //   filename: args.filename,
+        //   personUuid: context.neonLawPerson.id,
+        // });
+        return { url: 're'};
+        // return { url };
       }
     }
   },

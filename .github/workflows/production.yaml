@@ -175,7 +175,6 @@ jobs:
           GATSBY_AUTH0_CALLBACK: ${{ secrets.PRODUCTION_AUTH0_CALLBACK }}
           GATSBY_AUTH0_DOMAIN: ${{ secrets.PRODUCTION_AUTH0_DOMAIN }}
           GATSBY_AUTH0_CLIENT_ID: ${{ secrets.PRODUCTION_AUTH0_CLIENT_ID }}
-        if: github.ref == 'refs/heads/development'
 
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
@@ -294,7 +293,6 @@ jobs:
             --tag "us.gcr.io/neon-law-production/api:latest" \
             -f docker/api.Dockerfile \
             .
-        if: github.ref == 'refs/heads/development'
 
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
@@ -348,7 +346,6 @@ jobs:
             --tag "us.gcr.io/neon-law-production/workers:latest" \
             -f docker/workers.Dockerfile \
             .
-        if: github.ref == 'refs/heads/development'
 
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:

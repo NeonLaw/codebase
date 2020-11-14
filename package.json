@@ -2,19 +2,12 @@
     "private": true,
     "workspaces": [
         "packages/api",
-        "packages/cloud-storage-buckets",
         "packages/delete-your-data",
-        "packages/github",
         "packages/interface",
         "packages/justice-for-rickie-slaughter",
         "packages/law-job-resources",
-        "packages/legal-templates",
-        "packages/mercury-bank",
         "packages/print",
-        "packages/questions",
         "packages/shared-ui",
-        "packages/speech-to-text",
-        "packages/stripe",
         "packages/workers"
     ],
     "optionalDependencies": {

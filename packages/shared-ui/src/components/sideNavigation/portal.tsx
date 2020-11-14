@@ -1,5 +1,6 @@
 
 import { AiOutlineAudit, AiOutlineShop } from 'react-icons/ai';
+import { BiHomeHeart } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
 import { FaHands } from 'react-icons/fa';
 import { MdGavel } from 'react-icons/md';
@@ -19,13 +20,22 @@ export const PortalSideNavContent = () => {
 
   const links = [
     {
+      icon: <BiHomeHeart />,
+      label: 'Dashboard',
+      route: '/portal'
+    },
+    {
       icon: <TiDeleteOutline />,
       label: 'Data Deletion',
       route: '/portal/data-deletion'
     },
     { icon: <MdGavel />, label: 'Litigation', route: '/portal/litigation' },
-    { icon: <FaHands />, label: 'Will & Estate', route: '/portal/wills' },
-    { icon: <AiOutlineShop />, label: 'Businesses', route: '/portal/business' },
+    { icon: <FaHands />, label: 'Estate', route: '/portal/estate' },
+    {
+      icon: <AiOutlineShop />,
+      label: 'Businesses',
+      route: '/portal/businesses'
+    },
     { icon: <AiOutlineAudit />, label: 'Audits', route: '/portal/audits' },
     { icon: <CgProfile />, label: 'Profile', route: '/portal/profile' },
     role === 'laywer' || role === 'admin' ? {

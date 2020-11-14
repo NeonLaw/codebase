@@ -34,6 +34,7 @@
     "gatsby-remark-images": "^3.4.2",
     "gatsby-source-filesystem": "^2.3.37",
     "gatsby-source-graphql": "^2.7.7",
+    "gatsby-source-remote-file": "^0.2.1",
     "gatsby-transformer-sharp": "^2.5.21",
     "graphql-tag": "^2.11.0",
     "isomorphic-fetch": "^3.0.0",
@@ -63,13 +64,15 @@
     "cypress": "^5.6.0"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "yarn intl:en && yarn intl:es && gatsby build",
     "cy:open": "cypress open",
-    "dev": "yarn run develop",
+    "dev": "yarn intl:en && yarn intl:es && yarn run develop",
     "develop": "gatsby develop -H 127.0.0.1",
+    "intl:en": "wget https://www.neonlaw.com/api/en.json -O ./src/intl/en.json",
+    "intl:es": "wget https://www.neonlaw.com/api/es.json -O ./src/intl/es.json",
     "start": "gatsby develop -H 0.0.0.0",
     "serve": "gatsby serve",
-    "e2e-test": "start-server-and-test develop http://127.0.0.1:8000 'cypress open'",
+    "e2e-test": "start-server-and-test dev http://127.0.0.1:8000 'cypress open'",
     "test": "jest --coverage"
   }
 }
