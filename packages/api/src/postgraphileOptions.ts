@@ -2,44 +2,43 @@ import { PostGraphileOptions, makePluginHook } from 'postgraphile';
 import { gql, makeExtendSchemaPlugin } from 'graphile-utils';
 import GraphilePro from '@graphile/pro';
 import PgPubsub from '@graphile/pg-pubsub';
-// import { getSignedUploadUrl } from '@neonlaw/cloud-storage-buckets';
+import { getTransloaditToken } from './getTransloaditToken';
 import newrelic from 'newrelic';
 
 const uploadPlugin = makeExtendSchemaPlugin(() => ({
   resolvers: {
     Mutation: {
-      async getSignedUploadUrl(_, args, context) {
-        if (!context.neonLawPerson) {
+      async getTransloaditToken(_, args, context) {
+        if (!context.authenticatedPerson) {
           return;
         }
 
-        // const url = await getSignedUploadUrl({
-        //   filename: args.filename,
-        //   personUuid: context.neonLawPerson.id,
-        // });
-        return { url: 're'};
-        // return { url };
+        const { expires, signature } = await getTransloaditToken({
+          personUuid: context.authenticatedPerson.id,
+          template: args.template
+        });
+
+        return { expires, signature };
       }
     }
   },
   typeDefs: gql`
     extend type Mutation {
-      getSignedUploadUrl(
-        filename: String
-      ): GetSignedUploadUrlPayload
+      getTransloaditToken(
+        template: String!
+      ): GetTransloaditTokenPayload
     }
 
-    type GetSignedUploadUrlPayload {
-      url: String
+    type GetTransloaditTokenPayload {
+      expires: String
+      signature: String
     }
   `,
 }));
 
 const pluginHook = makePluginHook([
-  // Add the pub/sub realtime provider
   PgPubsub,
 
-  // If we have a Graphile Pro license, then enable the plugin
   ...(process.env.GRAPHILE_LICENSE ? [GraphilePro] : []),
 ]);
 

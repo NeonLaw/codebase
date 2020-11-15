@@ -1,0 +1,6 @@
+mutation GetTransloaditToken($template: String!) {
+  getTransloaditToken(template: $template) {
+    expires
+    signature
+  }
+}

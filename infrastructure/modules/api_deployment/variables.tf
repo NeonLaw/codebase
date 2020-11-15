@@ -34,3 +34,18 @@ variable new_relic_license_key {
 
 variable new_relic_app_name {
 }
+
+variable api_url {
+}
+
+variable transloadit_key {
+}
+
+variable transloadit_secret {
+}
+
+variable transloadit_pdf_template_id {
+}
+
+variable transloadit_image_template_id {
+}

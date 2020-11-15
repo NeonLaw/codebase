@@ -1719,9 +1719,10 @@ export enum FlashcardsOrderBy {
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
 
-export type GetSignedUploadUrlPayload = {
-  __typename?: 'GetSignedUploadUrlPayload';
-  url?: Maybe<Scalars['String']>;
+export type GetTransloaditTokenPayload = {
+  __typename?: 'GetTransloaditTokenPayload';
+  expires?: Maybe<Scalars['String']>;
+  signature?: Maybe<Scalars['String']>;
 };
 
 
@@ -2045,7 +2046,7 @@ export type Mutation = {
   createPrimaryKeyIdIfNotExists?: Maybe<CreatePrimaryKeyIdIfNotExistsPayload>;
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
   findOrCreateLettersByLobIdentifier?: Maybe<FindOrCreateLettersByLobIdentifierPayload>;
-  getSignedUploadUrl?: Maybe<GetSignedUploadUrlPayload>;
+  getTransloaditToken?: Maybe<GetTransloaditTokenPayload>;
 };
 
 
@@ -2536,8 +2537,8 @@ export type MutationFindOrCreateLettersByLobIdentifierArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationGetSignedUploadUrlArgs = {
-  filename?: Maybe<Scalars['String']>;
+export type MutationGetTransloaditTokenArgs = {
+  template: Scalars['String'];
 };
 
 /** An object with a globally unique `ID`. */
@@ -4787,6 +4788,19 @@ export type DeleteQuestionByIdMutation = (
   )> }
 );
 
+export type GetTransloaditTokenMutationVariables = Exact<{
+  template: Scalars['String'];
+}>;
+
+
+export type GetTransloaditTokenMutation = (
+  { __typename?: 'Mutation' }
+  & { getTransloaditToken?: Maybe<(
+    { __typename?: 'GetTransloaditTokenPayload' }
+    & Pick<GetTransloaditTokenPayload, 'expires' | 'signature'>
+  )> }
+);
+
 export type UpdateFlashcardByIdMutationVariables = Exact<{
   id: Scalars['UUID'];
   answer?: Maybe<Scalars['String']>;
@@ -5137,6 +5151,45 @@ export function useDeleteQuestionByIdMutation(baseOptions?: Apollo.MutationHookO
 export type DeleteQuestionByIdMutationHookResult = ReturnType<typeof useDeleteQuestionByIdMutation>;
 export type DeleteQuestionByIdMutationResult = Apollo.MutationResult<DeleteQuestionByIdMutation>;
 export type DeleteQuestionByIdMutationOptions = Apollo.BaseMutationOptions<DeleteQuestionByIdMutation, DeleteQuestionByIdMutationVariables>;
+export const GetTransloaditTokenDocument = gql`
+    mutation GetTransloaditToken($template: String!) {
+  getTransloaditToken(template: $template) {
+    expires
+    signature
+  }
+}
+    `;
+export type GetTransloaditTokenMutationFn = Apollo.MutationFunction<GetTransloaditTokenMutation, GetTransloaditTokenMutationVariables>;
+export type GetTransloaditTokenComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<GetTransloaditTokenMutation, GetTransloaditTokenMutationVariables>, 'mutation'>;
+
+    export const GetTransloaditTokenComponent = (props: GetTransloaditTokenComponentProps) => (
+      <ApolloReactComponents.Mutation<GetTransloaditTokenMutation, GetTransloaditTokenMutationVariables> mutation={GetTransloaditTokenDocument} {...props} />
+    );
+    
+
+/**
+ * __useGetTransloaditTokenMutation__
+ *
+ * To run a mutation, you first call `useGetTransloaditTokenMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useGetTransloaditTokenMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [getTransloaditTokenMutation, { data, loading, error }] = useGetTransloaditTokenMutation({
+ *   variables: {
+ *      template: // value for 'template'
+ *   },
+ * });
+ */
+export function useGetTransloaditTokenMutation(baseOptions?: Apollo.MutationHookOptions<GetTransloaditTokenMutation, GetTransloaditTokenMutationVariables>) {
+        return Apollo.useMutation<GetTransloaditTokenMutation, GetTransloaditTokenMutationVariables>(GetTransloaditTokenDocument, baseOptions);
+      }
+export type GetTransloaditTokenMutationHookResult = ReturnType<typeof useGetTransloaditTokenMutation>;
+export type GetTransloaditTokenMutationResult = Apollo.MutationResult<GetTransloaditTokenMutation>;
+export type GetTransloaditTokenMutationOptions = Apollo.BaseMutationOptions<GetTransloaditTokenMutation, GetTransloaditTokenMutationVariables>;
 export const UpdateFlashcardByIdDocument = gql`
     mutation UpdateFlashcardById($id: UUID!, $answer: String, $prompt: String) {
   updateFlashcardById(input: {flashcardPatch: {answer: $answer, prompt: $prompt}, id: $id}) {

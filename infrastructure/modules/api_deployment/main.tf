@@ -70,6 +70,26 @@ resource "kubernetes_deployment" "api" {
             name  = "NEW_RELIC_APP_NAME"
             value = var.new_relic_app_name
           }
+          env {
+            name  = "API_URL"
+            value = var.api_url
+          }
+          env {
+            name  = "TRANSLOADIT_KEY"
+            value = var.transloadit_key
+          }
+          env {
+            name  = "TRANSLOADIT_SECRET"
+            value = var.transloadit_secret
+          }
+          env {
+            name  = "TRANSLOADIT_PDF_TEMPLATE_ID"
+            value = var.transloadit_pdf_template_id
+          }
+          env {
+            name  = "TRANSLOADIT_IMAGE_TEMPLATE_ID"
+            value = var.transloadit_image_template_id
+          }
 
           env {
             name = "AUTH0_CLIENT_ID"
