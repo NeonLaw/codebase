@@ -41,7 +41,7 @@
     "leaflet": "^1.7.1",
     "leaflet-polylinedecorator": "^1.6.0",
     "qs": "^6.9.4",
-    "query-string": "^6.13.5",
+    "query-string": "^6.13.7",
     "react": "^17.0.1",
     "react-datepicker": "^3.1.3",
     "react-diff-viewer": "^3.1.1",

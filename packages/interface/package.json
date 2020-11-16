@@ -48,7 +48,7 @@
     "namor": "^2.0.2",
     "prism-react-renderer": "^1.1.1",
     "qs": "^6.9.4",
-    "query-string": "^6.13.5",
+    "query-string": "^6.13.7",
     "react": "^17.0.1",
     "react-axe": "^3.5.3",
     "react-datepicker": "^3.1.3",
