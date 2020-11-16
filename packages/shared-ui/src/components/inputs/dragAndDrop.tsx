@@ -25,7 +25,7 @@ export const DragAndDrop = (props: DragAndDropProps) => {
       if (data) {
         localStorage.setItem(
           'transloaditToken',
-          data.getTransloaditToken?.token as string
+          data.getTransloaditToken?.signature as string
         );
       }
     };
