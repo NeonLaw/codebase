@@ -1053,14 +1053,7 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.10.5", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
-  version "7.12.1"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.1.tgz#b4116a6b6711d010b2dad3b7b6e43bf1b9954740"
-  integrity sha512-J5AIf3vPj3UwXaAzb5j1xM4WAQDX3EMgemF8rjCP3SoW09LfRKAXQKt6CoVYl230P6iWdRcBbnLDDdnqWxZSCA==
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
-"@babel/runtime@^7.4.3", "@babel/runtime@^7.6.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.10.5", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.3", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.2", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
   integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
@@ -2291,16 +2284,7 @@
     camel-case "4.1.1"
     tslib "~2.0.1"
 
-"@graphql-tools/utils@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-7.0.0.tgz#8af1982b4c55607e02e103230ad926c5f8b89fe2"
-  integrity sha512-GDTwJVklNDt50/kWilZJ7dSIZzhCy1PH/aB7R+GS4zqyU5LkRJHyqZG1rFxzQkw8WorkvMbct98hcb4U2u1tnw==
-  dependencies:
-    "@ardatan/aggregate-error" "0.0.6"
-    camel-case "4.1.1"
-    tslib "~2.0.1"
-
-"@graphql-tools/utils@^7.0.2":
+"@graphql-tools/utils@^7.0.0", "@graphql-tools/utils@^7.0.2":
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-7.0.2.tgz#1977d3277158bf32df792a5ff76d3fdc04647a64"
   integrity sha512-VQQ7krHeoXO0FS3qbWsb/vZb8c8oyiCYPIH4RSgeK9SKOUpatWYt3DW4jmLmyHZLVVMk0yjUbsOhKTBEMejKSA==
@@ -10422,10 +10406,10 @@ gatsby-source-filesystem@^2.3.37:
     valid-url "^1.0.9"
     xstate "^4.13.0"
 
-gatsby-source-graphql@^2.7.7:
-  version "2.7.7"
-  resolved "https://registry.yarnpkg.com/gatsby-source-graphql/-/gatsby-source-graphql-2.7.7.tgz#340fa3957c2b0bbd5b0729b58dbf19a03a7c5144"
-  integrity sha512-mI+SgFJA/lCYZ0k7mLiEaLrUQhWjoI+BSeSolESgM4Vi4C9JTjKb36OskjD+VfEUFJFpesmaa/sZ/iJJO9NhjA==
+gatsby-source-graphql@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/gatsby-source-graphql/-/gatsby-source-graphql-2.8.0.tgz#096167911977ec3e2109aa2032ac7cc9f6fb103e"
+  integrity sha512-JvoWwV7OR0bAwwFJkbFNWVIDDrxuiWu0q4Z9RYglF8sydeYO4RGTnpc7aZvlCWe1esq5uJ8rfehwcvLxGlwZ8Q==
   dependencies:
     "@babel/runtime" "^7.11.2"
     "@graphql-tools/links" "^6.2.5"
