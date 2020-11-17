@@ -58,7 +58,7 @@ const MdxLayout: React.FC<{
             <Divider margin="1em 0" />
             <Flex width="100%" justifyContent="space-between">
               <ShareButtons siteUrl={siteUrl} slug={slug} />
-              <EditOnGithub app="justice-for-rickie-slaughter" path={slug} />
+              <EditOnGithub app="delete-your-data" path={slug} />
             </Flex>
           </Container>
         </Box>
