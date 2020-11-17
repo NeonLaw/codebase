@@ -37,7 +37,7 @@
     "gatsby-plugin-sitemap": "^2.5.1",
     "gatsby-plugin-typescript": "^2.5.0",
     "gatsby-remark-images": "^3.4.2",
-    "gatsby-source-filesystem": "^2.3.37",
+    "gatsby-source-filesystem": "^2.5.0",
     "gatsby-source-graphql": "^2.8.0",
     "gatsby-transformer-sharp": "^2.5.21",
     "graphql-tag": "^2.11.0",
