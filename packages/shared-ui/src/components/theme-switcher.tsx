@@ -83,7 +83,8 @@ export const ThemeSwitcher = ({
           />
         </svg>
         <input
-          className="theme-toggle visually-hidden"
+          className="visually-hidden"
+          test-id="theme-toggle"
           type="checkbox"
           onChange={handleToggleTheme}
           onKeyPress={(e) => {
