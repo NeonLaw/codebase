@@ -5,5 +5,6 @@ query CurrentUser {
     email
     picture
     role
+    flags
   }
 }

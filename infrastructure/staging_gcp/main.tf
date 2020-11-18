@@ -77,12 +77,6 @@ module "public-bucket" {
 module "upload-bucket" {
   source = "../modules/write_only_bucket"
   bucket_name = "${var.project_id}-unprocessed-uploads"
-  allowed_origins = [
-    "www.deleteyourdata.com",
-    "www.lawjobresources.com",
-    "www.neonlaw.com",
-    "www.justiceforrickieslaughter.com"
-  ]
 }
 
 module "user-bucket" {
@@ -93,9 +87,9 @@ module "user-bucket" {
   ]
 }
 
-module "writing-bucket" {
+module "company-bucket" {
   source = "../modules/private_bucket"
-  bucket_name = "${var.project_id}-writing"
+  bucket_name = "${var.project_id}-company-files"
   allowed_origins = [
     "www.neonlaw.net"
   ]
