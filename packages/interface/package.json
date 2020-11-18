@@ -18,7 +18,7 @@
     "@uppy/core": "^1.14.0",
     "@uppy/react": "^1.10.10",
     "@uppy/transloadit": "^1.6.13",
-    "@uppy/tus": "^1.7.9",
+    "@uppy/tus": "^1.8.0",
     "apollo-boost": "^0.4.9",
     "apollo-link-context": "^1.0.20",
     "clipboard-copy": "^3.1.0",
