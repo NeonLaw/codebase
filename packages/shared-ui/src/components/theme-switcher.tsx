@@ -83,20 +83,18 @@ export const ThemeSwitcher = ({
           />
         </svg>
         <input
-          className="visually-hidden"
+          className="theme-toggle visually-hidden"
           test-id="theme-toggle"
           type="checkbox"
           onChange={handleToggleTheme}
-          onKeyPress={(e) => {
-            console.log(e.key == ' ' && 'Space'); 
-            handleToggleTheme();
-          }}
+          onKeyPress={handleToggleTheme}
         />
         <Global
           styles={css`
             body.user-is-tabbing .theme-toggle:focus + span {
               animation: pulse 1s infinite;
               animation-direction: alternate;
+              border-color: var(--lightBlue);
             }
 
             .theme-switcher__circle {
