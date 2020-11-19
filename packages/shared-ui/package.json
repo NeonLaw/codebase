@@ -16,7 +16,7 @@
     "@uppy/core": "^1.14.0",
     "@uppy/drag-drop": "^1.4.21",
     "@uppy/react": "^1.10.10",
-    "@uppy/transloadit": "^1.6.13",
+    "@uppy/transloadit": "^1.6.14",
     "@uppy/tus": "^1.8.0",
     "apollo-boost": "^0.4.9",
     "apollo-link-context": "^1.0.20",

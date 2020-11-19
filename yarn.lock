@@ -4391,19 +4391,19 @@
     exifr "^5.0.2"
     math-log2 "^1.0.1"
 
-"@uppy/transloadit@^1.6.13":
-  version "1.6.13"
-  resolved "https://registry.yarnpkg.com/@uppy/transloadit/-/transloadit-1.6.13.tgz#af9b7214cdbc4d8e6c658c0ad61957ecfa5241c4"
-  integrity sha512-RhqDbpJxN1bd+GDXEIzCfTeGbV53MAGl5NRA4VbYN5JGd7UtEqQd5HqIcyISbobZmJb8vSIDoh+8tKa3DbiOpA==
+"@uppy/transloadit@^1.6.14":
+  version "1.6.14"
+  resolved "https://registry.yarnpkg.com/@uppy/transloadit/-/transloadit-1.6.14.tgz#68e1e1bbdae6fc1e4095a7d7c9646c4084c1ec93"
+  integrity sha512-eAQIIVHXOj+8g2QPCtqhG280GwD/iO1ReDAi17zxwIvlqaLe+DRJ7BIAYVIhO5ahdWRd4/OT2J9jnfzyNK6JQg==
   dependencies:
     "@uppy/companion-client" "^1.6.1"
     "@uppy/provider-views" "^1.9.0"
-    "@uppy/tus" "^1.7.9"
+    "@uppy/tus" "^1.8.0"
     "@uppy/utils" "^3.2.5"
     component-emitter "^1.2.1"
     socket.io-client "~2.2.0"
 
-"@uppy/tus@^1.7.9", "@uppy/tus@^1.8.0":
+"@uppy/tus@^1.8.0":
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/@uppy/tus/-/tus-1.8.0.tgz#a93acd7dc27bcc5a7dd6bc0fba39a02a463b4111"
   integrity sha512-Cdf2epyuiZSxcOOlw61CLZU7h3i0KILHv0pV5arC054wPeH9D0nuEcR9iR12jm4ilFDABmuCbVZ1j7nGQR6zEw==
