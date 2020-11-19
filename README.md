@@ -29,19 +29,16 @@ You should have some, if not all of these environment variables on your machine:
 - `AUTH0_CLIENT_ID`
 - `AUTH0_CLIENT_SECRET`
 - `AUTH0_TENANT`
-
 - `CYPRESS_ADMIN_USER_PASSWORD`
 - `CYPRESS_AUTH0_CLIENT_ID`
 - `CYPRESS_AUTH0_CLIENT_SECRET`
 - `CYPRESS_AUTH_URL`
 - `CYPRESS_LAWYER_USER_PASSWORD`
 - `CYPRESS_PORTAL_USER_PASSWORD`
-
 - `TRANSLOADIT_KEY`
 - `TRANSLOADIT_SECRET`
 - `TRANSLOADIT_PDF_TEMPLATE_ID`
 - `TRANSLOADIT_IMAGE_TEMPLATE_ID`
-
 - `GOOGLE_APPLICATION_CREDENTIALS`
 
 You will need to have values for these environment variables sourced in the same
@@ -132,12 +129,13 @@ software:
 - Casetext
 - Code Climate
 - Fathom Analytics
-- G Suite
+- Google Workplace
 - GitHub
 - Google Cloud Platform
 - Grammarly
 - LanguageTool
 - Lexis Nexis
+- LogRocket
 - Mercury Bank
 - PGRita
 - Postgraphile
@@ -145,6 +143,7 @@ software:
 - Slack
 - Terraform Cloud
 - Transloadit
+- Xero
 - Zendesk Suite
 
 ## Continuous Integration and Deployment
@@ -153,10 +152,12 @@ Our app uses a series of GitHub Actions Workflows to run a suite of automated
 tests. You can find these tests
 [here](https://github.com/neonlaw/codebase/actions).
 
-On pushes to the `development` branch, our staging environment is updated.
+On pushes to the `development` branch and a successful test run, our [staging
+environment](https://www.neonlaw.net) is updated.
 
-On Monday through Thursday at 4:00 am PST, the production environment is
-updated with the latest commit from `development`.
+On Monday through Thursday at 4:00 am PST, the [production
+environment](https://www.neonlaw.com) is updated with the latest commit from
+`development`.
 
 ## Graphql Codegen
 
