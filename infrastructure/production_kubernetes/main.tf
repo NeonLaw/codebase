@@ -95,6 +95,11 @@ module "api_deployment" {
   logic_secret_name            = module.logic_kubernetes_secret.name
   master_database_password     = var.master_database_password
   new_relic_license_key        = var.new_relic_license_key
+  api_url                       = "https://www.neonlaw.com"
+  transloadit_key               = var.transloadit_key
+  transloadit_secret            = var.transloadit_secret
+  transloadit_pdf_template_id   = var.transloadit_pdf_template_id
+  transloadit_image_template_id = var.transloadit_image_template_id
 }
 
 module "worker_deployment" {

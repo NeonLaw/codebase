@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/core';
 import React, { useState } from 'react';
 import { colors, gutters, theme } from '../themes/neonLaw';
-
+import { DragAndDrop } from '../components/inputs/dragAndDrop';
 import { FlashButton } from '../components/button';
 import { StringInput } from '../components/inputs';
 import { SubmissionInProgress } from '../components/submission-in-progress';
@@ -23,6 +23,7 @@ export const UpdateProfileModal = ({ isOpen, onClose }) => {
   const { data } = useCurrentUserQuery();
 
   const [updatePersonById, { loading }] = useUpdatePersonByIdMutation();
+  const [avatarUrl, updateAvatarUrl] = useState();
 
   const { handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -69,6 +70,11 @@ export const UpdateProfileModal = ({ isOpen, onClose }) => {
                 register={register({
                   required: intl.formatMessage({ id: 'forms.name.required' }),
                 })}
+              />
+              <DragAndDrop
+                fileType="images"
+                url={avatarUrl}
+                updateUrl={updateAvatarUrl}
               />
               <FlashButton
                 type="submit"

@@ -37,6 +37,11 @@ You should have some, if not all of these environment variables on your machine:
 - `CYPRESS_LAWYER_USER_PASSWORD`
 - `CYPRESS_PORTAL_USER_PASSWORD`
 
+- `TRANSLOADIT_KEY`
+- `TRANSLOADIT_SECRET`
+- `TRANSLOADIT_PDF_TEMPLATE_ID`
+- `TRANSLOADIT_IMAGE_TEMPLATE_ID`
+
 - `GOOGLE_APPLICATION_CREDENTIALS`
 
 You will need to have values for these environment variables sourced in the same

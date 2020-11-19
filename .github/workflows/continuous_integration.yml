@@ -63,8 +63,17 @@ jobs:
           docker exec shell yarn graphql-codegen
           git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
       - name: Run Cypress tests for NeonLaw.com
-        run: docker exec shell yarn e2e ./packages/interface
+        run: |
+          docker exec \
+            -e CYPRESS_BASE_URL=http://interface:8000 \
+            shell yarn e2e ./packages/interface
       - name: Run Cypress tests for JusticeForRickieSlaughter.com
-        run: docker exec shell yarn e2e ./packages/justice-for-rickie-slaughter
+        run: |
+          docker exec \
+            -e CYPRESS_BASE_URL=http://justice_for_rickie_slaughter:8000 \
+            shell yarn e2e ./packages/justice-for-rickie-slaughter
       - name: Run Cypress tests for DeleteYourData.com
-        run: docker exec shell yarn e2e ./packages/delete-your-data
+        run: |
+          docker exec \
+            -e CYPRESS_BASE_URL=http://delete_your_data:8000 \
+            shell yarn e2e ./packages/delete-your-data

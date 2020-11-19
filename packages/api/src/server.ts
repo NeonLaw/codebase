@@ -112,4 +112,9 @@ app.get('/api/es.json', function (_, res) {
   res.json(spanishTranslations);
 });
 
+app.get('/api/process-transloadit-notifications', function (req, res) {
+  console.log(req);
+  res.send('logged Transloadit notification');
+});
+
 app.listen(3000);

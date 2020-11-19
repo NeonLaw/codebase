@@ -26,7 +26,7 @@ const PortalProfilePage = () => {
   return (
     <PortalLayout>
       <StyledPortalProfilePage>
-        <Heading 
+        <Heading
           fontWeight="normal"
         >
           Your Profile
@@ -35,12 +35,12 @@ const PortalProfilePage = () => {
         <FlashButton
           buttonScheme="teal"
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
-          onClick={onOpen} 
+          onClick={onOpen}
         >
           Update Profile
         </FlashButton>
-        <UpdateProfileModal 
-          isOpen={isOpen} 
+        <UpdateProfileModal
+          isOpen={isOpen}
           onClose={onClose}
         />
       </StyledPortalProfilePage>
