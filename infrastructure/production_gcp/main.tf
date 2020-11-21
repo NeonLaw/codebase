@@ -87,10 +87,7 @@ module "upload-bucket" {
   source = "../modules/write_only_bucket"
   bucket_name = "${var.project_id}-unprocessed-uploads"
   allowed_origins = [
-    "www.deleteyourdata.com",
-    "www.lawjobresources.com",
-    "www.neonlaw.com",
-    "www.justiceforrickieslaughter.com"
+    "www.neonlaw.com"
   ]
 }
 

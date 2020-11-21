@@ -487,6 +487,16 @@ export type CreateQuestionPayloadQuestionEdgeArgs = {
   orderBy?: Maybe<Array<QuestionsOrderBy>>;
 };
 
+export type CreateResponseDocumentFromUploadInput = {
+  uploadUrl: Scalars['String'];
+  responseId: Scalars['UUID'];
+};
+
+export type CreateResponseDocumentFromUploadPayload = {
+  __typename?: 'CreateResponseDocumentFromUploadPayload';
+  document?: Maybe<Document>;
+};
+
 /** All input for the create `ResponseDocument` mutation. */
 export type CreateResponseDocumentInput = {
   /**
@@ -2017,6 +2027,7 @@ export type Mutation = {
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
   findOrCreateLettersByLobIdentifier?: Maybe<FindOrCreateLettersByLobIdentifierPayload>;
   getTransloaditToken?: Maybe<GetTransloaditTokenPayload>;
+  createResponseDocumentFromUpload?: Maybe<CreateResponseDocumentFromUploadPayload>;
 };
 
 
@@ -2479,6 +2490,12 @@ export type MutationFindOrCreateLettersByLobIdentifierArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationGetTransloaditTokenArgs = {
   template: Scalars['String'];
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateResponseDocumentFromUploadArgs = {
+  input: CreateResponseDocumentFromUploadInput;
 };
 
 /** An object with a globally unique `ID`. */
