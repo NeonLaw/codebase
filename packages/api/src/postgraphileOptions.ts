@@ -33,15 +33,17 @@ const uploadPlugin = makeExtendSchemaPlugin((build) => ({
           const {
             rows: [document],
           } = await pgClient.query(
-            'INSERT INTO document(name, email, bio) VALUES ($1, $2, $3) RETURNING id',
+            'INSERT INTO document(name, email, bio) '+
+              'VALUES ($1, $2, $3) RETURNING id',
             [args.input.name, args.input.email, args.input.bio]
           );
 
           const {
             rows: [responseDocument],
           } = await pgClient.query(
-            'INSERT INTO response.document(document_id, email, bio) VALUES ($1, $2, $3) RETURNING id',
-            [args.input.name, args.input.email, args.input.bio]
+            'INSERT INTO response.document(document_id, email, bio) '+
+              'VALUES ($1, $2, $3) RETURNING id',
+            [document.id, args.input.email, args.input.bio]
           );
 
           return {
