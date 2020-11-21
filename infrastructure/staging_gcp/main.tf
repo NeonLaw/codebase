@@ -77,6 +77,9 @@ module "public-bucket" {
 module "upload-bucket" {
   source = "../modules/write_only_bucket"
   bucket_name = "${var.project_id}-unprocessed-uploads"
+  allowed_origins = [
+    "www.neonlaw.net"
+  ]
 }
 
 module "user-bucket" {
