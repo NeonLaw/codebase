@@ -5,7 +5,6 @@
   "author": "@neonlaw",
   "scripts": {
     "start": "ts-node --transpile-only src/server.ts",
-    "test": "jest --forceExit --detectOpenHandles --coverage --coverageProvider=v8",
     "commit": "graphile-migrate commit",
     "migrate": "graphile-migrate migrate",
     "watch": "graphile-migrate watch"

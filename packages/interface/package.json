@@ -84,8 +84,7 @@
     "intl:es": "wget https://www.neonlaw.com/api/es.json -O ./src/intl/es.json",
     "start": "gatsby serve -H 0.0.0.0 -p 8000",
     "serve": "gatsby serve",
-    "e2e-test": "start-server-and-test dev http://127.0.0.1:8000 'cypress open'",
-    "test": "jest --coverage"
+    "e2e-test": "start-server-and-test dev http://127.0.0.1:8000 'cypress open'"
   },
   "devDependencies": {
     "babel-plugin-add-react-displayname": "^0.0.5",
