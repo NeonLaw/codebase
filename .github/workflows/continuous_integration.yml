@@ -62,7 +62,9 @@ jobs:
         run: |
           docker exec shell yarn graphql-codegen
           git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
-      - name: Run Cypress tests for the Interface
+      - name: Copy NPM packages from the Shell container to the CI Host
+        run: docker cp shell:/app/node_modules ./node_modules
+      - name: Run Cypress tests for @neonlaw/interface
         uses: cypress-io/github-action@v2
         with:
           working-directory: ./packages/interface
