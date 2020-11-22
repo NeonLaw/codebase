@@ -4,7 +4,7 @@
 import faker from 'faker';
 
 describe('Visiting /portal', () => {
-  context('as an anonymous user', () => {
+  describe('as an anonymous user', () => {
     it('redirects the user back to the home screen', () => {
       cy.visit('/portal');
       cy.url().should('not.include', '/portal');

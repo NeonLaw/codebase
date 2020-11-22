@@ -80,7 +80,7 @@ export class AuthenticationProvider extends Component {
       await (this.state.auth0Client as any).handleRedirectCallback();
     } catch {
       (this.state.auth0Client as any).logout({
-        returnTo: process.env.SITE_URL,
+        returnTo: process.env.GATSBY_SITE_URL,
       });
     }
     const user = await (this.state.auth0Client as any).getUser();
@@ -141,7 +141,7 @@ export class AuthenticationProvider extends Component {
       logout: () => {
         this.setState({ apolloClient: publicClient });
 
-        (auth0Client as any).logout({ returnTo: process.env.SITE_URL });
+        (auth0Client as any).logout({ returnTo: process.env.GATSBY_SITE_URL });
       },
       user,
     };

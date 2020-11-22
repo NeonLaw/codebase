@@ -67,8 +67,8 @@ module.exports = {
             policy: [{ disallow: ['/'], userAgent: '*' }]
           },
         },
-        host: process.env.SITE_URL,
-        sitemap: `${process.env.SITE_URL}/sitemap.xml`,
+        host: process.env.GATSBY_SITE_URL,
+        sitemap: `${process.env.GATSBY_SITE_URL}/sitemap.xml`,
       },
       resolve: 'gatsby-plugin-robots-txt',
     },
@@ -84,7 +84,7 @@ module.exports = {
   siteMetadata: {
     author: '@neonlaw',
     description: 'Law Job Resources',
-    siteUrl: process.env.SITE_URL,
+    siteUrl: process.env.GATSBY_SITE_URL,
     title: 'Law Job Resources',
   },
 };
