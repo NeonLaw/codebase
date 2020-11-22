@@ -4,6 +4,7 @@ public
 README.md
 neon_law.egg-info
 yarn-error.log
+node_modules
 **/node_modules
 docker
 docker-compose.yml
