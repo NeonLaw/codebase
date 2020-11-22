@@ -32,11 +32,10 @@ describe('Visiting /portal', () => {
 
         cy.get('[data-testid="update-person-form-submit"]').click();
 
-        cy.wait(2000);
+        cy.wait(1000);
 
-        cy.get('[data-testid="update-person-form-name"]').
-          invoke('val').
-          should('not.contain', name);
+        cy.get('[data-testid="update-person-modal"]').should('not.exist');
+
         cy.get('[data-testid="portal-profile-card-name"]').
           should('contain', name);
       });
