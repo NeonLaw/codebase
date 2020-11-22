@@ -67,7 +67,6 @@ jobs:
       - name: Run Cypress tests for @neonlaw/interface
         uses: cypress-io/github-action@v2
         with:
-          command: sudo yarn workspace @neonlaw/interface e2e
           working-directory: ./packages/interface
         env:
           CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
