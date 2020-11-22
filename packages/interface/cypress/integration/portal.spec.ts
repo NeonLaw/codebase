@@ -16,7 +16,9 @@ describe('Visiting /portal', () => {
 
       cy.loginAsPortalUser().then(() => {
         cy.visit('/portal');
+        cy.wait(1000);
         cy.contains('Profile').click();
+        cy.wait(1000);
         cy.url().should('include', '/portal/profile');
 
         cy.get('[data-testid="open-update-profile-modal"]').click();
