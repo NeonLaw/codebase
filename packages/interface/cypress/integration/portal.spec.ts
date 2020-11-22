@@ -10,6 +10,7 @@ describe('Visiting /portal', () => {
       cy.url().should('not.include', '/portal');
     });
   });
+
   context('logged in as a portal user', () => {
     it('renders the /portal pages and the user can change ther name', () => {
       const name = faker.name.findName();
@@ -25,14 +26,13 @@ describe('Visiting /portal', () => {
 
         cy.get('[data-testid="open-update-profile-modal"]').click();
 
-        cy.get('[data-testid="update-person-form-name"]').
-          invoke('val').
-          should('not.contain', name);
         cy.get('[data-testid="update-person-form-name"]').type(name);
 
         cy.get('[data-testid="update-person-form-accessible-buttons"]').click();
 
         cy.get('[data-testid="update-person-form-submit"]').click();
+
+        cy.wait(2000);
 
         cy.get('[data-testid="update-person-form-name"]').
           invoke('val').
