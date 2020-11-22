@@ -17,6 +17,8 @@ describe('Visiting /portal', () => {
       cy.loginAsPortalUser().then(() => {
         cy.visit('/portal');
         cy.wait(1000);
+        cy.url().should('include', '/portal');
+
         cy.contains('Profile').click();
         cy.wait(1000);
         cy.url().should('include', '/portal/profile');
