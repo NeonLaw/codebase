@@ -2,7 +2,6 @@
 version: "3.8"
 
 x-environment-variables: &environment-variables
-  - API_URL="http://api:3000"
   - AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID
   - AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET
   - AUTH0_TENANT=neon-law-testing.auth0.com
@@ -13,7 +12,6 @@ x-environment-variables: &environment-variables
   - CYPRESS_PORTAL_USER_PASSWORD=$CYPRESS_PORTAL_USER_PASSWORD
   - DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law
   - ELASTICSEARCH_URL=http://elastic:changeme@elasticsearch:9200
-  - GATSBY_API_URL=http://api:3000/api/graphql
   - GATSBY_AUTH0_CALLBACK=http://127.0.0.1:8000/callback/
   - GATSBY_AUTH0_CLIENT_ID=dplmcTTWBbkd9j5jFd1LMr26c25Iugv7
   - GATSBY_AUTH0_DOMAIN=neon-law-testing.auth0.com
@@ -104,12 +102,9 @@ services:
       - api
     ports:
       - 8000:8000
-      - 33010:33010
     volumes: *node-volumes
     environment:
       PACKAGE_NAME: interface
-      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
-      INTERNAL_STATUS_PORT: 33010
 
   shell:
     ipc: host
@@ -136,8 +131,6 @@ services:
     volumes: *node-volumes
     environment:
       PACKAGE_NAME: law-job-resources
-      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
-      INTERNAL_STATUS_PORT: 33001
 
   justice_for_rickie_slaughter:
     build:
@@ -152,9 +145,7 @@ services:
       - 33002:33002
     volumes: *node-volumes
     environment:
-      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
       PACKAGE_NAME: justice-for-rickie-slaughter
-      INTERNAL_STATUS_PORT: 33002
 
   delete_your_data:
     build:
@@ -170,5 +161,3 @@ services:
     volumes: *node-volumes
     environment:
       PACKAGE_NAME: delete-your-data
-      GATSBY_API_URL: http://127.0.0.1:3000/api/graphql
-      INTERNAL_STATUS_PORT: 33003
