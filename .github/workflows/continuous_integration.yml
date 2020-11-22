@@ -65,7 +65,6 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           working-directory: ./packages/interface
-          wait-on-timeout: 1500
           wait-on: 'http://127.0.0.1:8000'
         env:
           CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
