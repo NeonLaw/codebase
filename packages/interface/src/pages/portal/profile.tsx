@@ -33,6 +33,7 @@ const PortalProfilePage = () => {
         </Heading>
         <PortalProfileCard />
         <FlashButton
+          data-testid="open-update-profile-modal"
           buttonScheme="teal"
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}

@@ -1,8 +1,11 @@
-mutation UpdatePersonById($id: UUID!, $name: String!) {
-  updatePersonById(input: { id: $id, personPatch: { name: $name } }) {
+mutation UpdatePersonById($flags: String!, $id: UUID!, $name: String!) {
+  updatePersonById(
+    input: { id: $id, personPatch: { flags: $flags, name: $name } }
+  ) {
     person {
       id
       name
+      flags
     }
   }
 }

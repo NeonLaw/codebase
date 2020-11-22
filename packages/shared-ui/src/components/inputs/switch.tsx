@@ -1,13 +1,13 @@
 import {
+  Switch as ChakraSwitch,
   FormControl,
   FormErrorMessage,
   FormLabel,
-  Input,
 } from '@chakra-ui/core';
 
 import React from 'react';
 
-export const StringInput = ({
+export const Switch = ({
   errors,
   label,
   register,
@@ -18,25 +18,21 @@ export const StringInput = ({
   onFocus = () => {
     return;
   },
-  placeholder,
   testId,
   value = '',
   styles = {},
 }) => {
   return (
     <FormControl isInvalid={errors[name]}>
-      <FormLabel htmlFor={name}>{label}</FormLabel>
-      <Input
+      <FormLabel htmlFor="name">{label}</FormLabel>
+      <ChakraSwitch
+        id={name}
         data-testid={testId}
         ref={register}
         name={name}
-        placeholder={placeholder}
         onBlur={onBlur}
         onFocus={onFocus}
-        borderColor="gray.300"
         defaultValue={value}
-        _hover={{ borderColor: 'gray.500' }}
-        className="outline-bordered"
         style={{ ...styles }}
       />
       <FormErrorMessage>

@@ -1,7 +1,6 @@
+import { Skeleton, Text } from '@chakra-ui/core';
 import { colors, gutters, shadows } from '../../themes/neonLaw';
-
 import React from 'react';
-import { Text } from '@chakra-ui/core';
 import { UserAvatar } from '../userAvatar';
 import styled from '@emotion/styled';
 import { useCurrentUserQuery } from '../../utils/api';
@@ -29,13 +28,19 @@ const StyledPortalProfileCard = styled.div`
 `;
 
 export const PortalProfileCard = () => {
-  const { data } = useCurrentUserQuery();
-  return (
-    <StyledPortalProfileCard>
-      <UserAvatar style="square" alt="Your Profile" />
-      <Text data-testid="portal-profile-card-name">
-        {data?.getCurrentUser?.name}
-      </Text>
-    </StyledPortalProfileCard>
-  );
+  const { data, loading } = useCurrentUserQuery();
+  if (loading)  {
+    return <Skeleton height="20px" />;
+  }
+  if (data) {
+    return (
+      <StyledPortalProfileCard>
+        <UserAvatar style="square" alt="Your Profile" />
+        <Text data-testid="portal-profile-card-name">
+          {data?.getCurrentUser?.name}
+        </Text>
+      </StyledPortalProfileCard>
+    );
+  }
+  return null;
 };

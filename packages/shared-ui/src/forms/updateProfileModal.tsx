@@ -8,10 +8,9 @@ import {
   useColorMode,
 } from '@chakra-ui/core';
 import React, { useState } from 'react';
+import { StringInput, Switch } from '../components/inputs';
 import { colors, gutters, theme } from '../themes/neonLaw';
-import { DragAndDrop } from '../components/inputs/dragAndDrop';
 import { FlashButton } from '../components/button';
-import { StringInput } from '../components/inputs';
 import { SubmissionInProgress } from '../components/submission-in-progress';
 import { useCurrentUserQuery } from '../utils/api';
 import { useForm } from 'react-hook-form';
@@ -23,15 +22,15 @@ export const UpdateProfileModal = ({ isOpen, onClose }) => {
   const { data } = useCurrentUserQuery();
 
   const [updatePersonById, { loading }] = useUpdatePersonByIdMutation();
-  const [avatarUrl, updateAvatarUrl] = useState();
 
   const { handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const onSubmit = async ({ name }) => {
+  const onSubmit = async ({ accessibleButtons, name }) => {
     const id = data?.getCurrentUser?.id;
+    const flags = accessibleButtons ? 'ACCESSIBLE_BUTTONS' : '';
 
-    await updatePersonById({ variables: { id, name } });
+    await updatePersonById({ variables: { flags, id, name } });
 
     await reset();
 
@@ -44,7 +43,7 @@ export const UpdateProfileModal = ({ isOpen, onClose }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
       <ModalOverlay>
-        <ModalContent data-testid="update-profile-modal" margin="8em 2em 0 2em">
+        <ModalContent data-testid="update-person-modal" margin="8em 2em 0 2em">
           <ModalHeader
             fontWeight="normal"
             fontSize={theme.fontSizes['xl0']}
@@ -61,7 +60,7 @@ export const UpdateProfileModal = ({ isOpen, onClose }) => {
             <ModalBody>
               <StringInput
                 name="name"
-                testId="portal-profile-form-name"
+                testId="update-person-form-name"
                 label={intl.formatMessage({ id: 'forms.name.label' })}
                 errors={errors}
                 placeholder={intl.formatMessage({
@@ -71,14 +70,18 @@ export const UpdateProfileModal = ({ isOpen, onClose }) => {
                   required: intl.formatMessage({ id: 'forms.name.required' }),
                 })}
               />
-              <DragAndDrop
-                fileType="images"
-                url={avatarUrl}
-                updateUrl={updateAvatarUrl}
+              <Switch
+                name="accessibleButtons"
+                testId="update-person-form-accessible-buttons"
+                label={
+                  intl.formatMessage({ id: 'forms.accessibleButtons.label' })
+                }
+                errors={errors}
+                register={register()}
               />
               <FlashButton
                 type="submit"
-                data-testid="portal-profile-form-submit"
+                data-testid="update-person-form-submit"
                 isDisabled={isSubmitting || loading}
                 containerStyles={{ margin: `${gutters.xSmallOne} 0` }}
               >

@@ -61,6 +61,9 @@
     "base_": ""
   },
   "forms": {
+    "accessibleButtons": {
+      "label": "Accessible Buttons"
+    },
     "answer": {
       "label": "Answer",
       "placeholder": "Enter the answer",

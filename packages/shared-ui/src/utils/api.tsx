@@ -4536,6 +4536,7 @@ export type UpdateFlashcardByIdMutation = (
 );
 
 export type UpdatePersonByIdMutationVariables = Exact<{
+  flags: Scalars['String'];
   id: Scalars['UUID'];
   name: Scalars['String'];
 }>;
@@ -4547,7 +4548,7 @@ export type UpdatePersonByIdMutation = (
     { __typename?: 'UpdatePersonPayload' }
     & { person?: Maybe<(
       { __typename?: 'Person' }
-      & Pick<Person, 'id' | 'name'>
+      & Pick<Person, 'id' | 'name' | 'flags'>
     )> }
   )> }
 );
@@ -4952,11 +4953,12 @@ export type UpdateFlashcardByIdMutationHookResult = ReturnType<typeof useUpdateF
 export type UpdateFlashcardByIdMutationResult = Apollo.MutationResult<UpdateFlashcardByIdMutation>;
 export type UpdateFlashcardByIdMutationOptions = Apollo.BaseMutationOptions<UpdateFlashcardByIdMutation, UpdateFlashcardByIdMutationVariables>;
 export const UpdatePersonByIdDocument = gql`
-    mutation UpdatePersonById($id: UUID!, $name: String!) {
-  updatePersonById(input: {id: $id, personPatch: {name: $name}}) {
+    mutation UpdatePersonById($flags: String!, $id: UUID!, $name: String!) {
+  updatePersonById(input: {id: $id, personPatch: {flags: $flags, name: $name}}) {
     person {
       id
       name
+      flags
     }
   }
 }
@@ -4982,6 +4984,7 @@ export type UpdatePersonByIdComponentProps = Omit<ApolloReactComponents.Mutation
  * @example
  * const [updatePersonByIdMutation, { data, loading, error }] = useUpdatePersonByIdMutation({
  *   variables: {
+ *      flags: // value for 'flags'
  *      id: // value for 'id'
  *      name: // value for 'name'
  *   },

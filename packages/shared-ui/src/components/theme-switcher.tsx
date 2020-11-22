@@ -14,7 +14,7 @@ const StyledThemeSwitcher = styled.div<{isRenderedOnDashboard?: boolean}>`
   margin-bottom: ${
   ({isRenderedOnDashboard}) => isRenderedOnDashboard ? 'none' : gutters.small };
   margin-right: ${
-  ({isRenderedOnDashboard}) => isRenderedOnDashboard ? 
+  ({isRenderedOnDashboard}) => isRenderedOnDashboard ?
     gutters.xSmallOne : null };
 
   label {
