@@ -62,10 +62,8 @@ jobs:
         run: |
           docker exec shell yarn graphql-codegen
           git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
-      - name: Copy NPM packages from the Shell container to the CI Host
-        run: sudo docker cp shell:/app/node_modules ./node_modules
-      - name: Install deps as sudo
-        run: sudo yarn
+      - name: Install chmod local directory to 777
+        run: sudo chmod 777 -R ./
       - name: Run Cypress tests for @neonlaw/interface
         uses: cypress-io/github-action@v2
         with:
