@@ -64,9 +64,12 @@ jobs:
           git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
       - name: Copy NPM packages from the Shell container to the CI Host
         run: sudo docker cp shell:/app/node_modules ./node_modules
+      - name: Install deps as sudo
+        run: sudo yarn
       - name: Run Cypress tests for @neonlaw/interface
         uses: cypress-io/github-action@v2
         with:
+          command: sudo yarn workspace @neonlaw/interface e2e
           working-directory: ./packages/interface
         env:
           CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
