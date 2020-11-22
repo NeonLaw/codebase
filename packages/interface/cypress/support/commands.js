@@ -120,3 +120,29 @@ Cypress.Commands.add('loginAsAdminUser', () => {
     window.localStorage.setItem(key, JSON.stringify(auth0Cache));
   });
 });
+
+// commands.js
+Cypress.Commands.add('getEditor', (selector) => {
+  return cy.get(`${selector} [contenteditable]`)
+    .click();
+});
+
+Cypress.Commands.add('typeInSlate', { prevSubject: true }, (subject, text) => {
+  return cy.wrap(subject)
+    .then(subject => {
+      subject[0].dispatchEvent(
+        new InputEvent('beforeinput', { data: text, inputType: 'insertText' })
+      );
+      return subject;
+    });
+});
+
+Cypress.Commands.add('clearInSlate', { prevSubject: true }, (subject) => {
+  return cy.wrap(subject)
+    .then(subject => {
+      subject[0].dispatchEvent(
+        new InputEvent('beforeinput', { inputType: 'deleteHardLineBackward' })
+      );
+      return subject;
+    });
+});

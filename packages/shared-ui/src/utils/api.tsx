@@ -4438,7 +4438,7 @@ export type CreateFlashcardMutation = (
     { __typename?: 'CreateFlashcardPayload' }
     & { flashcard?: Maybe<(
       { __typename?: 'Flashcard' }
-      & Pick<Flashcard, 'id' | 'answer' | 'prompt'>
+      & Pick<Flashcard, 'id' | 'answer' | 'prompt' | 'createdAt' | 'updatedAt'>
     )> }
   )> }
 );
@@ -4665,6 +4665,8 @@ export const CreateFlashcardDocument = gql`
       id
       answer
       prompt
+      createdAt
+      updatedAt
     }
   }
 }

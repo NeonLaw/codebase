@@ -64,11 +64,14 @@ export const Textarea = ({
               value={value || placeholderSlate}
               renderElement={renderElement}
               onChange={onChange}
-              children={<Editable editor={editor} />}
+              children={
+                <Box data-testId={testId}>
+                  <Editable editor={editor} />
+                </Box>
+              }
             />
           );
         }}
-        data-testid={testId}
         name={name}
         placeholder={placeholder}
         label={label}

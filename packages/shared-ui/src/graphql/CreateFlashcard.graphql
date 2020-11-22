@@ -4,6 +4,8 @@ mutation CreateFlashcard($answer: String!, $prompt: String!) {
       id
       answer
       prompt
+      createdAt
+      updatedAt
     }
   }
 }

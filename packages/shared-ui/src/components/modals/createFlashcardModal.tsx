@@ -14,10 +14,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { StringInput, Textarea } from '../inputs';
 import { colors, gutters } from '../../themes/neonLaw';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
-
 import { FlashButton } from '../button';
 import { SubmissionInProgress } from '../submission-in-progress';
-import { gql } from '@apollo/client';
+import { convertSlateToPlaintext } from '../../utils/slate';
 import { useCreateFlashcardMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
@@ -27,29 +26,7 @@ import { useOS } from '../../utils/useOS';
 export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
   const intl = useIntl();
 
-  const [createFlashcard, { loading }] = useCreateFlashcardMutation({
-    update(cache, { data }) {
-      cache.modify({
-        fields: {
-          allFlashcards(existingFlashCards = []) {
-            const newFlashCardRef = cache.writeFragment({
-              data: data?.createFlashcard,
-              fragment: gql`
-                fragment NewFlashcard on Flashcard {
-                  flashcard {
-                    id
-                    answer
-                    prompt
-                  }
-                }
-              `,
-            });
-            return [...existingFlashCards.nodes, newFlashCardRef];
-          },
-        },
-      });
-    },
-  });
+  const [createFlashcard, { loading }] = useCreateFlashcardMutation();
 
   const { control, handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -59,7 +36,8 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
   const OS = useOS();
   const isCPressed = useKeyPressed((e: KeyboardEvent) => e.key === 'c');
 
-  const onSubmit = async ({ answer, prompt }) => {
+  const onSubmit = async ({ answer: slateAnswer, prompt }) => {
+    const answer = convertSlateToPlaintext(slateAnswer);
     await createFlashcard({ variables: { answer, prompt } })
       .then(async () => {
         setFormError('');
@@ -107,7 +85,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
       <ModalOverlay>
         <ModalContent
-          data-testid="create-flashcard-modal"
+          data-testid="create-flashcard-form"
           margin="8em 2em 0 2em"
         >
           <ModalHeader
@@ -127,7 +105,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
               {formError}
               <StringInput
                 name="prompt"
-                testId="create-flashcard-modal-prompt"
+                testId="create-flashcard-form-prompt"
                 label={intl.formatMessage({ id: 'forms.prompt.label' })}
                 errors={errors}
                 placeholder={intl.formatMessage({
@@ -143,7 +121,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
               <Textarea
                 control={control}
                 name="answer"
-                testId="create-flashcard-modal-answer"
+                testId="create-flashcard-form-answer"
                 label={intl.formatMessage({ id: 'forms.answer.label' })}
                 errors={errors}
                 placeholder={intl.formatMessage({
@@ -155,7 +133,7 @@ export const CreateFlashcardModal = ({ isOpen, onClose, onOpen }) => {
             <ModalFooter>
               <FlashButton
                 type="submit"
-                data-testid="create-flashcard-modal-submit"
+                data-testid="create-flashcard-form-submit"
                 isDisabled={isSubmitting || loading}
                 containerStyles={{width: '100%'}}
                 styles={{width: '100%'}}
