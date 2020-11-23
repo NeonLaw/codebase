@@ -31,7 +31,7 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^6.11.3",
     "react-icons": "^3.11.0",
-    "react-select": "^3.1.0",
+    "react-select": "^3.1.1",
     "react-sortable-hoc": "^1.11.0",
     "react-table": "^7.6.2",
     "sharp": "^0.26.2",
