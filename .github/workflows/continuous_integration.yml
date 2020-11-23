@@ -67,7 +67,7 @@ jobs:
       - name: Check api.tsx file against development server
         run: |
           docker exec shell yarn graphql-codegen
-          git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
+          git diff -G. --exit-code ./packages/shared-ui/src/utils/api.tsx
       - name: Run Jest tests and publish coverage to Code Climate.
         uses: paambaati/codeclimate-action@v2.6.0
         env:
