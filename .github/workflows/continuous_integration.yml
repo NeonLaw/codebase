@@ -24,7 +24,7 @@ jobs:
           username: ${{ secrets.GPR_USERNAME }}
           password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
       - name: Start Docker Compose
-        run: docker-compose up -d shell interface
+        run: docker-compose up -d
         env:
           AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
           AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
