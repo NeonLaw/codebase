@@ -34,11 +34,11 @@ jobs:
           sudo chmod 777 -R ./
           yarn install
       - name: Lint Markdown files.
-        run: docker exec yarn markdown-lint
+        run: docker exec shell yarn markdown-lint
       - name: Lint JavaScript files.
-        run: docker exec yarn lint
+        run: docker exec shell yarn lint
       - name: Type-check TypeScript Files.
-        run: docker exec yarn check-types
+        run: docker exec shell yarn check-types
       - name: Run Cypress tests for @neonlaw/interface
         uses: cypress-io/github-action@v2
         with:
@@ -63,7 +63,7 @@ jobs:
           project: neonlaw/codebase
       - name: Check api.tsx file against development server
         run: |
-          docker exec yarn graphql-codegen
+          docker exec shell yarn graphql-codegen
           git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
       - name: Run Jest tests and publish coverage to Code Climate.
         uses: paambaati/codeclimate-action@v2.6.0
