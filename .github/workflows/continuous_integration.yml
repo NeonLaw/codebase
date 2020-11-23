@@ -42,6 +42,12 @@ jobs:
         run: docker exec shell yarn lint
       - name: Type-check TypeScript Files.
         run: docker exec shell yarn check-types
+      - name: Run Jest tests and publish coverage to Code Climate.
+        uses: paambaati/codeclimate-action@v2.6.0
+        env:
+          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+        with:
+          coverageCommand: docker exec shell yarn test
       - name: Run Cypress tests for @neonlaw/interface
         uses: cypress-io/github-action@v2
         with:
@@ -68,9 +74,15 @@ jobs:
         run: |
           docker exec shell yarn graphql-codegen
           git diff -G. --exit-code ./packages/shared-ui/src/utils/api.tsx
-      - name: Run Jest tests and publish coverage to Code Climate.
-        uses: paambaati/codeclimate-action@v2.6.0
-        env:
-          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+      - name: Run Cypress tests for @neonlaw/delete-your-data
+        uses: cypress-io/github-action@v2
         with:
-          coverageCommand: docker exec shell yarn test
+          wait-on: 'http://127.0.0.1:7777'
+          working-directory: ./packages/delete-your-data
+          config: baseUrl=http://127.0.0.1:7777
+        env:
+          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
+          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
+          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
+          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
+          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
