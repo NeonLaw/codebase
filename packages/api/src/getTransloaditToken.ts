@@ -20,11 +20,11 @@ export const getTransloaditToken = async (
   };
 
   // expire 1 hour from now (this must be milliseconds)
-  const expires    = utcDateString((+new Date()) + 1 * 60 * 60 * 1000);
-  const authKey    = process.env.TRANSLOADIT_KEY as string;
-  const authSecret = process.env.TRANSLOADIT_SECRET as string;
-  const apiUrl = process.env.API_URL as string;
-  const pdfTemplateId = process.env.TRANSLOADIT_PDF_TEMPLATE_ID as string;
+  const expires         = utcDateString((+new Date()) + 1 * 60 * 60 * 1000);
+  const authKey         = process.env.TRANSLOADIT_KEY as string;
+  const authSecret      = process.env.TRANSLOADIT_SECRET as string;
+  const apiUrl          = process.env.API_URL as string;
+  const pdfTemplateId   = process.env.TRANSLOADIT_PDF_TEMPLATE_ID as string;
   const imageTemplateId = process.env.TRANSLOADIT_IMAGE_TEMPLATE_ID as string;
 
   const templateId = template === 'pdf' ? pdfTemplateId : imageTemplateId;

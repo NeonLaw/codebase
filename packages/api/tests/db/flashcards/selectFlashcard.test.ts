@@ -17,7 +17,7 @@ describe('SELECT * FROM flashcard;', () => {
         await becomeAnonymousUser(pgClient);
 
         const { rows } = await pgClient.query('select * from flashcard;');
-        expect(rows.length).toEqual(1);
+        expect(rows.length).toBeGreaterThanOrEqual(1);
       })
     );
   });
@@ -30,7 +30,7 @@ describe('SELECT * FROM flashcard;', () => {
         await becomePortalUser(pgClient);
 
         const { rows } = await pgClient.query('select * from flashcard;');
-        expect(rows.length).toEqual(1);
+        expect(rows.length).toBeGreaterThanOrEqual(1);
       })
     );
   });
@@ -43,7 +43,7 @@ describe('SELECT * FROM flashcard;', () => {
         await becomeLawyerUser(pgClient);
 
         const { rows } = await pgClient.query('select * from flashcard;');
-        expect(rows.length).toEqual(1);
+        expect(rows.length).toBeGreaterThanOrEqual(1);
       })
     );
   });
@@ -56,7 +56,7 @@ describe('SELECT * FROM flashcard;', () => {
         await becomeAdminUser(pgClient);
 
         const { rows } = await pgClient.query('select * from flashcard;');
-        expect(rows.length).toEqual(1);
+        expect(rows.length).toBeGreaterThanOrEqual(1);
       })
     );
   });

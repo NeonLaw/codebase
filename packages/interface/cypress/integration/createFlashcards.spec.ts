@@ -27,9 +27,8 @@ describe('Creating Bar Prep Flashcards', () => {
         .get('[data-testid="create-flashcard-form-submit"]')
         .click();
 
-      // TODO: enable for GitHub Action
-      // cy.get('[data-testid="create-flashcard-form"]')
-      //   .should('not.exist');
+      cy.get('[data-testid="create-flashcard-form"]')
+        .should('not.exist');
     });
   });
 });

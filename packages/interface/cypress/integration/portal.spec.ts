@@ -32,10 +32,9 @@ describe('Visiting /portal', () => {
         cy.get('[data-testid="update-person-form-accessible-buttons"]').click();
         cy.get('[data-testid="update-person-form-submit"]').click();
 
-        // TODO: get this working on GitHub Actions
-        // cy.get('[data-testid="update-person-modal"]').should('not.exist');
-        // cy.get('[data-testid="portal-profile-card-name"]').
-        //   should('contain', name);
+        cy.get('[data-testid="update-person-modal"]').should('not.exist');
+        cy.get('[data-testid="portal-profile-card-name"]').
+          should('contain', name);
       });
     });
   });

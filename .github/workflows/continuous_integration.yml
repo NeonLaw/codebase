@@ -24,22 +24,36 @@ jobs:
           username: ${{ secrets.GPR_USERNAME }}
           password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
       - name: Start Docker Compose
-        run: docker-compose up -d
+        run: docker-compose up -d shell interface
         env:
           COMPOSE_HTTP_TIMEOUT: 300
       - name: Install depedencies
-        run: docker exec shell yarn --cache-folder ./node_modules
+        run: |
+          docker exec shell yarn install
+          docker cp shell:/app/node_modules ./node_modules
+          sudo chmod 777 -R ./
+          yarn install
       - name: Lint Markdown files.
-        run: docker exec shell yarn markdown-lint
+        run: docker exec yarn markdown-lint
       - name: Lint JavaScript files.
-        run: docker exec shell yarn lint
+        run: docker exec yarn lint
       - name: Type-check TypeScript Files.
-        run: docker exec shell yarn check-types
-      - name: Run Migrations
-        run: docker exec shell yarn migrate
-        working-directory: ./packages/api
+        run: docker exec yarn check-types
+      - name: Run Cypress tests for @neonlaw/interface
+        uses: cypress-io/github-action@v2
+        with:
+          record: true
+          wait-on-timeout: 300
+          wait-on: 'http://127.0.0.1:8000'
+          working-directory: ./packages/interface
         env:
-          DATABASE_URL: postgres://postgres:password@127.0.0.1:5432/neon_law
+          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
+          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
+          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
+          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
+          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
       - name: Run PGRita checks
         uses: pgrita/action@main
         env:
@@ -47,28 +61,13 @@ jobs:
           DATABASE_URL: postgres://postgres:password@127.0.0.1:5432/postgres
         with:
           project: neonlaw/codebase
+      - name: Check api.tsx file against development server
+        run: |
+          docker exec yarn graphql-codegen
+          git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
       - name: Run Jest tests and publish coverage to Code Climate.
         uses: paambaati/codeclimate-action@v2.6.0
         env:
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
         with:
           coverageCommand: docker exec shell yarn test
-      - name: Check api.tsx file against staging server
-        run: |
-          docker exec shell yarn graphql-codegen
-          git diff --exit-code ./packages/shared-ui/src/utils/api.tsx
-      - name: Copy NPM packages from the Shell container to the CI Host
-        run: sudo docker cp shell:/app/node_modules ./node_modules
-      - name: Install chmod local directory to 777
-        run: sudo chmod 777 -R ./
-      - name: Run Cypress tests for @neonlaw/interface
-        uses: cypress-io/github-action@v2
-        with:
-          working-directory: ./packages/interface
-          wait-on: 'http://127.0.0.1:8000'
-        env:
-          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
-          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
-          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
-          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
-          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}

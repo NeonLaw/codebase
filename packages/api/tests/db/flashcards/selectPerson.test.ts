@@ -60,7 +60,7 @@ describe('SELECT * FROM person;', () => {
 
         const { rows } = await pgClient.query('select * from person;');
 
-        expect(rows).toHaveLength(2);
+        expect(rows.length).toBeGreaterThanOrEqual(2);
       })
     );
   });
