@@ -32,10 +32,10 @@ jobs:
           COMPOSE_HTTP_TIMEOUT: 300
       - name: Install depedencies
         run: |
-          docker exec shell yarn install
+          docker exec shell yarn install --frozen-lockfile
           sudo docker cp shell:/app/node_modules ./
           sudo chmod 777 -R ./
-          yarn install
+          yarn install --frozen-lockfile
       - name: Lint Markdown files.
         run: docker exec shell yarn markdown-lint
       - name: Lint JavaScript files.
