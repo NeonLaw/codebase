@@ -1,0 +1,21 @@
+mutation UpdateDocumentTemplateById(
+  $id: UUID!
+  $name: String
+  $javascriptModule: String
+) {
+  updateDocumentTemplateById(
+    input: {
+      documentTemplatePatch: {
+        name: $name
+        javascriptModule: $javascriptModule
+      }
+      id: $id
+    }
+  ) {
+    documentTemplate {
+      id
+      name
+      javascriptModule
+    }
+  }
+}

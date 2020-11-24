@@ -8,11 +8,11 @@ import {
 } from '@neonlaw/shared-ui/src/components/cards/portalProfileCard';
 import React from 'react';
 import {
-  UpdateProfileModal
-} from '@neonlaw/shared-ui/src/forms/updateProfileModal';
+  UpdatePersonModal
+} from '@neonlaw/shared-ui/src/forms/updatePersonModal';
 import styled from '@emotion/styled';
 
-const StyledPortalProfilePage = styled.div`
+const StyledPortalPersonPage = styled.div`
   max-width: ${sizes.textContainerSmall};
 
   & > * {
@@ -20,16 +20,16 @@ const StyledPortalProfilePage = styled.div`
   }
 `;
 
-const PortalProfilePage = () => {
+const PortalPersonPage = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
 
   return (
     <PortalLayout>
-      <StyledPortalProfilePage>
+      <StyledPortalPersonPage>
         <Heading
           fontWeight="normal"
         >
-          Your Profile
+          Your Person
         </Heading>
         <PortalProfileCard />
         <FlashButton
@@ -38,15 +38,15 @@ const PortalProfilePage = () => {
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
         >
-          Update Profile
+          Update Person
         </FlashButton>
-        <UpdateProfileModal
+        <UpdatePersonModal
           isOpen={isOpen}
           onClose={onClose}
         />
-      </StyledPortalProfilePage>
+      </StyledPortalPersonPage>
     </PortalLayout>
   );
 };
 
-export default PortalProfilePage;
+export default PortalPersonPage;

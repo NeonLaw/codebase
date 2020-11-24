@@ -32,6 +32,24 @@ const AdminDashboard = () => {
         >
           Questions
         </FlashButton>
+
+        <FlashButton
+          colorScheme="gray"
+          onClick={() => {
+            navigate('/admin/document-templates');
+          }}
+        >
+          Document Templates
+        </FlashButton>
+
+        <FlashButton
+          colorScheme="gray"
+          onClick={() => {
+            navigate('/admin/matter-templates');
+          }}
+        >
+          Matter Templates
+        </FlashButton>
       </Box>
     </PortalLayout>
   );

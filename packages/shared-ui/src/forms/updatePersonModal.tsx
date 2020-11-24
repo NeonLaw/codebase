@@ -17,7 +17,7 @@ import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useUpdatePersonByIdMutation } from '../utils/api';
 
-export const UpdateProfileModal = ({ isOpen, onClose }) => {
+export const UpdatePersonModal = ({ isOpen, onClose }) => {
   const intl = useIntl();
   const { data } = useCurrentUserQuery();
 
@@ -49,7 +49,7 @@ export const UpdateProfileModal = ({ isOpen, onClose }) => {
             fontSize={theme.fontSizes['xl0']}
             color={colors.text[colorMode]}
           >
-            Update Profile
+            Update Person
           </ModalHeader>
           <ModalCloseButton style={{ color: colors.text[colorMode] }} />
 
@@ -85,7 +85,7 @@ export const UpdateProfileModal = ({ isOpen, onClose }) => {
                 isDisabled={isSubmitting || loading}
                 containerStyles={{ margin: `${gutters.xSmallOne} 0` }}
               >
-                Update Profile <SubmissionInProgress loading={loading} />
+                Update Person <SubmissionInProgress loading={loading} />
               </FlashButton>
             </ModalBody>
           </form>

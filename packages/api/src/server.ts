@@ -1,8 +1,9 @@
 import 'dotenv/config';
 import * as expressWinston from 'express-winston';
+import * as fs from 'fs';
 import * as winston from 'winston';
+import * as yaml from 'js-yaml';
 import cors from 'cors';
-import { default as englishTranslations } from './en.json';
 import express from 'express';
 import { expressJwtSecret } from 'jwks-rsa';
 import { findOrCreatePerson } from './findOrCreatePerson';
@@ -11,7 +12,6 @@ import newrelic from 'newrelic';
 import { postgraphile } from 'postgraphile';
 import { postgraphileOptions } from './postgraphileOptions';
 import { postgresUrl } from './postgresUrl';
-import { default as spanishTranslations } from './es.json';
 import { v4 as uuidv4 } from 'uuid';
 
 const checkJwt = jwt({
@@ -105,10 +105,16 @@ app.use(postgraphile(postgresUrl, 'public', postgraphileOptions));
 app.use('/api/graphql', endNewRelicTransaction);
 
 app.get('/api/en.json', function (_, res) {
+  const englishTranslations = yaml.load(
+    fs.readFileSync(`${__dirname}/locales/en.yaml`, {encoding: 'utf-8'})
+  );
   res.json(englishTranslations);
 });
 
 app.get('/api/es.json', function (_, res) {
+  const spanishTranslations = yaml.load(
+    fs.readFileSync(`${__dirname}/locales/es.yaml`, {encoding: 'utf-8'})
+  );
   res.json(spanishTranslations);
 });
 

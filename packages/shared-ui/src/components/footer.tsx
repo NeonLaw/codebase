@@ -104,6 +104,12 @@ export const Footer = ({ isWhite, currentSite, fathomLink }: FooterProps) => {
                 i18nMessage="footer.pro_bono"
                 path="/pro-bono"
               />
+              <FooterLink
+                currentSite={currentSite}
+                site="neon-law"
+                i18nMessage="footer.upward_mobility"
+                path="/upward-mobility"
+              />
             </Flex>
             <Spacer />
             <Flex direction="column">

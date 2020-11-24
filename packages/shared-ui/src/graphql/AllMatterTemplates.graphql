@@ -1,0 +1,9 @@
+query AllMatterTemplates {
+  allMatterTemplates(orderBy: NAME_ASC) {
+    nodes {
+      id
+      name
+      javascriptModule
+    }
+  }
+}

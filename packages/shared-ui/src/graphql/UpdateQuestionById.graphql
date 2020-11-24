@@ -1,8 +1,8 @@
 mutation UpdateQuestionById(
   $id: UUID!
   $options: [String]
-  $questionType: String!
-  $prompt: String!
+  $questionType: String
+  $prompt: String
 ) {
   updateQuestionById(
     input: {

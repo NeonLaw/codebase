@@ -1,0 +1,9 @@
+query AllDocumentTemplates {
+  allDocumentTemplates(orderBy: NAME_ASC) {
+    nodes {
+      id
+      name
+      javascriptModule
+    }
+  }
+}

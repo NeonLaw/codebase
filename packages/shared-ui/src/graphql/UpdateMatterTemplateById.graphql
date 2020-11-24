@@ -1,0 +1,18 @@
+mutation UpdateMatterTemplateById(
+  $id: UUID!
+  $name: String
+  $javascriptModule: String
+) {
+  updateMatterTemplateById(
+    input: {
+      matterTemplatePatch: { name: $name, javascriptModule: $javascriptModule }
+      id: $id
+    }
+  ) {
+    matterTemplate {
+      id
+      name
+      javascriptModule
+    }
+  }
+}

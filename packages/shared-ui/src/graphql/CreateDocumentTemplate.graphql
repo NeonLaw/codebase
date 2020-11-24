@@ -1,0 +1,13 @@
+mutation CreateDocumentTemplate($name: String!, $javascriptModule: String!) {
+  createDocumentTemplate(
+    input: {
+      documentTemplate: { name: $name, javascriptModule: $javascriptModule }
+    }
+  ) {
+    documentTemplate {
+      id
+      name
+      javascriptModule
+    }
+  }
+}

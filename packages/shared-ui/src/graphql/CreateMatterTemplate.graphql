@@ -1,0 +1,13 @@
+mutation CreateMatterTemplate($name: String!, $javascriptModule: String!) {
+  createMatterTemplate(
+    input: {
+      matterTemplate: { name: $name, javascriptModule: $javascriptModule }
+    }
+  ) {
+    matterTemplate {
+      id
+      name
+      javascriptModule
+    }
+  }
+}
