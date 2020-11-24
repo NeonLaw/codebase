@@ -36,7 +36,7 @@
     "gatsby-source-filesystem": "^2.5.0",
     "gatsby-source-graphql": "^2.8.0",
     "gatsby-source-remote-file": "^0.2.1",
-    "gatsby-transformer-sharp": "^2.6.0",
+    "gatsby-transformer-sharp": "^2.7.0",
     "graphql-tag": "^2.11.0",
     "isomorphic-fetch": "^3.0.0",
     "jwt-decode": "^3.1.2",
