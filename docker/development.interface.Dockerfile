@@ -9,6 +9,7 @@ COPY yarn.lock .
 RUN yarn install \
   --silent \
   --ignore-optional \
+  --frozen-lockfile \
   --prefer-offline \
   --cache-folder ./node_modules
 
