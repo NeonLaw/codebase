@@ -18,6 +18,20 @@ This is a monorepo containing these folders:
 
 ## Running Locally
 
+### Native Setup
+
+If you are planning on working on just front-end code, you can spin up a Gatsby
+development server on your machine and point that to our staging server with the
+following command. This assumes you already have node, yarn, and python
+installed on your machine.
+
+```bash
+GATSBY_API_URL=https://www.neonlaw.net/api/graphql \
+  yarn workspace @neonlaw/interface dev
+```
+
+### Dockerized Setup
+
 We recommend developing with a containerized setup that best mimic our staging
 and production process. If you have docker and docker-compose installed on
 your machine, you can follow these two steps to start developing.

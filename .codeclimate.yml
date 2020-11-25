@@ -1,8 +1,8 @@
 version: "2"
 exclude_patterns:
-  - "**.spec.ts"
-  - "**.test.ts"
-  - "**.test.tsx"
+  - "**/*.spec.ts"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
   - "**/*.jpg"
   - "**/*.pdf"
   - "**/*.png"
