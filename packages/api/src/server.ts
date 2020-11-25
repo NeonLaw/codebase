@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import * as expressWinston from 'express-winston';
 import * as fs from 'fs';
+import * as rateLimit from 'express-rate-limit';
 import * as winston from 'winston';
 import * as yaml from 'js-yaml';
 import cors from 'cors';
@@ -102,7 +103,19 @@ app.use('/api/graphql', beginNewRelicTransaction);
 
 app.use(postgraphile(postgresUrl, 'public', postgraphileOptions));
 
+app.get('/api/process-transloadit-notifications', function (req, res) {
+  console.log(req);
+  res.send('logged Transloadit notification');
+});
+
 app.use('/api/graphql', endNewRelicTransaction);
+
+const limiter = rateLimit({
+  max: 5,
+  windowMs: 60 * 1000,
+});
+
+app.use(limiter);
 
 app.get('/api/en.json', function (_, res) {
   const englishTranslations = yaml.load(
@@ -116,11 +129,6 @@ app.get('/api/es.json', function (_, res) {
     fs.readFileSync(`${__dirname}/locales/es.yaml`, {encoding: 'utf-8'})
   );
   res.json(spanishTranslations);
-});
-
-app.get('/api/process-transloadit-notifications', function (req, res) {
-  console.log(req);
-  res.send('logged Transloadit notification');
 });
 
 app.listen(3000);
