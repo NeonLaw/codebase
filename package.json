@@ -18,7 +18,7 @@
         "@graphql-codegen/typescript-operations": "^1.17.9",
         "@graphql-codegen/typescript-react-apollo": "^2.1.1",
         "@testing-library/cypress": "^7.0.1",
-        "@testing-library/jest-dom": "^5.11.5",
+        "@testing-library/jest-dom": "^5.11.6",
         "@testing-library/react": "^11.1.0",
         "@types/cors": "^2.8.8",
         "@types/express": "^4.17.9",
