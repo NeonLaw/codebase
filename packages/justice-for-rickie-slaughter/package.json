@@ -7,7 +7,7 @@
   "dependencies": {
     "@apollo/client": "3.2.7",
     "@chakra-ui/core": "1.0.0-rc.8",
-    "@chakra-ui/icons": "1.0.0",
+    "@chakra-ui/icons": "1.0.1",
     "@hookform/error-message": "^0.0.4",
     "@mdx-js/mdx": "^1.6.21",
     "@mdx-js/react": "^1.6.21",
