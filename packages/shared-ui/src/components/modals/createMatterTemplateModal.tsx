@@ -16,7 +16,6 @@ import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 import { FlashButton } from '../button';
 import { StringInput } from '../inputs';
 import { SubmissionInProgress } from '../submission-in-progress';
-import { gql } from '@apollo/client';
 import { useCreateMatterTemplateMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
@@ -26,29 +25,7 @@ import { useOS } from '../../utils/useOS';
 export const CreateMatterTemplateModal = ({ isOpen, onClose, onOpen }) => {
   const intl = useIntl();
 
-  const [createMatterTemplate, { loading }] = useCreateMatterTemplateMutation({
-    update(cache, { data }) {
-      cache.modify({
-        fields: {
-          allMatterTemplates(existingFlashCards = []) {
-            const newFlashCardRef = cache.writeFragment({
-              data: data?.createMatterTemplate,
-              fragment: gql`
-                fragment NewMatterTemplate on MatterTemplate {
-                  question {
-                    id
-                    answer
-                    prompt
-                  }
-                }
-              `,
-            });
-            return [...existingFlashCards.nodes, newFlashCardRef];
-          },
-        },
-      });
-    },
-  });
+  const [createMatterTemplate, { loading }] = useCreateMatterTemplateMutation();
 
   const { handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -111,7 +88,7 @@ export const CreateMatterTemplateModal = ({ isOpen, onClose, onOpen }) => {
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
       <ModalOverlay>
         <ModalContent
-          data-testid="create-question-modal"
+          data-testid="create-matter-template-modal"
           margin="8em 2em 0 2em"
         >
           <ModalHeader
@@ -119,10 +96,11 @@ export const CreateMatterTemplateModal = ({ isOpen, onClose, onOpen }) => {
             fontSize={theme.fontSizes['xl0']}
             color={colors.text[colorMode]}
           >
-            Create a MatterTemplate
+            Create a Matter Template
           </ModalHeader>
           <ModalCloseButton style={{ color: colors.text[colorMode] }} />
           <form
+            data-testid="create-matter-template-form"
             onSubmit={handleSubmit(onSubmit as any)}
             style={{ color: colors.text[colorMode] }}
             ref={formRef}
@@ -131,7 +109,7 @@ export const CreateMatterTemplateModal = ({ isOpen, onClose, onOpen }) => {
               {formError}
               <StringInput
                 name="name"
-                testId="create-matter-template-modal-name"
+                testId="create-matter-template-form-name"
                 label={intl.formatMessage({ id: 'forms.name.label' })}
                 errors={errors}
                 placeholder={intl.formatMessage({
@@ -146,17 +124,17 @@ export const CreateMatterTemplateModal = ({ isOpen, onClose, onOpen }) => {
               />
               <StringInput
                 name="javascriptModule"
-                testId="create-matter-template-modal-javascript-module"
+                testId="create-matter-template-form-javascript-module"
                 label={
-                  intl.formatMessage({ id: 'forms.javascriptModule.label' })
+                  intl.formatMessage({ id: 'forms.javascript_module.label' })
                 }
                 errors={errors}
                 placeholder={intl.formatMessage({
-                  id: 'forms.javascriptModule.placeholder',
+                  id: 'forms.javascript_module.placeholder',
                 })}
                 register={register({
                   required: intl.formatMessage({
-                    id: 'forms.javascriptModule.required',
+                    id: 'forms.javascript_module.required',
                   }),
                 })}
                 styles={{ marginBottom: gutters.xSmall }}
@@ -166,7 +144,7 @@ export const CreateMatterTemplateModal = ({ isOpen, onClose, onOpen }) => {
             <ModalFooter>
               <FlashButton
                 type="submit"
-                data-testid="create-question-modal-submit"
+                data-testid="create-matter-template-form-submit"
                 isDisabled={isSubmitting || loading}
                 containerStyles={{width: '100%'}}
                 styles={{width: '100%'}}

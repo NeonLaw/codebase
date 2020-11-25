@@ -32,7 +32,8 @@ const AdminDocumentTemplates = () => {
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
         >
-          Create Document Template &nbsp;<Kbd
+          Create Document Template&nbsp;
+          <Kbd
             background="inherit"
             border="1px solid #bbb"
             transition="all .2s"

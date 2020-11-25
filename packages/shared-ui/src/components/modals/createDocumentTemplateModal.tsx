@@ -16,7 +16,6 @@ import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 import { FlashButton } from '../button';
 import { StringInput } from '../inputs';
 import { SubmissionInProgress } from '../submission-in-progress';
-import { gql } from '@apollo/client';
 import { useCreateDocumentTemplateMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
@@ -29,29 +28,7 @@ export const CreateDocumentTemplateModal = ({ isOpen, onClose, onOpen }) => {
   const [
     createDocumentTemplate,
     { loading }
-  ] = useCreateDocumentTemplateMutation({
-    update(cache, { data }) {
-      cache.modify({
-        fields: {
-          allDocumentTemplates(existingFlashCards = []) {
-            const newFlashCardRef = cache.writeFragment({
-              data: data?.createDocumentTemplate,
-              fragment: gql`
-                fragment NewDocumentTemplate on DocumentTemplate {
-                  documentTemplate {
-                    id
-                    answer
-                    prompt
-                  }
-                }
-              `,
-            });
-            return [...existingFlashCards.nodes, newFlashCardRef];
-          },
-        },
-      });
-    },
-  });
+  ] = useCreateDocumentTemplateMutation();
 
   const { handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -114,7 +91,7 @@ export const CreateDocumentTemplateModal = ({ isOpen, onClose, onOpen }) => {
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
       <ModalOverlay>
         <ModalContent
-          data-testid="create-documentTemplate-modal"
+          data-testid="create-document-template-form"
           margin="8em 2em 0 2em"
         >
           <ModalHeader
@@ -134,7 +111,7 @@ export const CreateDocumentTemplateModal = ({ isOpen, onClose, onOpen }) => {
               {formError}
               <StringInput
                 name="name"
-                testId="create-document-template-modal-name"
+                testId="create-document-template-form-name"
                 label={intl.formatMessage({ id: 'forms.name.label' })}
                 errors={errors}
                 placeholder={intl.formatMessage({
@@ -149,7 +126,7 @@ export const CreateDocumentTemplateModal = ({ isOpen, onClose, onOpen }) => {
               />
               <StringInput
                 name="javascriptModule"
-                testId="create-document-template-modal-javascript-module"
+                testId="create-document-template-form-javascript-module"
                 label={
                   intl.formatMessage({ id: 'forms.javascriptModule.label' })
                 }
@@ -169,7 +146,7 @@ export const CreateDocumentTemplateModal = ({ isOpen, onClose, onOpen }) => {
             <ModalFooter>
               <FlashButton
                 type="submit"
-                data-testid="create-documentTemplate-modal-submit"
+                data-testid="create-document-template-form-submit"
                 isDisabled={isSubmitting || loading}
                 containerStyles={{width: '100%'}}
                 styles={{width: '100%'}}

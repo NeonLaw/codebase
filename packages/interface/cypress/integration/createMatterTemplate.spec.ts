@@ -11,7 +11,7 @@ describe('Creating Matter Templates', () => {
 
         cy.wait(1000);
 
-        cy.contains('Create Document Template').click();
+        cy.contains('Create Matter Template').click();
 
         cy.wait(1000);
 
@@ -19,11 +19,12 @@ describe('Creating Matter Templates', () => {
           .should('exist');
 
         cy
-          .get('[data-testid="create-matter-template-name"]')
+          .get('[data-testid="create-matter-template-form-name"]')
           .type(faker.lorem.sentence());
 
-        cy.get('[data-testid="create-matter-template-javascript-module"]')
-          .type(faker.lorem.sentence());
+        cy.get(
+          '[data-testid="create-matter-template-form-javascript-module"]'
+        ).type(faker.lorem.sentence());
 
         cy
           .get('[data-testid="create-matter-template-form-submit"]')

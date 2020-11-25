@@ -19,11 +19,12 @@ describe('Creating Document Templates', () => {
           .should('exist');
 
         cy
-          .get('[data-testid="create-document-template-name"]')
+          .get('[data-testid="create-document-template-form-name"]')
           .type(faker.lorem.sentence());
 
-        cy.get('[data-testid="create-document-template-javascript-module"]')
-          .type(faker.lorem.sentence());
+        cy.get(
+          '[data-testid="create-document-template-form-javascript-module"]'
+        ).type(faker.lorem.sentence());
 
         cy
           .get('[data-testid="create-document-template-form-submit"]')
