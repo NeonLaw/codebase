@@ -1,7 +1,6 @@
 import 'dotenv/config';
 import * as expressWinston from 'express-winston';
 import * as fs from 'fs';
-import * as rateLimit from 'express-rate-limit';
 import * as winston from 'winston';
 import * as yaml from 'js-yaml';
 import cors from 'cors';
@@ -13,6 +12,7 @@ import newrelic from 'newrelic';
 import { postgraphile } from 'postgraphile';
 import { postgraphileOptions } from './postgraphileOptions';
 import { postgresUrl } from './postgresUrl';
+import rateLimit from 'express-rate-limit';
 import { v4 as uuidv4 } from 'uuid';
 
 const checkJwt = jwt({
