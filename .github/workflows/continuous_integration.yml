@@ -12,6 +12,13 @@ on:
 jobs:
   test_suite:
     runs-on: ubuntu-latest
+    env:
+      NPM_CONFIG_USER: root
+      CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
+      CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
+      CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
+      CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
+      CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -33,8 +40,7 @@ jobs:
       - name: Install depedencies
         run: |
           docker exec shell yarn install --frozen-lockfile
-          sudo docker cp shell:/app/node_modules ./
-          sudo chmod 777 -R ./
+          sudo chown -R $USER .
           yarn install --frozen-lockfile
       - name: Lint Markdown files.
         run: docker exec shell yarn markdown-lint
@@ -56,11 +62,6 @@ jobs:
           wait-on: 'http://127.0.0.1:8000'
           working-directory: ./packages/interface
         env:
-          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
-          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
-          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
-          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
-          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
       - name: Run PGRita checks
@@ -80,21 +81,9 @@ jobs:
           wait-on: 'http://127.0.0.1:7777'
           working-directory: ./packages/delete-your-data
           config: baseUrl=http://127.0.0.1:7777
-        env:
-          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
-          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
-          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
-          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
-          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
       - name: Run Cypress tests for @neonlaw/justice-for-rickie-slaughter
         uses: cypress-io/github-action@v2
         with:
           wait-on: 'http://127.0.0.1:7000'
           working-directory: ./packages/justice-for-rickie-slaughter
           config: baseUrl=http://127.0.0.1:7000
-        env:
-          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
-          CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
-          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
-          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
-          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
