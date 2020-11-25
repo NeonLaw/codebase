@@ -17,7 +17,6 @@ import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 
 import { FlashButton } from '../button';
 import { SubmissionInProgress } from '../submission-in-progress';
-import { gql } from '@apollo/client';
 import { useCreateQuestionMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
@@ -27,29 +26,7 @@ import { useOS } from '../../utils/useOS';
 export const CreateQuestionModal = ({ isOpen, onClose, onOpen }) => {
   const intl = useIntl();
 
-  const [createQuestion, { loading }] = useCreateQuestionMutation({
-    update(cache, { data }) {
-      cache.modify({
-        fields: {
-          allQuestions(existingFlashCards = []) {
-            const newFlashCardRef = cache.writeFragment({
-              data: data?.createQuestion,
-              fragment: gql`
-                fragment NewQuestion on Question {
-                  question {
-                    id
-                    answer
-                    prompt
-                  }
-                }
-              `,
-            });
-            return [...existingFlashCards.nodes, newFlashCardRef];
-          },
-        },
-      });
-    },
-  });
+  const [createQuestion, { loading }] = useCreateQuestionMutation();
 
   const { control, handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);

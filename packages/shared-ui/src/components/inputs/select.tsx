@@ -21,10 +21,9 @@ export const Select = ({
       <FormLabel htmlFor="name">
         {label}
       </FormLabel>
-      <Box color={colors.text.light}>
+      <Box color={colors.text.light} data-testid={testId}>
         <Controller
           as={ReactSelect}
-          data-testid={testId}
           name={name}
           control={control}
           options={options}
