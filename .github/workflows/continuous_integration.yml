@@ -40,7 +40,7 @@ jobs:
       - name: Install depedencies
         run: |
           docker exec shell yarn install --frozen-lockfile
-          sudo chown -R $USER
+          sudo chown -R $USER .
           yarn install --frozen-lockfile
       - name: Lint Markdown files.
         run: docker exec shell yarn markdown-lint
