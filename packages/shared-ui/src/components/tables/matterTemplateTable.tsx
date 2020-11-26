@@ -22,7 +22,7 @@ export const MatterTemplateTable = (props: MatterTemplateTableProps) => {
       accessor: 'id',
     },
     {
-      Header: 'name',
+      Header: 'Name',
       accessor: 'name',
     },
     {

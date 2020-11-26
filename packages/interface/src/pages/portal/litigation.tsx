@@ -15,10 +15,10 @@ const LitigationPage = () => {
     <PortalLayout>
       <Box maxWidth={sizes.textContainerXSmall}>
         <Heading fontWeight="normal" marginBottom={gutters.xSmallOne}>
-          {intl.formatMessage({ id: 'pages.ligition.heading' })}
+          {intl.formatMessage({ id: 'pages.litigation.heading' })}
         </Heading>
         <Text>
-          {intl.formatMessage({ id: 'pages.ligitation.text' })}
+          {intl.formatMessage({ id: 'pages.litigation.text' })}
         </Text>
       </Box>
     </PortalLayout>

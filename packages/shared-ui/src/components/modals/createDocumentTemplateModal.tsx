@@ -99,7 +99,7 @@ export const CreateDocumentTemplateModal = ({ isOpen, onClose, onOpen }) => {
             fontSize={theme.fontSizes['xl0']}
             color={colors.text[colorMode]}
           >
-            Create a DocumentTemplate
+            Create a Document Template
           </ModalHeader>
           <ModalCloseButton style={{ color: colors.text[colorMode] }} />
           <form
@@ -128,15 +128,15 @@ export const CreateDocumentTemplateModal = ({ isOpen, onClose, onOpen }) => {
                 name="javascriptModule"
                 testId="create-document-template-form-javascript-module"
                 label={
-                  intl.formatMessage({ id: 'forms.javascriptModule.label' })
+                  intl.formatMessage({ id: 'forms.javascript_module.label' })
                 }
                 errors={errors}
                 placeholder={intl.formatMessage({
-                  id: 'forms.javascriptModule.placeholder',
+                  id: 'forms.javascript_module.placeholder'
                 })}
                 register={register({
                   required: intl.formatMessage({
-                    id: 'forms.javascriptModule.required',
+                    id: 'forms.javascript_module.required'
                   }),
                 })}
                 styles={{ marginBottom: gutters.xSmall }}

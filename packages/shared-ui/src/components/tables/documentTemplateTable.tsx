@@ -22,7 +22,7 @@ export const DocumentTemplateTable = (props: DocumentTemplateTableProps) => {
       accessor: 'id',
     },
     {
-      Header: 'name',
+      Header: 'Name',
       accessor: 'name',
     },
     {

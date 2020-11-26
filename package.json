@@ -6,6 +6,7 @@
         "packages/interface",
         "packages/justice-for-rickie-slaughter",
         "packages/law-job-resources",
+        "packages/matter-templates",
         "packages/print",
         "packages/shared-ui",
         "packages/workers"

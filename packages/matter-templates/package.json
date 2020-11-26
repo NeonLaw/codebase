@@ -1,0 +1,7 @@
+{
+  "name": "@neonlaw/matter-templates",
+  "description": "JavaScript modules to define the requirements of matters",
+  "version": "0.1.0",
+  "author": "@neonlaw",
+  "license": "PolyForm-Noncommercial-1.0.0"
+}

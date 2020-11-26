@@ -68,8 +68,8 @@ forms:
     placeholder: Enter the answer
     required: Answer is required.
   name:
-    label: Your name
-    placeholder: Enter your name
+    label: Name
+    placeholder: Enter the name
     required: Name is required.
   questionType:
     label: Question Type
@@ -79,6 +79,9 @@ forms:
     label: Prompt
     placeholder: Enter the prompt
     required: Prompt is required.
+  javascript_module:
+    label: JavaScript Module
+    placeholder: Enter the JavaScript module defined in our codebase
 contactForm:
   name:
     label: Your name
