@@ -186,3 +186,19 @@ get_started:
   sub_text: Please reach out if you need help or have any questions. We are happy
     to help you out with our services with providing legal solutions to make your
     life better.
+pages:
+  audits:
+    heading: Audits
+    text: Contact us for help ensuring that you are HIPAA or PCI compliant
+  business:
+    heading: Business
+    text: Contact us for help with your business
+  data_deletion:
+    heading: Data Deletion
+    text: Contact us for help with data deletion
+  estate:
+    heading: Estate Planning
+    text: Contact us for help with estate planning
+  litigation:
+    heading: Litigation
+    text: Contact us for help with litigation matters

@@ -64,6 +64,7 @@
     },
     "scripts": {
         "check-types": "tsc -p .",
+        "commit": "yarn workspace @neonlaw/api graphile-migrate commit",
         "docker-remove-containers": "docker container kill $(docker ps -q)",
         "docker-prune": "docker system prune -a -f --volumes",
         "e2e": "cypress run --headless --project",

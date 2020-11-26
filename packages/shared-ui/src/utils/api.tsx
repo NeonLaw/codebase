@@ -2710,6 +2710,19 @@ export type PageInfo = {
   endCursor?: Maybe<Scalars['Cursor']>;
 };
 
+/** A connection to a list of `Person` values. */
+export type PeopleConnection = {
+  __typename?: 'PeopleConnection';
+  /** A list of `Person` objects. */
+  nodes: Array<Person>;
+  /** A list of edges which contains the `Person` and cursor to aid in pagination. */
+  edges: Array<PeopleEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `Person` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
 /** A `Person` edge in the connection. */
 export type PeopleEdge = {
   __typename?: 'PeopleEdge';
@@ -2839,6 +2852,16 @@ export type PersonResponseDocumentsByAuthorIdArgs = {
   condition?: Maybe<ResponseDocumentCondition>;
 };
 
+/** A condition to be used against `Person` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export type PersonCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `email` field. */
+  email?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `sub` field. */
+  sub?: Maybe<Scalars['String']>;
+};
+
 /** Represents an update to a `Person`. Fields that are set will be updated. */
 export type PersonPatch = {
   /** The name of a person */
@@ -2939,6 +2962,8 @@ export type Query = Node & {
   allMatterDocuments?: Maybe<MatterDocumentsConnection>;
   /** Reads and enables pagination through a set of `MatterTemplate`. */
   allMatterTemplates?: Maybe<MatterTemplatesConnection>;
+  /** Reads and enables pagination through a set of `Person`. */
+  allPeople?: Maybe<PeopleConnection>;
   /** Reads and enables pagination through a set of `PublicDocument`. */
   allPublicDocuments?: Maybe<PublicDocumentsConnection>;
   /** Reads and enables pagination through a set of `Question`. */
@@ -3093,6 +3118,18 @@ export type QueryAllMatterTemplatesArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<MatterTemplatesOrderBy>>;
   condition?: Maybe<MatterTemplateCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllPeopleArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<PeopleOrderBy>>;
+  condition?: Maybe<PersonCondition>;
 };
 
 
@@ -4709,6 +4746,20 @@ export type AllMatterTemplatesQuery = (
   )> }
 );
 
+export type AllPeopleQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllPeopleQuery = (
+  { __typename?: 'Query' }
+  & { allPeople?: Maybe<(
+    { __typename?: 'PeopleConnection' }
+    & { nodes: Array<(
+      { __typename?: 'Person' }
+      & Pick<Person, 'id' | 'name' | 'email'>
+    )> }
+  )> }
+);
+
 export type AllQuestionsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -5098,6 +5149,48 @@ export function useAllMatterTemplatesLazyQuery(baseOptions?: Apollo.LazyQueryHoo
 export type AllMatterTemplatesQueryHookResult = ReturnType<typeof useAllMatterTemplatesQuery>;
 export type AllMatterTemplatesLazyQueryHookResult = ReturnType<typeof useAllMatterTemplatesLazyQuery>;
 export type AllMatterTemplatesQueryResult = Apollo.QueryResult<AllMatterTemplatesQuery, AllMatterTemplatesQueryVariables>;
+export const AllPeopleDocument = gql`
+    query AllPeople {
+  allPeople(orderBy: EMAIL_ASC) {
+    nodes {
+      id
+      name
+      email
+    }
+  }
+}
+    `;
+export type AllPeopleComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<AllPeopleQuery, AllPeopleQueryVariables>, 'query'>;
+
+    export const AllPeopleComponent = (props: AllPeopleComponentProps) => (
+      <ApolloReactComponents.Query<AllPeopleQuery, AllPeopleQueryVariables> query={AllPeopleDocument} {...props} />
+    );
+    
+
+/**
+ * __useAllPeopleQuery__
+ *
+ * To run a query within a React component, call `useAllPeopleQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllPeopleQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAllPeopleQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useAllPeopleQuery(baseOptions?: Apollo.QueryHookOptions<AllPeopleQuery, AllPeopleQueryVariables>) {
+        return Apollo.useQuery<AllPeopleQuery, AllPeopleQueryVariables>(AllPeopleDocument, baseOptions);
+      }
+export function useAllPeopleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllPeopleQuery, AllPeopleQueryVariables>) {
+          return Apollo.useLazyQuery<AllPeopleQuery, AllPeopleQueryVariables>(AllPeopleDocument, baseOptions);
+        }
+export type AllPeopleQueryHookResult = ReturnType<typeof useAllPeopleQuery>;
+export type AllPeopleLazyQueryHookResult = ReturnType<typeof useAllPeopleLazyQuery>;
+export type AllPeopleQueryResult = Apollo.QueryResult<AllPeopleQuery, AllPeopleQueryVariables>;
 export const AllQuestionsDocument = gql`
     query AllQuestions {
   allQuestions(orderBy: PROMPT_ASC) {

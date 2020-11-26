@@ -29,7 +29,7 @@ const PortalPersonPage = () => {
         <Heading
           fontWeight="normal"
         >
-          Your Person
+          Your Profile
         </Heading>
         <PortalProfileCard />
         <FlashButton
@@ -38,7 +38,7 @@ const PortalPersonPage = () => {
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
         >
-          Update Person
+          Update Profile
         </FlashButton>
         <UpdatePersonModal
           isOpen={isOpen}

@@ -15,10 +15,10 @@ const EstatePage = () => {
     <PortalLayout>
       <Box maxWidth={sizes.textContainerXSmall}>
         <Heading fontWeight="normal" marginBottom={gutters.xSmallOne}>
-          {intl.formatMessage({ id: 'pages_portal.heading' })}
+          {intl.formatMessage({ id: 'pages.estate.heading' })}
         </Heading>
         <Text>
-          {intl.formatMessage({ id: 'pages_portal.text' })}
+          {intl.formatMessage({ id: 'pages.estate.text' })}
         </Text>
       </Box>
     </PortalLayout>

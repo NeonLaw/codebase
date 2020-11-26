@@ -15,10 +15,10 @@ const DataDeletionPage = () => {
     <PortalLayout>
       <Box maxWidth={sizes.textContainerXSmall}>
         <Heading fontWeight="normal" marginBottom={gutters.xSmallOne}>
-          Data Deletion
+          {intl.formatMessage({ id: 'pages.data_deletion.text' })}
         </Heading>
         <Text>
-          {intl.formatMessage({ id: 'pages_portal.text' })}
+          {intl.formatMessage({ id: 'pages.data_deletion.text' })}
         </Text>
       </Box>
     </PortalLayout>

@@ -50,6 +50,15 @@ const AdminDashboard = () => {
         >
           Matter Templates
         </FlashButton>
+
+        <FlashButton
+          colorScheme="gray"
+          onClick={() => {
+            navigate('/admin/people');
+          }}
+        >
+          People
+        </FlashButton>
       </Box>
     </PortalLayout>
   );

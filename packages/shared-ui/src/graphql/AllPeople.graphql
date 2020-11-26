@@ -1,0 +1,9 @@
+query AllPeople {
+  allPeople(orderBy: EMAIL_ASC) {
+    nodes {
+      id
+      name
+      email
+    }
+  }
+}
