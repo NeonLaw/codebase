@@ -56,6 +56,7 @@ const AdminDashboard = () => {
           onClick={() => {
             navigate('/admin/people');
           }}
+          data-testid="admin-people-link-button"
         >
           People
         </FlashButton>
