@@ -30,6 +30,13 @@ GATSBY_API_URL=https://www.neonlaw.net/api/graphql \
   yarn workspace @neonlaw/interface dev
 ```
 
+or for the JusticeForRickieSlaughter website:
+
+```bash
+GATSBY_API_URL=https://www.neonlaw.net/api/graphql \
+  yarn workspace @neonlaw/justice-for-rickie-slaughter dev
+```
+
 ### Dockerized Setup
 
 We recommend developing with a containerized setup that best mimic our staging
