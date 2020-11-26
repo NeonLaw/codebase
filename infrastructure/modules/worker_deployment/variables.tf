@@ -31,3 +31,6 @@ variable new_relic_license_key {
 
 variable new_relic_app_name {
 }
+
+variable sendgrid_api_key {
+}

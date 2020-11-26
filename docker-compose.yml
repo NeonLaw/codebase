@@ -18,6 +18,7 @@ x-environment-variables: &environment-variables
   - ROOT_DATABASE_URL=postgres://postgres:password@postgres:5432/postgres
   - SHADOW_DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law_shadow
   - SHOW_GRAPHIQL=true
+  - SENDGRID_API_KEY=$SENDGRID_API_KEY
   - TRANSLOADIT_KEY=$TRANSLOADIT_KEY
   - TRANSLOADIT_SECRET=$TRANSLOADIT_SECRET
   - TRANSLOADIT_PDF_TEMPLATE_ID=$TRANSLOADIT_PDF_TEMPLATE_ID
