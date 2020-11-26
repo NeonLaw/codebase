@@ -5,6 +5,7 @@ describe('Viewing a list of people as an admin', () => {
     cy.loginAsAdminUser().then(() => {
       cy.visit('/admin/people');
 
+      cy.reload();
       cy.get('[data-testid="people-table"]').should('exist');
     });
   });
