@@ -4713,7 +4713,7 @@ export type AllDocumentTemplatesQuery = (
     { __typename?: 'DocumentTemplatesConnection' }
     & { nodes: Array<(
       { __typename?: 'DocumentTemplate' }
-      & Pick<DocumentTemplate, 'id' | 'name' | 'javascriptModule'>
+      & Pick<DocumentTemplate, '[object Object]' | '[object Object]' | '[object Object]'>
     )> }
   )> }
 );
@@ -4727,7 +4727,7 @@ export type AllFlashcardsQuery = (
     { __typename?: 'FlashcardsConnection' }
     & { nodes: Array<(
       { __typename?: 'Flashcard' }
-      & Pick<Flashcard, 'id' | 'prompt' | 'answer'>
+      & Pick<Flashcard, '[object Object]' | '[object Object]' | '[object Object]'>
     )> }
   )> }
 );
@@ -4741,7 +4741,7 @@ export type AllMatterTemplatesQuery = (
     { __typename?: 'MatterTemplatesConnection' }
     & { nodes: Array<(
       { __typename?: 'MatterTemplate' }
-      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule'>
+      & Pick<MatterTemplate, '[object Object]' | '[object Object]' | '[object Object]'>
     )> }
   )> }
 );
@@ -4755,7 +4755,7 @@ export type AllPeopleQuery = (
     { __typename?: 'PeopleConnection' }
     & { nodes: Array<(
       { __typename?: 'Person' }
-      & Pick<Person, 'id' | 'name' | 'email'>
+      & Pick<Person, '[object Object]' | '[object Object]' | '[object Object]'>
     )> }
   )> }
 );
@@ -4769,7 +4769,7 @@ export type AllQuestionsQuery = (
     { __typename?: 'QuestionsConnection' }
     & { nodes: Array<(
       { __typename?: 'Question' }
-      & Pick<Question, 'id' | 'options' | 'questionType' | 'prompt'>
+      & Pick<Question, '[object Object]' | '[object Object]' | '[object Object]' | '[object Object]'>
     )> }
   )> }
 );
@@ -4786,7 +4786,7 @@ export type CreateDocumentTemplateMutation = (
     { __typename?: 'CreateDocumentTemplatePayload' }
     & { documentTemplate?: Maybe<(
       { __typename?: 'DocumentTemplate' }
-      & Pick<DocumentTemplate, 'id' | 'name' | 'javascriptModule'>
+      & Pick<DocumentTemplate, '[object Object]' | '[object Object]' | '[object Object]'>
     )> }
   )> }
 );
@@ -4803,7 +4803,7 @@ export type CreateFlashcardMutation = (
     { __typename?: 'CreateFlashcardPayload' }
     & { flashcard?: Maybe<(
       { __typename?: 'Flashcard' }
-      & Pick<Flashcard, 'id' | 'answer' | 'prompt' | 'createdAt' | 'updatedAt'>
+      & Pick<Flashcard, '[object Object]' | '[object Object]' | '[object Object]' | '[object Object]' | '[object Object]'>
     )> }
   )> }
 );
@@ -4820,7 +4820,7 @@ export type CreateMatterTemplateMutation = (
     { __typename?: 'CreateMatterTemplatePayload' }
     & { matterTemplate?: Maybe<(
       { __typename?: 'MatterTemplate' }
-      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule'>
+      & Pick<MatterTemplate, '[object Object]' | '[object Object]' | '[object Object]'>
     )> }
   )> }
 );
@@ -4838,7 +4838,7 @@ export type CreateQuestionMutation = (
     { __typename?: 'CreateQuestionPayload' }
     & { question?: Maybe<(
       { __typename?: 'Question' }
-      & Pick<Question, 'id' | 'options' | 'questionType' | 'prompt'>
+      & Pick<Question, '[object Object]' | '[object Object]' | '[object Object]' | '[object Object]'>
     )> }
   )> }
 );
@@ -4850,7 +4850,7 @@ export type CurrentUserQuery = (
   { __typename?: 'Query' }
   & { getCurrentUser?: Maybe<(
     { __typename?: 'Person' }
-    & Pick<Person, 'id' | 'name' | 'email' | 'picture' | 'role' | 'flags'>
+    & Pick<Person, '[object Object]' | '[object Object]' | '[object Object]' | '[object Object]' | '[object Object]' | '[object Object]'>
   )> }
 );
 
@@ -4865,7 +4865,7 @@ export type DeleteDocumentTemplateByIdMutation = (
     { __typename?: 'DeleteDocumentTemplatePayload' }
     & { documentTemplate?: Maybe<(
       { __typename?: 'DocumentTemplate' }
-      & Pick<DocumentTemplate, 'id'>
+      & Pick<DocumentTemplate, '[object Object]'>
     )> }
   )> }
 );
@@ -4881,7 +4881,7 @@ export type DeleteFlashcardByIdMutation = (
     { __typename?: 'DeleteFlashcardPayload' }
     & { flashcard?: Maybe<(
       { __typename?: 'Flashcard' }
-      & Pick<Flashcard, 'id'>
+      & Pick<Flashcard, '[object Object]'>
     )> }
   )> }
 );
@@ -4897,7 +4897,7 @@ export type DeleteMatterTemplateByIdMutation = (
     { __typename?: 'DeleteMatterTemplatePayload' }
     & { matterTemplate?: Maybe<(
       { __typename?: 'MatterTemplate' }
-      & Pick<MatterTemplate, 'id'>
+      & Pick<MatterTemplate, '[object Object]'>
     )> }
   )> }
 );
@@ -4913,7 +4913,7 @@ export type DeleteQuestionByIdMutation = (
     { __typename?: 'DeleteQuestionPayload' }
     & { question?: Maybe<(
       { __typename?: 'Question' }
-      & Pick<Question, 'id'>
+      & Pick<Question, '[object Object]'>
     )> }
   )> }
 );
@@ -4927,7 +4927,7 @@ export type GetTransloaditTokenMutation = (
   { __typename?: 'Mutation' }
   & { getTransloaditToken?: Maybe<(
     { __typename?: 'GetTransloaditTokenPayload' }
-    & Pick<GetTransloaditTokenPayload, 'expires' | 'signature'>
+    & Pick<GetTransloaditTokenPayload, '[object Object]' | '[object Object]'>
   )> }
 );
 
@@ -4944,7 +4944,7 @@ export type UpdateDocumentTemplateByIdMutation = (
     { __typename?: 'UpdateDocumentTemplatePayload' }
     & { documentTemplate?: Maybe<(
       { __typename?: 'DocumentTemplate' }
-      & Pick<DocumentTemplate, 'id' | 'name' | 'javascriptModule'>
+      & Pick<DocumentTemplate, '[object Object]' | '[object Object]' | '[object Object]'>
     )> }
   )> }
 );
@@ -4962,7 +4962,7 @@ export type UpdateFlashcardByIdMutation = (
     { __typename?: 'UpdateFlashcardPayload' }
     & { flashcard?: Maybe<(
       { __typename?: 'Flashcard' }
-      & Pick<Flashcard, 'id' | 'answer' | 'prompt'>
+      & Pick<Flashcard, '[object Object]' | '[object Object]' | '[object Object]'>
     )> }
   )> }
 );
@@ -4980,7 +4980,7 @@ export type UpdateMatterTemplateByIdMutation = (
     { __typename?: 'UpdateMatterTemplatePayload' }
     & { matterTemplate?: Maybe<(
       { __typename?: 'MatterTemplate' }
-      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule'>
+      & Pick<MatterTemplate, '[object Object]' | '[object Object]' | '[object Object]'>
     )> }
   )> }
 );
@@ -4998,7 +4998,7 @@ export type UpdatePersonByIdMutation = (
     { __typename?: 'UpdatePersonPayload' }
     & { person?: Maybe<(
       { __typename?: 'Person' }
-      & Pick<Person, 'id' | 'name' | 'flags'>
+      & Pick<Person, '[object Object]' | '[object Object]' | '[object Object]'>
     )> }
   )> }
 );
@@ -5017,7 +5017,7 @@ export type UpdateQuestionByIdMutation = (
     { __typename?: 'UpdateQuestionPayload' }
     & { question?: Maybe<(
       { __typename?: 'Question' }
-      & Pick<Question, 'id' | 'options' | 'questionType' | 'prompt'>
+      & Pick<Question, '[object Object]' | '[object Object]' | '[object Object]' | '[object Object]'>
     )> }
   )> }
 );
