@@ -1,15 +1,13 @@
 import 'leaflet-polylinedecorator';
 
-import * as L from 'leaflet';
 import * as helpers from '@turf/helpers';
 
 import {
   GeoJSON,
-  Map,
+  MapContainer,
   Marker,
   Popup,
   TileLayer,
-  useLeaflet,
 } from 'react-leaflet';
 import React, { useState } from 'react';
 
@@ -49,25 +47,7 @@ const CENTER = [parks.origin.lat, parks.origin.lng];
 const DEFAULT_ZOOM = 12;
 
 const DirectionRoutes = ({ coords }: any) => {
-  const ctx = useLeaflet();
-  const { map } = ctx;
-
-  const handleEachFeature = (feature, layer) => {
-    L.polylineDecorator(layer, {
-      patterns: [
-        {
-          offset: '10%',
-          repeat: '20%',
-          symbol: L.Symbol.arrowHead({
-            pathOptions: { fillOpacity: 1, weight: 0 },
-            pixelSize: 15,
-          }),
-        },
-      ],
-    }).addTo(map);
-  };
-
-  return <GeoJSON data={coords} onEachFeature={handleEachFeature} />;
+  return <GeoJSON data={coords} />;
 };
 
 export const VegasDirections = () => {
@@ -84,14 +64,16 @@ export const VegasDirections = () => {
     [parks.destination.lat, parks.destination.lng],
   ];
 
+  if (typeof window === undefined) {
+    return null;
+  }
+
   return (
     <Wrapper>
       {typeof window !== undefined ? (
-        <Map {...mapSettings}>
+        <MapContainer {...mapSettings}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            // eslint-disable-next-line
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
           {Object.keys(parks).map((park, i) => {
             const position = [parks[park].lat, parks[park].lng];
@@ -99,9 +81,6 @@ export const VegasDirections = () => {
               <Marker
                 key={i}
                 position={position}
-                onClick={() => {
-                  setActivePark(parks[park]);
-                }}
               />
             );
           })}
@@ -118,7 +97,7 @@ export const VegasDirections = () => {
               </div>
             </Popup>
           )}
-        </Map>
+        </MapContainer>
       ) : null}
     </Wrapper>
   );
