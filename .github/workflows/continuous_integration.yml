@@ -35,6 +35,7 @@ jobs:
         env:
           AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
           AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
           AUTH0_TENANT: neon-law-testing.auth0.com
           COMPOSE_HTTP_TIMEOUT: 300
       - name: Install depedencies

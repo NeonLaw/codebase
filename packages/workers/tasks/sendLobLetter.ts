@@ -1,4 +1,3 @@
-
 const sendLobLetter = async (payload, helpers) => {
   const { addressee, addressor, mergeVariables, fileUrl } = payload;
 

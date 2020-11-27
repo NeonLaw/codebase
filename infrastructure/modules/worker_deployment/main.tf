@@ -75,6 +75,11 @@ resource "kubernetes_deployment" "worker_deployment" {
           }
 
           env {
+            name  = "SENDGRID_API_KEY"
+            value = var.sendgrid_api_key
+          }
+
+          env {
             name = "AUTH0_CLIENT_ID"
             value_from {
               secret_key_ref {

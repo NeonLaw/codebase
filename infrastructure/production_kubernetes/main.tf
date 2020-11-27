@@ -115,6 +115,7 @@ module "worker_deployment" {
   region                       = data.terraform_remote_state.production_gcp.outputs.region
   sql_proxy_secret_name        = module.sql_proxy_kubernetes_secret.name
   third_party_saas_secret_name = module.third_party_saas_kubernetes_secret.name
+  sendgrid_api_key             = var.sendgrid_api_key
 }
 
 module "interface_deployment" {

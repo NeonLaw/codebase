@@ -60,6 +60,7 @@ You should have some, if not all of these environment variables on your machine:
 - `TRANSLOADIT_SECRET`
 - `TRANSLOADIT_PDF_TEMPLATE_ID`
 - `TRANSLOADIT_IMAGE_TEMPLATE_ID`
+- `SENDGRID_API_KEY`
 - `GOOGLE_APPLICATION_CREDENTIALS`
 
 You will need to have values for these environment variables sourced in the same
