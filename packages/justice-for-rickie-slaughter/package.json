@@ -30,7 +30,7 @@
     "gatsby-plugin-react-leaflet": "^2.0.13",
     "gatsby-plugin-robots-txt": "^1.5.3",
     "gatsby-plugin-sharp": "^2.6.42",
-    "gatsby-plugin-sitemap": "^2.5.1",
+    "gatsby-plugin-sitemap": "^2.7.0",
     "gatsby-plugin-typescript": "^2.7.0",
     "gatsby-remark-images": "^3.4.2",
     "gatsby-source-filesystem": "^2.5.0",
