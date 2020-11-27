@@ -76,7 +76,7 @@ resource "kubernetes_deployment" "worker_deployment" {
 
           env {
             name  = "SENDGRID_API_KEY"
-            value = var.sendrgid_api_key
+            value = var.sendgrid_api_key
           }
 
           env {
