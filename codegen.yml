@@ -1,19 +1,14 @@
 ---
 overwrite: true
 schema: http://api:3000/api/graphql
+documents: packages/shared-ui/src/graphql/*.graphql
 config:
   scalars:
     Datetime: "string"
     JSON: "{ [key: string]: any }"
-  noGraphQLTag: false
-  withComponent: true
-  withHooks: true
 generates:
   packages/shared-ui/src/utils/api.tsx:
-    documents: packages/shared-ui/src/graphql/*.graphql
     plugins:
       - typescript
       - typescript-operations
       - typescript-react-apollo
-    config:
-      reactApolloVersion: 3
