@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
 describe('Viewing a list of people as an admin', () => {
-  it('creates a question and adds that to the question table', () => {
+  it('renders the person table', () => {
     cy.loginAsAdminUser().then(() => {
       cy.visit('/admin');
 

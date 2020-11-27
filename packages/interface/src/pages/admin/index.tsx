@@ -60,6 +60,16 @@ const AdminDashboard = () => {
         >
           People
         </FlashButton>
+
+        <FlashButton
+          colorScheme="gray"
+          onClick={() => {
+            navigate('/admin/matters');
+          }}
+          data-testid="admin-matters-link-button"
+        >
+          Matters
+        </FlashButton>
       </Box>
     </PortalLayout>
   );
