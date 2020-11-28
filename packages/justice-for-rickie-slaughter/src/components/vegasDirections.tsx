@@ -1,5 +1,3 @@
-import 'leaflet-polylinedecorator';
-
 import * as helpers from '@turf/helpers';
 
 import {

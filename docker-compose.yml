@@ -126,7 +126,6 @@ services:
       - api
     ports:
       - 5000:8000
-      - 33001:33001
     volumes: *node-volumes
     environment:
       PACKAGE_NAME: law-job-resources
@@ -141,7 +140,6 @@ services:
       - api
     ports:
       - 7000:8000
-      - 33002:33002
     volumes: *node-volumes
     environment:
       PACKAGE_NAME: justice-for-rickie-slaughter
@@ -156,7 +154,6 @@ services:
       - api
     ports:
       - 7777:8000
-      - 33003:33003
     volumes: *node-volumes
     environment:
       PACKAGE_NAME: delete-your-data
