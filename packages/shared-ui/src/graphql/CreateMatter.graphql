@@ -1,0 +1,21 @@
+mutation CreateMatter(
+  $name: String!
+  $matterTemplateId: UUID!
+  $primaryContactId: UUID!
+) {
+  createMatter(
+    input: {
+      matter: {
+        name: $name
+        matterTemplateId: $matterTemplateId
+        primaryContactId: $primaryContactId
+      }
+    }
+  ) {
+    matter {
+      id
+      createdAt
+      updatedAt
+    }
+  }
+}
