@@ -11,13 +11,15 @@ import {
   useColorMode,
 } from '@chakra-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
-import { Select, StringInput } from '../inputs';
+import { SelectWithQuery, StringInput } from '../inputs';
 import { colors, gutters } from '../../themes/neonLaw';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
-
+import {
+  useAllMatterTemplatesQuery,
+  useCreateMatterMutation
+} from '../../utils/api';
 import { FlashButton } from '../button';
 import { SubmissionInProgress } from '../submission-in-progress';
-import { useCreateMatterMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useKeyPressed } from '../../utils/useKeyPressed';
@@ -36,12 +38,12 @@ export const CreateMatterModal = ({ isOpen, onClose, onOpen }) => {
   const OS = useOS();
   const isCPressed = useKeyPressed((e: KeyboardEvent) => e.key === 'c');
 
-  const onSubmit = async ({ options, prompt, questionType }) => {
+  const onSubmit = async ({ name, matterTemplate, primaryContactId }) => {
     await createMatter({
       variables: {
-        options,
-        prompt,
-        questionType: questionType.value
+        matterTemplateId: matterTemplate.value,
+        name,
+        primaryContactId,
       }
     })
       .then(async () => {
@@ -109,35 +111,30 @@ export const CreateMatterModal = ({ isOpen, onClose, onOpen }) => {
             <ModalBody>
               {formError}
               <StringInput
-                name="prompt"
-                testId="create-question-form-prompt"
-                label={intl.formatMessage({ id: 'forms.prompt.label' })}
+                name="name"
+                testId="create-matter-form-name"
+                label={intl.formatMessage({ id: 'forms.name.label' })}
                 errors={errors}
                 placeholder={intl.formatMessage({
-                  id: 'forms.prompt.placeholder',
+                  id: 'forms.name.placeholder',
                 })}
                 register={register({
                   required: intl.formatMessage({
-                    id: 'forms.prompt.required',
+                    id: 'forms.name.required',
                   }),
                 })}
                 styles={{ marginBottom: gutters.xSmall }}
               />
-              <Select
-                name="questionType"
-                label={intl.formatMessage({ id: 'forms.questionType.label' })}
-                options={
-                  [
-                    { label: 'Single Choice', value: 'single-choice' },
-                    { label: 'Single Date', value: 'single-date' },
-                    {
-                      label: 'Single File Upload',
-                      value: 'single-file-upload'
-                    },
-                  ]
-                }
+              <SelectWithQuery
+                name="matterTemplate"
+                query={useAllMatterTemplatesQuery}
+                labelColumn="name"
+                queryName="allMatterTemplates"
+                label={intl.formatMessage({
+                  id: 'forms.matter_template.label'
+                })}
                 errors={errors}
-                testId="create-question-form-question-type"
+                testId="update-matter-form-matter-template"
                 control={control}
               />
             </ModalBody>
