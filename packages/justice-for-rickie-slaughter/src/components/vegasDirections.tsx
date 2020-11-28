@@ -44,10 +44,6 @@ const buildSpline = (coords) => {
 const CENTER = [parks.origin.lat, parks.origin.lng];
 const DEFAULT_ZOOM = 12;
 
-const DirectionRoutes = ({ coords }: any) => {
-  return <GeoJSON data={coords} />;
-};
-
 export const VegasDirections = () => {
   const [activePark, setActivePark] = useState<any>(null);
 
@@ -62,39 +58,44 @@ export const VegasDirections = () => {
     [parks.destination.lat, parks.destination.lng],
   ];
 
-  if (typeof window === undefined) {
-    return null;
+  const canUseDOM = !!(
+    (typeof window !== 'undefined' &&
+    window.document && window.document.createElement)
+  );
+
+  if (canUseDOM) {
+    return (
+      <Wrapper>
+        <MapContainer {...mapSettings}>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {Object.keys(parks).map((park, i) => {
+            const position = [parks[park].lat, parks[park].lng];
+            return (
+              <Marker
+                key={i}
+                position={position}
+              />
+            );
+          })}
+          <GeoJSON data={buildSpline(coords)} />
+          {activePark && (
+            <Popup
+              position={[activePark.lat, activePark.lng]}
+              onClose={() => {
+                setActivePark(null);
+              }}
+            >
+              <div>
+                <h3>{activePark.name}</h3>
+              </div>
+            </Popup>
+          )}
+        </MapContainer>
+      </Wrapper>
+    );
   }
 
-  return (
-    <Wrapper>
-      <MapContainer {...mapSettings}>
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {Object.keys(parks).map((park, i) => {
-          const position = [parks[park].lat, parks[park].lng];
-          return (
-            <Marker
-              key={i}
-              position={position}
-            />
-          );
-        })}
-        <DirectionRoutes coords={buildSpline(coords)} />
-        {activePark && (
-          <Popup
-            position={[activePark.lat, activePark.lng]}
-            onClose={() => {
-              setActivePark(null);
-            }}
-          >
-            <div>
-              <h3>{activePark.name}</h3>
-            </div>
-          </Popup>
-        )}
-      </MapContainer>
-    </Wrapper>
-  );
+  return null;
 };
