@@ -70,35 +70,33 @@ export const VegasDirections = () => {
 
   return (
     <Wrapper>
-      {typeof window !== undefined ? (
-        <MapContainer {...mapSettings}>
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {Object.keys(parks).map((park, i) => {
-            const position = [parks[park].lat, parks[park].lng];
-            return (
-              <Marker
-                key={i}
-                position={position}
-              />
-            );
-          })}
-          <DirectionRoutes coords={buildSpline(coords)} />
-          {activePark && (
-            <Popup
-              position={[activePark.lat, activePark.lng]}
-              onClose={() => {
-                setActivePark(null);
-              }}
-            >
-              <div>
-                <h3>{activePark.name}</h3>
-              </div>
-            </Popup>
-          )}
-        </MapContainer>
-      ) : null}
+      <MapContainer {...mapSettings}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {Object.keys(parks).map((park, i) => {
+          const position = [parks[park].lat, parks[park].lng];
+          return (
+            <Marker
+              key={i}
+              position={position}
+            />
+          );
+        })}
+        <DirectionRoutes coords={buildSpline(coords)} />
+        {activePark && (
+          <Popup
+            position={[activePark.lat, activePark.lng]}
+            onClose={() => {
+              setActivePark(null);
+            }}
+          >
+            <div>
+              <h3>{activePark.name}</h3>
+            </div>
+          </Popup>
+        )}
+      </MapContainer>
     </Wrapper>
   );
 };
