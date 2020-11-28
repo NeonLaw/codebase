@@ -16,6 +16,7 @@ import { colors, gutters } from '../../themes/neonLaw';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 import {
   useAllMatterTemplatesQuery,
+  useAllPeopleQuery,
   useCreateMatterMutation
 } from '../../utils/api';
 import { FlashButton } from '../button';
@@ -38,12 +39,12 @@ export const CreateMatterModal = ({ isOpen, onClose, onOpen }) => {
   const OS = useOS();
   const isCPressed = useKeyPressed((e: KeyboardEvent) => e.key === 'c');
 
-  const onSubmit = async ({ name, matterTemplate, primaryContactId }) => {
+  const onSubmit = async ({ name, matterTemplate, primaryContact }) => {
     await createMatter({
       variables: {
         matterTemplateId: matterTemplate.value,
         name,
-        primaryContactId,
+        primaryContactId: primaryContact.value,
       }
     })
       .then(async () => {
@@ -135,6 +136,18 @@ export const CreateMatterModal = ({ isOpen, onClose, onOpen }) => {
                 })}
                 errors={errors}
                 testId="update-matter-form-matter-template"
+                control={control}
+              />
+              <SelectWithQuery
+                name="primaryContact"
+                query={useAllPeopleQuery}
+                labelColumn="email"
+                queryName="allPeople"
+                label={intl.formatMessage({
+                  id: 'forms.primary_contact.label'
+                })}
+                errors={errors}
+                testId="update-matter-form-primary-contact"
                 control={control}
               />
             </ModalBody>

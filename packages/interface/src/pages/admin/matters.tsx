@@ -53,7 +53,7 @@ const AdminMatters = () => {
 
         <UpdateMatterModal
           isOpen={isOpen && !showCreateMatterModal}
-          currentRow={currentRow}
+          matter={currentRow}
           onClose={() => {
             changeShowCreateMatterModal(true);
             onClose();

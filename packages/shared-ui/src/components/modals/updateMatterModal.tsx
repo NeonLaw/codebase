@@ -27,7 +27,6 @@ import { useOS } from '../../utils/useOS';
 
 export const UpdateMatterModal = ({ isOpen, onClose, onOpen, matter }) => {
   const intl = useIntl();
-  const { id } = matter;
 
   const [updateMatter, { loading }] = useUpdateMatterByIdMutation();
 
@@ -87,6 +86,10 @@ export const UpdateMatterModal = ({ isOpen, onClose, onOpen, matter }) => {
   });
 
   const { colorMode } = useColorMode();
+  if (!matter) {
+    return null;
+  }
+  const { id } = matter;
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="xl">

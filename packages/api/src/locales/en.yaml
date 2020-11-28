@@ -84,6 +84,8 @@ forms:
     placeholder: Enter the JavaScript module defined in our codebase
   matter_template:
     label: Matter Template
+  primary_contact:
+    label: Primary Contact
 contactForm:
   name:
     label: Your name
