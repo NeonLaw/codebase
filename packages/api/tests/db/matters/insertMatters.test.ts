@@ -27,20 +27,20 @@ describe('INSERT INTO matter;', () => {
     );
   });
 
-  // describe('as an portal user', () => {
-  //   it('cannot create matters', () =>
-  //     withRootDb(async (pgClient: any) => {
-  //       await becomePortalUser(pgClient);
+  describe('as an portal user', () => {
+    it('cannot create matters', () =>
+      withRootDb(async (pgClient: any) => {
+        await becomePortalUser(pgClient);
 
-  //       await expect(pgClient.query(
-  //         'INSERT INTO matter (name, primary_contact_id, '+
-  //         'matter_template_id) VALUES ($1, $2, $3) RETURNING (id)',
-  //         ['a', randomId, randomId]
-  //       )).rejects.toThrow(
-  //         /permission denied for table matter/
-  //       );
-  //     })
-  //   );
+        await expect(pgClient.query(
+          'INSERT INTO matter (name, primary_contact_id, '+
+          'matter_template_id) VALUES ($1, $2, $3) RETURNING (id)',
+          ['a', randomId, randomId]
+        )).rejects.not.toThrow(
+          /permission denied for table matter/
+        );
+      })
+    );
   });
 
   describe('as a lawyer user', () => {
