@@ -18,7 +18,7 @@ const AdminMatters = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [
     showCreateMatterModal,
-    changeShowFlashCardModal
+    changeShowCreateMatterModal
   ] = useState(true);
   const [currentRow, setCurrentRow] = useState(undefined);
 
@@ -45,7 +45,7 @@ const AdminMatters = () => {
         <CreateMatterModal
           isOpen={isOpen && showCreateMatterModal}
           onClose={() => {
-            changeShowFlashCardModal(true);
+            changeShowCreateMatterModal(true);
             onClose();
           }}
           onOpen={onOpen}
@@ -55,14 +55,14 @@ const AdminMatters = () => {
           isOpen={isOpen && !showCreateMatterModal}
           currentRow={currentRow}
           onClose={() => {
-            changeShowFlashCardModal(true);
+            changeShowCreateMatterModal(true);
             onClose();
           }}
         />
 
         <MatterTable
           onRowClick={(row) => {
-            changeShowFlashCardModal(false);
+            changeShowCreateMatterModal(false);
             setCurrentRow(row);
             onOpen();
           }}

@@ -1,0 +1,19 @@
+query AllMatters {
+  allMatters(orderBy: UPDATED_AT_ASC) {
+    nodes {
+      id
+      personByPrimaryContactId {
+        id
+        name
+        email
+      }
+      matterTemplateByMatterTemplateId {
+        id
+        name
+      }
+      name
+      createdAt
+      updatedAt
+    }
+  }
+}
