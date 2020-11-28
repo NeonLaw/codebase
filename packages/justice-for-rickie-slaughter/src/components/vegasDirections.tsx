@@ -1,7 +1,6 @@
-import * as helpers from '@turf/helpers';
+import L from 'leaflet';
 
 import {
-  GeoJSON,
   MapContainer,
   Marker,
   Popup,
@@ -9,7 +8,6 @@ import {
 } from 'react-leaflet';
 import React, { useState } from 'react';
 
-import { default as bezierSpline } from '@turf/bezier-spline';
 import styled from '@emotion/styled';
 import { useMediaQuery } from 'react-responsive';
 
@@ -34,14 +32,7 @@ const parks = {
   },
 };
 
-const buildSpline = (coords) => {
-  const line = helpers.lineString(
-    coords.map((lngLat) => [lngLat[1], lngLat[0]])
-  );
-  return bezierSpline(line);
-};
-
-const CENTER = [parks.origin.lat, parks.origin.lng];
+const CENTER = { lat: parks.origin.lat, lng: parks.origin.lng };
 const DEFAULT_ZOOM = 12;
 
 export const VegasDirections = () => {
@@ -58,20 +49,17 @@ export const VegasDirections = () => {
     [parks.destination.lat, parks.destination.lng],
   ];
 
-  const canUseDOM = !!(
-    (typeof window !== 'undefined' &&
-    window.document && window.document.createElement)
-  );
-
-  if (canUseDOM) {
-    return (
-      <Wrapper>
+  return (
+    <Wrapper>
+      {typeof window !== undefined ? (
         <MapContainer {...mapSettings}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            // eslint-disable-next-line
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
           {Object.keys(parks).map((park, i) => {
-            const position = [parks[park].lat, parks[park].lng];
+            const position = { lat: parks[park].lat, lng: parks[park].lng };
             return (
               <Marker
                 key={i}
@@ -79,7 +67,6 @@ export const VegasDirections = () => {
               />
             );
           })}
-          <GeoJSON data={buildSpline(coords)} />
           {activePark && (
             <Popup
               position={[activePark.lat, activePark.lng]}
@@ -93,9 +80,7 @@ export const VegasDirections = () => {
             </Popup>
           )}
         </MapContainer>
-      </Wrapper>
-    );
-  }
-
-  return null;
+      ) : null}
+    </Wrapper>
+  );
 };
