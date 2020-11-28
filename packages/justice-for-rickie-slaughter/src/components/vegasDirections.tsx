@@ -42,14 +42,14 @@ export const VegasDirections = () => {
     zoom: useMediaQuery({ query: '(max-width: 800px)' }) ? 10 : DEFAULT_ZOOM,
   };
 
-  return (
-    <Wrapper>
-      {typeof window !== undefined ? (
+  if (typeof window !== "undefined") {
+    return (
+      <Wrapper>
         <MapContainer {...mapSettings}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             // eslint-disable-next-line
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
           {Object.keys(parks).map((park, i) => {
             const position = { lat: parks[park].lat, lng: parks[park].lng };
@@ -73,7 +73,8 @@ export const VegasDirections = () => {
             </Popup>
           )}
         </MapContainer>
-      ) : null}
-    </Wrapper>
-  );
+      </Wrapper>
+    );
+  }
+  return null;
 };
