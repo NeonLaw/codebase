@@ -61,12 +61,14 @@ export const becomePortalUser = async (
     'VALUES ($1, \'portal\', \'portal-sub\') RETURNING id',
     [email]
   );
-  const personId = rows[0].id;
+  const { id } = rows[0];
   await client.query(
     'select set_config(\'role\', \'portal\', true), ' +
     'set_config(\'person.id\', $1, true);',
-    [personId]
+    [id]
   );
+
+  return { email, id };
 };
 
 export const becomeLawyerUser = async (
@@ -78,12 +80,14 @@ export const becomeLawyerUser = async (
     'VALUES ($1, \'lawyer\', \'lawyer-sub\') RETURNING id',
     [email]
   );
-  const personId = rows[0].id;
+  const { id } = rows[0];
   await client.query(
     'select set_config(\'role\', \'lawyer\', true), ' +
     'set_config(\'person.id\', $1, true);',
-    [personId]
+    [id]
   );
+
+  return { email, id };
 };
 
 export const becomeAdminUser = async (
@@ -95,12 +99,14 @@ export const becomeAdminUser = async (
     'VALUES ($1, \'admin\', \'admin-sub\') RETURNING id',
     [email]
   );
-  const personId = rows[0].id;
+  const { id } = rows[0];
   await client.query(
     'select set_config(\'role\', \'admin\', true), ' +
     'set_config(\'person.id\', $1, true);',
-    [personId]
+    [id]
   );
+
+  return { email, id };
 };
 
 export const createUser = async (client: any) => {
@@ -123,6 +129,73 @@ export const createFlashcard = async (client: any) => {
     'INSERT INTO flashcard (prompt, answer) ' +
     'VALUES ($1, $2) RETURNING (id, prompt, answer)',
     [prompt, answer]
+  );
+
+  return rows[0];
+};
+
+interface CreateMatterArgs {
+  client: any;
+  primaryContactId?: string;
+  matterTemplateId?: string;
+}
+
+export const createMatter = async ({
+  client,
+  primaryContactId,
+  matterTemplateId,
+}: CreateMatterArgs) => {
+  const uuid = faker.random.uuid();
+
+  let matterTemplateIdForInsertingMatter;
+
+  if (matterTemplateId) {
+    matterTemplateIdForInsertingMatter = matterTemplateId;
+  } else {
+    const { rows: matterTemplateRows } = await client.query(
+      'INSERT INTO matter_template (name, javascript_module) '+
+          'VALUES ($1, $2) RETURNING (id)',
+      [`delete-your-data-${uuid}`, `deleteYourData-${uuid}`]
+    );
+    matterTemplateIdForInsertingMatter = matterTemplateRows[0].id;
+  }
+
+  let primaryContactIdForInsertingMatter;
+
+  if (primaryContactId) {
+    primaryContactIdForInsertingMatter = primaryContactId;
+  } else {
+    const { rows: primaryContactRows } = await client.query(
+      'INSERT INTO person (email, role, sub) ' +
+          'VALUES ($1, $2, $3) RETURNING (id)',
+      [`example-contact-${uuid}@neonlaw.com`, 'portal', `portal-${uuid}`]
+    );
+    primaryContactIdForInsertingMatter = primaryContactRows[0].id;
+  }
+
+  const { rows } = await client.query(
+    'INSERT INTO matter (name, primary_contact_id, '+
+          'matter_template_id) VALUES ($1, $2, $3) '+
+          'RETURNING (id, primary_contact_id, matter_template_id)',
+    [
+      `Random matter ${uuid}`,
+      primaryContactIdForInsertingMatter,
+      matterTemplateIdForInsertingMatter
+    ]
+  );
+
+  return rows[0].row;
+};
+
+export const createMatterTemplate = async (
+  client: any,
+) => {
+  const uuid = faker.random.uuid();
+
+  const { rows } = await client.query(
+    'INSERT INTO matter_template (name, javascript_module) '+
+    'VALUES ($1, $2) RETURNING (id)',
+    [`delete-your-data-${uuid}`, `deleteYourData-${uuid}`]
   );
 
   return rows[0];

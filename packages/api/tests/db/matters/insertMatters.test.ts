@@ -4,7 +4,6 @@ import {
   becomeAnonymousUser,
   becomeLawyerUser,
   becomePortalUser,
-  createFlashcard,
   withRootDb
 } from '../../utils/dbHelpers';
 import { describe, expect, it } from '@jest/globals';
@@ -15,8 +14,6 @@ describe('INSERT INTO matter;', () => {
   describe('as an anonymous user', () => {
     it('cannot create matters', () =>
       withRootDb(async (pgClient: any) => {
-        await createFlashcard(pgClient);
-
         await becomeAnonymousUser(pgClient);
 
         await expect(pgClient.query(
@@ -30,29 +27,25 @@ describe('INSERT INTO matter;', () => {
     );
   });
 
-  describe('as an portal user', () => {
-    it('cannot create matters', () =>
-      withRootDb(async (pgClient: any) => {
-        await createFlashcard(pgClient);
+  // describe('as an portal user', () => {
+  //   it('cannot create matters', () =>
+  //     withRootDb(async (pgClient: any) => {
+  //       await becomePortalUser(pgClient);
 
-        await becomePortalUser(pgClient);
-
-        await expect(pgClient.query(
-          'INSERT INTO matter (name, primary_contact_id, '+
-          'matter_template_id) VALUES ($1, $2, $3) RETURNING (id)',
-          ['a', randomId, randomId]
-        )).rejects.toThrow(
-          /permission denied for table matter/
-        );
-      })
-    );
+  //       await expect(pgClient.query(
+  //         'INSERT INTO matter (name, primary_contact_id, '+
+  //         'matter_template_id) VALUES ($1, $2, $3) RETURNING (id)',
+  //         ['a', randomId, randomId]
+  //       )).rejects.toThrow(
+  //         /permission denied for table matter/
+  //       );
+  //     })
+  //   );
   });
 
   describe('as a lawyer user', () => {
     it('can create matters', () =>
       withRootDb(async (pgClient: any) => {
-        await createFlashcard(pgClient);
-
         const { rows: matterTemplateRows } = await pgClient.query(
           'INSERT INTO matter_template (name, javascript_module) '+
           'VALUES ($1, $2) RETURNING (id)',
@@ -89,8 +82,6 @@ describe('INSERT INTO matter;', () => {
   describe('as a admin user', () => {
     it('can create matters', () =>
       withRootDb(async (pgClient: any) => {
-        await createFlashcard(pgClient);
-
         await becomeAdminUser(pgClient);
 
         const { rows: matterTemplateRows } = await pgClient.query(
