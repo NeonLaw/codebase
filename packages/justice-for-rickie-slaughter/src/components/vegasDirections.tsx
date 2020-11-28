@@ -1,5 +1,3 @@
-import L from 'leaflet';
-
 import {
   MapContainer,
   Marker,
@@ -43,11 +41,6 @@ export const VegasDirections = () => {
     defaultBaseMap: 'OpenStreetMap',
     zoom: useMediaQuery({ query: '(max-width: 800px)' }) ? 10 : DEFAULT_ZOOM,
   };
-
-  const coords = [
-    [parks.origin.lat, parks.origin.lng],
-    [parks.destination.lat, parks.destination.lng],
-  ];
 
   return (
     <Wrapper>
