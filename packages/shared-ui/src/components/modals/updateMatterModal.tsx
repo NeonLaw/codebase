@@ -25,8 +25,9 @@ import { useIntl } from 'gatsby-plugin-intl';
 import { useKeyPressed } from '../../utils/useKeyPressed';
 import { useOS } from '../../utils/useOS';
 
-export const UpdateMatterModal = ({ isOpen, onClose, onOpen }) => {
+export const UpdateMatterModal = ({ isOpen, onClose, onOpen, matter }) => {
   const intl = useIntl();
+  const { id } = matter;
 
   const [updateMatter, { loading }] = useUpdateMatterByIdMutation();
 
@@ -41,6 +42,7 @@ export const UpdateMatterModal = ({ isOpen, onClose, onOpen }) => {
   const onSubmit = async ({ name }) => {
     await updateMatter({
       variables: {
+        id,
         name,
       }
     })
