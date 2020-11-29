@@ -72,6 +72,23 @@ const uploadPlugin = makeExtendSchemaPlugin((build) => ({
 
         return { expires, signature };
       },
+      async createMatterDocumentFromUpload(_, args, context) {
+        const { filename, documentTemplateName, matterId } = args;
+        if (!context.authenticatedPerson) {
+          return;
+        }
+        const DocumentTemplate = require(
+          `@neonlaw/matter-templates/src/${matterTemplate.javascriptModule}`
+        );
+        new DocumentTemplate(matterId);
+      },
+      async getMatterDocument(_, args, context) {
+        if (!context.authenticatedPerson) {
+          return;
+        }
+
+        // return signed URL
+      }
     }
   },
   typeDefs: gql`

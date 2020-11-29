@@ -4,12 +4,20 @@ import {
   Text,
 } from '@chakra-ui/core';
 import { gutters, sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
-
+import {
+  BusinessMatterDetailView
+} from '../../components/detailViews/businessMatterDetailView';
+import {
+  BusinessMattersList
+} from '../../components/lists/businessMattersList';
 import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
 import React from 'react';
+import { Router } from '@reach/router';
 import { useIntl } from 'gatsby-plugin-intl';
 
-const BusinessesPage = () => {
+/* eslint-disable @typescript-eslint/no-unused-vars */
+const BusinessMatterListView = (props) => {
+  /* eslint-enable @typescript-eslint/no-unused-vars */
   const intl = useIntl();
   return (
     <PortalLayout>
@@ -21,8 +29,20 @@ const BusinessesPage = () => {
           {intl.formatMessage({ id: 'pages.business.text' })}
         </Text>
       </Box>
+      <BusinessMattersList />
     </PortalLayout>
   );
 };
 
-export default BusinessesPage;
+const PortalBusinessesPage = () => {
+  return (
+    <PortalLayout>
+      <Router basepath="/portal/businesses">
+        <BusinessMatterDetailView path=":matterId" />
+        <BusinessMatterListView path="/" />
+      </Router>
+    </PortalLayout>
+  );
+};
+
+export default PortalBusinessesPage;

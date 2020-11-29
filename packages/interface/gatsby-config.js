@@ -91,7 +91,7 @@ module.exports = {
     {
       options: {
         prefixes: [
-          '/upward-mobility/*'
+          '/upward-mobility/*',
         ]
       },
       resolve: 'gatsby-plugin-create-client-paths',

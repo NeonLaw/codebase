@@ -1,9 +1,10 @@
 # Matter Templates
 
-These files, referred to as JavaScript modules, correspond to rows in the
-`matter_template` table.
+These files contain a 1-1 mapping from rows in the `matter_template` table. Each
+file contains a class with special methods to invoke.
 
-Each template has the following exported functions:
+## Required environment variabes
 
-* `required_documents`, this details the documents that are required for us to
-  proceed on the matter.
+* `GCP_UPLOAD_BUCKET`
+* `GCP_PRIVATE_ASSET_BUCKET`
+* `DATABASE_URL`
