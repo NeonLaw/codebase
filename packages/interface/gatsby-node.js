@@ -63,7 +63,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild('🚨  ERROR: Loading content pages');
   }
 
-  console.log(JSON.stringify(flashcards));
   // Create flashcard pages.
   const flashcardPages = flashcards.data.neon.allFlashcards.nodes;
 

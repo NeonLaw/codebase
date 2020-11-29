@@ -3,7 +3,12 @@ query AllDocumentTemplates {
     nodes {
       id
       name
-      javascriptModule
+      description
+      fileExtension
+      readAuthorization
+      createAuthorization
+      updateAuthorization
+      deleteAuthorization
     }
   }
 }

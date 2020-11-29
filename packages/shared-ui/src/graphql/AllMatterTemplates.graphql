@@ -4,6 +4,7 @@ query AllMatterTemplates {
       id
       name
       javascriptModule
+      category
     }
   }
 }

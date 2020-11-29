@@ -20,7 +20,7 @@ const StyledPortalPersonPage = styled.div`
   }
 `;
 
-const PortalPersonPage = () => {
+const PortalSettingsPage = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
 
   return (
@@ -29,7 +29,7 @@ const PortalPersonPage = () => {
         <Heading
           fontWeight="normal"
         >
-          Your Profile
+          Settings
         </Heading>
         <PortalProfileCard />
         <FlashButton
@@ -49,4 +49,4 @@ const PortalPersonPage = () => {
   );
 };
 
-export default PortalPersonPage;
+export default PortalSettingsPage;

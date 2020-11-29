@@ -1,13 +1,34 @@
-mutation CreateDocumentTemplate($name: String!, $javascriptModule: String!) {
+mutation CreateDocumentTemplate(
+  $name: String!
+  $description: String!
+  $fileExtension: String
+  $readAuthorization: String
+  $createAuthorization: String
+  $updateAuthorization: String
+  $deleteAuthorization: String
+) {
   createDocumentTemplate(
     input: {
-      documentTemplate: { name: $name, javascriptModule: $javascriptModule }
+      documentTemplate: {
+        name: $name
+        description: $description
+        fileExtension: $fileExtension
+        readAuthorization: $readAuthorization
+        createAuthorization: $createAuthorization
+        updateAuthorization: $updateAuthorization
+        deleteAuthorization: $deleteAuthorization
+      }
     }
   ) {
     documentTemplate {
       id
       name
-      javascriptModule
+      description
+      fileExtension
+      readAuthorization
+      createAuthorization
+      updateAuthorization
+      deleteAuthorization
     }
   }
 }

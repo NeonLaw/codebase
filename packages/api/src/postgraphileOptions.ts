@@ -88,6 +88,13 @@ const uploadPlugin = makeExtendSchemaPlugin((build) => ({
         }
 
         // return signed URL
+      },
+      async writeLetterToRickie(_, args, context) {
+        if (!context.authenticatedPerson) {
+          return;
+        }
+
+        // return signed URL
       }
     }
   },

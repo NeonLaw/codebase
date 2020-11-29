@@ -1445,7 +1445,6 @@ export type Document = Node & {
   documentableTableName: Scalars['String'];
   documentableTableId: Scalars['UUID'];
   documentTemplateId: Scalars['UUID'];
-  fileExtension: Scalars['String'];
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
   /** Reads a single `DocumentTemplate` that is related to this `Document`. */
@@ -1524,7 +1523,6 @@ export type DocumentInput = {
   documentableTableName: Scalars['String'];
   documentableTableId: Scalars['UUID'];
   documentTemplateId: Scalars['UUID'];
-  fileExtension: Scalars['String'];
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
 };
@@ -1536,7 +1534,6 @@ export type DocumentPatch = {
   documentableTableName?: Maybe<Scalars['String']>;
   documentableTableId?: Maybe<Scalars['UUID']>;
   documentTemplateId?: Maybe<Scalars['UUID']>;
-  fileExtension?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
 };
@@ -1582,7 +1579,12 @@ export type DocumentTemplate = Node & {
   nodeId: Scalars['ID'];
   id: Scalars['UUID'];
   name: Scalars['String'];
-  javascriptModule: Scalars['String'];
+  description: Scalars['String'];
+  fileExtension: Scalars['String'];
+  readAuthorization: Scalars['String'];
+  createAuthorization: Scalars['String'];
+  updateAuthorization: Scalars['String'];
+  deleteAuthorization: Scalars['String'];
   /** Reads and enables pagination through a set of `Document`. */
   documentsByDocumentTemplateId: DocumentsConnection;
 };
@@ -1613,14 +1615,24 @@ export type DocumentTemplateCondition = {
 export type DocumentTemplateInput = {
   id?: Maybe<Scalars['UUID']>;
   name: Scalars['String'];
-  javascriptModule: Scalars['String'];
+  description: Scalars['String'];
+  fileExtension?: Maybe<Scalars['String']>;
+  readAuthorization?: Maybe<Scalars['String']>;
+  createAuthorization?: Maybe<Scalars['String']>;
+  updateAuthorization?: Maybe<Scalars['String']>;
+  deleteAuthorization?: Maybe<Scalars['String']>;
 };
 
 /** Represents an update to a `DocumentTemplate`. Fields that are set will be updated. */
 export type DocumentTemplatePatch = {
   id?: Maybe<Scalars['UUID']>;
   name?: Maybe<Scalars['String']>;
-  javascriptModule?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  fileExtension?: Maybe<Scalars['String']>;
+  readAuthorization?: Maybe<Scalars['String']>;
+  createAuthorization?: Maybe<Scalars['String']>;
+  updateAuthorization?: Maybe<Scalars['String']>;
+  deleteAuthorization?: Maybe<Scalars['String']>;
 };
 
 /** A connection to a list of `DocumentTemplate` values. */
@@ -2030,6 +2042,7 @@ export type MatterTemplate = Node & {
   id: Scalars['UUID'];
   name: Scalars['String'];
   javascriptModule: Scalars['String'];
+  category: Scalars['String'];
   /** Reads and enables pagination through a set of `Matter`. */
   mattersByMatterTemplateId: MattersConnection;
 };
@@ -2061,6 +2074,7 @@ export type MatterTemplateInput = {
   id?: Maybe<Scalars['UUID']>;
   name: Scalars['String'];
   javascriptModule: Scalars['String'];
+  category?: Maybe<Scalars['String']>;
 };
 
 /** Represents an update to a `MatterTemplate`. Fields that are set will be updated. */
@@ -2068,6 +2082,7 @@ export type MatterTemplatePatch = {
   id?: Maybe<Scalars['UUID']>;
   name?: Maybe<Scalars['String']>;
   javascriptModule?: Maybe<Scalars['String']>;
+  category?: Maybe<Scalars['String']>;
 };
 
 /** A connection to a list of `MatterTemplate` values. */
@@ -4813,7 +4828,7 @@ export type AllDocumentTemplatesQuery = (
     { __typename?: 'DocumentTemplatesConnection' }
     & { nodes: Array<(
       { __typename?: 'DocumentTemplate' }
-      & Pick<DocumentTemplate, 'id' | 'name' | 'javascriptModule'>
+      & Pick<DocumentTemplate, 'id' | 'name' | 'description' | 'fileExtension' | 'readAuthorization' | 'createAuthorization' | 'updateAuthorization' | 'deleteAuthorization'>
     )> }
   )> }
 );
@@ -4841,7 +4856,7 @@ export type AllMatterTemplatesQuery = (
     { __typename?: 'MatterTemplatesConnection' }
     & { nodes: Array<(
       { __typename?: 'MatterTemplate' }
-      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule'>
+      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule' | 'category'>
     )> }
   )> }
 );
@@ -4861,7 +4876,7 @@ export type AllMattersQuery = (
         & Pick<Person, 'id' | 'name' | 'email'>
       )>, matterTemplateByMatterTemplateId?: Maybe<(
         { __typename?: 'MatterTemplate' }
-        & Pick<MatterTemplate, 'id' | 'name'>
+        & Pick<MatterTemplate, 'id' | 'name' | 'category'>
       )> }
     )> }
   )> }
@@ -4897,7 +4912,12 @@ export type AllQuestionsQuery = (
 
 export type CreateDocumentTemplateMutationVariables = Exact<{
   name: Scalars['String'];
-  javascriptModule: Scalars['String'];
+  description: Scalars['String'];
+  fileExtension?: Maybe<Scalars['String']>;
+  readAuthorization?: Maybe<Scalars['String']>;
+  createAuthorization?: Maybe<Scalars['String']>;
+  updateAuthorization?: Maybe<Scalars['String']>;
+  deleteAuthorization?: Maybe<Scalars['String']>;
 }>;
 
 
@@ -4907,7 +4927,7 @@ export type CreateDocumentTemplateMutation = (
     { __typename?: 'CreateDocumentTemplatePayload' }
     & { documentTemplate?: Maybe<(
       { __typename?: 'DocumentTemplate' }
-      & Pick<DocumentTemplate, 'id' | 'name' | 'javascriptModule'>
+      & Pick<DocumentTemplate, 'id' | 'name' | 'description' | 'fileExtension' | 'readAuthorization' | 'createAuthorization' | 'updateAuthorization' | 'deleteAuthorization'>
     )> }
   )> }
 );
@@ -5073,7 +5093,12 @@ export type GetTransloaditTokenMutation = (
 export type UpdateDocumentTemplateByIdMutationVariables = Exact<{
   id: Scalars['UUID'];
   name?: Maybe<Scalars['String']>;
-  javascriptModule?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  fileExtension?: Maybe<Scalars['String']>;
+  readAuthorization?: Maybe<Scalars['String']>;
+  createAuthorization?: Maybe<Scalars['String']>;
+  updateAuthorization?: Maybe<Scalars['String']>;
+  deleteAuthorization?: Maybe<Scalars['String']>;
 }>;
 
 
@@ -5083,7 +5108,7 @@ export type UpdateDocumentTemplateByIdMutation = (
     { __typename?: 'UpdateDocumentTemplatePayload' }
     & { documentTemplate?: Maybe<(
       { __typename?: 'DocumentTemplate' }
-      & Pick<DocumentTemplate, 'id' | 'name' | 'javascriptModule'>
+      & Pick<DocumentTemplate, 'id' | 'name' | 'description' | 'fileExtension' | 'readAuthorization' | 'createAuthorization' | 'updateAuthorization' | 'deleteAuthorization'>
     )> }
   )> }
 );
@@ -5185,7 +5210,12 @@ export const AllDocumentTemplatesDocument = gql`
     nodes {
       id
       name
-      javascriptModule
+      description
+      fileExtension
+      readAuthorization
+      createAuthorization
+      updateAuthorization
+      deleteAuthorization
     }
   }
 }
@@ -5258,6 +5288,7 @@ export const AllMatterTemplatesDocument = gql`
       id
       name
       javascriptModule
+      category
     }
   }
 }
@@ -5300,6 +5331,7 @@ export const AllMattersDocument = gql`
       matterTemplateByMatterTemplateId {
         id
         name
+        category
       }
       name
       createdAt
@@ -5407,12 +5439,17 @@ export type AllQuestionsQueryHookResult = ReturnType<typeof useAllQuestionsQuery
 export type AllQuestionsLazyQueryHookResult = ReturnType<typeof useAllQuestionsLazyQuery>;
 export type AllQuestionsQueryResult = Apollo.QueryResult<AllQuestionsQuery, AllQuestionsQueryVariables>;
 export const CreateDocumentTemplateDocument = gql`
-    mutation CreateDocumentTemplate($name: String!, $javascriptModule: String!) {
-  createDocumentTemplate(input: {documentTemplate: {name: $name, javascriptModule: $javascriptModule}}) {
+    mutation CreateDocumentTemplate($name: String!, $description: String!, $fileExtension: String, $readAuthorization: String, $createAuthorization: String, $updateAuthorization: String, $deleteAuthorization: String) {
+  createDocumentTemplate(input: {documentTemplate: {name: $name, description: $description, fileExtension: $fileExtension, readAuthorization: $readAuthorization, createAuthorization: $createAuthorization, updateAuthorization: $updateAuthorization, deleteAuthorization: $deleteAuthorization}}) {
     documentTemplate {
       id
       name
-      javascriptModule
+      description
+      fileExtension
+      readAuthorization
+      createAuthorization
+      updateAuthorization
+      deleteAuthorization
     }
   }
 }
@@ -5433,7 +5470,12 @@ export type CreateDocumentTemplateMutationFn = Apollo.MutationFunction<CreateDoc
  * const [createDocumentTemplateMutation, { data, loading, error }] = useCreateDocumentTemplateMutation({
  *   variables: {
  *      name: // value for 'name'
- *      javascriptModule: // value for 'javascriptModule'
+ *      description: // value for 'description'
+ *      fileExtension: // value for 'fileExtension'
+ *      readAuthorization: // value for 'readAuthorization'
+ *      createAuthorization: // value for 'createAuthorization'
+ *      updateAuthorization: // value for 'updateAuthorization'
+ *      deleteAuthorization: // value for 'deleteAuthorization'
  *   },
  * });
  */
@@ -5803,12 +5845,17 @@ export type GetTransloaditTokenMutationHookResult = ReturnType<typeof useGetTran
 export type GetTransloaditTokenMutationResult = Apollo.MutationResult<GetTransloaditTokenMutation>;
 export type GetTransloaditTokenMutationOptions = Apollo.BaseMutationOptions<GetTransloaditTokenMutation, GetTransloaditTokenMutationVariables>;
 export const UpdateDocumentTemplateByIdDocument = gql`
-    mutation UpdateDocumentTemplateById($id: UUID!, $name: String, $javascriptModule: String) {
-  updateDocumentTemplateById(input: {documentTemplatePatch: {name: $name, javascriptModule: $javascriptModule}, id: $id}) {
+    mutation UpdateDocumentTemplateById($id: UUID!, $name: String, $description: String, $fileExtension: String, $readAuthorization: String, $createAuthorization: String, $updateAuthorization: String, $deleteAuthorization: String) {
+  updateDocumentTemplateById(input: {documentTemplatePatch: {name: $name, description: $description, fileExtension: $fileExtension, readAuthorization: $readAuthorization, createAuthorization: $createAuthorization, updateAuthorization: $updateAuthorization, deleteAuthorization: $deleteAuthorization}, id: $id}) {
     documentTemplate {
       id
       name
-      javascriptModule
+      description
+      fileExtension
+      readAuthorization
+      createAuthorization
+      updateAuthorization
+      deleteAuthorization
     }
   }
 }
@@ -5830,7 +5877,12 @@ export type UpdateDocumentTemplateByIdMutationFn = Apollo.MutationFunction<Updat
  *   variables: {
  *      id: // value for 'id'
  *      name: // value for 'name'
- *      javascriptModule: // value for 'javascriptModule'
+ *      description: // value for 'description'
+ *      fileExtension: // value for 'fileExtension'
+ *      readAuthorization: // value for 'readAuthorization'
+ *      createAuthorization: // value for 'createAuthorization'
+ *      updateAuthorization: // value for 'updateAuthorization'
+ *      deleteAuthorization: // value for 'deleteAuthorization'
  *   },
  * });
  */

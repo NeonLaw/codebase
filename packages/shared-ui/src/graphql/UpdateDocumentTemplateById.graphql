@@ -1,13 +1,23 @@
 mutation UpdateDocumentTemplateById(
   $id: UUID!
   $name: String
-  $javascriptModule: String
+  $description: String
+  $fileExtension: String
+  $readAuthorization: String
+  $createAuthorization: String
+  $updateAuthorization: String
+  $deleteAuthorization: String
 ) {
   updateDocumentTemplateById(
     input: {
       documentTemplatePatch: {
         name: $name
-        javascriptModule: $javascriptModule
+        description: $description
+        fileExtension: $fileExtension
+        readAuthorization: $readAuthorization
+        createAuthorization: $createAuthorization
+        updateAuthorization: $updateAuthorization
+        deleteAuthorization: $deleteAuthorization
       }
       id: $id
     }
@@ -15,7 +25,12 @@ mutation UpdateDocumentTemplateById(
     documentTemplate {
       id
       name
-      javascriptModule
+      description
+      fileExtension
+      readAuthorization
+      createAuthorization
+      updateAuthorization
+      deleteAuthorization
     }
   }
 }
