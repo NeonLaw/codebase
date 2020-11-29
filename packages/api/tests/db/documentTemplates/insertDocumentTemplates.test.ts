@@ -16,7 +16,7 @@ describe('INSERT INTO document_template;', () => {
         await becomeAnonymousUser(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO document_template (name, javascript_module) '+
+          'INSERT INTO document_template (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
           ['delete-your-data', 'deleteYourData']
         )).rejects.toThrow(
@@ -34,7 +34,7 @@ describe('INSERT INTO document_template;', () => {
         await becomePortalUser(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO document_template (name, javascript_module) '+
+          'INSERT INTO document_template (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
           ['delete-your-data', 'deleteYourData']
         )).rejects.toThrow(
@@ -52,7 +52,7 @@ describe('INSERT INTO document_template;', () => {
         await becomeLawyerUser(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO document_template (name, javascript_module) '+
+          'INSERT INTO document_template (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
           ['delete-your-data', 'deleteYourData']
         )).rejects.toThrow(
