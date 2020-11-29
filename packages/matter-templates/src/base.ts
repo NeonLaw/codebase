@@ -8,11 +8,9 @@ interface ProcessUploadArgs {
 
 export class Base {
   matterId: string;
-  notarized: boolean;
 
-  constructor(matterId: string, notarized?: boolean) {
+  constructor(matterId: string) {
     this.matterId = matterId;
-    this.notarized = notarized || false;
   }
 
   uploadBucketUrl(): string {
@@ -28,33 +26,6 @@ export class Base {
     await client.connect();
 
     return client;
-  }
-
-  async createRetainerRevision(filename: string) {
-    await this.processUpload(
-      {
-        documentTemplateName: 'retainer',
-        fileExtension: 'doc',
-        filename,
-        overwrite: true
-      }
-    );
-  }
-
-  async createSignedRetainer(filename: string) {
-    await this.processUpload(
-      {
-        documentTemplateName: 'signed-retainer',
-        fileExtension: 'pdf',
-        filename
-      }
-    );
-  }
-
-  async saveUpload(args: ProcessUploadArgs) {
-  }
-
-  async getMatterDocument(filename: string) {
   }
 
   async isActive() {

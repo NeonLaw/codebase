@@ -1,30 +1,9 @@
-export class Base {
-  matterId: string;
-  notarized: boolean;
+import { Base } from '../src/base';
 
-  constructor(matterId: string, notarized?: string) {
-    this.matterId = matterId;
-    this.notarized = notarized || false;
-  }
+describe('Base matter template class', () => {
+  it('can be initialized with a matter Id', () => {
+    const matterId = '1';
 
-  uploadBucketUrl() {
-    return 'r';
-  }
-
-  privateAssetBucketUrl() {
-    return 'r';
-  }
-
-  databaseSession() {
-
-  }
-
-  createRetainerRevision() {
-    const filename = `/matters/${this.matterId}/retainer`;
-  }
-
-  createSignedRetainer() {
-    const filename = `/matters/${this.matterId}/signed-retainer`;
-    const file_extension = 'pdf';
-  }
-}
+    expect(new Base(matterId)).toHaveProperty('matterId', matterId);
+  });
+});
