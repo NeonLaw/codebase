@@ -25,10 +25,6 @@ export const DocumentTemplateTable = (props: DocumentTemplateTableProps) => {
       Header: 'Name',
       accessor: 'name',
     },
-    {
-      Header: 'Javascript Module',
-      accessor: 'javascriptModule',
-    },
   ];
   const nodes = data?.allDocumentTemplates?.nodes || [];
 
