@@ -20,9 +20,9 @@ describe('Visiting /portal', () => {
         cy.wait(1000);
         cy.url().should('include', '/portal');
 
-        cy.contains('Profile').click();
+        cy.contains('Settings').click();
         cy.wait(1000);
-        cy.url().should('include', '/portal/profile');
+        cy.url().should('include', '/portal/settings');
 
         cy.get('[data-testid="open-update-profile-modal"]').click();
 
