@@ -1,11 +1,5 @@
 import { Client } from 'pg';
 
-interface ProcessUploadArgs {
-  filename: string;
-  documentTemplateName: string;
-  overwrite?: boolean;
-}
-
 export class Base {
   matterId: string;
 
@@ -32,7 +26,7 @@ export class Base {
     // check if signed-retainer exists
   }
 
-  allowableDocumentTemplateNames = [
+  documents = [
     'retainer',
     'signed-retainer'
   ]

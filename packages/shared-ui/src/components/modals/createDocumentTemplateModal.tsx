@@ -11,10 +11,10 @@ import {
   useColorMode,
 } from '@chakra-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
+import { Select, StringInput } from '../inputs';
 import { colors, gutters } from '../../themes/neonLaw';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 import { FlashButton } from '../button';
-import { StringInput } from '../inputs';
 import { SubmissionInProgress } from '../submission-in-progress';
 import { useCreateDocumentTemplateMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
@@ -30,7 +30,7 @@ export const CreateDocumentTemplateModal = ({ isOpen, onClose, onOpen }) => {
     { loading }
   ] = useCreateDocumentTemplateMutation();
 
-  const { handleSubmit, errors, register, reset } = useForm();
+  const { control, handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
@@ -38,11 +38,21 @@ export const CreateDocumentTemplateModal = ({ isOpen, onClose, onOpen }) => {
   const OS = useOS();
   const isCPressed = useKeyPressed((e: KeyboardEvent) => e.key === 'c');
 
-  const onSubmit = async ({ name, javascriptModule }) => {
+  const onSubmit = async ({
+    name,
+    readAuthorization,
+    createAuthorization,
+    updateAuthorization,
+    deleteAuthorization
+  }) => {
     await createDocumentTemplate({
       variables: {
-        javascriptModule,
+        createAuthorization,
+        deleteAuthorization,
+        description: '',
         name,
+        readAuthorization,
+        updateAuthorization,
       }
     })
       .then(async () => {
@@ -124,22 +134,73 @@ export const CreateDocumentTemplateModal = ({ isOpen, onClose, onOpen }) => {
                 })}
                 styles={{ marginBottom: gutters.xSmall }}
               />
-              <StringInput
-                name="javascriptModule"
-                testId="create-document-template-form-javascript-module"
-                label={
-                  intl.formatMessage({ id: 'forms.javascript_module.label' })
+              <Select
+                name="readAuthorization"
+                label={intl.formatMessage(
+                  { id: 'forms.read_authorization.label' }
+                )}
+                options={
+                  [
+                    { label: 'Public', value: 'anonymous' },
+                    { label: 'Clients', value: 'portal' },
+                    { label: 'Lawyers', value: 'lawyer' },
+                    { label: 'Admin', value: 'admin' },
+                  ]
                 }
                 errors={errors}
-                placeholder={intl.formatMessage({
-                  id: 'forms.javascript_module.placeholder'
-                })}
-                register={register({
-                  required: intl.formatMessage({
-                    id: 'forms.javascript_module.required'
-                  }),
-                })}
-                styles={{ marginBottom: gutters.xSmall }}
+                testId="create-document-template-read-authorization"
+                control={control}
+              />
+              <Select
+                name="createAuthorization"
+                label={intl.formatMessage(
+                  { id: 'forms.create_authorization.label' }
+                )}
+                options={
+                  [
+                    { label: 'Public', value: 'anonymous' },
+                    { label: 'Clients', value: 'portal' },
+                    { label: 'Lawyers', value: 'lawyer' },
+                    { label: 'Admin', value: 'admin' },
+                  ]
+                }
+                errors={errors}
+                testId="create-document-template-create-authorization"
+                control={control}
+              />
+              <Select
+                name="updateAuthorization"
+                label={intl.formatMessage(
+                  { id: 'forms.update_authorization.label' }
+                )}
+                options={
+                  [
+                    { label: 'Public', value: 'anonymous' },
+                    { label: 'Clients', value: 'portal' },
+                    { label: 'Lawyers', value: 'lawyer' },
+                    { label: 'Admin', value: 'admin' },
+                  ]
+                }
+                errors={errors}
+                testId="create-document-template-update-authorization"
+                control={control}
+              />
+              <Select
+                name="deleteAuthorization"
+                label={intl.formatMessage(
+                  { id: 'forms.delete_authorization.label' }
+                )}
+                options={
+                  [
+                    { label: 'Public', value: 'anonymous' },
+                    { label: 'Clients', value: 'portal' },
+                    { label: 'Lawyers', value: 'lawyer' },
+                    { label: 'Admin', value: 'admin' },
+                  ]
+                }
+                errors={errors}
+                testId="create-document-template-delete-authorization"
+                control={control}
               />
             </ModalBody>
 

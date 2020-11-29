@@ -1,7 +1,7 @@
 
 import { AiOutlineAudit, AiOutlineShop } from 'react-icons/ai';
 import { BiHomeHeart, BiPen } from 'react-icons/bi';
-import { useAllMattersQuery, useCurrentUserQuery } from '../../utils/api';
+// import { useAllMattersQuery, useCurrentUserQuery } from '../../utils/api';
 import { CgProfile } from 'react-icons/cg';
 import { FaHands } from 'react-icons/fa';
 import { MdGavel } from 'react-icons/md';
@@ -13,6 +13,7 @@ import {
 import { SideNavContent } from '../../components/sideNavigation/base';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { VscLaw } from 'react-icons/vsc';
+import { useCurrentUserQuery } from '../../utils/api';
 
 export const PortalSideNavContent = () => {
   const { data: currentUserData } = useCurrentUserQuery();
@@ -22,16 +23,15 @@ export const PortalSideNavContent = () => {
     return null;
   }
 
-  const { data: allMatterData } = useAllMattersQuery();
-  const matters = allMatterData?.allMatters?.nodes;
-  const uniqueMatterTemplateCategories = matters?.map((matter) => {
-    return matterTemplateByMatterTemplateId.category;
-  });
+  // const { data: allMatterData } = useAllMattersQuery();
+  // const matters = allMatterData?.allMatters?.nodes;
+  // const uniqueMatterTemplateCategories = matters?.map((matter) => {
+  //   return matterTemplateByMatterTemplateId.category;
+  // });
 
-  const onlyUnique = (value, index, self) => {
-    return self.indexOf(value) === index;
-  };
-
+  // const onlyUnique = (value, index, self) => {
+  //   return self.indexOf(value) === index;
+  // };
 
   const links = [
     {
@@ -44,16 +44,16 @@ export const PortalSideNavContent = () => {
       label: 'Write Rickie',
       route: '/portal/write-rickie'
     },
-    uniqueMatterTemplates?.find((t) => t ==='data-deletion') && {
+    {
       icon: <TiDeleteOutline />,
       label: 'Data Deletion',
       route: '/portal/data-deletion'
     },
-    uniqueMatterTemplates?.find((t) => t ==='litigation') && {
+    {
       icon: <MdGavel />, label: 'Litigation', route: '/portal/litigation' },
-    uniqueMatterTemplates?.find((t) => t ==='estate') && {
-      icon: <FaHands />, label: 'Estate', route: '/portal/estate' } : null,
-    uniqueMatterTemplates?.find((t) => t ==='business') && {
+    {
+      icon: <FaHands />, label: 'Estate', route: '/portal/estate' },
+    {
       icon: <AiOutlineShop />,
       label: 'Businesses',
       route: '/portal/businesses'

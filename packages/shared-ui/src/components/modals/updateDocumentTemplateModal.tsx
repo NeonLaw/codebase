@@ -11,6 +11,7 @@ import {
   useColorMode,
 } from '@chakra-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
+import { Select, StringInput } from '../inputs';
 import { colors, gutters } from '../../themes/neonLaw';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 import {
@@ -18,7 +19,6 @@ import {
   useUpdateDocumentTemplateByIdMutation,
 } from '../../utils/api';
 import { FlashButton } from '../button';
-import { StringInput } from '../inputs';
 import { SubmissionInProgress } from '../submission-in-progress';
 import styled from '@emotion/styled';
 import { useForm } from 'react-hook-form';
@@ -48,7 +48,7 @@ export const UpdateDocumentTemplateModal = ({
   currentRow,
 }: UpdateDocumentTemplateModalProps) => {
   const intl = useIntl();
-  const { id, prompt } = currentRow?.values || {};
+  const { id } = currentRow?.values || {};
 
   const [
     updateDocumentTemplate, { loading }
@@ -69,17 +69,31 @@ export const UpdateDocumentTemplateModal = ({
     },
   });
 
-  const { handleSubmit, errors, register, reset } = useForm();
+  const { control, handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [focus, setFocus] = useState(false);
+  const [focus] = useState(false);
   const [formError, setFormError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
   const OS = useOS();
 
-  const onSubmit = async ({ name, javascriptModule }) => {
+  const onSubmit = async ({
+    name,
+    readAuthorization,
+    createAuthorization,
+    updateAuthorization,
+    deleteAuthorization
+  }) => {
     await updateDocumentTemplate({
-      variables: { id, javascriptModule, name },
+      variables: {
+        createAuthorization,
+        deleteAuthorization,
+        description: '',
+        id,
+        name,
+        readAuthorization,
+        updateAuthorization,
+      }
     })
       .then(async () => {
         setFormError('');
@@ -162,21 +176,89 @@ export const UpdateDocumentTemplateModal = ({
           >
             <ModalBody>
               {formError}
+
               <StringInput
-                name="prompt"
-                testId="update-question-modal-prompt"
-                label={intl.formatMessage({ id: 'forms.prompt.label' })}
+                name="name"
+                testId="update-document-template-form-name"
+                label={intl.formatMessage({ id: 'forms.name.label' })}
                 errors={errors}
-                onFocus={() => { setFocus(true); }}
-                onBlur={() => { setFocus(false); }}
-                value={prompt}
                 placeholder={intl.formatMessage({
-                  id: 'forms.prompt.placeholder',
+                  id: 'forms.name.placeholder',
                 })}
                 register={register({
-                  required: intl.formatMessage({ id: 'forms.prompt.required' }),
+                  required: intl.formatMessage({
+                    id: 'forms.name.required',
+                  }),
                 })}
-                styles={{ marginBottom: gutters.xSmallOne }}
+                styles={{ marginBottom: gutters.xSmall }}
+              />
+              <Select
+                name="readAuthorization"
+                label={intl.formatMessage(
+                  { id: 'forms.read_authorization.label' }
+                )}
+                options={
+                  [
+                    { label: 'Public', value: 'anonymous' },
+                    { label: 'Clients', value: 'portal' },
+                    { label: 'Lawyers', value: 'lawyer' },
+                    { label: 'Admin', value: 'admin' },
+                  ]
+                }
+                errors={errors}
+                testId="update-document-template-read-authorization"
+                control={control}
+              />
+              <Select
+                name="createAuthorization"
+                label={intl.formatMessage(
+                  { id: 'forms.create_authorization.label' }
+                )}
+                options={
+                  [
+                    { label: 'Public', value: 'anonymous' },
+                    { label: 'Clients', value: 'portal' },
+                    { label: 'Lawyers', value: 'lawyer' },
+                    { label: 'Admin', value: 'admin' },
+                  ]
+                }
+                errors={errors}
+                testId="update-document-template-update-authorization"
+                control={control}
+              />
+              <Select
+                name="updateAuthorization"
+                label={intl.formatMessage(
+                  { id: 'forms.update_authorization.label' }
+                )}
+                options={
+                  [
+                    { label: 'Public', value: 'anonymous' },
+                    { label: 'Clients', value: 'portal' },
+                    { label: 'Lawyers', value: 'lawyer' },
+                    { label: 'Admin', value: 'admin' },
+                  ]
+                }
+                errors={errors}
+                testId="update-document-template-update-authorization"
+                control={control}
+              />
+              <Select
+                name="deleteAuthorization"
+                label={intl.formatMessage(
+                  { id: 'forms.delete_authorization.label' }
+                )}
+                options={
+                  [
+                    { label: 'Public', value: 'anonymous' },
+                    { label: 'Clients', value: 'portal' },
+                    { label: 'Lawyers', value: 'lawyer' },
+                    { label: 'Admin', value: 'admin' },
+                  ]
+                }
+                errors={errors}
+                testId="update-document-template-delete-authorization"
+                control={control}
               />
             </ModalBody>
 
