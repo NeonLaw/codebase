@@ -13,6 +13,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
   /* eslint-disable no-useless-escape */
+  const flashcards = await graphql(`
+    query {
+      neon {
+        allFlashcards {
+          nodes {
+            id
+          }
+        }
+      }
+    }
+  `);
+
+  /* eslint-disable no-useless-escape */
   const contentMdxFiles = await graphql(`
     query {
       allMdx(filter: { fileAbsolutePath: { regex: "/content//" } }) {
@@ -49,6 +62,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (contentMdxFiles.errors) {
     reporter.panicOnBuild('🚨  ERROR: Loading content pages');
   }
+
+  console.log(JSON.stringify(flashcards));
+  // Create flashcard pages.
+  const flashcardPages = flashcards.data.neon.allFlashcards.nodes;
+
+  flashcardPages.forEach((node) => {
+    createPage({
+      component: path.resolve('./src/layouts/flashcardLayout.tsx'),
+      context: { id: node['id'] },
+      path: `/bar-prep/flashcards/${node['id']}`,
+    });
+  });
 
   // Create content pages.
   const contentPages = contentMdxFiles.data.allMdx.edges;
