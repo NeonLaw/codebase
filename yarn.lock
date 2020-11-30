@@ -859,7 +859,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
 
-"@babel/plugin-transform-react-jsx@^7.0.0", "@babel/plugin-transform-react-jsx@^7.10.4":
+"@babel/plugin-transform-react-jsx@^7.0.0":
   version "7.12.1"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx/-/plugin-transform-react-jsx-7.12.1.tgz#c2d96c77c2b0e4362cc4e77a43ce7c2539d478cb"
   integrity sha512-RmKejwnT0T0QzQUzcbP5p1VWlpnP8QHtdhEtLG55ZDQnJNalbF3eeDyu3dnGKvGzFIQiBzFhBYTwvv435p9Xpw==
@@ -869,7 +869,7 @@
     "@babel/helper-plugin-utils" "^7.10.4"
     "@babel/plugin-syntax-jsx" "^7.12.1"
 
-"@babel/plugin-transform-react-jsx@^7.12.7":
+"@babel/plugin-transform-react-jsx@^7.12.5", "@babel/plugin-transform-react-jsx@^7.12.7":
   version "7.12.7"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx/-/plugin-transform-react-jsx-7.12.7.tgz#8b14d45f6eccd41b7f924bcb65c021e9f0a06f7f"
   integrity sha512-YFlTi6MEsclFAPIDNZYiCRbneg1MFGao9pPG9uD5htwE0vDbPaMUMeYd6itWjw7K4kro4UbdQf3ljmFl9y48dQ==
@@ -1091,10 +1091,10 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/standalone@^7.11.6":
-  version "7.12.4"
-  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.12.4.tgz#1493960e765308cc06e9a75ba1affbe65a11124b"
-  integrity sha512-9vw7RYK7CWh5MdTfLyC7j6hZmDYmm6DieFP4yetvpVftKQ+yrEY7ovhnhsVHznLqx5luU9Bx4k7xoEc3acrsow==
+"@babel/standalone@^7.12.6":
+  version "7.12.9"
+  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.12.9.tgz#2da8a223b44498a1e7ca5b83d4e9d010088b0036"
+  integrity sha512-7SFBBNPjEZnN3dlnOcTa08XLkGUUmZX6Aab2rdeVBfI/bBaZXRRMx5XIMU8piZMVJI+jxu4j7gu0E/yRWmtS4w==
 
 "@babel/template@^7.10.4", "@babel/template@^7.3.3":
   version "7.10.4"
@@ -2157,18 +2157,6 @@
     fs-extra "9.0.1"
     tslib "~2.0.1"
 
-"@graphql-tools/delegate@^6.2.4":
-  version "6.2.4"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/delegate/-/delegate-6.2.4.tgz#db553b63eb9512d5eb5bbfdfcd8cb1e2b534699c"
-  integrity sha512-mXe6DfoWmq49kPcDrpKHgC2DSWcD5q0YCaHHoXYPAOlnLH8VMTY8BxcE8y/Do2eyg+GLcwAcrpffVszWMwqw0w==
-  dependencies:
-    "@ardatan/aggregate-error" "0.0.6"
-    "@graphql-tools/schema" "^6.2.4"
-    "@graphql-tools/utils" "^6.2.4"
-    dataloader "2.0.0"
-    is-promise "4.0.0"
-    tslib "~2.0.1"
-
 "@graphql-tools/delegate@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@graphql-tools/delegate/-/delegate-7.0.0.tgz#7356d81da480eb25723c63e1312e0b3488c509e4"
@@ -2178,6 +2166,19 @@
     "@graphql-tools/batch-execute" "^7.0.0"
     "@graphql-tools/schema" "^7.0.0"
     "@graphql-tools/utils" "^7.0.0"
+    dataloader "2.0.0"
+    is-promise "4.0.0"
+    tslib "~2.0.1"
+
+"@graphql-tools/delegate@^7.0.3", "@graphql-tools/delegate@^7.0.7":
+  version "7.0.7"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/delegate/-/delegate-7.0.7.tgz#276fd3f22183857c17ed0d37eac95f91bc982ac5"
+  integrity sha512-2sze+CJxu37b4jcQ4fyj6ap9TMnx8+NBtApSs1nWIVENzPE2510aNTsBHgSdTwSeV/tVIFkAtZZAlMEGYGXzQA==
+  dependencies:
+    "@ardatan/aggregate-error" "0.0.6"
+    "@graphql-tools/batch-execute" "^7.0.0"
+    "@graphql-tools/schema" "^7.0.0"
+    "@graphql-tools/utils" "^7.0.2"
     dataloader "2.0.0"
     is-promise "4.0.0"
     tslib "~2.0.1"
@@ -2242,13 +2243,13 @@
     fs-extra "9.0.1"
     tslib "~2.0.1"
 
-"@graphql-tools/links@^6.2.5":
-  version "6.2.5"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/links/-/links-6.2.5.tgz#b172cadc4b7cbe27bfc1dc787651f92517f583bc"
-  integrity sha512-XeGDioW7F+HK6HHD/zCeF0HRC9s12NfOXAKv1HC0J7D50F4qqMvhdS/OkjzLoBqsgh/Gm8icRc36B5s0rOA9ig==
+"@graphql-tools/links@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/links/-/links-7.0.3.tgz#e734d02b48038f3cfd80ecee0da28378ce699831"
+  integrity sha512-if/o6H6Gjk7Ph2hZsBaUL1z95jeAMDdgAIA8RFxepXJAHLIcyufFvCoKxReeXhuG6C20FfLIVhDXeXdsQkezmQ==
   dependencies:
-    "@graphql-tools/utils" "^7.0.0"
-    apollo-link "1.2.14"
+    "@graphql-tools/delegate" "^7.0.3"
+    "@graphql-tools/utils" "^7.0.2"
     apollo-upload-client "14.1.2"
     cross-fetch "3.0.6"
     form-data "3.0.0"
@@ -2325,14 +2326,6 @@
     relay-compiler "10.0.1"
     tslib "~2.0.1"
 
-"@graphql-tools/schema@^6.2.4":
-  version "6.2.4"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-6.2.4.tgz#cc4e9f5cab0f4ec48500e666719d99fc5042481d"
-  integrity sha512-rh+14lSY1q8IPbEv2J9x8UBFJ5NrDX9W5asXEUlPp+7vraLp/Tiox4GXdgyA92JhwpYco3nTf5Bo2JDMt1KnAQ==
-  dependencies:
-    "@graphql-tools/utils" "^6.2.4"
-    tslib "~2.0.1"
-
 "@graphql-tools/schema@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-7.0.0.tgz#f87e307d00a3d388f5c54d32f4697611396c0127"
@@ -2356,7 +2349,7 @@
     valid-url "1.0.9"
     websocket "1.0.32"
 
-"@graphql-tools/utils@^6", "@graphql-tools/utils@^6.0.0", "@graphql-tools/utils@^6.0.18", "@graphql-tools/utils@^6.2.4":
+"@graphql-tools/utils@^6", "@graphql-tools/utils@^6.0.0", "@graphql-tools/utils@^6.0.18":
   version "6.2.4"
   resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-6.2.4.tgz#38a2314d2e5e229ad4f78cca44e1199e18d55856"
   integrity sha512-ybgZ9EIJE3JMOtTrTd2VcIpTXtDrn2q6eiYkeYMKRVh3K41+LZa6YnR2zKERTXqTWqhobROwLt4BZbw2O3Aeeg==
@@ -2374,23 +2367,12 @@
     camel-case "4.1.1"
     tslib "~2.0.1"
 
-"@graphql-tools/wrap@^6.2.4":
-  version "6.2.4"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/wrap/-/wrap-6.2.4.tgz#2709817da6e469753735a9fe038c9e99736b2c57"
-  integrity sha512-cyQgpybolF9DjL2QNOvTS1WDCT/epgYoiA8/8b3nwv5xmMBQ6/6nYnZwityCZ7njb7MMyk7HBEDNNlP9qNJDcA==
+"@graphql-tools/wrap@^7.0.0", "@graphql-tools/wrap@^7.0.1":
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/wrap/-/wrap-7.0.2.tgz#f7ab04b8cb7db2191af3ef69dfb770e6bcad4d0c"
+  integrity sha512-+JUPbCtqIuAWTPk5cpCxOGiC6+hNCn9r+AWPdkuxDdJlrC1yGg9TOgps1LIhuScSnPeVVrk+/vwgPA/pV0aq9w==
   dependencies:
-    "@graphql-tools/delegate" "^6.2.4"
-    "@graphql-tools/schema" "^6.2.4"
-    "@graphql-tools/utils" "^6.2.4"
-    is-promise "4.0.0"
-    tslib "~2.0.1"
-
-"@graphql-tools/wrap@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/wrap/-/wrap-7.0.0.tgz#f6c02baf3c9374790bb03ee2bee59687f47b1547"
-  integrity sha512-ugCoTbZ7Ca5ty1ne2BxSTdogASW8H3bdvdc4iPjL7saUPCUC9IJ3jzYciZbLi2H0cy/bULZPHJ2EqCWzmArRPA==
-  dependencies:
-    "@graphql-tools/delegate" "^7.0.0"
+    "@graphql-tools/delegate" "^7.0.7"
     "@graphql-tools/schema" "^7.0.0"
     "@graphql-tools/utils" "^7.0.0"
     is-promise "4.0.0"
@@ -7425,6 +7407,11 @@ create-emotion@^10.0.14, create-emotion@^10.0.27:
     "@emotion/sheet" "0.9.4"
     "@emotion/utils" "0.11.3"
 
+create-gatsby@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/create-gatsby/-/create-gatsby-0.0.2.tgz#d7ed0476a0763c14043cc86f3d2a5c7f13e990fa"
+  integrity sha512-I+i/Ep6anSDCHz4Cn3W51G3Gp+XSybNweKM8SeUmz+aCi1tYICkKn7ruIsQJ3TmKtnPV9i8QlbjaZVtbmzZwXQ==
+
 create-hash@^1.1.0, create-hash@^1.1.2, create-hash@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/create-hash/-/create-hash-1.2.0.tgz#889078af11a63756bcfb59bd221996be3a9ef196"
@@ -10165,10 +10152,10 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-gatsby-cli@^2.12.112, gatsby-cli@^2.13.1:
-  version "2.13.1"
-  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.13.1.tgz#3d95afaa7f116cec63a5188dfca77310040ab6d0"
-  integrity sha512-k27GTZXQHIgIZHjyYTSzI7OhaxUOLuIIvgTcrKOx/t+9ztH941g0EhoBr0XbsvI1lknumuUPC7/66/RPYTsmTg==
+gatsby-cli@^2.13.1, gatsby-cli@^2.14.1:
+  version "2.14.1"
+  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.14.1.tgz#8522bcb1cc3681c9d5c5dd59dac44d5876c5cbe4"
+  integrity sha512-zmzv0uTZKlorECsvWb7lk5kbgECOHid7CzWDw9+B3bN8ENxQm+JwOeA87d9DzaWaVCACn85iDW1YV5qmv+6Dnw==
   dependencies:
     "@babel/code-frame" "^7.10.4"
     "@hapi/joi" "^15.1.1"
@@ -10179,13 +10166,14 @@ gatsby-cli@^2.12.112, gatsby-cli@^2.13.1:
     common-tags "^1.8.0"
     configstore "^5.0.1"
     convert-hrtime "^3.0.0"
+    create-gatsby "^0.0.2"
     envinfo "^7.7.3"
     execa "^3.4.0"
     fs-exists-cached "^1.0.0"
     fs-extra "^8.1.0"
-    gatsby-core-utils "^1.4.0"
-    gatsby-recipes "^0.3.1"
-    gatsby-telemetry "^1.4.1"
+    gatsby-core-utils "^1.5.0"
+    gatsby-recipes "^0.4.1"
+    gatsby-telemetry "^1.5.1"
     hosted-git-info "^3.0.6"
     is-valid-path "^0.1.1"
     lodash "^4.17.20"
@@ -10288,12 +10276,12 @@ gatsby-plugin-canonical-urls@^2.4.0:
   dependencies:
     "@babel/runtime" "^7.11.2"
 
-gatsby-plugin-create-client-paths@^2.3.12:
-  version "2.3.13"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-create-client-paths/-/gatsby-plugin-create-client-paths-2.3.13.tgz#d75f2477688aa6032452572f72a81c645df2ec73"
-  integrity sha512-7MYVDNcGdIVjoV3ymYsrDafRxOv+l0Agcz0KS6cT4+8RIiXM0tVglvCKCxnqNAjhLQmp1JFCryyl/jM2/6jzRQ==
+gatsby-plugin-create-client-paths@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-create-client-paths/-/gatsby-plugin-create-client-paths-2.5.0.tgz#ac4780c872c6e720b8bd0f5121b5afa391e94874"
+  integrity sha512-NDHHgW1MlDo6KQfwV2t5rEdmBm6bn5Y2J18Zomhx1Yi3B5wud9QnNRKs6Xg8UBYJkWo690MnTtEp1xoR8Fv9/g==
   dependencies:
-    "@babel/runtime" "^7.11.2"
+    "@babel/runtime" "^7.12.5"
 
 gatsby-plugin-intl@^0.3.3:
   version "0.3.3"
@@ -10495,19 +10483,19 @@ gatsby-react-router-scroll@^3.1.0:
   dependencies:
     "@babel/runtime" "^7.11.2"
 
-gatsby-recipes@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/gatsby-recipes/-/gatsby-recipes-0.3.1.tgz#6e3aaa9fcb0cfc735b069367963ddca587163692"
-  integrity sha512-006frKSNhL0Wuc0fNN31YDOZBUkRn5Vslsthz2Fw+P/ydM/WmWplhOrESpmAi2i5GQkePUmJSQ7p+/A51GU3DA==
+gatsby-recipes@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/gatsby-recipes/-/gatsby-recipes-0.4.1.tgz#30d47d1ad6be98ada49123b18f55176f3d53fd35"
+  integrity sha512-DQysS976BsG+2jECOhWfAaFRd9aGEfq7f9ixYY2LCGoqNqJfgmdZo79iO56Pbvr6bgL0DV/qNSk/3bkF4rIdNQ==
   dependencies:
-    "@babel/core" "^7.11.6"
-    "@babel/generator" "^7.11.6"
+    "@babel/core" "^7.12.3"
+    "@babel/generator" "^7.12.5"
     "@babel/helper-plugin-utils" "^7.10.4"
-    "@babel/plugin-proposal-optional-chaining" "^7.11.0"
-    "@babel/plugin-transform-react-jsx" "^7.10.4"
-    "@babel/standalone" "^7.11.6"
+    "@babel/plugin-proposal-optional-chaining" "^7.12.1"
+    "@babel/plugin-transform-react-jsx" "^7.12.5"
+    "@babel/standalone" "^7.12.6"
     "@babel/template" "^7.10.4"
-    "@babel/types" "^7.11.5"
+    "@babel/types" "^7.12.6"
     "@graphql-tools/schema" "^7.0.0"
     "@graphql-tools/utils" "^7.0.2"
     "@hapi/hoek" "8.x.x"
@@ -10523,8 +10511,8 @@ gatsby-recipes@^0.3.1:
     express "^4.17.1"
     express-graphql "^0.9.0"
     fs-extra "^8.1.0"
-    gatsby-core-utils "^1.4.0"
-    gatsby-telemetry "^1.4.1"
+    gatsby-core-utils "^1.5.0"
+    gatsby-telemetry "^1.5.1"
     glob "^7.1.6"
     graphql "^14.6.0"
     graphql-compose "^6.3.8"
@@ -10596,15 +10584,15 @@ gatsby-source-filesystem@^2.3.18, gatsby-source-filesystem@^2.5.0:
     valid-url "^1.0.9"
     xstate "^4.13.0"
 
-gatsby-source-graphql@^2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/gatsby-source-graphql/-/gatsby-source-graphql-2.8.0.tgz#096167911977ec3e2109aa2032ac7cc9f6fb103e"
-  integrity sha512-JvoWwV7OR0bAwwFJkbFNWVIDDrxuiWu0q4Z9RYglF8sydeYO4RGTnpc7aZvlCWe1esq5uJ8rfehwcvLxGlwZ8Q==
+gatsby-source-graphql@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/gatsby-source-graphql/-/gatsby-source-graphql-2.9.0.tgz#4c5ed8f4f3920a3a3f1e1928396958a109916a44"
+  integrity sha512-EXyzHgy9ZCcWZCMsV1wAkz/fnyObaGMcpwaOXmKXEufTwfx7q2/VHNjkLcGdDSslSCHi59Jyqx6Z5CgKOpd9/Q==
   dependencies:
-    "@babel/runtime" "^7.11.2"
-    "@graphql-tools/links" "^6.2.5"
-    "@graphql-tools/utils" "^6.2.4"
-    "@graphql-tools/wrap" "^6.2.4"
+    "@babel/runtime" "^7.12.5"
+    "@graphql-tools/links" "^7.0.3"
+    "@graphql-tools/utils" "^7.0.2"
+    "@graphql-tools/wrap" "^7.0.1"
     apollo-link "1.2.14"
     apollo-link-http "^1.5.17"
     dataloader "^2.0.0"
@@ -10620,13 +10608,13 @@ gatsby-source-remote-file@^0.2.1:
     gatsby "^2.23.22"
     gatsby-source-filesystem "^2.3.18"
 
-gatsby-telemetry@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-1.4.1.tgz#d5250fd51c3ed84087b3b73b102a742607e5290c"
-  integrity sha512-2OWhJq+u4p05ji33E0H+RDJxomG6kTVb3NtSruSZINQ9lTksXk9y8ROVUulIV+JAoKlPMBE89uKsGJFfwAjGWA==
+gatsby-telemetry@^1.4.1, gatsby-telemetry@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-1.5.1.tgz#f66b4d207a570dd57078c1bfd0c868f0aeb6d8a0"
+  integrity sha512-QRq81nPU7Oqygm87y7HakuqgGimkFDPFZke8pkY3w0B1gDe3z7HJhOUXoSF2GdQr3ps6VPreC8byxPIsXX5WPA==
   dependencies:
     "@babel/code-frame" "^7.10.4"
-    "@babel/runtime" "^7.11.2"
+    "@babel/runtime" "^7.12.5"
     "@turist/fetch" "^7.1.7"
     "@turist/time" "^0.0.1"
     async-retry-ng "^2.0.1"
@@ -10634,7 +10622,7 @@ gatsby-telemetry@^1.4.1:
     configstore "^5.0.1"
     envinfo "^7.7.3"
     fs-extra "^8.1.0"
-    gatsby-core-utils "^1.4.0"
+    gatsby-core-utils "^1.5.0"
     git-up "^4.0.2"
     is-docker "^2.1.1"
     lodash "^4.17.20"
