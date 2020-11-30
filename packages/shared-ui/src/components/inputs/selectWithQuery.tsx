@@ -30,6 +30,9 @@ export const SelectWithQuery = ({
   const options = nodes.map((node) => ({
     label: node[labelColumn], value: node.id
   }));
+  const defaultValue = options.find((option) => {
+    return option.value === value;
+  });
 
   return (
     <FormControl isInvalid={errors && errors[name]} color={'red'}>
@@ -42,12 +45,7 @@ export const SelectWithQuery = ({
           name={name}
           control={control}
           options={options}
-          defaultValue={{
-            label: options.find((option) => {
-              return option.value === value;
-            })?.label,
-            value: value,
-          }}
+          defaultValue={defaultValue || options[0]}
         />
       </Box>
       <FormErrorMessage>

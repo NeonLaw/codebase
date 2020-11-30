@@ -15,6 +15,9 @@ export const Select = ({
   options,
   value = '',
 }) => {
+  const defaultValue = options.find((option) => {
+    return option.value === value;
+  });
 
   return (
     <FormControl isInvalid={errors && errors[name]} color={'red'}>
@@ -27,12 +30,7 @@ export const Select = ({
           name={name}
           control={control}
           options={options}
-          defaultValue={{
-            label: options.find((option) => {
-              return option.value === value;
-            })?.label,
-            value: value,
-          }}
+          defaultValue={defaultValue || options[0]}
         />
       </Box>
       <FormErrorMessage>

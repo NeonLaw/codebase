@@ -47,12 +47,12 @@ export const CreateDocumentTemplateModal = ({ isOpen, onClose, onOpen }) => {
   }) => {
     await createDocumentTemplate({
       variables: {
-        createAuthorization,
-        deleteAuthorization,
+        createAuthorization: createAuthorization.value,
+        deleteAuthorization: deleteAuthorization.value,
         description: '',
         name,
-        readAuthorization,
-        updateAuthorization,
+        readAuthorization: readAuthorization.value,
+        updateAuthorization: updateAuthorization.value,
       }
     })
       .then(async () => {
