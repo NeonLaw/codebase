@@ -1,6 +1,5 @@
 import { FAQProps } from './faq';
 import Hammer from '../../images/hammer.svg';
-import { Link } from 'gatsby';
 import Lock from '../../images/lock.svg';
 import React from 'react';
 import Rocket from '../../images/rocket.svg';
