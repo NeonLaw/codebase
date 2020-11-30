@@ -33,7 +33,7 @@
     "gatsby-plugin-typescript": "^2.7.0",
     "gatsby-remark-images": "^3.4.2",
     "gatsby-source-filesystem": "^2.5.0",
-    "gatsby-source-graphql": "^2.8.0",
+    "gatsby-source-graphql": "^2.9.0",
     "gatsby-source-remote-file": "^0.2.1",
     "gatsby-transformer-sharp": "^2.7.0",
     "graphql-tag": "^2.11.0",
