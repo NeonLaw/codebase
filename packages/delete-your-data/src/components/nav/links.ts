@@ -5,14 +5,14 @@ export const links = [
   },
   {
     label: 'About',
-    route: '/about'
+    route: 'https://www.neonlaw.com'
   },
   {
     label: 'Blog',
-    route: '/blog'
+    route: 'https://www.neonlaw.com/blog'
   },
   {
     label: 'Contact',
-    route: '/contact'
+    route: 'https://www.neonlaw.com/contact'
   }
 ];

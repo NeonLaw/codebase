@@ -25,9 +25,6 @@ export const faqs: FAQProps[] = [
         your jurisdiction. For instance, if you&apos;re in Europe, we will make
         data deletion requests under the GDPR, if you&apos;re in Nevada, we will
         use the Nevada Privacy Act.{' '}
-        <Link to="/jurisdictions">
-          For a full list of jurisdictions, click here
-        </Link>
         .
       </>
     ),
@@ -50,7 +47,11 @@ export const faqs: FAQProps[] = [
     text: (
       <>
         Of course, our code is{' '}
-        <a href="https://github.com/neonlaw/codebase" target="_blank">
+        <a
+          href="https://github.com/neonlaw/codebase"
+          target="_blank"
+          rel="noreferrer"
+        >
           open source
         </a>{' '}
         so you can verify that our use of PostgreSQL cascading foreign keys

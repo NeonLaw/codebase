@@ -29,7 +29,7 @@ const StyledFAQs = styled.section`
 
 const FAQs = () => (
   <StyledFAQs>
-    <div className="row">
+    <div className="row" id="faqs">
       <h2>Frequently Asked Questions</h2>
       <div className="faqs">
         {faqs.map((f) => (
