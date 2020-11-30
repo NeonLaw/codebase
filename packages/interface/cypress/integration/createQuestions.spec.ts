@@ -16,11 +16,6 @@ describe('Creating Questions', () => {
         .get('[data-testid="create-question-form-prompt"]')
         .type(faker.lorem.sentence());
 
-      cy.get(
-        '[data-testid="create-question-form-question-type"] ' +
-        'input#react-select-2-input'
-      ).type('Single Choice{enter}');
-
       cy.get('[data-testid="create-question-form-submit"]')
         .click();
 
