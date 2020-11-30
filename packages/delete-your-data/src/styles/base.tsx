@@ -53,6 +53,7 @@ export const BaseStyles = () => (
       }
 
       body {
+        font-family: "HK Grotesk", sans-serif;
         font-size: var(--font-size-default);
         line-height: 1.6;
         color: var(--off-white);
@@ -79,6 +80,7 @@ export const BaseStyles = () => (
       h2,
       h3,
       h4 {
+        font-family: "Jost", sans-serif;
         line-height: 1.3;
         color: var(--white);
       }

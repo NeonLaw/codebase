@@ -23,8 +23,7 @@ export const faqs: FAQProps[] = [
         Our team of lawyers make data deletion requests on your behalf based on
         your jurisdiction. For instance, if you&apos;re in Europe, we will make
         data deletion requests under the GDPR, if you&apos;re in Nevada, we will
-        use the Nevada Privacy Act.{' '}
-        .
+        use the Nevada Privacy Act.
       </>
     ),
     title: 'How do you do this?',
