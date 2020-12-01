@@ -3181,10 +3181,10 @@
   dependencies:
     tslib "^2.0.0"
 
-"@react-pdf/font@^2.0.0-beta.16":
-  version "2.0.0-beta.16"
-  resolved "https://registry.yarnpkg.com/@react-pdf/font/-/font-2.0.0-beta.16.tgz#d01eeacf69c336fa082af3da3105c918b2ce140f"
-  integrity sha512-2w6jY9Kr66SULKku3LHFWN/yR6wVJY1xQFzSLCkylW4GWrWFNEoe5kUUc1Q104YIV7uE2P69NPpBlvPr1iUxEg==
+"@react-pdf/font@^2.0.0-beta.17":
+  version "2.0.0-beta.17"
+  resolved "https://registry.yarnpkg.com/@react-pdf/font/-/font-2.0.0-beta.17.tgz#201609d7e6b8519ba35f5802ab8cd279468b5694"
+  integrity sha512-mefNief0yX3RXwO+zczHL+Eqk+VfRqBjiP3HSFjUOssRngiBhmDusVdnXk9rGusoonLi9TbqJaC7dRJjhUdg2g==
   dependencies:
     "@react-pdf/fontkit" "^1.13.0"
     "@react-pdf/types" "^2.0.0-beta.16"
@@ -3264,13 +3264,13 @@
     ramda "^0.26.1"
     svg-arc-to-cubic-bezier "^3.2.0"
 
-"@react-pdf/renderer@^2.0.0-beta.17":
-  version "2.0.0-beta.17"
-  resolved "https://registry.yarnpkg.com/@react-pdf/renderer/-/renderer-2.0.0-beta.17.tgz#925a0eb17a062bddb3605901e2fa5fb73665f564"
-  integrity sha512-8pRVN3d+VtzYTta0zWVPq5C60UzjKZ1P2/Ob1Y8ScTeQDb0foU+Ry3HaMDhr7wjWzX6vFmwVE2wtrcgppNCUZg==
+"@react-pdf/renderer@^2.0.0-beta.18":
+  version "2.0.0-beta.18"
+  resolved "https://registry.yarnpkg.com/@react-pdf/renderer/-/renderer-2.0.0-beta.18.tgz#3a6aebf4242775592d4660b840b9e6c2b27e91ee"
+  integrity sha512-gkCCSFHYCBoJnMEf9+ZRYCdusRL2AF8Wa4nsRRWlIYnSZsNWwk9X40cZP0ECoDN6hvZ5flqPmVxruDpULYLK3Q==
   dependencies:
     "@babel/runtime" "^7.6.2"
-    "@react-pdf/font" "^2.0.0-beta.16"
+    "@react-pdf/font" "^2.0.0-beta.17"
     "@react-pdf/layout" "^2.0.0-beta.17"
     "@react-pdf/pdfkit" "^1.4.2"
     "@react-pdf/primitives" "^2.0.0-beta.16"
