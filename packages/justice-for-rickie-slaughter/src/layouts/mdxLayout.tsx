@@ -39,8 +39,6 @@ const MdxLayout: React.FC<{
   const { title, slug, description, featuredImage } = frontmatter;
   const { siteUrl } = useSiteMetadata();
   /* eslint-disable max-len */
-  const fathomLink =
-    'https://app.usefathom.com/share/poauyjmq/www.justiceforrickieslaughter.com';
   /* eslint-enable max-len */
 
   return (
@@ -86,7 +84,6 @@ const MdxLayout: React.FC<{
       </>
       <Footer
         isWhite={true}
-        fathomLink={fathomLink}
         currentSite="justice-for-rickie-slaughter"
       />
     </Flex>

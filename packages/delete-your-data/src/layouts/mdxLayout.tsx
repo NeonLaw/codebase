@@ -33,8 +33,6 @@ const MdxLayout: React.FC<{
   const { body, frontmatter } = data.mdx;
   const { title, slug, description } = frontmatter;
   const { siteUrl } = useSiteMetadata();
-  const fathomLink =
-    'https://app.usefathom.com/share/aokzddgf/www.deleteyourdata.com';
 
   return (
     <Flex
@@ -65,7 +63,6 @@ const MdxLayout: React.FC<{
       </>
       <Footer
         isWhite={true}
-        fathomLink={fathomLink}
         currentSite="delete-your-data"
       />
     </Flex>

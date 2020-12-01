@@ -75,7 +75,6 @@ const FlashcardLayout: React.FC<{
 }> = ({ data }) => {
   const { prompt, answer } = data.neon.flashcardById;
   const { colorMode } = useColorMode();
-  const fathomLink = 'https://app.usefathom.com/share/dublghdj/www.neonlaw.com';
   const title = `Neon Law | Flashcard | ${prompt}`;
   const description = answer;
 
@@ -120,7 +119,7 @@ const FlashcardLayout: React.FC<{
           );
         }}
       </AuthenticationContext.Consumer>
-      <Footer isWhite={true} fathomLink={fathomLink} currentSite="neon-law" />
+      <Footer isWhite={true} currentSite="neon-law" />
     </Flex>
   );
 };

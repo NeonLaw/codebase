@@ -40,10 +40,7 @@ export const PublicLayout = ({
           );
         }}
       </AuthenticationContext.Consumer>
-      <Footer
-        fathomLink=""
-        currentSite="neon-law"
-      />
+      <Footer currentSite="neon-law" />
     </Flex>
   );
 };

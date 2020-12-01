@@ -157,7 +157,7 @@ const BaseStyles = (): JSX.Element => (
         right: 50%;
         margin-left: -50vw;
         margin-right: -50vw;
-      } 
+      }
 
       .visually-hidden {
         position: absolute;
@@ -171,7 +171,7 @@ const BaseStyles = (): JSX.Element => (
       /* ---------------------------------- */
       /* ----- Animations ----- */
       /* ---------------------------------- */
-      
+
       @keyframes pulse {
         0% {
             transform: scale(.9);

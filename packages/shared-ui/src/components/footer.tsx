@@ -3,6 +3,7 @@
 /* eslint-enable */
 import {
   Box,
+  Divider,
   Flex,
   Heading,
   Spacer,
@@ -55,13 +56,13 @@ const FooterLink = ({ currentSite, site, path, i18nMessage }) => {
 interface FooterProps {
   isWhite?: boolean;
   currentSite: string;
-  fathomLink: string;
 }
 
-export const Footer = ({ isWhite, currentSite, fathomLink }: FooterProps) => {
+export const Footer = ({ isWhite, currentSite }: FooterProps) => {
   const { colorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
   const intl = useIntl();
+  const underscoredCurrentSite = currentSite.replace(/-/g, '_');
 
   return (
     <Box
@@ -75,9 +76,15 @@ export const Footer = ({ isWhite, currentSite, fathomLink }: FooterProps) => {
       <Section>
         <Box maxWidth={sizes.textContainerSmall}>
           <Heading as="h3" fontWeight="normal">
-            {intl.formatMessage({ id: 'footer.heading' })}
+            {intl.formatMessage({
+              id: `footer.${underscoredCurrentSite}.heading`
+            })}
           </Heading>
-          <Text>{intl.formatMessage({ id: 'footer.text' })}</Text>
+          <Text>
+            {intl.formatMessage({
+              id: `footer.${underscoredCurrentSite}.text`
+            })}
+          </Text>
         </Box>
       </Section>
       <Box bg="black" color="white">
@@ -191,21 +198,21 @@ export const Footer = ({ isWhite, currentSite, fathomLink }: FooterProps) => {
             <Box display={['none', 'none', 'flex']} />
           </Flex>
           <Box paddingBottom="1em">
-            <ThemeSwitcher />
+            {currentSite !== 'delete-your-data' && <ThemeSwitcher />}
             <Text textAlign="center">
               Copyright &copy; {new Date().getFullYear()} Shook Law PLLC
             </Text>
+            <Divider margin="1.5em auto" width="240px" />
             <Text textAlign="center">
-              This privacy-preserving website is monitored with&nbsp;
+              this website was crafted by&nbsp;
               <a
                 style={{ cursor: 'pointer', textDecoration: 'underline' }}
-                href={fathomLink}
+                href="https://nisar.dev"
                 target="_blank"
                 rel="noreferrer"
               >
-                Fathom Analytics
+                Nisar
               </a>
-              .
             </Text>
           </Box>
         </Container>
