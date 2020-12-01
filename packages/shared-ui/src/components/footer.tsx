@@ -178,7 +178,7 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
               <FooterLink
                 currentSite={currentSite}
                 site="delete-your-data"
-                i18nMessage="footer.delete_your_data"
+                i18nMessage="footer.delete_your_data.heading"
                 path="/"
               />
               <FooterLink
@@ -190,7 +190,7 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
               <FooterLink
                 currentSite={currentSite}
                 site="justice-for-rickie-slaughter"
-                i18nMessage="footer.justice_for_rickie_slaughter"
+                i18nMessage="footer.justice_for_rickie_slaughter.heading"
                 path="/"
               />
               <SocialMediaIcons display={['none', 'none', 'block']} />
