@@ -1,6 +1,9 @@
-import { Link } from 'gatsby';
+import React, { useState } from 'react';
+import {
+  AuthenticationContext
+} from '@neonlaw/shared-ui/src/utils/authenticationContext';
+import { Box } from '@chakra-ui/core';
 import Nav from './nav/nav';
-import React from 'react';
 import styled from '@emotion/styled';
 
 const StyledHero = styled.header`
@@ -66,28 +69,55 @@ const StyledHero = styled.header`
   }
 `;
 
-const Hero = () => (
-  <StyledHero>
-    <Nav />
-    <div className="bg-video">
-      <video autoPlay loop muted playsInline>
-        <source src="hero.mp4" type="video/mp4" />
-      </video>
-    </div>
-    <div className="row">
-      <div className="text-box">
-        <h1>Delete Your Data</h1>
-        <p>
-          Hundereds of data brokers are buying and selling your online data{' '}
-          <span aria-hidden="true">&mdash;</span> without your consent. Do you
-          want that to be removed? We can help.
-        </p>
-        <Link to="#" className="btn btn--cta">
-          Get Started Now!
-        </Link>
-      </div>
-    </div>
-  </StyledHero>
-);
+export const Hero = () => {
+  const [loginButtonDisabled, disableLoginButton] = useState(false);
 
-export default Hero;
+  return (
+    <StyledHero>
+      <Nav />
+      <div className="bg-video">
+        <video autoPlay loop muted playsInline>
+          <source src="hero.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div className="row">
+        <div className="text-box">
+          <h1>Delete Your Data</h1>
+          <p>
+          Hundereds of data brokers are buying and selling your online data{' '}
+            <span aria-hidden="true">&mdash;</span> without your consent. Do you
+          want that to be removed? We can help.
+          </p>
+          <AuthenticationContext.Consumer>
+            {({ isLoading, login }) => {
+              if (isLoading) {
+                return null;
+              }
+              return (
+                <Box
+                  as="button"
+                  display="inline-block"
+                  color="inherit"
+                  padding="1.2rem 3.5rem"
+                  textDecoration="none"
+                  border="1px solid"
+                  fontWeight="500"
+                  borderRadius="10rem"
+                  borderColor="orangered"
+                  background="orangered"
+                  disabled={loginButtonDisabled}
+                  onClick={() => {
+                    disableLoginButton(true);
+                    login();
+                  }}
+                >
+                  Sign Up Today
+                </Box>
+              );
+            }}
+          </AuthenticationContext.Consumer>
+        </div>
+      </div>
+    </StyledHero>
+  );
+};

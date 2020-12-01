@@ -1,5 +1,5 @@
 import FAQs from '../components/index/faqs';
-import Hero from '../components/hero';
+import { Hero } from '../components/hero';
 import IndexLayout from '../layouts';
 import React from 'react';
 

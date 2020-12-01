@@ -11,9 +11,11 @@ import { publicClient } from '../utils/authenticationContext';
 
 export const PublicLayout = ({
   children,
+  currentSite = 'neon-law',
   isBgLighter,
 }: {
   children: JSX.Element | JSX.Element[];
+  currentSite?: string;
   isBgLighter?: boolean;
 }) => {
   const { colorMode } = useColorMode();
@@ -40,7 +42,7 @@ export const PublicLayout = ({
           );
         }}
       </AuthenticationContext.Consumer>
-      <Footer currentSite="neon-law" />
+      <Footer currentSite={currentSite} />
     </Flex>
   );
 };

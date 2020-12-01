@@ -102,7 +102,6 @@ jobs:
             --build-arg GATSBY_AUTH0_TENANT=auth.neonlaw.com \
             --build-arg GATSBY_ACTIVE_ENV=production \
             --build-arg DOMAIN_NAME=www.lawjobresources.com \
-            --build-arg GATSBY_LOGROCKET_CREDENTIALS="4qbrpw/production-hoje7" \
             --build-arg APP_NAME=law-job-resources \
             -f docker/production.interface.Dockerfile \
             .

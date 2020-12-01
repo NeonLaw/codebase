@@ -10,8 +10,9 @@ export const faqs: FAQProps[] = [
     icon: Rocket,
     text: (
       <>
-        E-mail us at{' '}
-        <a href="mailto:support@neonlaw.com">support@neonlaw.com</a>.
+        Sign up with the link above, or e-mail us at{' '}
+        <a href="mailto:support@neonlaw.com">support@neonlaw.com</a>, or
+        contact us in the chat below.
       </>
     ),
     title: 'How can I start?',
@@ -23,7 +24,8 @@ export const faqs: FAQProps[] = [
         Our team of lawyers make data deletion requests on your behalf based on
         your jurisdiction. For instance, if you&apos;re in Europe, we will make
         data deletion requests under the GDPR, if you&apos;re in Nevada, we will
-        use the Nevada Privacy Act.
+        use the Nevada Privacy Act, or if you&apos;re in California, we will
+        draw from the CCPA.
       </>
     ),
     title: 'How do you do this?',
