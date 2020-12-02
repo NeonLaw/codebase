@@ -18,6 +18,7 @@ export const BaseStyles = () => (
         --gutter-small: 3rem;
         --gutter-small-1: 2.5rem;
         --gutter-small-2: 2rem;
+        --gutter-small-3: 1.5rem;
 
         --font-size-huge: 7.5rem;
         --font-size-large: 5rem;
@@ -82,6 +83,7 @@ export const BaseStyles = () => (
       h4 {
         font-family: "Jost", sans-serif;
         line-height: 1.3;
+        font-weight: 400;
         color: var(--white);
       }
 
@@ -130,7 +132,6 @@ export const BaseStyles = () => (
         text-decoration: none;
         color: inherit;
         border: 1px solid;
-        font-weight: 500;
         border-radius: 10rem;
 
         &--cta {

@@ -32,7 +32,7 @@ const StyledFAQ = styled.div`
     &-container {
       display: inline-block;
       padding: var(--gutter-small-2) var(--gutter-small);
-      margin: -30rem 0 var(--gutter-small-1); 
+      margin: -30rem 0 var(--gutter-small-3);
       background: linear-gradient(var(--black-light-1), var(--black-light));
       border-radius: 2rem;
     }
