@@ -81,7 +81,7 @@
         "@chakra-ui/core": "^1.0.0-rc.8",
         "@chakra-ui/icons": "^1.0.1",
         "@typescript-eslint/parser": "^4.7.0",
-        "@uppy/core": "^1.14.0",
+        "@uppy/core": "^1.14.1",
         "@uppy/react": "^1.10.10",
         "@uppy/transloadit": "^1.6.14",
         "@uppy/tus": "^1.8.0",
