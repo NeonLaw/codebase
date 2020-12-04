@@ -111,7 +111,7 @@ app.get('/api/process-transloadit-notifications', function (req, res) {
 app.use('/api/graphql', endNewRelicTransaction);
 
 const limiter = rateLimit({
-  max: 60,
+  max: 180,
   windowMs: 60 * 1000,
 });
 
