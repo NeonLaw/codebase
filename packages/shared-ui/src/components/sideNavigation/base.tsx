@@ -73,17 +73,17 @@ const StyledSideNavContent = styled.div<{ isRenderedOnDashboard?: boolean }>`
       }
 
       &:hover {
-        color: ${colors.cyanLight};
+        color: ${colors.primaryColor400};
       }
     }
 
     .active {
-      color: ${colors.cyanLight};
-      border-left: 2px solid ${colors.cyanLight};
+      color: ${colors.primaryColor400};
+      border-left: 2px solid ${colors.primaryColor400};
 
       @media (max-width: 800px) {
         border-left: none;
-        border-bottom: 2px solid ${colors.cyanLight};
+        border-bottom: 2px solid ${colors.primaryColor400};
       }
     }
 

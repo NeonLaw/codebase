@@ -84,11 +84,11 @@ const BaseStyles = (): JSX.Element => (
 
       .nav-link {
         &--active {
-          color: ${colors.cyanLight};
+          color: ${colors.primaryColor400};
 
           &::after {
             right: 0;
-            background: ${colors.cyanLight};
+            background: ${colors.primaryColor400};
           }
         }
       }

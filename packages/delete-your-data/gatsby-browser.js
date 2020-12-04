@@ -1,6 +1,7 @@
-import { BaseLayout } from '@neonlaw/shared-ui/src/layouts/base';
+import { BaseLayout } from '@neonlaw/shared-ui/src/layouts/baseLayout';
 import React from 'react';
+import { theme } from '@neonlaw/shared-ui/src/themes/deleteYourData';
 
 export const wrapPageElement = ({ element, props }) => {
-  return <BaseLayout {...props}>{element}</BaseLayout>;
+  return <BaseLayout theme={theme} {...props}>{element}</BaseLayout>;
 };

@@ -6,11 +6,11 @@ import { Background } from '../components/background';
 import BaseStyles from '../styles/base';
 import ShortcutsModal from '../components/shortcuts-modal';
 import { handleFirstTab } from '../utils/accessibility';
-import { theme } from '../themes/neonLaw';
 
 export const BaseLayout: React.FC<{
   children: ReactChildren;
-}> = ({ children }) => {
+  theme: any;
+}> = ({ children, theme }) => {
   useEffect(() => {
     window.addEventListener('keydown', handleFirstTab);
 

@@ -42,7 +42,7 @@ export const ReadMoreButton = ({ children, ...props }: any) => {
     <Box
       {...props}
       as={Link}
-      borderBottom={`2px solid ${colors.cyanLight}`}
+      borderBottom={`2px solid ${colors.primaryColor400}`}
       display="inline-block"
       marginTop={gutters.xSmall}
       padding=".4rem .3rem"
@@ -62,7 +62,7 @@ export const ReadMoreButton = ({ children, ...props }: any) => {
       }}
       _hover={{
         '&::after': {
-          background: colors.cyanLight,
+          background: colors.primaryColor400,
           right: 0,
         },
         boxShadow: shadows.light1,

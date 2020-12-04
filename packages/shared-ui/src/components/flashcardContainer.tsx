@@ -13,7 +13,7 @@ const Circle = ({ onClick, active }) => {
     <BsFillCircleFill
       onClick={onClick}
       style={{ cursor: 'pointer' }}
-      color={active ? colors.cyanDark : colors.cyanLight}
+      color={active ? colors.primaryColor900 : colors.primaryColor400}
     />
   );
 };

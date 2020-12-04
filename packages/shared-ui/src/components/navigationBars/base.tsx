@@ -81,9 +81,9 @@ export const BaseNavigationBar = ({
               </Box>
             ) : null}
 
-            <Search 
-              version="desktop" 
-              isRenderedOnDashboard={isRenderedOnDashboard} 
+            <Search
+              version="desktop"
+              isRenderedOnDashboard={isRenderedOnDashboard}
             />
 
             <Flex flexGrow={1} align="center" justify="flex-end">
@@ -110,10 +110,10 @@ export const BaseNavigationBar = ({
                     }}
                     _hover={{
                       '&:after': {
-                        background: colors.cyanLight,
+                        background: colors.primaryColor400,
                         right: 0,
                       },
-                      color: colors.cyanLight,
+                      color: colors.primaryColor400,
                     }}
                     activeClassName="nav-link--active"
                   >
@@ -139,7 +139,7 @@ export const BaseNavigationBar = ({
               ))}
 
               {
-                isRenderedOnDashboard ? 
+                isRenderedOnDashboard ?
                   <ThemeSwitcher isRenderedOnDashboard={true} /> : null
               }
 

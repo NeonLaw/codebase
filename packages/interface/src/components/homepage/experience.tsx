@@ -27,7 +27,7 @@ const StyledExperience = styled.div`
   }
 
   h3 {
-    color: ${colors.cyanLight};
+    color: ${colors.primaryColor400};
   }
 `;
 

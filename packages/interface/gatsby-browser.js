@@ -1,10 +1,11 @@
-import { BaseLayout } from '@neonlaw/shared-ui/src/layouts/base';
+import { BaseLayout } from '@neonlaw/shared-ui/src/layouts/baseLayout';
 import LogRocket from 'logrocket';
 import React from 'react';
 import setupLogRocketReact from 'logrocket-react';
+import { theme } from '@neonlaw/shared-ui/src/themes/neonLaw';
 
 export const wrapPageElement = ({ element, props }) => {
-  return <BaseLayout {...props}>{element}</BaseLayout>;
+  return <BaseLayout theme={theme} {...props}>{element}</BaseLayout>;
 };
 
 export const onClientEntry = () => {

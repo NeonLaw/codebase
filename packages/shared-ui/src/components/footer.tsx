@@ -198,7 +198,7 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
             <Box display={['none', 'none', 'flex']} />
           </Flex>
           <Box paddingBottom="1em">
-            {currentSite !== 'delete-your-data' && <ThemeSwitcher />}
+            <ThemeSwitcher />
             <Text textAlign="center">
               Copyright &copy; {new Date().getFullYear()} Shook Law PLLC
             </Text>

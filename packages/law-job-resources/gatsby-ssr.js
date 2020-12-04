@@ -1,14 +1,15 @@
-import { BaseLayout } from '@neonlaw/shared-ui/src/layouts/base';
+import { BaseLayout } from '@neonlaw/shared-ui/src/layouts/baseLayout';
 import { ColorModeScript } from '@chakra-ui/core';
 import React from 'react';
+import { theme } from '@neonlaw/shared-ui/src/layouts/neonLaw';
 
 export const wrapPageElement = ({ element, props }) => {
-  return <BaseLayout {...props}>{element}</BaseLayout>;
+  return <BaseLayout theme={theme} {...props}>{element}</BaseLayout>;
 };
 
-export const onRenderBody = ({ 
-  setPostBodyComponents, 
-  setPreBodyComponents 
+export const onRenderBody = ({
+  setPostBodyComponents,
+  setPreBodyComponents
 }) => {
   setPreBodyComponents([<ColorModeScript key="chakra-ui-no-flash" />]);
   if (

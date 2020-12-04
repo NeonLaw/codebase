@@ -53,8 +53,8 @@ export const Banner = ({ title, text, buttonText }: BannerProps) => (
           {text}
         </Text>
         <FlashButton
-          bg={colors.cyanDark}
-          _hover={{ bg: colors.cyanDark1 }}
+          bg={colors.primaryColor900}
+          _hover={{ bg: colors.primaryColor800 }}
           onClick={() => {
             navigate('/contact');
           }}
