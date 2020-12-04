@@ -3,7 +3,7 @@ import { ColorModeScript } from '@chakra-ui/core';
 import React from 'react';
 import {
   theme
-} from '@neonlaw/shared-ui/src/layouts/justiceForRickieSlaughter';
+} from '@neonlaw/shared-ui/src/themes/justiceForRickieSlaughter';
 
 export const wrapPageElement = ({ element, props }) => {
   return <BaseLayout theme={theme} {...props}>{element}</BaseLayout>;
