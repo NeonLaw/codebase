@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@google-cloud/storage": "^5.5.0",
-    "@graphile/pg-pubsub": "^4.9.0",
+    "@graphile/pg-pubsub": "^4.10.0",
     "@graphile/pro": "^0.10.0",
     "@newrelic/winston-enricher": "^1.0.0",
     "@sendgrid/mail": "^7.4.0",
