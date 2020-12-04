@@ -15,6 +15,7 @@ const StyledNav = styled.nav`
     display: inline-block;
     color: inherit;
     text-decoration: none;
+    z-index: 1 !important;
 
     &:not(:last-child) {
       margin-right: var(--gutter-medium);

@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import {
   AuthenticationContext
 } from '@neonlaw/shared-ui/src/utils/authenticationContext';
+import {
+  BackgroundVideoPlayer
+} from '@neonlaw/shared-ui/src/components/backgroundVideoPlayer';
 import { Box } from '@chakra-ui/core';
 import Nav from './nav/nav';
 import styled from '@emotion/styled';
@@ -15,21 +18,6 @@ const StyledHero = styled.header`
 
   @media(max-height: 620px) {
     min-height: 540px;
-  }
-
-  .bg-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-  }
-
-  video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 
   .text-box {
@@ -75,12 +63,8 @@ export const Hero = () => {
   return (
     <StyledHero>
       <Nav />
-      <div className="bg-video">
-        <video autoPlay loop muted playsInline>
-          <source src="hero.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div className="row">
+      <BackgroundVideoPlayer backgroundVideoUrl="/hero.mp4" />
+      <Box className="row" zIndex="1">
         <div className="text-box">
           <h1>Delete Your Data</h1>
           <p>
@@ -117,7 +101,7 @@ export const Hero = () => {
             }}
           </AuthenticationContext.Consumer>
         </div>
-      </div>
+      </Box>
     </StyledHero>
   );
 };
