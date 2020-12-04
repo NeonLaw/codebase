@@ -4,9 +4,13 @@ resource "google_sql_database_instance" "postgres" {
   database_version = var.postgres_version
 
   settings {
-    tier = "db-f1-micro"
+    tier = "db-n1-standard-1"
     ip_configuration {
-      ipv4_enabled    = false
+      ipv4_enabled    = var.environment == "production" ? "production" : "${var.environment}"
+      authorized_networks {
+        name = "Segment"
+        value = "52.25.130.38/32"
+      }
       require_ssl     = false
       private_network = "projects/${var.project_id}/global/networks/default"
     }

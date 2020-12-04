@@ -28,6 +28,7 @@ module "postgres" {
   zone          = var.zone
   region        = var.region
   project_id    = var.project_id
+  environment = var.environment
 }
 
 module "container_registry" {

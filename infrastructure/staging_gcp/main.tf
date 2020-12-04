@@ -27,10 +27,11 @@ module "egress_routing" {
 }
 
 module "postgres" {
-  source        = "../modules/postgres"
-  zone          = var.zone
-  region        = var.region
-  project_id    = var.project_id
+  source      = "../modules/postgres"
+  zone        = var.zone
+  region      = var.region
+  project_id  = var.project_id
+  environment = var.environment
 }
 
 module "container_registry" {
