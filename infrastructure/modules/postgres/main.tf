@@ -4,7 +4,7 @@ resource "google_sql_database_instance" "postgres" {
   database_version = var.postgres_version
 
   settings {
-    tier = "db-n1-standard-1"
+    tier = "db-n1-standard"
     ip_configuration {
       ipv4_enabled    = var.environment == "production" ? true : false
       authorized_networks {
