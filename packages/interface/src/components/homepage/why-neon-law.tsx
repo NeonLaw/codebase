@@ -1,6 +1,7 @@
 import Reason, { ReasonProps } from './reason';
 
-import Placeholder1 from '../../images/placeholder-1.jpg';
+import ChildrenStockPhoto from '../../images/children-stock-photo.jpg';
+import Flowers from '../../images/flowers.jpg';
 import React from 'react';
 import { Section } from '@neonlaw/shared-ui/src/components/section';
 import { useIntl } from 'gatsby-plugin-intl';
@@ -16,14 +17,14 @@ export const WhyNeonLaw = () => {
       }),
     },
     {
-      image: Placeholder1,
+      image: ChildrenStockPhoto,
       text: intl.formatMessage({ id: 'why_neon_law.good_causes.text' }),
       title: intl.formatMessage({
         id: 'why_neon_law.good_causes.title',
       }),
     },
     {
-      image: Placeholder1,
+      image: Flowers,
       text: intl.formatMessage({
         id: 'why_neon_law.tech-to-make-affordable.text',
       }),
