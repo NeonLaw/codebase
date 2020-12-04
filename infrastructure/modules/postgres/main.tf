@@ -6,7 +6,7 @@ resource "google_sql_database_instance" "postgres" {
   settings {
     tier = "db-n1-standard-1"
     ip_configuration {
-      ipv4_enabled    = var.environment == "production" ? "production" : "${var.environment}"
+      ipv4_enabled    = var.environment == "production" ? true : false
       authorized_networks {
         name = "Segment"
         value = "52.25.130.38/32"
