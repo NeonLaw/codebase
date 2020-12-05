@@ -14,7 +14,7 @@ export const onPreRenderHTML = ({
   const headComponents = getHeadComponents();
 
   headComponents.push(
-    <script key="ze-settings" src="/scripts/ze-settings.js" />,
+    <script key="ze-settings" src="/scripts/zeSettings.js" />,
   );
 
   replaceHeadComponents(headComponents);

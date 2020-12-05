@@ -23,7 +23,7 @@ import { SubmissionInProgress } from '../submission-in-progress';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useKeyPressed } from '../../utils/useKeyPressed';
-import { useOS } from '../../utils/useOS';
+import { useOS } from '../../utils/useOs';
 
 export const UpdateMatterModal = ({ isOpen, onClose, onOpen, matter }) => {
   const intl = useIntl();

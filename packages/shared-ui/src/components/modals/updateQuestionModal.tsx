@@ -24,7 +24,7 @@ import { SubmissionInProgress } from '../submission-in-progress';
 import styled from '@emotion/styled';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
-import { useOS } from '../../utils/useOS';
+import { useOS } from '../../utils/useOs';
 
 interface UpdateQuestionModalProps {
   isOpen: boolean;

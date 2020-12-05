@@ -45,6 +45,7 @@
         "eslint-plugin-prettier": "^3.2.0",
         "eslint-plugin-react": "^7.21.5",
         "eslint-plugin-react-hooks": "^4.2.0",
+        "eslint-plugin-unicorn": "^23.0.0",
         "faker": "^5.1.0",
         "gatsby-cli": "^2.14.1",
         "gatsby-cypress": "^0.5.0",

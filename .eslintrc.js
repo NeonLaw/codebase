@@ -12,7 +12,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:jsdoc/recommended',
     'plugin:jsx-a11y/recommended',
-    'prettier',
+    'prettier'
   ],
   ignorePatterns: [
     '@types/*',
@@ -27,7 +27,7 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2021,
     sourceType: 'module',
   },
   plugins: [
@@ -38,6 +38,7 @@ module.exports = {
     'jsdoc',
     'jsx-a11y',
     'prettier',
+    'unicorn'
   ],
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -57,6 +58,16 @@ module.exports = {
     semi: ['error', 'always'],
     'sort-imports': 'error',
     'sort-keys': 'error',
+    'unicorn/filename-case': [
+      'error', {
+        case: 'camelCase',
+        ignore: [
+          /.+\.tsx/,
+          /.*gatsby-.*\.js$/,
+          /^jest-preprocess.js$/
+        ]
+      }
+    ]
   },
   settings: {
     react: {

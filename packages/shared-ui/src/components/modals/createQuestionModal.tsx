@@ -21,7 +21,7 @@ import { useCreateQuestionMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useKeyPressed } from '../../utils/useKeyPressed';
-import { useOS } from '../../utils/useOS';
+import { useOS } from '../../utils/useOs';
 
 export const CreateQuestionModal = ({ isOpen, onClose, onOpen }) => {
   const intl = useIntl();

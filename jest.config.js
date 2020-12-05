@@ -5,7 +5,7 @@ module.exports = {
   moduleNameMapper: {
     '.+\\.(css)$': 'identity-obj-proxy',
     '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|)$':
-      '<rootDir>/__mocks__/file-mock.js',
+      '<rootDir>/__mocks__/fileMock.js',
   },
   preset: 'ts-jest',
   testEnvironment: 'jsdom',

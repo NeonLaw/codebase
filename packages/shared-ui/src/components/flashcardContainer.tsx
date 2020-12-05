@@ -6,7 +6,7 @@ import { BsFillCircleFill } from 'react-icons/bs';
 import { Flashcard } from './flashcard';
 import { colors } from '../themes/neonLaw';
 import { useAllFlashcardsQuery } from '../utils/api';
-import { useOS } from '../utils/useOS';
+import { useOS } from '../utils/useOs';
 
 const Circle = ({ onClick, active }) => {
   return (
