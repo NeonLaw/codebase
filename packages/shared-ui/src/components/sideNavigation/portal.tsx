@@ -73,7 +73,7 @@ export const PortalSideNavContent = () => {
 
 export const PortalSideNav = (props) => {
   return (
-    <SideNavContainer {...props} isRenderedOnDashboard={true}>
+    <SideNavContainer isRenderedOnDashboard={true} {...props}>
       <PortalSideNavContent />
     </SideNavContainer>
   );

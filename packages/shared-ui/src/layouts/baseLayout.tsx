@@ -1,6 +1,5 @@
 import { ChakraProvider, ColorModeProvider } from '@chakra-ui/core';
 import React, { ReactChildren, useEffect } from 'react';
-
 import { AuthenticationProvider } from '../utils/authenticationContext';
 import { Background } from '../components/background';
 import BaseStyles from '../styles/base';

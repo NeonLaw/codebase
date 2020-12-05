@@ -7,14 +7,14 @@ import styled from '@emotion/styled';
 
 const StyledInput = styled(Input)<{
   version: 'desktop' | 'mobile';
-  isRenderedOnDashboard?: boolean;
+  dashboard?: boolean;
 }>`
   max-width: 350px;
   border: 1px solid ${colors.inputBorders.light};
 
   @media (max-width: 560px) {
-    display: ${({ version, isRenderedOnDashboard }) =>
-    version === 'desktop' && !isRenderedOnDashboard ? 'none' : ''};
+    display: ${({ version, dashboard }) =>
+    version === 'desktop' && !dashboard ? 'none' : ''};
     max-width: 240px;
   }
 
@@ -74,7 +74,7 @@ export const Search = ({
         />
       ) : null}
       <StyledInput
-        isRenderedOnDashboard={isRenderedOnDashboard}
+        dashboard={isRenderedOnDashboard}
         className={!isRenderedOnDashboard ? 'search-input' : ''}
         version={version}
         ref={inputRef}

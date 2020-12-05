@@ -24,6 +24,13 @@ module.exports = {
     },
     {
       options: {
+        prodKey: "6JnX0AiHCdCOVc9O4e0f9GM7M4nyH3Gg",
+        trackPage: true
+      },
+      resolve: 'gatsby-plugin-segment-js'
+    },
+    {
+      options: {
         defaultLanguage: 'en',
         languages: ['en', 'es'],
         path: `${__dirname}/src/intl`,
