@@ -15,6 +15,10 @@ resource "google_sql_database_instance" "postgres" {
       require_ssl     = false
       private_network = "projects/${var.project_id}/global/networks/default"
     }
+
+    backup_configuration {
+      enabled = var.environment == "production" ? true : false
+    }
   }
 }
 
