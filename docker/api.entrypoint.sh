@@ -1,11 +1,11 @@
 #!/bin/bash
 set -e
 
+echo "Booting the API"
+
 yarn install \
   --silent \
-  --ignore-optional \
-  --prefer-offline \
-  --cache-folder ./node_modules
+  --ignore-optional
 
 if [ -d "/credentials" ]; then
   export GOOGLE_APPLICATION_CREDENTIALS="/credentials/credentials.json"
