@@ -2,7 +2,7 @@ resource "helm_release" "new_relic" {
   name       = var.environment
   repository = "https://helm-charts.newrelic.com"
   chart      = "nri-bundle"
-  version    = "1.9.1"
+  version    = "1.11.3"
   namespace  = "default"
 
   set {
