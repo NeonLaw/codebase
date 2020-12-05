@@ -1,11 +1,12 @@
 resource "helm_release" "new_relic" {
   name       = var.environment
   repository = "https://helm-charts.newrelic.com"
-  chart      = "nri-bundle"
+  chart      = "newrelic/nri-bundle"
   version    = "1.9.1"
+  namespace  = "default"
 
   set {
-    name  = "cluster"
+    name  = "global.cluster"
     value = "neon-law"
   }
 
@@ -15,12 +16,22 @@ resource "helm_release" "new_relic" {
   }
 
   set {
-    name  = "licenseKey"
+    name  = "global.licenseKey"
     value = var.new_relic_license_key
   }
 
   set {
     name  = "logging.enabled"
+    value = true
+  }
+
+  set {
+    name  = "prometheus.enabled"
+    value = true
+  }
+
+  set {
+    name  = "ksm.enabled"
     value = true
   }
 }

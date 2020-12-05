@@ -3,6 +3,6 @@ output "name" {
 }
 
 output "segment_password" {
-  value = random_string.password
+  value = random_string.password.result
   sensitive = true
 }
