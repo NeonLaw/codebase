@@ -6,7 +6,7 @@ import { BsFillCircleFill } from 'react-icons/bs';
 import { Flashcard } from './flashcard';
 import { colors } from '../themes/neonLaw';
 import { useAllFlashcardsQuery } from '../utils/api';
-import { useOS } from '../utils/useOs';
+import { useOperatingSystem } from '../utils/useOperatingSystem';
 
 const Circle = ({ onClick, active }) => {
   return (
@@ -24,7 +24,7 @@ export const FlashcardContainer = () => {
   const [selectedFlashcard, changeSelectedFlashcard] = useState(0);
   const [showFlashcardAnswer, changeShowFlashcardAnswer] = useState(false);
   const [isTextAreaFocused, setIsTextAreaFocused] = useState(false);
-  const OS = useOS();
+  const OS = useOperatingSystem();
 
   const keyDownListener = useCallback(
     (event) => {

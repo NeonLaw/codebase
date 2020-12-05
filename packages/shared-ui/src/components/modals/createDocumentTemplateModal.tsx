@@ -20,7 +20,7 @@ import { useCreateDocumentTemplateMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useKeyPressed } from '../../utils/useKeyPressed';
-import { useOS } from '../../utils/useOs';
+import { useOperatingSystem } from '../../utils/useOperatingSystem';
 
 export const CreateDocumentTemplateModal = ({ isOpen, onClose, onOpen }) => {
   const intl = useIntl();
@@ -35,7 +35,7 @@ export const CreateDocumentTemplateModal = ({ isOpen, onClose, onOpen }) => {
   const [formError, setFormError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
 
-  const OS = useOS();
+  const OS = useOperatingSystem();
   const isCPressed = useKeyPressed((e: KeyboardEvent) => e.key === 'c');
 
   const onSubmit = async ({

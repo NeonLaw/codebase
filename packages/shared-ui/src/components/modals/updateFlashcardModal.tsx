@@ -24,7 +24,7 @@ import { SubmissionInProgress } from '../submission-in-progress';
 import styled from '@emotion/styled';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
-import { useOS } from '../../utils/useOs';
+import { useOperatingSystem } from '../../utils/useOperatingSystem';
 
 interface UpdateFlashcardModalProps {
   isOpen: boolean;
@@ -74,7 +74,7 @@ export const UpdateFlashcardModal = ({
   const [focus, setFocus] = useState(false);
   const [formError, setFormError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
-  const OS = useOS();
+  const OS = useOperatingSystem();
 
   const onSubmit = async ({ answer, prompt }) => {
     await updateFlashcard({

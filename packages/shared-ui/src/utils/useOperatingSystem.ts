@@ -1,4 +1,4 @@
-export const useOS = () => {
+export const useOperatingSystem = () => {
   const userAgent =
     typeof window !== 'undefined' ? window.navigator.userAgent : '';
   const platform =
