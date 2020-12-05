@@ -48,3 +48,8 @@ output "gke_password" {
   value     = module.kubernetes_cluster.master_password
   sensitive = true
 }
+
+output "segment_password" {
+  value = module.postgres.segment_password
+  sensitive = true
+}

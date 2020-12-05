@@ -9,7 +9,7 @@ resource "google_sql_database_instance" "postgres" {
     ip_configuration {
       ipv4_enabled    = var.environment == "production" ? true : false
       authorized_networks {
-        name = "Segment"
+        name = "Segment Whitelisted IP"
         value = "52.25.130.38/32"
       }
       require_ssl     = false

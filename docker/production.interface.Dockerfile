@@ -22,7 +22,7 @@ WORKDIR /app
 
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --silent --cache-folder ./node_modules/
+RUN yarn install --silent
 
 COPY . .
 
