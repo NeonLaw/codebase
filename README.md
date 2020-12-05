@@ -150,10 +150,9 @@ software:
 - Auth0
 - Casetext
 - Code Climate
-- Fathom Analytics
 - Google Workplace
 - GitHub
-- Google Cloud Platform
+- Google Cloud Platform (GKE and Managed PostgreSQL)
 - Grammarly
 - LanguageTool
 - Lexis Nexis
@@ -161,6 +160,7 @@ software:
 - Mercury Bank
 - PGRita
 - Postgraphile
+- Segment
 - SendGrid
 - Slack
 - Terraform Cloud
