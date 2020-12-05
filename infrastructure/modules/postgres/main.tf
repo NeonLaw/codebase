@@ -17,3 +17,14 @@ resource "google_sql_database_instance" "postgres" {
     }
   }
 }
+
+resource "random_string" "password" {
+  length = 16
+  special = false
+}
+
+resource "google_sql_user" "segment_user" {
+  name     = "segment"
+  instance = google_sql_database_instance.postgres.name
+  password = random_string.password.result
+}
