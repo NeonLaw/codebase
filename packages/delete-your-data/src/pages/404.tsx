@@ -7,4 +7,5 @@ const NotFoundPage = () => (
   <p>{notFoundText}</p>
 );
 
+/* eslint-disable-next-line import/no-default-export */
 export default NotFoundPage;

@@ -31,7 +31,7 @@ const StyledNav = styled.nav`
   }
 `;
 
-const Nav = () => (
+export const Nav = () => (
   <div className="row">
     <StyledNav role="navigation">
       {links.map(({ label, route }) => (
@@ -42,5 +42,3 @@ const Nav = () => (
     </StyledNav>
   </div>
 );
-
-export default Nav;

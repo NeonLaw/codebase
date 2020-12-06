@@ -6,7 +6,7 @@ import {
   BackgroundVideoPlayer
 } from '@neonlaw/shared-ui/src/components/backgroundVideoPlayer';
 import { Box } from '@chakra-ui/core';
-import Nav from './nav/nav';
+import { Nav } from './nav/nav';
 import styled from '@emotion/styled';
 
 const StyledHero = styled.header`

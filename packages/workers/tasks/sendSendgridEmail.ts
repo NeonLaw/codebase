@@ -26,4 +26,5 @@ const sendSendgridEmail = async (payload, helpers) => {
   });
 };
 
+/* eslint-disable-next-line import/no-default-export */
 export default sendSendgridEmail;

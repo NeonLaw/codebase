@@ -24,4 +24,5 @@ const sendLobLetter = async (payload, helpers) => {
   helpers.logger.info(`Hi ${name}`);
 };
 
+/* eslint-disable-next-line import/no-default-export */
 export default sendLobLetter;

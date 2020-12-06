@@ -22,4 +22,5 @@ const syncLobLetters = async (payload, helpers) => {
   );
 };
 
+/* eslint-disable-next-line import/no-default-export */
 export default syncLobLetters;
