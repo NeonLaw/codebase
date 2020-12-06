@@ -203,14 +203,18 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
           </Flex>
           <Box paddingBottom="1em">
             <ThemeSwitcher />
-            <SocialMediaIcons
-              currentSite={currentSite}
-              display={['none', 'none', 'block']}
-            />
-            <EmailListButton />
-            <Text textAlign="center">
+            {site !== 'justice-for-rickie-slaughter' && (
+              <>
+                <SocialMediaIcons
+                  currentSite={currentSite}
+                  display={['none', 'none', 'block']}
+                />
+                <EmailListButton />
+                <Text textAlign="center">
               Copyright &copy; {new Date().getFullYear()} Shook Law PLLC
-            </Text>
+                </Text>
+              </>
+            )}
             <Divider margin="1.5em auto" width="240px" />
             <Text textAlign="center">
               this website was crafted by&nbsp;

@@ -8,10 +8,6 @@ import { MdEmail } from 'react-icons/md';
 import React from 'react';
 
 export const SocialMediaIcons = ({ display, currentSite }) => {
-  if (currentSite === 'justice-for-rickie-slaughter') {
-    return null;
-  }
-
   const facebookAccounts = {
     'delete-your-data': 'DeleteYourData',
     'neon-law': 'NeonLaw',
