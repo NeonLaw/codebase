@@ -19,9 +19,6 @@ import { Image } from '../components/image';
 import { MDXComponents } from '@neonlaw/shared-ui/src/utils/mdxComponents';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import {
-  PublicNavigationBar
-} from '@neonlaw/shared-ui/src/components/navigationBars/public';
 import { Seo } from '../components/seo';
 import { ShareButtons } from '@neonlaw/shared-ui/src/components/shareButtons';
 import { graphql } from 'gatsby';
