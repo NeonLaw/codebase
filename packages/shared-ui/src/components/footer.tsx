@@ -203,7 +203,7 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
           </Flex>
           <Box paddingBottom="1em">
             <ThemeSwitcher />
-            {site !== 'justice-for-rickie-slaughter' && (
+            {currentSite !== 'justice-for-rickie-slaughter' && (
               <>
                 <SocialMediaIcons
                   currentSite={currentSite}
