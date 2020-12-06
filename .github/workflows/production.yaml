@@ -6,9 +6,9 @@ on:
     branches:
       - development
 
-  # Deploy production from development at 4:00 am PST, Monday through Thursday
+  # Deploy production from development at 7:00 am PST every day
   schedule:
-    - cron: "0 12 * * 1-4"
+    - cron: "0 15 * * *"
 
   workflow_dispatch:
 
