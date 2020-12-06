@@ -117,6 +117,12 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
                 i18nMessage="footer.upward_mobility"
                 path="/upward-mobility"
               />
+              <FooterLink
+                currentSite={currentSite}
+                site="neon-law"
+                i18nMessage="footer.blog"
+                path="/blog"
+              />
             </Flex>
             <Spacer />
             <Flex direction="column">

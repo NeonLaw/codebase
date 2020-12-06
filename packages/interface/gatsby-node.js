@@ -63,8 +63,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild('🚨  ERROR: Loading content pages');
   }
 
+  if (blogMdxFiles.errors) {
+    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
+  }
+
   // Create flashcard pages.
   const flashcardPages = flashcards.data.neon.allFlashcards.nodes;
+
+  if (flashcardPages.errors) {
+    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
+  }
 
   flashcardPages.forEach((node) => {
     createPage({
@@ -86,14 +94,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   });
 
   // Create blog pages
-
   const blogPages = blogMdxFiles.data.allMdx.edges;
 
   blogPages.forEach(({ node }) => {
     createPage({
       component: path.resolve('./src/layouts/postLayout.tsx'),
       context: { id: node.id },
-      path: node.frontmatter.slug,
+      path: `${node.frontmatter.slug}/`,
     });
   });
 

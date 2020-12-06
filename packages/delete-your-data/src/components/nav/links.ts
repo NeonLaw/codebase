@@ -9,7 +9,7 @@ export const links = [
   },
   {
     label: 'Blog',
-    route: 'https://www.neonlaw.com/blog'
+    route: '/blog'
   },
   {
     label: 'Contact',

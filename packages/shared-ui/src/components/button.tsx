@@ -41,7 +41,6 @@ export const ReadMoreButton = ({ children, ...props }: any) => {
   return (
     <Box
       {...props}
-      as={Link}
       borderBottom={`2px solid ${colors.primaryColor400}`}
       display="inline-block"
       marginTop={gutters.xSmall}

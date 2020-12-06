@@ -7,7 +7,7 @@ import {
 
 import { FormattedDate } from 'gatsby-plugin-intl';
 import { Image } from '../image';
-import { Link } from '@reach/router';
+import { Link } from 'gatsby';
 import React from 'react';
 import { ReadMoreButton } from '@neonlaw/shared-ui/src/components/button';
 import styled from '@emotion/styled';
@@ -66,7 +66,7 @@ export const PostBanner = ({
         backgroundColor: colors.background[colorMode],
         borderColor: colors.borders[colorMode],
       }}
-      to={slug || '/'}
+      to={slug}
     >
       <div className="img">
         <Image

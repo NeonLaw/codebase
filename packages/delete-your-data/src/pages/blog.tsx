@@ -1,6 +1,5 @@
 import { Box, Heading, List, ListItem } from '@chakra-ui/core';
 import { gutters, sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
-
 import { Container } from '@neonlaw/shared-ui/src/components/container';
 import { PostBanner } from '@neonlaw/shared-ui/src/components/blog/postBanner';
 import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
@@ -27,7 +26,7 @@ const BlogIndex = ({ data }) => {
         <Container>
           <Box padding="9rem 0 4rem">
             <Heading fontWeight="normal" marginBottom={gutters.small}>
-              Neon Law Blog
+              Delete Your Data Blog
             </Heading>
 
             <List spacing="0.5rem" maxWidth={sizes.textContainerMedium}>

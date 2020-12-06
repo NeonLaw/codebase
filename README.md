@@ -156,7 +156,6 @@ software:
 - Grammarly
 - LanguageTool
 - Lexis Nexis
-- LogRocket
 - Mercury Bank
 - PGRita
 - Postgraphile

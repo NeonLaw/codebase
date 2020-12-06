@@ -33,8 +33,8 @@ module.exports = {
     },
     {
       options: {
-        name: 'content',
-        path: `${__dirname}/src/content/`,
+        name: 'blogPosts',
+        path: `${__dirname}/src/blogPosts/`,
       },
       resolve: 'gatsby-source-filesystem',
     },
