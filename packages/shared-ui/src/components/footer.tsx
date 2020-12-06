@@ -13,8 +13,8 @@ import {
   useColorMode
 } from '@chakra-ui/core';
 import { colors, sizes } from '../themes/neonLaw';
-
 import { Container } from './container';
+import { EmailListButton } from './emailListButton';
 import { LanguageDropdown } from './languageDropdown';
 import { Link } from './link';
 import React from 'react';
@@ -117,16 +117,9 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
                 i18nMessage="footer.upward_mobility"
                 path="/upward-mobility"
               />
-              <FooterLink
-                currentSite={currentSite}
-                site="neon-law"
-                i18nMessage="footer.blog"
-                path="/blog"
-              />
             </Flex>
             <Spacer />
             <Flex direction="column">
-              <SocialMediaIcons display={['block', 'block', 'none']} mb="7px" />
               <FooterLink
                 currentSite={currentSite}
                 site="neon-law"
@@ -199,12 +192,22 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
                 i18nMessage="footer.justice_for_rickie_slaughter.heading"
                 path="/"
               />
-              <SocialMediaIcons display={['none', 'none', 'block']} />
+              <FooterLink
+                currentSite={currentSite}
+                site="neon-law"
+                i18nMessage="footer.blog"
+                path="/blog"
+              />
             </Flex>
             <Box display={['none', 'none', 'flex']} />
           </Flex>
           <Box paddingBottom="1em">
             <ThemeSwitcher />
+            <SocialMediaIcons
+              currentSite={currentSite}
+              display={['none', 'none', 'block']}
+            />
+            <EmailListButton />
             <Text textAlign="center">
               Copyright &copy; {new Date().getFullYear()} Shook Law PLLC
             </Text>
