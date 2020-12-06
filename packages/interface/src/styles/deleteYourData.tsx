@@ -10,7 +10,7 @@ export const DeleteYourDataStyles = () => (
       /* --------------------------------------- */
 
       :root {
-        --grid-max-width: 1180px;
+        /* --grid-max-width: 1180px;
 
         --gutter-large: 10rem;
         --gutter-medium: 6rem;
@@ -34,8 +34,10 @@ export const DeleteYourDataStyles = () => (
         --black-light-2: #252525;
 
         --white: #fff;
-        --off-white: #e4e4e4;
+        --off-white: #e4e4e4; */
       }
+
+      // Todo port the variables from root to the theme
 
       *,
       *::before,
@@ -45,17 +47,9 @@ export const DeleteYourDataStyles = () => (
         box-sizing: inherit;
       }
 
-      html {
-        font-size: 62.5%;
-
-        @media(max-width: 900px) {
-          font-size: 57%;
-        }
-      }
 
       body {
         font-family: "HK Grotesk", sans-serif;
-        font-size: var(--font-size-default);
         line-height: 1.6;
         color: var(--off-white);
         background: var(--black);
@@ -63,15 +57,6 @@ export const DeleteYourDataStyles = () => (
         overflow-x: hidden;
       }
 
-      .row {
-        max-width: var(--grid-max-width);
-        width: 90%;
-        margin: 0 auto;
-      }
-
-      section {
-        padding: 10rem 0;
-      }
 
       /* --------------------------------------- */
       /* ----- Headlines & Paragraphs ----- */

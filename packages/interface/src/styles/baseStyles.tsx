@@ -1,6 +1,7 @@
 import { Global, css } from '@emotion/core';
 import { colors, gutters } from '../themes/neonLaw';
 
+import { colors as DydColors } from '../themes/deleteYourData';
 import React from 'react';
 import { theme } from '@chakra-ui/core';
 
@@ -26,18 +27,17 @@ export const BaseStyles = (): JSX.Element => (
         font-size: ${theme.fontSizes.md};
       }
 
-      .nav-content {
-        &-desktop {
-          display: none;
-          @media (min-width: 1201px) {
-            display: flex;
-          }
-        }
+      .row {
+        max-width: var(--grid-max-width);
+        width: 90%;
+        margin: 0 auto;
+      }
 
-        &-mobile {
-          @media (min-width: 1201px) {
-            display: none !important;
-          }
+      section {
+        padding: ${gutters.largeOne} 0;
+
+        @media (max-width: 600px) {
+          padding: ${gutters.largeTwo} 0;
         }
       }
 
@@ -45,13 +45,21 @@ export const BaseStyles = (): JSX.Element => (
       /* ----- Headlines & Paragraphs ----- */
       /* ---------------------------------- */
 
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: 'Jost', sans-serif;
+        font-weight: 400;
+        line-height: 1.35 !important;
+      }
+
       h1 {
         font-size: ${theme.fontSizes['2xl']};
       }
 
       h2 {
         font-size: ${theme.fontSizes['xl']};
-        font-weight: 400;
 
         @media (max-width: 767px) {
           font-size: 2rem;
@@ -60,7 +68,6 @@ export const BaseStyles = (): JSX.Element => (
 
       h3 {
         font-size: 2rem;
-        font-weight: 400;
         margin-bottom: ${gutters.xSmall};
 
         @media (max-width: 767px) {
@@ -68,14 +75,38 @@ export const BaseStyles = (): JSX.Element => (
         }
       }
 
-      h1,
-      h2,
-      h3 {
-        line-height: 1.35 !important;
-      }
-
       code {
         color: ${colors.text.darkLight} !important;
+      }
+
+      .heading__underlined {
+        &::after {
+          content: '';
+          display: block;
+          height: 2px;
+          width: 8rem;
+          height: 2px;
+          margin: ${gutters.xSmallOne} 0;
+        }
+
+        &--cyan {
+          &::after {
+            background: ${colors.primaryColor400};
+          }
+        }
+
+        &--orange {
+          &::after {
+            background: ${DydColors.primary};
+          }
+        }
+
+        &--centered {
+          &::after {
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
       }
 
       /* ---------------------------------- */
@@ -174,13 +205,31 @@ export const BaseStyles = (): JSX.Element => (
 
       @keyframes pulse {
         0% {
-            transform: scale(.9);
+          transform: scale(0.9);
         }
         100% {
-            transform: scale(1.02);
+          transform: scale(1.02);
         }
       }
 
+      /* ---------------------------------- */
+      /* ----- Others ----- */
+      /* ---------------------------------- */
+
+      .nav-content {
+        &-desktop {
+          display: none;
+          @media (min-width: 1201px) {
+            display: flex;
+          }
+        }
+
+        &-mobile {
+          @media (min-width: 1201px) {
+            display: none !important;
+          }
+        }
+      }
     `}
   />
 );

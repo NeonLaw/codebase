@@ -36,8 +36,10 @@ export const SocialProofLogos = () => {
   const intl = useIntl();
 
   return (
-    <Section>
-      <h2>{intl.formatMessage({ id: 'worked_with.title' })}</h2>
+    <Section
+      title={intl.formatMessage({ id: 'worked_with.title' })}
+      isTitleUnderlined={true}
+    >
       <StyledLogosContainer>
         {orgs.map((org: Org) => org.logo)}
       </StyledLogosContainer>

@@ -1,8 +1,10 @@
 import '../themes/fonts.css';
+
 import {
   AuthenticationContext,
   publicClient
 } from '../utils/authenticationContext';
+
 import { ApolloProvider } from '@apollo/client';
 import { DeleteYourDataStyles } from '../styles/deleteYourData';
 import { Footer } from '../components/footer';

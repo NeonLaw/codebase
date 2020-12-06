@@ -14,12 +14,13 @@ const StyledTestimonials = styled.div`
 export const Testimonials = () => {
   const intl = useIntl();
 
-  const testimonails: TestimonialProps[] = [
-  ];
+  const testimonails: TestimonialProps[] = [];
 
   return (
-    <Section>
-      <h2>{intl.formatMessage({ id: 'testimonials.title' })}</h2>
+    <Section 
+      title={intl.formatMessage({ id: 'testimonials.title' })}
+      isTitleUnderlined={true}
+    >
       <StyledTestimonials>
         {testimonails.map((t: TestimonialProps, i: any) => (
           <Testimonial key={t.author + i} {...t} />

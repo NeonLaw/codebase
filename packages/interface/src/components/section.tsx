@@ -6,24 +6,6 @@ import { Container } from './container';
 import styled from '@emotion/styled';
 
 const StyledSection = styled(Box)`
-  padding: ${gutters.largeOne} 0;
-
-  @media (max-width: 600px) {
-    padding: ${gutters.largeTwo} 0;
-  }
-
-  h2 {
-    &::after {
-      content: '';
-      display: block;
-      height: 2px;
-      width: 8rem;
-      height: 2px;
-      background: ${colors.primaryColor400};
-      margin: ${gutters.xSmallOne} 0;
-    }
-  }
-
   h2 + p {
     margin-bottom: ${gutters.small};
   }
@@ -33,13 +15,27 @@ const StyledSection = styled(Box)`
   }
 `;
 
+export interface SectionProps {
+  children: JSX.Element | JSX.Element[];
+  styles?: CSSProperties;
+  title?: string;
+  isTitleUnderlined?: boolean;
+  isTitleCentered?: boolean;
+  underlineColor?: 'orange';
+  titleStyles?: CSSProperties;
+  titleTestId?: string;
+}
+
 export const Section = ({
   children,
   styles,
-}: {
-  children: JSX.Element | JSX.Element[];
-  styles?: CSSProperties;
-}) => {
+  title,
+  isTitleUnderlined,
+  isTitleCentered,
+  underlineColor,
+  titleStyles = {},
+  titleTestId,
+}: SectionProps) => {
   const { colorMode } = useColorMode();
   return (
     <StyledSection
@@ -49,7 +45,27 @@ export const Section = ({
       style={{ ...styles }}
       borderColor={`${colors.borders[colorMode]} !important`}
     >
-      <Container>{children}</Container>
+      <Container>
+        <>
+          <h2
+            style={{
+              ...titleStyles,
+              textAlign: isTitleCentered ? 'center' : 'left',
+            }}
+            className={`${
+              isTitleUnderlined
+                ? 'heading__underlined heading__underlined--cyan'
+                : ''
+            } ${
+              underlineColor === 'orange' ? 'heading__underlined--orange' : ''
+            } ${isTitleCentered ? 'heading__underlined--centered' : ''}`}
+            data-testid={titleTestId}
+          >
+            {title}
+          </h2>
+          {children}
+        </>
+      </Container>
     </StyledSection>
   );
 };

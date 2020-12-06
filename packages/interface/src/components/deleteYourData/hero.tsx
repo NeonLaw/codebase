@@ -1,17 +1,19 @@
+import { Box, Heading } from '@chakra-ui/core';
 import React, { useState } from 'react';
+import { gutters, theme } from '../../themes/deleteYourData';
+
 import {
   AuthenticationContext
 } from '../../utils/authenticationContext';
 import {
   BackgroundVideoPlayer
 } from '../../components/backgroundVideoPlayer';
-import { Box } from '@chakra-ui/core';
 import { Nav } from './nav';
 import styled from '@emotion/styled';
 
 const StyledHero = styled.header`
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   overflow: hidden;
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7));
@@ -42,8 +44,7 @@ const StyledHero = styled.header`
 
   p {
     max-width: 620px;
-    font-size: var(--font-size-normal-1);
-    margin: var(--gutter-small-2) 0 var(--gutter-normal);
+    margin: ${gutters.small} 0;
 
     @media (max-width: 900px) {
       max-width: 560px;
@@ -66,7 +67,12 @@ export const Hero = () => {
       <BackgroundVideoPlayer backgroundVideoUrl="/hero.mp4" />
       <Box className="row" zIndex="1">
         <div className="text-box">
-          <h1>Delete Your Data</h1>
+          <Heading as="h1" fontSize={[
+            theme.fontSizes['xl'],
+            theme.fontSizes.huge,
+          ]}
+          fontWeight="400"
+          >Delete Your Data</Heading>
           <p>
           Hundereds of data brokers are buying and selling your online data{' '}
             <span aria-hidden="true">&mdash;</span> without your consent. Do you

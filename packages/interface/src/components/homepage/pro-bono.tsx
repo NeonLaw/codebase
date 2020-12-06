@@ -9,10 +9,10 @@ export const ProBono = () => {
   const intl = useIntl();
 
   return (
-    <Section>
-      <h2 className="heading--underlined">
-        {intl.formatMessage({ id: 'pro_bono.title' })}
-      </h2>
+    <Section
+      title={intl.formatMessage({ id: 'pro_bono.title' })}
+      isTitleUnderlined={true}
+    >
       <Box as="p" maxWidth={sizes.textContainerSmall}>
         Finally, and most importantly, we are proudest of&nbsp;
         our commitment to&nbsp;

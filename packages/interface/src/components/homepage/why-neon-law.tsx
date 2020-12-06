@@ -33,10 +33,10 @@ export const WhyNeonLaw = () => {
     },
   ];
   return (
-    <Section>
-      <h2 className="heading--underlined">
-        {intl.formatMessage({ id: 'why_neon_law.heading' })}
-      </h2>
+    <Section
+      title={intl.formatMessage({ id: 'why_neon_law.heading' })}
+      isTitleUnderlined={true}
+    >
       <p>{intl.formatMessage({ id: 'why_neon_law.sub_text' })}</p>
       <div>
         {reasons.map((reason: ReasonProps, i) => (

@@ -5,7 +5,9 @@ import { theme as chakraTheme } from '@chakra-ui/core';
 
 export const theme = Object.assign(chakraTheme, {
   fontSizes: {
+    huge: '4rem',
     md: '1.125rem',
+    sm: '1rem',
     xl: '3.25rem',
     xl0: '2.50rem',
     xl1: '2.25rem',
@@ -19,59 +21,25 @@ export const theme = Object.assign(chakraTheme, {
 
 export const colors = {
   background: { dark: theme.colors.gray[800], light: 'white' },
-  black1: '#151515',
-  borderLight: { dark: theme.colors.gray[800], light: theme.colors.gray[50] },
-  borders: {
-    dark: theme.colors.gray[700],
-    light: theme.colors.gray[100],
-  },
-  inputBorders: {
-    dark: theme.colors.gray[700],
-    light: theme.colors.gray[300],
-  },
-  lighterBg: { dark: theme.colors.gray[700], light: theme.colors.gray[50] },
-  link: { dark: 'red.400', light: 'red.800' },
-  primaryButtonBg: {
-    dark: 'red.400',
-    light: 'red.900',
-    lightBlue: '#1AA6E4',
-  },
-  primaryButtonBgOnHover: { dark: 'red.300', light: 'red.500' },
-  primaryButtonColor: { dark: 'black', light: 'white' },
-  primaryColor400: theme.colors.red[400],
-  primaryColor800: theme.colors.red[800],
-  primaryColor900: theme.colors.red[900],
-  text: { dark: 'white', darkLight: '#eee', light: '#222' },
-  textareaBackground: { dark: theme.colors.gray[800], light: 'white' },
-  textareaToolbarActiveBackground: {
-    dark: theme.colors.gray[600],
-    light: theme.colors.gray[600],
-  },
-  textareaToolbarBackground: {
-    dark: theme.colors.gray[600],
-    light: theme.colors.gray[600],
-  }
-};
-
-export const sizes = {
-  textContainerMedium: '850px',
-  textContainerMediumOne: '800px',
-  textContainerSmall: '680px',
-  textContainerSmallOne: '600px',
-  textContainerSmallTwo: '620px',
-  textContainerXSmall: '580px'
+  primary: 'orangered',
 };
 
 export const gutters = {
-  huge: '10rem',
-  large: '7.5rem',
-  largeOne: '6.25rem',
-  largeTwo: '5rem',
-  medium: '3.5rem',
+  medium: '3.75rem',
+  normal: '2.5rem',
   small: '1.875rem',
-  xSmall: '1.25rem',
-  xSmallOne: '1rem',
+  small1: '1.5625rem',
+  small2: '1.25rem',
+  small3: '0.9375rem',
 };
+
+// --gutter-large: 10rem;
+//         --gutter-medium: 6rem;
+//         --gutter-normal: 4rem;
+//         --gutter-small: 3rem;
+//         --gutter-small-1: 2.5rem;
+//         --gutter-small-2: 2rem;
+//         --gutter-small-3: 1.5rem;
 
 export const shadows = {
   light: '0.625rem 0.625rem 1.25rem rgba(0,0,0, .2)',
