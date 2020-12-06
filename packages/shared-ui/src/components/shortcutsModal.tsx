@@ -59,7 +59,7 @@ const shortcuts: Shortcut[] = [
   },
 ];
 
-const ShortcutsModal = () => {
+export const ShortcutsModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode } = useColorMode();
 
@@ -121,5 +121,3 @@ const ShortcutsModal = () => {
     </>
   );
 };
-
-export default ShortcutsModal;

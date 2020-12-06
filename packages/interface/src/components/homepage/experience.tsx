@@ -68,5 +68,3 @@ export const Experience = () => {
     </Section>
   );
 };
-
-export default Experience;

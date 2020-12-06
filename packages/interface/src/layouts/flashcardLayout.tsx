@@ -124,6 +124,7 @@ const FlashcardLayout: React.FC<{
   );
 };
 
+/* eslint-disable-next-line import/no-default-export */
 export default FlashcardLayout;
 
 export const pageQuery = graphql`

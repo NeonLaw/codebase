@@ -47,7 +47,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/no-var-requires': 'off',
-    'import/no-default-export': 'warn',
+    'import/no-default-export': 'error',
     indent: ['error', 2, { SwitchCase: 1 }],
     'jsdoc/require-param-description': 'off',
     'jsdoc/require-param-type': 'off',

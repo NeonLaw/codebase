@@ -151,6 +151,7 @@ const PostLayout: React.FC<{
   );
 };
 
+/* eslint-disable-next-line import/no-default-export */
 export default PostLayout;
 
 export const pageQuery = graphql`

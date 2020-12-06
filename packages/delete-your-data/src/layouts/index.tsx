@@ -25,4 +25,5 @@ export const IndexLayout = ({ children }) => (
   </>
 );
 
+/* eslint-disable-next-line import/no-default-export */
 export default IndexLayout;

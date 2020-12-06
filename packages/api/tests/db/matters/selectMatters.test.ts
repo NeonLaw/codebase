@@ -1,5 +1,6 @@
 import * as faker from 'faker';
 import {
+  becomeAdminUser,
   becomeAnonymousUser,
   becomePortalUser,
   createMatter,
@@ -45,6 +46,28 @@ describe('SELECT * FROM matter;', () => {
 
         expect(rows).toHaveLength(1);
         expect(userMatterRow).toMatch(rows[0].id);
+      })
+    );
+  });
+
+  describe('as an admin user', () => {
+    it('can select all matters', () =>
+      withRootDb(async (pgClient: any) => {
+        const { id: matterTemplateId } = await createMatterTemplate(pgClient);
+        await createMatter({
+          client: pgClient,
+          matterTemplateId,
+        });
+        await createMatter({
+          client: pgClient,
+          matterTemplateId,
+        });
+
+        await becomeAdminUser(pgClient);
+
+        const { rows } = await pgClient.query('select * from matter;');
+
+        expect(rows).toHaveLength(2);
       })
     );
   });

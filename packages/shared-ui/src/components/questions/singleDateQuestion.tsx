@@ -26,7 +26,7 @@ const DateInput = ({value, onClick}) => {
   const {colorMode} = useColorMode();
 
   return (
-    <StyledDateInput 
+    <StyledDateInput
       onClick={onClick}
       style={{
         borderColor: colorMode === 'light' ? '#bbb' : '#999'

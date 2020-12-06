@@ -45,7 +45,7 @@ export interface FAQProps {
   icon: string;
 }
 
-const FAQ = ({ title, text, icon }: FAQProps) => (
+export const FAQ = ({ title, text, icon }: FAQProps) => (
   <StyledFAQ>
     <div className="img-container">
       <img className="img" src={icon} alt={title} />
@@ -54,5 +54,3 @@ const FAQ = ({ title, text, icon }: FAQProps) => (
     {typeof text === 'string' ? <p>{text}</p> : text}
   </StyledFAQ>
 );
-
-export default FAQ;

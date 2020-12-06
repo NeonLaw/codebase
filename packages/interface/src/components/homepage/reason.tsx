@@ -110,5 +110,3 @@ export const Reason = ({ title, text, image }: ReasonProps): JSX.Element => {
     </StyledReason>
   );
 };
-
-export default Reason;

@@ -1,4 +1,4 @@
-import FAQ from './faq';
+import { FAQ } from './faq';
 import React from 'react';
 import { faqs } from './contents';
 import styled from '@emotion/styled';
@@ -27,7 +27,7 @@ const StyledFAQs = styled.section`
   }
 `;
 
-const FAQs = () => (
+export const FAQs = () => (
   <StyledFAQs>
     <div className="row" id="faqs">
       <h2>Frequently Asked Questions</h2>
@@ -39,5 +39,3 @@ const FAQs = () => (
     </div>
   </StyledFAQs>
 );
-
-export default FAQs;

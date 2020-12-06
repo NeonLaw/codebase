@@ -1,5 +1,4 @@
-import Reason, { ReasonProps } from './reason';
-
+import { Reason, ReasonProps } from './reason';
 import ChildrenStockPhoto from '../../images/children-stock-photo.jpg';
 import Flowers from '../../images/flowers.jpg';
 import React from 'react';

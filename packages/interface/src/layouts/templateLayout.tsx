@@ -92,6 +92,7 @@ const TemplateLayout: React.FC<{
   );
 };
 
+/* eslint-disable-next-line import/no-default-export */
 export default TemplateLayout;
 
 export const pageQuery = graphql`
