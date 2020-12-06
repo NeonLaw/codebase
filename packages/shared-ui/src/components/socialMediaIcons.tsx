@@ -8,6 +8,10 @@ import { MdEmail } from 'react-icons/md';
 import React from 'react';
 
 export const SocialMediaIcons = ({ display, currentSite }) => {
+  if (currentSite === 'justice-for-rickie-slaughter') {
+    return null;
+  }
+
   const facebookAccounts = {
     'delete-your-data': 'DeleteYourData',
     'neon-law': 'NeonLaw',
@@ -18,13 +22,18 @@ export const SocialMediaIcons = ({ display, currentSite }) => {
     'neon-law': 'neon.law',
   };
 
+  const twitterAccounts = {
+    'delete-your-data': 'DeleteYourData',
+    'neon-law': 'NeonLaw',
+  };
+
   return (
     <Box marginBottom="10px" display={display}>
       <Center>
         <Button
-          aria-label="Visit @NeonLaw on Twitter"
+          aria-label={`Visit @${twitterAccounts[currentSite]} on Twitter`}
           as="a"
-          href="https://www.twitter.com/neonlaw"
+          href={`https://www.twitter.com/${twitterAccounts[currentSite]}`}
           target="_blank"
           rel="noopener noreferrer"
         >
