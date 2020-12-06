@@ -4,7 +4,7 @@ import { colors, gutters } from '../themes/neonLaw';
 import React from 'react';
 import { theme } from '@chakra-ui/core';
 
-const BaseStyles = (): JSX.Element => (
+export const BaseStyles = (): JSX.Element => (
   <Global
     styles={css`
       /* ---------------------------------- */
@@ -184,5 +184,3 @@ const BaseStyles = (): JSX.Element => (
     `}
   />
 );
-
-export default BaseStyles;
