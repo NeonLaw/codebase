@@ -8,7 +8,7 @@ import { BaseStyles } from '../styles/base';
 import { Footer } from '@neonlaw/shared-ui/src/components/footer';
 import React from 'react';
 
-const IndexLayout = ({ children }) => (
+export const IndexLayout = ({ children }) => (
   <>
     <BaseStyles />
     <AuthenticationContext.Consumer>

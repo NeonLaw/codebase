@@ -47,17 +47,15 @@ export interface PostBannerProps {
   title: string;
   date: Date;
   excerpt: string;
-  featuredImage?: any;
-  widescreen?: string;
+  children: any;
 }
 
 export const PostBanner = ({
-  slug,
-  title,
+  children,
   date,
   excerpt,
-  featuredImage,
-  widescreen,
+  slug,
+  title,
 }: PostBannerProps): JSX.Element => {
   const { colorMode } = useColorMode();
   return (
@@ -68,13 +66,7 @@ export const PostBanner = ({
       }}
       to={slug}
     >
-      <div className="img">
-        <Image
-          aspectRatio={widescreen ? 2 : 16 / 9}
-          src={featuredImage ? featuredImage : 'blog-featured-placeholder.jpg'}
-          alt={title}
-        />
-      </div>
+      {children}
       <div className="text" style={{ borderColor: colors.borders[colorMode] }}>
         <Heading as="h3" fontWeight="400" marginBottom={gutters.xSmallOne}>
           {title}

@@ -97,7 +97,6 @@ const PostLayout: React.FC<{
           return (
             <ApolloProvider client={isLoading ? publicClient : apolloClient}>
               <StyledPostTemplate>
-                <PublicNavigationBar />
                 <Box background={colors.lighterBg[colorMode]}>
                   <Box
                     as="main"
@@ -135,7 +134,7 @@ const PostLayout: React.FC<{
                         <Divider margin="1em 0" />
                         <div className="links">
                           <ShareButtons slug={slug} siteUrl={siteUrl} />
-                          <EditOnGithub app="interface" path={slug} />
+                          <EditOnGithub app="delete-your-data" path={slug} />
                         </div>
                       </Box>
                     </Container>
@@ -146,7 +145,7 @@ const PostLayout: React.FC<{
           );
         }}
       </AuthenticationContext.Consumer>
-      <Footer isWhite={true} currentSite="neon-law" />
+      <Footer isWhite={true} currentSite="delete-your-data" />
     </Flex>
   );
 };
