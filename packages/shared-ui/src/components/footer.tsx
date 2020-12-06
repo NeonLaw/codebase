@@ -194,7 +194,7 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
               />
               <FooterLink
                 currentSite={currentSite}
-                site="neon-law"
+                site={currentSite}
                 i18nMessage="footer.blog"
                 path="/blog"
               />
