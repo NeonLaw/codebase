@@ -1,6 +1,3 @@
-/* eslint-disable */
-// @ts-nocheck
-/* eslint-enable */
 import {
   Box,
   Menu,
