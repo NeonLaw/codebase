@@ -68,6 +68,7 @@ export const PortalSideNavContent = () => {
       icon: <RiAdminLine />, label: 'Admin', route: '/admin' } : null,
 
   ];
+
   return <SideNavContent isRenderedOnDashboard={true} links={links} />;
 };
 

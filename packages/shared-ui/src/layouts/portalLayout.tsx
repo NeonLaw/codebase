@@ -1,10 +1,11 @@
 import { gutters, theme } from '../themes/neonLaw';
-
 import { ApolloProvider } from '@apollo/client';
 import { AuthenticationContext } from '../utils/authenticationContext';
 import { LoadingPage } from '../components/loadingPage';
 import PortalBg from '../../../interface/src/images/dashboard-bg.jpg';
-import { PortalNavigationBar } from '../components/navigationBars/portal';
+import {
+  PortalNavigationBar
+} from '../components/navigationBars/portalNavigationBar';
 import { PortalSideNav } from '../components/sideNavigation/portal';
 import React from 'react';
 import { Redirect } from '@reach/router';

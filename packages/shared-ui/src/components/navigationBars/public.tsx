@@ -1,4 +1,4 @@
-import { BaseNavigationBar } from './base';
+import { BaseNavigationBar } from './baseNavigationBar';
 import { PublicLinks } from '../../components/navigation/publicLinks';
 import { PublicSideNavContent } from '../../components/sideNavigation/public';
 import React from 'react';
