@@ -10,7 +10,7 @@
     "watch": "graphile-migrate watch"
   },
   "dependencies": {
-    "@google-cloud/storage": "^5.5.0",
+    "@google-cloud/storage": "^5.6.0",
     "@graphile/pg-pubsub": "^4.10.0",
     "@graphile/pro": "^0.10.0",
     "@newrelic/winston-enricher": "^1.0.0",
