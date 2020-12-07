@@ -77,8 +77,7 @@ components_questions:
   submit: Enviar
 components_navbar:
   auth_portal: Portal
-  auth_lawyers: Abogados
-  auth_admin: Administrador
+  auth_settings: Ajustes
   auth_logout: Cerrar sesión
   base_: ''
 forms:

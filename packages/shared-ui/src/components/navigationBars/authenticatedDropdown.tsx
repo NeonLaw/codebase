@@ -47,24 +47,13 @@ export const AuthenticatedDropdown = () => {
           >
             {intl.formatMessage({ id: 'components_navbar.auth_portal' })}
           </MenuItem>
-          {(role == 'lawyer' || role == 'admin') && (
-            <MenuItem
-              as={Link}
-              onClick={() => navigate('/lawyers')}
-              _hover={{ backgroundColor: evenLighterBg[colorMode] }}
-            >
-              {intl.formatMessage({ id: 'components_navbar.auth_lawyers' })}
-            </MenuItem>
-          )}
-          {(role == 'admin') && (
-            <MenuItem
-              as={Link}
-              onClick={() => navigate('/admin')}
-              _hover={{ backgroundColor: evenLighterBg[colorMode] }}
-            >
-              {intl.formatMessage({ id: 'components_navbar.auth_admin' })}
-            </MenuItem>
-          )}
+          <MenuItem
+            as={Link}
+            onClick={() => navigate('/portal/settings')}
+            _hover={{ backgroundColor: evenLighterBg[colorMode] }}
+          >
+            {intl.formatMessage({ id: 'components_navbar.auth_settings' })}
+          </MenuItem>
           <AuthenticationContext.Consumer>
             {({ isLoading, logout }) => {
               if (isLoading) {

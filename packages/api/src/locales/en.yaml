@@ -76,8 +76,7 @@ components_questions:
   submit: Submit
 components_navbar:
   auth_portal: Portal
-  auth_lawyers: Lawyers
-  auth_admin: Admin
+  auth_settings: Settings
   auth_logout: Log out
   base_: ''
 forms:
