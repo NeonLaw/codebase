@@ -6,6 +6,7 @@ import {
   DrawerContent,
   DrawerOverlay,
   Flex,
+  IconButton,
   Menu,
   MenuButton,
   MenuItem,
@@ -19,6 +20,7 @@ import { BlackLivesMatter } from './black-lives-matter';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
 import { Link } from '../link';
+import { MdDehaze } from 'react-icons/md';
 import { Search } from './search';
 import { colors } from '../../themes/neonLaw';
 import { useIntl } from 'gatsby-plugin-intl';
@@ -35,7 +37,7 @@ export const BaseNavigationBar = ({
   menus = [] as any[],
   sideNavigationDrawer,
 }: BaseNavigationBarProps) => {
-  const { isOpen, onClose } = useDisclosure();
+  const { isOpen, onToggle, onClose } = useDisclosure();
   const intl = useIntl();
 
   const [loginButtonDisabled, disableLoginButton] = useState(false);
@@ -152,6 +154,22 @@ export const BaseNavigationBar = ({
                   );
                 }}
               </AuthenticationContext.Consumer>
+              <IconButton
+                className="nav-content-mobile"
+                aria-label="Navigation Menu"
+                fontSize="20px"
+                variant="ghost"
+                color="black"
+                icon={<MdDehaze />}
+                textColor="white"
+                onClick={() => {
+                  onToggle();
+                  document.body.setAttribute(
+                    'style',
+                    'margin-right: 0 !important',
+                  );
+                }}
+              />
             </Flex>
           </Flex>
         </Container>

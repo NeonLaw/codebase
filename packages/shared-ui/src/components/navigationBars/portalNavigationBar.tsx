@@ -6,7 +6,6 @@ import {
   DrawerContent,
   DrawerOverlay,
   Flex,
-  IconButton,
   Menu,
   MenuButton,
   MenuItem,
@@ -21,7 +20,6 @@ import { AuthenticationContext } from '../../utils/authenticationContext';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
 import { Link } from '../link';
-import { MdDehaze } from 'react-icons/md';
 import { Search } from './search';
 import { ThemeSwitcher } from '../theme-switcher';
 import { useIntl } from 'gatsby-plugin-intl';
@@ -38,7 +36,7 @@ export const PortalNavigationBar = ({
   menus = [] as any[],
   sideNavigationDrawer,
 }: BaseNavigationBarProps) => {
-  const { isOpen, onToggle, onClose } = useDisclosure();
+  const { isOpen, onClose } = useDisclosure();
   const intl = useIntl();
 
   const [loginButtonDisabled, disableLoginButton] = useState(false);
@@ -145,22 +143,6 @@ export const PortalNavigationBar = ({
                   );
                 }}
               </AuthenticationContext.Consumer>
-              <IconButton
-                className="nav-content-mobile"
-                aria-label="Navigation Menu"
-                fontSize="20px"
-                variant="ghost"
-                color="black"
-                icon={<MdDehaze />}
-                textColor="white"
-                onClick={() => {
-                  onToggle();
-                  document.body.setAttribute(
-                    'style',
-                    'margin-right: 0 !important',
-                  );
-                }}
-              />
             </Flex>
           </Flex>
         </Container>
