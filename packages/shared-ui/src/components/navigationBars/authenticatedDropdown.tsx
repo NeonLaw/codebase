@@ -15,7 +15,6 @@ import { Link } from '../../components/link';
 import React from 'react';
 import { UserAvatar } from '../userAvatar';
 import { navigate } from 'gatsby';
-import { useCurrentUserQuery } from '../../utils/api';
 import { useIntl } from 'gatsby-plugin-intl';
 
 export const AuthenticatedDropdown = () => {
@@ -23,9 +22,7 @@ export const AuthenticatedDropdown = () => {
   const lighterBg = { dark: 'gray.700', light: 'gray.200' };
   const evenLighterBg = { dark: 'gray.600', light: 'gray.100' };
   const color = { dark: 'white', light: 'black' };
-  const { data } = useCurrentUserQuery();
 
-  const role = data?.getCurrentUser?.role;
   const intl = useIntl();
 
   return (
