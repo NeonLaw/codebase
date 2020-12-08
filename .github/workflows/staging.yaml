@@ -48,7 +48,7 @@ jobs:
           GATSBY_AUTH0_DOMAIN: ${{ secrets.STAGING_AUTH0_DOMAIN }}
           GATSBY_AUTH0_CLIENT_ID: ${{ secrets.STAGING_AUTH0_CLIENT_ID }}
 
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@master
         with:
           project_id: neon-law-staging
           service_account_email: github-actions@neon-law-staging.iam.gserviceaccount.com
@@ -106,7 +106,7 @@ jobs:
           GATSBY_AUTH0_CALLBACK: ${{ secrets.STAGING_AUTH0_CALLBACK }}
           GATSBY_AUTH0_DOMAIN: ${{ secrets.STAGING_AUTH0_DOMAIN }}
           GATSBY_AUTH0_CLIENT_ID: ${{ secrets.STAGING_AUTH0_CLIENT_ID }}
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@master
         with:
           project_id: neon-law-staging
           service_account_email: github-actions@neon-law-staging.iam.gserviceaccount.com
@@ -161,7 +161,7 @@ jobs:
           GATSBY_AUTH0_CALLBACK: https://www.deleteyourdata.info/callback
           GATSBY_AUTH0_DOMAIN: ${{ secrets.STAGING_AUTH0_DOMAIN }}
           GATSBY_AUTH0_CLIENT_ID: ${{ secrets.STAGING_AUTH0_CLIENT_ID }}
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@master
         with:
           project_id: neon-law-staging
           service_account_email: github-actions@neon-law-staging.iam.gserviceaccount.com
@@ -210,7 +210,7 @@ jobs:
             .
         if: github.ref == 'refs/heads/development'
 
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@master
         with:
           project_id: neon-law-staging
           service_account_email: github-actions@neon-law-staging.iam.gserviceaccount.com
@@ -264,7 +264,7 @@ jobs:
             .
         if: github.ref == 'refs/heads/development'
 
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@master
         with:
           project_id: neon-law-staging
           service_account_email: github-actions@neon-law-staging.iam.gserviceaccount.com

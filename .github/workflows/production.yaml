@@ -46,7 +46,7 @@ jobs:
           GATSBY_AUTH0_DOMAIN: ${{ secrets.PRODUCTION_AUTH0_DOMAIN }}
           GATSBY_AUTH0_CLIENT_ID: ${{ secrets.PRODUCTION_AUTH0_CLIENT_ID }}
 
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@master
         with:
           project_id: neon-law-production
           service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
@@ -106,7 +106,7 @@ jobs:
           GATSBY_AUTH0_DOMAIN: ${{ secrets.PRODUCTION_AUTH0_DOMAIN }}
           GATSBY_AUTH0_CLIENT_ID: ${{ secrets.PRODUCTION_AUTH0_CLIENT_ID }}
 
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@master
         with:
           project_id: neon-law-production
           service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
@@ -171,7 +171,7 @@ jobs:
           GATSBY_AUTH0_DOMAIN: ${{ secrets.PRODUCTION_AUTH0_DOMAIN }}
           GATSBY_AUTH0_CLIENT_ID: ${{ secrets.PRODUCTION_AUTH0_CLIENT_ID }}
 
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@master
         with:
           project_id: neon-law-production
           service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
@@ -236,7 +236,7 @@ jobs:
           GATSBY_AUTH0_DOMAIN: ${{ secrets.PRODUCTION_AUTH0_DOMAIN }}
           GATSBY_AUTH0_CLIENT_ID: ${{ secrets.PRODUCTION_AUTH0_CLIENT_ID }}
 
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@master
         with:
           project_id: neon-law-production
           service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
@@ -289,7 +289,7 @@ jobs:
             -f docker/api.Dockerfile \
             .
 
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@master
         with:
           project_id: neon-law-production
           service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
@@ -342,7 +342,7 @@ jobs:
             -f docker/workers.Dockerfile \
             .
 
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@master
         with:
           project_id: neon-law-production
           service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
