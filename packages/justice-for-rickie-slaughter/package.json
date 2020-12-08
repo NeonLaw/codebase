@@ -62,7 +62,7 @@
     "uuid": "^8.3.1"
   },
   "optionalDependencies": {
-    "cypress": "^6.0.1"
+    "cypress": "^6.1.0"
   },
   "scripts": {
     "build": "yarn fonts:copy && yarn intl:en && yarn intl:es && gatsby build",
