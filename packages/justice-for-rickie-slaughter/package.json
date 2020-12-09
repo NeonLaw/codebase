@@ -16,7 +16,7 @@
     "@turf/bezier-spline": "^6.0.3",
     "@turf/helpers": "^6.1.4",
     "eslint-plugin-jsdoc": "^30.7.8",
-    "gatsby": "2.26.1",
+    "gatsby": "2.28.1",
     "gatsby-image": "^2.7.0",
     "gatsby-plugin-canonical-urls": "^2.4.0",
     "gatsby-plugin-create-client-paths": "^2.6.0",
