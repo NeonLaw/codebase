@@ -48,7 +48,7 @@
         "eslint-plugin-unicorn": "^23.0.0",
         "faker": "^5.1.0",
         "gatsby-cli": "^2.14.1",
-        "gatsby-cypress": "^0.5.0",
+        "gatsby-cypress": "^0.7.0",
         "gatsby-plugin-segment-js": "^3.6.0",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^26.6.2",

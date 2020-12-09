@@ -91,6 +91,6 @@
   "devDependencies": {
     "babel-plugin-add-react-displayname": "^0.0.5",
     "babel-preset-gatsby": "^0.8.0",
-    "gatsby-cypress": "^0.5.0"
+    "gatsby-cypress": "^0.7.0"
   }
 }
