@@ -22,7 +22,7 @@
     "express-jwt": "^6.0.0",
     "express-rate-limit": "^5.2.3",
     "express-winston": "^4.0.5",
-    "graphile-build-pg": "^4.9.0",
+    "graphile-build-pg": "^4.10.0",
     "graphile-migrate": "^1.0.2",
     "graphile-utils": "^4.9.2",
     "js-yaml": "^3.14.0",
