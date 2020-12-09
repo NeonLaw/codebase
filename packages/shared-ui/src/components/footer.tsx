@@ -205,10 +205,7 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
             <ThemeSwitcher />
             {currentSite !== 'justice-for-rickie-slaughter' && (
               <>
-                <SocialMediaIcons
-                  currentSite={currentSite}
-                  display={['none', 'none', 'block']}
-                />
+                <SocialMediaIcons currentSite={currentSite} />
                 <EmailListButton />
                 <Text textAlign="center">
               Copyright &copy; {new Date().getFullYear()} Shook Law PLLC

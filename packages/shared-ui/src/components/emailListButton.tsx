@@ -12,11 +12,23 @@ export const EmailListButton = () => {
     <Box marginBottom="10px">
       <Center>
         <Button
-          aria-label="Sign up for the Neon Law Monthly"
+          aria-label="Sign up for the Neon Law Monthly Newsletter"
           as="a"
           href={newsletterSignupLink}
           target="_blank"
           rel="noopener noreferrer"
+          display={['inherit', 'inherit', 'none']}
+        >
+          Join our e-mail list.
+        </Button>
+
+        <Button
+          aria-label="Sign up for the Neon Law Monthly Newsletter"
+          as="a"
+          href={newsletterSignupLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          display={['none', 'none', 'inherit']}
         >
           Sign up for our e-mail list, the Neon Law Monthly.
         </Button>

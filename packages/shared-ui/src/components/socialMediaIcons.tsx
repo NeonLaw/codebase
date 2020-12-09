@@ -7,7 +7,7 @@ import { Button } from '../components/button';
 import { MdEmail } from 'react-icons/md';
 import React from 'react';
 
-export const SocialMediaIcons = ({ display, currentSite }) => {
+export const SocialMediaIcons = ({ currentSite }) => {
   const facebookAccounts = {
     'delete-your-data': 'DeleteYourData',
     'neon-law': 'NeonLaw',
@@ -24,7 +24,7 @@ export const SocialMediaIcons = ({ display, currentSite }) => {
   };
 
   return (
-    <Box marginBottom="10px" display={display}>
+    <Box marginBottom="10px">
       <Center>
         <Button
           aria-label={`Visit @${twitterAccounts[currentSite]} on Twitter`}
@@ -38,7 +38,7 @@ export const SocialMediaIcons = ({ display, currentSite }) => {
         <Button
           aria-label={`Visit @${instagramAccounts[currentSite]} on Instagram`}
           as="a"
-          href={`https://www.instagram.com/${instagramAccounts[currentSite]}`}
+          href={`https://www.facebook.com/${instagramAccounts[currentSite]}`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -47,7 +47,7 @@ export const SocialMediaIcons = ({ display, currentSite }) => {
         <Button
           aria-label={`Visit @${facebookAccounts[currentSite]} on Instagram`}
           as="a"
-          href={`https://www.instagram.com/${facebookAccounts[currentSite]}`}
+          href={`https://www.instagram.com/${instagramAccounts[currentSite]}`}
           target="_blank"
           rel="noopener noreferrer"
         >
