@@ -6,7 +6,7 @@
   "license": "PolyForm-Noncommercial-1.0.0",
   "dependencies": {
     "@apollo/client": "3.3.3",
-    "@auth0/auth0-spa-js": "^1.13.4",
+    "@auth0/auth0-spa-js": "^1.13.5",
     "@chakra-ui/core": "1.0.0-rc.8",
     "@chakra-ui/icons": "1.0.1",
     "@hookform/error-message": "^0.0.5",
