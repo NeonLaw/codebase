@@ -8,6 +8,7 @@ require('dotenv').config({
 module.exports = {
   plugins: [
     'gatsby-plugin-typescript',
+    'gatsby-plugin-react-leaflet',
     {
       options: {
         siteUrl: 'https://www.neonlaw.com',

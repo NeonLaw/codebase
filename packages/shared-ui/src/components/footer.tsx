@@ -1,6 +1,3 @@
-/* eslint-disable */
-// @ts-nocheck
-/* eslint-enable */
 import {
   Box,
   Divider,
@@ -35,7 +32,6 @@ const FooterLink = ({ currentSite, site, path, i18nMessage }) => {
   }
   const siteMap = {
     'delete-your-data': 'https://www.deleteyourdata.com',
-    'justice-for-rickie-slaughter': 'https://www.JusticeForRickieSlaughter.com',
     'law-job-resources': 'https://www.lawjobresources.com',
     'neon-law': 'https://www.neonlaw.com',
   };
@@ -188,9 +184,9 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
               />
               <FooterLink
                 currentSite={currentSite}
-                site="justice-for-rickie-slaughter"
+                site="neon-law"
                 i18nMessage="footer.justice_for_rickie_slaughter.heading"
-                path="/"
+                path="/pro-bono/justice-for-rickie-slaughter"
               />
               <FooterLink
                 currentSite={currentSite}
@@ -203,15 +199,11 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
           </Flex>
           <Box paddingBottom="1em">
             <ThemeSwitcher />
-            {currentSite !== 'justice-for-rickie-slaughter' && (
-              <>
-                <SocialMediaIcons currentSite={currentSite} />
-                <EmailListButton />
-                <Text textAlign="center">
+            <SocialMediaIcons currentSite={currentSite} />
+            <EmailListButton />
+            <Text textAlign="center">
               Copyright &copy; {new Date().getFullYear()} Shook Law PLLC
-                </Text>
-              </>
-            )}
+            </Text>
             <Divider margin="1.5em auto" width="240px" />
             <Text textAlign="center">
               this website was crafted by&nbsp;

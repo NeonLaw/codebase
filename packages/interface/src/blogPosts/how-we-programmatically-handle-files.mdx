@@ -1,0 +1,63 @@
+---
+title: How We Programmatically Handle Files
+featuredImage: upload-diagram.png
+slug: /blog/file-uploads-with-postgraphile
+updatedAt: "2020-11-27"
+tags: programming,postgres
+---
+
+We consider files grouped data that is not stored in our primary PostgreSQL
+database, such as images, Microsoft Word documents, PDF files, audio and video.
+
+## Storage in GCP Buckets
+
+We maintain four GCP buckets for storing files, in two of these buckets, the
+`Private Assets` and the `Writing` bucket, each file has an associative
+PostgreSQL row.
+
+### Public Bucket
+
+The Public Bucket is for files that can be served anywhere and accessed by
+anyone, such as public websites and video assets.
+
+### Unprocessed Uploads Bucket
+
+Uploaded documents are deleted in 24 hours. A filename in this bucket is the
+`base64` encoding of the `uploadURL` created from Transloadit.
+
+### Private Assets Bucket
+
+The User Files document represents saved uploads that are attached to a matter.
+Each file follows the format:
+
+`${userId}/matters/${matterId}/filename` or
+`${userId}/responses/${responseId}/filename`.
+
+### Company Files Bucket
+
+The Company Bucket contains Word and PDF documents that are not attached to a
+matter, for example internal accounting receipts. Currently each file follows
+the format:
+
+`/letters/${lettersId}.pdf`
+
+## File Uploads
+
+We use Transloadit to process file uploads from our application. Our upload
+process is two HTTP requests. First, a HTTP POST request is made to Transloadit
+to upload our file to its server. Second, with the `uploadURL` returned from
+`Transloadit`, a user sends a GraphQL mutation request to our API to create a
+`response_document` or `matter_document` with either the
+`createResponseDocumentFromTransloadit` or `createMatterDocumentFromTransloadit`
+mutation respectively.
+
+### Choose a Transloadit Template and `getTransloaditToken`
+
+### Upload to Transloadit
+
+After you upload a file to Transloadit, Transloadit will return an `uploadURL`
+in the response body. This `uploadURL` is what is sent to `react-hook-form`.
+
+### After Transloadit Processes the File, the `Unprocessed Upload` Bucket
+
+### Create a Matter Document or Response Document
