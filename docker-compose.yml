@@ -30,9 +30,6 @@ x-node-volumes: &node-volumes
   - /app/packages/api/node_modules/
   - /app/packages/delete-your-data/node_modules/
   - /app/packages/interface/node_modules/
-  - /app/packages/law-job-resources/node_modules/
-  - /app/packages/legal-templates/node_modules/
-  - /app/packages/mercury-bank/node_modules/
   - /app/packages/print/node_modules/
   - /app/packages/shared-ui/node_modules/
   - /app/packages/workers/node_modules/
@@ -114,21 +111,6 @@ services:
     depends_on:
       - elasticsearch
       - postgres
-
-  law_job_resources:
-    build:
-      context: ./
-      dockerfile: ./docker/development.interface.Dockerfile
-    restart: always
-    container_name: law_job_resources
-    depends_on:
-      - api
-    ports:
-      - 5000:8000
-      - 33001:33001
-    volumes: *node-volumes
-    environment:
-      PACKAGE_NAME: law-job-resources
 
   delete_your_data:
     build:

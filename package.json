@@ -4,7 +4,6 @@
         "packages/api",
         "packages/delete-your-data",
         "packages/interface",
-        "packages/law-job-resources",
         "packages/matter-templates",
         "packages/print",
         "packages/shared-ui",

@@ -73,7 +73,6 @@ This starts the following containers:
 - A shell container that you can use via `docker exec -it shell /bin/bash`
 - Web Servers for:
   - NeonLaw.com (http://127.0.0.1:8000)
-  - LawJobResources.com (http://127.0.0.1:5000)
   - DeleteYourData.com (http://127.0.0.1:6000)
   - The NeonLaw API (http://127.0.0.1:3000)
 
