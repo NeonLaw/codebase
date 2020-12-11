@@ -76,9 +76,3 @@ jobs:
         run: |
           docker exec shell yarn graphql-codegen
           git diff -G. --exit-code ./packages/shared-ui/src/utils/api.tsx
-      - name: Run Cypress tests for @neonlaw/delete-your-data
-        uses: cypress-io/github-action@v2
-        with:
-          wait-on: 'http://127.0.0.1:7777'
-          working-directory: ./packages/delete-your-data
-          config: baseUrl=http://127.0.0.1:7777

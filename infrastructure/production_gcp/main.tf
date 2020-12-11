@@ -67,20 +67,13 @@ module "delete-your-data-ssl-certificate" {
   domain_name      = "www.deleteyourdata.com"
 }
 
-module "justice-for-rickie-slaughter-ssl-certificate" {
-  source = "../modules/ssl_certificate"
-  certificate_name = "justice-for-rickie-slaughter"
-  domain_name      = "www.justiceforrickieslaughter.com"
-}
-
 module "public-bucket" {
   source = "../modules/public_bucket"
   bucket_name = "${var.project_id}-public-assets"
   allowed_origins = [
     "www.deleteyourdata.com",
     "www.lawjobresources.com",
-    "www.neonlaw.com",
-    "www.justiceforrickieslaughter.com"
+    "www.neonlaw.com"
   ]
 }
 
@@ -98,8 +91,7 @@ module "user-bucket" {
   allowed_origins = [
     "www.deleteyourdata.com",
     "www.lawjobresources.com",
-    "www.neonlaw.com",
-    "www.justiceforrickieslaughter.com"
+    "www.neonlaw.com"
   ]
 }
 

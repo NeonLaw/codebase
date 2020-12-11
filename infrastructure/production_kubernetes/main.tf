@@ -130,12 +130,6 @@ module "law-job-resources_deployment" {
   image_url = "${data.terraform_remote_state.production_gcp.outputs.container_registry}/law-job-resources:latest"
 }
 
-module "justice_for_rickie_slaughter_deployment" {
-  source    = "../modules/interface_deployment"
-  app_name  = "justice-for-rickie-slaughter"
-  image_url = "${data.terraform_remote_state.production_gcp.outputs.container_registry}/justice-for-rickie-slaughter:latest"
-}
-
 module "delete_your_data_deployment" {
   source    = "../modules/interface_deployment"
   app_name  = "delete-your-data"

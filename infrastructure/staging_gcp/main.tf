@@ -70,8 +70,7 @@ module "public-bucket" {
   allowed_origins = [
     "www.deleteyourdata.com",
     "www.lawjobresources.com",
-    "www.neonlaw.com",
-    "www.justiceforrickieslaughter.com"
+    "www.neonlaw.com"
   ]
 }
 
