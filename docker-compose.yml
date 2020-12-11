@@ -30,7 +30,6 @@ x-node-volumes: &node-volumes
   - /app/packages/api/node_modules/
   - /app/packages/delete-your-data/node_modules/
   - /app/packages/interface/node_modules/
-  - /app/packages/justice-for-rickie-slaughter/node_modules/
   - /app/packages/law-job-resources/node_modules/
   - /app/packages/legal-templates/node_modules/
   - /app/packages/mercury-bank/node_modules/
@@ -130,21 +129,6 @@ services:
     volumes: *node-volumes
     environment:
       PACKAGE_NAME: law-job-resources
-
-  justice_for_rickie_slaughter:
-    build:
-      context: ./
-      dockerfile: ./docker/development.interface.Dockerfile
-    restart: always
-    container_name: justice_for_rickie_slaughter
-    depends_on:
-      - api
-    ports:
-      - 7000:8000
-      - 33002:33002
-    volumes: *node-volumes
-    environment:
-      PACKAGE_NAME: justice-for-rickie-slaughter
 
   delete_your_data:
     build:

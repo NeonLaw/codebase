@@ -4,7 +4,7 @@ resource "kubernetes_ingress" "primary" {
 
     annotations = {
       "kubernetes.io/ingress.global-static-ip-name" = "neon-law"
-      "ingress.gcp.kubernetes.io/pre-shared-cert" = "neon-law,delete-your-data,law-job-resources,justice-for-rickie-slaughter"
+      "ingress.gcp.kubernetes.io/pre-shared-cert" = "neon-law,delete-your-data,law-job-resources"
     }
   }
 
@@ -46,18 +46,6 @@ resource "kubernetes_ingress" "primary" {
         path {
           backend {
             service_name = "law-job-resources"
-            service_port = 80
-          }
-        }
-      }
-    }
-
-    rule {
-      host = "www.justiceforrickieslaughter.com"
-      http {
-        path {
-          backend {
-            service_name = "justice-for-rickie-slaughter"
             service_port = 80
           }
         }

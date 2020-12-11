@@ -30,13 +30,6 @@ GATSBY_API_URL=https://www.neonlaw.net/api/graphql \
   yarn workspace @neonlaw/interface dev
 ```
 
-or for the JusticeForRickieSlaughter website:
-
-```bash
-GATSBY_API_URL=https://www.neonlaw.net/api/graphql \
-  yarn workspace @neonlaw/justice-for-rickie-slaughter dev
-```
-
 ### Dockerized Setup
 
 We recommend developing with a containerized setup that best mimic our staging
@@ -82,7 +75,6 @@ This starts the following containers:
   - NeonLaw.com (http://127.0.0.1:8000)
   - LawJobResources.com (http://127.0.0.1:5000)
   - DeleteYourData.com (http://127.0.0.1:6000)
-  - JusticeForRickieSlaughter.com (http://127.0.0.1:7000)
   - The NeonLaw API (http://127.0.0.1:3000)
 
 You can start a subset of services with Docker Compose if you do not need to

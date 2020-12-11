@@ -82,9 +82,3 @@ jobs:
           wait-on: 'http://127.0.0.1:7777'
           working-directory: ./packages/delete-your-data
           config: baseUrl=http://127.0.0.1:7777
-      - name: Run Cypress tests for @neonlaw/justice-for-rickie-slaughter
-        uses: cypress-io/github-action@v2
-        with:
-          wait-on: 'http://127.0.0.1:7000'
-          working-directory: ./packages/justice-for-rickie-slaughter
-          config: baseUrl=http://127.0.0.1:7000
