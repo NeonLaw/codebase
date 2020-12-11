@@ -10,11 +10,11 @@
 This is a monorepo containing these folders:
 
 - A Yarn Workspace, declared at `package.json` and with packages at
-  `./packages`, which contains the bulk of our code.
+  `./packages`, which contains our `interface` and `server` package.
 - A collection of Terraform modules located in the `./infrastructure` folder,
-  for building out our Cloud Computing.
+  for building out our Cloud Computing on GCP.
 - A collection of `Dockerfile`s and entrypoint scripts modules located in the
-  `./docker` folder, for building out our containers.
+  `./docker` folder, for building containers which run on GCP.
 
 ## Running Locally
 
