@@ -13,7 +13,7 @@ This is repo contains:
 - A server written with a Postgraphile GraphQL API and Graphile Workers at
   `./packages/server`
 - A collection of Terraform modules located in the `./infrastructure` folder,
-  for building out our Cloud Computing on Kubernetes.
+  for building out our cloud computing on Kubernetes on GCP.
 - A collection of `Dockerfile`s and entrypoint scripts modules located in the
   `./docker` folder, for building containers which run on GCP.
 
