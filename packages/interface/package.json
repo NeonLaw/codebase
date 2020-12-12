@@ -23,6 +23,7 @@
     "apollo-link-context": "^1.0.20",
     "clipboard-copy": "^4.0.1",
     "eslint-plugin-jsdoc": "^30.7.8",
+    "framer-motion": "^2.9.5",
     "gatsby": "2.28.1",
     "gatsby-image": "^2.7.0",
     "gatsby-plugin-canonical-urls": "^2.4.0",
@@ -72,10 +73,15 @@
     "react-sortable-hoc": "^1.11.0",
     "react-table": "^7.6.2",
     "sharp": "^0.26.2",
+    "slate": "^0.59.0",
+    "slate-history": "^0.59.0",
+    "slate-react": "^0.59.0",
     "source-map-support": "^0.5.19",
+    "styled-system": "5.1.5",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.2",
-    "uuid": "^8.3.1"
+    "uuid": "^8.3.1",
+    "yup": "^0.32.8"
   },
   "optionalDependencies": {
     "cypress": "^6.1.0"
