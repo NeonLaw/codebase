@@ -1,10 +1,9 @@
 {
     "private": true,
     "workspaces": [
-        "packages/api",
         "packages/interface",
-        "packages/shared-ui",
-        "packages/workers"
+        "packages/server",
+        "packages/shared-ui"
     ],
     "optionalDependencies": {
         "cypress": "^6.1.0"
