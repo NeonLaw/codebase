@@ -44,7 +44,7 @@ resource "kubernetes_deployment" "api" {
           name  = var.app_name
           env {
             name  = "DATABASE_URL"
-            value = "postgres://postgres:${var.master_database_password}@127.0.0.1:5432/neon_law"
+            value = "postgres://${var.database_admin_username}:${var.database_admin_password}@127.0.0.1:5432/neon_law"
           }
           env {
             name  = "NODE_ENV"

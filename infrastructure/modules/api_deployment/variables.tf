@@ -20,7 +20,10 @@ variable sql_proxy_secret_name {
 variable logic_secret_name {
 }
 
-variable master_database_password {
+variable database_admin_username {
+}
+
+variable database_admin_password {
 }
 
 variable third_party_saas_secret_name {

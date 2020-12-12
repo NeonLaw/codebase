@@ -27,8 +27,8 @@ resource "random_string" "password" {
   special = false
 }
 
-resource "google_sql_user" "segment_user" {
-  name     = "segment"
+resource "google_sql_user" "neon_law_admin" {
+  name     = "neon_law_admin"
   instance = google_sql_database_instance.postgres.name
   password = random_string.password.result
 }

@@ -49,7 +49,12 @@ output "gke_password" {
   sensitive = true
 }
 
-output "segment_password" {
+output "database_admin_password" {
+  value = module.postgres.segment_password
+  sensitive = true
+}
+
+output "database_admin_username" {
   value = module.postgres.segment_password
   sensitive = true
 }

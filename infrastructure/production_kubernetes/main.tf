@@ -68,16 +68,22 @@ module "sql_proxy_kubernetes_secret" {
 }
 
 module "third_party_saas_kubernetes_secret" {
-  source              = "../modules/third_party_saas_kubernetes_secret"
-  secret_name         = "third-party-saas"
-  auth0_client_id     = var.auth0_client_id
-  auth0_client_secret = var.auth0_client_secret
-  auth0_tenant        = "auth.neonlaw.com"
+  source                        = "../modules/third_party_saas_kubernetes_secret"
+  secret_name                   = "third-party-saas"
+  auth0_client_id               = var.auth0_client_id
+  auth0_client_secret           = var.auth0_client_secret
+  auth0_tenant                  = "auth.neonlaw.com"
+  transloadit_key               = var.transloadit_key
+  transloadit_secret            = var.transloadit_secret
+  transloadit_pdf_template_id   = var.transloadit_pdf_template_id
+  transloadit_image_template_id = var.transloadit_image_template_id
+  new_relic_license_key         = var.new_relic_license_key
+  sendgrid_api_key              = var.sendgrid_api_key
 }
 
-module "logic_kubernetes_secret" {
+module "gcp_credentials_kubernetes_secret" {
   source       = "../modules/kubernetes_secret"
-  secret_name  = "logic"
+  secret_name  = "gcp_credentials"
   secret_value = var.logic_gcp_credentials
 }
 
@@ -86,20 +92,15 @@ module "api_deployment" {
   app_name                     = "production-api"
   new_relic_app_name           = "production"
   image_url                    = "${data.terraform_remote_state.production_gcp.outputs.container_registry}/api:latest"
-  database_name                = "neon-law"
+  database_name                = data.terraform_remote_state.production_gcp.outputs.database_name
   show_graphiql                = "false"
   project_id                   = data.terraform_remote_state.production_gcp.outputs.project_id
   region                       = data.terraform_remote_state.production_gcp.outputs.region
   sql_proxy_secret_name        = module.sql_proxy_kubernetes_secret.name
   third_party_saas_secret_name = module.third_party_saas_kubernetes_secret.name
-  logic_secret_name            = module.logic_kubernetes_secret.name
+  gcp_credentials_secret_name            = module.gcp_credentials_kubernetes_secret.name
   master_database_password     = var.master_database_password
-  new_relic_license_key        = var.new_relic_license_key
   api_url                       = "https://www.neonlaw.com"
-  transloadit_key               = var.transloadit_key
-  transloadit_secret            = var.transloadit_secret
-  transloadit_pdf_template_id   = var.transloadit_pdf_template_id
-  transloadit_image_template_id = var.transloadit_image_template_id
 }
 
 module "worker_deployment" {
