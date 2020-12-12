@@ -89,8 +89,6 @@
         "clipboard-copy": "^4.0.1",
         "gatsby-plugin-react-axe": "^0.5.0",
         "jwt-decode": "^3.1.2",
-        "logrocket": "^1.0.14",
-        "logrocket-react": "^4.0.1",
         "react-player": "^2.7.0",
         "slate": "^0.59.0",
         "slate-history": "^0.59.0",
