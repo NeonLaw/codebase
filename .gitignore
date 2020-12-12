@@ -70,18 +70,7 @@ coverage/
 staging_htpasswd
 
 # Fonts
-packages/neon-law/static/fonts/**
-packages/neon-law/src/intl/**
-!packages/neon-law/static/fonts/.gitkeep
-packages/law-job-resources/static/fonts/**
-packages/law-job-resources/src/intl/**
-!packages/law-job-resources/static/fonts/.gitkeep
-packages/delete-your-data/static/fonts/**
-!packages/delete-your-data/static/fonts/.gitkeep
-packages/delete-your-data/src/intl/**
-packages/justice-for-rickie-slaughter/static/fonts/**
-!packages/justice-for-rickie-slaughter/static/fonts/.gitkeep
-packages/justice-for-rickie-slaughter/src/intl/**
+packages/interface/src/intl/**
 
 *.tfstate
 *.tfstate.backup

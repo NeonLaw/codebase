@@ -82,11 +82,10 @@
     "cypress": "^6.1.0"
   },
   "scripts": {
-    "build": "yarn fonts:copy && yarn intl:en && yarn intl:es && gatsby build",
+    "build": "yarn intl:en && yarn intl:es && gatsby build",
     "cy:open": "cypress open",
-    "dev": "yarn fonts:copy && yarn intl:en && yarn intl:es && yarn run develop",
+    "dev": "yarn intl:en && yarn intl:es && yarn run develop",
     "develop": "gatsby develop -H 127.0.0.1",
-    "fonts:copy": "cp -vr ../shared-ui/fonts ./static/",
     "intl:en": "wget https://www.neonlaw.com/api/en.json -O ./src/intl/en.json",
     "intl:es": "wget https://www.neonlaw.com/api/es.json -O ./src/intl/es.json",
     "start": "gatsby serve -H 0.0.0.0 -p 8000",
