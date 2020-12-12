@@ -98,7 +98,6 @@ jobs:
             --tag "us.gcr.io/neon-law-staging/api:latest" \
             -f docker/api.Dockerfile \
             .
-        if: github.ref == 'refs/heads/development'
 
       - uses: google-github-actions/setup-gcloud@master
         with:
@@ -152,7 +151,6 @@ jobs:
             --tag "us.gcr.io/neon-law-staging/workers:latest" \
             -f docker/workers.Dockerfile \
             .
-        if: github.ref == 'refs/heads/development'
 
       - uses: google-github-actions/setup-gcloud@master
         with:
