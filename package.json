@@ -2,8 +2,7 @@
     "private": true,
     "workspaces": [
         "packages/interface",
-        "packages/server",
-        "packages/shared-ui"
+        "packages/server"
     ],
     "optionalDependencies": {
         "cypress": "^6.1.0"

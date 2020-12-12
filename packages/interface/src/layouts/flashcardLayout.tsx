@@ -5,23 +5,23 @@ import {
   gutters,
   shadows,
   sizes,
-} from '@neonlaw/shared-ui/src/themes/neonLaw';
+} from '../themes/neonLaw';
 
 import { ApolloProvider } from '@apollo/client';
 import {
   AuthenticationContext
-} from '@neonlaw/shared-ui/src/utils/authenticationContext';
-import { Breadcrumbs } from '@neonlaw/shared-ui/src/components/breadcrumbs';
-import { Container } from '@neonlaw/shared-ui/src/components/container';
-import { Footer } from '@neonlaw/shared-ui/src/components/footer';
+} from '../utils/authenticationContext';
+import { Breadcrumbs } from '../components/breadcrumbs';
+import { Container } from '../components/container';
+import { Footer } from '../components/footer';
 import {
   PublicNavigationBar
-} from '@neonlaw/shared-ui/src/components/navigationBars/public';
+} from '../components/navigationBars/public';
 import { Seo } from '../components/seo';
 import { graphql } from 'gatsby';
 import {
   publicClient
-} from '@neonlaw/shared-ui/src/utils/authenticationContext';
+} from '../utils/authenticationContext';
 import styled from '@emotion/styled';
 
 const StyledFlashcardTemplate = styled.div`

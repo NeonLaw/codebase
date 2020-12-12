@@ -3,14 +3,14 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/core';
-import { gutters, sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { gutters, sizes } from '../../themes/neonLaw';
 import {
   BusinessMatterDetailView
 } from '../../components/detailViews/businessMatterDetailView';
 import {
   BusinessMattersList
 } from '../../components/lists/businessMattersList';
-import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
+import { PortalLayout } from '../../layouts/portalLayout';
 import React from 'react';
 import { Router } from '@reach/router';
 import { useIntl } from 'gatsby-plugin-intl';

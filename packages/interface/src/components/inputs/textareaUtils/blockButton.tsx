@@ -1,7 +1,7 @@
 import { Editor, Transforms } from 'slate';
 import { IconButton, useColorMode } from '@chakra-ui/core';
 import React from 'react';
-import { colors } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { colors } from '../../../themes/neonLaw';
 import { useSlate } from 'slate-react';
 
 const LIST_TYPES = ['numbered-list', 'bulleted-list'];

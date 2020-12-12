@@ -1,10 +1,10 @@
 import { Box, Heading } from '@chakra-ui/core';
 import { navigate, useIntl } from 'gatsby-plugin-intl';
 
-import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
-import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
+import { FlashButton } from '../components/button';
+import { PortalLayout } from '../layouts/portalLayout';
 import React from 'react';
-import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { gutters } from '../themes/neonLaw';
 
 const AdminDashboard = () => {
   const intl = useIntl();

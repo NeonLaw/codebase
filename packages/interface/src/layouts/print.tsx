@@ -13,9 +13,9 @@ import {
   useColorMode,
 } from '@chakra-ui/core';
 
-import { CodeBlock } from '@neonlaw/shared-ui/src/components/codeBlock';
+import { CodeBlock } from '../components/codeBlock';
 import React from 'react';
-import { colors } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { colors } from '../themes/neonLaw';
 
 const Pre = (props) => <Box my="2em" rounded="sm" {...props} />;
 

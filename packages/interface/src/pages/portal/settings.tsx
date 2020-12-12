@@ -1,15 +1,15 @@
 import { Heading, useDisclosure } from '@chakra-ui/core';
-import { gutters, sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { gutters, sizes } from '../../themes/neonLaw';
 
-import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
-import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
+import { FlashButton } from '../../components/button';
+import { PortalLayout } from '../../layouts/portalLayout';
 import {
   PortalProfileCard
-} from '@neonlaw/shared-ui/src/components/cards/portalProfileCard';
+} from '../../components/cards/portalProfileCard';
 import React from 'react';
 import {
   UpdatePersonModal
-} from '@neonlaw/shared-ui/src/forms/updatePersonModal';
+} from '../../forms/updatePersonModal';
 import styled from '@emotion/styled';
 
 const StyledPortalPersonPage = styled.div`

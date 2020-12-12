@@ -1,7 +1,7 @@
-import { BaseLayout } from '@neonlaw/shared-ui/src/layouts/baseLayout';
+import { BaseLayout } from './src/layouts/baseLayout';
 import { ColorModeScript } from '@chakra-ui/core';
 import React from 'react';
-import { theme } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { theme } from './src/themes/neonLaw';
 
 export const wrapPageElement = ({ element, props }) => {
   return <BaseLayout theme={theme} {...props}>{element}</BaseLayout>;

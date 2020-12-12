@@ -1,8 +1,8 @@
-import { gutters, shadows, sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { gutters, shadows, sizes } from '../themes/neonLaw';
 
 import Placeholder from '../../images/placeholder.jpg';
 import React from 'react';
-import { ReadMoreButton } from '@neonlaw/shared-ui/src/components/button';
+import { ReadMoreButton } from '../components/button';
 import styled from '@emotion/styled';
 import { useIntl } from 'gatsby-plugin-intl';
 

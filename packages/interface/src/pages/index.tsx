@@ -2,10 +2,10 @@ import { Global, css } from '@emotion/core';
 
 import { Banner } from '../components/homepage/banner';
 import { Experience } from '../components/homepage/experience';
-import { GetStarted } from '@neonlaw/shared-ui/src/components/get-started';
+import { GetStarted } from '../components/get-started';
 import { InAction } from '../components/homepage/in-action';
 import { ProBono } from '../components/homepage/pro-bono';
-import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
+import { PublicLayout } from '../layouts/publicLayout';
 import React from 'react';
 import { Seo } from '../components/seo';
 // import { SocialProofLogos } from '../components/homepage/social-proof-logos';
@@ -14,7 +14,7 @@ import {
   WhatWeCanHelpWith
 } from '../components/homepage/what-we-can-help-with';
 import { WhyNeonLaw } from '../components/homepage/why-neon-law';
-import { colors } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { colors } from '../themes/neonLaw';
 import { useColorMode } from '@chakra-ui/core';
 import { useIntl } from 'gatsby-plugin-intl';
 

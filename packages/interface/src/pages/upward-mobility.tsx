@@ -1,14 +1,14 @@
 import { Heading, Text } from '@chakra-ui/core';
 
-import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
-import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
+import { FlashButton } from '../components/button';
+import { PublicLayout } from '../layouts/publicLayout';
 import React from 'react';
 import { Router } from '@reach/router';
-import { Section } from '@neonlaw/shared-ui/src/components/section';
+import { Section } from '../components/section';
 import { Seo } from '../components/seo';
 import {
   UpwardMobilityQuestionnaire
-} from '@neonlaw/shared-ui/src/components/upwardMobilityQuestionnaire';
+} from '../components/upwardMobilityQuestionnaire';
 import { navigate } from 'gatsby-plugin-intl';
 import { useIntl } from 'gatsby-plugin-intl';
 

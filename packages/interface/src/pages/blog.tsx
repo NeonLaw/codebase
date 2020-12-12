@@ -1,9 +1,9 @@
 import { Box, Heading, List, ListItem } from '@chakra-ui/core';
-import { gutters, sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
-import { Container } from '@neonlaw/shared-ui/src/components/container';
+import { gutters, sizes } from '../themes/neonLaw';
+import { Container } from '../components/container';
 import { Image } from '../components/image';
-import { PostBanner } from '@neonlaw/shared-ui/src/components/blog/postBanner';
-import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
+import { PostBanner } from '../components/blog/postBanner';
+import { PublicLayout } from '../layouts/publicLayout';
 import React from 'react';
 import { Seo } from '../components/seo';
 import { graphql } from 'gatsby';

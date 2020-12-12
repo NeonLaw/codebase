@@ -1,8 +1,8 @@
 import { Box, Tooltip } from '@chakra-ui/core';
 import React, { useRef, useState } from 'react';
-import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
+import { FlashButton } from '../components/button';
 import copy from 'clipboard-copy';
-import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { gutters } from '../themes/neonLaw';
 
 export const PGPKey = ({ children }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

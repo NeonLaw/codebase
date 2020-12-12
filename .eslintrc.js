@@ -23,7 +23,7 @@ module.exports = {
     'public/*',
     '**/public/*',
     '**/build/*',
-    'packages/shared-ui/src/utils/api.tsx'
+    'packages/interface/src/utils/api.tsx'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {

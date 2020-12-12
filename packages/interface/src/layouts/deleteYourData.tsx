@@ -1,11 +1,11 @@
-import '@neonlaw/shared-ui/src/themes/fonts.css';
+import '../themes/fonts.css';
 import {
   AuthenticationContext,
   publicClient
-} from '@neonlaw/shared-ui/src/utils/authenticationContext';
+} from '../utils/authenticationContext';
 import { ApolloProvider } from '@apollo/client';
 import { DeleteYourDataStyles } from '../styles/deleteYourData';
-import { Footer } from '@neonlaw/shared-ui/src/components/footer';
+import { Footer } from '../components/footer';
 import React from 'react';
 
 export const DeleteYourDataLayout = ({ children }) => (

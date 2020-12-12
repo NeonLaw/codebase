@@ -1,5 +1,5 @@
 import { Box, Text } from '@chakra-ui/core';
-import { colors, gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { colors, gutters } from '../themes/neonLaw';
 
 import InActionBG from '../../images/in-action-bg.jpg';
 import React from 'react';

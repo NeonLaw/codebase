@@ -5,29 +5,29 @@ import {
   gutters,
   shadows,
   sizes,
-} from '@neonlaw/shared-ui/src/themes/neonLaw';
+} from '../themes/neonLaw';
 
 import { ApolloProvider } from '@apollo/client';
 import {
   AuthenticationContext
-} from '@neonlaw/shared-ui/src/utils/authenticationContext';
-import { Breadcrumbs } from '@neonlaw/shared-ui/src/components/breadcrumbs';
-import { Container } from '@neonlaw/shared-ui/src/components/container';
-import { EditOnGithub } from '@neonlaw/shared-ui/src/components/editOnGithub';
-import { Footer } from '@neonlaw/shared-ui/src/components/footer';
+} from '../utils/authenticationContext';
+import { Breadcrumbs } from '../components/breadcrumbs';
+import { Container } from '../components/container';
+import { EditOnGithub } from '../components/editOnGithub';
+import { Footer } from '../components/footer';
 import { Image } from '../components/image';
-import { MDXComponents } from '@neonlaw/shared-ui/src/utils/mdxComponents';
+import { MDXComponents } from '../utils/mdxComponents';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import {
   PublicNavigationBar
-} from '@neonlaw/shared-ui/src/components/navigationBars/public';
+} from '../components/navigationBars/public';
 import { Seo } from '../components/seo';
-import { ShareButtons } from '@neonlaw/shared-ui/src/components/shareButtons';
+import { ShareButtons } from '../components/shareButtons';
 import { graphql } from 'gatsby';
 import {
   publicClient
-} from '@neonlaw/shared-ui/src/utils/authenticationContext';
+} from '../utils/authenticationContext';
 import styled from '@emotion/styled';
 import { useSiteMetadata } from '../components/hooks';
 

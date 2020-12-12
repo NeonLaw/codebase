@@ -3,9 +3,9 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/core';
-import { gutters, sizes } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { gutters, sizes } from '../../themes/neonLaw';
 
-import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
+import { PortalLayout } from '../../layouts/portalLayout';
 import React from 'react';
 import { useIntl } from 'gatsby-plugin-intl';
 

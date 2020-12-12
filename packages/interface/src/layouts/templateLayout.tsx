@@ -8,26 +8,26 @@ import React, { ReactChildren } from 'react';
 import { ApolloProvider } from '@apollo/client';
 import {
   AuthenticationContext
-} from '@neonlaw/shared-ui/src/utils/authenticationContext';
-import { Breadcrumbs } from '@neonlaw/shared-ui/src/components/breadcrumbs';
-import { Container } from '@neonlaw/shared-ui/src/components/container';
-import { EditOnGithub } from '@neonlaw/shared-ui/src/components/editOnGithub';
-import { Footer } from '@neonlaw/shared-ui/src/components/footer';
+} from '../utils/authenticationContext';
+import { Breadcrumbs } from '../components/breadcrumbs';
+import { Container } from '../components/container';
+import { EditOnGithub } from '../components/editOnGithub';
+import { Footer } from '../components/footer';
 import { MDXComponents } from './print';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import {
   NonLegalAdviceAlert
-} from '@neonlaw/shared-ui/src/components/nonLegalAdviceAlert';
+} from '../components/nonLegalAdviceAlert';
 import {
   PublicNavigationBar
-} from '@neonlaw/shared-ui/src/components/navigationBars/public';
+} from '../components/navigationBars/public';
 import { Seo } from '../components/seo';
-import { ShareButtons } from '@neonlaw/shared-ui/src/components/shareButtons';
+import { ShareButtons } from '../components/shareButtons';
 import { graphql } from 'gatsby';
 import {
   publicClient
-} from '@neonlaw/shared-ui/src/utils/authenticationContext';
+} from '../utils/authenticationContext';
 import { useSiteMetadata } from '../components/hooks';
 
 const TemplateLayout: React.FC<{

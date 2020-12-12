@@ -1,18 +1,18 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
-import { Breadcrumbs } from '@neonlaw/shared-ui/src/components/breadcrumbs';
+import { Breadcrumbs } from '../components/breadcrumbs';
 import {
   CreateMatterModal
-} from '@neonlaw/shared-ui/src/components/modals/createMatterModal';
-import { FlashButton } from '@neonlaw/shared-ui/src/components/button';
+} from '../components/modals/createMatterModal';
+import { FlashButton } from '../components/button';
 import {
   MatterTable
-} from '@neonlaw/shared-ui/src/components/tables/matterTable';
-import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
+} from '../components/tables/matterTable';
+import { PortalLayout } from '../layouts/portalLayout';
 import {
   UpdateMatterModal
-} from '@neonlaw/shared-ui/src/components/modals/updateMatterModal';
-import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
+} from '../components/modals/updateMatterModal';
+import { gutters } from '../themes/neonLaw';
 
 const AdminMatters = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

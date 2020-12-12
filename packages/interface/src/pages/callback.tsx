@@ -1,8 +1,8 @@
 import {
   AuthenticationContext
-} from '@neonlaw/shared-ui/src/utils/authenticationContext';
-import { LoadingPage } from '@neonlaw/shared-ui/src/components/loadingPage';
-import { PublicLayout } from '@neonlaw/shared-ui/src/layouts/publicLayout';
+} from '../utils/authenticationContext';
+import { LoadingPage } from '../components/loadingPage';
+import { PublicLayout } from '../layouts/publicLayout';
 import React from 'react';
 import { navigate } from 'gatsby';
 

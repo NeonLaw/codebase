@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Textarea } from '@neonlaw/shared-ui/src/components/inputs';
+import { Textarea } from '../components/inputs';
 import { useForm } from 'react-hook-form';
 
 export const ContactForm = () => {

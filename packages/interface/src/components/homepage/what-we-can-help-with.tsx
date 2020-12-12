@@ -11,7 +11,7 @@ import Immigration from '../../images/what-we-can-help-with/immigration.jpg';
 import Injured from '../../images/what-we-can-help-with/injured.jpg';
 import React from 'react';
 import Rights from '../../images/what-we-can-help-with/rights-violated.jpg';
-import { Section } from '@neonlaw/shared-ui/src/components/section';
+import { Section } from '../components/section';
 import { useIntl } from 'gatsby-plugin-intl';
 
 export const WhatWeCanHelpWith = () => {

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {
   AuthenticationContext
-} from '@neonlaw/shared-ui/src/utils/authenticationContext';
+} from '../utils/authenticationContext';
 import {
   BackgroundVideoPlayer
-} from '@neonlaw/shared-ui/src/components/backgroundVideoPlayer';
+} from '../components/backgroundVideoPlayer';
 import { Box } from '@chakra-ui/core';
 import { Nav } from './nav';
 import styled from '@emotion/styled';

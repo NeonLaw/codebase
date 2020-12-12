@@ -1,7 +1,7 @@
 import { IconButton, useColorMode } from '@chakra-ui/core';
 import { Editor } from 'slate';
 import React from 'react';
-import { colors } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { colors } from '../../../themes/neonLaw';
 import { useSlate } from 'slate-react';
 
 

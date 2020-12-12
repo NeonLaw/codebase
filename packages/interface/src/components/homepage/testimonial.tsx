@@ -3,7 +3,7 @@ import {
   colors,
   gutters,
   shadows,
-} from '@neonlaw/shared-ui/src/themes/neonLaw';
+} from '../themes/neonLaw';
 
 import AuthorPlaceHolder from '../../images/author-placeholder.jpg';
 import React from 'react';

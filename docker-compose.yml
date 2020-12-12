@@ -28,7 +28,6 @@ x-node-volumes: &node-volumes
   - /app/node_modules/
   - /app/packages/server/node_modules/
   - /app/packages/interface/node_modules/
-  - /app/packages/shared-ui/node_modules/
 
 services:
   postgres:

@@ -2,7 +2,7 @@ import { Reason, ReasonProps } from './reason';
 import ChildrenStockPhoto from '../../images/children-stock-photo.jpg';
 import Flowers from '../../images/flowers.jpg';
 import React from 'react';
-import { Section } from '@neonlaw/shared-ui/src/components/section';
+import { Section } from '../components/section';
 import { useIntl } from 'gatsby-plugin-intl';
 
 export const WhyNeonLaw = () => {

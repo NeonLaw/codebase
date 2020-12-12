@@ -1,7 +1,7 @@
-import { colors, gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { colors, gutters } from '../themes/neonLaw';
 
 import React from 'react';
-import { Section } from '@neonlaw/shared-ui/src/components/section';
+import { Section } from '../components/section';
 import styled from '@emotion/styled';
 import { useIntl } from 'gatsby-plugin-intl';
 

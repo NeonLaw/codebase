@@ -4,9 +4,9 @@ import {
   Text,
 } from '@chakra-ui/core';
 
-import { PortalLayout } from '@neonlaw/shared-ui/src/layouts/portalLayout';
+import { PortalLayout } from '../layouts/portalLayout';
 import React from 'react';
-import { gutters } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { gutters } from '../themes/neonLaw';
 import { useIntl } from 'gatsby-plugin-intl';
 
 const LawyersPage = () => {

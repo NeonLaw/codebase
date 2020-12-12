@@ -8,7 +8,7 @@ import { BlockButton } from './blockButton';
 import { Editable as EditableSlate } from 'slate-react';
 import { MarkButton } from './markButton';
 import { Toolbar } from './toolbar';
-import { colors } from '@neonlaw/shared-ui/src/themes/neonLaw';
+import { colors } from '../../../themes/neonLaw';
 
 const Leaf = ({ attributes, children, leaf }) => {
   if (leaf.bold) {
