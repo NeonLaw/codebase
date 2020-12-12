@@ -1,6 +1,6 @@
 import React from 'react';
-import { Section } from '../components/section';
-import { gutters } from '../themes/neonLaw';
+import { Section } from '../section';
+import { gutters } from '../../themes/neonLaw';
 import styled from '@emotion/styled';
 import { useIntl } from 'gatsby-plugin-intl';
 

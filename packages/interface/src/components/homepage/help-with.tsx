@@ -3,7 +3,7 @@
 /* eslint-enable */
 import { Box, Heading, theme } from '@chakra-ui/core';
 
-import { Link } from '../components/link';
+import { Link } from '../link';
 import React from 'react';
 
 export interface HelpWithProps {

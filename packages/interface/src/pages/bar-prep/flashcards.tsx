@@ -4,11 +4,11 @@
 import { Heading, Text } from '@chakra-ui/core';
 import {
   FlashcardContainer
-} from '../components/flashcardContainer';
+} from '../../components/flashcardContainer';
 import { Link } from 'gatsby';
-import { PublicLayout } from '../layouts/publicLayout';
+import { PublicLayout } from '../../layouts/publicLayout';
 import React from 'react';
-import { Section } from '../components/section';
+import { Section } from '../../components/section';
 import { Seo } from '../../components/seo';
 
 const Flashcards = () => {

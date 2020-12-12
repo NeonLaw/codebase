@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/core';
 import React from 'react';
-import { Section } from '../components/section';
-import { UnderlineLink } from '../utils/mdxComponents';
-import { sizes } from '../themes/neonLaw';
+import { Section } from '../section';
+import { UnderlineLink } from '../../utils/mdxComponents';
+import { sizes } from '../../themes/neonLaw';
 import { useIntl } from 'gatsby-plugin-intl';
 
 export const ProBono = () => {

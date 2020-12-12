@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {
   AuthenticationContext
-} from '../utils/authenticationContext';
+} from '../../utils/authenticationContext';
 import {
   BackgroundVideoPlayer
-} from '../components/backgroundVideoPlayer';
+} from '../../components/backgroundVideoPlayer';
 import { Box } from '@chakra-ui/core';
 import { Nav } from './nav';
 import styled from '@emotion/styled';

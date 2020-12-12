@@ -2,11 +2,11 @@
 // @ts-nocheck
 /* eslint-enable */
 import { Box, Heading, Text } from '@chakra-ui/core';
-import { colors, gutters, sizes } from '../themes/neonLaw';
+import { colors, gutters, sizes } from '../../themes/neonLaw';
 
 import BannerBg from '../../images/banner.jpg';
-import { Container } from '../components/container';
-import { FlashButton } from '../components/button';
+import { Container } from '../container';
+import { FlashButton } from '../button';
 import React from 'react';
 import { navigate } from 'gatsby';
 import { theme } from '@chakra-ui/core';

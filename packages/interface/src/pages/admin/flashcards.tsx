@@ -1,20 +1,20 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
-import { Breadcrumbs } from '../components/breadcrumbs';
+import { Breadcrumbs } from '../../components/breadcrumbs';
 import {
   CreateFlashcardModal
-} from '../components/modals/createFlashcardModal';
-import { FlashButton } from '../components/button';
+} from '../../components/modals/createFlashcardModal';
+import { FlashButton } from '../../components/button';
 import {
   FlashcardTable
-} from '../components/tables/flashcardTable';
+} from '../../components/tables/flashcardTable';
 import {
   PortalLayout
-} from '../layouts/portalLayout';
+} from '../../layouts/portalLayout';
 import {
   UpdateFlashcardModal
-} from '../components/modals/updateFlashcardModal';
-import { gutters } from '../themes/neonLaw';
+} from '../../components/modals/updateFlashcardModal';
+import { gutters } from '../../themes/neonLaw';
 
 const AdminFlashcards = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

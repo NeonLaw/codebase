@@ -1,7 +1,7 @@
-import { colors, gutters } from '../themes/neonLaw';
+import { colors, gutters } from '../../themes/neonLaw';
 
 import React from 'react';
-import { Section } from '../components/section';
+import { Section } from '../section';
 import styled from '@emotion/styled';
 import { useIntl } from 'gatsby-plugin-intl';
 

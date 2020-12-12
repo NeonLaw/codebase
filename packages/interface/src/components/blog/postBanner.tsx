@@ -3,11 +3,11 @@ import {
   colors,
   gutters,
   shadows,
-} from '../themes/neonLaw';
+} from '../../themes/neonLaw';
 import { FormattedDate } from 'gatsby-plugin-intl';
 import { Link } from 'gatsby';
 import React from 'react';
-import { ReadMoreButton } from '../components/button';
+import { ReadMoreButton } from '../button';
 import styled from '@emotion/styled';
 
 const StyledPostBanner = styled(Link)`
