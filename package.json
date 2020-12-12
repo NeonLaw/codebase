@@ -3,8 +3,6 @@
     "workspaces": [
         "packages/api",
         "packages/interface",
-        "packages/matter-templates",
-        "packages/print",
         "packages/shared-ui",
         "packages/workers"
     ],

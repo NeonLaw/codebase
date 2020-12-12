@@ -13,7 +13,7 @@ import { Breadcrumbs } from '@neonlaw/shared-ui/src/components/breadcrumbs';
 import { Container } from '@neonlaw/shared-ui/src/components/container';
 import { EditOnGithub } from '@neonlaw/shared-ui/src/components/editOnGithub';
 import { Footer } from '@neonlaw/shared-ui/src/components/footer';
-import { MDXComponents } from '@neonlaw/print';
+import { MDXComponents } from './print';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import {
