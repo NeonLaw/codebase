@@ -26,11 +26,9 @@ x-environment-variables: &environment-variables
 x-node-volumes: &node-volumes
   - ./:/app
   - /app/node_modules/
-  - /app/packages/api/node_modules/
+  - /app/packages/server/node_modules/
   - /app/packages/interface/node_modules/
-  - /app/packages/print/node_modules/
   - /app/packages/shared-ui/node_modules/
-  - /app/packages/workers/node_modules/
 
 services:
   postgres:

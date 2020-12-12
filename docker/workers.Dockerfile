@@ -15,7 +15,7 @@ RUN yarn install \
   --prefer-offline \
   --cache-folder ./node_modules
 
-COPY ./docker/worker.entrypoint.sh ./docker
+COPY ./docker/workers.entrypoint.sh ./docker
 COPY ./packages/server ./packages/server
 
 ENTRYPOINT [ "/app/docker/workers.entrypoint.sh" ]
