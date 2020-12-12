@@ -7,10 +7,11 @@
 [![Staging](https://github.com/neonlaw/interface/workflows/staging/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Astaging)
 [![Production](https://github.com/neonlaw/interface/workflows/production/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Aproduction)
 
-This is a monorepo containing these folders:
+This is repo contains:
 
-- A Yarn Workspace, declared at `package.json` and with two packages located in
-  the `./packages` folder, our `interface` and `server` package.
+- An interface written in Gatsby.JS at `./packages/interface`
+- A server written with a Postgraphile GraphQL API and Graphile Workers at
+  `./packages/server`
 - A collection of Terraform modules located in the `./infrastructure` folder,
   for building out our Cloud Computing on Kubernetes.
 - A collection of `Dockerfile`s and entrypoint scripts modules located in the
