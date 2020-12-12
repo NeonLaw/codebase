@@ -75,4 +75,4 @@ jobs:
       - name: Check api.tsx file against development server
         run: |
           docker exec shell yarn graphql-codegen
-          git diff -G. --exit-code ./packages/shared-ui/src/utils/api.tsx
+          git diff -G. --exit-code ./packages/interface/src/utils/api.tsx
