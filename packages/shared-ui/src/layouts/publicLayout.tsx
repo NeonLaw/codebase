@@ -11,7 +11,6 @@ import { publicClient } from '../utils/authenticationContext';
 
 export const PublicLayout = ({
   children,
-  currentSite = 'neon-law',
   isBgLighter,
 }: {
   children: JSX.Element | JSX.Element[];
@@ -42,7 +41,7 @@ export const PublicLayout = ({
           );
         }}
       </AuthenticationContext.Consumer>
-      <Footer currentSite={currentSite} />
+      <Footer />
     </Flex>
   );
 };

@@ -17,7 +17,7 @@ export const DeleteYourDataLayout = ({ children }) => (
           <ApolloProvider client={isLoading ? publicClient : apolloClient}>
             <>
               {children}
-              <Footer isWhite={false} currentSite="delete-your-data" />
+              <Footer isWhite={false} />
             </>
           </ApolloProvider>
         );}}

@@ -146,7 +146,7 @@ const PostLayout: React.FC<{
           );
         }}
       </AuthenticationContext.Consumer>
-      <Footer isWhite={true} currentSite="neon-law" />
+      <Footer isWhite={true} />
     </Flex>
   );
 };

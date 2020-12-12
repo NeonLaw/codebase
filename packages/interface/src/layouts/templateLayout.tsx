@@ -85,9 +85,7 @@ const TemplateLayout: React.FC<{
           );
         }}
       </AuthenticationContext.Consumer>
-      <Footer
-        currentSite="neon-law"
-      />
+      <Footer />
     </Flex>
   );
 };
