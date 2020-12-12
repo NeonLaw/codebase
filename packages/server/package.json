@@ -1,10 +1,11 @@
 {
-  "name": "@neonlaw/api",
+  "name": "@neonlaw/server",
   "version": "0.0.1",
   "license": "PolyForm-Noncommercial-1.0.0",
   "author": "@neonlaw",
   "scripts": {
     "start": "ts-node --transpile-only src/server.ts",
+    "start:workers": "graphile-worker",
     "commit": "graphile-migrate commit",
     "migrate": "graphile-migrate migrate",
     "watch": "graphile-migrate watch"
@@ -25,6 +26,7 @@
     "graphile-build-pg": "^4.10.0",
     "graphile-migrate": "^1.0.2",
     "graphile-utils": "^4.9.2",
+    "graphile-worker": "^0.8.1",
     "js-yaml": "^3.14.1",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.12.0",

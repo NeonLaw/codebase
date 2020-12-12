@@ -42,7 +42,7 @@ resource "kubernetes_deployment" "worker_deployment" {
         container {
           image = var.image_url
           name  = var.app_name
-          command = ["yarn", "workspace", "@neonlaw/workers", "start"]
+          command = ["yarn", "workspace", "@neonlaw/server", "start:workers"]
 
           env {
             name  = "DATABASE_URL"

@@ -6,8 +6,8 @@ import { createPostGraphileSchema, withPostGraphQLContext } from 'postgraphile';
 import { Pool } from 'pg';
 import { default as faker } from 'faker';
 import { graphql } from 'graphql';
-import { postgraphileOptions } from './../../src/postgraphileOptions';
-import { postgresUrl } from './../../src/postgresUrl';
+import { postgraphileOptions } from '../../src/postgraphileOptions';
+import { postgresUrl } from '../../src/postgresUrl';
 import { sanitize } from './sanitizeSnapshot';
 
 const pools: any = {};
