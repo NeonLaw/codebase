@@ -1,8 +1,8 @@
-import { FAQs } from '../components/deleteYourData/faqs';
-import { Hero } from '../components/deleteYourData/hero';
-import IndexLayout from '../layouts';
+import { DeleteYourDataLayout } from '../../layouts/deleteYourData';
+import { FAQs } from '../../components/deleteYourData/faqs';
+import { Hero } from '../../components/deleteYourData/hero';
 import React from 'react';
-import { Seo } from '../components/seo';
+import { Seo } from '../../components/seo';
 
 const HomePage = () => {
   const title = 'Homepage';
@@ -11,11 +11,11 @@ const HomePage = () => {
     'delete your data on the Internet.';
 
   return (
-    <IndexLayout>
+    <DeleteYourDataLayout>
       <Seo title={title} description={description} />
       <Hero />
       <FAQs />
-    </IndexLayout>
+    </DeleteYourDataLayout>
   );
 };
 

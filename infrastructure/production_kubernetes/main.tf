@@ -130,12 +130,6 @@ module "law-job-resources_deployment" {
   image_url = "${data.terraform_remote_state.production_gcp.outputs.container_registry}/law-job-resources:latest"
 }
 
-module "delete_your_data_deployment" {
-  source    = "../modules/interface_deployment"
-  app_name  = "delete-your-data"
-  image_url = "${data.terraform_remote_state.production_gcp.outputs.container_registry}/delete-your-data:latest"
-}
-
 module "ingress" {
   source = "../modules/production_ingress"
 }

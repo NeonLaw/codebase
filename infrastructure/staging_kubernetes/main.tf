@@ -130,12 +130,6 @@ module "law_job_resources_deployment" {
   image_url = "${data.terraform_remote_state.staging_gcp.outputs.container_registry}/law-job-resources:latest"
 }
 
-module "delete_your_data_deployment" {
-  source    = "../modules/interface_deployment"
-  app_name  = "delete-your-data"
-  image_url = "${data.terraform_remote_state.staging_gcp.outputs.container_registry}/delete-your-data:latest"
-}
-
 module "staging_ingress" {
   source = "../modules/shared_ingress"
   api_service_name = "staging-api"
@@ -145,9 +139,6 @@ module "staging_ingress" {
 
   law_job_resources_service_name = "law-job-resources"
   law_job_resources_host = "www.lawjobresources.net"
-
-  delete_your_data_service_name = "delete-your-data"
-  delete_your_data_host = "www.deleteyourdata.info"
 }
 
 module "new_relic" {

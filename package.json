@@ -2,7 +2,6 @@
     "private": true,
     "workspaces": [
         "packages/api",
-        "packages/delete-your-data",
         "packages/interface",
         "packages/matter-templates",
         "packages/print",

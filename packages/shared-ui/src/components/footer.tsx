@@ -20,30 +20,11 @@ import { SocialMediaIcons } from './socialMediaIcons';
 import { ThemeSwitcher } from './theme-switcher';
 import { useIntl } from 'gatsby-plugin-intl';
 
-const FooterLink = ({ currentSite, site, path, i18nMessage }) => {
+const FooterLink = ({ path, i18nMessage }) => {
   const intl = useIntl();
 
-  if (site === currentSite) {
-    return (
-      <Box as={Link} to={path} padding="7px 0">
-        {intl.formatMessage({ id: i18nMessage })}
-      </Box>
-    );
-  }
-  const siteMap = {
-    'delete-your-data': 'https://www.deleteyourdata.com',
-    'law-job-resources': 'https://www.lawjobresources.com',
-    'neon-law': 'https://www.neonlaw.com',
-  };
-
   return (
-    <Box
-      as="a"
-      href={`${siteMap[site]}${path}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      padding="7px 0"
-    >
+    <Box as={Link} to={path} padding="7px 0">
       {intl.formatMessage({ id: i18nMessage })}
     </Box>
   );
@@ -51,14 +32,12 @@ const FooterLink = ({ currentSite, site, path, i18nMessage }) => {
 
 interface FooterProps {
   isWhite?: boolean;
-  currentSite: string;
 }
 
-export const Footer = ({ isWhite, currentSite }: FooterProps) => {
+export const Footer = ({ isWhite }: FooterProps) => {
   const { colorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
   const intl = useIntl();
-  const underscoredCurrentSite = currentSite.replace(/-/g, '_');
 
   return (
     <Box
@@ -73,12 +52,12 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
         <Box maxWidth={sizes.textContainerSmall}>
           <Heading as="h3" fontWeight="normal">
             {intl.formatMessage({
-              id: `footer.${underscoredCurrentSite}.heading`
+              id: 'footer.neon_law.heading'
             })}
           </Heading>
           <Text>
             {intl.formatMessage({
-              id: `footer.${underscoredCurrentSite}.text`
+              id: 'footer.neon_law.text'
             })}
           </Text>
         </Box>
@@ -102,14 +81,10 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
                 {intl.formatMessage({ id: 'footer.support' })}
               </Box>
               <FooterLink
-                currentSite={currentSite}
-                site="neon-law"
                 i18nMessage="footer.pro_bono"
                 path="/pro-bono"
               />
               <FooterLink
-                currentSite={currentSite}
-                site="neon-law"
                 i18nMessage="footer.upward_mobility"
                 path="/upward-mobility"
               />
@@ -117,26 +92,18 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
             <Spacer />
             <Flex direction="column">
               <FooterLink
-                currentSite={currentSite}
-                site="neon-law"
                 i18nMessage="footer.about"
                 path="/about-us"
               />
               <FooterLink
-                currentSite={currentSite}
-                site="neon-law"
                 i18nMessage="footer.practice_areas"
                 path="/practice-areas"
               />
               <FooterLink
-                currentSite={currentSite}
-                site="neon-law"
                 i18nMessage="footer.bar_prep"
                 path="/bar-prep"
               />
               <FooterLink
-                currentSite={currentSite}
-                site="neon-law"
                 i18nMessage="footer.templates"
                 path="/templates"
               />
@@ -144,26 +111,18 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
             <Spacer />
             <Flex direction="column">
               <FooterLink
-                currentSite={currentSite}
-                site="neon-law"
                 i18nMessage="footer.privacy_policy"
                 path="/privacy-policy"
               />
               <FooterLink
-                currentSite={currentSite}
-                site="neon-law"
                 i18nMessage="footer.terms"
                 path="/terms-of-service"
               />
               <FooterLink
-                currentSite={currentSite}
-                site="neon-law"
                 i18nMessage="footer.modern_slavery_statement"
                 path="/modern-slavery-statement"
               />
               <FooterLink
-                currentSite={currentSite}
-                site="neon-law"
                 i18nMessage="footer.pgp_key"
                 path="/pgp"
               />
@@ -171,26 +130,14 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
             <Spacer />
             <Flex direction="column">
               <FooterLink
-                currentSite={currentSite}
-                site="delete-your-data"
                 i18nMessage="footer.delete_your_data.heading"
-                path="/"
+                path="/delete-your-data"
               />
               <FooterLink
-                currentSite={currentSite}
-                site="law-job-resources"
-                i18nMessage="footer.law_job_resources"
-                path="/"
-              />
-              <FooterLink
-                currentSite={currentSite}
-                site="neon-law"
                 i18nMessage="footer.justice_for_rickie_slaughter.heading"
                 path="/pro-bono/justice-for-rickie-slaughter"
               />
               <FooterLink
-                currentSite={currentSite}
-                site={currentSite}
                 i18nMessage="footer.blog"
                 path="/blog"
               />
@@ -199,7 +146,7 @@ export const Footer = ({ isWhite, currentSite }: FooterProps) => {
           </Flex>
           <Box paddingBottom="1em">
             <ThemeSwitcher />
-            <SocialMediaIcons currentSite={currentSite} />
+            <SocialMediaIcons />
             <EmailListButton />
             <Text textAlign="center">
               Copyright &copy; {new Date().getFullYear()} Shook Law PLLC

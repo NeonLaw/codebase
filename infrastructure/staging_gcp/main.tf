@@ -58,17 +58,10 @@ module "law-job-resources-ssl-certificate" {
   domain_name      = "www.lawjobresources.net"
 }
 
-module "delete-your-data-ssl-certificate" {
-  source = "../modules/ssl_certificate"
-  certificate_name = "delete-your-data"
-  domain_name      = "www.deleteyourdata.info"
-}
-
 module "public-bucket" {
   source = "../modules/public_bucket"
   bucket_name = "${var.project_id}-public-assets"
   allowed_origins = [
-    "www.deleteyourdata.com",
     "www.lawjobresources.com",
     "www.neonlaw.com"
   ]

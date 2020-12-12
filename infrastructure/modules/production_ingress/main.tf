@@ -4,7 +4,7 @@ resource "kubernetes_ingress" "primary" {
 
     annotations = {
       "kubernetes.io/ingress.global-static-ip-name" = "neon-law"
-      "ingress.gcp.kubernetes.io/pre-shared-cert" = "neon-law,delete-your-data,law-job-resources"
+      "ingress.gcp.kubernetes.io/pre-shared-cert" = "neon-law,law-job-resources"
     }
   }
 
@@ -24,18 +24,6 @@ resource "kubernetes_ingress" "primary" {
           }
 
           path = "/api/*"
-        }
-      }
-    }
-
-    rule {
-      host = "www.deleteyourdata.com"
-      http {
-        path {
-          backend {
-            service_name = "delete-your-data"
-            service_port = 80
-          }
         }
       }
     }

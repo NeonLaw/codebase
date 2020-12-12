@@ -7,47 +7,32 @@ import { Button } from '../components/button';
 import { MdEmail } from 'react-icons/md';
 import React from 'react';
 
-export const SocialMediaIcons = ({ currentSite }) => {
-  const facebookAccounts = {
-    'delete-your-data': 'DeleteYourData',
-    'neon-law': 'NeonLaw',
-  };
-
-  const instagramAccounts = {
-    'delete-your-data': 'delete.your.data',
-    'neon-law': 'neon.law',
-  };
-
-  const twitterAccounts = {
-    'delete-your-data': 'DeleteYourData',
-    'neon-law': 'NeonLaw',
-  };
-
+export const SocialMediaIcons = () => {
   return (
     <Box marginBottom="10px">
       <Center>
         <Button
-          aria-label={`Visit @${twitterAccounts[currentSite]} on Twitter`}
+          aria-label={'Visit @NeonLaw on Twitter'}
           as="a"
-          href={`https://www.twitter.com/${twitterAccounts[currentSite]}`}
+          href={'https://www.twitter.com/NeonLaw'}
           target="_blank"
           rel="noopener noreferrer"
         >
           <FaTwitter style={{ display: 'inline' }} />
         </Button>
         <Button
-          aria-label={`Visit @${instagramAccounts[currentSite]} on Instagram`}
+          aria-label={'Visit NeonLaw on facebook'}
           as="a"
-          href={`https://www.facebook.com/${instagramAccounts[currentSite]}`}
+          href={'https://www.facebook.com/NeonLaw'}
           target="_blank"
           rel="noopener noreferrer"
         >
           <FaFacebook style={{ display: 'inline' }} />
         </Button>
         <Button
-          aria-label={`Visit @${facebookAccounts[currentSite]} on Instagram`}
+          aria-label={'Visit @neon.law on Instagram'}
           as="a"
-          href={`https://www.instagram.com/${instagramAccounts[currentSite]}`}
+          href={'https://www.instagram.com/neon.law'}
           target="_blank"
           rel="noopener noreferrer"
         >
