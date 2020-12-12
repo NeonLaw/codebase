@@ -1,6 +1,5 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import React, { Component, createContext } from 'react';
-import LogRocket from 'logrocket';
 import createAuth0Client from '@auth0/auth0-spa-js';
 import fetch from 'isomorphic-fetch';
 import { setContext } from '@apollo/client/link/context';
@@ -92,13 +91,6 @@ export class AuthenticationProvider extends Component {
   updateClient = async () => {
     if (!this.state.isAuthenticated) {
       return;
-    }
-
-    if (process.env.GATSBY_LOGROCKET_CREDENTIALS) {
-      LogRocket.identify(
-        process.env.GATSBY_LOGROCKET_CREDENTIALS,
-        this.state.user || {},
-      );
     }
 
     const authLink = setContext(async () => {
