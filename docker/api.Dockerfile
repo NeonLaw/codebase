@@ -15,7 +15,8 @@ RUN yarn install \
   --prefer-offline \
   --cache-folder ./node_modules
 
-COPY . .
+COPY ./docker/api.entrypoint.sh ./docker
+COPY ./packages/api ./packages/api
 
 EXPOSE 3000
 ENTRYPOINT [ "/app/docker/api.entrypoint.sh" ]

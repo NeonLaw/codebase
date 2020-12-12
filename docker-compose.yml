@@ -7,7 +7,6 @@ x-environment-variables: &environment-variables
   - AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET
   - AUTH0_TENANT=neon-law-testing.auth0.com
   - DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law
-  - ELASTICSEARCH_URL=http://elastic:changeme@elasticsearch:9200
   - GATSBY_AUTH0_CALLBACK=http://127.0.0.1:8000/callback/
   - GATSBY_AUTH0_CLIENT_ID=dplmcTTWBbkd9j5jFd1LMr26c25Iugv7
   - GATSBY_AUTH0_DOMAIN=neon-law-testing.auth0.com
@@ -28,7 +27,6 @@ x-node-volumes: &node-volumes
   - ./:/app
   - /app/node_modules/
   - /app/packages/api/node_modules/
-  - /app/packages/delete-your-data/node_modules/
   - /app/packages/interface/node_modules/
   - /app/packages/print/node_modules/
   - /app/packages/shared-ui/node_modules/
@@ -51,16 +49,6 @@ services:
     logging:
       driver: none
 
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.2
-    container_name: elasticsearch
-    environment:
-      - "discovery.type=single-node"
-    ports:
-      - 9200:9200
-    logging:
-      driver: none
-
   api:
     build:
       context: ./
@@ -68,7 +56,6 @@ services:
     restart: always
     depends_on:
       - postgres
-      - elasticsearch
     container_name: api
     ports:
       - 3000:3000
@@ -82,7 +69,6 @@ services:
     restart: always
     depends_on:
       - postgres
-      - elasticsearch
     container_name: workers
     environment: *environment-variables
     volumes: *node-volumes
@@ -109,20 +95,4 @@ services:
     environment: *environment-variables
     restart: unless-stopped
     depends_on:
-      - elasticsearch
       - postgres
-
-  delete_your_data:
-    build:
-      context: ./
-      dockerfile: ./docker/development.interface.Dockerfile
-    restart: always
-    container_name: delete_your_data
-    depends_on:
-      - api
-    ports:
-      - 7777:8000
-      - 33003:33003
-    volumes: *node-volumes
-    environment:
-      PACKAGE_NAME: delete-your-data

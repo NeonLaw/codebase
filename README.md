@@ -9,10 +9,10 @@
 
 This is a monorepo containing these folders:
 
-- A Yarn Workspace, declared at `package.json` and with packages at
-  `./packages`, which contains our `interface` and `server` package.
+- A Yarn Workspace, declared at `package.json` and with two packages located in
+  the `./packages` folder, our `interface` and `server` package.
 - A collection of Terraform modules located in the `./infrastructure` folder,
-  for building out our Cloud Computing on GCP.
+  for building out our Cloud Computing on Kubernetes.
 - A collection of `Dockerfile`s and entrypoint scripts modules located in the
   `./docker` folder, for building containers which run on GCP.
 
@@ -30,7 +30,7 @@ GATSBY_API_URL=https://www.neonlaw.net/api/graphql \
   yarn workspace @neonlaw/interface dev
 ```
 
-### Dockerized Setup
+### Dockerized Setup (recommended for full-stack development)
 
 We recommend developing with a containerized setup that best mimic our staging
 and production process. If you have docker and docker-compose installed on
@@ -73,7 +73,6 @@ This starts the following containers:
 - A shell container that you can use via `docker exec -it shell /bin/bash`
 - Web Servers for:
   - NeonLaw.com (http://127.0.0.1:8000)
-  - DeleteYourData.com (http://127.0.0.1:6000)
   - The NeonLaw API (http://127.0.0.1:3000)
 
 You can start a subset of services with Docker Compose if you do not need to
