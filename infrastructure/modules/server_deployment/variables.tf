@@ -21,3 +21,6 @@ variable database_admin_username {
 
 variable database_admin_password {
 }
+
+variable image_url {
+}
