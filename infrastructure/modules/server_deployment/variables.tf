@@ -15,3 +15,9 @@ variable project_id {
 
 variable region {
 }
+
+variable database_admin_username {
+}
+
+variable database_admin_password {
+}
