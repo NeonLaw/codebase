@@ -24,10 +24,10 @@ module "egress_routing" {
 }
 
 module "postgres" {
-  source      = "../modules/postgres"
-  zone        = var.zone
-  region      = var.region
-  project_id  = var.project_id
+  source        = "../modules/postgres"
+  zone          = var.zone
+  region        = var.region
+  project_id    = var.project_id
   environment = var.environment
 }
 
@@ -41,30 +41,31 @@ module "kubernetes_cluster" {
   source     = "../modules/google_container_cluster"
   region     = var.region
   project_id = var.project_id
-  environment = var.environment
 }
 
-module "neon_law_ssl_certificate" {
+module "neon-law-ssl-certificate" {
   source           = "../modules/ssl_certificate"
   certificate_name = "neon-law"
   domain_name      = "www.neonlaw.com"
 }
 
-module "law_job_resources_ssl_certificate" {
+module "law-job-resources-ssl-certificate" {
   source = "../modules/ssl_certificate"
   certificate_name = "law-job-resources"
   domain_name      = "www.lawjobresources.com"
 }
 
-module "public_bucket" {
+module "public-bucket" {
   source = "../modules/public_bucket"
   bucket_name = "${var.project_id}-public-assets"
   allowed_origins = [
+    "www.deleteyourdata.com",
+    "www.lawjobresources.com",
     "www.neonlaw.com"
   ]
 }
 
-module "upload_bucket" {
+module "upload-bucket" {
   source = "../modules/write_only_bucket"
   bucket_name = "${var.project_id}-unprocessed-uploads"
   allowed_origins = [
@@ -72,15 +73,17 @@ module "upload_bucket" {
   ]
 }
 
-module "user_bucket" {
+module "user-bucket" {
   source = "../modules/private_bucket"
   bucket_name = "${var.project_id}-private-assets"
   allowed_origins = [
+    "www.deleteyourdata.com",
+    "www.lawjobresources.com",
     "www.neonlaw.com"
   ]
 }
 
-module "company_bucket" {
+module "company-bucket" {
   source = "../modules/private_bucket"
   bucket_name = "${var.project_id}-company-files"
   allowed_origins = [
