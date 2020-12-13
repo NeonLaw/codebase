@@ -80,6 +80,7 @@ module "public-bucket" {
 
 module "upload-bucket" {
   source = "../modules/write_only_bucket"
+  account_id = var.project_id
   bucket_name = "${var.project_id}-unprocessed-uploads"
   allowed_origins = [
     "www.neonlaw.com"

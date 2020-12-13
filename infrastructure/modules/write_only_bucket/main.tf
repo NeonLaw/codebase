@@ -18,7 +18,7 @@ resource "google_storage_bucket" "write_only_bucket" {
 }
 
 resource "google_service_account" "write_only_bucket_user_account" {
-  account_id   = "${var.bucket_name}-write-only-access"
+  account_id   = var.account_id
   display_name = "Write Only Access User"
 }
 
