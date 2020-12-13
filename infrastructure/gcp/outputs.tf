@@ -50,11 +50,18 @@ output "gke_password" {
 }
 
 output "database_admin_password" {
-  value = module.postgres.segment_password
+  value = module.postgres.admin_password
   sensitive = true
 }
 
 output "database_admin_username" {
-  value = module.postgres.segment_password
-  sensitive = true
+  value = module.postgres.admin_username
+}
+
+output "upload_bucket_user_credentials" {
+  value = module.upload_bucket.gcp_credential_key
+}
+
+output "application_user_account_key" {
+  value = module.application_user.account_key
 }

@@ -24,10 +24,10 @@ module "egress_routing" {
 }
 
 module "postgres" {
-  source        = "../modules/postgres"
-  zone          = var.zone
-  region        = var.region
-  project_id    = var.project_id
+  source      = "../modules/postgres"
+  zone        = var.zone
+  region      = var.region
+  project_id  = var.project_id
   environment = var.environment
 }
 
@@ -43,35 +43,27 @@ module "kubernetes_cluster" {
   project_id = var.project_id
 }
 
-# THIS DOES NOT WORK FOR GLOBAL ADDRESSES YET
-# module "static_ip" {
-#   source    = "../modules/static_ip"
-#   name   = "neon-law"
-# }
-
-module "neon-law-ssl-certificate" {
+module "neon_law_ssl_certificate" {
   source           = "../modules/ssl_certificate"
   certificate_name = "neon-law"
   domain_name      = "www.neonlaw.com"
 }
 
-module "law-job-resources-ssl-certificate" {
+module "law_job_resources_ssl_certificate" {
   source = "../modules/ssl_certificate"
   certificate_name = "law-job-resources"
   domain_name      = "www.lawjobresources.com"
 }
 
-module "public-bucket" {
+module "public_bucket" {
   source = "../modules/public_bucket"
   bucket_name = "${var.project_id}-public-assets"
   allowed_origins = [
-    "www.deleteyourdata.com",
-    "www.lawjobresources.com",
     "www.neonlaw.com"
   ]
 }
 
-module "upload-bucket" {
+module "upload_bucket" {
   source = "../modules/write_only_bucket"
   bucket_name = "${var.project_id}-unprocessed-uploads"
   allowed_origins = [
@@ -79,20 +71,22 @@ module "upload-bucket" {
   ]
 }
 
-module "user-bucket" {
+module "user_bucket" {
   source = "../modules/private_bucket"
   bucket_name = "${var.project_id}-private-assets"
   allowed_origins = [
-    "www.deleteyourdata.com",
-    "www.lawjobresources.com",
     "www.neonlaw.com"
   ]
 }
 
-module "company-bucket" {
+module "company_bucket" {
   source = "../modules/private_bucket"
   bucket_name = "${var.project_id}-company-files"
   allowed_origins = [
     "www.neonlaw.com"
   ]
+}
+
+module "application_gcp_user" {
+  source = "../modules/application_user"
 }

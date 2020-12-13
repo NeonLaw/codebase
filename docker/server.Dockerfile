@@ -15,9 +15,9 @@ RUN yarn install \
   --prefer-offline \
   --cache-folder ./node_modules
 
-COPY ./docker/api.entrypoint.sh ./docker
+COPY ./docker/server.entrypoint.sh ./docker
 COPY ./packages/server ./packages/server
 
 EXPOSE 3000
-ENTRYPOINT [ "/app/docker/api.entrypoint.sh" ]
+ENTRYPOINT [ "/app/docker/server.entrypoint.sh" ]
 CMD [ "yarn", "workspace", "@neonlaw/server", "start" ]

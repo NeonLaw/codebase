@@ -11,7 +11,6 @@ variable project_id {
 }
 
 variable environment {
-  default = "production"
 }
 
 variable gcp_credentials {

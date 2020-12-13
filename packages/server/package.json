@@ -5,6 +5,7 @@
   "author": "@neonlaw",
   "scripts": {
     "start": "ts-node --transpile-only src/server.ts",
+    "start:api": "ts-node --transpile-only src/server.ts",
     "start:workers": "graphile-worker",
     "commit": "graphile-migrate commit",
     "migrate": "graphile-migrate migrate",

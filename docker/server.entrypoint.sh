@@ -11,6 +11,8 @@ if [ -d "/credentials" ]; then
   export GOOGLE_APPLICATION_CREDENTIALS="/credentials/credentials.json"
 fi
 
-yarn workspace @neonlaw/server migrate
+if [ "$PROCESS_NAME" = "api" ]; then
+  yarn workspace @neonlaw/server migrate
+fi
 
 exec "$@"

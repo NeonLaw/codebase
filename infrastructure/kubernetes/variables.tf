@@ -30,3 +30,6 @@ variable transloadit_image_template_id {
 
 variable sendgrid_api_key {
 }
+
+variable auth0_tenant {
+}

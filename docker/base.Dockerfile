@@ -48,6 +48,6 @@ RUN yarn install --cache-folder ./node_modules
 
 COPY . .
 
-ENTRYPOINT [ "/app/docker/entrypoint.sh" ]
+ENTRYPOINT [ "/app/docker/base.entrypoint.sh" ]
 
 CMD [ "tail", "-f", "/dev/null"]

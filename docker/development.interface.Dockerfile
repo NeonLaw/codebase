@@ -17,4 +17,4 @@ ADD . ./
 
 EXPOSE 8000
 
-CMD [ "./docker/interface.command.sh" ]
+CMD [ "./docker/development.interface.command.sh" ]
