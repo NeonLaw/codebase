@@ -6,6 +6,6 @@ variable allowed_origins {
   type = list(string)
 }
 
-variable project_id {
+variable account_id {
   type = string
 }
