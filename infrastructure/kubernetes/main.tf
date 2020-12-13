@@ -94,7 +94,7 @@ module "api_deployment" {
 
   database_admin_password = data.terraform_remote_state.gcp.outputs.database_admin_password
   database_admin_username = data.terraform_remote_state.gcp.outputs.database_admin_username
-  database_name           = data.terraform_remote_state.gcp.outputs.database_name
+  database_name           = "neon-law"
   project_id              = data.terraform_remote_state.gcp.outputs.project_id
   region                  = data.terraform_remote_state.gcp.outputs.region
 
@@ -114,7 +114,7 @@ module "worker_deployment" {
 
   database_admin_password = data.terraform_remote_state.gcp.outputs.database_admin_password
   database_admin_username = data.terraform_remote_state.gcp.outputs.database_admin_username
-  database_name           = data.terraform_remote_state.gcp.outputs.database_name
+  database_name           = "neon-law"
   project_id              = data.terraform_remote_state.gcp.outputs.project_id
   region                  = data.terraform_remote_state.gcp.outputs.region
 
