@@ -38,9 +38,10 @@ module "container_registry" {
 }
 
 module "kubernetes_cluster" {
-  source     = "../modules/google_container_cluster"
-  region     = var.region
-  project_id = var.project_id
+  source      = "../modules/google_container_cluster"
+  region      = var.region
+  project_id  = var.project_id
+  environment = var.environment
 }
 
 module "neon-law-ssl-certificate" {
