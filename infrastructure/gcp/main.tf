@@ -50,6 +50,18 @@ module "neon-law-ssl-certificate" {
   domain_name      = "www.neonlaw.com"
 }
 
+module "delete-your-data-ssl-certificate" {
+  source = "../modules/ssl_certificate"
+  certificate_name = "law-job-resources"
+  domain_name      = "www.lawjobresources.com"
+}
+
+module "justice-for-rickie-slaughter-ssl-certificate" {
+  source = "../modules/ssl_certificate"
+  certificate_name = "law-job-resources"
+  domain_name      = "www.lawjobresources.com"
+}
+
 module "law-job-resources-ssl-certificate" {
   source = "../modules/ssl_certificate"
   certificate_name = "law-job-resources"
