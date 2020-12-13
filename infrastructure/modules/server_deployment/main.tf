@@ -1,4 +1,4 @@
-resource "kubernetes_deployment" "api" {
+resource "kubernetes_deployment" "server" {
   metadata {
     name = "${var.process_name}-${var.environment}"
     labels = {
