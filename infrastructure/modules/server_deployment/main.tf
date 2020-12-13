@@ -1,8 +1,8 @@
 resource "kubernetes_deployment" "server" {
   metadata {
-    name = "${var.process_name}-${var.environment}"
+    name = "${var.environment}-${var.process_name}"
     labels = {
-      app = "${var.process_name}-${var.environment}"
+      app = "${var.environment}-${var.process_name}"
     }
   }
 
@@ -11,14 +11,14 @@ resource "kubernetes_deployment" "server" {
 
     selector {
       match_labels = {
-        app = "${var.process_name}-${var.environment}"
+        app = "${var.environment}-${var.process_name}"
       }
     }
 
     template {
       metadata {
         labels = {
-          app = "${var.process_name}-${var.environment}"
+          app = "${var.environment}-${var.process_name}"
         }
       }
 
@@ -33,7 +33,7 @@ resource "kubernetes_deployment" "server" {
 
         container {
           image = var.image_url
-          name  = "${var.process_name}-${var.environment}"
+          name  = var.process_name
           args  = var.args
 
           env {
@@ -243,11 +243,11 @@ resource "kubernetes_service" "primary" {
   count = var.process_name == "api" ? 1 : 0
 
   metadata {
-    name = "${var.process_name}-${var.environment}"
+    name = "${var.environment}-${var.process_name}"
   }
   spec {
     selector = {
-      app = "${var.process_name}-${var.environment}"
+      app = "${var.environment}-${var.process_name}"
     }
     session_affinity = "ClientIP"
     port {
