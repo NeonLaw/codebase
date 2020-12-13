@@ -4,5 +4,5 @@ resource "google_service_account" "application_user_account" {
 }
 
 resource "google_service_account_key" "application_user_accunt_key" {
-  service_account_id = google_service_account.application_user_accunt.name
+  service_account_id = google_service_account.application_user_account.name
 }
