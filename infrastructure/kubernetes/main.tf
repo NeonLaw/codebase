@@ -90,7 +90,7 @@ module "api_deployment" {
   source       = "../modules/server_deployment"
   environment  = var.environment
   process_name = "api"
-  image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/api:latest"
+  image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/server:latest"
 
   database_admin_password = data.terraform_remote_state.gcp.outputs.database_admin_password
   database_admin_username = data.terraform_remote_state.gcp.outputs.database_admin_username
@@ -110,7 +110,7 @@ module "worker_deployment" {
   source       = "../modules/server_deployment"
   environment  = var.environment
   process_name = "workers"
-  image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/api:latest"
+  image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/server:latest"
 
   database_admin_password = data.terraform_remote_state.gcp.outputs.database_admin_password
   database_admin_username = data.terraform_remote_state.gcp.outputs.database_admin_username
