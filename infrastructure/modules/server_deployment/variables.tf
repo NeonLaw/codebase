@@ -35,9 +35,6 @@ variable show_graphiql {
 variable new_relic_license_key {
 }
 
-variable new_relic_app_name {
-}
-
 variable api_url {
 }
 

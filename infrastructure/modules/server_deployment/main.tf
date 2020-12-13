@@ -61,6 +61,16 @@ resource "kubernetes_deployment" "api" {
           }
 
           env {
+            name  = "ENVIRONMENT"
+            value_from {
+              secret_key_ref {
+                key = "ENVIRONMENT"
+                name = "application-secrets"
+              }
+            }
+          }
+
+          env {
             name  = "NEW_RELIC_LICENSE_KEY"
             value_from {
               secret_key_ref {
@@ -74,7 +84,7 @@ resource "kubernetes_deployment" "api" {
             name  = "NEW_RELIC_APP_NAME"
             value_from {
               secret_key_ref {
-                key = "NEW_RELIC_APP_NAME"
+                key = "ENVIRONMENT"
                 name = "application-secrets"
               }
             }

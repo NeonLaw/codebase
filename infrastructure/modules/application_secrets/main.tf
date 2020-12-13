@@ -9,7 +9,6 @@ resource "kubernetes_secret" "application_secrets" {
     "AUTH0_TENANT"                = var.auth0_tenant
     "ENVIRONMENT"                 = var.environment
     "NEW_RELIC_LICENSE_KEY"       = var.new_relic_license_key
-    "NEW_RELIC_APP_NAME"          = var.new_relic_app_name
     "API_URL"                     = var.api_url
     "TRANSLOADIT_KEY"             = var.transloadit_key
     "TRANSLOADIT_SECRET"          = var.transloadit_secret
