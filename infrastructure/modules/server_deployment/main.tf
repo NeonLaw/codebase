@@ -239,6 +239,8 @@ resource "kubernetes_deployment" "api" {
 }
 
 resource "kubernetes_service" "primary" {
+  count = var.process_name == "api" ? 1 : 0
+
   metadata {
     name = "${var.process_name}-${var.environment}"
   }
