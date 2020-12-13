@@ -10,9 +10,8 @@ docker
 docker-compose.yml
 !docker/production.nginx.conf
 !docker/staging.nginx.conf
-!docker/api.entrypoint.sh
-!docker/workers.entrypoint.sh
-!docker/entrypoint.sh
+!docker/server.entrypoint.sh
+!docker/base.entrypoint.sh
 
 **/.cache
 **/public
