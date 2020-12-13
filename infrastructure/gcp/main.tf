@@ -88,6 +88,6 @@ module "company_bucket" {
   ]
 }
 
-module "application_gcp_user" {
+module "application_user" {
   source = "../modules/application_user"
 }
