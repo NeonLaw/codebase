@@ -5,7 +5,3 @@ variable bucket_name {
 variable allowed_origins {
   type = list(string)
 }
-
-variable account_id {
-  type = string
-}

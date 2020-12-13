@@ -1,2 +1,0 @@
-variable account_id {
-}

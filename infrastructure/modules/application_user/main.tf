@@ -1,5 +1,5 @@
 resource "google_service_account" "application_user_account" {
-  account_id   = "${var.account_id}-application-user"
+  account_id   = "application-user"
   display_name = "Application User"
 }
 
