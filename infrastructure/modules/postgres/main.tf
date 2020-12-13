@@ -31,9 +31,3 @@ resource "google_sql_user" "neon_law_admin" {
   instance = google_sql_database_instance.postgres.name
   password = random_string.password.result
 }
-
-resource "google_sql_user" "segment_user" {
-  name     = "neon_law_admin_old"
-  instance = google_sql_database_instance.postgres.name
-  password = random_string.password.result
-}
