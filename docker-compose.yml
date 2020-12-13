@@ -56,7 +56,28 @@ services:
     container_name: api
     ports:
       - 3000:3000
-    environment: *environment-variables
+    environment:
+      - API_URL='http://127.0.0.1:3000'
+      - AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID
+      - AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET
+      - AUTH0_TENANT=neon-law-testing.auth0.com
+      - DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law
+      - GATSBY_AUTH0_CALLBACK=http://127.0.0.1:8000/callback/
+      - GATSBY_AUTH0_CLIENT_ID=dplmcTTWBbkd9j5jFd1LMr26c25Iugv7
+      - GATSBY_AUTH0_DOMAIN=neon-law-testing.auth0.com
+      - GATSBY_WEBPACK_PUBLICPATH=/
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
+      - NEW_RELIC_NO_CONFIG_FILE=true
+      - NODE_ENV=development
+      - PROCESS_NAME=api
+      - ROOT_DATABASE_URL=postgres://postgres:password@postgres:5432/postgres
+      - SHADOW_DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law_shadow
+      - SHOW_GRAPHIQL=true
+      - SENDGRID_API_KEY=$SENDGRID_API_KEY
+      - TRANSLOADIT_KEY=$TRANSLOADIT_KEY
+      - TRANSLOADIT_SECRET=$TRANSLOADIT_SECRET
+      - TRANSLOADIT_PDF_TEMPLATE_ID=$TRANSLOADIT_PDF_TEMPLATE_ID
+      - TRANSLOADIT_IMAGE_TEMPLATE_ID=$TRANSLOADIT_IMAGE_TEMPLATE_ID
     volumes: *node-volumes
 
   workers:
