@@ -63,20 +63,21 @@ provider "kubernetes-alpha" {
 
 module "application_secrets" {
   source                        = "../modules/application_secrets"
+  api_url                       = var.api_url
   auth0_client_id               = var.auth0_client_id
-  environment                   = var.environment
   auth0_client_secret           = var.auth0_client_secret
   auth0_tenant                  = var.auth0_tenant
-  transloadit_key               = var.transloadit_key
-  transloadit_secret            = var.transloadit_secret
-  transloadit_pdf_template_id   = var.transloadit_pdf_template_id
-  transloadit_image_template_id = var.transloadit_image_template_id
-  new_relic_license_key         = var.new_relic_license_key
-  sendgrid_api_key              = var.sendgrid_api_key
+  environment                   = var.environment
   lob_api_key                   = var.lob_api_key
   lob_api_secret                = var.lob_api_secret
+  new_relic_license_key         = var.new_relic_license_key
+  sendgrid_api_key              = var.sendgrid_api_key
   stripe_api_publishable_key    = var.stripe_api_publishable_key
   stripe_api_secret_key         = var.stripe_api_secret_key
+  transloadit_image_template_id = var.transloadit_image_template_id
+  transloadit_key               = var.transloadit_key
+  transloadit_pdf_template_id   = var.transloadit_pdf_template_id
+  transloadit_secret            = var.transloadit_secret
 }
 
 module "gcp_credentials_kubernetes_secret" {
