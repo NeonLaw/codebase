@@ -118,7 +118,6 @@ module "worker_deployment" {
   project_id              = data.terraform_remote_state.gcp.outputs.project_id
   region                  = data.terraform_remote_state.gcp.outputs.region
 
-
   args = [
     "yarn",
     "workspace",

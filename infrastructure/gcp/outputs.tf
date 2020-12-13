@@ -67,5 +67,5 @@ output "application_user_account_key" {
 }
 
 output "database_name" {
-  value = "neon_law"
+  value = "neon-law"
 }
