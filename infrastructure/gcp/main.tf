@@ -105,5 +105,6 @@ module "company-bucket" {
 }
 
 module "application_user" {
-  source = "../modules/application_user"
+  source     = "../modules/application_user"
+  account_id = var.project_id
 }

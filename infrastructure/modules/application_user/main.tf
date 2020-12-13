@@ -1,6 +1,6 @@
 resource "google_service_account" "application_user_account" {
-  account_id   = "myaccount"
-  display_name = "My Service Account"
+  account_id   = var.account_id
+  display_name = "Application User"
 }
 
 resource "google_service_account_key" "application_user_accunt_key" {
