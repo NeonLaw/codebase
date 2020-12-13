@@ -4,13 +4,10 @@
 
 This folder contains a series of Terraform modules to deploy our
 infrastructure on Google Cloud. On each push our private project on
-[Terraform Cloud](https://api.terraform.io) applies the changes to our GCP
-Projects.
+[Terraform Cloud](https://api.terraform.io) applies the changes herein to our
+GCP Projects, `Neon-Law-Production` and `Neon-Law-Staging`.
 
 ## Manual setup before creating Terraform workspaces.
-
-In each of our GCP projects, `Neon-Law-Production` and `Neon-Law-Staging`,
-perform the following steps using the GCP Console.
 
 - Create a service account for Terraform with Project Editor and Compute
   Network Admin permissions for both GCP project.
