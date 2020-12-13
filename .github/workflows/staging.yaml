@@ -127,9 +127,9 @@ jobs:
 
       - name: Deploy latest container with kubectl
         run: |-
-          kubectl set image deployment api-staging \
-             staging-api=us.gcr.io/neon-law-production/server:$GITHUB_SHA
+          kubectl set image deployment staging-api \
+             api=us.gcr.io/neon-law-staging/server:$GITHUB_SHA
 
-          kubectl set image deployment workers-staging \
-             staging-workers=us.gcr.io/neon-law-production/server:$GITHUB_SHA
+          kubectl set image deployment staging-workers \
+             workers=us.gcr.io/neon-law-staging/server:$GITHUB_SHA
         if: github.ref == 'refs/heads/development'
