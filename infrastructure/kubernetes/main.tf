@@ -89,7 +89,7 @@ module "gcp_credentials_kubernetes_secret" {
 module "api_deployment" {
   source       = "../modules/server_deployment"
   environment  = var.environment
-  process_name = "workers"
+  process_name = "api"
   image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/api:latest"
 
   database_admin_password = data.terraform_remote_state.gcp.outputs.database_admin_password
