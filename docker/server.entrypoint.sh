@@ -1,11 +1,9 @@
 #!/bin/bash
 set -e
 
-echo "Booting the API"
+echo "Booting the Server"
 
-yarn install \
-  --silent \
-  --ignore-optional
+yarn install --silent --ignore-optional --frozen-lockfile
 
 if [ -d "/credentials" ]; then
   export GOOGLE_APPLICATION_CREDENTIALS="/credentials/credentials.json"
