@@ -79,6 +79,10 @@ module "application_secrets" {
   transloadit_image_template_id = var.transloadit_image_template_id
   new_relic_license_key         = var.new_relic_license_key
   sendgrid_api_key              = var.sendgrid_api_key
+  lob_api_key                   = var.lob_api_key
+  lob_api_secret                = var.lob_api_secret
+  stripe_api_publishable_key    = var.stripe_api_publishable_key
+  stripe_api_secret_key         = var.stripe_api_secret_key
 }
 
 module "gcp_credentials_kubernetes_secret" {

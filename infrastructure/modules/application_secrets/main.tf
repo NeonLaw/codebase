@@ -15,5 +15,8 @@ resource "kubernetes_secret" "application_secrets" {
     "TRANSLOADIT_PDF_TEMPLATE_ID" = var.transloadit_pdf_template_id
     "SENDGRID_API_KEY"            = var.sendgrid_api_key
     "LOB_API_KEY"                 = var.lob_api_key
+    "LOB_API_SECRET"              = var.lob_api_secret
+    "STRIPE_API_PUBLISHABLE_KEY"  = var.stripe_api_publishable_key
+    "STRIPE_API_SECRET_KEY"       = var.stripe_api_secret_key
   }
 }

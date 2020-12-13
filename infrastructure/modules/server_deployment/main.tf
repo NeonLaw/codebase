@@ -180,6 +180,26 @@ resource "kubernetes_deployment" "api" {
             }
           }
 
+          env {
+            name = "STRIPE_API_PUBLISHABLE_KEY"
+            value_from {
+              secret_key_ref {
+                key = "STRIPE_API_PUBLISHABLE_KEY"
+                name = "application-secrets"
+              }
+            }
+          }
+
+          env {
+            name = "STRIPE_API_SECRET_KEY"
+            value_from {
+              secret_key_ref {
+                key = "STRIPE_API_SECRET_KEY"
+                name = "application-secrets"
+              }
+            }
+          }
+
           volume_mount {
             name       = "gcp-credentials"
             read_only  = true
