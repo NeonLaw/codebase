@@ -34,6 +34,7 @@ resource "kubernetes_deployment" "api" {
         container {
           image = var.image_url
           name  = "${var.process_name}-${var.environment}"
+          args  = var.args
 
           env {
             name  = "DATABASE_URL"
