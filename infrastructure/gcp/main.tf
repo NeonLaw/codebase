@@ -41,6 +41,7 @@ module "kubernetes_cluster" {
   source     = "../modules/google_container_cluster"
   region     = var.region
   project_id = var.project_id
+  environment = var.environment
 }
 
 module "neon_law_ssl_certificate" {

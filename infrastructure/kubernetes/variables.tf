@@ -39,3 +39,6 @@ variable "stripe_api_publishable_key" {
 
 variable "stripe_api_secret_key" {
 }
+
+variable "environment" {
+}

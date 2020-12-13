@@ -11,7 +11,7 @@ resource "random_password" "password" {
 
 resource "google_container_cluster" "primary" {
   provider   = google-beta
-  name       = "neon-law"
+  name       = "neon-law-${var.environment}"
   location   = var.region
   network    = "projects/${var.project_id}/global/networks/default"
   subnetwork = "default"
