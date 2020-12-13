@@ -56,6 +56,11 @@ resource "kubernetes_deployment" "api" {
           }
 
           env {
+            name  = "PROCESS_NAME"
+            value = var.process_name
+          }
+
+          env {
             name  = "SHOW_GRAPHIQL"
             value = "true"
           }

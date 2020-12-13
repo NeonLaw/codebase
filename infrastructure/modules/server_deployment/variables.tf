@@ -1,51 +1,5 @@
-variable app_name {
+variable process_name {
 }
 
-variable image_url {
-}
-
-variable project_id {
-}
-
-variable database_name {
-}
-
-variable region {
-}
-
-
-variable sql_proxy_secret_name {
-}
-
-variable logic_secret_name {
-}
-
-variable database_admin_username {
-}
-
-variable database_admin_password {
-}
-
-variable third_party_saas_secret_name {
-}
-
-variable show_graphiql {
-}
-
-variable new_relic_license_key {
-}
-
-variable api_url {
-}
-
-variable transloadit_key {
-}
-
-variable transloadit_secret {
-}
-
-variable transloadit_pdf_template_id {
-}
-
-variable transloadit_image_template_id {
+variable environment {
 }
