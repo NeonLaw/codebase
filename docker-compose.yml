@@ -49,7 +49,7 @@ services:
   api:
     build:
       context: ./
-      dockerfile: ./docker/api.Dockerfile
+      dockerfile: ./docker/server.Dockerfile
     restart: always
     depends_on:
       - postgres
@@ -62,13 +62,18 @@ services:
   workers:
     build:
       context: ./
-      dockerfile: ./docker/workers.Dockerfile
+      dockerfile: ./docker/server.Dockerfile
     restart: always
     depends_on:
       - postgres
     container_name: workers
     environment: *environment-variables
     volumes: *node-volumes
+    command:
+      - yarn
+      - workspace
+      - '@neonlaw/server'
+      - start:workers
 
   interface:
     build:
