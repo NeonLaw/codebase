@@ -1,4 +1,3 @@
-ARG APP_NAME
 ARG DOMAIN_NAME
 ARG GATSBY_ACTIVE_ENV
 ARG GATSBY_AUTH0_CALLBACK
@@ -7,7 +6,6 @@ ARG GATSBY_AUTH0_DOMAIN
 
 FROM docker.pkg.github.com/neonlaw/codebase/base:latest AS build
 
-ARG APP_NAME
 ARG DOMAIN_NAME
 ARG GATSBY_ACTIVE_ENV
 ARG GATSBY_AUTH0_CALLBACK
@@ -22,14 +20,13 @@ RUN yarn install --silent --cache-folder ./node_modules/
 
 COPY . .
 
-RUN yarn workspace @neonlaw/$APP_NAME build
+RUN yarn workspace @neonlaw/interface build
 
 RUN awk "{gsub(/DOMAIN_NAME/, \"$DOMAIN_NAME\"); print}" ./docker/staging.nginx.conf > docker.nginx.conf
 
 FROM nginx
-ARG APP_NAME
 
-COPY --from=build /app/packages/$APP_NAME/public /usr/share/nginx/html
+COPY --from=build /app/packages/interface/public /usr/share/nginx/html
 COPY --from=build /app/docker.nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
