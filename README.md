@@ -195,6 +195,15 @@ With either command (both cannot be ran at the same time), you'll have a
 PostgreSQL database running at `127.0.0.1:5432`, which you can then connect to
 with the GCP SQL credentials for staging and production.
 
+### Getting KubeConfig on your machine
+
+```bash
+gcloud container clusters get-credentials neon-law-production
+
+# or for staging
+gcloud container clusters get-credentials neon-law-staging
+```
+
 ## Legal
 
 Copyright 2020 Neon Law. Licensed under the [Polyform Noncommercial License

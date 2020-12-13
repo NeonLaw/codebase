@@ -83,7 +83,7 @@ module "application_secrets" {
 module "gcp_credentials_kubernetes_secret" {
   source       = "../modules/kubernetes_secret"
   secret_name  = "gcp-credentials"
-  secret_value = data.terraform_remote_state.gcp.outputs.application_user_account_key
+  secret_value = base64decode(data.terraform_remote_state.gcp.outputs.application_user_account_key)
 }
 
 module "api_deployment" {
