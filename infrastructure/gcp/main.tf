@@ -68,7 +68,7 @@ module "law-job-resources-ssl-certificate" {
   domain_name      = "www.lawjobresources.com"
 }
 
-module "public-bucket" {
+module "public_bucket" {
   source = "../modules/public_bucket"
   bucket_name = "${var.project_id}-public-assets"
   allowed_origins = [
@@ -78,7 +78,7 @@ module "public-bucket" {
   ]
 }
 
-module "upload-bucket" {
+module "upload_bucket" {
   source = "../modules/write_only_bucket"
   account_id = var.project_id
   bucket_name = "${var.project_id}-unprocessed-uploads"
@@ -87,7 +87,7 @@ module "upload-bucket" {
   ]
 }
 
-module "user-bucket" {
+module "user_bucket" {
   source = "../modules/private_bucket"
   bucket_name = "${var.project_id}-private-assets"
   allowed_origins = [
@@ -97,7 +97,7 @@ module "user-bucket" {
   ]
 }
 
-module "company-bucket" {
+module "company_bucket" {
   source = "../modules/private_bucket"
   bucket_name = "${var.project_id}-company-files"
   allowed_origins = [
