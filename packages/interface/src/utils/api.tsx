@@ -668,39 +668,6 @@ export type CreateRoleIfNotExistsPayload = {
   query?: Maybe<Query>;
 };
 
-/** All input for the create `Sync` mutation. */
-export type CreateSyncInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `Sync` to be created by this mutation. */
-  sync: SyncInput;
-};
-
-/** The output of our create `Sync` mutation. */
-export type CreateSyncPayload = {
-  __typename?: 'CreateSyncPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `Sync` that was created by this mutation. */
-  sync?: Maybe<Sync>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** An edge for our `Sync`. May be used by Relay 1. */
-  syncEdge?: Maybe<SyncsEdge>;
-};
-
-
-/** The output of our create `Sync` mutation. */
-export type CreateSyncPayloadSyncEdgeArgs = {
-  orderBy?: Maybe<Array<SyncsOrderBy>>;
-};
-
 
 
 /** All input for the `deleteAddressById` mutation. */
@@ -1393,50 +1360,6 @@ export type DeleteResponsePayload = {
 /** The output of our delete `Response` mutation. */
 export type DeleteResponsePayloadResponseEdgeArgs = {
   orderBy?: Maybe<Array<ResponsesOrderBy>>;
-};
-
-/** All input for the `deleteSyncById` mutation. */
-export type DeleteSyncByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  id: Scalars['UUID'];
-};
-
-/** All input for the `deleteSync` mutation. */
-export type DeleteSyncInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The globally unique `ID` which will identify a single `Sync` to be deleted. */
-  nodeId: Scalars['ID'];
-};
-
-/** The output of our delete `Sync` mutation. */
-export type DeleteSyncPayload = {
-  __typename?: 'DeleteSyncPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `Sync` that was deleted by this mutation. */
-  sync?: Maybe<Sync>;
-  deletedSyncId?: Maybe<Scalars['ID']>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** An edge for our `Sync`. May be used by Relay 1. */
-  syncEdge?: Maybe<SyncsEdge>;
-};
-
-
-/** The output of our delete `Sync` mutation. */
-export type DeleteSyncPayloadSyncEdgeArgs = {
-  orderBy?: Maybe<Array<SyncsOrderBy>>;
 };
 
 export type Document = Node & {
@@ -2152,8 +2075,6 @@ export type Mutation = {
   createResponse?: Maybe<CreateResponsePayload>;
   /** Creates a single `ResponseDocument`. */
   createResponseDocument?: Maybe<CreateResponseDocumentPayload>;
-  /** Creates a single `Sync`. */
-  createSync?: Maybe<CreateSyncPayload>;
   /** Updates a single `Address` using its globally unique id and a patch. */
   updateAddress?: Maybe<UpdateAddressPayload>;
   /** Updates a single `Address` using a unique key and a patch. */
@@ -2214,10 +2135,6 @@ export type Mutation = {
   updateResponseDocument?: Maybe<UpdateResponseDocumentPayload>;
   /** Updates a single `ResponseDocument` using a unique key and a patch. */
   updateResponseDocumentById?: Maybe<UpdateResponseDocumentPayload>;
-  /** Updates a single `Sync` using its globally unique id and a patch. */
-  updateSync?: Maybe<UpdateSyncPayload>;
-  /** Updates a single `Sync` using a unique key and a patch. */
-  updateSyncById?: Maybe<UpdateSyncPayload>;
   /** Deletes a single `Address` using its globally unique id. */
   deleteAddress?: Maybe<DeleteAddressPayload>;
   /** Deletes a single `Address` using a unique key. */
@@ -2278,10 +2195,6 @@ export type Mutation = {
   deleteResponseDocument?: Maybe<DeleteResponseDocumentPayload>;
   /** Deletes a single `ResponseDocument` using a unique key. */
   deleteResponseDocumentById?: Maybe<DeleteResponseDocumentPayload>;
-  /** Deletes a single `Sync` using its globally unique id. */
-  deleteSync?: Maybe<DeleteSyncPayload>;
-  /** Deletes a single `Sync` using a unique key. */
-  deleteSyncById?: Maybe<DeleteSyncPayload>;
   createPrimaryKeyIdIfNotExists?: Maybe<CreatePrimaryKeyIdIfNotExistsPayload>;
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
   findOrCreateLettersByLobIdentifier?: Maybe<FindOrCreateLettersByLobIdentifierPayload>;
@@ -2371,12 +2284,6 @@ export type MutationCreateResponseArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateResponseDocumentArgs = {
   input: CreateResponseDocumentInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateSyncArgs = {
-  input: CreateSyncInput;
 };
 
 
@@ -2561,18 +2468,6 @@ export type MutationUpdateResponseDocumentByIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateSyncArgs = {
-  input: UpdateSyncInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateSyncByIdArgs = {
-  input: UpdateSyncByIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteAddressArgs = {
   input: DeleteAddressInput;
 };
@@ -2749,18 +2644,6 @@ export type MutationDeleteResponseDocumentArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteResponseDocumentByIdArgs = {
   input: DeleteResponseDocumentByIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteSyncArgs = {
-  input: DeleteSyncInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteSyncByIdArgs = {
-  input: DeleteSyncByIdInput;
 };
 
 
@@ -3080,8 +2963,6 @@ export type Query = Node & {
   allResponses?: Maybe<ResponsesConnection>;
   /** Reads and enables pagination through a set of `ResponseDocument`. */
   allResponseDocuments?: Maybe<ResponseDocumentsConnection>;
-  /** Reads and enables pagination through a set of `Sync`. */
-  allSyncs?: Maybe<SyncsConnection>;
   addressById?: Maybe<Address>;
   documentById?: Maybe<Document>;
   documentTemplateById?: Maybe<DocumentTemplate>;
@@ -3097,7 +2978,6 @@ export type Query = Node & {
   questionnaireResponseById?: Maybe<QuestionnaireResponse>;
   responseById?: Maybe<Response>;
   responseDocumentById?: Maybe<ResponseDocument>;
-  syncById?: Maybe<Sync>;
   getCurrentUser?: Maybe<Person>;
   responsePersonMatch?: Maybe<Scalars['Boolean']>;
   /** Reads a single `Address` using its globally unique `ID`. */
@@ -3130,8 +3010,6 @@ export type Query = Node & {
   response?: Maybe<Response>;
   /** Reads a single `ResponseDocument` using its globally unique `ID`. */
   responseDocument?: Maybe<ResponseDocument>;
-  /** Reads a single `Sync` using its globally unique `ID`. */
-  sync?: Maybe<Sync>;
 };
 
 
@@ -3322,18 +3200,6 @@ export type QueryAllResponseDocumentsArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryAllSyncsArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<SyncsOrderBy>>;
-  condition?: Maybe<SyncCondition>;
-};
-
-
-/** The root query type which gives access points into the data universe. */
 export type QueryAddressByIdArgs = {
   id: Scalars['UUID'];
 };
@@ -3419,12 +3285,6 @@ export type QueryResponseByIdArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QueryResponseDocumentByIdArgs = {
-  id: Scalars['UUID'];
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QuerySyncByIdArgs = {
   id: Scalars['UUID'];
 };
 
@@ -3522,12 +3382,6 @@ export type QueryResponseArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QueryResponseDocumentArgs = {
-  nodeId: Scalars['ID'];
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QuerySyncArgs = {
   nodeId: Scalars['ID'];
 };
 
@@ -3969,70 +3823,6 @@ export enum ResponsesOrderBy {
   QuestionnaireResponseIdDesc = 'QUESTIONNAIRE_RESPONSE_ID_DESC',
   QuestionIdAsc = 'QUESTION_ID_ASC',
   QuestionIdDesc = 'QUESTION_ID_DESC',
-  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
-  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
-}
-
-export type Sync = Node & {
-  __typename?: 'Sync';
-  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-  nodeId: Scalars['ID'];
-  id: Scalars['UUID'];
-  createdAt: Scalars['Datetime'];
-  resourceName: Scalars['String'];
-};
-
-/** A condition to be used against `Sync` object types. All fields are tested for equality and combined with a logical ‘and.’ */
-export type SyncCondition = {
-  /** Checks for equality with the object’s `id` field. */
-  id?: Maybe<Scalars['UUID']>;
-  /** Checks for equality with the object’s `resourceName` field. */
-  resourceName?: Maybe<Scalars['String']>;
-};
-
-/** An input for mutations affecting `Sync` */
-export type SyncInput = {
-  id?: Maybe<Scalars['UUID']>;
-  createdAt?: Maybe<Scalars['Datetime']>;
-  resourceName: Scalars['String'];
-};
-
-/** Represents an update to a `Sync`. Fields that are set will be updated. */
-export type SyncPatch = {
-  id?: Maybe<Scalars['UUID']>;
-  createdAt?: Maybe<Scalars['Datetime']>;
-  resourceName?: Maybe<Scalars['String']>;
-};
-
-/** A connection to a list of `Sync` values. */
-export type SyncsConnection = {
-  __typename?: 'SyncsConnection';
-  /** A list of `Sync` objects. */
-  nodes: Array<Sync>;
-  /** A list of edges which contains the `Sync` and cursor to aid in pagination. */
-  edges: Array<SyncsEdge>;
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo;
-  /** The count of *all* `Sync` you could get from the connection. */
-  totalCount: Scalars['Int'];
-};
-
-/** A `Sync` edge in the connection. */
-export type SyncsEdge = {
-  __typename?: 'SyncsEdge';
-  /** A cursor for use in pagination. */
-  cursor?: Maybe<Scalars['Cursor']>;
-  /** The `Sync` at the end of the edge. */
-  node: Sync;
-};
-
-/** Methods to use when ordering `Sync`. */
-export enum SyncsOrderBy {
-  Natural = 'NATURAL',
-  IdAsc = 'ID_ASC',
-  IdDesc = 'ID_DESC',
-  ResourceNameAsc = 'RESOURCE_NAME_ASC',
-  ResourceNameDesc = 'RESOURCE_NAME_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -4772,53 +4562,6 @@ export type UpdateResponsePayload = {
 /** The output of our update `Response` mutation. */
 export type UpdateResponsePayloadResponseEdgeArgs = {
   orderBy?: Maybe<Array<ResponsesOrderBy>>;
-};
-
-/** All input for the `updateSyncById` mutation. */
-export type UpdateSyncByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** An object where the defined keys will be set on the `Sync` being updated. */
-  syncPatch: SyncPatch;
-  id: Scalars['UUID'];
-};
-
-/** All input for the `updateSync` mutation. */
-export type UpdateSyncInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The globally unique `ID` which will identify a single `Sync` to be updated. */
-  nodeId: Scalars['ID'];
-  /** An object where the defined keys will be set on the `Sync` being updated. */
-  syncPatch: SyncPatch;
-};
-
-/** The output of our update `Sync` mutation. */
-export type UpdateSyncPayload = {
-  __typename?: 'UpdateSyncPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `Sync` that was updated by this mutation. */
-  sync?: Maybe<Sync>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** An edge for our `Sync`. May be used by Relay 1. */
-  syncEdge?: Maybe<SyncsEdge>;
-};
-
-
-/** The output of our update `Sync` mutation. */
-export type UpdateSyncPayloadSyncEdgeArgs = {
-  orderBy?: Maybe<Array<SyncsOrderBy>>;
 };
 
 
