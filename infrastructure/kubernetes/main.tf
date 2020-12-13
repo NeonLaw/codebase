@@ -61,12 +61,6 @@ provider "kubernetes-alpha" {
   cluster_ca_certificate = base64decode(data.terraform_remote_state.gcp.outputs.gke_cluster_ca_certificate)
 }
 
-module "sql_proxy_kubernetes_secret" {
-  source       = "../modules/kubernetes_secret"
-  secret_name  = "sql-proxy-service-account-token"
-  secret_value = var.sql_proxy_gcp_credentials
-}
-
 module "application_secrets" {
   source                        = "../modules/application_secrets"
   auth0_client_id               = var.auth0_client_id
