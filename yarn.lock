@@ -4167,10 +4167,10 @@
     "@uppy/utils" "^3.2.5"
     namespace-emitter "^2.0.1"
 
-"@uppy/core@^1.14.1":
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/@uppy/core/-/core-1.14.1.tgz#b927845f7e98daee9ed01c0c5f507f7196d22cf7"
-  integrity sha512-z74WpKcIOlsFASIEnnR5AryxBxT5QCxJJWwOZ8EdbcCVc8htIUFcWDXQshqgkh8ydZd9OUAS7xXHdqmpuqOuoQ==
+"@uppy/core@^1.14.2":
+  version "1.14.2"
+  resolved "https://registry.yarnpkg.com/@uppy/core/-/core-1.14.2.tgz#b5ff98364cdd95f4aafdfddca3f06cad3b4ac6f7"
+  integrity sha512-sBLEhqFM9aFyE2+30tzPBx7UzdCqbG4ifa/XYbMxrf36dwiELPurFJUDIA3VSxzsbzOVP4sWS1zVBO8w6Q3lNA==
   dependencies:
     "@transloadit/prettier-bytes" "0.0.7"
     "@uppy/store-default" "^1.2.4"
@@ -8640,10 +8640,10 @@ eslint-plugin-jsx-a11y@^6.3.1, eslint-plugin-jsx-a11y@^6.4.0:
     jsx-ast-utils "^3.1.0"
     language-tags "^1.0.5"
 
-eslint-plugin-prettier@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.2.0.tgz#af391b2226fa0e15c96f36c733f6e9035dbd952c"
-  integrity sha512-kOUSJnFjAUFKwVxuzy6sA5yyMx6+o9ino4gCdShzBNx4eyFRudWRYKCFolKjoM40PEiuU6Cn7wBLfq3WsGg7qg==
+eslint-plugin-prettier@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.3.0.tgz#61e295349a65688ffac0b7808ef0a8244bdd8d40"
+  integrity sha512-tMTwO8iUWlSRZIwS9k7/E4vrTsfvsrcM5p1eftyuqWH25nKsz/o6/54I7jwQ/3zobISyC7wMy9ZsFwgTxOcOpQ==
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
@@ -9940,12 +9940,12 @@ gatsby-page-utils@^0.5.0:
     lodash "^4.17.20"
     micromatch "^4.0.2"
 
-gatsby-plugin-canonical-urls@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-canonical-urls/-/gatsby-plugin-canonical-urls-2.4.0.tgz#ef26632cd8cc59018aaf2447aca975206e6df63a"
-  integrity sha512-+C/Wf+kD3gffn3eO45ypcCs380huJmPp0wJZtinRDaZ8SO99+h74dVc5t1BZzHZnN4O8R09IT6bn46DyM+E/KQ==
+gatsby-plugin-canonical-urls@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-canonical-urls/-/gatsby-plugin-canonical-urls-2.6.0.tgz#37ced1058c6bf058661310b75db914a79dd7b67f"
+  integrity sha512-e99h7MqFxkKW20yg+pGnWBVNfh9MVygukLlJiqaSlXE5UYsOHjyA7Rlvt3dSU/819p01G3z1e3nOg2zy1eDxYA==
   dependencies:
-    "@babel/runtime" "^7.11.2"
+    "@babel/runtime" "^7.12.5"
 
 gatsby-plugin-create-client-paths@^2.6.0:
   version "2.6.0"
@@ -17141,10 +17141,10 @@ react-helmet@^6.1.0:
     react-fast-compare "^3.1.1"
     react-side-effect "^2.1.0"
 
-react-hook-form@^6.12.2:
-  version "6.12.2"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.12.2.tgz#aa67f47da4730a7bce44768583bdf5b749eed521"
-  integrity sha512-O72E2DXyk7djFqyy6eYi5yESGweKe0CNHHPS0Mx4JazpLbE4Ox+66ldZ23f0J5ZN/krEjDWRD+hUfg5Shvfhtw==
+react-hook-form@^6.13.0:
+  version "6.13.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.13.0.tgz#91e6da52cd3a636724b38ad8bc3704d7bd8a2626"
+  integrity sha512-AADO0EtAGEggII3DNhBCwm7MSwkBWCVo72K32NY6YzhSTBL5bJsBfWJ4/PVGBer31js5ppt+I6/qUyLo8o8AvA==
 
 react-hot-loader@^4.12.21:
   version "4.13.0"
