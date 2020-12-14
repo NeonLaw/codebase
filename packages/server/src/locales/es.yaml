@@ -50,6 +50,7 @@ footer:
   mode: " "
   dark: oscuro
   light: claro
+  careers: Carreras
 languageDropdown:
   text: Estás viendo este sitio en español.
 loadingPage:
