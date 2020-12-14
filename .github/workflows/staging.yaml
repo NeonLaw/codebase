@@ -94,8 +94,8 @@ jobs:
       - name: Build the Docker image
         run: |-
           docker build \
-            --tag "us.gcr.io/neon-law-staging/api:$GITHUB_SHA" \
-            --tag "us.gcr.io/neon-law-staging/api:latest" \
+            --tag "us.gcr.io/neon-law-staging/server:$GITHUB_SHA" \
+            --tag "us.gcr.io/neon-law-staging/server:latest" \
             -f docker/server.Dockerfile \
             .
 
