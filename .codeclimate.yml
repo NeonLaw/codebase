@@ -7,3 +7,4 @@ exclude_patterns:
   - "**/*.pdf"
   - "**/*.png"
   - "packages/interface/gatsby-*"
+  - "packages/interface/src/utils/api.tsx"

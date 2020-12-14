@@ -141,6 +141,10 @@ export const Footer = ({ isWhite }: FooterProps) => {
                 i18nMessage="footer.blog"
                 path="/blog"
               />
+              <FooterLink
+                i18nMessage="footer.careers"
+                path="/careers"
+              />
             </Flex>
             <Box display={['none', 'none', 'flex']} />
           </Flex>
