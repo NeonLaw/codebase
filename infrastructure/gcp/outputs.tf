@@ -24,7 +24,7 @@ output "container_registry" {
 }
 
 output "project_id" {
-  value = "neon-law-production"
+  value = var.project_id
 }
 
 output "region" {
