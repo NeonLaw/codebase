@@ -22,7 +22,11 @@ import { useIntl } from 'gatsby-plugin-intl';
 import { useKeyPressed } from '../../utils/useKeyPressed';
 import { useOperatingSystem } from '../../utils/useOperatingSystem';
 
-export const CreateMatterTemplateModal = ({ isOpen, onClose, onOpen }) => {
+export const CreateMatterDocumentTemplateModal = ({
+  isOpen,
+  onClose,
+  onOpen
+}) => {
   const intl = useIntl();
 
   const [createMatterTemplate, { loading }] = useCreateMatterTemplateMutation();
@@ -88,7 +92,7 @@ export const CreateMatterTemplateModal = ({ isOpen, onClose, onOpen }) => {
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
       <ModalOverlay>
         <ModalContent
-          data-testid="create-matter-template-modal"
+          data-testid="create-matter-document-template-modal"
           margin="8em 2em 0 2em"
         >
           <ModalHeader

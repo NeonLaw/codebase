@@ -1,18 +1,18 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
-import { Breadcrumbs } from '../../components/breadcrumbs';
+import { Breadcrumbs } from '../../../components/breadcrumbs';
 import {
   CreateQuestionModal
-} from '../../components/modals/createQuestionModal';
-import { FlashButton } from '../../components/button';
-import { PortalLayout } from '../../layouts/portalLayout';
+} from '../../../components/modals/createQuestionModal';
+import { FlashButton } from '../../../components/button';
+import { PortalLayout } from '../../../layouts/portalLayout';
 import {
   QuestionTable
-} from '../../components/tables/questionTable';
+} from '../../../components/tables/questionTable';
 import {
   UpdateQuestionModal
-} from '../../components/modals/updateQuestionModal';
-import { gutters } from '../../themes/neonLaw';
+} from '../../../components/modals/updateQuestionModal';
+import { gutters } from '../../../themes/neonLaw';
 
 const AdminQuestions = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

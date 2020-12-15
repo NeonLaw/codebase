@@ -16,7 +16,7 @@ import { colors, gutters } from '../../themes/neonLaw';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 
 import { FlashButton } from '../button';
-import { SubmissionInProgress } from '../submission-in-progress';
+import { SubmissionInProgress } from '../submissionInProgress';
 import { useCreateQuestionMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';

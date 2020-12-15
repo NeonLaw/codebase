@@ -11,7 +11,7 @@ import React, { useState } from 'react';
 import { StringInput, Switch } from '../components/inputs';
 import { colors, gutters, theme } from '../themes/neonLaw';
 import { FlashButton } from '../components/button';
-import { SubmissionInProgress } from '../components/submission-in-progress';
+import { SubmissionInProgress } from '../components/submissionInProgress';
 import { useCurrentUserQuery } from '../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';

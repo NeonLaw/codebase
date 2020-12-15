@@ -3,14 +3,14 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/core';
-import { gutters, sizes } from '../../themes/neonLaw';
+import { gutters, sizes } from '../../../../themes/neonLaw';
 import {
   BusinessMatterDetailView
-} from '../../components/detailViews/businessMatterDetailView';
+} from '../../../../components/detailViews/businessMatterDetailView';
 import {
   BusinessMattersList
-} from '../../components/lists/businessMattersList';
-import { PortalLayout } from '../../layouts/portalLayout';
+} from '../../../../components/lists/businessMattersList';
+import { PortalLayout } from '../../../../layouts/portalLayout';
 import React from 'react';
 import { Router } from '@reach/router';
 import { useIntl } from 'gatsby-plugin-intl';
@@ -20,7 +20,7 @@ const BusinessMatterListView = (props) => {
   /* eslint-enable @typescript-eslint/no-unused-vars */
   const intl = useIntl();
   return (
-    <PortalLayout>
+    <>
       <Box maxWidth={sizes.textContainerXSmall}>
         <Heading fontWeight="normal" marginBottom={gutters.xSmallOne}>
           {intl.formatMessage({ id: 'pages.business.heading' })}
@@ -30,7 +30,7 @@ const BusinessMatterListView = (props) => {
         </Text>
       </Box>
       <BusinessMattersList />
-    </PortalLayout>
+    </>
   );
 };
 

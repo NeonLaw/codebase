@@ -1,24 +1,24 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
-import { Breadcrumbs } from '../../components/breadcrumbs';
+import { Breadcrumbs } from '../../../../components/breadcrumbs';
 import {
-  CreateMatterTemplateModal
-} from '../../components/modals/createMatterTemplateModal';
-import { FlashButton } from '../../components/button';
+  CreateMatterModal
+} from '../../../../components/modals/createMatterModal';
+import { FlashButton } from '../../../../components/button';
 import {
-  MatterTemplateTable
-} from '../../components/tables/matterTemplateTable';
-import { PortalLayout } from '../../layouts/portalLayout';
+  MatterTable
+} from '../../../../components/tables/matterTable';
+import { PortalLayout } from '../../../../layouts/portalLayout';
 import {
-  UpdateMatterTemplateModal
-} from '../../components/modals/updateMatterTemplateModal';
-import { gutters } from '../../themes/neonLaw';
+  UpdateMatterModal
+} from '../../../../components/modals/updateMatterModal';
+import { gutters } from '../../../../themes/neonLaw';
 
-const AdminMatterTemplates = () => {
+const AdminMattersDetail = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [
-    showCreateMatterTemplateModal,
-    changeShowFlashCardModal
+    showCreateMatterModal,
+    changeShowCreateMatterModal
   ] = useState(true);
   const [currentRow, setCurrentRow] = useState(undefined);
 
@@ -32,7 +32,7 @@ const AdminMatterTemplates = () => {
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
         >
-          Create Matter Template&nbsp;
+          Create Matter &nbsp;
           <Kbd
             background="inherit"
             border="1px solid #bbb"
@@ -42,27 +42,28 @@ const AdminMatterTemplates = () => {
           </Kbd>
         </FlashButton>
 
-        <CreateMatterTemplateModal
-          isOpen={isOpen && showCreateMatterTemplateModal}
+        <CreateMatterModal
+          isOpen={isOpen && showCreateMatterModal}
           onClose={() => {
-            changeShowFlashCardModal(true);
+            changeShowCreateMatterModal(true);
             onClose();
           }}
           onOpen={onOpen}
         />
 
-        <UpdateMatterTemplateModal
-          isOpen={isOpen && !showCreateMatterTemplateModal}
-          currentRow={currentRow}
+        <UpdateMatterModal
+          isOpen={isOpen && !showCreateMatterModal}
+          onOpen={onOpen}
+          matter={currentRow}
           onClose={() => {
-            changeShowFlashCardModal(true);
+            changeShowCreateMatterModal(true);
             onClose();
           }}
         />
 
-        <MatterTemplateTable
+        <MatterTable
           onRowClick={(row) => {
-            changeShowFlashCardModal(false);
+            changeShowCreateMatterModal(false);
             setCurrentRow(row);
             onOpen();
           }}
@@ -73,4 +74,4 @@ const AdminMatterTemplates = () => {
 };
 
 /* eslint-disable-next-line import/no-default-export */
-export default AdminMatterTemplates;
+export default AdminMattersDetail;

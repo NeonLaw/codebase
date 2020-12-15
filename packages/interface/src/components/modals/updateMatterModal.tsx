@@ -19,7 +19,7 @@ import {
   useUpdateMatterByIdMutation
 } from '../../utils/api';
 import { FlashButton } from '../button';
-import { SubmissionInProgress } from '../submission-in-progress';
+import { SubmissionInProgress } from '../submissionInProgress';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useKeyPressed } from '../../utils/useKeyPressed';

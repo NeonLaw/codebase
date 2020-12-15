@@ -1,25 +1,24 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
-import { Breadcrumbs } from '../../components/breadcrumbs';
+import { Breadcrumbs } from '../../../components/breadcrumbs';
 import {
-  CreateDocumentTemplateModal
-} from '../../components/modals/createDocumentTemplateModal';
+  CreateFlashcardModal
+} from '../../../components/modals/createFlashcardModal';
+import { FlashButton } from '../../../components/button';
 import {
-  DocumentTemplateTable
-} from '../../components/tables/documentTemplateTable';
-import { FlashButton } from '../../components/button';
-import { PortalLayout } from '../../layouts/portalLayout';
+  FlashcardTable
+} from '../../../components/tables/flashcardTable';
 import {
-  UpdateDocumentTemplateModal
-} from '../../components/modals/updateDocumentTemplateModal';
-import { gutters } from '../../themes/neonLaw';
+  PortalLayout
+} from '../../../layouts/portalLayout';
+import {
+  UpdateFlashcardModal
+} from '../../../components/modals/updateFlashcardModal';
+import { gutters } from '../../../themes/neonLaw';
 
-const AdminDocumentTemplates = () => {
+const AdminFlashcards = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [
-    showCreateDocumentTemplateModal,
-    changeShowFlashCardModal
-  ] = useState(true);
+  const [showCreateFlashcardModal, changeShowFlashCardModal] = useState(true);
   const [currentRow, setCurrentRow] = useState(undefined);
 
   return (
@@ -32,8 +31,7 @@ const AdminDocumentTemplates = () => {
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
         >
-          Create Document Template&nbsp;
-          <Kbd
+          Create Flashcard &nbsp;<Kbd
             background="inherit"
             border="1px solid #bbb"
             transition="all .2s"
@@ -42,8 +40,8 @@ const AdminDocumentTemplates = () => {
           </Kbd>
         </FlashButton>
 
-        <CreateDocumentTemplateModal
-          isOpen={isOpen && showCreateDocumentTemplateModal}
+        <CreateFlashcardModal
+          isOpen={isOpen && showCreateFlashcardModal}
           onClose={() => {
             changeShowFlashCardModal(true);
             onClose();
@@ -51,8 +49,8 @@ const AdminDocumentTemplates = () => {
           onOpen={onOpen}
         />
 
-        <UpdateDocumentTemplateModal
-          isOpen={isOpen && !showCreateDocumentTemplateModal}
+        <UpdateFlashcardModal
+          isOpen={isOpen && !showCreateFlashcardModal}
           currentRow={currentRow}
           onClose={() => {
             changeShowFlashCardModal(true);
@@ -60,7 +58,7 @@ const AdminDocumentTemplates = () => {
           }}
         />
 
-        <DocumentTemplateTable
+        <FlashcardTable
           onRowClick={(row) => {
             changeShowFlashCardModal(false);
             setCurrentRow(row);
@@ -73,4 +71,4 @@ const AdminDocumentTemplates = () => {
 };
 
 /* eslint-disable-next-line import/no-default-export */
-export default AdminDocumentTemplates;
+export default AdminFlashcards;

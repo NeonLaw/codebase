@@ -93,7 +93,7 @@ docker-compose exec -it shell /bin/bash
 and if you just wanted a just the interface environment, you could run:
 
 ```
-docker-compose up postgres interface
+docker-compose up interface
 ```
 
 This will start the `shell`, `postgres`, `api`, and `interface` containers.
