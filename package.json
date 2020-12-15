@@ -83,7 +83,7 @@
         "@chakra-ui/icons": "^1.0.1",
         "@typescript-eslint/parser": "^4.10.0",
         "@uppy/core": "^1.14.2",
-        "@uppy/react": "^1.10.10",
+        "@uppy/react": "^1.10.12",
         "@uppy/transloadit": "^1.6.14",
         "@uppy/tus": "^1.8.1",
         "clipboard-copy": "^4.0.1",
