@@ -4283,10 +4283,10 @@
     component-emitter "^1.2.1"
     socket.io-client "~2.2.0"
 
-"@uppy/tus@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@uppy/tus/-/tus-1.8.0.tgz#a93acd7dc27bcc5a7dd6bc0fba39a02a463b4111"
-  integrity sha512-Cdf2epyuiZSxcOOlw61CLZU7h3i0KILHv0pV5arC054wPeH9D0nuEcR9iR12jm4ilFDABmuCbVZ1j7nGQR6zEw==
+"@uppy/tus@^1.8.0", "@uppy/tus@^1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@uppy/tus/-/tus-1.8.1.tgz#b5d625d153316d411983fd81b2a98ffdd54bd7c2"
+  integrity sha512-E71MmFXdpKL7Jjri2dVS5AMVGBEbqMR+8WV5u4KKIRok9Gv72/BsWESun1zB8fUhaSOvmfqjppyOt7+/uWUkNw==
   dependencies:
     "@uppy/companion-client" "^1.6.1"
     "@uppy/utils" "^3.2.5"
