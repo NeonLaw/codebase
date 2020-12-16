@@ -4183,15 +4183,6 @@
     "@uppy/utils" "^3.2.5"
     preact "8.2.9"
 
-"@uppy/provider-views@^1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@uppy/provider-views/-/provider-views-1.9.0.tgz#742908f89997557b8fe86759bcf2577ac7681f9c"
-  integrity sha512-muamUH3lkHZh4OTziD505JG0pQZC8kfy/J4WDmSwVkUtNueBvcYfg1txHmorV+CTaqeKuq7KsyVw9psbjf/LkA==
-  dependencies:
-    "@uppy/utils" "^3.2.5"
-    classnames "^2.2.6"
-    preact "8.2.9"
-
 "@uppy/provider-views@^1.9.1":
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/@uppy/provider-views/-/provider-views-1.9.1.tgz#1d3ad4329260ec1fa3c473fa374caee7d6525be9"
@@ -4238,19 +4229,19 @@
     exifr "^6.0.0"
     math-log2 "^1.0.1"
 
-"@uppy/transloadit@^1.6.14":
-  version "1.6.14"
-  resolved "https://registry.yarnpkg.com/@uppy/transloadit/-/transloadit-1.6.14.tgz#68e1e1bbdae6fc1e4095a7d7c9646c4084c1ec93"
-  integrity sha512-eAQIIVHXOj+8g2QPCtqhG280GwD/iO1ReDAi17zxwIvlqaLe+DRJ7BIAYVIhO5ahdWRd4/OT2J9jnfzyNK6JQg==
+"@uppy/transloadit@^1.6.15":
+  version "1.6.15"
+  resolved "https://registry.yarnpkg.com/@uppy/transloadit/-/transloadit-1.6.15.tgz#380337d8982b589120ca992215761a34daf111bb"
+  integrity sha512-jXr2NZHDo8o3syeHc0+xa3dIWXrzSLGgC1QvR7hKdGL4Fcx1y3KeldSCssyv0xtoCLoHYPvtL7cC9RYjCtVtNA==
   dependencies:
     "@uppy/companion-client" "^1.6.1"
-    "@uppy/provider-views" "^1.9.0"
-    "@uppy/tus" "^1.8.0"
+    "@uppy/provider-views" "^1.9.1"
+    "@uppy/tus" "^1.8.1"
     "@uppy/utils" "^3.2.5"
     component-emitter "^1.2.1"
     socket.io-client "~2.2.0"
 
-"@uppy/tus@^1.8.0", "@uppy/tus@^1.8.1":
+"@uppy/tus@^1.8.1":
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/@uppy/tus/-/tus-1.8.1.tgz#b5d625d153316d411983fd81b2a98ffdd54bd7c2"
   integrity sha512-E71MmFXdpKL7Jjri2dVS5AMVGBEbqMR+8WV5u4KKIRok9Gv72/BsWESun1zB8fUhaSOvmfqjppyOt7+/uWUkNw==
