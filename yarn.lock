@@ -9907,10 +9907,10 @@ gatsby-plugin-canonical-urls@^2.6.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-gatsby-plugin-create-client-paths@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-create-client-paths/-/gatsby-plugin-create-client-paths-2.6.0.tgz#96d63ef714c3f27a74868679aa29b49897811c5d"
-  integrity sha512-HcmXzAWtplM4wIrowjsp4rD+P7n+mMgn/smUG6ApXjcgbUb/9GUCBhGeqdVu96PnHX8oYS09ye2wA3wokQHmQw==
+gatsby-plugin-create-client-paths@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-create-client-paths/-/gatsby-plugin-create-client-paths-2.7.0.tgz#411e20f70b3fbad778ce87af77c3a9f7849fd465"
+  integrity sha512-pRGuH2XBJkVegss9mH3/9n01jQDDmYtMw6lKJwSXpRBDGK+48oW6f2orKiMPL7K3m4lTztoD+MqVcX8ZvWsCvA==
   dependencies:
     "@babel/runtime" "^7.12.5"
 
