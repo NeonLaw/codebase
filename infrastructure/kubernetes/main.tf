@@ -136,6 +136,8 @@ module "interface_deployment" {
 module "law-job-resources_deployment" {
   source    = "../modules/interface_deployment"
   app_name  = "law-job-resources"
+
+  environment = "${var.environment}-law-job-resources"
   image_url = "${data.terraform_remote_state.gcp.outputs.container_registry}/law-job-resources:latest"
 }
 
