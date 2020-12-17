@@ -18,7 +18,6 @@ import {
   PublicNavigationBar
 } from '../../../components/navigationBars/public';
 import { Seo } from '../../../components/seo';
-import { graphql } from 'gatsby';
 import {
   publicClient
 } from '../../../utils/authenticationContext';

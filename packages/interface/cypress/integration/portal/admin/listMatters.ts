@@ -3,7 +3,7 @@
 describe('Viewing a list of matters as an admin', () => {
   it('renders the matters table', () => {
     cy.loginAsAdminUser().then(() => {
-      cy.visit('/admin/matters');
+      cy.visit('/portal/admin');
 
       cy.get('[data-testid="admin-matters-link-button"]').click();
 

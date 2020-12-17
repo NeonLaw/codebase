@@ -95,7 +95,15 @@ module.exports = {
         sitemap: `${process.env.GATSBY_SITE_URL}/sitemap.xml`,
       },
       resolve: 'gatsby-plugin-robots-txt',
-    }
+    },
+    {
+      options: {
+        prefixes: [
+          '/upward-mobility/*',
+        ]
+      },
+      resolve: 'gatsby-plugin-create-client-paths',
+    },
   ],
   siteMetadata: {
     author: '@neonlaw',
