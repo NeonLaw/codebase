@@ -93,7 +93,7 @@ export const CreateMatterModal = ({ isOpen, onClose, onOpen }) => {
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
       <ModalOverlay>
         <ModalContent
-          data-testid="create-question-modal"
+          data-testid="create-matter-modal"
           margin="8em 2em 0 2em"
         >
           <ModalHeader
@@ -155,7 +155,7 @@ export const CreateMatterModal = ({ isOpen, onClose, onOpen }) => {
             <ModalFooter>
               <FlashButton
                 type="submit"
-                data-testid="create-question-form-submit"
+                data-testid="create-matter-form-submit"
                 isDisabled={isSubmitting || loading}
                 containerStyles={{width: '100%'}}
                 styles={{width: '100%'}}
