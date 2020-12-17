@@ -15,7 +15,7 @@ resource "kubernetes_ingress" "primary" {
     }
 
     rule {
-      host = var.environment == "production" ? "www.neonlaw.com" : "www.neonlaw.info"
+      host = var.environment == "production" ? "www.neonlaw.com" : "www.neonlaw.net"
       http {
         path {
           backend {
