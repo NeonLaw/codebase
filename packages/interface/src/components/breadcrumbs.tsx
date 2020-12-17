@@ -16,7 +16,7 @@ const getRouteFromPath = (
     return `/${path}`;
   }
 
-  return paths.slice(0, index).join('/') + `/${path}`;
+  return '/' + paths.slice(0, index).join('/') + `/${path}`;
 };
 
 interface BreadCrumbProps {
