@@ -9927,10 +9927,10 @@ gatsby-plugin-intl@^0.3.3:
     intl "^1.2.5"
     react-intl "^3.12.0"
 
-gatsby-plugin-layout@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-1.6.0.tgz#b98f7e6eb50c87e383bde92872aadb28bbc0c4dc"
-  integrity sha512-KuMKXNJWF5dbfrW72u+chbmhpyamjl8JlxOo8jSXucbGLqZqBxFsAPnmvRW8TqDKqYjnU1uB1qPtO7vTD2rZDA==
+gatsby-plugin-layout@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-1.7.0.tgz#cff7c055b9abcd7c41a49dde3f3dbf7f28a28450"
+  integrity sha512-jqZGv8y0lvJnBhqW57Py3KXRhBD9ASqk8EiziyXxQIVNoD/KHhZ+EP043AWS7ICocOlxDEwIkQzhDJMLU3cwRQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
 
