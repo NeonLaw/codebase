@@ -16,6 +16,7 @@
     "strict": true,
     "suppressImplicitAnyIndexErrors": true,
     "target": "esnext",
+    "types": ["cypress"],
     "typeRoots": [
       "./node_modules/@types",
       "packages/server/node_modules/@types",

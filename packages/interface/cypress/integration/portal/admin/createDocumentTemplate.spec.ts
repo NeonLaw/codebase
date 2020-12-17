@@ -7,7 +7,7 @@ describe('Creating Document Templates', () => {
     'creates a document template and adds that to the document template table',
     () => {
       cy.loginAsAdminUser().then(() => {
-        cy.visit('/admin/document-templates');
+        cy.visit('/portal/admin/document-templates');
 
         cy.wait(1000);
 

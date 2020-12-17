@@ -2,10 +2,10 @@
 
 import * as faker from 'faker';
 
-describe('Creating Bar Prep Flashcards', () => {
+describe('Creating Bar Prep Flashcard', () => {
   it('creates a flashcard and adds that to the flashcard table', () => {
     cy.loginAsAdminUser().then(() => {
-      cy.visit('/admin/flashcards');
+      cy.visit('/portal/admin/flashcards');
 
       cy.wait(1000);
 
