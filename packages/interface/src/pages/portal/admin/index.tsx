@@ -1,10 +1,10 @@
 import { Box, Heading } from '@chakra-ui/core';
 import { navigate, useIntl } from 'gatsby-plugin-intl';
 
-import { FlashButton } from '../../components/button';
-import { PortalLayout } from '../../layouts/portalLayout';
+import { FlashButton } from '../../../components/button';
+import { PortalLayout } from '../../../layouts/portalLayout';
 import React from 'react';
-import { gutters } from '../../themes/neonLaw';
+import { gutters } from '../../../themes/neonLaw';
 
 const AdminDashboard = () => {
   const intl = useIntl();
@@ -18,7 +18,7 @@ const AdminDashboard = () => {
         <FlashButton
           colorScheme="gray"
           onClick={() => {
-            navigate('/admin/flashcards');
+            navigate('/portal/admin/flashcards');
           }}
         >
           Flashcards
@@ -27,7 +27,7 @@ const AdminDashboard = () => {
         <FlashButton
           colorScheme="gray"
           onClick={() => {
-            navigate('/admin/questions');
+            navigate('/portal/admin/questions');
           }}
         >
           Questions
@@ -36,7 +36,7 @@ const AdminDashboard = () => {
         <FlashButton
           colorScheme="gray"
           onClick={() => {
-            navigate('/admin/document-templates');
+            navigate('/portal/admin/document-templates');
           }}
         >
           Document Templates
@@ -45,7 +45,7 @@ const AdminDashboard = () => {
         <FlashButton
           colorScheme="gray"
           onClick={() => {
-            navigate('/admin/matter-templates');
+            navigate('/portal/admin/matter-templates');
           }}
         >
           Matter Templates
@@ -54,7 +54,7 @@ const AdminDashboard = () => {
         <FlashButton
           colorScheme="gray"
           onClick={() => {
-            navigate('/admin/people');
+            navigate('/portal/admin/people');
           }}
           data-testid="admin-people-link-button"
         >
@@ -64,7 +64,7 @@ const AdminDashboard = () => {
         <FlashButton
           colorScheme="gray"
           onClick={() => {
-            navigate('/admin/matters');
+            navigate('/portal/admin/matters');
           }}
           data-testid="admin-matters-link-button"
         >

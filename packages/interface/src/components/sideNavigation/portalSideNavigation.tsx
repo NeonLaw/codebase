@@ -1,7 +1,6 @@
-
 import { AiOutlineAudit, AiOutlineShop } from 'react-icons/ai';
 import { BiHomeHeart, BiPen } from 'react-icons/bi';
-// import { useAllMattersQuery, useCurrentUserQuery } from '../../utils/api';
+import { AuthenticationContext } from '../../utils/authenticationContext';
 import { CgProfile } from 'react-icons/cg';
 import { FaHands } from 'react-icons/fa';
 import { MdGavel } from 'react-icons/md';
@@ -9,30 +8,12 @@ import React from 'react';
 import { RiAdminLine } from 'react-icons/ri';
 import {
   SideNavContainer
-} from '../../components/sideNavigation/sideNavContainer';
-import { SideNavContent } from '../../components/sideNavigation/base';
+} from './sideNavContainer';
+import { SideNavContent } from './base';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { VscLaw } from 'react-icons/vsc';
-import { useCurrentUserQuery } from '../../utils/api';
 
-export const PortalSideNavContent = () => {
-  const { data: currentUserData } = useCurrentUserQuery();
-  const role = currentUserData?.getCurrentUser?.role;
-
-  if (!role) {
-    return null;
-  }
-
-  // const { data: allMatterData } = useAllMattersQuery();
-  // const matters = allMatterData?.allMatters?.nodes;
-  // const uniqueMatterTemplateCategories = matters?.map((matter) => {
-  //   return matterTemplateByMatterTemplateId.category;
-  // });
-
-  // const onlyUnique = (value, index, self) => {
-  //   return self.indexOf(value) === index;
-  // };
-
+export const PortalSideNavContent = ({ role }) => {
   const links = [
     {
       icon: <BiHomeHeart />,
@@ -72,10 +53,17 @@ export const PortalSideNavContent = () => {
   return <SideNavContent isRenderedOnDashboard={true} links={links} />;
 };
 
-export const PortalSideNav = (props) => {
+export const PortalSideNavigation = (props) => {
   return (
-    <SideNavContainer isRenderedOnDashboard={true} {...props}>
-      <PortalSideNavContent />
-    </SideNavContainer>
+    <AuthenticationContext.Consumer>
+      {({ user: { role }}: any) => {
+
+        return (
+          <SideNavContainer isRenderedOnDashboard={true} {...props}>
+            <PortalSideNavContent role={role} />
+          </SideNavContainer>
+        );
+      }}
+    </AuthenticationContext.Consumer>
   );
 };

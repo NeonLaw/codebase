@@ -7,7 +7,7 @@ describe('Creating Matter Templates', () => {
     'creates a matter template and adds that to the matter template table',
     () => {
       cy.loginAsAdminUser().then(() => {
-        cy.visit('/admin/matter-templates');
+        cy.visit('/portal/admin/matter-templates');
 
         cy.wait(1000);
 

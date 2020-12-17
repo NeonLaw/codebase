@@ -5,7 +5,7 @@ import * as faker from 'faker';
 describe('Creating Questions', () => {
   it('creates a question and adds that to the question table', () => {
     cy.loginAsAdminUser().then(() => {
-      cy.visit('/admin/questions');
+      cy.visit('/portal/admin/questions');
 
       cy.contains('Create Question').click();
 

@@ -19,7 +19,7 @@ import {
 } from '../../utils/api';
 import { FlashButton } from '../button';
 import { StringInput } from '../inputs';
-import { SubmissionInProgress } from '../submission-in-progress';
+import { SubmissionInProgress } from '../submissionInProgress';
 import styled from '@emotion/styled';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';

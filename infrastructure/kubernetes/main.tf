@@ -127,14 +127,17 @@ module "worker_deployment" {
 }
 
 module "interface_deployment" {
-  source    = "../modules/interface_deployment"
-  app_name  = "interface"
-  image_url = "${data.terraform_remote_state.gcp.outputs.container_registry}/interface:latest"
+  source      = "../modules/interface_deployment"
+  app_name    = "interface"
+  environment = var.environment
+  image_url   = "${data.terraform_remote_state.gcp.outputs.container_registry}/interface:latest"
 }
 
 module "law-job-resources_deployment" {
   source    = "../modules/interface_deployment"
   app_name  = "law-job-resources"
+
+  environment = "${var.environment}-law-job-resources"
   image_url = "${data.terraform_remote_state.gcp.outputs.container_registry}/law-job-resources:latest"
 }
 

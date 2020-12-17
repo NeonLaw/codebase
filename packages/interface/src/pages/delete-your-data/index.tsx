@@ -5,7 +5,7 @@ import React from 'react';
 import { Seo } from '../../components/seo';
 
 const HomePage = () => {
-  const title = 'Homepage';
+  const title = 'Delete Your Data';
   const description =
     'Neon Law and its affiliates will find and ' +
     'delete your data on the Internet.';

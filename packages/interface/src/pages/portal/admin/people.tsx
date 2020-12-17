@@ -1,9 +1,9 @@
 import { Box } from '@chakra-ui/core';
-import { Breadcrumbs } from '../../components/breadcrumbs';
+import { Breadcrumbs } from '../../../components/breadcrumbs';
 import {
   PeopleTable
-} from '../../components/tables/peopleTable';
-import { PortalLayout } from '../../layouts/portalLayout';
+} from '../../../components/tables/peopleTable';
+import { PortalLayout } from '../../../layouts/portalLayout';
 import React from 'react';
 
 const AdminPeople = () => {

@@ -6,7 +6,9 @@ import PortalBg from '../../../interface/src/images/dashboard-bg.jpg';
 import {
   PortalNavigationBar
 } from '../components/navigationBars/portalNavigationBar';
-import { PortalSideNav } from '../components/sideNavigation/portal';
+import {
+  PortalSideNavigation
+} from '../components/sideNavigation/portalSideNavigation';
 import React from 'react';
 import { Redirect } from '@reach/router';
 import styled from '@emotion/styled';
@@ -84,7 +86,7 @@ export const PortalLayout = ({ children }) => {
             <StyledPortalLayout>
               <div className="wrapper">
                 <Aside>
-                  <PortalSideNav />
+                  <PortalSideNavigation />
                 </Aside>
                 <Main
                   style={{
