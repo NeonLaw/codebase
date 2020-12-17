@@ -9,9 +9,6 @@ import {
   MatterTable
 } from '../../../../components/tables/matterTable';
 import { PortalLayout } from '../../../../layouts/portalLayout';
-import {
-  UpdateMatterModal
-} from '../../../../components/modals/updateMatterModal';
 import { gutters } from '../../../../themes/neonLaw';
 import { navigate } from 'gatsby';
 
@@ -21,7 +18,6 @@ const AdminMatters = () => {
     showCreateMatterModal,
     changeShowCreateMatterModal
   ] = useState(true);
-  const [currentRow, setCurrentRow] = useState(undefined);
 
   return (
     <PortalLayout>
@@ -50,16 +46,6 @@ const AdminMatters = () => {
             onClose();
           }}
           onOpen={onOpen}
-        />
-
-        <UpdateMatterModal
-          isOpen={isOpen && !showCreateMatterModal}
-          onOpen={onOpen}
-          matter={currentRow}
-          onClose={() => {
-            changeShowCreateMatterModal(true);
-            onClose();
-          }}
         />
 
         <MatterTable
