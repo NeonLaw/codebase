@@ -10,7 +10,7 @@ resource "kubernetes_ingress" "primary" {
 
   spec {
     backend {
-      service_name = "interface"
+      service_name = "${var.environment}-interface"
       service_port = 80
     }
 
@@ -33,7 +33,7 @@ resource "kubernetes_ingress" "primary" {
       http {
         path {
           backend {
-            service_name = "law-job-resources"
+            service_name = "${var.environment}-law-job-resources-interface"
             service_port = 80
           }
         }
