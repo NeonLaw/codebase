@@ -19,7 +19,11 @@ const getRouteFromPath = (
   return paths.slice(0, index).join('/') + `/${path}`;
 };
 
-export const Breadcrumbs = () => {
+interface BreadCrumbProps {
+  showHome?: boolean;
+}
+
+export const Breadcrumbs = ({ showHome = true }: BreadCrumbProps) => {
   const intl = useIntl();
   return (
     <Location>
@@ -57,7 +61,7 @@ export const Breadcrumbs = () => {
 
         return (
           <Breadcrumb mb="2em">
-            <BreadcrumbItem cursor="pointer">
+            {showHome && <BreadcrumbItem cursor="pointer">
               <BreadcrumbLink
                 className="breadcrumb outline-bordered"
                 as={Link}
@@ -65,7 +69,7 @@ export const Breadcrumbs = () => {
               >
                 {intl.formatMessage({ id: 'breadcrumbs.home' })}
               </BreadcrumbLink>
-            </BreadcrumbItem>
+            </BreadcrumbItem>}
             {paths.map((path, i) => {
               const route = getRouteFromPath(path, paths, i);
 

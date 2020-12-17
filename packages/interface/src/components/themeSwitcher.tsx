@@ -20,6 +20,7 @@ const StyledThemeSwitcher = styled.div<{isRenderedOnDashboard?: boolean}>`
   label {
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
 
   span {

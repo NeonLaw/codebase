@@ -72,7 +72,7 @@ jobs:
 
       - name: Deploy latest container with kubectl
         run: |-
-          kubectl set image deployment interface \
+          kubectl set image deployment production-interface \
             interface=us.gcr.io/neon-law-production/interface:$GITHUB_SHA
         if: github.ref == 'refs/heads/development'
 

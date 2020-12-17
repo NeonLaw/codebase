@@ -25,7 +25,7 @@ resource "kubernetes_deployment" "interface" {
       spec {
         container {
           image = var.image_url
-          name  = "${var.environment}-interface"
+          name  = "interface"
         }
       }
     }

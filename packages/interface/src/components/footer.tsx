@@ -17,7 +17,7 @@ import { Link } from './link';
 import React from 'react';
 import { Section } from './section';
 import { SocialMediaIcons } from './socialMediaIcons';
-import { ThemeSwitcher } from './theme-switcher';
+import { ThemeSwitcher } from './themeSwitcher';
 import { useIntl } from 'gatsby-plugin-intl';
 
 const FooterLink = ({ path, i18nMessage }) => {
