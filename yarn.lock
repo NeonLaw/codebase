@@ -7017,10 +7017,10 @@ create-emotion@^10.0.14, create-emotion@^10.0.27:
     "@emotion/sheet" "0.9.4"
     "@emotion/utils" "0.11.3"
 
-create-gatsby@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/create-gatsby/-/create-gatsby-0.1.0.tgz#66beb1776f9fa8403b182bba4b51a57b577fe8e5"
-  integrity sha512-kgsvPCWOVxiUXFUV66hC6q8QaBOqQeneaQi5u6YbVk1eELxjglAi8PgoUOswZsrHkVOjypjKbuVtHkaanJ3F2A==
+create-gatsby@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/create-gatsby/-/create-gatsby-0.2.1.tgz#d93ed639ab8bea00be9956ab495dc84ab8e49f4b"
+  integrity sha512-TYg5jfi97GWCuotU2otZUqNtNBmjIZTHlW1RE49JDK/QujtJ4pur9cp7oFJm9QaOqeiH+oq1/LK7JFzq9B44HA==
 
 create-hash@^1.1.0, create-hash@^1.1.2, create-hash@^1.2.0:
   version "1.2.0"
@@ -9791,10 +9791,10 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-gatsby-cli@^2.14.1, gatsby-cli@^2.15.1:
-  version "2.15.1"
-  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.15.1.tgz#f51465db7772f9855346a585a82e82a977e95361"
-  integrity sha512-VSgnjdCmP0pBbpf5zk0CrsyQ7iE8O0NyLpBRZUqAi0xHP53JdKEsYeJB3QKZon6MH/oc6j+pxSBMUHqGzzhyhg==
+gatsby-cli@^2.15.1, gatsby-cli@^2.16.1:
+  version "2.16.1"
+  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.16.1.tgz#f6da732111403d80245cb21579a12a530a17fa1f"
+  integrity sha512-LIuvOCfkGCNkdApb0UpqwyhHhmfn0weEQ2ZVW07/DLbqOJ8bzilzoCZHCBNZUKiSSQwADaInLcr5L2/EbEZzZw==
   dependencies:
     "@babel/code-frame" "^7.10.4"
     "@hapi/joi" "^15.1.1"
@@ -9805,14 +9805,14 @@ gatsby-cli@^2.14.1, gatsby-cli@^2.15.1:
     common-tags "^1.8.0"
     configstore "^5.0.1"
     convert-hrtime "^3.0.0"
-    create-gatsby "^0.1.0"
+    create-gatsby "^0.2.1"
     envinfo "^7.7.3"
     execa "^3.4.0"
     fs-exists-cached "^1.0.0"
     fs-extra "^8.1.0"
-    gatsby-core-utils "^1.6.0"
-    gatsby-recipes "^0.5.1"
-    gatsby-telemetry "^1.6.0"
+    gatsby-core-utils "^1.7.0"
+    gatsby-recipes "^0.6.0"
+    gatsby-telemetry "^1.7.0"
     hosted-git-info "^3.0.6"
     is-valid-path "^0.1.1"
     lodash "^4.17.20"
@@ -10120,10 +10120,10 @@ gatsby-react-router-scroll@^3.3.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-gatsby-recipes@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/gatsby-recipes/-/gatsby-recipes-0.5.1.tgz#d6e3d07cc7d0dc0b073e5522e4c3c3d67686e0b0"
-  integrity sha512-6bKV8/vyWNG9mQQUL3XP/ZbiugDQTNxZT+Rs61qDU+0drzMjpIs4YqP1gj9PExp86mqnGlezEyvSK9gEPZjb+g==
+gatsby-recipes@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/gatsby-recipes/-/gatsby-recipes-0.6.0.tgz#5eeb7cc1057aafd8e145a818695bcc489fdcfeb8"
+  integrity sha512-YH1BFCbuMNuvfw/3+DbQk5GDVNnz+1eVNdaBtE8Fo/Sa7rAfuezHnGtaa2CASI3V7ZKI3D1U6HnhQNULlfSa7g==
   dependencies:
     "@babel/core" "^7.12.3"
     "@babel/generator" "^7.12.5"
@@ -10148,8 +10148,8 @@ gatsby-recipes@^0.5.1:
     express "^4.17.1"
     express-graphql "^0.9.0"
     fs-extra "^8.1.0"
-    gatsby-core-utils "^1.6.0"
-    gatsby-telemetry "^1.6.0"
+    gatsby-core-utils "^1.7.0"
+    gatsby-telemetry "^1.7.0"
     glob "^7.1.6"
     graphql "^14.6.0"
     graphql-compose "^6.3.8"
@@ -10244,10 +10244,10 @@ gatsby-source-remote-file@^0.2.1:
     gatsby "^2.23.22"
     gatsby-source-filesystem "^2.3.18"
 
-gatsby-telemetry@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-1.6.0.tgz#bd924b0f0b255ad3cd16142864b839ce0b4f043c"
-  integrity sha512-9bT40EqFU+oKJD0QUK6+MEwel7r8t9uI/9wlM5xU7P4qx2Ji66KJ1L0aCNgeZAHsdBF84K+J8tHnghr5A/7s7g==
+gatsby-telemetry@^1.6.0, gatsby-telemetry@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-1.7.0.tgz#412950669e3c1e71ed2fbe4ba941178b0bb54536"
+  integrity sha512-0hHskxnPV667snd6uSkZ32vKfBsv+9mFe0Pl3A9c9NC4HoKQlfmoluUTZr0nOjWdMMslz08XydzqxNdb6wB+oQ==
   dependencies:
     "@babel/code-frame" "^7.10.4"
     "@babel/runtime" "^7.12.5"
@@ -10257,7 +10257,7 @@ gatsby-telemetry@^1.6.0:
     boxen "^4.2.0"
     configstore "^5.0.1"
     fs-extra "^8.1.0"
-    gatsby-core-utils "^1.6.0"
+    gatsby-core-utils "^1.7.0"
     git-up "^4.0.2"
     is-docker "^2.1.1"
     lodash "^4.17.20"
