@@ -13,6 +13,7 @@ import {
   UpdateMatterModal
 } from '../../../../components/modals/updateMatterModal';
 import { gutters } from '../../../../themes/neonLaw';
+import { navigate } from 'gatsby';
 
 const AdminMatters = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -25,7 +26,7 @@ const AdminMatters = () => {
   return (
     <PortalLayout>
       <Box textAlign="left">
-        <Breadcrumbs />
+        <Breadcrumbs showHome={false} />
 
         <FlashButton
           buttonScheme="teal"
@@ -63,9 +64,8 @@ const AdminMatters = () => {
 
         <MatterTable
           onRowClick={(row) => {
-            changeShowCreateMatterModal(false);
-            setCurrentRow(row);
-            onOpen();
+            alert(row);
+            navigate(`/portal/admin/matters/${row.id}`);
           }}
         />
       </Box>

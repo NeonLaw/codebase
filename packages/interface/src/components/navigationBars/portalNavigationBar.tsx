@@ -21,7 +21,7 @@ import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
 import { Link } from '../link';
 import { Search } from './search';
-import { ThemeSwitcher } from '../theme-switcher';
+import { ThemeSwitcher } from '../themeSwitcher';
 import { useIntl } from 'gatsby-plugin-intl';
 
 interface BaseNavigationBarProps {

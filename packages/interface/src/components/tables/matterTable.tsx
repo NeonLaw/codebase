@@ -35,7 +35,6 @@ export const MatterTable = (props: MatterTableProps) => {
   return (
     <Table
       columns={columns}
-
       data={nodes}
       testId="matters-table"
       onRowClick={props.onRowClick}
