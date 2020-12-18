@@ -4,7 +4,6 @@ import { navigate } from 'gatsby';
 import { useDeleteMatterByIdMutation, } from '../../utils/api';
 
 export const DeleteMatterButton = ({ id }) => {
-
   const [
     deleteMatterMutation,
   ] = useDeleteMatterByIdMutation({

@@ -4852,6 +4852,23 @@ export type GetTransloaditTokenMutation = (
   )> }
 );
 
+export type MatterByIdQueryVariables = Exact<{
+  id: Scalars['UUID'];
+}>;
+
+
+export type MatterByIdQuery = (
+  { __typename?: 'Query' }
+  & { matterById?: Maybe<(
+    { __typename?: 'Matter' }
+    & Pick<Matter, 'id' | 'name'>
+    & { personByPrimaryContactId?: Maybe<(
+      { __typename?: 'Person' }
+      & Pick<Person, 'id' | 'name'>
+    )> }
+  )> }
+);
+
 export type UpdateDocumentTemplateByIdMutationVariables = Exact<{
   id: Scalars['UUID'];
   name?: Maybe<Scalars['String']>;
@@ -5640,6 +5657,44 @@ export function useGetTransloaditTokenMutation(baseOptions?: Apollo.MutationHook
 export type GetTransloaditTokenMutationHookResult = ReturnType<typeof useGetTransloaditTokenMutation>;
 export type GetTransloaditTokenMutationResult = Apollo.MutationResult<GetTransloaditTokenMutation>;
 export type GetTransloaditTokenMutationOptions = Apollo.BaseMutationOptions<GetTransloaditTokenMutation, GetTransloaditTokenMutationVariables>;
+export const MatterByIdDocument = gql`
+    query MatterById($id: UUID!) {
+  matterById(id: $id) {
+    id
+    name
+    personByPrimaryContactId {
+      id
+      name
+    }
+  }
+}
+    `;
+
+/**
+ * __useMatterByIdQuery__
+ *
+ * To run a query within a React component, call `useMatterByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMatterByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMatterByIdQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useMatterByIdQuery(baseOptions: Apollo.QueryHookOptions<MatterByIdQuery, MatterByIdQueryVariables>) {
+        return Apollo.useQuery<MatterByIdQuery, MatterByIdQueryVariables>(MatterByIdDocument, baseOptions);
+      }
+export function useMatterByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MatterByIdQuery, MatterByIdQueryVariables>) {
+          return Apollo.useLazyQuery<MatterByIdQuery, MatterByIdQueryVariables>(MatterByIdDocument, baseOptions);
+        }
+export type MatterByIdQueryHookResult = ReturnType<typeof useMatterByIdQuery>;
+export type MatterByIdLazyQueryHookResult = ReturnType<typeof useMatterByIdLazyQuery>;
+export type MatterByIdQueryResult = Apollo.QueryResult<MatterByIdQuery, MatterByIdQueryVariables>;
 export const UpdateDocumentTemplateByIdDocument = gql`
     mutation UpdateDocumentTemplateById($id: UUID!, $name: String, $description: String, $fileExtension: String, $readAuthorization: String, $createAuthorization: String, $updateAuthorization: String, $deleteAuthorization: String) {
   updateDocumentTemplateById(input: {documentTemplatePatch: {name: $name, description: $description, fileExtension: $fileExtension, readAuthorization: $readAuthorization, createAuthorization: $createAuthorization, updateAuthorization: $updateAuthorization, deleteAuthorization: $deleteAuthorization}, id: $id}) {

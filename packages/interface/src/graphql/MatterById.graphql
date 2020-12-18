@@ -1,0 +1,10 @@
+query MatterById($id: UUID!) {
+  matterById(id: $id) {
+    id
+    name
+    personByPrimaryContactId {
+      id
+      name
+    }
+  }
+}
