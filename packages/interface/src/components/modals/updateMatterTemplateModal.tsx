@@ -112,7 +112,7 @@ export const UpdateMatterTemplateModal = ({
 
   const deleteMatterTemplate = async () => {
     const confirmDelete = confirm(
-      'Are you sure you want to delete the question?',
+      'Are you sure you want to delete the matter template?',
     );
 
     if (confirmDelete) {
