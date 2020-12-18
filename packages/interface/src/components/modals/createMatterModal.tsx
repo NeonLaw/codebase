@@ -21,6 +21,7 @@ import {
 } from '../../utils/api';
 import { FlashButton } from '../button';
 import { SubmissionInProgress } from '../submissionInProgress';
+import { gql } from '@apollo/client';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useKeyPressed } from '../../utils/useKeyPressed';
@@ -41,11 +42,32 @@ export const CreateMatterModal = ({ isOpen, onClose, onOpen }) => {
 
   const onSubmit = async ({ name, matterTemplate, primaryContact }) => {
     await createMatter({
+      update(cache, { data: { createMatter: { matter } } }: any) {
+        if (!matter) {
+          return null;
+        }
+
+        cache.modify({
+          fields: {
+            allMatters(existingMatters = []) {
+              const newMatterRef = cache.writeFragment({
+                data: matter,
+                fragment: gql`
+                  fragment NewMatter on Matter {
+                    id
+                  }
+                `
+              });
+              return [...existingMatters.nodes, newMatterRef];
+            }
+          }
+        });
+      },
       variables: {
         matterTemplateId: matterTemplate.value,
         name,
         primaryContactId: primaryContact.value,
-      }
+      },
     })
       .then(async () => {
         setFormError('');
