@@ -14,12 +14,12 @@ const StyledInput = styled(Input)<{
 
   @media (max-width: 560px) {
     display: ${({ version, dashboard }) =>
-    version === 'desktop' && !dashboard ? 'none' : 'inherit'};
+    version === 'desktop' && dashboard === 'true' ? 'inherit' : 'none'};
     max-width: 240px;
   }
 
   @media (min-width: 561px) {
-    display: ${({ version }) => (version === 'mobile' ? 'none' : '')};
+    display: ${({ version }) => (version === 'mobile' ? 'none' : 'inherit')};
   }
 `;
 
@@ -74,7 +74,7 @@ export const Search = ({
         />
       ) : null}
       <StyledInput
-        dashboard={isRenderedOnDashboard && 'true'}
+        dashboard={isRenderedOnDashboard ? 'true' : 'false'}
         className={!isRenderedOnDashboard ? 'search-input' : ''}
         version={version}
         ref={inputRef}
