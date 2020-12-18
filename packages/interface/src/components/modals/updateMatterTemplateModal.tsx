@@ -11,6 +11,7 @@ import {
   useColorMode,
 } from '@chakra-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
+import { Select, StringInput } from '../inputs';
 import { colors, gutters } from '../../themes/neonLaw';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 import {
@@ -18,7 +19,6 @@ import {
   useUpdateMatterTemplateByIdMutation,
 } from '../../utils/api';
 import { FlashButton } from '../button';
-import { StringInput } from '../inputs';
 import { SubmissionInProgress } from '../submissionInProgress';
 import styled from '@emotion/styled';
 import { useForm } from 'react-hook-form';
@@ -70,7 +70,7 @@ export const UpdateMatterTemplateModal = ({
     },
   });
 
-  const { handleSubmit, errors, register, reset } = useForm();
+  const { control, handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [focus, setFocus] = useState(false);
@@ -198,6 +198,24 @@ export const UpdateMatterTemplateModal = ({
                   ),
                 })}
                 styles={{ marginBottom: gutters.xSmallOne }}
+              />
+              <Select
+                name="readAuthorization"
+                label={intl.formatMessage(
+                  { id: 'forms.read_authorization.label' }
+                )}
+                options={
+                  [
+                    { label: 'Data Deletion', value: 'data-deletion' },
+                    { label: 'Inmate Letter', value: 'inmate-letter' },
+                    { label: 'Litigation', value: 'litigation' },
+                    { label: 'Estate', value: 'estate' },
+                    { label: 'Business', value: 'business' },
+                  ]
+                }
+                errors={errors}
+                testId="update-document-template-read-authorization"
+                control={control}
               />
             </ModalBody>
 
