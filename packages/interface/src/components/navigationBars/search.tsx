@@ -7,19 +7,19 @@ import styled from '@emotion/styled';
 
 const StyledInput = styled(Input)<{
   version: 'desktop' | 'mobile';
-  dashboard?: boolean;
+  dashboard?: string;
 }>`
   max-width: 350px;
   border: 1px solid ${colors.inputBorders.light};
 
   @media (max-width: 560px) {
     display: ${({ version, dashboard }) =>
-    version === 'desktop' && !dashboard ? 'none' : ''};
+    version === 'desktop' && dashboard === 'true' ? 'inherit' : 'none'};
     max-width: 240px;
   }
 
   @media (min-width: 561px) {
-    display: ${({ version }) => (version === 'mobile' ? 'none' : '')};
+    display: ${({ version }) => (version === 'mobile' ? 'none' : 'inherit')};
   }
 `;
 
@@ -74,7 +74,7 @@ export const Search = ({
         />
       ) : null}
       <StyledInput
-        dashboard={isRenderedOnDashboard}
+        dashboard={isRenderedOnDashboard ? 'true' : 'false'}
         className={!isRenderedOnDashboard ? 'search-input' : ''}
         version={version}
         ref={inputRef}

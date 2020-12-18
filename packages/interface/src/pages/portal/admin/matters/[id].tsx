@@ -1,15 +1,18 @@
 import { Box } from '@chakra-ui/core';
 import { Breadcrumbs } from '../../../../components/breadcrumbs';
+import {
+  DeleteMatterButton
+} from '../../../../components/deleteButtons/deleteMatterButton';
 import { PortalLayout } from '../../../../layouts/portalLayout';
 import React from 'react';
 
-const AdminMattersDetail = () => {
+const AdminMattersDetail = ({ params: { id }}) => {
   return (
     <PortalLayout>
       <Box textAlign="left">
         <Breadcrumbs showHome={false} />
 
-        <h1>hi</h1>
+        <DeleteMatterButton id={id} />
       </Box>
     </PortalLayout>
   );
