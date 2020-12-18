@@ -30,14 +30,17 @@ describe('CRUD-ing a matter as an admin', () => {
         .should('not.exist');
 
       cy.get('[data-testid="matters-table"]')
-        .within(() => {
-          cy.contains(matterName).click();
-          cy.url().should('include', '/admin/matters/');
-          cy.get('[data-testid="matters-table"]').should('not.exist');
-          cy.contains('Delete Matter').click();
-          cy.url().should('not.include', '/admin/matters/');
-          cy.url().should('include', '/admin/matters');
-        });
+        .within(() => { cy.contains(matterName).click(); });
+
+      cy.url().should('include', '/admin/matters/');
+      cy.get('[data-testid="matters-table"]').should('not.exist');
+
+      cy.get('[data-testid="delete-matter-button"]').click();
+      cy.url().should('not.include', '/admin/matters/');
+      cy.url().should('include', '/admin/matters');
+
+      cy.get('[data-testid="matters-table"]')
+        .within(() => { cy.contains(matterName).should('not.exist'); });
     });
   });
 });

@@ -30,10 +30,12 @@ export const DeleteMatterButton = ({ id }) => {
   };
 
   return (
-    <Button onClick={async () => {
-      await deleteMatter();
-      navigate('/portal/admin/matters');
-    }}>
+    <Button
+      data-testid="delete-matter-button"
+      onClick={async () => {
+        await deleteMatter();
+        navigate('/portal/admin/matters');
+      }}>
       Delete Matter
     </Button>
   );
