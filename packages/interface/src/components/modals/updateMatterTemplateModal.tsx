@@ -1,27 +1,19 @@
 import {
-  Kbd,
   Modal,
-  ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalFooter,
   ModalHeader,
   ModalOverlay,
   theme,
   useColorMode,
 } from '@chakra-ui/core';
-import React, { useEffect, useRef, useState } from 'react';
-import { Select, StringInput } from '../inputs';
-import { colors, gutters } from '../../themes/neonLaw';
-import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
+import React, { useRef, useState } from 'react';
 import {
   useDeleteMatterTemplateByIdMutation,
   useUpdateMatterTemplateByIdMutation,
 } from '../../utils/api';
-import { FlashButton } from '../button';
-import { SubmissionInProgress } from '../submissionInProgress';
-import styled from '@emotion/styled';
-import { useForm } from 'react-hook-form';
+import { ModalFormBuilder } from '../modalFormBuilder';
+import { colors } from '../../themes/neonLaw';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useOperatingSystem } from '../../utils/useOperatingSystem';
 
@@ -31,21 +23,10 @@ interface UpdateMatterTemplateModalProps {
   currentRow: any;
 }
 
-const StyledModalFooter = styled(ModalFooter)`
-  display: flex;
-  flex-direction: column;
-
-  & > * {
-    &:not(:last-of-type) {
-      margin-bottom: ${gutters.xSmallOne};
-    }
-  }
-`;
-
 export const UpdateMatterTemplateModal = ({
   isOpen,
   onClose,
-  currentRow,
+  id,
 }: UpdateMatterTemplateModalProps) => {
   const intl = useIntl();
   const { id, name } = currentRow?.values || {};
@@ -104,12 +85,6 @@ export const UpdateMatterTemplateModal = ({
     }
   };
 
-  const handleDPress = async (e) => {
-    if (isOpen && !focus && e.key === 'd') {
-      await deleteMatterTemplate();
-    }
-  };
-
   const deleteMatterTemplate = async () => {
     const confirmDelete = confirm(
       'Are you sure you want to delete the matter template?',
@@ -121,23 +96,6 @@ export const UpdateMatterTemplateModal = ({
       onClose();
     }
   };
-
-  useEffect(() => {
-    window.addEventListener('keypress', handleDPress);
-
-    const textArea = document.querySelector('.answer');
-
-    if (null !== textArea) {
-      textArea.addEventListener('keydown', keyDownHandler);
-    }
-    return () => {
-      window.removeEventListener('keypress', handleDPress);
-
-      if (null !== textArea) {
-        textArea.removeEventListener('keydown', keyDownHandler);
-      }
-    };
-  });
 
   const { colorMode } = useColorMode();
 
@@ -153,117 +111,36 @@ export const UpdateMatterTemplateModal = ({
             fontSize={theme.fontSizes['xl0']}
             color={colors.text[colorMode]}
           >
-            Update MatterTemplate
+            Update Matter Template
           </ModalHeader>
           <ModalCloseButton style={{ color: colors.text[colorMode] }} />
-          <form
-            onSubmit={handleSubmit(onSubmit as any)}
-            style={{ color: colors.text[colorMode] }}
-            ref={formRef}
-          >
-            <ModalBody>
-              {formError}
-              <StringInput
-                name="name"
-                testId="update-matter-template-form-name"
-                label={intl.formatMessage({ id: 'forms.name.label' })}
-                errors={errors}
-                onFocus={() => { setFocus(true); }}
-                onBlur={() => { setFocus(false); }}
-                value={name}
-                placeholder={intl.formatMessage({
-                  id: 'forms.name.placeholder',
-                })}
-                register={register({
-                  required: intl.formatMessage({ id: 'forms.name.required' }),
-                })}
-                styles={{ marginBottom: gutters.xSmallOne }}
-              />
-              <StringInput
-                name="javascriptModule"
-                testId="update-matter-template-form-javascript-module"
-                label={
-                  intl.formatMessage({ id: 'forms.javascript_module.label' })
-                }
-                errors={errors}
-                onFocus={() => { setFocus(true); }}
-                onBlur={() => { setFocus(false); }}
-                value={name}
-                placeholder={intl.formatMessage({
-                  id: 'forms.javascript_module.placeholder',
-                })}
-                register={register({
-                  required: intl.formatMessage(
-                    { id: 'forms.javascript_module.required' }
-                  ),
-                })}
-                styles={{ marginBottom: gutters.xSmallOne }}
-              />
-              <Select
-                name="readAuthorization"
-                label={intl.formatMessage(
-                  { id: 'forms.read_authorization.label' }
-                )}
-                options={
-                  [
+          <ModalFormBuilder
+            resourceName="matterTemplate"
+            id={id}
+            variables={
+              [
+                {
+                  field: 'name',
+                  type: 'string'
+                },
+                {
+                  field: 'javascriptModule',
+                  type: 'codeEditor'
+                },
+                {
+                  field: 'category',
+                  options: [
                     { label: 'Data Deletion', value: 'data-deletion' },
                     { label: 'Inmate Letter', value: 'inmate-letter' },
                     { label: 'Litigation', value: 'litigation' },
                     { label: 'Estate', value: 'estate' },
                     { label: 'Business', value: 'business' },
-                  ]
+                  ],
+                  type: 'select',
                 }
-                errors={errors}
-                testId="update-document-template-read-authorization"
-                control={control}
-              />
-            </ModalBody>
-
-            <StyledModalFooter>
-              <FlashButton
-                type="submit"
-                data-testid="update-matter-template-form-submit"
-                isDisabled={
-                  isSubmitting || isDeleting || loading || deleteInProgress
-                }
-                containerStyles={{
-                  margin: `${gutters.xSmallOne} 0`,
-                  width: '100%',
-                }}
-                styles={{width: '100%'}}
-                colorScheme="teal"
-              >
-                Update MatterTemplate &nbsp;
-                <Kbd border="1px solid #bbb" color="black">
-                  Shift
-                </Kbd>
-                &nbsp;+ &nbsp;
-                <Kbd border="1px solid #bbb" color="black">
-                  Enter
-                </Kbd>
-                <SubmissionInProgress loading={loading} />
-              </FlashButton>
-              <FlashButton
-                data-testid="update-matter-template-form-delete-button"
-                isDisabled={
-                  isSubmitting || isDeleting || loading || deleteInProgress
-                }
-                containerStyles={{width: '100%'}}
-                styles={{width: '100%'}}
-                onClick={async () => {
-                  setIsDeleting(true);
-                  await deleteMatterTemplate();
-                }}
-                colorScheme="red"
-              >
-                Delete MatterTemplate &nbsp;
-                <Kbd border="1px solid #bbb" color="black">
-                  D
-                </Kbd>
-                <SubmissionInProgress loading={deleteInProgress} />
-              </FlashButton>
-            </StyledModalFooter>
-          </form>
+              ]
+            }
+          />
         </ModalContent>
       </ModalOverlay>
     </Modal>
