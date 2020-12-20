@@ -1,13 +1,11 @@
-import { Box, Heading } from '@chakra-ui/core';
 import React, { useState } from 'react';
-import { gutters, theme } from '../../themes/deleteYourData';
+import { colors, gutters, theme } from '../../themes/deleteYourData';
 
 import {
   AuthenticationContext
 } from '../../utils/authenticationContext';
-import {
-  BackgroundVideoPlayer
-} from '../../components/backgroundVideoPlayer';
+import { Box } from '@chakra-ui/core';
+import DYDBg from '../../images/dyd-bg.png';
 import { Nav } from './nav';
 import styled from '@emotion/styled';
 
@@ -16,7 +14,11 @@ const StyledHero = styled.header`
   min-height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7));
+  color: ${colors.white};
+  background: linear-gradient(rgba(0,0,0, .8), rgba(0,0,0, .75)), url(${DYDBg});
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 
   @media(max-height: 620px) {
     min-height: 540px;
@@ -45,6 +47,7 @@ const StyledHero = styled.header`
   p {
     max-width: 620px;
     margin: ${gutters.small} 0;
+    font-size: ${theme.fontSizes.normal};
 
     @media (max-width: 900px) {
       max-width: 560px;
@@ -64,15 +67,10 @@ export const Hero = () => {
   return (
     <StyledHero>
       <Nav />
-      <BackgroundVideoPlayer backgroundVideoUrl="/hero.mp4" />
+      <div aria-hidden={true} className="gradient"></div>
       <Box className="row" zIndex="1">
         <div className="text-box">
-          <Heading as="h1" fontSize={[
-            theme.fontSizes['xl'],
-            theme.fontSizes.huge,
-          ]}
-          fontWeight="400"
-          >Delete Your Data</Heading>
+          <h1>Delete Your Data</h1>
           <p>
           Hundereds of data brokers are buying and selling your online data{' '}
             <span aria-hidden="true">&mdash;</span> without your consent. Do you
@@ -88,13 +86,13 @@ export const Hero = () => {
                   as="button"
                   display="inline-block"
                   color="inherit"
-                  padding="1.2rem 3.5rem"
+                  padding=".6rem 2.2rem"
                   textDecoration="none"
                   border="1px solid"
                   fontWeight="500"
                   borderRadius="10rem"
-                  borderColor="orangered"
-                  background="orangered"
+                  borderColor={colors.primary}
+                  background={colors.primary}
                   disabled={loginButtonDisabled}
                   onClick={() => {
                     disableLoginButton(true);

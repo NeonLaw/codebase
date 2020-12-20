@@ -5,8 +5,12 @@ import { theme as chakraTheme } from '@chakra-ui/core';
 
 export const theme = Object.assign(chakraTheme, {
   fontSizes: {
-    huge: '4rem',
+    huge: '4.688rem',
+    large: '3.225rem',
+    large1: '2.7rem',
     md: '1.125rem',
+    medium: '1.563rem',
+    normal: '1.188rem',
     sm: '1rem',
     xl: '3.25rem',
     xl0: '2.50rem',
@@ -20,11 +24,22 @@ export const theme = Object.assign(chakraTheme, {
 });
 
 export const colors = {
-  background: { dark: theme.colors.gray[800], light: 'white' },
+  black: theme.colors.black,
+  blackLight: '#111',
+  blackLight1: '#222',
+  blackLight2: '#252525',
+  offWhite: '#f9f9f9',
   primary: 'orangered',
+  skyblue: 'royalblue',
+  white: theme.colors.white,
+};
+
+export const borders = {
+  light: '1px solid #eee',
 };
 
 export const gutters = {
+  large: '6.25rem',
   medium: '3.75rem',
   normal: '2.5rem',
   small: '1.875rem',
@@ -32,14 +47,6 @@ export const gutters = {
   small2: '1.25rem',
   small3: '0.9375rem',
 };
-
-// --gutter-large: 10rem;
-//         --gutter-medium: 6rem;
-//         --gutter-normal: 4rem;
-//         --gutter-small: 3rem;
-//         --gutter-small-1: 2.5rem;
-//         --gutter-small-2: 2rem;
-//         --gutter-small-3: 1.5rem;
 
 export const shadows = {
   light: '0.625rem 0.625rem 1.25rem rgba(0,0,0, .2)',

@@ -1,5 +1,6 @@
+import { colors, gutters } from '../../themes/deleteYourData';
+
 import React from 'react';
-import { gutters } from '../../themes/deleteYourData';
 import { links } from './links';
 import styled from '@emotion/styled';
 
@@ -13,10 +14,35 @@ const StyledNav = styled.nav`
   }
 
   a {
+    position: relative;
     display: inline-block;
     color: inherit;
     text-decoration: none;
     z-index: 1 !important;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -.6rem;
+      left: 0;
+      right: 100%;
+      display: inline-block;
+      height: 1px;
+      background: ${colors.white};
+      transition: all 0.4s cubic-bezier(0, 0.5, 0, 1);
+    }
+
+    &:hover,
+    &:focus {
+      color: ${colors.primary};
+      transition: all .2s;
+
+      &::after {
+        /* width: 100%; */
+        right: 0;
+        background: ${colors.primary};
+      }
+    }
 
     &:not(:last-child) {
       margin-right: ${gutters.medium};
@@ -26,7 +52,7 @@ const StyledNav = styled.nav`
       }
 
       @media(max-width: 320px) {
-        margin-right: ${gutters.small3};
+        margin-right: ${gutters.small};
       }
     }
   }
