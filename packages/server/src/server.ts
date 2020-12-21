@@ -136,7 +136,7 @@ app.get('/api/es.json', function (_, res) {
 
   fs.readdirSync(`${__dirname}/locales/es`).forEach((file) => {
     const jsonTranslation = yaml.load(
-      fs.readFileSync(`${__dirname}/locales/en/${file}`, {encoding: 'utf-8'})
+      fs.readFileSync(`${__dirname}/locales/es/${file}`, {encoding: 'utf-8'})
     );
 
     spanishTranslations = Object.assign(jsonTranslation, spanishTranslations);
