@@ -40,7 +40,6 @@ provider "kubernetes" {
 
 provider "helm" {
   kubernetes {
-    load_config_file = false
     host     = "https://${data.terraform_remote_state.gcp.outputs.gke_host}"
     username = data.terraform_remote_state.gcp.outputs.gke_username
     password = data.terraform_remote_state.gcp.outputs.gke_password

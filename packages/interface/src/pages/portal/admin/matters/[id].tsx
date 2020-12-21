@@ -9,7 +9,7 @@ import React from 'react';
 const AdminMattersDetail = ({ params: { id }}) => {
   return (
     <PortalLayout>
-      <Box textAlign="left">
+      <Box>
         <Breadcrumbs showHome={false} />
 
         <DeleteMatterButton id={id} />

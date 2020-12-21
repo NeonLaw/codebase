@@ -16,11 +16,10 @@ import { gutters } from '../../../themes/neonLaw';
 
 const AdminMatterTemplates = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [
-    showCreateMatterTemplateModal,
-    changeShowFlashCardModal
-  ] = useState(true);
-  const [currentRow, setCurrentRow] = useState(undefined);
+  const [showCreateMatterTemplateModal, changeShowFlashCardModal] = useState(
+    true,
+  );
+  const [currentRow, setCurrentRow] = useState();
 
   return (
     <PortalLayout>
@@ -29,7 +28,7 @@ const AdminMatterTemplates = () => {
 
         <FlashButton
           buttonScheme="teal"
-          containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
+          containerStyles={{ margin: `0 0 ${gutters.xSmallOne}` }}
           onClick={onOpen}
         >
           Create Matter Template&nbsp;
@@ -53,7 +52,7 @@ const AdminMatterTemplates = () => {
 
         <UpdateMatterTemplateModal
           isOpen={isOpen && !showCreateMatterTemplateModal}
-          currentRow={currentRow}
+          id={(currentRow as any)?.id}
           onClose={() => {
             changeShowFlashCardModal(true);
             onClose();

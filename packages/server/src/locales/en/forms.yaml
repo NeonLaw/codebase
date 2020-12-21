@@ -1,0 +1,26 @@
+forms:
+  accessibleButtons:
+    label: Accessible Buttons
+  answer:
+    label: Answer
+    placeholder: Enter the answer
+    required: Answer is required.
+  name:
+    label: Name
+    placeholder: Enter the name
+    required: Name is required.
+  questionType:
+    label: Question Type
+    placeholder: Enter the question type
+    required: Question Type is required.
+  prompt:
+    label: Prompt
+    placeholder: Enter the prompt
+    required: Prompt is required.
+  javascript_module:
+    label: JavaScript Module
+    placeholder: Enter the JavaScript module defined in our codebase
+  matter_template:
+    label: Matter Template
+  primary_contact:
+    label: Primary Contact
