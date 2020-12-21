@@ -1,5 +1,5 @@
-import { Kbd } from '@chakra-ui/core';
 import { FlashButton } from '../button';
+import { Kbd } from '@chakra-ui/core';
 import React from 'react';
 import { SubmissionInProgress } from '../submissionInProgress';
 import { gutters } from '../../themes/neonLaw';

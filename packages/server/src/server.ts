@@ -118,29 +118,29 @@ const limiter = rateLimit({
 app.use(limiter);
 
 app.get('/api/en.json', function (_, res) {
-  let englishTranslations = {}
+  let englishTranslations = {};
 
   fs.readdirSync(`${__dirname}/locales/en`).forEach((file) => {
     const jsonTranslation = yaml.load(
       fs.readFileSync(`${__dirname}/locales/en/${file}`, {encoding: 'utf-8'})
     );
 
-    englishTranslations = Object.assign(jsonTranslation, englishTranslations)
-  })
+    englishTranslations = Object.assign(jsonTranslation, englishTranslations);
+  });
 
   res.json(englishTranslations);
 });
 
 app.get('/api/es.json', function (_, res) {
-  let spanishTranslations = {}
+  let spanishTranslations = {};
 
   fs.readdirSync(`${__dirname}/locales/es`).forEach((file) => {
     const jsonTranslation = yaml.load(
       fs.readFileSync(`${__dirname}/locales/en/${file}`, {encoding: 'utf-8'})
     );
 
-    spanishTranslations = Object.assign(jsonTranslation, spanishTranslations)
-  })
+    spanishTranslations = Object.assign(jsonTranslation, spanishTranslations);
+  });
 
   res.json(spanishTranslations);
 });

@@ -10,7 +10,6 @@ import {
 import React from 'react';
 import { UpdateModalFormBuilder } from '../forms/updateModalFormBuilder';
 import { colors } from '../../themes/neonLaw';
-import { useIntl } from 'gatsby-plugin-intl';
 
 interface UpdateMatterTemplateModalProps {
   isOpen: boolean;
@@ -23,8 +22,6 @@ export const UpdateMatterTemplateModal = ({
   isOpen,
   onClose,
 }: UpdateMatterTemplateModalProps) => {
-  const intl = useIntl();
-
   const { colorMode } = useColorMode();
 
   return (
@@ -44,6 +41,7 @@ export const UpdateMatterTemplateModal = ({
           <ModalCloseButton style={{ color: colors.text[colorMode] }} />
           <UpdateModalFormBuilder
             resourceName="matterTemplate"
+            onClose={onClose}
             id={id}
             fields={[
               {

@@ -1,22 +1,21 @@
-import { ModalBody, ModalFooter, Kbd, useColorMode } from '@chakra-ui/core';
-import React, { useEffect, useRef, useState } from 'react';
-import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
-import { colors, gutters } from '../../themes/neonLaw';
-import { default as styled } from '@emotion/styled';
-import { useIntl } from 'gatsby-plugin-intl';
-import { useOperatingSystem } from '../../utils/useOperatingSystem';
-import { kebabCase, snakeCase } from 'voca';
-import { useForm } from 'react-hook-form';
-import { UpdateButton } from '../buttons/updateButton';
-import { DeleteButton } from '../buttons/deleteButton';
-import { CreateButton } from '../buttons/createButton';
-
 import { Field, InputBuilder } from './inputBuilder';
+import { ModalBody, ModalFooter, useColorMode } from '@chakra-ui/core';
+import React, { useEffect, useRef, useState } from 'react';
+import { colors, gutters } from '../../themes/neonLaw';
+import { kebabCase, titleCase } from 'voca';
+import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
+import { DeleteButton } from '../buttons/deleteButton';
+import { UpdateButton } from '../buttons/updateButton';
+import { default as styled } from '@emotion/styled';
+import { useForm } from 'react-hook-form';
+import { useOperatingSystem } from '../../utils/useOperatingSystem';
 
 interface FormBuilderProps {
-  id?: string;
+  id: string;
   fields: Field[];
   resourceName: string;
+  onClose(): void;
+  currentValues: any;
 }
 
 const StyledModalFooter = styled(ModalFooter)`
@@ -30,29 +29,23 @@ const StyledModalFooter = styled(ModalFooter)`
   }
 `;
 
-/*
- * @param {uuid} id - The existing ID of the record if it exists. If this
- * parameter is passed in, then the form will be an update/delete form. If this
- * parameter is not passed in, then the form will be a create form.
- */
 export const UpdateModalFormBuilder = ({
   id,
   resourceName,
   fields,
+  onClose,
+  currentValues,
 }: FormBuilderProps) => {
   const dasherizedResourceName = kebabCase(resourceName);
-  const underscoreName = snakeCase(resourceName);
+  const titlecaseResourceName = titleCase(resourceName);
   const capitalize = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
   const pascalCaseName = capitalize(resourceName);
 
-  const intl = useIntl();
   const { colorMode } = useColorMode();
   const { control, handleSubmit, errors, register, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [focus, setFocus] = useState(false);
   const [formError, setFormError] = useState('');
   const OS = useOperatingSystem();
 
@@ -61,16 +54,16 @@ export const UpdateModalFormBuilder = ({
   useEffect(() => {
     window.addEventListener('keypress', handleDPress);
 
-    const textArea = document.querySelector('.answer');
+    const input = document.querySelector('input');
 
-    if (null !== textArea) {
-      textArea.addEventListener('keydown', keyDownHandler);
+    if (null !== input) {
+      input.addEventListener('keydown', keyDownHandler);
     }
     return () => {
       window.removeEventListener('keypress', handleDPress);
 
-      if (null !== textArea) {
-        textArea.removeEventListener('keydown', keyDownHandler);
+      if (null !== input) {
+        input.removeEventListener('keydown', keyDownHandler);
       }
     };
   });
@@ -83,16 +76,23 @@ export const UpdateModalFormBuilder = ({
     }
   };
 
-  const [updateMutation, { loading: updateInProgress }] = require('')('');
+  const [
+    updateMutation,
+    { loading: updateMutationLoading },
+  ] = require('../../utils/api')(`useUpdate${pascalCaseName}ByIdMutation`);
+  const [
+    deleteMutation,
+    { loading: deleteMutationLoading },
+  ] = require('../../utils/api')(`useDelet${pascalCaseName}ByIdMutation`);
 
   const handleDPress = async (e) => {
-    if (id && isOpen && !focus && e.key === 'd') {
+    if (e.key === 'd') {
       await deleteMutation();
     }
   };
 
   const onSubmit = async ({ javascriptModule, name }) => {
-    await updateMatterTemplate({
+    await updateMutation({
       variables: { id, javascriptModule, name },
     })
       .then(async () => {
@@ -109,8 +109,6 @@ export const UpdateModalFormBuilder = ({
       });
   };
 
-  const currentModel = id;
-
   return (
     <form
       onSubmit={handleSubmit(onSubmit as any)}
@@ -125,6 +123,7 @@ export const UpdateModalFormBuilder = ({
           control={control}
           errors={errors}
           register={register}
+          currentValues={currentValues}
         />
       </ModalBody>
 

@@ -1,7 +1,7 @@
 import { FlashButton } from '../button';
 import React from 'react';
-import { SubmitForm } from '../keybindings/submitForm';
 import { SubmissionInProgress } from '../submissionInProgress';
+import { SubmitForm } from '../keybindings/submitForm';
 import { gutters } from '../../themes/neonLaw';
 
 interface UpdateButtonProps {
