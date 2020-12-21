@@ -85,6 +85,8 @@ export const InputBuilder = ({
                 control={control}
               />
             );
+          default:
+            return null;
         }
       })}
     </>

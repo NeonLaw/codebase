@@ -11,7 +11,6 @@ import { useForm } from 'react-hook-form';
 import { useOperatingSystem } from '../../utils/useOperatingSystem';
 
 interface FormBuilderProps {
-  id: string;
   fields: Field[];
   resourceName: string;
   onClose(): void;
@@ -30,7 +29,6 @@ const StyledModalFooter = styled(ModalFooter)`
 `;
 
 export const UpdateModalFormBuilder = ({
-  id,
   resourceName,
   fields,
   onClose,
@@ -91,9 +89,9 @@ export const UpdateModalFormBuilder = ({
     }
   };
 
-  const onSubmit = async ({ javascriptModule, name }) => {
+  const onSubmit = async (variables) => {
     await updateMutation({
-      variables: { id, javascriptModule, name },
+      variables,
     })
       .then(async () => {
         setFormError('');

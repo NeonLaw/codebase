@@ -14,7 +14,7 @@ import { colors } from '../../themes/neonLaw';
 interface UpdateMatterTemplateModalProps {
   isOpen: boolean;
   onClose(): void;
-  id: string;
+  id?: string;
 }
 
 export const UpdateMatterTemplateModal = ({
@@ -42,7 +42,7 @@ export const UpdateMatterTemplateModal = ({
           <UpdateModalFormBuilder
             resourceName="matterTemplate"
             onClose={onClose}
-            id={id}
+            currentValues={{ id }}
             fields={[
               {
                 name: 'name',
