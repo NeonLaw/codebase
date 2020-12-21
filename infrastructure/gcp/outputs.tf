@@ -37,6 +37,7 @@ output "zone" {
 
 output "gcp_credentials" {
   value = var.gcp_credentials
+  sensitive = true
 }
 
 output "gke_username" {
