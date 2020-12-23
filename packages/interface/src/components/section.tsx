@@ -47,22 +47,24 @@ export const Section = ({
     >
       <Container>
         <>
-          <h2
-            style={{
-              ...titleStyles,
-              textAlign: isTitleCentered ? 'center' : 'left',
-            }}
-            className={`${
-              isTitleUnderlined
-                ? 'heading__underlined heading__underlined--cyan'
-                : ''
-            } ${
-              underlineColor === 'orange' ? 'heading__underlined--orange' : ''
-            } ${isTitleCentered ? 'heading__underlined--centered' : ''}`}
-            data-testid={titleTestId}
-          >
-            {title}
-          </h2>
+          {
+            title ? <h2
+              style={{
+                ...titleStyles,
+                textAlign: isTitleCentered ? 'center' : 'left',
+              }}
+              className={`${
+                isTitleUnderlined
+                  ? 'heading__underlined heading__underlined--cyan'
+                  : ''
+              } ${
+                underlineColor === 'orange' ? 'heading__underlined--orange' : ''
+              } ${isTitleCentered ? 'heading__underlined--centered' : ''}`}
+              data-testid={titleTestId}
+            >
+              {title}
+            </h2> : null
+          }
           {children}
         </>
       </Container>
