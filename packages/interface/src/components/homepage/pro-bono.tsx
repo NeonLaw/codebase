@@ -11,7 +11,6 @@ export const ProBono = () => {
   return (
     <Section
       title={intl.formatMessage({ id: 'pro_bono.title' })}
-      isTitleUnderlined={true}
     >
       <Box as="p" maxWidth={sizes.textContainerSmall}>
         Finally, and most importantly, we are proudest of&nbsp;

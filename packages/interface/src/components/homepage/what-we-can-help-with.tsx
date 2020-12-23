@@ -81,7 +81,6 @@ export const WhatWeCanHelpWith = () => {
   return (
     <Section 
       title={intl.formatMessage({ id: 'we_can_help_with.title' })}
-      isTitleUnderlined={true}
     >
       <Box
         display="grid"

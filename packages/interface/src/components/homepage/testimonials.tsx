@@ -19,7 +19,6 @@ export const Testimonials = () => {
   return (
     <Section 
       title={intl.formatMessage({ id: 'testimonials.title' })}
-      isTitleUnderlined={true}
     >
       <StyledTestimonials>
         {testimonails.map((t: TestimonialProps, i: any) => (

@@ -1,4 +1,5 @@
 import { Reason, ReasonProps } from './reason';
+
 import ChildrenStockPhoto from '../../images/children-stock-photo.jpg';
 import Flowers from '../../images/flowers.jpg';
 import React from 'react';
@@ -35,7 +36,6 @@ export const WhyNeonLaw = () => {
   return (
     <Section
       title={intl.formatMessage({ id: 'why_neon_law.heading' })}
-      isTitleUnderlined={true}
     >
       <p>{intl.formatMessage({ id: 'why_neon_law.sub_text' })}</p>
       <div>

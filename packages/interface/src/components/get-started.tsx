@@ -13,7 +13,6 @@ export const GetStarted = () => {
   return (
     <Section
       title={intl.formatMessage({ id: 'get_started.title' })}
-      isTitleUnderlined={true}
     >
       <Box
         as="p"

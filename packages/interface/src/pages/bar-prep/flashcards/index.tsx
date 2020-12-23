@@ -18,7 +18,6 @@ const Flashcards = () => {
 
       <Section
         title='Bar Prep Flashcards'
-        isTitleUnderlined={true}
         titleTestId='flashcards-heading'
       >
         <FlashcardContainer />

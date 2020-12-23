@@ -1,4 +1,9 @@
-import { borders, colors, gutters } from '../../themes/deleteYourData';
+import {
+  borders,
+  colors,
+  gradients,
+  gutters
+} from '../../themes/deleteYourData';
 import { useColorMode, useColorModeValue } from '@chakra-ui/core';
 
 import React from 'react';
@@ -8,7 +13,7 @@ const StyledFAQ = styled.div`
   flex: 0 0 47%;
   margin-bottom: ${gutters.large};
   padding: ${gutters.normal} ${gutters.small};
-  background: linear-gradient(${colors.blackLight1}, ${colors.blackLight});
+  background: ${gradients.dark};
   border-radius: 1.875rem;
   max-width: 500px;
 
@@ -59,7 +64,7 @@ export const FAQ = ({ title, text, icon }: FAQProps) => {
       style={{
         background: useColorModeValue(
           colors.white,
-          `linear-gradient(${colors.blackLight1}, ${colors.blackLight})`,
+          gradients.dark,
         ),
         border: colorMode === 'light' ? borders.light : 'none'
       }}
@@ -69,7 +74,7 @@ export const FAQ = ({ title, text, icon }: FAQProps) => {
         style={{
           background: useColorModeValue(
             colors.white,
-            `linear-gradient(${colors.blackLight1}, ${colors.blackLight})`,
+            gradients.dark,
           ),
           border: colorMode === 'light' ? borders.light : 'none'
         }}

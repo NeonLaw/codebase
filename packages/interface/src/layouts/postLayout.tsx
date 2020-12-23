@@ -4,7 +4,6 @@ import {
   colors,
   gutters,
   shadows,
-  sizes,
 } from '../themes/neonLaw';
 
 import { ApolloProvider } from '@apollo/client';
@@ -33,17 +32,14 @@ import { useSiteMetadata } from '../components/hooks';
 
 const StyledPostTemplate = styled.div`
     .post-wrapper {
-        max-width: ${sizes.textContainerMedium};
-        margin: 0 auto;
-        padding: ${gutters.small};
         box-shadow: ${shadows.light2};
 
         @media(max-width: 600px) {
-            padding: ${gutters.small} ${gutters.xSmall};
+          padding: ${gutters.small} ${gutters.xSmall};
         }
 
         @media(max-width: 400px) {
-            padding: ${gutters.small} ${gutters.xSmallOne};
+          padding: ${gutters.small} ${gutters.xSmallOne};
         }
     }
 
@@ -107,8 +103,9 @@ const PostLayout: React.FC<{
                   >
                     <Container>
                       <Box
-                        className="post-wrapper"
+                        className="post-wrapper wrapper--centered"
                         background={colors.background[colorMode]}
+                        color={colors.text[colorMode]}
                         border={`1px solid ${colors.borders[colorMode]}`}
                       >
                         <Breadcrumbs />

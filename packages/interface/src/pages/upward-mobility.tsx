@@ -20,7 +20,6 @@ const UpwardMobilityHome = (props) => {
       <Seo title="Upward Mobility" />
       <Section 
         title={intl.formatMessage({ id: 'pages_upward_mobility.heading' })}
-        isTitleUnderlined={true}
         titleStyles={{marginTop: '4.5rem'}}
       >
         <Text>

@@ -24,7 +24,6 @@ export const FAQs = () => (
   <StyledFAQs>
     <Section 
       title="Frequently Asked Questions"
-      isTitleUnderlined={true}
       isTitleCentered={true}
       underlineColor='orange'
       styles={{background: useColorModeValue(colors.offWhite, colors.black)}}

@@ -38,7 +38,6 @@ export const SocialProofLogos = () => {
   return (
     <Section
       title={intl.formatMessage({ id: 'worked_with.title' })}
-      isTitleUnderlined={true}
     >
       <StyledLogosContainer>
         {orgs.map((org: Org) => org.logo)}

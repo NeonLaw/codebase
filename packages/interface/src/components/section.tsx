@@ -19,7 +19,7 @@ export interface SectionProps {
   children: JSX.Element | JSX.Element[];
   styles?: CSSProperties;
   title?: string;
-  isTitleUnderlined?: boolean;
+  isTitleNotUnderlined?: boolean;
   isTitleCentered?: boolean;
   underlineColor?: 'orange';
   titleStyles?: CSSProperties;
@@ -30,7 +30,7 @@ export const Section = ({
   children,
   styles,
   title,
-  isTitleUnderlined,
+  isTitleNotUnderlined,
   isTitleCentered,
   underlineColor,
   titleStyles = {},
@@ -54,9 +54,9 @@ export const Section = ({
                 textAlign: isTitleCentered ? 'center' : 'left',
               }}
               className={`${
-                isTitleUnderlined
-                  ? 'heading__underlined heading__underlined--cyan'
-                  : ''
+                isTitleNotUnderlined
+                  ? ''
+                  : 'heading__underlined heading__underlined--cyan'
               } ${
                 underlineColor === 'orange' ? 'heading__underlined--orange' : ''
               } ${isTitleCentered ? 'heading__underlined--centered' : ''}`}

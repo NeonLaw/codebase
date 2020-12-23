@@ -1,5 +1,5 @@
 import { Global, css } from '@emotion/core';
-import { colors, gutters } from '../themes/neonLaw';
+import { colors, gutters, sizes } from '../themes/neonLaw';
 
 import { colors as DydColors } from '../themes/deleteYourData';
 import React from 'react';
@@ -38,6 +38,14 @@ export const BaseStyles = (): JSX.Element => (
 
         @media (max-width: 600px) {
           padding: ${gutters.largeTwo} 0;
+        }
+      }
+
+      .wrapper {
+        &--centered {
+          max-width: ${sizes.textContainerMedium};
+          margin: 0 auto;
+          padding: ${gutters.small};
         }
       }
 

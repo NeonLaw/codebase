@@ -13,7 +13,6 @@ export const BeginUpwardMobilityQuestionnaire = () => {
     <>
       <Section
         title={intl.formatMessage({ id: 'beginUpwardMQ.heading' })}
-        isTitleUnderlined={true}
         titleStyles={{marginTop: '4.5rem'}}
       >
         <Text margin="2em 0">

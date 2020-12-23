@@ -54,3 +54,7 @@ export const shadows = {
   light15: '0 .2rem .3rem rgba(0,0,0, .125)',
   light2: '0 0.1rem .2rem rgba(0,0,0, .1)',
 };
+
+export const gradients = {
+  dark: `linear-gradient(${colors.blackLight1}, ${colors.blackLight})`,
+};
