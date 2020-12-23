@@ -79,10 +79,9 @@ export const WhatWeCanHelpWith = () => {
   ];
 
   return (
-    <Section>
-      <h2 className="heading--underlined">
-        {intl.formatMessage({ id: 'we_can_help_with.title' })}
-      </h2>
+    <Section 
+      title={intl.formatMessage({ id: 'we_can_help_with.title' })}
+    >
       <Box
         display="grid"
         gridGap="1rem"

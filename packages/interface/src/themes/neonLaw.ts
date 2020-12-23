@@ -50,7 +50,7 @@ export const colors = {
   textareaToolbarBackground: {
     dark: theme.colors.gray[600],
     light: theme.colors.gray[600],
-  }
+  },
 };
 
 export const sizes = {

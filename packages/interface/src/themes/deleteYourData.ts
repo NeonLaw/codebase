@@ -5,7 +5,13 @@ import { theme as chakraTheme } from '@chakra-ui/core';
 
 export const theme = Object.assign(chakraTheme, {
   fontSizes: {
+    huge: '4.688rem',
+    large: '3.225rem',
+    large1: '2.7rem',
     md: '1.125rem',
+    medium: '1.563rem',
+    normal: '1.188rem',
+    sm: '1rem',
     xl: '3.25rem',
     xl0: '2.50rem',
     xl1: '2.25rem',
@@ -18,59 +24,28 @@ export const theme = Object.assign(chakraTheme, {
 });
 
 export const colors = {
-  background: { dark: theme.colors.gray[800], light: 'white' },
-  black1: '#151515',
-  borderLight: { dark: theme.colors.gray[800], light: theme.colors.gray[50] },
-  borders: {
-    dark: theme.colors.gray[700],
-    light: theme.colors.gray[100],
-  },
-  inputBorders: {
-    dark: theme.colors.gray[700],
-    light: theme.colors.gray[300],
-  },
-  lighterBg: { dark: theme.colors.gray[700], light: theme.colors.gray[50] },
-  link: { dark: 'red.400', light: 'red.800' },
-  primaryButtonBg: {
-    dark: 'red.400',
-    light: 'red.900',
-    lightBlue: '#1AA6E4',
-  },
-  primaryButtonBgOnHover: { dark: 'red.300', light: 'red.500' },
-  primaryButtonColor: { dark: 'black', light: 'white' },
-  primaryColor400: theme.colors.red[400],
-  primaryColor800: theme.colors.red[800],
-  primaryColor900: theme.colors.red[900],
-  text: { dark: 'white', darkLight: '#eee', light: '#222' },
-  textareaBackground: { dark: theme.colors.gray[800], light: 'white' },
-  textareaToolbarActiveBackground: {
-    dark: theme.colors.gray[600],
-    light: theme.colors.gray[600],
-  },
-  textareaToolbarBackground: {
-    dark: theme.colors.gray[600],
-    light: theme.colors.gray[600],
-  }
+  black: theme.colors.black,
+  blackLight: '#111',
+  blackLight1: '#222',
+  blackLight2: '#252525',
+  offWhite: '#f9f9f9',
+  primary: 'orangered',
+  skyblue: 'royalblue',
+  white: theme.colors.white,
 };
 
-export const sizes = {
-  textContainerMedium: '850px',
-  textContainerMediumOne: '800px',
-  textContainerSmall: '680px',
-  textContainerSmallOne: '600px',
-  textContainerSmallTwo: '620px',
-  textContainerXSmall: '580px'
+export const borders = {
+  light: '1px solid #eee',
 };
 
 export const gutters = {
-  huge: '10rem',
-  large: '7.5rem',
-  largeOne: '6.25rem',
-  largeTwo: '5rem',
-  medium: '3.5rem',
+  large: '6.25rem',
+  medium: '3.75rem',
+  normal: '2.5rem',
   small: '1.875rem',
-  xSmall: '1.25rem',
-  xSmallOne: '1rem',
+  small1: '1.5625rem',
+  small2: '1.25rem',
+  small3: '0.9375rem',
 };
 
 export const shadows = {
@@ -78,4 +53,8 @@ export const shadows = {
   light1: '0.425rem 0.425rem .85rem rgba(0,0,0, .15)',
   light15: '0 .2rem .3rem rgba(0,0,0, .125)',
   light2: '0 0.1rem .2rem rgba(0,0,0, .1)',
+};
+
+export const gradients = {
+  dark: `linear-gradient(${colors.blackLight1}, ${colors.blackLight})`,
 };

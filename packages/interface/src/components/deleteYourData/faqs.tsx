@@ -1,27 +1,20 @@
+import { colors, gutters } from '../../themes/deleteYourData';
+
 import { FAQ } from './faq';
 import React from 'react';
+import { Section } from '../section';
 import { faqs } from './contents';
 import styled from '@emotion/styled';
+import { useColorModeValue } from '@chakra-ui/core';
 
-const StyledFAQs = styled.section`
-  padding-bottom: 5rem;
-
-  h2 {
-    margin-bottom: var(--gutter-large);
-    text-align: center;
-
-    &::after {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
+const StyledFAQs = styled.div`
   .faqs {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding: ${gutters.large} 0 0;
 
-    @media(max-width: 1020px) {
+    @media (max-width: 1020px) {
       justify-content: center;
     }
   }
@@ -29,13 +22,19 @@ const StyledFAQs = styled.section`
 
 export const FAQs = () => (
   <StyledFAQs>
-    <div className="row" id="faqs">
-      <h2>Frequently Asked Questions</h2>
-      <div className="faqs">
-        {faqs.map((f) => (
-          <FAQ key={f.title} {...f} />
-        ))}
+    <Section 
+      title="Frequently Asked Questions"
+      isTitleCentered={true}
+      underlineColor='orange'
+      styles={{background: useColorModeValue(colors.offWhite, colors.black)}}
+    >
+      <div className="row" id="faqs">
+        <div className="faqs">
+          {faqs.map((f) => (
+            <FAQ key={f.title} {...f} />
+          ))}
+        </div>
       </div>
-    </div>
+    </Section>
   </StyledFAQs>
 );

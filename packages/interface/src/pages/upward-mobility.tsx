@@ -1,11 +1,10 @@
-import { Heading, Text } from '@chakra-ui/core';
-
 import { FlashButton } from '../components/button';
 import { PublicLayout } from '../layouts/publicLayout';
 import React from 'react';
 import { Router } from '@reach/router';
 import { Section } from '../components/section';
 import { Seo } from '../components/seo';
+import { Text } from '@chakra-ui/core';
 import {
   UpwardMobilityQuestionnaire
 } from '../components/upwardMobilityQuestionnaire';
@@ -19,10 +18,10 @@ const UpwardMobilityHome = (props) => {
   return (
     <>
       <Seo title="Upward Mobility" />
-      <Section>
-        <Heading as="h2" fontWeight="normal" marginTop="4.5rem">
-          {intl.formatMessage({ id: 'pages_upward_mobility.heading' })}
-        </Heading>
+      <Section 
+        title={intl.formatMessage({ id: 'pages_upward_mobility.heading' })}
+        titleStyles={{marginTop: '4.5rem'}}
+      >
         <Text>
           {intl.formatMessage({ id: 'pages_upward_mobility.text' })}
         </Text>

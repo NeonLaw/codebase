@@ -1,7 +1,3 @@
-/* eslint-disable */
-// @ts-nocheck
-/* eslint-enable */
-import { Heading, Text } from '@chakra-ui/core';
 import {
   FlashcardContainer
 } from '../../../components/flashcardContainer';
@@ -10,16 +6,20 @@ import { PublicLayout } from '../../../layouts/publicLayout';
 import React from 'react';
 import { Section } from '../../../components/section';
 import { Seo } from '../../../components/seo';
+/* eslint-disable */
+// @ts-nocheck
+/* eslint-enable */
+import { Text } from '@chakra-ui/core';
 
 const Flashcards = () => {
   return (
     <PublicLayout>
       <Seo title="Bar Prep Flashcards" />
 
-      <Section>
-        <Heading fontWeight="normal" data-testid="flashcards-heading">
-          Bar Prep Flashcards
-        </Heading>
+      <Section
+        title='Bar Prep Flashcards'
+        titleTestId='flashcards-heading'
+      >
         <FlashcardContainer />
         <Text textDecoration="underline">
           <Link to="/bar-prep">

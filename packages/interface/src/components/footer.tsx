@@ -10,6 +10,7 @@ import {
   useColorMode
 } from '@chakra-ui/core';
 import { colors, sizes } from '../themes/neonLaw';
+
 import { Container } from './container';
 import { EmailListButton } from './emailListButton';
 import { LanguageDropdown } from './languageDropdown';
@@ -50,7 +51,7 @@ export const Footer = ({ isWhite }: FooterProps) => {
     >
       <Section>
         <Box maxWidth={sizes.textContainerSmall}>
-          <Heading as="h3" fontWeight="normal">
+          <Heading as="h3" fontWeight="normal" color={colors.text[colorMode]}>
             {intl.formatMessage({
               id: 'footer.neon_law.heading'
             })}

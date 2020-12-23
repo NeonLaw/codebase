@@ -1,4 +1,5 @@
 import { Global, css } from '@emotion/core';
+import { gutters, theme } from '../themes/deleteYourData';
 
 import React from 'react';
 
@@ -9,34 +10,6 @@ export const DeleteYourDataStyles = () => (
       /* ----- Basic Setup ----- */
       /* --------------------------------------- */
 
-      :root {
-        --grid-max-width: 1180px;
-
-        --gutter-large: 10rem;
-        --gutter-medium: 6rem;
-        --gutter-normal: 4rem;
-        --gutter-small: 3rem;
-        --gutter-small-1: 2.5rem;
-        --gutter-small-2: 2rem;
-        --gutter-small-3: 1.5rem;
-
-        --font-size-huge: 7.5rem;
-        --font-size-large: 5rem;
-        --font-size-medium: 2.5rem;
-        --font-size-default: 1.8rem;
-        --font-size-normal: 1.9rem;
-        --font-size-normal-1: 2rem;
-
-        --primary: orangered;
-        --black: #000;
-        --black-light: #111;
-        --black-light-1: #222;
-        --black-light-2: #252525;
-
-        --white: #fff;
-        --off-white: #e4e4e4;
-      }
-
       *,
       *::before,
       *::after {
@@ -45,32 +18,11 @@ export const DeleteYourDataStyles = () => (
         box-sizing: inherit;
       }
 
-      html {
-        font-size: 62.5%;
-
-        @media(max-width: 900px) {
-          font-size: 57%;
-        }
-      }
-
       body {
         font-family: "HK Grotesk", sans-serif;
-        font-size: var(--font-size-default);
         line-height: 1.6;
-        color: var(--off-white);
-        background: var(--black);
         box-sizing: border-box;
         overflow-x: hidden;
-      }
-
-      .row {
-        max-width: var(--grid-max-width);
-        width: 90%;
-        margin: 0 auto;
-      }
-
-      section {
-        padding: 10rem 0;
       }
 
       /* --------------------------------------- */
@@ -84,60 +36,32 @@ export const DeleteYourDataStyles = () => (
         font-family: "Jost", sans-serif;
         line-height: 1.3;
         font-weight: 400;
-        color: var(--white);
       }
 
       h1 {
-        font-size: var(--font-size-huge);
+        font-size: ${theme.fontSizes.huge};
 
         @media(max-width: 800px) {
-          font-size: 6rem;
+          font-size: ${theme.fontSizes.large};
         }
       }
 
       h2 {
-        font-size: var(--font-size-large);
-        margin-bottom: var(--gutter-normal);
+        font-size: ${theme.fontSizes.large};
+        margin-bottom: ${gutters.normal};
 
         @media(max-width: 800px) {
-          font-size: 4rem;
+          font-size: ${theme.fontSizes.large1};
         }
-      }
 
-      h2::after {
-        content: '';
-        display: block;
-        height: 2px;
-        width: 10rem;
-        margin: var(--gutter-small) 0;
-        background: var(--primary);
+        &::after {
+          margin: ${gutters.small} 0;
+        }
       }
 
       h3 {
-        font-size: var(--font-size-medium);
-        margin-bottom: var(--gutter-small-2);
-      }
-
-      /* --------------------------------------- */
-      /* ----- Buttons & Links ----- */
-      /* --------------------------------------- */
-
-      a {
-        color: skyblue;
-      }
-
-      .btn {
-        display: inline-block;
-        padding: 1.2rem 3.5rem;
-        text-decoration: none;
-        color: inherit;
-        border: 1px solid;
-        border-radius: 10rem;
-
-        &--cta {
-          border-color: var(--primary);
-          background: var(--primary);
-        }
+        font-size: ${theme.fontSizes.medium};
+        margin-bottom: ${gutters.small3};
       }
     `}
   />

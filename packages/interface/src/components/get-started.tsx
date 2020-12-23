@@ -11,8 +11,9 @@ export const GetStarted = () => {
   const intl = useIntl();
 
   return (
-    <Section>
-      <h2>{intl.formatMessage({ id: 'get_started.title' })}</h2>
+    <Section
+      title={intl.formatMessage({ id: 'get_started.title' })}
+    >
       <Box
         as="p"
         maxWidth={sizes.textContainerSmall}

@@ -4,7 +4,6 @@ import {
   colors,
   gutters,
   shadows,
-  sizes,
 } from '../../../themes/neonLaw';
 
 import { ApolloProvider } from '@apollo/client';
@@ -25,9 +24,6 @@ import styled from '@emotion/styled';
 
 const StyledFlashcardTemplate = styled.div`
   .flashcard-wrapper {
-    max-width: ${sizes.textContainerMedium};
-    margin: 0 auto;
-    padding: ${gutters.small};
     box-shadow: ${shadows.light2};
 
     @media(max-width: 600px) {
@@ -95,7 +91,7 @@ const FlashcardLayout: React.FC<{
                   >
                     <Container>
                       <Box
-                        className="flashcard-wrapper"
+                        className="flashcard-wrapper wrapper--centered"
                         background={colors.background[colorMode]}
                         border={`1px solid ${colors.borders[colorMode]}`}
                       >

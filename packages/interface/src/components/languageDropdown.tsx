@@ -56,7 +56,6 @@ export const LanguageDropdown = () => {
         cursor="pointer"
         width="100%"
         display={['block', 'block', 'none']}
-        textAlign="center"
         padding="7px 0"
       >
         <Text>{intl.formatMessage({ id: 'languageDropdown.text' })}</Text>
