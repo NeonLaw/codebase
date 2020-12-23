@@ -8,16 +8,23 @@ import { colors } from '../../themes/neonLaw';
 
 export const SelectWithQuery = ({
   control,
-  query,
-  labelColumn,
-  queryName,
   errors,
   label,
+  labelColumn,
+  queryName,
   name,
   testId,
   value = '',
 }) => {
-  const { loading, data, error } = query();
+  const capitalize = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
+  const {
+    data,
+    loading,
+    error
+  } = require('../../utils/api')[`use${capitalize(queryName)}Query`]();
 
   if (loading) {
     return (<h1>Loading</h1>);
@@ -36,16 +43,21 @@ export const SelectWithQuery = ({
 
   return (
     <FormControl isInvalid={errors && errors[name]} color={'red'}>
-      <FormLabel htmlFor="name">
+      <FormLabel htmlFor={name}>
         {label}
       </FormLabel>
       <Box color={colors.text.light} data-testid={testId}>
         <Controller
-          as={ReactSelect}
+          render={({ onChange }) => (
+            <ReactSelect
+              options={options}
+              onChange={(option) => onChange(option.value)}
+              name={name}
+              defaultValue={defaultValue}
+            />
+          )}
           name={name}
           control={control}
-          options={options}
-          defaultValue={defaultValue || options[0]}
         />
       </Box>
       <FormErrorMessage>

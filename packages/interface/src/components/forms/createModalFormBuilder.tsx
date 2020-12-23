@@ -1,23 +1,13 @@
+import { Field, InputBuilder } from './inputBuilder';
 import { ModalBody, ModalFooter, useColorMode } from '@chakra-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
 import { colors, gutters } from '../../themes/neonLaw';
 import { kebabCase, titleCase } from 'voca';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 import { CreateButton } from '../buttons/createButton';
-import { InputBuilder } from './inputBuilder';
 import { default as styled } from '@emotion/styled';
 import { useForm } from 'react-hook-form';
 import { useOperatingSystem } from '../../utils/useOperatingSystem';
-
-interface Option {
-  label: string;
-  value: string;
-}
-interface Field {
-  name: string;
-  type: 'string' | 'codeEditor' | 'select';
-  options?: Option[];
-}
 
 interface FormBuilderProps {
   fields: Field[];
@@ -81,7 +71,7 @@ export const CreateModalFormBuilder = ({
   const [
     createMutation,
     { loading: createMutationLoading },
-  ] = require('../../utils/api')(`useCreate${pascalCaseName}Mutation`);
+  ] = require('../../utils/api')[`useCreate${pascalCaseName}Mutation`]();
 
   const onSubmit = async (variables) => {
     await createMutation({

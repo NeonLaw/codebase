@@ -29,7 +29,7 @@ export const CreateButton = ({
       styles={{ width: '100%' }}
       colorScheme="teal"
     >
-      Create ${titlecaseResourceName}&nbsp;
+      Create {titlecaseResourceName}&nbsp;
       <SubmitForm />
       <SubmissionInProgress loading={createMutationLoading} />
     </FlashButton>

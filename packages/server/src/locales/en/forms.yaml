@@ -20,7 +20,7 @@ forms:
   javascript_module:
     label: JavaScript Module
     placeholder: Enter the JavaScript module defined in our codebase
-  matter_template:
+  matter_template_id:
     label: Matter Template
-  primary_contact:
+  primary_contact_id:
     label: Primary Contact
