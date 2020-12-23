@@ -45,7 +45,6 @@ const AdminMatters = () => {
             changeShowCreateMatterModal(true);
             onClose();
           }}
-          onOpen={onOpen}
         />
 
         <MatterTable
