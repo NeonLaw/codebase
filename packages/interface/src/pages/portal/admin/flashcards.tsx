@@ -46,7 +46,6 @@ const AdminFlashcards = () => {
             changeShowFlashCardModal(true);
             onClose();
           }}
-          onOpen={onOpen}
         />
 
         <UpdateFlashcardModal

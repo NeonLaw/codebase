@@ -17,10 +17,10 @@ describe('Creating Bar Prep Flashcard', () => {
         .should('exist');
 
       cy
-        .get('[data-testid="create-flashcard-form-prompt"]')
+        .get('[data-testid="flashcard-form-prompt"]')
         .type(faker.lorem.sentence());
 
-      cy.getEditor('[data-testid="create-flashcard-form-answer"]')
+      cy.getEditor('[data-testid="flashcard-form-answer"]')
         .typeInSlate(faker.lorem.paragraph());
 
       cy
