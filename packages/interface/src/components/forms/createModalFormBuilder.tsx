@@ -74,29 +74,30 @@ export const CreateModalFormBuilder = ({
     { loading: createMutationLoading },
   ] = require('../../utils/api')[`useCreate${pascalCaseName}Mutation`]();
 
+  const update = (cache, { data }) => {
+    const createdResource = data[`create${pascalCaseName}`][resourceName];
+    const allQuery = `all${pascalCaseName}s`;
+    const fields = {
+      [allQuery](existingRecords) {
+        const newRef = cache.writeFragment({
+          data: createdResource,
+          fragment: gql`
+            fragment New${pascalCaseName} on ${pascalCaseName} {
+              id
+            }
+          `
+        });
+
+        return [...existingRecords.nodes, newRef];
+      }
+    };
+
+    cache.modify({ fields });
+  };
+
   const onSubmit = async (variables) => {
     await createMutation({
-      update(cache, { data }) {
-        const createdResource = data[`create${pascalCaseName}`][resourceName];
-        const allQuery = `all${pascalCaseName}s`;
-        alert(allQuery);
-        const fields = {
-          [allQuery](existingRecords) {
-            const newRef = cache.writeFragment({
-              data: createdResource,
-              fragment: gql`
-                fragment New${pascalCaseName} on ${pascalCaseName} {
-                  id
-                }
-              `
-            });
-
-            return [...existingRecords.nodes, newRef];
-          }
-        };
-
-        cache.modify({ fields });
-      },
+      update,
       variables,
     })
       .then(async () => {
