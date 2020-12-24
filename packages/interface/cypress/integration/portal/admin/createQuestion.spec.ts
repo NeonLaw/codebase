@@ -13,7 +13,7 @@ describe('Creating Questions', () => {
         .should('exist');
 
       cy
-        .get('[data-testid="create-question-form-prompt"]')
+        .get('[data-testid="question-form-prompt"]')
         .type(faker.lorem.sentence());
 
       cy.get('[data-testid="create-question-form-submit"]')
