@@ -19,11 +19,11 @@ describe('Creating Matter Templates', () => {
           .should('exist');
 
         cy
-          .get('[data-testid="create-matter-template-form-name"]')
+          .get('[data-testid="matter-template-form-name"]')
           .type(faker.lorem.sentence());
 
         cy.get(
-          '[data-testid="create-matter-template-form-javascript-module"]'
+          '[data-testid="matter-template-form-javascript-module"]'
         ).type(faker.lorem.sentence());
 
         cy
