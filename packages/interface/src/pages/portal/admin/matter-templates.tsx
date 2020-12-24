@@ -47,7 +47,6 @@ const AdminMatterTemplates = () => {
             changeShowFlashCardModal(true);
             onClose();
           }}
-          onOpen={onOpen}
         />
 
         <UpdateMatterTemplateModal

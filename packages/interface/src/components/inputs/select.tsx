@@ -5,6 +5,7 @@ import { ErrorMessage } from '@hookform/error-message';
 import React from 'react';
 import { default as ReactSelect } from 'react-select';
 import { colors } from '../../themes/neonLaw';
+import { kebabCase } from 'voca';
 
 export const Select = ({
   control,
@@ -26,11 +27,17 @@ export const Select = ({
       </FormLabel>
       <Box color={colors.text.light} data-testid={testId}>
         <Controller
-          as={ReactSelect}
+          render={({ onChange }) => (
+            <ReactSelect
+              options={options}
+              classNamePrefix={`react-select-${kebabCase(name)}`}
+              onChange={(option) => onChange(option.value)}
+              name={name}
+              defaultValue={defaultValue}
+            />
+          )}
           name={name}
           control={control}
-          options={options}
-          defaultValue={defaultValue || options[0]}
         />
       </Box>
       <FormErrorMessage>

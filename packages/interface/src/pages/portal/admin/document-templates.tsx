@@ -48,7 +48,6 @@ const AdminDocumentTemplates = () => {
             changeShowFlashCardModal(true);
             onClose();
           }}
-          onOpen={onOpen}
         />
 
         <UpdateDocumentTemplateModal
