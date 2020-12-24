@@ -11,6 +11,7 @@ import { CreateModalFormBuilder } from '../forms/createModalFormBuilder';
 import React from 'react';
 import { colors } from '../../themes/neonLaw';
 
+/* eslint-disable-next-line */
 export const CreateMatterTemplateModal = ({ isOpen, onClose, onOpen }) => {
   const { colorMode } = useColorMode();
 
