@@ -20,7 +20,7 @@ export const CreateButton = ({
   return (
     <FlashButton
       type="submit"
-      data-testid={`update-${dasherizedResourceName}-form-submit`}
+      data-testid={`create-${dasherizedResourceName}-form-submit`}
       isDisabled={isSubmitting || createMutationLoading}
       containerStyles={{
         margin: `${gutters.xSmallOne} 0`,
