@@ -1,4 +1,4 @@
-import { Select, StringInput } from '../inputs';
+import { Select, SelectWithQuery, StringInput } from '../inputs';
 import { kebabCase, snakeCase } from 'voca';
 import React from 'react';
 import { gutters } from '../../themes/neonLaw';
@@ -11,7 +11,9 @@ export interface Option {
 
 export interface Field {
   name: string;
-  type: 'string' | 'codeEditor' | 'select';
+  type: 'string' | 'codeEditor' | 'select' | 'selectWithQuery';
+  labelColumn?: string;
+  queryName?: string;
   options?: Option[];
   required?: boolean;
 }
@@ -39,10 +41,13 @@ export const InputBuilder = ({
   return (
     <>
       {fields.map((field, i) => {
-        const { name, type, options, required } = field;
+        const { name, type, options, required, queryName, labelColumn } = field;
         const dasherizedFieldName = kebabCase(name);
         const underscoreFieldName = snakeCase(name);
         const testId = `${dasherizedResourceName}-form-${dasherizedFieldName}`;
+        const label = intl.formatMessage({
+          id: `forms.${underscoreFieldName}.label`,
+        });
 
         switch (type) {
           case 'string':
@@ -51,9 +56,7 @@ export const InputBuilder = ({
                 key={i}
                 name={name}
                 testId={testId}
-                label={intl.formatMessage({
-                  id: `forms-${underscoreFieldName}-label`,
-                })}
+                label={label}
                 errors={errors}
                 value={currentValues && currentValues[name]}
                 placeholder={intl.formatMessage({
@@ -76,10 +79,21 @@ export const InputBuilder = ({
               <Select
                 name={name}
                 key={i}
-                label={intl.formatMessage({
-                  id: `forms.${underscoreFieldName}.label`,
-                })}
+                label={label}
                 options={options}
+                errors={errors}
+                testId={testId}
+                control={control}
+              />
+            );
+          case 'selectWithQuery':
+            return (
+              <SelectWithQuery
+                key={i}
+                name={name}
+                label={label}
+                queryName={queryName}
+                labelColumn={labelColumn}
                 errors={errors}
                 testId={testId}
                 control={control}
