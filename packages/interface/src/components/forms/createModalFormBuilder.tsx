@@ -1,5 +1,15 @@
 import { Field, InputBuilder } from './inputBuilder';
-import { ModalBody, ModalFooter, useColorMode } from '@chakra-ui/core';
+import {
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  theme,
+  useColorMode
+} from '@chakra-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
 import { colors, gutters } from '../../themes/neonLaw';
 import { kebabCase, titleCase } from 'voca';
@@ -14,6 +24,7 @@ interface FormBuilderProps {
   fields: Field[];
   resourceName: string;
   onClose(): void;
+  isOpen: boolean;
 }
 
 const StyledModalFooter = styled(ModalFooter)`
@@ -31,6 +42,7 @@ export const CreateModalFormBuilder = ({
   resourceName,
   fields,
   onClose,
+  isOpen,
 }: FormBuilderProps) => {
   const dasherizedResourceName = kebabCase(resourceName);
   const capitalize = (string) => {
@@ -113,31 +125,48 @@ export const CreateModalFormBuilder = ({
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit as any)}
-      style={{ color: colors.text[colorMode] }}
-      ref={formRef}
-    >
-      <ModalBody>
-        {formError}
-        <InputBuilder
-          resourceName={resourceName}
-          fields={fields}
-          control={control}
-          errors={errors}
-          register={register}
-          currentValues={{}}
-        />
-      </ModalBody>
+    <Modal isOpen={isOpen} onClose={onClose} size="xl">
+      <ModalOverlay>
+        <ModalContent
+          data-testid={`create-${dasherizedResourceName}-modal`}
+          margin="8em 2em 0 2em"
+        >
+          <ModalHeader
+            fontWeight="normal"
+            fontSize={theme.fontSizes['xl0']}
+            color={colors.text[colorMode]}
+          >
+            Create a {titlecaseResourceName}
+          </ModalHeader>
+          <ModalCloseButton style={{ color: colors.text[colorMode] }} />
+          <form
+            onSubmit={handleSubmit(onSubmit as any)}
+            style={{ color: colors.text[colorMode] }}
+            ref={formRef}
+          >
+            <ModalBody>
+              {formError}
+              <InputBuilder
+                resourceName={resourceName}
+                fields={fields}
+                control={control}
+                errors={errors}
+                register={register}
+                currentValues={{}}
+              />
+            </ModalBody>
 
-      <StyledModalFooter>
-        <CreateButton
-          dasherizedResourceName={dasherizedResourceName}
-          titlecaseResourceName={titlecaseResourceName}
-          isSubmitting={isSubmitting}
-          createMutationLoading={createMutationLoading}
-        />
-      </StyledModalFooter>
-    </form>
+            <StyledModalFooter>
+              <CreateButton
+                dasherizedResourceName={dasherizedResourceName}
+                titlecaseResourceName={titlecaseResourceName}
+                isSubmitting={isSubmitting}
+                createMutationLoading={createMutationLoading}
+              />
+            </StyledModalFooter>
+          </form>
+        </ModalContent>
+      </ModalOverlay>
+    </Modal>
   );
 };
