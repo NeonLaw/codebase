@@ -5,6 +5,7 @@ import { ErrorMessage } from '@hookform/error-message';
 import React from 'react';
 import { default as ReactSelect } from 'react-select';
 import { colors } from '../../themes/neonLaw';
+import { kebabCase } from 'voca';
 
 export const SelectWithQuery = ({
   control,
@@ -51,6 +52,7 @@ export const SelectWithQuery = ({
           render={({ onChange }) => (
             <ReactSelect
               options={options}
+              classNamePrefix={`react-select-${kebabCase(name)}`}
               onChange={(option) => onChange(option.value)}
               name={name}
               defaultValue={defaultValue}

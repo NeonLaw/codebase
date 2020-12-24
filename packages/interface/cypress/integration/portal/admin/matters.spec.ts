@@ -3,7 +3,7 @@
 import * as faker from 'faker';
 
 describe('CRUD-ing a matter as an admin', () => {
-  it('renders the matters table', () => {
+  it('allows for creating, reading, and deleting a matter', () => {
     const matterName = faker.lorem.sentence();
 
     cy.loginAsAdminUser().then(() => {
@@ -22,6 +22,20 @@ describe('CRUD-ing a matter as an admin', () => {
 
       cy.get('[data-testid="matter-form-name"]')
         .type(matterName);
+
+      cy.get('.react-select-matter-template-id__control')
+        .click()
+        .get('.react-select-matter-template-id__menu')
+        .find('.react-select-matter-template-id__option')
+        .first()
+        .click();
+
+      cy.get('.react-select-primary-contact-id__control')
+        .click()
+        .get('.react-select-primary-contact-id__menu')
+        .find('.react-select-primary-contact-id__option')
+        .first()
+        .click();
 
       cy.get('[data-testid="create-matter-form-submit"]')
         .click();

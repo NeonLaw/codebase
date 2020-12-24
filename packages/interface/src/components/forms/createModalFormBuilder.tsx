@@ -5,6 +5,7 @@ import { colors, gutters } from '../../themes/neonLaw';
 import { kebabCase, titleCase } from 'voca';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 import { CreateButton } from '../buttons/createButton';
+import { gql } from '@apollo/client';
 import { default as styled } from '@emotion/styled';
 import { useForm } from 'react-hook-form';
 import { useOperatingSystem } from '../../utils/useOperatingSystem';
@@ -75,6 +76,27 @@ export const CreateModalFormBuilder = ({
 
   const onSubmit = async (variables) => {
     await createMutation({
+      update(cache, { data }) {
+        const createdResource = data[`create${pascalCaseName}`][resourceName];
+        const allQuery = `all${pascalCaseName}s`;
+        alert(allQuery);
+        const fields = {
+          [allQuery](existingRecords) {
+            const newRef = cache.writeFragment({
+              data: createdResource,
+              fragment: gql`
+                fragment New${pascalCaseName} on ${pascalCaseName} {
+                  id
+                }
+              `
+            });
+
+            return [...existingRecords.nodes, newRef];
+          }
+        };
+
+        cache.modify({ fields });
+      },
       variables,
     })
       .then(async () => {
