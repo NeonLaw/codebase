@@ -23,6 +23,10 @@ describe('Creating Document Templates', () => {
           .type(faker.lorem.sentence());
 
         cy
+          .get('[data-testid="document-template-form-description"]')
+          .type(faker.lorem.sentence());
+
+        cy
           .get('[data-testid="create-document-template-form-submit"]')
           .click();
 

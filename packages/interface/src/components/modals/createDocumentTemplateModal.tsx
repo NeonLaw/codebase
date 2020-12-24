@@ -14,6 +14,11 @@ export const CreateDocumentTemplateModal = ({ isOpen, onClose }) => {
           type: 'string',
         },
         {
+          name: 'description',
+          required: true,
+          type: 'string',
+        },
+        {
           name: 'readAuthorization',
           options: [
             { label: 'Public', value: 'anonymous' },
