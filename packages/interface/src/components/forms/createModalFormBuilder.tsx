@@ -128,7 +128,7 @@ export const CreateModalFormBuilder = ({
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
       <ModalOverlay>
         <ModalContent
-          data-testid={`create-${dasherizedResourceName}-modal`}
+          data-testid={`create-${dasherizedResourceName}-form`}
           margin="8em 2em 0 2em"
         >
           <ModalHeader
@@ -136,7 +136,7 @@ export const CreateModalFormBuilder = ({
             fontSize={theme.fontSizes['xl0']}
             color={colors.text[colorMode]}
           >
-            Create a {titlecaseResourceName}
+            Create {titlecaseResourceName}
           </ModalHeader>
           <ModalCloseButton style={{ color: colors.text[colorMode] }} />
           <form

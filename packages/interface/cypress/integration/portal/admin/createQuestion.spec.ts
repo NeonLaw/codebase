@@ -9,7 +9,7 @@ describe('Creating Questions', () => {
 
       cy.contains('Create Question').click();
 
-      cy.get('[data-testid="create-question-modal"]')
+      cy.get('[data-testid="create-question-form"]')
         .should('exist');
 
       cy

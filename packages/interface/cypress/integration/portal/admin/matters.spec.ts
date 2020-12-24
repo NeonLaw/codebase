@@ -40,7 +40,7 @@ describe('CRUD-ing a matter as an admin', () => {
       cy.get('[data-testid="create-matter-form-submit"]')
         .click();
 
-      cy.get('[data-testid="create-matter-modal"]')
+      cy.get('[data-testid="create-matter-form"]')
         .should('not.exist');
 
       cy.get('[data-testid="matters-table"]')
