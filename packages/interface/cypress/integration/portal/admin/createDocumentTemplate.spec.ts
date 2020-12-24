@@ -19,7 +19,7 @@ describe('Creating Document Templates', () => {
           .should('exist');
 
         cy
-          .get('[data-testid="create-document-template-form-name"]')
+          .get('[data-testid="document-template-form-name"]')
           .type(faker.lorem.sentence());
 
         cy
