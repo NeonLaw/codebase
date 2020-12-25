@@ -1,5 +1,6 @@
 import { CreateModalFormBuilder } from '../forms/createModalFormBuilder';
 import React from 'react';
+import { matterFields } from '../fields/matterFields';
 
 export const CreateMatterModal = ({ isOpen, onClose }) => {
   return (
@@ -7,25 +8,7 @@ export const CreateMatterModal = ({ isOpen, onClose }) => {
       resourceName="matter"
       isOpen={isOpen}
       onClose={onClose}
-      fields={[
-        {
-          name: 'name',
-          required: true,
-          type: 'string',
-        },
-        {
-          labelColumn: 'name',
-          name: 'matterTemplateId',
-          queryName: 'allMatterTemplates',
-          type: 'selectWithQuery'
-        },
-        {
-          labelColumn: 'email',
-          name: 'primaryContactId',
-          queryName: 'allPeople',
-          type: 'selectWithQuery'
-        }
-      ]}
+      fields={matterFields}
     />
   );
 };

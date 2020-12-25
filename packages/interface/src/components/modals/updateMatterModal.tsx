@@ -1,5 +1,6 @@
 import React from 'react';
 import { UpdateModalFormBuilder } from '../forms/updateModalFormBuilder';
+import { matterFields } from '../fields/matterFields';
 
 export const UpdateMatterModal = ({ isOpen, onClose, matter }) => {
   const { id } = matter;
@@ -10,17 +11,7 @@ export const UpdateMatterModal = ({ isOpen, onClose, matter }) => {
       resourceName="matter"
       onClose={onClose}
       currentValues={{ id }}
-      fields={[
-        {
-          name: 'name',
-          required: true,
-          type: 'string',
-        },
-        {
-          name: 'matterTemplate',
-          type: 'selectWithQuery'
-        }
-      ]}
+      fields={matterFields}
     />
   );
 };
