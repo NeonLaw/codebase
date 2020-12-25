@@ -123,7 +123,7 @@ export const UpdateModalFormBuilder = ({
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
       <ModalOverlay>
         <ModalContent
-          data-testid={`create-${dasherizedResourceName}-form`}
+          data-testid={`update-${dasherizedResourceName}-form`}
           margin="8em 2em 0 2em"
         >
           <ModalHeader
