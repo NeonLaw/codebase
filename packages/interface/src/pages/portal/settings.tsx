@@ -43,7 +43,6 @@ const PortalSettingsPage = () => {
         <UpdatePersonModal
           isOpen={isOpen}
           onClose={onClose}
-          person={{}}
         />
       </StyledPortalPersonPage>
     </PortalLayout>
