@@ -50,6 +50,30 @@ export const InputBuilder = ({
         });
 
         switch (type) {
+          case 'codeEditor':
+            return (
+              <StringInput
+                key={i}
+                name={name}
+                testId={testId}
+                label={label}
+                errors={errors}
+                value={currentValues && currentValues[name]}
+                placeholder={intl.formatMessage({
+                  id: `forms.${underscoreFieldName}.placeholder`,
+                })}
+                register={
+                  required
+                    ? register({
+                      required: intl.formatMessage({
+                        id: `forms.${underscoreFieldName}.required`,
+                      }),
+                    })
+                    : register({})
+                }
+                styles={{ marginBottom: gutters.xSmallOne }}
+              />
+            );
           case 'string':
             return (
               <StringInput
