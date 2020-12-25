@@ -93,7 +93,7 @@ export const UpdateModalFormBuilder = ({
   const [
     deleteMutation,
     { loading: deleteMutationLoading },
-  ] = require('../../utils/api')[`useDelet${pascalCaseName}ByIdMutation`]();
+  ] = require('../../utils/api')[`useDelete${pascalCaseName}ByIdMutation`]();
 
   const handleDPress = async (e) => {
     if (e.key === 'd') {
