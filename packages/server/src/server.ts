@@ -1,11 +1,10 @@
 import 'dotenv/config';
 import * as expressWinston from 'express-winston';
-import * as fs from 'fs';
 import * as winston from 'winston';
-import * as yaml from 'js-yaml';
 import cors from 'cors';
 import express from 'express';
 import { expressJwtSecret } from 'jwks-rsa';
+import { fetchLocaleJson } from './fetchLocaleJson';
 import { findOrCreatePerson } from './findOrCreatePerson';
 import jwt from 'express-jwt';
 import newrelic from 'newrelic';
@@ -118,31 +117,11 @@ const limiter = rateLimit({
 app.use(limiter);
 
 app.get('/api/en.json', function (_, res) {
-  let englishTranslations = {};
-
-  fs.readdirSync(`${__dirname}/locales/en`).forEach((file) => {
-    const jsonTranslation = yaml.load(
-      fs.readFileSync(`${__dirname}/locales/en/${file}`, {encoding: 'utf-8'})
-    );
-
-    englishTranslations = Object.assign(jsonTranslation, englishTranslations);
-  });
-
-  res.json(englishTranslations);
+  res.json(fetchLocaleJson('en'));
 });
 
 app.get('/api/es.json', function (_, res) {
-  let spanishTranslations = {};
-
-  fs.readdirSync(`${__dirname}/locales/es`).forEach((file) => {
-    const jsonTranslation = yaml.load(
-      fs.readFileSync(`${__dirname}/locales/es/${file}`, {encoding: 'utf-8'})
-    );
-
-    spanishTranslations = Object.assign(jsonTranslation, spanishTranslations);
-  });
-
-  res.json(spanishTranslations);
+  res.json(fetchLocaleJson('es'));
 });
 
 app.listen(3000);
