@@ -48,7 +48,7 @@ const AdminQuestions = () => {
 
         <UpdateQuestionModal
           isOpen={isOpen && !showCreateQuestionModal}
-          currentRow={currentRow}
+          question={currentRow}
           onClose={() => {
             changeShowFlashCardModal(true);
             onClose();
