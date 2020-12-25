@@ -50,7 +50,7 @@ const AdminFlashcards = () => {
 
         <UpdateFlashcardModal
           isOpen={isOpen && !showCreateFlashcardModal}
-          currentRow={currentRow}
+          flashcard={currentRow}
           onClose={() => {
             changeShowFlashCardModal(true);
             onClose();
