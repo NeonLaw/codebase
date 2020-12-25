@@ -3459,10 +3459,18 @@
   resolved "https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
   integrity sha512-EaObqwIvayI5a8dCzhFrjKzVwKLxjoG9T6Ppd5CEo07LRKfQ8Yokw54r5+Wq7FaBQ+yXRvQAYPrHwya1/UFt9g==
 
-"@types/express-jwt@0.0.42", "@types/express-jwt@^0.0.42":
+"@types/express-jwt@0.0.42":
   version "0.0.42"
   resolved "https://registry.yarnpkg.com/@types/express-jwt/-/express-jwt-0.0.42.tgz#4f04e1fadf9d18725950dc041808a4a4adf7f5ae"
   integrity sha512-WszgUddvM1t5dPpJ3LhWNH8kfNN8GPIBrAGxgIYXVCEGx6Bx4A036aAuf/r5WH9DIEdlmp7gHOYvSM6U87B0ag==
+  dependencies:
+    "@types/express" "*"
+    "@types/express-unless" "*"
+
+"@types/express-jwt@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@types/express-jwt/-/express-jwt-6.0.0.tgz#6a8903d32653daf443e6973080cb2f84326abba6"
+  integrity sha512-B/XohmxF8Pw/mD9bf84Our6tzgnydqUr842IyLGTtznYyI/2H5GrNSqYDmbV+NJktxDcENFhpyTalym+Qh4d0w==
   dependencies:
     "@types/express" "*"
     "@types/express-unless" "*"
@@ -3704,10 +3712,10 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
-"@types/node@*", "@types/node@>=6", "@types/node@^14.14.14", "@types/node@^14.6.0":
-  version "14.14.14"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.14.tgz#f7fd5f3cc8521301119f63910f0fb965c7d761ae"
-  integrity sha512-UHnOPWVWV1z+VV8k6L1HhG7UbGBgIdghqF3l9Ny9ApPghbjICXkUJSd/b9gOgQfjM1r+37cipdw/HJ3F6ICEnQ==
+"@types/node@*", "@types/node@>=6", "@types/node@^14.14.16", "@types/node@^14.6.0":
+  version "14.14.16"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.16.tgz#3cc351f8d48101deadfed4c9e4f116048d437b4b"
+  integrity sha512-naXYePhweTi+BMv11TgioE2/FXU4fSl29HAH1ffxVciNsH3rYXjNP2yM8wqmSm7jS20gM8TIklKiTen+1iVncw==
 
 "@types/node@^12.12.47":
   version "12.19.9"
@@ -7442,9 +7450,9 @@ dataloader@^1.4.0:
   integrity sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==
 
 date-and-time@^0.14.0:
-  version "0.14.1"
-  resolved "https://registry.yarnpkg.com/date-and-time/-/date-and-time-0.14.1.tgz#969634697b78956fb66b8be6fb0f39fbd631f2f6"
-  integrity sha512-M4RggEH5OF2ZuCOxgOU67R6Z9ohjKbxGvAQz48vj53wLmL0bAgumkBvycR32f30pK+Og9pIR+RFDyChbaE4oLA==
+  version "0.14.2"
+  resolved "https://registry.yarnpkg.com/date-and-time/-/date-and-time-0.14.2.tgz#a4266c3dead460f6c231fe9674e585908dac354e"
+  integrity sha512-EFTCh9zRSEpGPmJaexg7HTuzZHh6cnJj1ui7IGCFNXzd2QdpsNh05Db5TF3xzJm30YN+A8/6xHSuRcQqoc3kFA==
 
 date-fns@^1.27.2:
   version "1.30.1"
@@ -9771,7 +9779,7 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-gatsby-cli@^2.16.1, gatsby-cli@^2.16.2:
+gatsby-cli@^2.16.2:
   version "2.16.2"
   resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.16.2.tgz#cb56057c074f783115875bfcd38db407a54c5ae4"
   integrity sha512-YRnxrAl3mTyMghzf56DgusOrttzFZtv36Zk/Srd1Lrhk/bpCRKTNYAqbVvmv0yivjQhkyyE7aAbUTK19DapHPw==
@@ -9815,7 +9823,7 @@ gatsby-cli@^2.16.1, gatsby-cli@^2.16.2:
     yoga-layout-prebuilt "^1.9.6"
     yurnalist "^1.1.2"
 
-gatsby-core-utils@^1.7.0, gatsby-core-utils@^1.7.1:
+gatsby-core-utils@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.7.1.tgz#7e7e6596c228d580ed8ce4a3fc04c56f103cae3f"
   integrity sha512-hnzQCixp2C4opmSgjido/CQwSt4FL3CcmGwq6fK3PVPTT3hLPz7rvuTMQIUlR8BJjGYai6i5f6V3wfkCJ3VTgQ==
@@ -9985,7 +9993,7 @@ gatsby-plugin-offline@^3.7.0:
     lodash "^4.17.20"
     workbox-build "^4.3.1"
 
-gatsby-plugin-page-creator@^2.7.1, gatsby-plugin-page-creator@^2.7.2:
+gatsby-plugin-page-creator@^2.7.2:
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-2.7.2.tgz#966624d92ba75abd1ce46d639ede2e988e6159aa"
   integrity sha512-PyiimFUDMYHYbThkyYc2inKvDEcTR3zeDst/9Oq4IlyG7iL96esSWI/VLYTwHbcajYeUUQgTuUcVoT51mloF8A==
@@ -10218,7 +10226,7 @@ gatsby-source-remote-file@^0.2.1:
     gatsby "^2.23.22"
     gatsby-source-filesystem "^2.3.18"
 
-gatsby-telemetry@^1.7.0, gatsby-telemetry@^1.7.1:
+gatsby-telemetry@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-1.7.1.tgz#8e05dc2b386218f7eb29f8d597fcec19dc96b659"
   integrity sha512-kLIjpspvnoCD7+5ybAv5uc/zc4NK8EMwlKEBHPxx7RJBEK220deD1ixtNEcO7nsDwH0Y+eE8Yom8qOPbr0F6Mw==
@@ -10251,166 +10259,7 @@ gatsby-transformer-sharp@^2.9.0:
     semver "^7.3.2"
     sharp "^0.26.3"
 
-gatsby@2.29.1:
-  version "2.29.1"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.29.1.tgz#0b1d7bc8cf434c81086e5a26926394f4181cbb93"
-  integrity sha512-DGVbGhBmD3GmKgNBB1Vz34Ex9c8mpVQ4ojOSnO4Dtns1Q32MRIqI/CRhfeoIauxuSi49Z8DbkRT5HTTjNVKDtw==
-  dependencies:
-    "@babel/code-frame" "^7.10.4"
-    "@babel/core" "^7.12.3"
-    "@babel/parser" "^7.12.5"
-    "@babel/runtime" "^7.12.5"
-    "@babel/traverse" "^7.12.5"
-    "@babel/types" "^7.12.6"
-    "@hapi/joi" "^15.1.1"
-    "@mikaelkristiansson/domready" "^1.0.10"
-    "@nodelib/fs.walk" "^1.2.4"
-    "@pieh/friendly-errors-webpack-plugin" "1.7.0-chalk-2"
-    "@pmmmwh/react-refresh-webpack-plugin" "^0.4.1"
-    "@reach/router" "^1.3.4"
-    "@types/http-proxy" "^1.17.4"
-    "@typescript-eslint/eslint-plugin" "^2.24.0"
-    "@typescript-eslint/parser" "^2.24.0"
-    address "1.1.2"
-    anser "^2.0.1"
-    ansi-html "^0.0.7"
-    autoprefixer "^9.8.4"
-    axios "^0.20.0"
-    babel-core "7.0.0-bridge.0"
-    babel-eslint "^10.1.0"
-    babel-loader "^8.1.0"
-    babel-plugin-add-module-exports "^0.3.3"
-    babel-plugin-dynamic-import-node "^2.3.3"
-    babel-plugin-lodash "3.3.4"
-    babel-plugin-remove-graphql-queries "^2.13.0"
-    babel-preset-gatsby "^0.9.0"
-    better-opn "^2.0.0"
-    better-queue "^3.8.10"
-    bluebird "^3.7.2"
-    body-parser "^1.19.0"
-    browserslist "^4.12.2"
-    cache-manager "^2.11.1"
-    chalk "^4.1.0"
-    chokidar "^3.4.2"
-    common-tags "^1.8.0"
-    compression "^1.7.4"
-    convert-hrtime "^3.0.0"
-    copyfiles "^2.3.0"
-    core-js "^3.6.5"
-    cors "^2.8.5"
-    css-loader "^1.0.1"
-    date-fns "^2.14.0"
-    debug "^3.2.6"
-    del "^5.1.0"
-    detect-port "^1.3.0"
-    devcert "^1.1.3"
-    dotenv "^8.2.0"
-    eslint "^6.8.0"
-    eslint-config-react-app "^5.2.1"
-    eslint-loader "^2.2.1"
-    eslint-plugin-flowtype "^3.13.0"
-    eslint-plugin-graphql "^4.0.0"
-    eslint-plugin-import "^2.22.0"
-    eslint-plugin-jsx-a11y "^6.3.1"
-    eslint-plugin-react "^7.20.6"
-    eslint-plugin-react-hooks "^1.7.0"
-    event-source-polyfill "^1.0.15"
-    execa "^4.0.3"
-    express "^4.17.1"
-    express-graphql "^0.9.0"
-    fastest-levenshtein "^1.0.12"
-    file-loader "^1.1.11"
-    find-cache-dir "^3.3.1"
-    fs-exists-cached "1.0.0"
-    fs-extra "^8.1.0"
-    gatsby-cli "^2.16.1"
-    gatsby-core-utils "^1.7.0"
-    gatsby-graphiql-explorer "^0.8.0"
-    gatsby-legacy-polyfills "^0.4.0"
-    gatsby-link "^2.8.0"
-    gatsby-plugin-page-creator "^2.7.1"
-    gatsby-plugin-typescript "^2.9.0"
-    gatsby-plugin-utils "^0.6.0"
-    gatsby-react-router-scroll "^3.4.0"
-    gatsby-telemetry "^1.7.0"
-    glob "^7.1.6"
-    got "8.3.2"
-    graphql "^14.6.0"
-    graphql-compose "^6.3.8"
-    graphql-playground-middleware-express "^1.7.18"
-    hasha "^5.2.0"
-    http-proxy "^1.18.1"
-    invariant "^2.2.4"
-    is-relative "^1.0.0"
-    is-relative-url "^3.0.0"
-    jest-worker "^24.9.0"
-    joi "^17.2.1"
-    json-loader "^0.5.7"
-    json-stringify-safe "^5.0.1"
-    latest-version "5.1.0"
-    lodash "^4.17.20"
-    md5-file "^5.0.0"
-    meant "^1.0.1"
-    micromatch "^4.0.2"
-    mime "^2.4.6"
-    mini-css-extract-plugin "^0.11.2"
-    mitt "^1.2.0"
-    mkdirp "^0.5.1"
-    moment "^2.27.0"
-    name-all-modules-plugin "^1.0.1"
-    normalize-path "^3.0.0"
-    null-loader "^3.0.0"
-    opentracing "^0.14.4"
-    optimize-css-assets-webpack-plugin "^5.0.3"
-    p-defer "^3.0.0"
-    parseurl "^1.3.3"
-    physical-cpu-count "^2.0.0"
-    pnp-webpack-plugin "^1.6.4"
-    postcss-flexbugs-fixes "^4.2.1"
-    postcss-loader "^3.0.0"
-    prompts "^2.3.2"
-    prop-types "^15.7.2"
-    query-string "^6.13.1"
-    raw-loader "^0.5.1"
-    react-dev-utils "^4.2.3"
-    react-error-overlay "^3.0.0"
-    react-hot-loader "^4.12.21"
-    react-refresh "^0.8.3"
-    redux "^4.0.5"
-    redux-thunk "^2.3.0"
-    semver "^7.3.2"
-    shallow-compare "^1.2.2"
-    signal-exit "^3.0.3"
-    slugify "^1.4.4"
-    socket.io "^2.3.0"
-    socket.io-client "2.3.0"
-    source-map "^0.7.3"
-    source-map-support "^0.5.19"
-    st "^2.0.0"
-    stack-trace "^0.0.10"
-    string-similarity "^1.2.2"
-    strip-ansi "^5.2.0"
-    style-loader "^0.23.1"
-    terminal-link "^2.1.1"
-    terser-webpack-plugin "^2.3.8"
-    tmp "^0.2.1"
-    "true-case-path" "^2.2.1"
-    type-of "^2.0.1"
-    url-loader "^1.1.2"
-    util.promisify "^1.0.1"
-    uuid "3.4.0"
-    v8-compile-cache "^1.1.2"
-    webpack "^4.44.1"
-    webpack-dev-middleware "^3.7.2"
-    webpack-dev-server "^3.11.0"
-    webpack-hot-middleware "^2.25.0"
-    webpack-merge "^4.2.2"
-    webpack-stats-plugin "^0.3.2"
-    webpack-virtual-modules "^0.2.2"
-    xstate "^4.11.0"
-    yaml-loader "^0.6.0"
-
-gatsby@^2.23.22:
+gatsby@2.29.2, gatsby@^2.23.22:
   version "2.29.2"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.29.2.tgz#fcad36a320cd2cb34528b18762b37e8299042e82"
   integrity sha512-89My5UzWA3Ix6zVWr2qQ95nIfVGBRRTpJ5gvp9oqAS+pwV6WxUg/vn7TDVifyg1eqS1jS+FDX96+txji+54QPg==
@@ -17275,10 +17124,10 @@ react-focus-lock@2.4.1:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
-react-google-recaptcha-v3@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/react-google-recaptcha-v3/-/react-google-recaptcha-v3-1.7.0.tgz#b072464d4237b8f147beaf28fb833264534dc222"
-  integrity sha512-yV7muvRmeD2T0oa6yFfCuVD9caTWqsFGoQBsFryRw+IMgyB2IXNK25NTEt7KYIeloGaJh94GZbB92xFne5HdEw==
+react-google-recaptcha-v3@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/react-google-recaptcha-v3/-/react-google-recaptcha-v3-1.7.1.tgz#e49f81e42b59c04ab9b488b88db3dd6e41e7aa00"
+  integrity sha512-5aCGrSy23rWgxfACxHZ1Mwt+2bnUDoljlm6Xz2gyJS3nGf6vRpVEeY0BjQjAT4C5ujQmvOY7EEpm3bVO8EjH+A==
   dependencies:
     hoist-non-react-statics "3.3.2"
 
