@@ -1,4 +1,4 @@
-import { Select, SelectWithQuery, StringInput } from '../inputs';
+import { Select, SelectWithQuery, StringInput, Textarea } from '../inputs';
 import { kebabCase, snakeCase } from 'voca';
 import React from 'react';
 import { gutters } from '../../themes/neonLaw';
@@ -11,7 +11,7 @@ export interface Option {
 
 export interface Field {
   name: string;
-  type: 'string' | 'codeEditor' | 'select' | 'selectWithQuery';
+  type: 'string' | 'codeEditor' | 'select' | 'selectWithQuery' | 'textarea';
   labelColumn?: string;
   queryName?: string;
   options?: Option[];
@@ -50,6 +50,30 @@ export const InputBuilder = ({
         });
 
         switch (type) {
+          case 'codeEditor':
+            return (
+              <StringInput
+                key={i}
+                name={name}
+                testId={testId}
+                label={label}
+                errors={errors}
+                value={currentValues && currentValues[name]}
+                placeholder={intl.formatMessage({
+                  id: `forms.${underscoreFieldName}.placeholder`,
+                })}
+                register={
+                  required
+                    ? register({
+                      required: intl.formatMessage({
+                        id: `forms.${underscoreFieldName}.required`,
+                      }),
+                    })
+                    : register({})
+                }
+                styles={{ marginBottom: gutters.xSmallOne }}
+              />
+            );
           case 'string':
             return (
               <StringInput
@@ -74,28 +98,18 @@ export const InputBuilder = ({
                 styles={{ marginBottom: gutters.xSmallOne }}
               />
             );
-          case 'codeEditor':
+          case 'textarea':
             return (
-              <StringInput
+              <Textarea
                 key={i}
                 name={name}
                 testId={testId}
                 label={label}
                 errors={errors}
-                value={currentValues && currentValues[name]}
                 placeholder={intl.formatMessage({
                   id: `forms.${underscoreFieldName}.placeholder`,
                 })}
-                register={
-                  required
-                    ? register({
-                      required: intl.formatMessage({
-                        id: `forms.${underscoreFieldName}.required`,
-                      }),
-                    })
-                    : register({})
-                }
-                styles={{ marginBottom: gutters.xSmallOne }}
+                control={control}
               />
             );
           case 'select':

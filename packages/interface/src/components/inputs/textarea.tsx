@@ -5,10 +5,11 @@ import {
   FormErrorMessage,
   FormLabel,
 } from '@chakra-ui/core';
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { Slate, withReact } from 'slate-react';
 import { Controller } from 'react-hook-form';
 import { Editable } from './textareaUtils/editable';
+import { convertSlateToPlaintext } from '../../utils/slate';
 import { createEditor } from 'slate';
 import { withHistory } from 'slate-history';
 
@@ -44,26 +45,29 @@ export const Textarea = ({
         return <DefaultElement {...props} />;
     }
   }, []);
-
+  const [slateText, updateSlateText] = useState([
+    {
+      children: [{ text: placeholder }],
+      type: 'paragraph',
+    },
+  ]);
 
   return (
     <FormControl isInvalid={errors && errors[name]}>
       <FormLabel htmlFor="name">{label}</FormLabel>
 
       <Controller
-        render={({ onChange, value }) => {
-          const placeholderSlate = [
-            {
-              children: [{ text: placeholder }],
-              type: 'paragraph',
-            },
-          ];
+        render={({ onChange }) => {
           return (
             <Slate
               editor={editor}
-              value={value || placeholderSlate}
+              value={slateText}
               renderElement={renderElement}
-              onChange={onChange}
+              onChange={(slateInput) => {
+                updateSlateText(slateInput as any);
+                const plainText = convertSlateToPlaintext(slateInput);
+                onChange(plainText);
+              }}
               children={
                 <Box data-testId={testId}>
                   <Editable editor={editor} />
