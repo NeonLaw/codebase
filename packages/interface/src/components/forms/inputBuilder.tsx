@@ -1,22 +1,9 @@
 import { Select, SelectWithQuery, StringInput, Textarea } from '../inputs';
 import { kebabCase, snakeCase } from 'voca';
+import { Field } from './inputTypes';
 import React from 'react';
 import { gutters } from '../../themes/neonLaw';
 import { useIntl } from 'gatsby-plugin-intl';
-
-export interface Option {
-  label: string;
-  value: string;
-}
-
-export interface Field {
-  name: string;
-  type: 'string' | 'codeEditor' | 'select' | 'selectWithQuery' | 'textarea';
-  labelColumn?: string;
-  queryName?: string;
-  options?: Option[];
-  required?: boolean;
-}
 
 interface InputBuilderProps {
   resourceName: string;
@@ -41,7 +28,14 @@ export const InputBuilder = ({
   return (
     <>
       {fields.map((field, i) => {
-        const { name, type, options, required, queryName, labelColumn } = field;
+        const {
+          name,
+          type,
+          options,
+          required,
+          queryName,
+          labelColumn
+        } = (field as any);
         const dasherizedFieldName = kebabCase(name);
         const underscoreFieldName = snakeCase(name);
         const testId = `${dasherizedResourceName}-form-${dasherizedFieldName}`;
