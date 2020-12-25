@@ -9,7 +9,7 @@ import {
 import React from 'react';
 import {
   UpdatePersonModal
-} from '../../forms/updatePersonModal';
+} from '../../components/modals/updatePersonModal';
 import styled from '@emotion/styled';
 
 const StyledPortalPersonPage = styled.div`
@@ -43,6 +43,7 @@ const PortalSettingsPage = () => {
         <UpdatePersonModal
           isOpen={isOpen}
           onClose={onClose}
+          person={{}}
         />
       </StyledPortalPersonPage>
     </PortalLayout>

@@ -1,4 +1,3 @@
-import { Field, InputBuilder } from './inputBuilder';
 import {
   Modal,
   ModalBody,
@@ -15,6 +14,8 @@ import { colors, gutters } from '../../themes/neonLaw';
 import { kebabCase, titleCase } from 'voca';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
 import { DeleteButton } from '../buttons/deleteButton';
+import { Field } from './inputTypes';
+import { InputBuilder } from './inputBuilder';
 import { UpdateButton } from '../buttons/updateButton';
 import { default as styled } from '@emotion/styled';
 import { useForm } from 'react-hook-form';
