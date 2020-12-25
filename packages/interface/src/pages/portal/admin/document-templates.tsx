@@ -52,7 +52,7 @@ const AdminDocumentTemplates = () => {
 
         <UpdateDocumentTemplateModal
           isOpen={isOpen && !showCreateDocumentTemplateModal}
-          currentRow={currentRow}
+          documentTemplate={currentRow}
           onClose={() => {
             changeShowFlashCardModal(true);
             onClose();
