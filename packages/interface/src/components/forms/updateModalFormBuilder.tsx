@@ -120,6 +120,16 @@ export const UpdateModalFormBuilder = ({
       });
   };
 
+  const deleteHandler = async () => {
+    await deleteMutation({
+      variables: { id: currentValues.id }
+    })
+      .then(async () => {
+        await reset();
+        onClose();
+      });
+  };
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
       <ModalOverlay>
@@ -165,6 +175,7 @@ export const UpdateModalFormBuilder = ({
                 titlecaseResourceName={titlecaseResourceName}
                 isSubmitting={isSubmitting}
                 updateMutationLoading={updateMutationLoading}
+                deleteHandler={deleteHandler}
                 deleteMutationLoading={deleteMutationLoading}
               />
             </StyledModalFooter>

@@ -5,11 +5,11 @@ import { matterTemplateFields } from '../fields/matterTemplateFields';
 interface UpdateMatterTemplateModalProps {
   onClose(): void;
   isOpen: boolean;
-  id?: string;
+  currentValues: any;
 }
 
 export const UpdateMatterTemplateModal = ({
-  id,
+  currentValues,
   isOpen,
   onClose,
 }: UpdateMatterTemplateModalProps) => {
@@ -18,8 +18,8 @@ export const UpdateMatterTemplateModal = ({
       resourceName="matterTemplate"
       onClose={onClose}
       isOpen={isOpen}
-      currentValues={{ id }}
-      fields={matterTemplateFields}
+      currentValues={currentValues}
+      fields={matterTemplateFields.concat({ name: 'id', type: 'id' })}
     />
   );
 };

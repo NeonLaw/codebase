@@ -51,7 +51,7 @@ const AdminMatterTemplates = () => {
 
         <UpdateMatterTemplateModal
           isOpen={isOpen && !showCreateMatterTemplateModal}
-          id={(currentRow as any)?.id}
+          currentValues={(currentRow as any)?.values}
           onClose={() => {
             changeShowFlashCardModal(true);
             onClose();

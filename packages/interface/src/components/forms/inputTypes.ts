@@ -8,6 +8,10 @@ interface BasicInput {
   required?: boolean;
 }
 
+interface Id extends BasicInput {
+  type: 'id'
+}
+
 interface CodeEditorInput extends BasicInput {
   type: 'codeEditor'
 }
@@ -37,6 +41,7 @@ interface FlagSwitchInput extends BasicInput {
 }
 
 export type Field =
+  Id |
   StringInput |
   CodeEditorInput |
   SelectInput |

@@ -1,4 +1,6 @@
 forms:
+  category:
+    label: Category
   accessibleButtons:
     label: Accessible Buttons
   answer:
