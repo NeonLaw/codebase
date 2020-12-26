@@ -79,6 +79,16 @@ app.use(expressWinston.logger({
     winston.format.json(),
     require('@newrelic/winston-enricher')()
   ),
+  ignoreRoute(request) {
+    const ignoredRoutes = [
+      '/',
+      '/api',
+      '/api/',
+      '/favicon.ico'
+    ];
+
+    return ignoredRoutes.indexOf(request.url) > -1;
+  },
   level: 'info',
   meta: true,
   msg: 'HTTP {{req.method}} {{req.url}}',
