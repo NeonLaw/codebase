@@ -1,6 +1,3 @@
-/// <reference types="cypress" />
-/* eslint-disable no-undef */
-
 Cypress.Commands.add('createMatterTemplate', (matterTemplateName) => {
   cy.loginAsAdminUser().then(() => {
     cy.visit('/portal/admin/matter-templates');
