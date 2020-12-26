@@ -12,5 +12,15 @@ declare namespace Cypress {
     loginAsAdminUser(): Chainable<Element>
 
     loginAsPortalUser(): Chainable<Element>
+
+    injectAxe(): Chainable<Element>
+
+    checkA11y(any, any, any): Chainable<Element>
+
+    tab(): Chainable<Element>
+
+    getEditor(domSelector: string): Chainable<Element>
+
+    typeInSlate(text: string): Chainable<Element>
   }
 }

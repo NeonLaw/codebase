@@ -7,6 +7,8 @@ describe('CRUDding Matter Templates', () => {
     () => {
       const matterTemplateName = faker.lorem.sentence();
 
+      cy.createMatterTemplate(matterTemplateName);
+
       cy.loginAsAdminUser().then(() => {
         cy.visit('/portal/admin/matter-templates');
 

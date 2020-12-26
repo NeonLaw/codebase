@@ -26,10 +26,6 @@
   "exclude": [
     "./node_modules",
     "./build",
-    "./packages/interface/cypress",
-    "./packages/justice-for-rickie-slaughter/cypress",
-    "./packages/delete-your-data/cypress",
-    "./packages/law-job-resources/cypress",
     "packages/server/tests/utils/graphqlHelpers.ts",
     "./packages/**/*.test.ts",
     "packages/server/tests/utils/dbHelpers.ts",
