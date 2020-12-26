@@ -1,6 +1,3 @@
-/// <references types="Cypress" />
-/* eslint-disable no-undef */
-
 import faker from 'faker';
 
 describe('Visiting /portal', () => {
