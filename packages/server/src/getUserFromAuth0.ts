@@ -5,8 +5,12 @@ import { lawyers } from './lawyers';
 export const getUserFromAuth0 = async (sub: string) => {
   const apiUrl = `https://${process.env.AUTH0_TENANT}/api/v2/users`;
   const apiTokenUrl = `https://${process.env.AUTH0_TENANT}/oauth/token`;
+  const audience = process.env.ENVIRONMENT === 'production' ?
+    'https://neon-law.auth0.com/api/v2/' :
+    `https://${process.env.AUTH0_TENANT}/api/v2/`;
+
   const bodyParams = {
-    'audience': `https://${process.env.AUTH0_TENANT}/api/v2/`,
+    audience,
     'client_id': process.env.AUTH0_CLIENT_ID,
     'client_secret': process.env.AUTH0_CLIENT_SECRET,
     'grant_type': 'client_credentials',
