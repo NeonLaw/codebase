@@ -39,7 +39,7 @@ describe('CRUDding Matter Templates', () => {
         cy.get('[data-testid="create-matter-template-form"]')
           .should('not.exist');
 
-        cy.get('[data-testid="matter-templates-table"]')
+        cy.get('[data-testid="matter-template-table"]')
           .within(() => { cy.contains(matterTemplateName).click(); });
 
         cy.get('[data-testid="update-matter-template-form"]')
@@ -47,6 +47,11 @@ describe('CRUDding Matter Templates', () => {
 
         cy.get('[data-testid="matter-template-form-name"]').invoke('val')
           .should('eq', matterTemplateName);
+
+        cy.get('[data-testid="delete-matter-template-button"]').click();
+
+        cy.get('[data-testid="update-matter-template-form"]')
+          .should('not.exist');
       });
     }
   );

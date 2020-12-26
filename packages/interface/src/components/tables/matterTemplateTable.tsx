@@ -36,7 +36,7 @@ export const MatterTemplateTable = (props: MatterTemplateTableProps) => {
     <Table
       columns={columns}
       data={nodes}
-      testId="admin-matter-template-table"
+      testId="matter-template-table"
       onRowClick={props.onRowClick}
     />
   );
