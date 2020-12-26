@@ -1,5 +1,12 @@
 import { Field } from '../forms/inputTypes';
 
+const options = [
+  { label: 'Public', value: 'anonymous' },
+  { label: 'Clients', value: 'portal' },
+  { label: 'Lawyers', value: 'lawyer' },
+  { label: 'Admin', value: 'admin' },
+];
+
 export const documentTemplateFields: Field[] = [
   {
     name: 'name',
@@ -13,42 +20,22 @@ export const documentTemplateFields: Field[] = [
   },
   {
     name: 'readAuthorization',
-    options: [
-      { label: 'Public', value: 'anonymous' },
-      { label: 'Clients', value: 'portal' },
-      { label: 'Lawyers', value: 'lawyer' },
-      { label: 'Admin', value: 'admin' },
-    ],
+    options,
     type: 'select',
   },
   {
     name: 'createAuthorization',
-    options: [
-      { label: 'Public', value: 'anonymous' },
-      { label: 'Clients', value: 'portal' },
-      { label: 'Lawyers', value: 'lawyer' },
-      { label: 'Admin', value: 'admin' },
-    ],
+    options,
     type: 'select',
   },
   {
     name: 'updateAuthorization',
-    options: [
-      { label: 'Public', value: 'anonymous' },
-      { label: 'Clients', value: 'portal' },
-      { label: 'Lawyers', value: 'lawyer' },
-      { label: 'Admin', value: 'admin' },
-    ],
+    options,
     type: 'select',
   },
   {
     name: 'deleteAuthorization',
-    options: [
-      { label: 'Public', value: 'anonymous' },
-      { label: 'Clients', value: 'portal' },
-      { label: 'Lawyers', value: 'lawyer' },
-      { label: 'Admin', value: 'admin' },
-    ],
+    options,
     type: 'select',
   }
 ];
