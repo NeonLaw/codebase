@@ -30,3 +30,14 @@ Cypress.Commands.add('createMatterTemplate', (matterTemplateName) => {
       .should('not.exist');
   });
 });
+
+Cypress.Commands.add('deleteMatterTemplate', (matterTemplateName) => {
+  cy.loginAsAdminUser().then(() => {
+    cy.visit('/portal/admin/matter-templates');
+
+    cy.get('[data-testid="matter-template-form-name"]').invoke('val')
+      .should('eq', matterTemplateName);
+
+    cy.get('[data-testid="delete-matter-template-button"]').click();
+  });
+});

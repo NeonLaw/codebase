@@ -9,6 +9,8 @@ declare namespace Cypress {
      */
     createMatterTemplate(value: string): Chainable<Element>
 
+    deleteMatterTemplate(value: string): Chainable<Element>
+
     loginAsAdminUser(): Chainable<Element>
 
     loginAsPortalUser(): Chainable<Element>

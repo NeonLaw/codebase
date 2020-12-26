@@ -58,5 +58,7 @@ describe('CRUD-ing a matter as an admin', () => {
       cy.get('[data-testid="matters-table"]')
         .within(() => { cy.contains(matterName).should('not.exist'); });
     });
+
+    cy.deleteMatterTemplate(matterTemplateName);
   });
 });
