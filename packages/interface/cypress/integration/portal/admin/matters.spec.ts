@@ -7,6 +7,8 @@ describe('CRUD-ing a matter as an admin', () => {
     const matterName = faker.lorem.sentence();
 
     cy.loginAsAdminUser().then(() => {
+      cy.createMatterTemplate('one');
+
       cy.visit('/portal/admin');
 
       cy.get('[data-testid="admin-matters-link-button"]').click();
