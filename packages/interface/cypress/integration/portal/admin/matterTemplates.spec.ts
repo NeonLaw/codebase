@@ -2,10 +2,13 @@
 
 import * as faker from 'faker';
 
-describe('Creating Matter Templates', () => {
+describe('CRUDding Matter Templates', () => {
   it(
-    'creates a matter template and adds that to the matter template table',
+    'creates a matter template, adds that to the matter template table, '+
+    'and optionally allows for updating it',
     () => {
+      const matterTemplateName = faker.lorem.sentence();
+
       cy.loginAsAdminUser().then(() => {
         cy.visit('/portal/admin/matter-templates');
 
@@ -20,7 +23,7 @@ describe('Creating Matter Templates', () => {
 
         cy
           .get('[data-testid="matter-template-form-name"]')
-          .type(faker.lorem.sentence());
+          .type(matterTemplateName);
 
         cy.get(
           '[data-testid="matter-template-form-javascript-module"]'
@@ -32,6 +35,18 @@ describe('Creating Matter Templates', () => {
 
         cy.get('[data-testid="create-matter-template-form"]')
           .should('not.exist');
+
+        cy.get('[data-testid="create-matter-template-form"]')
+          .should('not.exist');
+
+        cy.get('[data-testid="matter-templates-table"]')
+          .within(() => { cy.contains(matterTemplateName).click(); });
+
+        cy.get('[data-testid="update-matter-template-form"]')
+          .should('exist');
+
+        cy.get('[data-testid="matter-template-form-name"]').invoke('val')
+          .should('eq', matterTemplateName);
       });
     }
   );

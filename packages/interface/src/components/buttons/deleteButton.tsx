@@ -33,7 +33,7 @@ export const DeleteButton = ({
       styles={{ width: '100%' }}
       colorScheme="red"
     >
-      Delete ${titlecaseResourceName}&nbsp;
+      Delete {titlecaseResourceName}&nbsp;
       <Kbd border="1px solid #bbb" color="black">
         D
       </Kbd>

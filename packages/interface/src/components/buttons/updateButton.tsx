@@ -33,7 +33,7 @@ export const UpdateButton = ({
       styles={{ width: '100%' }}
       colorScheme="teal"
     >
-      Delete ${titlecaseResourceName}&nbsp;
+      Update {titlecaseResourceName}&nbsp;
       <SubmitForm />
       <SubmissionInProgress
         loading={updateMutationLoading || deleteMutationLoading}

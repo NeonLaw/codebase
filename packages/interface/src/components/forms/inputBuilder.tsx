@@ -44,6 +44,15 @@ export const InputBuilder = ({
         });
 
         switch (type) {
+          case 'id':
+            return (
+              <input
+                name={name}
+                type="hidden"
+                value={currentValues[name]}
+                ref={register}
+              />
+            );
           case 'codeEditor':
             return (
               <StringInput
