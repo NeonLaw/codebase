@@ -1,5 +1,6 @@
 import React from 'react';
 import { UpdateModalFormBuilder } from '../forms/updateModalFormBuilder';
+import { flashcardFields } from '../fields/flashcardFields';
 
 export const UpdateFlashcardModal = ({ isOpen, onClose, flashcard }) => {
   return (
@@ -8,18 +9,7 @@ export const UpdateFlashcardModal = ({ isOpen, onClose, flashcard }) => {
       currentValues={flashcard}
       isOpen={isOpen}
       onClose={onClose}
-      fields={[
-        {
-          name: 'prompt',
-          required: true,
-          type: 'string',
-        },
-        {
-          name: 'answer',
-          required: true,
-          type: 'textarea'
-        }
-      ]}
+      fields={flashcardFields}
     />
   );
 };
