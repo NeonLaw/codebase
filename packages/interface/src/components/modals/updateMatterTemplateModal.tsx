@@ -1,5 +1,6 @@
 import React from 'react';
 import { UpdateModalFormBuilder } from '../forms/updateModalFormBuilder';
+import { matterTemplateFields } from '../fields/matterTemplateFields';
 
 interface UpdateMatterTemplateModalProps {
   onClose(): void;
@@ -18,27 +19,7 @@ export const UpdateMatterTemplateModal = ({
       onClose={onClose}
       isOpen={isOpen}
       currentValues={{ id }}
-      fields={[
-        {
-          name: 'name',
-          type: 'string',
-        },
-        {
-          name: 'javascriptModule',
-          type: 'codeEditor',
-        },
-        {
-          name: 'category',
-          options: [
-            { label: 'Data Deletion', value: 'data-deletion' },
-            { label: 'Inmate Letter', value: 'inmate-letter' },
-            { label: 'Litigation', value: 'litigation' },
-            { label: 'Estate', value: 'estate' },
-            { label: 'Business', value: 'business' },
-          ],
-          type: 'select',
-        },
-      ]}
+      fields={matterTemplateFields}
     />
   );
 };
