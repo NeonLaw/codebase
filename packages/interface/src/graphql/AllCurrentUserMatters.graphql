@@ -1,0 +1,11 @@
+query AllCurrentUserMatters {
+  allCurrentUserMatters {
+    nodes {
+      id
+      primaryContactId
+      matterTemplateId
+      matterTemplateName
+      matterTemplateCategory
+    }
+  }
+}

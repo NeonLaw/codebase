@@ -701,6 +701,45 @@ export type CreateRoleIfNotExistsPayload = {
   query?: Maybe<Query>;
 };
 
+export type CurrentUserMatter = {
+  __typename?: 'CurrentUserMatter';
+  id?: Maybe<Scalars['UUID']>;
+  name?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Datetime']>;
+  updatedAt?: Maybe<Scalars['Datetime']>;
+  primaryContactId?: Maybe<Scalars['UUID']>;
+  matterTemplateId?: Maybe<Scalars['UUID']>;
+  matterTemplateName?: Maybe<Scalars['String']>;
+  matterTemplateCategory?: Maybe<Scalars['String']>;
+};
+
+/** A connection to a list of `CurrentUserMatter` values. */
+export type CurrentUserMattersConnection = {
+  __typename?: 'CurrentUserMattersConnection';
+  /** A list of `CurrentUserMatter` objects. */
+  nodes: Array<CurrentUserMatter>;
+  /** A list of edges which contains the `CurrentUserMatter` and cursor to aid in pagination. */
+  edges: Array<CurrentUserMattersEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `CurrentUserMatter` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `CurrentUserMatter` edge in the connection. */
+export type CurrentUserMattersEdge = {
+  __typename?: 'CurrentUserMattersEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `CurrentUserMatter` at the end of the edge. */
+  node: CurrentUserMatter;
+};
+
+/** Methods to use when ordering `CurrentUserMatter`. */
+export enum CurrentUserMattersOrderBy {
+  Natural = 'NATURAL'
+}
+
 
 
 /** All input for the `deleteAddressById` mutation. */
@@ -1908,6 +1947,7 @@ export type MatterContact = Node & {
   matterId: Scalars['UUID'];
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
+  role: Scalars['String'];
 };
 
 /**
@@ -1926,6 +1966,7 @@ export type MatterContactInput = {
   matterId: Scalars['UUID'];
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
+  role: Scalars['String'];
 };
 
 /** Represents an update to a `MatterContact`. Fields that are set will be updated. */
@@ -1935,6 +1976,7 @@ export type MatterContactPatch = {
   matterId?: Maybe<Scalars['UUID']>;
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
+  role?: Maybe<Scalars['String']>;
 };
 
 /** A connection to a list of `MatterContact` values. */
@@ -3121,6 +3163,8 @@ export type Query = Node & {
   node?: Maybe<Node>;
   /** Reads and enables pagination through a set of `Address`. */
   allAddresses?: Maybe<AddressesConnection>;
+  /** Reads and enables pagination through a set of `CurrentUserMatter`. */
+  allCurrentUserMatters?: Maybe<CurrentUserMattersConnection>;
   /** Reads and enables pagination through a set of `Document`. */
   allDocuments?: Maybe<DocumentsConnection>;
   /** Reads and enables pagination through a set of `DocumentTemplate`. */
@@ -3219,6 +3263,17 @@ export type QueryAllAddressesArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<AddressesOrderBy>>;
   condition?: Maybe<AddressCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAllCurrentUserMattersArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<CurrentUserMattersOrderBy>>;
 };
 
 
@@ -4827,6 +4882,20 @@ export type UpdateResponsePayloadResponseEdgeArgs = {
 };
 
 
+export type AllCurrentUserMattersQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllCurrentUserMattersQuery = (
+  { __typename?: 'Query' }
+  & { allCurrentUserMatters?: Maybe<(
+    { __typename?: 'CurrentUserMattersConnection' }
+    & { nodes: Array<(
+      { __typename?: 'CurrentUserMatter' }
+      & Pick<CurrentUserMatter, 'id' | 'primaryContactId' | 'matterTemplateId' | 'matterTemplateName' | 'matterTemplateCategory'>
+    )> }
+  )> }
+);
+
 export type AllDocumentTemplatesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -5245,6 +5314,44 @@ export type UpdateQuestionByIdMutation = (
 );
 
 
+export const AllCurrentUserMattersDocument = gql`
+    query AllCurrentUserMatters {
+  allCurrentUserMatters {
+    nodes {
+      id
+      primaryContactId
+      matterTemplateId
+      matterTemplateName
+      matterTemplateCategory
+    }
+  }
+}
+    `;
+
+/**
+ * __useAllCurrentUserMattersQuery__
+ *
+ * To run a query within a React component, call `useAllCurrentUserMattersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllCurrentUserMattersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAllCurrentUserMattersQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useAllCurrentUserMattersQuery(baseOptions?: Apollo.QueryHookOptions<AllCurrentUserMattersQuery, AllCurrentUserMattersQueryVariables>) {
+        return Apollo.useQuery<AllCurrentUserMattersQuery, AllCurrentUserMattersQueryVariables>(AllCurrentUserMattersDocument, baseOptions);
+      }
+export function useAllCurrentUserMattersLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllCurrentUserMattersQuery, AllCurrentUserMattersQueryVariables>) {
+          return Apollo.useLazyQuery<AllCurrentUserMattersQuery, AllCurrentUserMattersQueryVariables>(AllCurrentUserMattersDocument, baseOptions);
+        }
+export type AllCurrentUserMattersQueryHookResult = ReturnType<typeof useAllCurrentUserMattersQuery>;
+export type AllCurrentUserMattersLazyQueryHookResult = ReturnType<typeof useAllCurrentUserMattersLazyQuery>;
+export type AllCurrentUserMattersQueryResult = Apollo.QueryResult<AllCurrentUserMattersQuery, AllCurrentUserMattersQueryVariables>;
 export const AllDocumentTemplatesDocument = gql`
     query AllDocumentTemplates {
   allDocumentTemplates(orderBy: NAME_ASC) {
