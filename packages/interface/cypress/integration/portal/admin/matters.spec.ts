@@ -1,14 +1,12 @@
-/* eslint-disable no-undef */
-
 import * as faker from 'faker';
 
 describe('CRUD-ing a matter as an admin', () => {
   it('allows for creating, reading, and deleting a matter', () => {
     const matterName = faker.lorem.sentence();
 
-    cy.loginAsAdminUser().then(() => {
-      cy.createMatterTemplate('one');
+    cy.createMatterTemplate('one');
 
+    cy.loginAsAdminUser().then(() => {
       cy.visit('/portal/admin');
 
       cy.get('[data-testid="admin-matters-link-button"]').click();

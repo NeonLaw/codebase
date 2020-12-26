@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-
 describe('Viewing a list of people as an admin', () => {
   it('renders the person table', () => {
     cy.loginAsAdminUser().then(() => {

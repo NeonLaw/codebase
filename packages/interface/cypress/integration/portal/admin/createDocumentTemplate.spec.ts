@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-
 import * as faker from 'faker';
 
 describe('Creating Document Templates', () => {

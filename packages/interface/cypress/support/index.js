@@ -14,8 +14,8 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './matterTemplateCommands';
 import './commands';
+import './matterTemplateCommands';
 import 'cypress-axe';
 import '@testing-library/cypress/add-commands';
 import 'gatsby-cypress';
