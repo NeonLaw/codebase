@@ -16,7 +16,7 @@ import {
 import React, { useState } from 'react';
 import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { AuthenticationContext } from '../../utils/authenticationContext';
-import { BlackLivesMatter } from './black-lives-matter';
+import { BlackLivesMatter } from './blackLivesMatter';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
 import { Link } from '../link';
