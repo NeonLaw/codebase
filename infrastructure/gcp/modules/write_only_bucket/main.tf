@@ -3,7 +3,7 @@ resource "google_storage_bucket" "write_only_bucket" {
   location      = "US"
   force_destroy = true
 
-  uniform_bucket_level_access = true
+  uniform_bucket_level_access = false
 
   versioning {
     enabled = true
