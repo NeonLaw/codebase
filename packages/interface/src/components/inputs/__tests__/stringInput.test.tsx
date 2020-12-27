@@ -1,5 +1,6 @@
 import React from 'react';
 import { StringInput } from '../stringInput';
+import { expect } from '@jest/globals';
 import { render } from '@testing-library/react';
 
 describe('StringInput', () => {
