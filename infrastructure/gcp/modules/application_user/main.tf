@@ -4,6 +4,6 @@ resource "google_service_account" "application_user_account" {
   description  = "GCP Credentials used in Kubernetes apps"
 }
 
-resource "google_service_account_key" "application_user_accunt_key" {
+resource "google_service_account_key" "application_user_account_key" {
   service_account_id = google_service_account.application_user_account.name
 }

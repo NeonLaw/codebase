@@ -4,6 +4,6 @@ resource "google_service_account" "user_account" {
   description  = "GCP Credentials used for Transloadit"
 }
 
-resource "google_service_account_key" "user_accunt_key" {
-  service_account_id = google_service_account.application_user_account.name
+resource "google_service_account_key" "user_account_key" {
+  service_account_id = google_service_account.user_account.name
 }
