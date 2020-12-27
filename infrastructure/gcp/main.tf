@@ -41,7 +41,7 @@ module "kubernetes_cluster" {
 }
 
 module "neon-law-ssl-certificate" {
-  source           = "../modules/ssl_certificate"
+  source           = "./modules/ssl_certificate"
   certificate_name = "neon-law"
   domain_name      = var.neon_law_url
 }
