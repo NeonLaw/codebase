@@ -25,3 +25,12 @@ resource "google_service_account" "write_only_bucket_user_account" {
 resource "google_service_account_key" "write_only_bucket_user_account_key" {
   service_account_id = google_service_account.write_only_bucket_user_account.name
 }
+
+resource "google_service_account_iam_binding" "admin-account-iam" {
+  service_account_id = google_service_account.write_only_bucket_user_account.name
+  role               = "roles/iam.serviceAccountUser"
+
+  members = [
+    "user:nick@neonlaw.com",
+  ]
+}

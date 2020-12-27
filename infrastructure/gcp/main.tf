@@ -84,10 +84,6 @@ module "company_bucket" {
   ]
 }
 
-module "transloadit_user" {
-  source     = "./modules/transloadit_user"
-}
-
 module "application_user" {
   source     = "./modules/application_user"
 }
