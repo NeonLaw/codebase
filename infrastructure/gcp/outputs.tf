@@ -73,3 +73,8 @@ output "application_user_account_key" {
 output "database_name" {
   value = "neon-law"
 }
+
+output "transloadit_user_account_key" {
+  value = module.transloadit_user.account_key
+  sensitive = true
+}
