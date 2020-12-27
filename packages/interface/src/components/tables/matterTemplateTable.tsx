@@ -29,6 +29,10 @@ export const MatterTemplateTable = (props: MatterTemplateTableProps) => {
       Header: 'Javascript Module',
       accessor: 'javascriptModule',
     },
+    {
+      Header: 'Category',
+      accessor: 'category',
+    },
   ];
   const nodes = data?.allMatterTemplates?.nodes || [];
 

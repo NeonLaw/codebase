@@ -15,10 +15,10 @@ const WriteRickiePage = () => {
     <PortalLayout>
       <Box maxWidth={sizes.textContainerXSmall}>
         <Heading fontWeight="normal" marginBottom={gutters.xSmallOne}>
-          {intl.formatMessage({ id: 'pages.litigation.heading' })}
+          {intl.formatMessage({ id: 'pages.write_rickie.heading' })}
         </Heading>
         <Text>
-          {intl.formatMessage({ id: 'pages.litigation.text' })}
+          {intl.formatMessage({ id: 'pages.write_rickie.text' })}
         </Text>
       </Box>
     </PortalLayout>

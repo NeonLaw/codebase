@@ -6,5 +6,10 @@ query MatterById($id: UUID!) {
       id
       name
     }
+    matterTemplateByMatterTemplateId {
+      id
+      name
+      category
+    }
   }
 }
