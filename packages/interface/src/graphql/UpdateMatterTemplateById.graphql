@@ -2,10 +2,15 @@ mutation UpdateMatterTemplateById(
   $id: UUID!
   $name: String
   $javascriptModule: String
+  $category: String
 ) {
   updateMatterTemplateById(
     input: {
-      matterTemplatePatch: { name: $name, javascriptModule: $javascriptModule }
+      matterTemplatePatch: {
+        name: $name
+        javascriptModule: $javascriptModule
+        category: $category
+      }
       id: $id
     }
   ) {
@@ -13,6 +18,7 @@ mutation UpdateMatterTemplateById(
       id
       name
       javascriptModule
+      category
     }
   }
 }

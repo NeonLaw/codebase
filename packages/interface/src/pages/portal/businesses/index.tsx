@@ -1,7 +1,8 @@
 import { Box, Heading, Text } from '@chakra-ui/core';
 import { gutters, sizes } from '../../../themes/neonLaw';
-/* eslint-disable-next-line max-len */
-import { BusinessMattersList } from '../../../components/lists/businessMattersList';
+import {
+  BusinessMattersList
+} from '../../../components/lists/businessMattersList';
 import { PortalLayout } from '../../../layouts/portalLayout';
 import React from 'react';
 import { useIntl } from 'gatsby-plugin-intl';

@@ -5196,6 +5196,9 @@ export type MatterByIdQuery = (
     & { personByPrimaryContactId?: Maybe<(
       { __typename?: 'Person' }
       & Pick<Person, 'id' | 'name'>
+    )>, matterTemplateByMatterTemplateId?: Maybe<(
+      { __typename?: 'MatterTemplate' }
+      & Pick<MatterTemplate, 'id' | 'name' | 'category'>
     )> }
   )> }
 );
@@ -5262,6 +5265,7 @@ export type UpdateMatterTemplateByIdMutationVariables = Exact<{
   id: Scalars['UUID'];
   name?: Maybe<Scalars['String']>;
   javascriptModule?: Maybe<Scalars['String']>;
+  category?: Maybe<Scalars['String']>;
 }>;
 
 
@@ -5271,7 +5275,7 @@ export type UpdateMatterTemplateByIdMutation = (
     { __typename?: 'UpdateMatterTemplatePayload' }
     & { matterTemplate?: Maybe<(
       { __typename?: 'MatterTemplate' }
-      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule'>
+      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule' | 'category'>
     )> }
   )> }
 );
@@ -6035,6 +6039,11 @@ export const MatterByIdDocument = gql`
       id
       name
     }
+    matterTemplateByMatterTemplateId {
+      id
+      name
+      category
+    }
   }
 }
     `;
@@ -6188,12 +6197,13 @@ export type UpdateMatterByIdMutationHookResult = ReturnType<typeof useUpdateMatt
 export type UpdateMatterByIdMutationResult = Apollo.MutationResult<UpdateMatterByIdMutation>;
 export type UpdateMatterByIdMutationOptions = Apollo.BaseMutationOptions<UpdateMatterByIdMutation, UpdateMatterByIdMutationVariables>;
 export const UpdateMatterTemplateByIdDocument = gql`
-    mutation UpdateMatterTemplateById($id: UUID!, $name: String, $javascriptModule: String) {
-  updateMatterTemplateById(input: {matterTemplatePatch: {name: $name, javascriptModule: $javascriptModule}, id: $id}) {
+    mutation UpdateMatterTemplateById($id: UUID!, $name: String, $javascriptModule: String, $category: String) {
+  updateMatterTemplateById(input: {matterTemplatePatch: {name: $name, javascriptModule: $javascriptModule, category: $category}, id: $id}) {
     matterTemplate {
       id
       name
       javascriptModule
+      category
     }
   }
 }
@@ -6216,6 +6226,7 @@ export type UpdateMatterTemplateByIdMutationFn = Apollo.MutationFunction<UpdateM
  *      id: // value for 'id'
  *      name: // value for 'name'
  *      javascriptModule: // value for 'javascriptModule'
+ *      category: // value for 'category'
  *   },
  * });
  */

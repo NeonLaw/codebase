@@ -1,26 +1,26 @@
 import {
   Box,
   Heading,
-  Text,
 } from '@chakra-ui/core';
 import { gutters, sizes } from '../../themes/neonLaw';
-
+import {
+  DataDeletionDashborard
+} from '../../components/dashboards/dataDeletionDashboard';
 import { PortalLayout } from '../../layouts/portalLayout';
 import React from 'react';
 import { useIntl } from 'gatsby-plugin-intl';
 
 const DataDeletionPage = () => {
   const intl = useIntl();
+
   return (
     <PortalLayout>
       <Box maxWidth={sizes.textContainerXSmall}>
         <Heading fontWeight="normal" marginBottom={gutters.xSmallOne}>
-          {intl.formatMessage({ id: 'pages.data_deletion.text' })}
+          {intl.formatMessage({ id: 'pages.data_deletion.heading' })}
         </Heading>
-        <Text>
-          {intl.formatMessage({ id: 'pages.data_deletion.text' })}
-        </Text>
       </Box>
+      <DataDeletionDashborard />
     </PortalLayout>
   );
 };

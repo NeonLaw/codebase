@@ -2,7 +2,7 @@ import React from 'react';
 import { Skeleton } from '@chakra-ui/core';
 import { useAllCurrentUserMattersQuery } from '../../utils/api';
 
-export const BusinessMattersList = () => {
+export const DataDeletionDashborard = () => {
   const { data, loading } = useAllCurrentUserMattersQuery();
 
   if (loading) {
@@ -15,7 +15,7 @@ export const BusinessMattersList = () => {
     return (
       <>
         {matters.map((matter, key) => {
-          if (matter.matterTemplateCategory === 'business') {
+          if (matter.matterTemplateCategory === 'data-deletion') {
             return <h1 key={key}>{matter.id}</h1>;
           }
           return null;
