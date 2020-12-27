@@ -35,6 +35,9 @@ Cypress.Commands.add('deleteMatterTemplate', (matterTemplateName) => {
   cy.loginAsAdminUser().then(() => {
     cy.visit('/portal/admin/matter-templates');
 
+    cy.get('[data-testid="matter-template-table"]')
+      .within(() => { cy.contains(matterTemplateName).click(); });
+
     cy.get('[data-testid="update-matter-template-form"]')
       .should('exist');
 
