@@ -2,9 +2,10 @@ import * as faker from 'faker';
 
 describe('CRUD-ing a matter as an admin', () => {
   it('allows for creating, reading, and deleting a matter', () => {
+    const matterTemplateName = faker.lorem.sentence();
     const matterName = faker.lorem.sentence();
 
-    cy.createMatterTemplate('one');
+    cy.createMatterTemplate(matterTemplateName);
 
     cy.loginAsAdminUser().then(() => {
       cy.visit('/portal/admin');
@@ -57,5 +58,7 @@ describe('CRUD-ing a matter as an admin', () => {
       cy.get('[data-testid="matters-table"]')
         .within(() => { cy.contains(matterName).should('not.exist'); });
     });
+
+    cy.deleteMatterTemplate(matterTemplateName);
   });
 });
