@@ -1,7 +1,6 @@
 interface CreatePersonInterface {
   sub: string;
   email: string;
-  role: string;
   name: string;
   client: any;
 }
@@ -14,7 +13,7 @@ export interface CurrentPersonInterface {
 export const createPerson = async (
   args: CreatePersonInterface
 ): Promise<CurrentPersonInterface> => {
-  const { client, sub, email, role, name } = args;
+  const { client, sub, email, name } = args;
 
   const personQuery = await client.query(
     'INSERT INTO person (sub, email, role, name) ' +
@@ -22,7 +21,6 @@ export const createPerson = async (
     [
       sub,
       email,
-      role,
       name
     ]
   );
