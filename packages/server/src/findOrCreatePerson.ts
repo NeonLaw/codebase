@@ -26,7 +26,7 @@ export const findOrCreatePerson = async (
   }
 
   const userFromAuth0 = await getUserFromAuth0(sub);
-  const { email, name } = userFromAuth0;
+  const { email, name, role } = userFromAuth0;
 
   const currentPersonByEmailQuery = await client.query(
     'SELECT id, role FROM person WHERE email = $1 LIMIT 1',
@@ -36,7 +36,7 @@ export const findOrCreatePerson = async (
 
   if (currentPersonByEmail) {
     await client.query(
-      `UPDATE person SET sub = ${sub} WHERE email = ${email}`
+      `UPDATE person SET sub = '${sub}' WHERE email = '${email}'`
     );
     await client.end();
     return {
@@ -45,10 +45,11 @@ export const findOrCreatePerson = async (
     };
   }
 
-  const { id, role } = await createPerson({
+  const { id } = await createPerson({
     client,
     email,
     name,
+    role,
     sub,
   });
 
