@@ -48,7 +48,7 @@ export class AuthenticationProvider extends Component {
     domain: process.env.GATSBY_AUTH0_DOMAIN as string,
     redirect_uri: process.env.GATSBY_AUTH0_CALLBACK,
     responseType: 'token id_token',
-    scope: 'openid profile email',
+    scope: 'openid profile email role',
   };
 
   componentDidMount() {

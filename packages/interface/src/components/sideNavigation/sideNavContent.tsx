@@ -161,6 +161,9 @@ export const SideNavContent = ({
                   activeClassName="active"
                   to={link.route}
                   className="link"
+                  data-testId={
+                    `${link.label.toLowerCase()}-side-navigation-link`
+                  }
                 >
                   {isRenderedOnDashboard ? link.icon : null}
                   {link.label}

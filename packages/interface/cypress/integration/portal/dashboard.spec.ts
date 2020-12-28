@@ -35,4 +35,17 @@ describe('Visiting /portal', () => {
       });
     });
   });
+
+  context('logged in as a portal user', () => {
+    it('renders the /portal pages and the admin portal', () => {
+      cy.loginAsAdminUser().then(() => {
+        cy.visit('/portal');
+        cy.wait(1000);
+        cy.url().should('include', '/portal');
+
+        cy.get('[data-testid="admin-side-navigation-link"]').click();
+        cy.url().should('include', '/portal/admin');
+      });
+    });
+  });
 });
