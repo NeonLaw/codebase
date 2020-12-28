@@ -9,11 +9,11 @@ import { RiAdminLine } from 'react-icons/ri';
 import {
   SideNavContainer
 } from './sideNavContainer';
-import { SideNavContent } from './base';
+import { SideNavContent } from './sideNavContent';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { VscLaw } from 'react-icons/vsc';
 
-export const PortalSideNavContent = ({ role }) => {
+export const PortalSideNavContent = ({ email }) => {
   const links = [
     {
       icon: <BiHomeHeart />,
@@ -39,14 +39,14 @@ export const PortalSideNavContent = ({ role }) => {
       label: 'Businesses',
       route: '/portal/businesses'
     },
-    role === 'laywer' || role === 'admin' ? {
+    email === 'admin@neonlaw.com' || email === 'nick@neonlaw.com' ? {
       icon: <AiOutlineAudit />, label: 'Audits', route: '/portal/audits'
     }: null,
     { icon: <CgProfile />, label: 'Settings', route: '/portal/settings' },
-    role === 'laywer' || role === 'admin' ? {
-      icon: <VscLaw />, label: 'Lawyers', route: '/lawyers' } : null,
-    role === 'admin' ? {
-      icon: <RiAdminLine />, label: 'Admin', route: '/admin' } : null,
+    email === 'admin@neonlaw.com' || email === 'nick@neonlaw.com' ? {
+      icon: <VscLaw />, label: 'Lawyers', route: '/portal/lawyers' } : null,
+    email === 'admin@neonlaw.com' || email === 'nick@neonlaw.com' ? {
+      icon: <RiAdminLine />, label: 'Admin', route: '/portal/admin' } : null,
 
   ];
 
@@ -56,11 +56,10 @@ export const PortalSideNavContent = ({ role }) => {
 export const PortalSideNavigation = (props) => {
   return (
     <AuthenticationContext.Consumer>
-      {({ user: { role }}: any) => {
-
+      {({ user: { email } }: any) => {
         return (
           <SideNavContainer isRenderedOnDashboard={true} {...props}>
-            <PortalSideNavContent role={role} />
+            <PortalSideNavContent email={email} />
           </SideNavContainer>
         );
       }}

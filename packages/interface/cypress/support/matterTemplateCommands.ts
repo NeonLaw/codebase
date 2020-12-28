@@ -38,7 +38,9 @@ Cypress.Commands.add('deleteMatterTemplate', (matterTemplateName) => {
     cy.wait(1000);
 
     cy.get('[data-testid="matter-template-table"]')
-      .within(() => { cy.contains(matterTemplateName).click(); });
+      .within(() => {
+        cy.contains(matterTemplateName).click({ force: true });
+      });
 
     cy.get('[data-testid="update-matter-template-form"]')
       .should('exist');

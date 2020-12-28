@@ -3,7 +3,7 @@ import React from 'react';
 import {
   SideNavContainer
 } from '../../components/sideNavigation/sideNavContainer';
-import { SideNavContent } from '../../components/sideNavigation/base';
+import { SideNavContent } from './sideNavContent';
 
 export const PublicSideNavContent = () => {
   const publicLinks = PublicLinks();

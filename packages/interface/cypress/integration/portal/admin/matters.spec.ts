@@ -45,9 +45,12 @@ describe('CRUD-ing a matter as an admin', () => {
         .should('not.exist');
 
       cy.get('[data-testid="matters-table"]')
-        .within(() => { cy.contains(matterName).click(); });
+        .within(() => {
+          cy.contains(matterName).trigger('mouseover').click({ force: true });
+        });
 
       cy.url().should('include', '/admin/matters/');
+
       cy.get('[data-testid="matters-table"]').should('not.exist');
 
       cy.get('[data-testid="delete-matter-button"]').click();

@@ -50,6 +50,7 @@ const AdminMatters = () => {
         <MatterTable
           onRowClick={(row) => {
             navigate(`/portal/admin/matters/${row.values.id}`);
+            return null;
           }}
         />
       </Box>
