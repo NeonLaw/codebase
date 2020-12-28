@@ -32,6 +32,9 @@ describe('Visiting /portal', () => {
         cy.get('[data-testid="update-person-modal"]').should('not.exist');
         cy.get('[data-testid="portal-profile-card-name"]').
           should('contain', name);
+
+        cy.get('[data-testid="admin-side-navigation-link"]')
+          .should('not.exist');
       });
     });
   });
