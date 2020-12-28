@@ -44,9 +44,9 @@ export const PortalSideNavContent = ({ email }) => {
     }: null,
     { icon: <CgProfile />, label: 'Settings', route: '/portal/settings' },
     email === 'admin@neonlaw.com' || email === 'nick@neonlaw.com' ? {
-      icon: <VscLaw />, label: 'Lawyers', route: '/lawyers' } : null,
+      icon: <VscLaw />, label: 'Lawyers', route: '/portal/lawyers' } : null,
     email === 'admin@neonlaw.com' || email === 'nick@neonlaw.com' ? {
-      icon: <RiAdminLine />, label: 'Admin', route: '/admin' } : null,
+      icon: <RiAdminLine />, label: 'Admin', route: '/portal/admin' } : null,
 
   ];
 
