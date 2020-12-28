@@ -28,6 +28,8 @@ Cypress.Commands.add('loginAsPortalUser', () => {
     const { access_token, expires_in, id_token } = body;
     const key = `@@auth0spajs@@::${clientId}::${audience}::${scope}`;
 
+    cy.server();
+
     const auth0Cache = {
       body: {
         access_token,
@@ -72,6 +74,8 @@ Cypress.Commands.add('loginAsAdminUser', () => {
   cy.request(options).then(({ body }) => {
     const { access_token, expires_in, id_token } = body;
     const key = `@@auth0spajs@@::${clientId}::${audience}::${scope}`;
+
+    cy.server();
 
     const auth0Cache = {
       body: {
