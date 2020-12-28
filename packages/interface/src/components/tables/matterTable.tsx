@@ -6,7 +6,7 @@ interface MatterTableProps {
   onRowClick(row: any): void;
 }
 
-export const MatterTable = (props: MatterTableProps) => {
+export const MatterTable = ({ onRowClick }: MatterTableProps) => {
   const { loading, data, error } = useAllMattersQuery();
 
   if (loading) {
@@ -37,7 +37,7 @@ export const MatterTable = (props: MatterTableProps) => {
       columns={columns}
       data={nodes}
       testId="matters-table"
-      onRowClick={props.onRowClick}
+      onRowClick={onRowClick}
     />
   );
 };
