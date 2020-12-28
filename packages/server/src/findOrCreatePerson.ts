@@ -26,13 +26,31 @@ export const findOrCreatePerson = async (
   }
 
   const userFromAuth0 = await getUserFromAuth0(sub);
+  const { email, name, role } = userFromAuth0;
 
-  const { id, role } = await createPerson({
+  const currentPersonByEmailQuery = await client.query(
+    'SELECT id, role FROM person WHERE email = $1 LIMIT 1',
+    [email]
+  );
+  const currentPersonByEmail = currentPersonByEmailQuery.rows[0];
+
+  if (currentPersonByEmail) {
+    await client.query(
+      `UPDATE person SET sub = '${sub}' WHERE email = '${email}'`
+    );
+    await client.end();
+    return {
+      id: currentPersonByEmail.id,
+      role: currentPersonByEmail.role,
+    };
+  }
+
+  const { id } = await createPerson({
     client,
-    email: userFromAuth0.email,
-    name: userFromAuth0.name,
-    role: userFromAuth0.role,
-    sub: userFromAuth0.sub,
+    email,
+    name,
+    role,
+    sub,
   });
 
   await client.end();

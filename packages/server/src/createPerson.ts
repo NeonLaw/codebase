@@ -1,8 +1,8 @@
 interface CreatePersonInterface {
   sub: string;
   email: string;
-  role: string;
   name: string;
+  role: 'portal' | 'lawyer' | 'admin';
   client: any;
 }
 
@@ -14,16 +14,16 @@ export interface CurrentPersonInterface {
 export const createPerson = async (
   args: CreatePersonInterface
 ): Promise<CurrentPersonInterface> => {
-  const { client, sub, email, role, name } = args;
+  const { client, sub, email, name, role } = args;
 
   const personQuery = await client.query(
-    'INSERT INTO person (sub, email, role, name) ' +
+    'INSERT INTO person (sub, email, name, role) ' +
     'VALUES ($1, $2, $3, $4) RETURNING id, role',
     [
       sub,
       email,
-      role,
-      name
+      name,
+      role
     ]
   );
 
