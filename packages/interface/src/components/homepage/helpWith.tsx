@@ -9,12 +9,13 @@ import React from 'react';
 export interface HelpWithProps {
   text: string;
   image: string;
+  path: string;
 }
 
-export const HelpWith = ({ image, text }: HelpWithProps) => (
+export const HelpWith = ({ image, text, path }: HelpWithProps) => (
   <Box
     as={Link}
-    to="#"
+    to={path}
     position="relative"
     padding="5rem 3rem"
     display="block"

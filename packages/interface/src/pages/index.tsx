@@ -12,8 +12,8 @@ import { Seo } from '../components/seo';
 // import { Testimonials } from '../components/homepage/testimonials';
 import {
   WhatWeCanHelpWith
-} from '../components/homepage/what-we-can-help-with';
-import { WhyNeonLaw } from '../components/homepage/why-neon-law';
+} from '../components/homepage/whatWeCanHelpWith';
+import { WhyNeonLaw } from '../components/homepage/whyNeonLaw';
 import { colors } from '../themes/neonLaw';
 import { useColorMode } from '@chakra-ui/core';
 import { useIntl } from 'gatsby-plugin-intl';

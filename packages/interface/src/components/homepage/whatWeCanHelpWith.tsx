@@ -1,4 +1,4 @@
-import { HelpWith, HelpWithProps } from './help-with';
+import { HelpWith, HelpWithProps } from './helpWith';
 
 import Afford from '../../images/what-we-can-help-with/cant-afford.jpg';
 import { Box } from '@chakra-ui/core';
@@ -19,48 +19,56 @@ export const WhatWeCanHelpWith = () => {
   const features: HelpWithProps[] = [
     {
       image: Injured,
+      path: '/practice-areas/personal-injury',
       text: intl.formatMessage({
         id: 'we_can_help_with.injured',
       }),
     },
     {
       image: Immigration,
+      path: '/practice-areas/immigration',
       text: intl.formatMessage({
         id: 'we_can_help_with.immigration',
       }),
     },
     {
       image: Debt,
+      path: '/practice-areas/debt-relief',
       text: intl.formatMessage({
         id: 'we_can_help_with.debt',
       }),
     },
     {
       image: Afford,
+      path: '/pro-bono',
       text: intl.formatMessage({
         id: 'we_can_help_with.afford',
       }),
     },
     {
       image: Bussiness,
+      path: '/practice-areas/business',
       text: intl.formatMessage({
-        id: 'we_can_help_with.bussiness',
+        id: 'we_can_help_with.business',
       }),
     },
     {
       image: Hacked,
+      path: '/practice-areas/cybersecurity-and-privacy',
       text: intl.formatMessage({
         id: 'we_can_help_with.hacked',
       }),
     },
     {
       image: Divorce,
+      path: '/practice-areas/family-law',
       text: intl.formatMessage({
         id: 'we_can_help_with.divorce',
       }),
     },
     {
       image: Dead,
+      path: '/practice-areas/estate-planning',
       text: intl.formatMessage({
         id: 'we_can_help_with.dead',
       }),
@@ -72,6 +80,7 @@ export const WhatWeCanHelpWith = () => {
     // },
     {
       image: Rights,
+      path: '/practice-areas/constitutional-rights',
       text: intl.formatMessage({
         id: 'we_can_help_with.rights',
       }),
@@ -79,7 +88,7 @@ export const WhatWeCanHelpWith = () => {
   ];
 
   return (
-    <Section 
+    <Section
       title={intl.formatMessage({ id: 'we_can_help_with.title' })}
     >
       <Box
