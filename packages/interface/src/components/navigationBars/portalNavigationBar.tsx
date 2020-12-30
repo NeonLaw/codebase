@@ -10,10 +10,11 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/core';
 import React, { useState } from 'react';
-import { colors, gutters } from '../../themes/neonLaw';
+import { colors, gutters, theme } from '../../themes/neonLaw';
 
 import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { AuthenticationContext } from '../../utils/authenticationContext';
@@ -45,21 +46,27 @@ export const PortalNavigationBar = ({
     <>
       <Box
         top="2em"
-        position='inherit'
+        position="inherit"
         padding={`${gutters.xSmallOne} ${gutters.xSmall}`}
         zIndex={4}
-        bg='#f4f4f4'
-        color='black'
+        bg={useColorModeValue(theme.colors.gray[100], theme.colors.black)}
+        borderBottom={useColorModeValue('', '1px solid #222')}
+        color="black"
         left="0"
         right="0"
         width="full"
-        height='auto'
+        height="auto"
       >
         <Container isFullBleed={true}>
           <Flex boxSize="100%" align="center">
             <Search
               version="desktop"
               isRenderedOnDashboard={true}
+              background={useColorModeValue(
+                colors.background.light,
+                colors.background.dark,
+              )}
+              borderColor={useColorModeValue(theme.colors.gray[300], '')}
             />
 
             <Flex flexGrow={1} align="center" justify="flex-end">
@@ -84,13 +91,15 @@ export const PortalNavigationBar = ({
                       right: '100%',
                       transition: 'all 0.4s cubic-bezier(0, 0.5, 0, 1)',
                     }}
-                    _hover={{
-                      '&:after': {
-                        background: colors.primaryColor400,
-                        right: 0,
-                      },
-                      color: colors.primaryColor400,
-                    } as any}
+                    _hover={
+                      {
+                        '&:after': {
+                          background: colors.primaryColor400,
+                          right: 0,
+                        },
+                        color: colors.primaryColor400,
+                      } as any
+                    }
                     activeClassName="nav-link--active"
                   >
                     {link.label}

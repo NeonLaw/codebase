@@ -68,7 +68,7 @@ const StyledSideNavContent = styled.div<{ isRenderedOnDashboard?: boolean }>`
         border-bottom: 2px solid transparent;
       }
 
-      @media(max-width: 640px) {
+      @media (max-width: 640px) {
         margin: 0;
       }
 
@@ -90,7 +90,6 @@ const StyledSideNavContent = styled.div<{ isRenderedOnDashboard?: boolean }>`
     svg {
       display: inline-block;
       margin-right: ${gutters.xSmallOne};
-
 
       @media (max-width: 800px) {
         margin-right: 0;
@@ -151,25 +150,28 @@ export const SideNavContent = ({
             <img className="logo" src="/images/logo.svg" alt="Neon Law" />
           </Box>
           <Box mb="10" display={isRenderedOnDashboard ? 'none' : ''}>
-            <Search version="mobile" />
+            <Search
+              version="mobile"
+            />
           </Box>
           <div className="links">
-            {links.map((link, i) => (
-              !link ? null : <Box key={i}>
-                <Link
-                  activeStyle={{ color: activeColor[colorMode] }}
-                  activeClassName="active"
-                  to={link.route}
-                  className="link"
-                  data-testId={
-                    `${link.label.toLowerCase()}-side-navigation-link`
-                  }
-                >
-                  {isRenderedOnDashboard ? link.icon : null}
-                  {link.label}
-                </Link>
-              </Box>
-            ))}
+            {links.map((link, i) =>
+              !link ? null : (
+                <Box key={i}>
+                  <Link
+                    activeStyle={{ color: activeColor[colorMode] }}
+                    activeClassName="active"
+                    to={link.route}
+                    className="link"
+                    // eslint-disable-next-line
+                    data-testId={`${link.label.toLowerCase()}-side-navigation-link`}
+                  >
+                    {isRenderedOnDashboard ? link.icon : null}
+                    {link.label}
+                  </Link>
+                </Box>
+              ),
+            )}
             <AuthenticationContext.Consumer>
               {({ isLoading, isAuthenticated, login }) => {
                 if (isLoading || isAuthenticated) {

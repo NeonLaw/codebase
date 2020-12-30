@@ -14,6 +14,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/core';
 import React, { useState } from 'react';
+
 import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { AuthenticationContext } from '../../utils/authenticationContext';
 import { BlackLivesMatter } from './blackLivesMatter';
@@ -72,7 +73,9 @@ export const BaseNavigationBar = ({
 
             <Search
               version="desktop"
+              hideOnMobile={true}
               isRenderedOnDashboard={false}
+              background={colors.background.dark}
             />
 
             <Flex flexGrow={1} align="center" justify="flex-end">
