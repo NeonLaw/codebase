@@ -8,7 +8,7 @@ import {
 import { FormattedDate } from 'gatsby-plugin-intl';
 import { Link } from 'gatsby';
 import React from 'react';
-import { ReadMoreButton } from '../read-more-button';
+import { ReadMoreButton } from '../readMoreButton';
 import styled from '@emotion/styled';
 
 const StyledPostBanner = styled(Link)`
