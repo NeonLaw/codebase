@@ -7,14 +7,13 @@ import styled from '@emotion/styled';
 
 const StyledInput = styled(Input)<{
   version: 'desktop' | 'mobile';
-  dashboard?: string;
+  hideOnMobile?: boolean;
 }>`
   max-width: 350px;
-  border: 1px solid ${colors.inputBorders.light};
 
   @media (max-width: 560px) {
-    display: ${({ version, dashboard }) =>
-    version === 'desktop' && dashboard === 'true' ? 'inherit' : 'none'};
+    display: ${({ hideOnMobile }) =>
+    hideOnMobile ? 'none' : 'inherit'};
     max-width: 240px;
   }
 
@@ -26,10 +25,17 @@ const StyledInput = styled(Input)<{
 interface SearchProps {
   version: 'desktop' | 'mobile';
   isRenderedOnDashboard?: boolean;
+  hideOnMobile?: boolean;
+  background?: string;
+  borderColor?: string;
 }
 
 export const Search = ({
-  version, isRenderedOnDashboard
+  version,
+  isRenderedOnDashboard,
+  background,
+  borderColor,
+  hideOnMobile
 }: SearchProps): JSX.Element => {
   const inputRef = useRef<any>();
 
@@ -65,16 +71,12 @@ export const Search = ({
           styles={css`
             .search-input {
               background: ${colors.background.dark} !important;
-              border-color: ${theme.colors.gray[700]} !important;
-              &::placeholder {
-                color: inherit;
-              }
             }
           `}
         />
       ) : null}
       <StyledInput
-        dashboard={isRenderedOnDashboard ? 'true' : 'false'}
+        hideOnMobile={hideOnMobile}
         className={!isRenderedOnDashboard ? 'search-input' : ''}
         version={version}
         ref={inputRef}
@@ -84,12 +86,14 @@ export const Search = ({
         background={
           version === 'mobile'
             ? `${colors.background[colorMode]} !important`
-            : ''
+            : background
+              ? background
+              : ''
         }
         borderColor={
           version === 'mobile'
             ? `${colors.inputBorders[colorMode]} !important`
-            : ''
+            : borderColor ? borderColor : theme.colors.gray[700]
         }
       />
     </>

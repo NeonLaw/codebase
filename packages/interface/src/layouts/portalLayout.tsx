@@ -1,4 +1,5 @@
-import { gutters, theme } from '../themes/neonLaw';
+import { colors, gutters, theme } from '../themes/neonLaw';
+
 import { ApolloProvider } from '@apollo/client';
 import { AuthenticationContext } from '../utils/authenticationContext';
 import { LoadingPage } from '../components/loadingPage';
@@ -83,7 +84,8 @@ export const PortalLayout = ({ children }) => {
         }
         return (
           <ApolloProvider client={apolloClient}>
-            <StyledPortalLayout>
+            <StyledPortalLayout
+            >
               <div className="wrapper">
                 <Aside>
                   <PortalSideNavigation />
@@ -92,8 +94,9 @@ export const PortalLayout = ({ children }) => {
                   style={{
                     background:
                       colorMode === 'dark'
-                        ? theme.colors.black
+                        ? '#111'
                         : theme.colors.white,
+                    color: colors.text[colorMode]
                   }}
                 >
                   <PortalNavigationBar isRenderedOnDashboard={true} />
