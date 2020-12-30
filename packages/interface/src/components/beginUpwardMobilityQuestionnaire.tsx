@@ -1,4 +1,4 @@
-import { FlashButton } from '../components/button';
+import { Button } from '../components/button';
 import React from 'react';
 import { Section } from './section';
 import { Text } from '@chakra-ui/core';
@@ -19,14 +19,15 @@ export const BeginUpwardMobilityQuestionnaire = () => {
           {intl.formatMessage({ id: 'beginUpwardMQ.text' })}
         </Text>
 
-        <FlashButton
+        <Button
+          flash={true}
           buttonScheme="teal"
           onClick={() => {
             navigate(`/${basePath}/${decisionTree['begin']}`);
           }}
         >
           {intl.formatMessage({ id: 'beginUpwardMQ.beginButton' })}
-        </FlashButton>
+        </Button>
       </Section>
     </>
   );

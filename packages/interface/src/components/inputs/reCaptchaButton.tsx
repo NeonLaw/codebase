@@ -3,7 +3,7 @@ import {
   useGoogleReCaptcha
 } from 'react-google-recaptcha-v3';
 
-import { FlashButton } from '../button';
+import { Button } from '../button';
 import React from 'react';
 
 export const ReCaptchaButton = ({ onVerifyCaptcha, children, ...props }) => {
@@ -20,9 +20,9 @@ export const ReCaptchaButton = ({ onVerifyCaptcha, children, ...props }) => {
 
   return (
     <GoogleReCaptchaProvider reCaptchaKey={process.env.RE_CAPTCHA_KEY}>
-      <FlashButton onMouseOver={onMouseOver} {...props}>
+      <Button flash={true} onMouseOver={onMouseOver} {...props}>
         {children}
-      </FlashButton>
+      </Button>
     </GoogleReCaptchaProvider>
   );
 };

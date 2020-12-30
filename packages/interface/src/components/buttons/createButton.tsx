@@ -1,4 +1,4 @@
-import { FlashButton } from '../button';
+import { Button } from '../button';
 import React from 'react';
 import { SubmissionInProgress } from '../submissionInProgress';
 import { SubmitForm } from '../keybindings/submitForm';
@@ -18,7 +18,8 @@ export const CreateButton = ({
   createMutationLoading,
 }: CreateButtonProps) => {
   return (
-    <FlashButton
+    <Button
+      flash={true}
       type="submit"
       data-testid={`create-${dasherizedResourceName}-form-submit`}
       isDisabled={isSubmitting || createMutationLoading}
@@ -32,6 +33,6 @@ export const CreateButton = ({
       Create {titlecaseResourceName}&nbsp;
       <SubmitForm />
       <SubmissionInProgress loading={createMutationLoading} />
-    </FlashButton>
+    </Button>
   );
 };

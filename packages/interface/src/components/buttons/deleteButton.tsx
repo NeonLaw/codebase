@@ -1,4 +1,4 @@
-import { FlashButton } from '../button';
+import { Button } from '../button';
 import { Kbd } from '@chakra-ui/core';
 import React from 'react';
 import { SubmissionInProgress } from '../submissionInProgress';
@@ -23,7 +23,8 @@ export const DeleteButton = ({
 }: DeleteButtonProps) => {
 
   return (
-    <FlashButton
+    <Button
+      flash={true}
       data-testid={`delete-${dasherizedResourceName}-button`}
       isDisabled={
         isSubmitting || updateMutationLoading || deleteMutationLoading
@@ -43,6 +44,6 @@ export const DeleteButton = ({
       <SubmissionInProgress
         loading={updateMutationLoading || deleteMutationLoading}
       />
-    </FlashButton>
+    </Button>
   );
 };

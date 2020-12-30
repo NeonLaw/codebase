@@ -2,7 +2,7 @@ import { Global, css } from '@emotion/core';
 
 import { Banner } from '../components/homepage/banner';
 import { Experience } from '../components/homepage/experience';
-import { GetStarted } from '../components/get-started';
+import { GetStarted } from '../components/getStarted';
 import { InAction } from '../components/homepage/in-action';
 import { ProBono } from '../components/homepage/pro-bono';
 import { PublicLayout } from '../layouts/publicLayout';

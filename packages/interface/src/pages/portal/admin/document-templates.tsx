@@ -1,13 +1,14 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
+
 import { Breadcrumbs } from '../../../components/breadcrumbs';
+import { Button } from '../../../components/button';
 import {
   CreateDocumentTemplateModal
 } from '../../../components/modals/createDocumentTemplateModal';
 import {
   DocumentTemplateTable
 } from '../../../components/tables/documentTemplateTable';
-import { FlashButton } from '../../../components/button';
 import { PortalLayout } from '../../../layouts/portalLayout';
 import {
   UpdateDocumentTemplateModal
@@ -27,7 +28,8 @@ const AdminDocumentTemplates = () => {
       <Box textAlign="left">
         <Breadcrumbs />
 
-        <FlashButton
+        <Button
+          flash={true}
           buttonScheme="teal"
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
@@ -40,7 +42,7 @@ const AdminDocumentTemplates = () => {
           >
             C
           </Kbd>
-        </FlashButton>
+        </Button>
 
         <CreateDocumentTemplateModal
           isOpen={isOpen && showCreateDocumentTemplateModal}

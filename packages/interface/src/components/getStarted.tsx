@@ -1,7 +1,7 @@
 import { gutters, sizes } from '../themes/neonLaw';
 
 import { Box, } from '@chakra-ui/core';
-import { FlashButton } from './button';
+import { Button } from './button';
 import React from 'react';
 import { Section } from './section';
 import { navigate } from 'gatsby';
@@ -21,14 +21,15 @@ export const GetStarted = () => {
       >
         {intl.formatMessage({ id: 'get_started.sub_text' })}
       </Box>
-      <FlashButton
+      <Button
+        flash={true}
         onClick={() => {
           navigate('/contact');
         }}
         buttonScheme="teal"
       >
         {intl.formatMessage({ id: 'auth.sign_up' })}
-      </FlashButton>
+      </Button>
     </Section>
   );
 };

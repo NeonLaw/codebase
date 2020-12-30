@@ -155,23 +155,22 @@ export const SideNavContent = ({
             />
           </Box>
           <div className="links">
-            {links.map((link, i) =>
-              !link ? null : (
-                <Box key={i}>
-                  <Link
-                    activeStyle={{ color: activeColor[colorMode] }}
-                    activeClassName="active"
-                    to={link.route}
-                    className="link"
-                    // eslint-disable-next-line
-                    data-testId={`${link.label.toLowerCase()}-side-navigation-link`}
-                  >
-                    {isRenderedOnDashboard ? link.icon : null}
-                    {link.label}
-                  </Link>
-                </Box>
-              ),
-            )}
+            {links.map((link, i) => (
+              !link ? null : <Box key={i}>
+                <Link
+                  activeStyle={{ color: activeColor[colorMode] }}
+                  activeClassName="active"
+                  to={link.route}
+                  className="link"
+                  data-testid={
+                    `${link.label.toLowerCase()}-side-navigation-link`
+                  }
+                >
+                  {isRenderedOnDashboard ? link.icon : null}
+                  {link.label}
+                </Link>
+              </Box>
+            ))}
             <AuthenticationContext.Consumer>
               {({ isLoading, isAuthenticated, login }) => {
                 if (isLoading || isAuthenticated) {

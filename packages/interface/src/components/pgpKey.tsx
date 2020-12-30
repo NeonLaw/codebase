@@ -1,6 +1,7 @@
 import { Box, Tooltip } from '@chakra-ui/core';
 import React, { useRef, useState } from 'react';
-import { FlashButton } from './button';
+
+import { Button } from './button';
 import copy from 'clipboard-copy';
 import { gutters } from '../themes/neonLaw';
 
@@ -10,7 +11,8 @@ export const PGPKey = ({ children }) => {
 
   return (
     <Box overflowX="scroll">
-      <FlashButton
+      <Button
+        flash={true}
         aria-label="Copy PGP Key to Clip Board"
         containerStyles={{margin: `${gutters.xSmallOne} .5rem`}}
         onClick={() => {
@@ -33,7 +35,7 @@ export const PGPKey = ({ children }) => {
         >
           Copy to Clipboard
         </Tooltip>
-      </FlashButton>
+      </Button>
       <div ref={keyContainerRef}>{children}</div>
     </Box>
   );
