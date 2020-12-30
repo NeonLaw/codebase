@@ -83,7 +83,7 @@ export const Button = ({
         onClick={
           flash
             ? handleClickFlash
-            : () => {null;}
+            : onClick
         }
         onMouseDown={onMouseDown}
         onMouseOver={onMouseOver}
