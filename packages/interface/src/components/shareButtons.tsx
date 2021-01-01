@@ -19,7 +19,7 @@ export const ShareButtons = ({ siteUrl, slug }) => {
 
   return (
     <Flex alignItems="center">
-      <Text>
+      <Text display={['none', 'none', 'inherit']}>
         Share this on:
       </Text>
       <Box

@@ -15,13 +15,13 @@ export const EditOnGithub = ({ app, path }: EditOnGithubInterface) => {
   const contentPath = path === '/' ? '/index' : path;
   let githubPath;
   if (path.includes('/blog/')) {
-    githubPath = 
+    githubPath =
     'https://github.com/NeonLaw/codebase/blob' +
     `/development/packages/${app}/src/blogPosts/${
       contentPath.split('/')[2]
     }.mdx`;
   } else {
-    githubPath = 
+    githubPath =
     'https://github.com/NeonLaw/codebase/blob' +
     `/development/packages/${app}/src/content${contentPath}.mdx`;
   }
@@ -35,8 +35,9 @@ export const EditOnGithub = ({ app, path }: EditOnGithubInterface) => {
       rel="noopener noreferrer"
       data-cy="edit-on-github"
     >
-      Edit this page on GitHub
-      &nbsp;
+      <Box display={['none', 'none', 'inherit']}>
+        Edit this page on GitHub &nbsp;
+      </Box>
       <Box as={FaPencilAlt} />
     </Flex>
   );

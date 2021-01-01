@@ -1,3 +1,6 @@
+import {
+  DataDeletionDetailView
+} from '../detailViews/dataDeletionMatterDetailView';
 import React from 'react';
 import { Skeleton } from '@chakra-ui/core';
 import { useAllCurrentUserMattersQuery } from '../../utils/api';
@@ -16,7 +19,7 @@ export const DataDeletionDashborard = () => {
       <>
         {matters.map((matter, key) => {
           if (matter.matterTemplateCategory === 'data-deletion') {
-            return <h1 key={key}>{matter.id}</h1>;
+            return <DataDeletionDetailView key={key} id={matter.id} />;
           }
           return null;
         })}

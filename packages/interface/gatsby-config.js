@@ -107,7 +107,7 @@ module.exports = {
   ],
   siteMetadata: {
     author: '@neonlaw',
-    description: 'Neon Law. The Upward Mobility Law Firm.',
+    description: 'Neon Law',
     siteUrl: process.env.GATSBY_SITE_URL,
     title: 'Neon Law',
   },
