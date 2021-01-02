@@ -221,6 +221,15 @@ resource "kubernetes_deployment" "server" {
             read_only  = true
             mount_path = "/credentials/"
           }
+
+          readiness_probe {
+            http_get {
+              path = "/"
+              port = 3000
+            }
+            initial_delay_seconds = 30
+            period_seconds = 1
+          }
         }
 
         container {
