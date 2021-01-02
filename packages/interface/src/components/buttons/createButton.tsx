@@ -25,9 +25,8 @@ export const CreateButton = ({
       isDisabled={isSubmitting || createMutationLoading}
       containerStyles={{
         margin: `${gutters.xSmallOne} 0`,
-        width: '100%',
       }}
-      styles={{ width: '100%' }}
+      isFullWidth={true}
       colorScheme="teal"
     >
       Create {titlecaseResourceName}&nbsp;

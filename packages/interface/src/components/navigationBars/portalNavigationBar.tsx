@@ -6,6 +6,7 @@ import {
   DrawerContent,
   DrawerOverlay,
   Flex,
+  IconButton,
   Menu,
   MenuButton,
   MenuItem,
@@ -15,14 +16,17 @@ import {
 } from '@chakra-ui/core';
 import React, { useState } from 'react';
 import { colors, gutters, theme } from '../../themes/neonLaw';
+
 import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
 import { Link } from '../link';
+import { MdDehaze } from 'react-icons/md';
 import { Search } from './search';
-import { ThemeSwitcher } from '../themeSwitcher';
+import styled from '@emotion/styled';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useIntl } from 'gatsby-plugin-intl';
+
 interface BaseNavigationBarProps {
   isRenderedOnDashboard?: boolean;
   links?: any;
@@ -30,23 +34,34 @@ interface BaseNavigationBarProps {
   sideNavigationDrawer?: any;
 }
 
+const StyledHead = styled.div`
+  grid-area: head;
+
+  .wrap {
+    padding: ${gutters.xSmallOne} ${gutters.xSmall};
+
+    @media(max-width: 800px) {
+      padding: .3rem .5rem;
+    }
+  }
+`;
+
 export const PortalNavigationBar = ({
   links = [] as any[],
   menus = [] as any[],
   sideNavigationDrawer,
 }: BaseNavigationBarProps) => {
-  const { isOpen, onClose } = useDisclosure();
+  const { isOpen, onToggle, onClose } = useDisclosure();
   const intl = useIntl();
 
   const [loginButtonDisabled, disableLoginButton] = useState(false);
   const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
 
   return (
-    <>
+    <StyledHead>
       <Box
         top="2em"
         position="inherit"
-        padding={`${gutters.xSmallOne} ${gutters.xSmall}`}
         zIndex={4}
         bg={useColorModeValue(theme.colors.gray[100], theme.colors.black)}
         borderBottom={useColorModeValue('', '1px solid #222')}
@@ -55,9 +70,22 @@ export const PortalNavigationBar = ({
         right="0"
         width="full"
         height="auto"
+        className="wrap"
       >
         <Container isFullBleed={true}>
           <Flex boxSize="100%" align="center">
+            <Box
+              mr="5"
+              as={Link}
+              cursor="pointer"
+              display="block"
+              to="/"
+              aria-label="Neon Law, Back to homepage"
+              minWidth="3em"
+            >
+              <img src="/images/logo.svg" alt="Neon Law" />
+            </Box>
+
             <Search
               version="desktop"
               isRenderedOnDashboard={true}
@@ -122,26 +150,41 @@ export const PortalNavigationBar = ({
                 </Box>
               ))}
 
-              <ThemeSwitcher isRenderedOnDashboard={true} />
+              {isLoading ? null : isAuthenticated ? (
+                <AuthenticatedDropdown />
+              ) : (
+                <Flex>
+                  <Box width="6px" />
+                  <Button
+                    bg="transparent"
+                    border="1px"
+                    className="nav-content-desktop"
+                    disabled={loginButtonDisabled}
+                    onClick={() => {
+                      disableLoginButton(true);
+                      loginWithRedirect();
+                    }}
+                  >
+                    {intl.formatMessage({ id: 'auth.login' })}
+                  </Button>
+                </Flex>
+              )}
 
-              {isLoading ? null :
-                (isAuthenticated ? <AuthenticatedDropdown /> :
-                  <Flex>
-                    <Box width="6px" />
-                    <Button
-                      bg="transparent"
-                      border="1px"
-                      className="nav-content-desktop"
-                      disabled={loginButtonDisabled}
-                      onClick={() => {
-                        disableLoginButton(true);
-                        loginWithRedirect();
-                      }}
-                    >
-                      {intl.formatMessage({ id: 'auth.login' })}
-                    </Button>
-                  </Flex>
-                )}
+              <IconButton
+                aria-label="Navigation Menu"
+                className="portal-hamburger"
+                fontSize="20px"
+                variant="ghost"
+                icon={<MdDehaze />}
+                textColor={useColorModeValue('#000', '#fff')}
+                onClick={() => {
+                  onToggle();
+                  document.body.setAttribute(
+                    'style',
+                    'margin-right: 0 !important',
+                  );
+                }}
+              />
             </Flex>
           </Flex>
         </Container>
@@ -152,6 +195,6 @@ export const PortalNavigationBar = ({
           <DrawerBody padding="0">{sideNavigationDrawer}</DrawerBody>
         </DrawerContent>
       </Drawer>
-    </>
+    </StyledHead>
   );
 };

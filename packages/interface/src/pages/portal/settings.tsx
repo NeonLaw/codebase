@@ -7,6 +7,7 @@ import {
   PortalProfileCard
 } from '../../components/cards/portalProfileCard';
 import React from 'react';
+import { ThemeSwitcher } from '../../components/themeSwitcher';
 import {
   UpdatePersonModal
 } from '../../components/modals/updatePersonModal';
@@ -45,6 +46,7 @@ const PortalSettingsPage = () => {
           isOpen={isOpen}
           onClose={onClose}
         />
+        <ThemeSwitcher styles={{display: 'inline'}} renderText={true}/>
       </StyledPortalPersonPage>
     </PortalLayout>
   );

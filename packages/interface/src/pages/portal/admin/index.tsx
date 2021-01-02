@@ -1,12 +1,64 @@
 import { Box, Heading } from '@chakra-ui/core';
 import { navigate, useIntl } from 'gatsby-plugin-intl';
+
 import { Button } from '../../../components/button';
 import { PortalLayout } from '../../../layouts/portalLayout';
 import React from 'react';
 import { gutters } from '../../../themes/neonLaw';
+import styled from '@emotion/styled';
+
+const StyledAdminPortalOptions = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: ${gutters.xSmall};
+  max-width: 100%;
+
+  @media(min-width: 1215px) {
+    max-width: 1000px;
+  }
+`;
+
+interface AdminPortalOption {
+  path: string;
+  text: string;
+  dataTestId?: string;
+}
 
 const AdminDashboard = () => {
   const intl = useIntl();
+
+  const adminPortalOptions: AdminPortalOption[] = [
+    {
+      path: 'questions',
+      text: 'Questions',
+    },
+    {
+      dataTestId: '',
+      path: 'questionnaires',
+      text: 'Questionnaires',
+    },
+    {
+      dataTestId: '',
+      path: 'matter-document-templates',
+      text: 'Matter Document Templates',
+    },
+    {
+      dataTestId: '',
+      path: 'matter-templates',
+      text: 'Matter Templates',
+    },
+    {
+      dataTestId: 'admin-people-link-button',
+      path: 'people',
+      text: 'People',
+    },
+    {
+      dataTestId: 'admin-matters-link-button',
+      path: 'matters',
+      text: 'Matters',
+    },
+  ];
+
   return (
     <PortalLayout>
       <Box>
@@ -14,67 +66,21 @@ const AdminDashboard = () => {
           {intl.formatMessage({ id: 'pages_admin.heading' })}
         </Heading>
 
-        <Button
-          flash={false}
-          colorScheme="gray"
-          onClick={() => {
-            navigate('/portal/admin/questions');
-          }}
-        >
-          Questions
-        </Button>
-
-        <Button
-          flash={false}
-          colorScheme="gray"
-          onClick={() => {
-            navigate('/portal/admin/questionnaires');
-          }}
-        >
-          Questionnaires
-        </Button>
-
-        <Button
-          flash={false}
-          colorScheme="gray"
-          onClick={() => {
-            navigate('/portal/admin/matter-document-templates');
-          }}
-        >
-          Matter Document Templates
-        </Button>
-
-        <Button
-          flash={false}
-          colorScheme="gray"
-          onClick={() => {
-            navigate('/portal/admin/matter-templates');
-          }}
-        >
-          Matter Templates
-        </Button>
-
-        <Button
-          flash={false}
-          colorScheme="gray"
-          onClick={() => {
-            navigate('/portal/admin/people');
-          }}
-          data-testid="admin-people-link-button"
-        >
-          People
-        </Button>
-
-        <Button
-          flash={false}
-          colorScheme="gray"
-          onClick={() => {
-            navigate('/portal/admin/matters');
-          }}
-          data-testid="admin-matters-link-button"
-        >
-          Matters
-        </Button>
+        <StyledAdminPortalOptions>
+          {adminPortalOptions.map(({ path, text, dataTestId }, i) => (
+            <Button
+              flash={false}
+              colorScheme="gray"
+              onClick={() => {
+                navigate(`/portal/admin/${path}`);
+              }}
+              data-testid={dataTestId}
+              key={i+path}
+            >
+              {text}
+            </Button>
+          ))}
+        </StyledAdminPortalOptions>
       </Box>
     </PortalLayout>
   );
