@@ -31,7 +31,7 @@ x-node-volumes: &node-volumes
 
 services:
   postgres:
-    image: postgres:11
+    image: postgres:13
     container_name: postgres
     environment:
       POSTGRES_USER: postgres
@@ -43,8 +43,6 @@ services:
     volumes:
       - ./docker/pg-init-scripts:/docker-entrypoint-initdb.d
     command: ["postgres", "-c", "shared_preload_libraries=pg_stat_statements"]
-    logging:
-      driver: none
 
   api:
     build:
