@@ -48,7 +48,7 @@ Cypress.Commands.add('loginAsPortalUser', () => {
 });
 
 Cypress.Commands.add('loginAsAdminUser', () => {
-  cy.log('Logging in as admin@neonlaw.com');
+  cy.log('Logging in as admin@sink.sendgrid.com');
   const clientId = Cypress.env('AUTH0_CLIENT_ID');
   const audience = 'https://api.neonlaw.com';
   const scope = 'openid profile email';
@@ -62,7 +62,7 @@ Cypress.Commands.add('loginAsAdminUser', () => {
       password: Cypress.env('ADMIN_USER_PASSWORD'),
       realm: 'Username-Password-Authentication',
       scope: scope,
-      username: 'admin@neonlaw.com',
+      username: 'admin@sink.sendgrid.com',
     },
     headers: {
       'Content-Type': 'application/json',

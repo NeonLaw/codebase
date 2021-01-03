@@ -12,6 +12,7 @@ import {
 import { SideNavContent } from './sideNavContent';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { VscLaw } from 'react-icons/vsc';
+import { admins } from '@neonlaw/server/src/admins';
 
 export const PortalSideNavContent = ({ email }) => {
   const links = [
@@ -39,13 +40,13 @@ export const PortalSideNavContent = ({ email }) => {
       label: 'Businesses',
       route: '/portal/businesses'
     },
-    email === 'admin@neonlaw.com' || email === 'nick@neonlaw.com' ? {
+    admins.includes(email) ? {
       icon: <AiOutlineAudit />, label: 'Audits', route: '/portal/audits'
     }: null,
     { icon: <CgProfile />, label: 'Settings', route: '/portal/settings' },
-    email === 'admin@neonlaw.com' || email === 'nick@neonlaw.com' ? {
+    admins.includes(email) ? {
       icon: <VscLaw />, label: 'Lawyers', route: '/portal/lawyers' } : null,
-    email === 'admin@neonlaw.com' || email === 'nick@neonlaw.com' ? {
+    admins.includes(email) ? {
       icon: <RiAdminLine />, label: 'Admin', route: '/portal/admin' } : null,
 
   ];

@@ -10,7 +10,6 @@ describe('sending Sendgrid email', () => {
     const payload = {
       subject: 'hello',
       text: 'hi there',
-      // this e-mail is a test e-mail for verifying SendGrid messages
       to: 'neonlaw@sink.sendgrid.com',
     };
     const helpers = {
