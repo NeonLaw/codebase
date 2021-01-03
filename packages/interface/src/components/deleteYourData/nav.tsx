@@ -1,5 +1,6 @@
 import { colors, gutters } from '../../themes/deleteYourData';
 
+import { Link } from 'gatsby';
 import React from 'react';
 import { links } from './links';
 import styled from '@emotion/styled';
@@ -62,9 +63,9 @@ export const Nav = () => (
   <div className="row">
     <StyledNav role="navigation">
       {links.map(({ label, route }) => (
-        <a key={label} href={route}>
+        <Link key={label} to={route}>
           {label}
-        </a>
+        </Link>
       ))}
     </StyledNav>
   </div>

@@ -42,6 +42,8 @@ const StyledFAQ = styled.div`
       padding: ${gutters.small2} ${gutters.small};
       margin: -300px 0 ${gutters.small3};
       border-radius: 1.25rem;
+      color: ${colors.primary};
+      font-size: 4rem;
     }
   }
 
@@ -53,7 +55,7 @@ const StyledFAQ = styled.div`
 export interface FAQProps {
   title: string;
   text: string | JSX.Element;
-  icon: string;
+  icon: JSX.Element;
 }
 
 export const FAQ = ({ title, text, icon }: FAQProps) => {
@@ -79,7 +81,7 @@ export const FAQ = ({ title, text, icon }: FAQProps) => {
           border: colorMode === 'light' ? borders.light : 'none'
         }}
       >
-        <img className="img" src={icon} alt={title} />
+        {icon}
       </div>
       <h3>{title}</h3>
       {typeof text === 'string' ? <p>{text}</p> : text}
