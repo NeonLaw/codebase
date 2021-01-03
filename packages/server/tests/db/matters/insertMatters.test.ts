@@ -82,8 +82,6 @@ describe('INSERT INTO matter;', () => {
   describe('as a admin user', () => {
     it('can create matters', () =>
       withRootDb(async (pgClient: any) => {
-        await becomeAdminUser(pgClient);
-
         const { rows: matterTemplateRows } = await pgClient.query(
           'INSERT INTO matter_template (name, javascript_module) '+
           'VALUES ($1, $2) RETURNING (id)',
@@ -94,9 +92,11 @@ describe('INSERT INTO matter;', () => {
         const { rows: primaryContactRows } = await pgClient.query(
           'INSERT INTO person (email, role, sub) ' +
           'VALUES ($1, $2, $3) RETURNING (id)',
-          ['example-contact@neonlaw.com', 'portal', 'portal-sub']
+          ['example-contact@sink.sendgrid.com', 'portal', 'portal-sub']
         );
         const primaryContactId = primaryContactRows[0].id;
+
+        await becomeAdminUser(pgClient);
 
         const { rows } = await pgClient.query(
           'INSERT INTO matter (name, primary_contact_id, '+

@@ -56,7 +56,7 @@ export const becomeAnonymousUser = (client: any) => {
 
 export const becomePortalUser = async (
   client: any,
-  email = 'test@example.com'
+  email = 'test@sink.sendgrid.com'
 ) => {
   const { rows } = await client.query(
     'INSERT INTO person (email, role, sub) ' +
@@ -75,7 +75,7 @@ export const becomePortalUser = async (
 
 export const becomeLawyerUser = async (
   client: any,
-  email = 'test@example.com'
+  email = 'test@sink.sendgrid.com'
 ) => {
   const { rows } = await client.query(
     'INSERT INTO person (email, role, sub) ' +
@@ -94,7 +94,7 @@ export const becomeLawyerUser = async (
 
 export const becomeAdminUser = async (
   client: any,
-  email = 'test@example.com'
+  email = 'test@sink.sendgrid.com'
 ) => {
   const { rows } = await client.query(
     'INSERT INTO person (email, role, sub) ' +

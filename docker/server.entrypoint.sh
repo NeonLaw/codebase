@@ -10,6 +10,7 @@ if [ -d "/credentials" ]; then
 fi
 
 if [ "$PROCESS_NAME" = "api" ]; then
+  yarn run graphile-worker --schema-only
   yarn workspace @neonlaw/server migrate
 fi
 
