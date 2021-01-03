@@ -5,9 +5,6 @@ import {
 } from '@chakra-ui/core';
 import { gutters, sizes } from '../../themes/neonLaw';
 import { PortalLayout } from '../../layouts/portalLayout';
-import {
-  PortalProfileCard
-} from '../../components/cards/portalProfileCard';
 import React from 'react';
 import { useIntl } from 'gatsby-plugin-intl';
 
@@ -22,7 +19,6 @@ const PortalPage = () => {
         <Text>
           {intl.formatMessage({ id: 'pages_portal.text' })}
         </Text>
-        <PortalProfileCard />
       </Box>
     </PortalLayout>
   );

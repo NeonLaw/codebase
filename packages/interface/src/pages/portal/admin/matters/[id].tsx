@@ -6,6 +6,9 @@ import {
 import {
   MatterDetailView
 } from '../../../../components/detailViews/matterDetailView';
+import {
+  MatterDocumentsList
+} from '../../../../components/lists/matterDocumentsList';
 import { PortalLayout } from '../../../../layouts/portalLayout';
 import React from 'react';
 
@@ -16,6 +19,8 @@ const AdminMattersDetail = ({ params: { id }}) => {
         <Breadcrumbs showHome={false} />
 
         <MatterDetailView id={id} />
+
+        <MatterDocumentsList matterId={id} />
 
         <DeleteMatterButton id={id} />
       </Box>
