@@ -5,7 +5,7 @@ export const links = [
   },
   {
     label: 'About',
-    route: 'https://www.neonlaw.com'
+    route: '/'
   },
   {
     label: 'Blog',
@@ -13,6 +13,6 @@ export const links = [
   },
   {
     label: 'Contact',
-    route: 'https://www.neonlaw.com/contact'
+    route: '/contact'
   }
 ];

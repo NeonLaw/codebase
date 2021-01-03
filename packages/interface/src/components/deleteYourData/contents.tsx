@@ -1,24 +1,23 @@
+import { RiDeleteBinLine, RiHammerLine, RiLock2Line } from 'react-icons/ri';
+
 import { FAQProps } from './faq';
-import Hammer from '../../images/hammer.svg';
-import Lock from '../../images/lock.svg';
 import React from 'react';
-import Rocket from '../../images/rocket.svg';
-import Trash from '../../images/trash.svg';
+import { VscRocket } from 'react-icons/vsc';
 
 export const faqs: FAQProps[] = [
   {
-    icon: Rocket,
+    icon: <VscRocket />,
     text: (
       <>
         Sign up with the link above, or e-mail us at{' '}
-        <a href="mailto:support@neonlaw.com">support@neonlaw.com</a>, or
-        contact us in the chat below.
+        <a href="mailto:support@neonlaw.com">support@neonlaw.com</a>, or contact
+        us in the chat below.
       </>
     ),
     title: 'How can I start?',
   },
   {
-    icon: Hammer,
+    icon: <RiHammerLine />,
     text: (
       <>
         Our team of lawyers make data deletion requests on your behalf based on
@@ -31,7 +30,7 @@ export const faqs: FAQProps[] = [
     title: 'How do you do this?',
   },
   {
-    icon: Lock,
+    icon: <RiLock2Line />,
     text: (
       <>
         We use industry-standard encryption and best software practices to keep
@@ -43,7 +42,7 @@ export const faqs: FAQProps[] = [
     title: 'Is my data safe?',
   },
   {
-    icon: Trash,
+    icon: <RiDeleteBinLine />,
     text: (
       <>
         Of course, our code is{' '}
