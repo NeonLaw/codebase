@@ -8,9 +8,7 @@ export const getApolloClient = (
   ) => Promise<string>
 ) => {
   const authLink = setContext(async (_, { headers }) => {
-    const token = await getAccessTokenSilently({
-      scope: 'openid profile email'
-    });
+    const token = await getAccessTokenSilently();
     if (!token) {
       return { headers };
     }
