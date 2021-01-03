@@ -1,11 +1,11 @@
 import { LoadingPage } from '../components/loadingPage';
 import { PublicLayout } from '../layouts/publicLayout';
 import React from 'react';
-import { navigate } from 'gatsby';
+import { Redirect } from '@reach/router';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const Callback = () => {
-  const { isLoading, isAuthenticated, logout } = useAuth0();
+  const { isLoading, isAuthenticated } = useAuth0();
 
   if (isLoading) {
     return (
@@ -16,12 +16,10 @@ const Callback = () => {
   }
 
   if (isAuthenticated) {
-    navigate('/portal');
-    return null;
+    return <Redirect to="/portal" />;
   }
 
-  logout();
-  return null;
+  return <Redirect noThrow={true} to="/" />;
 };
 
 /* eslint-disable-next-line import/no-default-export */
