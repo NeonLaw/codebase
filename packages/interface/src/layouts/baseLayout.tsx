@@ -23,6 +23,8 @@ export const BaseLayout: React.FC<{
       clientId={process.env.GATSBY_AUTH0_CLIENT_ID as string}
       domain={process.env.GATSBY_AUTH0_DOMAIN as string}
       redirectUri={process.env.GATSBY_AUTH0_CALLBACK as string}
+      scope='openid profile email'
+      audience="https://api.neonlaw.com"
     >
       <ChakraProvider resetCSS theme={theme}>
         <BaseStyles />
