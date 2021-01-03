@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import { colors, gutters, theme } from '../../themes/deleteYourData';
-
-import {
-  AuthenticationContext
-} from '../../utils/authenticationContext';
 import { Box } from '@chakra-ui/core';
 import DYDBg from '../../images/dyd-bg.png';
 import { Nav } from './nav';
 import styled from '@emotion/styled';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const StyledHero = styled.header`
   position: relative;
@@ -63,6 +60,7 @@ const StyledHero = styled.header`
 
 export const Hero = () => {
   const [loginButtonDisabled, disableLoginButton] = useState(false);
+  const { isLoading, loginWithRedirect } = useAuth0();
 
   return (
     <StyledHero>
@@ -76,34 +74,29 @@ export const Hero = () => {
             <span aria-hidden="true">&mdash;</span> without your consent. Do you
           want that to be removed? We can help.
           </p>
-          <AuthenticationContext.Consumer>
-            {({ isLoading, login }) => {
-              if (isLoading) {
-                return null;
-              }
-              return (
-                <Box
-                  as="button"
-                  display="inline-block"
-                  color="inherit"
-                  padding=".6rem 2.2rem"
-                  textDecoration="none"
-                  border="1px solid"
-                  fontWeight="500"
-                  borderRadius="10rem"
-                  borderColor={colors.primary}
-                  background={colors.primary}
-                  disabled={loginButtonDisabled}
-                  onClick={() => {
-                    disableLoginButton(true);
-                    login();
-                  }}
-                >
+          {isLoading ? null :
+            (
+              <Box
+                as="button"
+                display="inline-block"
+                color="inherit"
+                padding=".6rem 2.2rem"
+                textDecoration="none"
+                border="1px solid"
+                fontWeight="500"
+                borderRadius="10rem"
+                borderColor={colors.primary}
+                background={colors.primary}
+                disabled={loginButtonDisabled}
+                onClick={() => {
+                  disableLoginButton(true);
+                  loginWithRedirect();
+                }}
+              >
                   Sign Up Today
-                </Box>
-              );
-            }}
-          </AuthenticationContext.Consumer>
+              </Box>
+            )
+          }
         </div>
       </Box>
     </StyledHero>

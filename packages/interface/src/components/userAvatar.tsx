@@ -1,7 +1,7 @@
-import { AuthenticationContext } from '../utils/authenticationContext';
 import { Avatar } from '@chakra-ui/core';
 import React from 'react';
 import styled from '@emotion/styled';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const StyledUserAvatar = styled.div`
     .avatar--square {
@@ -15,16 +15,15 @@ interface UserAvatarProps {
   alt?: string;
 }
 
-export const UserAvatar = ({ style, alt }: UserAvatarProps) => (
-  <StyledUserAvatar>
-    <AuthenticationContext.Consumer>
-      {({ user: { name, picture } }: any) => {
-        return style === 'square' ? (
-          <img src={picture} alt={alt} className="avatar--square" />
-        ) : (
-          <Avatar size="sm" cursor="pointer" name={name} src={picture} />
-        );
-      }}
-    </AuthenticationContext.Consumer>
-  </StyledUserAvatar>
-);
+export const UserAvatar = ({ style, alt }: UserAvatarProps) => {
+  const { user: { name, picture } } = useAuth0();
+  return (
+    <StyledUserAvatar>
+      {style === 'square' ? (
+        <img src={picture} alt={alt} className="avatar--square" />
+      ) : (
+        <Avatar size="sm" cursor="pointer" name={name} src={picture} />
+      )}
+    </StyledUserAvatar>
+  );
+};

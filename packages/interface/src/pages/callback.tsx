@@ -1,30 +1,27 @@
-import {
-  AuthenticationContext
-} from '../utils/authenticationContext';
 import { LoadingPage } from '../components/loadingPage';
 import { PublicLayout } from '../layouts/publicLayout';
 import React from 'react';
 import { navigate } from 'gatsby';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Callback = () => {
-  return (
-    <PublicLayout>
-      <AuthenticationContext.Consumer>
-        {({ isLoading, isAuthenticated, logout }) => {
-          if (isLoading) {
-            return <LoadingPage />;
-          }
-          if (isAuthenticated) {
-            navigate('/portal');
-            return null;
-          }
+  const { isLoading, isAuthenticated, logout } = useAuth0();
 
-          logout();
-          return null;
-        }}
-      </AuthenticationContext.Consumer>
-    </PublicLayout>
-  );
+  if (isLoading) {
+    return (
+      <PublicLayout>
+        <LoadingPage />
+      </PublicLayout>
+    );
+  }
+
+  if (isAuthenticated) {
+    navigate('/portal');
+    return null;
+  }
+
+  logout();
+  return null;
 };
 
 /* eslint-disable-next-line import/no-default-export */

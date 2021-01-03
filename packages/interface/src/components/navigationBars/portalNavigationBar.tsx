@@ -15,16 +15,14 @@ import {
 } from '@chakra-ui/core';
 import React, { useState } from 'react';
 import { colors, gutters, theme } from '../../themes/neonLaw';
-
 import { AuthenticatedDropdown } from './authenticatedDropdown';
-import { AuthenticationContext } from '../../utils/authenticationContext';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
 import { Link } from '../link';
 import { Search } from './search';
 import { ThemeSwitcher } from '../themeSwitcher';
+import { useAuth0 } from '@auth0/auth0-react';
 import { useIntl } from 'gatsby-plugin-intl';
-
 interface BaseNavigationBarProps {
   isRenderedOnDashboard?: boolean;
   links?: any;
@@ -41,6 +39,7 @@ export const PortalNavigationBar = ({
   const intl = useIntl();
 
   const [loginButtonDisabled, disableLoginButton] = useState(false);
+  const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
 
   return (
     <>
@@ -125,33 +124,24 @@ export const PortalNavigationBar = ({
 
               <ThemeSwitcher isRenderedOnDashboard={true} />
 
-              <AuthenticationContext.Consumer>
-                {({ isLoading, isAuthenticated, login }) => {
-                  if (isLoading) {
-                    return null;
-                  }
-                  if (isAuthenticated) {
-                    return <AuthenticatedDropdown />;
-                  }
-                  return (
-                    <Flex>
-                      <Box width="6px" />
-                      <Button
-                        bg="transparent"
-                        border="1px"
-                        className="nav-content-desktop"
-                        disabled={loginButtonDisabled}
-                        onClick={() => {
-                          disableLoginButton(true);
-                          login();
-                        }}
-                      >
-                        {intl.formatMessage({ id: 'auth.login' })}
-                      </Button>
-                    </Flex>
-                  );
-                }}
-              </AuthenticationContext.Consumer>
+              {isLoading ? null :
+                (isAuthenticated ? <AuthenticatedDropdown /> :
+                  <Flex>
+                    <Box width="6px" />
+                    <Button
+                      bg="transparent"
+                      border="1px"
+                      className="nav-content-desktop"
+                      disabled={loginButtonDisabled}
+                      onClick={() => {
+                        disableLoginButton(true);
+                        loginWithRedirect();
+                      }}
+                    >
+                      {intl.formatMessage({ id: 'auth.login' })}
+                    </Button>
+                  </Flex>
+                )}
             </Flex>
           </Flex>
         </Container>
