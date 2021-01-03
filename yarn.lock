@@ -1162,7 +1162,7 @@
   dependencies:
     "@chakra-ui/utils" "1.0.0-rc.8"
 
-"@chakra-ui/core@1.0.0-rc.8":
+"@chakra-ui/core@1.0.0-rc.8", "@chakra-ui/core@^1.0.0-rc.8":
   version "1.0.0-rc.8"
   resolved "https://registry.yarnpkg.com/@chakra-ui/core/-/core-1.0.0-rc.8.tgz#2a2e7105b18488762edf479cc7cd77185503c760"
   integrity sha512-ZPGjTwy5QrYG/sYuGhrYeBNfWNIfQMSI4spHkNusd+qmNwPJMXR/WO0M8FwTdSnLc0ZVubUpvqdY4e9fp+xT+g==
@@ -1281,7 +1281,7 @@
   dependencies:
     "@chakra-ui/utils" "1.0.2"
 
-"@chakra-ui/icons@1.0.2":
+"@chakra-ui/icons@1.0.2", "@chakra-ui/icons@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@chakra-ui/icons/-/icons-1.0.2.tgz#a2bd77348c1ff3b6775ad2a02127bd9f77cafabf"
   integrity sha512-6gPoIi8KHZI8kiWQBlOuxcZOJv6xouYI4sLX23WP2QZdTsplF9qCyZMXhbg8MHTk0YYdb0i2m/t6Y+9OcDjohA==
@@ -4084,7 +4084,7 @@
     "@uppy/utils" "^3.3.0"
     namespace-emitter "^2.0.1"
 
-"@uppy/core@^1.14.2":
+"@uppy/core@^1.14.2", "@uppy/core@^1.15.0":
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/@uppy/core/-/core-1.15.0.tgz#8d67532974a754616428f4c2dd9027a60b37f7bc"
   integrity sha512-VaB/+nzwNnA+qOYG4eD4cdkgqRBvkoxJiziMYdp8eYJvEWh+7zO9Z1L7pjTFoZ+gxv1a5raqyHW4famufDag7Q==
@@ -4159,7 +4159,7 @@
     classnames "^2.2.6"
     preact "8.2.9"
 
-"@uppy/react@^1.10.12":
+"@uppy/react@^1.10.12", "@uppy/react@^1.11.0":
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/@uppy/react/-/react-1.11.0.tgz#f8ece5942873d09064bdba270c016297a6703055"
   integrity sha512-4WeQTwtH+Qlv357JOfG9mNzX/RCAgUI74atMV0fXTEUEvvRVuGcZOYumzHMpAl6l9aH1J/vPc9tWsSvn3V1lAA==
@@ -4197,7 +4197,7 @@
     exifr "^6.0.0"
     math-log2 "^1.0.1"
 
-"@uppy/transloadit@^1.6.15":
+"@uppy/transloadit@^1.6.15", "@uppy/transloadit@^1.6.16":
   version "1.6.16"
   resolved "https://registry.yarnpkg.com/@uppy/transloadit/-/transloadit-1.6.16.tgz#a1c9f9f6eb068e0426f0db736cfc222924e47f9a"
   integrity sha512-4mSTA+DFlJh7/UyTt8tkDsLKYUYr/O+Eu1dF61zPjAv3y/EcVQlC0kHWvtR32JLALukeINiYmw+clpwBlbskPA==
@@ -10017,7 +10017,7 @@ gatsby-plugin-page-creator@^2.7.2:
     globby "^11.0.1"
     lodash "^4.17.20"
 
-gatsby-plugin-react-axe@0.5.0:
+gatsby-plugin-react-axe@0.5.0, gatsby-plugin-react-axe@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-react-axe/-/gatsby-plugin-react-axe-0.5.0.tgz#22821af29b2bfbacd55041143d8e1815e3a83e95"
   integrity sha512-l7bz7/0t/GnmER3WBoEjux39HNY/9+BYqC6TgpqkySW671RNVg6zmOAvVZ9qqMbeSeWY9U5AypHpdQAqkRpghw==
