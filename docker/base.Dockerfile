@@ -36,6 +36,9 @@ RUN wget -O ~/vsls-reqs https://aka.ms/vsls-linux-prereq-script &&\
   chmod +x ~/vsls-reqs &&\
   ~/vsls-reqs
 
+# Install yarn via NPM
+RUN npm i -g yarn
+
 WORKDIR /app
 
 # Install Dependencies
