@@ -2,14 +2,11 @@ FROM python
 
 # Add Node repositories
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 # Install dependencies from apt-get
 RUN apt-get update -qqy &&\
   apt-get -qqyy install \
   nodejs \
-  yarn \
   ncat \
   postgresql \
   postgresql-contrib \
@@ -39,12 +36,15 @@ RUN wget -O ~/vsls-reqs https://aka.ms/vsls-linux-prereq-script &&\
   chmod +x ~/vsls-reqs &&\
   ~/vsls-reqs
 
+# Install yarn via NPM
+RUN npm i -g yarn
+
 WORKDIR /app
 
 # Install Dependencies
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --cache-folder ./node_modules
+RUN yarn install
 
 COPY . .
 
