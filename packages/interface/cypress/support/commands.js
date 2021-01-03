@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 /* eslint-disable no-undef */
 
-import jwtDecode from 'jwt-decode';
+import decode from 'jwt-decode';
 
 Cypress.Commands.add('loginAsPortalUser', () => {
   cy.log('Logging in as portal@neonlaw.com');
@@ -18,32 +18,44 @@ Cypress.Commands.add('loginAsPortalUser', () => {
       password: Cypress.env('PORTAL_USER_PASSWORD'),
       realm: 'Username-Password-Authentication',
       scope: scope,
-      username: 'portal@neonlaw.com',
+      username: 'portal@sink.sendgrid.com',
     },
     method: 'POST',
     url: Cypress.env('AUTH_URL'),
   };
 
   cy.request(options).then(({ body }) => {
-    const { access_token, expires_in, id_token } = body;
-    const key = `@@auth0spajs@@::${clientId}::${audience}::${scope}`;
+    const { access_token, expires_in, id_token, token_type } = body;
+    const [header, payload, signature] = id_token.split('.');
+    const tokenData = decode(id_token);
 
-    cy.server();
-
-    const auth0Cache = {
-      body: {
-        access_token,
-        client_id: clientId,
-        decodedToken: {
-          user: jwtDecode(id_token),
+    window.localStorage.setItem(
+      `@@auth0spajs@@::${clientId}::${audience}::${scope}`,
+      JSON.stringify({
+        body: {
+          access_token,
+          audience,
+          client_id: clientId,
+          decodedToken: {
+            claims: {
+              __raw: id_token,
+              ...tokenData
+            },
+            encoded: { header, payload, signature },
+            header: {
+              alg: 'RS256',
+              typ: 'JWT'
+            },
+            user: tokenData
+          },
+          expires_in,
+          id_token,
+          scope,
+          token_type,
         },
-        expires_in,
-        id_token,
-        scope,
-      },
-      expiresAt: Math.floor(Date.now() / 1000) + expires_in,
-    };
-    window.localStorage.setItem(key, JSON.stringify(auth0Cache));
+        expiresAt: Math.floor(Date.now() / 1000) + expires_in,
+      })
+    );
   });
 });
 
@@ -72,25 +84,37 @@ Cypress.Commands.add('loginAsAdminUser', () => {
   };
 
   cy.request(options).then(({ body }) => {
-    const { access_token, expires_in, id_token } = body;
-    const key = `@@auth0spajs@@::${clientId}::${audience}::${scope}`;
+    const { access_token, expires_in, id_token, token_type } = body;
+    const [header, payload, signature] = id_token.split('.');
+    const tokenData = decode(id_token);
 
-    cy.server();
-
-    const auth0Cache = {
-      body: {
-        access_token,
-        client_id: clientId,
-        decodedToken: {
-          user: jwtDecode(id_token),
+    window.localStorage.setItem(
+      `@@auth0spajs@@::${clientId}::${audience}::${scope}`,
+      JSON.stringify({
+        body: {
+          access_token,
+          audience,
+          client_id: clientId,
+          decodedToken: {
+            claims: {
+              __raw: id_token,
+              ...tokenData
+            },
+            encoded: { header, payload, signature },
+            header: {
+              alg: 'RS256',
+              typ: 'JWT'
+            },
+            user: tokenData
+          },
+          expires_in,
+          id_token,
+          scope,
+          token_type,
         },
-        expires_in,
-        id_token,
-        scope,
-      },
-      expiresAt: Math.floor(Date.now() / 1000) + expires_in,
-    };
-    window.localStorage.setItem(key, JSON.stringify(auth0Cache));
+        expiresAt: Math.floor(Date.now() / 1000) + expires_in,
+      })
+    );
   });
 });
 

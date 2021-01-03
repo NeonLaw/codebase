@@ -25,6 +25,7 @@ export const BaseLayout: React.FC<{
       redirectUri={process.env.GATSBY_AUTH0_CALLBACK as string}
       scope='openid profile email'
       audience="https://api.neonlaw.com"
+      cacheLocation="localstorage"
     >
       <ChakraProvider resetCSS theme={theme}>
         <BaseStyles />
