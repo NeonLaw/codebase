@@ -5062,7 +5062,7 @@ export type CreateMatterTemplateMutation = (
 );
 
 export type CreateQuestionMutationVariables = Exact<{
-  options?: Maybe<Array<Maybe<Scalars['String']>>>;
+  options?: Maybe<Array<Maybe<Scalars['String']>> | Maybe<Scalars['String']>>;
   questionType: Scalars['String'];
   prompt: Scalars['String'];
 }>;
@@ -5300,7 +5300,7 @@ export type UpdatePersonByIdMutation = (
 
 export type UpdateQuestionByIdMutationVariables = Exact<{
   id: Scalars['UUID'];
-  options?: Maybe<Array<Maybe<Scalars['String']>>>;
+  options?: Maybe<Array<Maybe<Scalars['String']>> | Maybe<Scalars['String']>>;
   questionType?: Maybe<Scalars['String']>;
   prompt?: Maybe<Scalars['String']>;
 }>;

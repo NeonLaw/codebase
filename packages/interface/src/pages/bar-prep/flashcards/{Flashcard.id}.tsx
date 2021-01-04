@@ -7,9 +7,6 @@ import {
 } from '../../../themes/neonLaw';
 
 import { ApolloProvider } from '@apollo/client';
-import {
-  AuthenticationContext
-} from '../../../utils/authenticationContext';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
 import { Container } from '../../../components/container';
 import { Footer } from '../../../components/footer';
@@ -17,10 +14,9 @@ import {
   PublicNavigationBar
 } from '../../../components/navigationBars/public';
 import { Seo } from '../../../components/seo';
-import {
-  publicClient
-} from '../../../utils/authenticationContext';
+import { getApolloClient } from '../../../utils/getApolloClient';
 import styled from '@emotion/styled';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const StyledFlashcardTemplate = styled.div`
   .flashcard-wrapper {
@@ -72,48 +68,44 @@ const FlashcardLayout: React.FC<{
   const { colorMode } = useColorMode();
   const title = `Neon Law | Flashcard | ${prompt}`;
   const description = answer;
+  const { getAccessTokenSilently } = useAuth0();
+  const apolloClient = getApolloClient(getAccessTokenSilently);
 
   return (
     <Flex minHeight="100vh" direction="column">
       <Seo title={title} description={description} />
-      <AuthenticationContext.Consumer>
-        {({ isLoading, apolloClient }) => {
-          return (
-            <ApolloProvider client={isLoading ? publicClient : apolloClient}>
-              <StyledFlashcardTemplate>
-                <PublicNavigationBar />
-                <Box background={colors.lighterBg[colorMode]}>
-                  <Box
-                    as="main"
-                    aria-label="Main Content"
-                    flex={1}
-                    padding="9rem 0 4rem"
+      <ApolloProvider client={apolloClient}>
+        <StyledFlashcardTemplate>
+          <PublicNavigationBar />
+          <Box background={colors.lighterBg[colorMode]}>
+            <Box
+              as="main"
+              aria-label="Main Content"
+              flex={1}
+              padding="9rem 0 4rem"
+            >
+              <Container>
+                <Box
+                  className="flashcard-wrapper wrapper--centered"
+                  background={colors.background[colorMode]}
+                  border={`1px solid ${colors.borders[colorMode]}`}
+                >
+                  <Breadcrumbs />
+                  <Heading
+                    as="h1"
+                    fontSize="xl"
+                    marginBottom={gutters.xSmall}
+                    fontWeight="400"
                   >
-                    <Container>
-                      <Box
-                        className="flashcard-wrapper wrapper--centered"
-                        background={colors.background[colorMode]}
-                        border={`1px solid ${colors.borders[colorMode]}`}
-                      >
-                        <Breadcrumbs />
-                        <Heading
-                          as="h1"
-                          fontSize="xl"
-                          marginBottom={gutters.xSmall}
-                          fontWeight="400"
-                        >
-                          {prompt}
-                        </Heading>
-                        <Text>{answer}</Text>
-                      </Box>
-                    </Container>
-                  </Box>
+                    {prompt}
+                  </Heading>
+                  <Text>{answer}</Text>
                 </Box>
-              </StyledFlashcardTemplate>
-            </ApolloProvider>
-          );
-        }}
-      </AuthenticationContext.Consumer>
+              </Container>
+            </Box>
+          </Box>
+        </StyledFlashcardTemplate>
+      </ApolloProvider>
       <Footer isWhite={true} />
     </Flex>
   );

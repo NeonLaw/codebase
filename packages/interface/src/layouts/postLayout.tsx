@@ -7,9 +7,6 @@ import {
 } from '../themes/neonLaw';
 
 import { ApolloProvider } from '@apollo/client';
-import {
-  AuthenticationContext
-} from '../utils/authenticationContext';
 import { Breadcrumbs } from '../components/breadcrumbs';
 import { Container } from '../components/container';
 import { EditOnGithub } from '../components/editOnGithub';
@@ -23,11 +20,10 @@ import {
 } from '../components/navigationBars/public';
 import { Seo } from '../components/seo';
 import { ShareButtons } from '../components/shareButtons';
+import { getApolloClient } from '../utils/getApolloClient';
 import { graphql } from 'gatsby';
-import {
-  publicClient
-} from '../utils/authenticationContext';
 import styled from '@emotion/styled';
+import { useAuth0 } from '@auth0/auth0-react';
 import { useSiteMetadata } from '../components/hooks';
 
 const StyledPostTemplate = styled.div`
@@ -84,65 +80,61 @@ const PostLayout: React.FC<{
   const { title, slug, featuredImage, description, widescreen } = frontmatter;
   const { siteUrl } = useSiteMetadata();
   const { colorMode } = useColorMode();
+  const { getAccessTokenSilently } = useAuth0();
+  const apolloClient = getApolloClient(getAccessTokenSilently);
 
   return (
     <Flex minHeight="100vh" direction="column">
       <Seo title={title} image={featuredImage} description={description} />
-      <AuthenticationContext.Consumer>
-        {({ isLoading, apolloClient }) => {
-          return (
-            <ApolloProvider client={isLoading ? publicClient : apolloClient}>
-              <StyledPostTemplate>
-                <PublicNavigationBar />
-                <Box background={colors.lighterBg[colorMode]}>
-                  <Box
-                    as="main"
-                    aria-label="Main Content"
-                    flex={1}
-                    padding="9rem 0 4rem"
+      <ApolloProvider client={apolloClient}>
+        <StyledPostTemplate>
+          <PublicNavigationBar />
+          <Box background={colors.lighterBg[colorMode]}>
+            <Box
+              as="main"
+              aria-label="Main Content"
+              flex={1}
+              padding="9rem 0 4rem"
+            >
+              <Container>
+                <Box
+                  className="post-wrapper wrapper--centered"
+                  background={colors.background[colorMode]}
+                  color={colors.text[colorMode]}
+                  border={`1px solid ${colors.borders[colorMode]}`}
+                >
+                  <Breadcrumbs />
+                  <Heading
+                    as="h1"
+                    fontSize="xl"
+                    marginBottom={gutters.xSmall}
+                    fontWeight="400"
                   >
-                    <Container>
-                      <Box
-                        className="post-wrapper wrapper--centered"
-                        background={colors.background[colorMode]}
-                        color={colors.text[colorMode]}
-                        border={`1px solid ${colors.borders[colorMode]}`}
-                      >
-                        <Breadcrumbs />
-                        <Heading
-                          as="h1"
-                          fontSize="xl"
-                          marginBottom={gutters.xSmall}
-                          fontWeight="400"
-                        >
-                          {title}
-                        </Heading>
-                        {featuredImage && (
-                          <Box borderWidth="1px" rounded="lg" overflow="hidden">
-                            <Image
-                              src={featuredImage}
-                              alt={title}
-                              aspectRatio={widescreen ? 2 : 16 / 9}
-                            />
-                          </Box>
-                        )}
-                        <MDXProvider components={MDXComponents}>
-                          <MDXRenderer>{body}</MDXRenderer>
-                        </MDXProvider>
-                        <Divider margin="1em 0" />
-                        <div className="links">
-                          <ShareButtons slug={slug} siteUrl={siteUrl} />
-                          <EditOnGithub app="interface" path={slug} />
-                        </div>
-                      </Box>
-                    </Container>
-                  </Box>
+                    {title}
+                  </Heading>
+                  {featuredImage && (
+                    <Box borderWidth="1px" rounded="lg" overflow="hidden">
+                      <Image
+                        src={featuredImage}
+                        alt={title}
+                        aspectRatio={widescreen ? 2 : 16 / 9}
+                      />
+                    </Box>
+                  )}
+                  <MDXProvider components={MDXComponents}>
+                    <MDXRenderer>{body}</MDXRenderer>
+                  </MDXProvider>
+                  <Divider margin="1em 0" />
+                  <div className="links">
+                    <ShareButtons slug={slug} siteUrl={siteUrl} />
+                    <EditOnGithub app="interface" path={slug} />
+                  </div>
                 </Box>
-              </StyledPostTemplate>
-            </ApolloProvider>
-          );
-        }}
-      </AuthenticationContext.Consumer>
+              </Container>
+            </Box>
+          </Box>
+        </StyledPostTemplate>
+      </ApolloProvider>
       <Footer isWhite={true} />
     </Flex>
   );

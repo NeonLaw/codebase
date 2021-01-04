@@ -1,7 +1,5 @@
 import { colors, gutters, theme } from '../themes/neonLaw';
-
 import { ApolloProvider } from '@apollo/client';
-import { AuthenticationContext } from '../utils/authenticationContext';
 import { LoadingPage } from '../components/loadingPage';
 import PortalBg from '../../../interface/src/images/dashboard-bg.jpg';
 import {
@@ -12,7 +10,9 @@ import {
 } from '../components/sideNavigation/portalSideNavigation';
 import React from 'react';
 import { Redirect } from '@reach/router';
+import { getApolloClient } from '../utils/getApolloClient';
 import styled from '@emotion/styled';
+import { useAuth0 } from '@auth0/auth0-react';
 import { useColorMode } from '@chakra-ui/core';
 
 const StyledPortalLayout = styled.div`
@@ -72,41 +72,39 @@ const Main = styled.div`
 
 export const PortalLayout = ({ children }) => {
   const { colorMode } = useColorMode();
+  const { isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
+  const apolloClient = getApolloClient(getAccessTokenSilently);
+
+  if (isLoading) {
+    return <LoadingPage />;
+  }
+
+  if (!isAuthenticated) {
+    return <Redirect noThrow={true} to="/" />;
+  }
 
   return (
-    <AuthenticationContext.Consumer>
-      {({ isLoading, isAuthenticated, apolloClient }) => {
-        if (isLoading) {
-          return <LoadingPage />;
-        }
-        if (!isAuthenticated) {
-          return <Redirect noThrow={true} to="/" />;
-        }
-        return (
-          <ApolloProvider client={apolloClient}>
-            <StyledPortalLayout
-            >
-              <div className="wrapper">
-                <Aside>
-                  <PortalSideNavigation />
-                </Aside>
-                <Main
-                  style={{
-                    background:
+    <ApolloProvider client={apolloClient}>
+      <StyledPortalLayout
+      >
+        <div className="wrapper">
+          <Aside>
+            <PortalSideNavigation />
+          </Aside>
+          <Main
+            style={{
+              background:
                       colorMode === 'dark'
                         ? '#111'
                         : theme.colors.white,
-                    color: colors.text[colorMode]
-                  }}
-                >
-                  <PortalNavigationBar isRenderedOnDashboard={true} />
-                  <div className="content">{children}</div>
-                </Main>
-              </div>
-            </StyledPortalLayout>
-          </ApolloProvider>
-        );
-      }}
-    </AuthenticationContext.Consumer>
+              color: colors.text[colorMode]
+            }}
+          >
+            <PortalNavigationBar isRenderedOnDashboard={true} />
+            <div className="content">{children}</div>
+          </Main>
+        </div>
+      </StyledPortalLayout>
+    </ApolloProvider>
   );
 };

@@ -1,12 +1,11 @@
 import { Box, useColorMode } from '@chakra-ui/core';
 import { colors, gutters, theme } from '../../themes/neonLaw';
-
-import { AuthenticationContext } from '../../utils/authenticationContext';
 import { Link } from 'gatsby-plugin-intl';
 import React from 'react';
 import { Search } from '../navigationBars/search';
 import { navigate } from 'gatsby';
 import styled from '@emotion/styled';
+import { useAuth0 } from '@auth0/auth0-react';
 import { useIntl } from 'gatsby-plugin-intl';
 
 const StyledSideNavContent = styled.div<{ isRenderedOnDashboard?: boolean }>`
@@ -112,6 +111,7 @@ export const SideNavContent = ({
   const bg = { dark: 'black', light: 'gray.200' };
   const { colorMode } = useColorMode();
   const intl = useIntl();
+  const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
 
   return (
     <StyledSideNavContent isRenderedOnDashboard={isRenderedOnDashboard}>
@@ -171,26 +171,17 @@ export const SideNavContent = ({
                 </Link>
               </Box>
             ))}
-            <AuthenticationContext.Consumer>
-              {({ isLoading, isAuthenticated, login }) => {
-                if (isLoading || isAuthenticated) {
-                  return null;
-                }
-                return (
-                  <>
-                    <Box
-                      mb="10"
-                      onClick={() => {
-                        login();
-                      }}
-                      cursor="pointer"
-                    >
-                      {intl.formatMessage({ id: 'auth.login' })}
-                    </Box>
-                  </>
-                );
-              }}
-            </AuthenticationContext.Consumer>
+            {isAuthenticated || isLoading ? null :
+              <Box
+                mb="10"
+                onClick={() => {
+                  loginWithRedirect();
+                }}
+                cursor="pointer"
+              >
+                {intl.formatMessage({ id: 'auth.login' })}
+              </Box>
+            }
           </div>
         </Box>
       </Box>

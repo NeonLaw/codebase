@@ -39,7 +39,7 @@ describe('Visiting /portal', () => {
     });
   });
 
-  context('logged in as a portal user', () => {
+  context('logged in as an admin user', () => {
     it('renders the /portal pages and the admin portal', () => {
       cy.loginAsAdminUser().then(() => {
         cy.visit('/portal');

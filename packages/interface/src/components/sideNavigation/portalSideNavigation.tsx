@@ -1,6 +1,5 @@
 import { AiOutlineAudit, AiOutlineShop } from 'react-icons/ai';
 import { BiHomeHeart, BiPen } from 'react-icons/bi';
-import { AuthenticationContext } from '../../utils/authenticationContext';
 import { CgProfile } from 'react-icons/cg';
 import { FaHands } from 'react-icons/fa';
 import { MdGavel } from 'react-icons/md';
@@ -13,6 +12,7 @@ import { SideNavContent } from './sideNavContent';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { VscLaw } from 'react-icons/vsc';
 import { admins } from '@neonlaw/server/src/admins';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export const PortalSideNavContent = ({ email }) => {
   const links = [
@@ -55,15 +55,11 @@ export const PortalSideNavContent = ({ email }) => {
 };
 
 export const PortalSideNavigation = (props) => {
+  const { user: { email }} = useAuth0();
+
   return (
-    <AuthenticationContext.Consumer>
-      {({ user: { email } }: any) => {
-        return (
-          <SideNavContainer isRenderedOnDashboard={true} {...props}>
-            <PortalSideNavContent email={email} />
-          </SideNavContainer>
-        );
-      }}
-    </AuthenticationContext.Consumer>
+    <SideNavContainer isRenderedOnDashboard={true} {...props}>
+      <PortalSideNavContent email={email} />
+    </SideNavContainer>
   );
 };

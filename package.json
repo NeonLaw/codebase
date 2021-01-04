@@ -1,8 +1,7 @@
 {
     "private": true,
     "workspaces": [
-        "packages/interface",
-        "packages/server"
+        "packages/*"
     ],
     "optionalDependencies": {
         "cypress": "^6.2.0"
@@ -79,6 +78,7 @@
         "test": "jest --forceExit --detectOpenHandles --coverage --coverageProvider=v8"
     },
     "dependencies": {
+        "@auth0/auth0-react": "^1.2.0",
         "@chakra-ui/core": "^1.0.0-rc.8",
         "@chakra-ui/icons": "^1.0.2",
         "@typescript-eslint/parser": "^4.11.1",

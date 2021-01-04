@@ -6,12 +6,11 @@ import {
   MenuList,
   useColorMode
 } from '@chakra-ui/core';
-
-import { AuthenticationContext } from '../../utils/authenticationContext';
 import { Link } from '../../components/link';
 import React from 'react';
 import { UserAvatar } from '../userAvatar';
 import { navigate } from 'gatsby';
+import { useAuth0 } from '@auth0/auth0-react';
 import { useIntl } from 'gatsby-plugin-intl';
 
 export const AuthenticatedDropdown = () => {
@@ -19,8 +18,8 @@ export const AuthenticatedDropdown = () => {
   const lighterBg = { dark: 'gray.700', light: 'gray.200' };
   const evenLighterBg = { dark: 'gray.600', light: 'gray.100' };
   const color = { dark: 'white', light: 'black' };
-
   const intl = useIntl();
+  const { isLoading, logout } = useAuth0();
 
   return (
     <Box
@@ -48,21 +47,18 @@ export const AuthenticatedDropdown = () => {
           >
             {intl.formatMessage({ id: 'components_navbar.auth_settings' })}
           </MenuItem>
-          <AuthenticationContext.Consumer>
-            {({ isLoading, logout }) => {
-              if (isLoading) {
-                return null;
-              }
-              return (
-                <MenuItem
-                  onClick={() => logout()}
-                  _hover={{ backgroundColor: evenLighterBg[colorMode] }}
-                >
-                  {intl.formatMessage({ id: 'components_navbar.auth_logout' })}
-                </MenuItem>
-              );
-            }}
-          </AuthenticationContext.Consumer>
+          {isLoading ? null :
+            (
+              <MenuItem
+                onClick={
+                  () => logout({ returnTo: process.env.GATSBY_SITE_URL })
+                }
+                _hover={{ backgroundColor: evenLighterBg[colorMode] }}
+              >
+                {intl.formatMessage({ id: 'components_navbar.auth_logout' })}
+              </MenuItem>
+            )
+          }
         </MenuList>
       </Menu>
     </Box>
