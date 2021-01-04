@@ -7,13 +7,11 @@ import styled from '@emotion/styled';
 
 const StyledInput = styled(Input)<{
   version: 'desktop' | 'mobile';
-  hideOnMobile?: boolean;
 }>`
   max-width: 350px;
 
   @media (max-width: 560px) {
-    display: ${({ hideOnMobile }) =>
-    hideOnMobile ? 'none' : 'inherit'};
+    display: none;
     max-width: 240px;
   }
 
@@ -25,7 +23,6 @@ const StyledInput = styled(Input)<{
 interface SearchProps {
   version: 'desktop' | 'mobile';
   isRenderedOnDashboard?: boolean;
-  hideOnMobile?: boolean;
   background?: string;
   borderColor?: string;
 }
@@ -34,8 +31,7 @@ export const Search = ({
   version,
   isRenderedOnDashboard,
   background,
-  borderColor,
-  hideOnMobile
+  borderColor
 }: SearchProps): JSX.Element => {
   const inputRef = useRef<any>();
 
@@ -76,7 +72,6 @@ export const Search = ({
         />
       ) : null}
       <StyledInput
-        hideOnMobile={hideOnMobile}
         className={!isRenderedOnDashboard ? 'search-input' : ''}
         version={version}
         ref={inputRef}

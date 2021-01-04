@@ -5,6 +5,7 @@ import { Background } from '../components/background';
 import { BaseStyles } from '../styles/baseStyles';
 import { ShortcutsModal } from '../components/shortcutsModal';
 import { handleFirstTab } from '../utils/accessibility';
+import { onRedirectCallback } from '../utils/auth0RedirectCallback';
 
 export const BaseLayout: React.FC<{
   children: ReactChildren;
@@ -22,7 +23,8 @@ export const BaseLayout: React.FC<{
     <Auth0Provider
       clientId={process.env.GATSBY_AUTH0_CLIENT_ID as string}
       domain={process.env.GATSBY_AUTH0_DOMAIN as string}
-      redirectUri={process.env.GATSBY_AUTH0_CALLBACK as string}
+      redirectUri={process.env.GATSBY_SITE_URL as string}
+      onRedirectCallback={onRedirectCallback}
       scope='openid profile email'
       audience="https://api.neonlaw.com"
       cacheLocation="localstorage"

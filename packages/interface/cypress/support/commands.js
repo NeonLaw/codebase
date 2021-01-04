@@ -4,7 +4,7 @@
 import decode from 'jwt-decode';
 
 Cypress.Commands.add('loginAsPortalUser', () => {
-  cy.log('Logging in as portal@neonlaw.com');
+  cy.log('Logging in as portal@sink.sendgrid.com');
   const clientId = Cypress.env('AUTH0_CLIENT_ID');
   const audience = 'https://api.neonlaw.com';
   const scope = 'openid profile email';
@@ -17,8 +17,11 @@ Cypress.Commands.add('loginAsPortalUser', () => {
       grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
       password: Cypress.env('PORTAL_USER_PASSWORD'),
       realm: 'Username-Password-Authentication',
-      scope: scope,
+      scope,
       username: 'portal@sink.sendgrid.com',
+    },
+    headers: {
+      'Content-Type': 'application/json',
     },
     method: 'POST',
     url: Cypress.env('AUTH_URL'),
@@ -73,7 +76,7 @@ Cypress.Commands.add('loginAsAdminUser', () => {
       grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
       password: Cypress.env('ADMIN_USER_PASSWORD'),
       realm: 'Username-Password-Authentication',
-      scope: scope,
+      scope,
       username: 'admin@sink.sendgrid.com',
     },
     headers: {

@@ -50,7 +50,9 @@ export const AuthenticatedDropdown = () => {
           {isLoading ? null :
             (
               <MenuItem
-                onClick={() => logout()}
+                onClick={
+                  () => logout({ returnTo: process.env.GATSBY_SITE_URL })
+                }
                 _hover={{ backgroundColor: evenLighterBg[colorMode] }}
               >
                 {intl.formatMessage({ id: 'components_navbar.auth_logout' })}

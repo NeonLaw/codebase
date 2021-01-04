@@ -73,7 +73,6 @@ export const BaseNavigationBar = ({
 
             <Search
               version="desktop"
-              hideOnMobile={true}
               isRenderedOnDashboard={false}
               background={colors.background.dark}
             />

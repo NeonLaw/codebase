@@ -42,8 +42,8 @@ jobs:
             -f docker/staging.interface.Dockerfile \
             .
         env:
-          GATSBY_AUTH0_CALLBACK: ${{ secrets.STAGING_AUTH0_CALLBACK }}
-          GATSBY_AUTH0_DOMAIN: ${{ secrets.STAGING_AUTH0_DOMAIN }}
+          GATSBY_AUTH0_CALLBACK: https://www.neonlaw.net
+          GATSBY_AUTH0_DOMAIN: ${{ secrets.STAGING_GATSBY_AUTH0_DOMIN }}
           GATSBY_AUTH0_CLIENT_ID: ${{ secrets.STAGING_AUTH0_CLIENT_ID }}
 
       - uses: google-github-actions/setup-gcloud@master
