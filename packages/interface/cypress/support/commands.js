@@ -6,7 +6,7 @@ import decode from 'jwt-decode';
 Cypress.Commands.add('loginAsPortalUser', () => {
   cy.log('Logging in as portal@sink.sendgrid.com');
   const clientId = Cypress.env('AUTH0_CLIENT_ID');
-  const audience = 'https://api.neonlaw.com';
+  const audience = 'https://www.neonlaw.com/api';
   const scope = 'openid profile email';
 
   const options = {
@@ -65,7 +65,7 @@ Cypress.Commands.add('loginAsPortalUser', () => {
 Cypress.Commands.add('loginAsAdminUser', () => {
   cy.log('Logging in as admin@sink.sendgrid.com');
   const clientId = Cypress.env('AUTH0_CLIENT_ID');
-  const audience = 'https://api.neonlaw.com';
+  const audience = 'https://www.neonlaw.com/api';
   const scope = 'openid profile email';
 
   const options = {

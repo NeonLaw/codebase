@@ -16,7 +16,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const checkJwt = jwt({
   algorithms: ['RS256'],
-  audience: 'https://api.neonlaw.com',
+  audience: 'https://www.neonlaw.com/api',
   credentialsRequired: false,
   issuer: `https://${process.env.AUTH0_TENANT}/`,
   secret: expressJwtSecret({
