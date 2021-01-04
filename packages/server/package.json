@@ -28,7 +28,7 @@
     "graphile-migrate": "^1.0.2",
     "graphile-utils": "^4.9.2",
     "graphile-worker": "^0.8.1",
-    "js-yaml": "^3.14.1",
+    "js-yaml": "^4.0.0",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.12.1",
     "newrelic": "latest",
