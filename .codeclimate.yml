@@ -8,3 +8,4 @@ exclude_patterns:
   - "**/*.png"
   - "packages/interface/gatsby-*"
   - "packages/interface/src/utils/api.tsx"
+  - "packages/interface/cypress/**/*"
