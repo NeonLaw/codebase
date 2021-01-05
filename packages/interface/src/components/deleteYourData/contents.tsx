@@ -11,7 +11,8 @@ export const faqs: FAQProps[] = [
       <>
         Sign up with the link above, or e-mail us at{' '}
         <a href="mailto:support@neonlaw.com">support@neonlaw.com</a>, or contact
-        us in the chat below.
+        us in the chat below. Once logged in, let us know where you want your
+        data deleted and we will take it from there.
       </>
     ),
     title: 'How can I start?',
@@ -56,9 +57,7 @@ export const faqs: FAQProps[] = [
         so you can verify that our use of PostgreSQL cascading foreign keys
         deletes your data, and our logging code does not log any PII you ever
         added to our system. The only thing we can&apos;t do is continue to
-        delete your data after you delete your account. Therefore, if you delete
-        your account before the 1-year expiration, you must then create a new
-        one for us to delete your data.
+        delete your data after you delete your account.
       </>
     ),
     title: 'Can I delete my data from deleteyourdata.com?',
