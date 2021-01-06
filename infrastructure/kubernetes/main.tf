@@ -75,6 +75,7 @@ module "application_secrets" {
   lob_api_key                   = var.lob_api_key
   lob_api_secret                = var.lob_api_secret
   new_relic_license_key         = var.new_relic_license_key
+  redis_url                     = "${var.environment}-redis-headless"
   sendgrid_api_key              = var.sendgrid_api_key
   stripe_api_publishable_key    = var.stripe_api_publishable_key
   stripe_api_secret_key         = var.stripe_api_secret_key
