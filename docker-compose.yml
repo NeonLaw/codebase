@@ -40,6 +40,17 @@ services:
     volumes:
       - ./docker/pg-init-scripts:/docker-entrypoint-initdb.d
     command: ["postgres", "-c", "shared_preload_libraries=pg_stat_statements"]
+    logging:
+      driver: none
+
+  redis:
+    image: redis:6
+    container_name: redis
+    ports:
+      - 6379:6379
+    restart: unless-stopped
+    logging:
+      driver: none
 
   api:
     build:
