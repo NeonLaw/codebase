@@ -60,6 +60,11 @@ provider "kubernetes-alpha" {
   cluster_ca_certificate = base64decode(data.terraform_remote_state.gcp.outputs.gke_cluster_ca_certificate)
 }
 
+module "redis" {
+  source      = "./modules/redis_helm"
+  environment = var.environment
+}
+
 module "application_secrets" {
   source                        = "../modules/application_secrets"
   api_url                       = var.api_url
@@ -146,7 +151,7 @@ module "ingress" {
 }
 
 module "new_relic" {
-  source                = "../modules/new_relic_helm"
+  source                = "./modules/new_relic_helm"
   environment           = var.environment
   new_relic_license_key = var.new_relic_license_key
 }

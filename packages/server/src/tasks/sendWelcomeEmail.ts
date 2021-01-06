@@ -1,6 +1,6 @@
 import { default as sgMail } from '@sendgrid/mail';
 
-export const sendWelcomeEmail = async (payload, helpers) => {
+export const sendWelcomeEmail = async (payload, helpers): Promise<void> => {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY as string);
   const { personId } = payload;
 
@@ -23,7 +23,7 @@ export const sendWelcomeEmail = async (payload, helpers) => {
     to,
   };
 
-  return await sgMail.send(emailMessage).then((response) => {
+  await sgMail.send(emailMessage).then((response) => {
     helpers.logger.info(response);
     return response;
   }).catch((error) => {

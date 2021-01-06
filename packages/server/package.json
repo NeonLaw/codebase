@@ -28,6 +28,8 @@
     "graphile-migrate": "^1.0.2",
     "graphile-utils": "^4.9.2",
     "graphile-worker": "^0.8.1",
+    "graphile-worker-rate-limiter": "^0.0.1",
+    "ioredis": "^4.19.4",
     "js-yaml": "^4.0.0",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.12.1",
