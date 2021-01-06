@@ -1,5 +1,5 @@
 resource "helm_release" "new_relic" {
-  name       = var.environment
+  name       = "${var.environment}-new-relic"
   repository = "https://helm-charts.newrelic.com"
   chart      = "nri-bundle"
   version    = "1.11.3"

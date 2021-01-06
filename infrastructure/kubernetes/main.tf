@@ -61,7 +61,8 @@ provider "kubernetes-alpha" {
 }
 
 module "redis" {
-  source                = "./modules/redis_helm"
+  source      = "./modules/redis_helm"
+  environment = var.environment
 }
 
 module "application_secrets" {
