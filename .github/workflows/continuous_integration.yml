@@ -56,7 +56,7 @@ jobs:
         with:
           coverageCommand: docker exec shell yarn test
       - name: Seed Database users for Cypress
-        run: yarn cypress:seed-users
+        run: docker exec shell yarn cypress:seed-users
       - name: Run Cypress tests for @neonlaw/interface
         uses: cypress-io/github-action@v2
         with:
