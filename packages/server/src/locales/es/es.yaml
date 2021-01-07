@@ -2,6 +2,12 @@
 auth:
   login: Inciar Sesión
   sign_up: Obtener Ayuda Legal
+banner:
+  title: Abogados invirtieron en hacer que el mañana sea mejor que el de hoy
+  text: |
+    Nuestro objetivo es singular: su movilidad ascendente. Únete a las miles
+    de personas que nos han confiado brindar soluciones legales para hacer de
+    sus vidas mejor.
 languages:
   language: Idioma
   english: Inglés
