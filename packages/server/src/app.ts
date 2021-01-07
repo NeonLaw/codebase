@@ -125,6 +125,7 @@ expressApp.use('/api/graphql', endNewRelicTransaction);
 
 expressApp.use(express.json());
 
+expressApp.use('/api/auth0-create-person', checkJwt);
 expressApp.use('/api/auth0-create-person', beginNewRelicTransaction);
 expressApp.post('/api/auth0-create-person', async (request, response) => {
   const { email, sub } = request.body;
