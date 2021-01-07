@@ -1,7 +1,12 @@
 import { Client } from 'pg';
-import { CurrentPersonInterface } from './createPerson';
 import { getUserFromAuth0 } from './getUserFromAuth0';
 import { postgresUrl } from './postgresUrl';
+
+export interface CurrentPersonInterface {
+  id: string;
+  role: string;
+}
+
 
 export const findPersonBySubOrEmail = async (
   sub: string

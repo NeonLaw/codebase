@@ -2,6 +2,7 @@ import 'dotenv/config';
 import * as expressWinston from 'express-winston';
 import * as winston from 'winston';
 import cors from 'cors';
+import { createPerson } from './createPerson';
 import express from 'express';
 import { expressJwtSecret } from 'jwks-rsa';
 import { fetchLocaleJson } from './fetchLocaleJson';
@@ -107,10 +108,6 @@ expressApp.get('/api', function (_, res) {
   res.send('Neon Law API');
 });
 
-expressApp.post('/api/auth0-create-person', function(request, response) {
-  console.log(request);
-  response.status(201).send('created user');
-});
 
 expressApp.use('/api/graphql', checkJwt);
 expressApp.use('/api/graphql', currentUser);
@@ -126,6 +123,22 @@ expressApp.get('/api/process-transloadit-notifications', function (req, res) {
 
 expressApp.use('/api/graphql', endNewRelicTransaction);
 
+expressApp.use(express.json());
+
+expressApp.use('/api/auth0-create-person', beginNewRelicTransaction);
+expressApp.post('/api/auth0-create-person', async (request, response) => {
+  const { email, sub } = request.body;
+
+  const person = await createPerson({
+    email,
+    sub
+  });
+
+  response.status(201).json(person);
+});
+
+expressApp.use('/api/auth0-create-person', endNewRelicTransaction);
+
 const limiter = rateLimit({
   max: 180,
   windowMs: 60 * 1000,
@@ -140,5 +153,6 @@ expressApp.get('/api/en.json', function (_, res) {
 expressApp.get('/api/es.json', function (_, res) {
   res.json(fetchLocaleJson('es'));
 });
+
 
 export const app = expressApp;

@@ -1,29 +1,31 @@
+import { Client } from 'pg';
+import { postgresUrl } from './postgresUrl';
 interface CreatePersonInterface {
   sub: string;
   email: string;
-  name: string;
-  role: 'portal' | 'lawyer' | 'admin';
-  client: any;
 }
 
-export interface CurrentPersonInterface {
+interface Person {
   id: string;
-  role: string;
+  email: string;
+  sub: string;
+  createdAt: string;
 }
 
 export const createPerson = async (
   args: CreatePersonInterface
-): Promise<CurrentPersonInterface> => {
-  const { client, sub, email, name, role } = args;
+): Promise<Person> => {
+  const client = new Client(postgresUrl);
+  await client.connect();
+
+  const { sub, email } = args;
 
   const personQuery = await client.query(
-    'INSERT INTO person (sub, email, name, role) ' +
-    'VALUES ($1, $2, $3, $4) RETURNING id, role',
+    'INSERT INTO person (sub, email) ' +
+    'VALUES ($1, $2) RETURNING id, email, sub, created_at',
     [
       sub,
-      email,
-      name,
-      role
+      email
     ]
   );
 
