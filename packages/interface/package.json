@@ -42,7 +42,7 @@
     "gatsby-plugin-segment-js": "^3.6.0",
     "gatsby-plugin-sharp": "^2.11.1",
     "gatsby-plugin-sitemap": "^2.10.0",
-    "gatsby-plugin-typescript": "^2.9.0",
+    "gatsby-plugin-typescript": "^2.10.0",
     "gatsby-remark-images": "^3.8.0",
     "gatsby-source-filesystem": "^2.9.0",
     "gatsby-source-graphql": "^2.12.0",
