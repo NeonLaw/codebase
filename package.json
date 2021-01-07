@@ -65,6 +65,7 @@
     },
     "scripts": {
         "check-types": "tsc -p .",
+        "cypress:seed-users": "psql -c \"INSERT INTO person (email) VALUES ('portal@sink.sendgrid.com'), ('admin@sink.sendgrid.com');\" $DATABASE_URL",
         "docker-remove-containers": "docker container kill $(docker ps -q)",
         "docker-prune": "docker system prune -a -f --volumes",
         "e2e": "cypress run --headless --project",
