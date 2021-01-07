@@ -55,6 +55,8 @@ jobs:
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
         with:
           coverageCommand: docker exec shell yarn test
+      - name: Seed Database users for Cypress
+        run: docker exec shell yarn cypress:seed-users
       - name: Run Cypress tests for @neonlaw/interface
         uses: cypress-io/github-action@v2
         with:

@@ -1,6 +1,9 @@
 module.exports = {
   globals: {
     __PATH_PREFIX__: '',
+    'ts-jest': {
+      isolatedModules: true
+    }
   },
   moduleNameMapper: {
     '.+\\.(css)$': 'identity-obj-proxy',
@@ -8,7 +11,7 @@ module.exports = {
       '<rootDir>/__mocks__/fileMock.js',
   },
   preset: 'ts-jest',
-  testEnvironment: 'jsdom',
+  testEnvironment: 'node',
   testPathIgnorePatterns: [
     'node_modules',
     'build',
