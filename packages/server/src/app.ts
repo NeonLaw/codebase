@@ -107,8 +107,9 @@ app.get('/api', function (_, res) {
   res.send('Neon Law API');
 });
 
-app.post('/api/auth0-create-user', function(_, response) {
-
+app.post('/api/auth0-create-person', function(request, response) {
+  console.log(request);
+  response.status(201).send('created user');
 });
 
 app.use('/api/graphql', checkJwt);
