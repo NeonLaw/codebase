@@ -71,10 +71,10 @@ const endNewRelicTransaction: express.RequestHandler = async (
   return next();
 };
 
-export const app = express();
-app.use(cors());
+const expressApp = express();
+expressApp.use(cors());
 
-app.use(expressWinston.logger({
+expressApp.use(expressWinston.logger({
   colorize: false,
   expressFormat: true,
   format: winston.format.combine(
@@ -99,44 +99,46 @@ app.use(expressWinston.logger({
   ],
 }));
 
-app.get('/', function (_, res) {
+expressApp.get('/', function (_, res) {
   res.send('Neon Law API');
 });
 
-app.get('/api', function (_, res) {
+expressApp.get('/api', function (_, res) {
   res.send('Neon Law API');
 });
 
-app.post('/api/auth0-create-person', function(request, response) {
+expressApp.post('/api/auth0-create-person', function(request, response) {
   console.log(request);
   response.status(201).send('created user');
 });
 
-app.use('/api/graphql', checkJwt);
-app.use('/api/graphql', currentUser);
-app.use('/api/graphql', addTraceHeaders);
-app.use('/api/graphql', beginNewRelicTransaction);
+expressApp.use('/api/graphql', checkJwt);
+expressApp.use('/api/graphql', currentUser);
+expressApp.use('/api/graphql', addTraceHeaders);
+expressApp.use('/api/graphql', beginNewRelicTransaction);
 
-app.use(postgraphile(postgresUrl, 'public', postgraphileOptions));
+expressApp.use(postgraphile(postgresUrl, 'public', postgraphileOptions));
 
-app.get('/api/process-transloadit-notifications', function (req, res) {
+expressApp.get('/api/process-transloadit-notifications', function (req, res) {
   console.log(req);
   res.send('logged Transloadit notification');
 });
 
-app.use('/api/graphql', endNewRelicTransaction);
+expressApp.use('/api/graphql', endNewRelicTransaction);
 
 const limiter = rateLimit({
   max: 180,
   windowMs: 60 * 1000,
 });
 
-app.use(limiter);
+expressApp.use(limiter);
 
-app.get('/api/en.json', function (_, res) {
+expressApp.get('/api/en.json', function (_, res) {
   res.json(fetchLocaleJson('en'));
 });
 
-app.get('/api/es.json', function (_, res) {
+expressApp.get('/api/es.json', function (_, res) {
   res.json(fetchLocaleJson('es'));
 });
+
+export const app = expressApp;
