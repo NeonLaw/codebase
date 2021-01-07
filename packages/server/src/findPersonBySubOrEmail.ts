@@ -1,9 +1,9 @@
-import { CurrentPersonInterface, createPerson } from './createPerson';
 import { Client } from 'pg';
+import { CurrentPersonInterface } from './createPerson';
 import { getUserFromAuth0 } from './getUserFromAuth0';
 import { postgresUrl } from './postgresUrl';
 
-export const findOrCreatePerson = async (
+export const findPersonBySubOrEmail = async (
   sub: string
 ): Promise<CurrentPersonInterface> => {
   const client = new Client(postgresUrl);
@@ -26,7 +26,7 @@ export const findOrCreatePerson = async (
   }
 
   const userFromAuth0 = await getUserFromAuth0(sub);
-  const { email, name, role } = userFromAuth0;
+  const { email } = userFromAuth0;
 
   const currentPersonByEmailQuery = await client.query(
     'SELECT id, role FROM person WHERE email = $1 LIMIT 1',
@@ -45,17 +45,5 @@ export const findOrCreatePerson = async (
     };
   }
 
-  const { id } = await createPerson({
-    client,
-    email,
-    name,
-    role,
-    sub,
-  });
-
-  await client.end();
-  return {
-    id,
-    role
-  };
+  throw new Error('Person does not exist in the database');
 };
