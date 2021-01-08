@@ -12,7 +12,7 @@
         "@graphql-codegen/typescript-react-apollo": "^2.2.1",
         "@testing-library/cypress": "^7.0.3",
         "@testing-library/jest-dom": "^5.11.8",
-        "@testing-library/react": "^11.2.2",
+        "@testing-library/react": "^11.2.3",
         "@turf/bezier-spline": "^6.0.3",
         "@turf/helpers": "^6.1.4",
         "@types/cors": "^2.8.9",
