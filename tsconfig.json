@@ -18,11 +18,10 @@
     "target": "esnext",
     "typeRoots": [
       "./node_modules/@types",
-      "packages/server/node_modules/@types",
-      "./packages/interface/node_modules/node_modules/@types"
+      "./@types"
     ]
   },
-  "include": ["./packages/**/*", "./@types/*"],
+  "include": ["./packages/**/*", "./@types/*", "./node_modules/@types/**/*"],
   "exclude": [
     "./node_modules",
     "./build",
@@ -30,8 +29,6 @@
     "./packages/**/*.test.ts",
     "packages/server/tests/utils/dbHelpers.ts",
     "packages/server/tests/utils/sanitizeSnapshot.ts",
-    "./packages/**/*.test.tsx",
-    "packages/server/src/server.ts",
-    "packages/server/src/app.ts"
+    "./packages/**/*.test.tsx"
   ]
 }
