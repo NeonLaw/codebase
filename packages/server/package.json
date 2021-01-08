@@ -32,7 +32,7 @@
     "ioredis": "^4.19.4",
     "js-yaml": "^4.0.0",
     "jsonwebtoken": "^8.5.1",
-    "jwks-rsa": "^1.12.1",
+    "jwks-rsa": "^1.12.2",
     "newrelic": "latest",
     "pg": "^8.5.1",
     "postgraphile": "^4.10.0",
