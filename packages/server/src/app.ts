@@ -125,22 +125,14 @@ expressApp.use('/api/graphql', endNewRelicTransaction);
 
 expressApp.use(express.json());
 
-const checkJwtNoUnauthenticatedUser = jwt({
-  algorithms: ['RS256'],
-  audience: 'https://www.neonlaw.com/api',
-  credentialsRequired: true,
-  issuer: `https://${process.env.AUTH0_TENANT}/`,
-  secret: expressJwtSecret({
-    cache: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri:
-      `https://${process.env.AUTH0_TENANT}/.well-known/jwks.json`,
-    rateLimit: true,
-  }),
-});
-
-expressApp.use('/api/auth0-create-person', checkJwtNoUnauthenticatedUser);
 expressApp.use('/api/auth0-create-person', beginNewRelicTransaction);
+expressApp.use('/api/auth0-create-person', (request, response, next) => {
+  const authorizationHeader = request.headers?.authorization;
+  if (authorizationHeader != `basic ${process.env.AUTH0_CLIENT_SECRET}`) {
+    return response.status(403).json({ error: 'No credentials sent!' });
+  }
+  next();
+});
 expressApp.post('/api/auth0-create-person', async (request, response) => {
   try {
     const { email, sub } = request.body;
