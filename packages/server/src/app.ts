@@ -125,17 +125,35 @@ expressApp.use('/api/graphql', endNewRelicTransaction);
 
 expressApp.use(express.json());
 
-expressApp.use('/api/auth0-create-person', checkJwt);
+const checkJwtNoUnauthenticatedUser = jwt({
+  algorithms: ['RS256'],
+  audience: 'https://www.neonlaw.com/api',
+  credentialsRequired: true,
+  issuer: `https://${process.env.AUTH0_TENANT}/`,
+  secret: expressJwtSecret({
+    cache: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri:
+      `https://${process.env.AUTH0_TENANT}/.well-known/jwks.json`,
+    rateLimit: true,
+  }),
+});
+
+expressApp.use('/api/auth0-create-person', checkJwtNoUnauthenticatedUser);
 expressApp.use('/api/auth0-create-person', beginNewRelicTransaction);
 expressApp.post('/api/auth0-create-person', async (request, response) => {
-  const { email, sub } = request.body;
+  try {
+    const { email, sub } = request.body;
 
-  const person = await createPerson({
-    email,
-    sub
-  });
+    const person = await createPerson({
+      email,
+      sub
+    });
 
-  response.status(201).json(person);
+    response.status(201).json(person);
+  } catch (error) {
+    response.status(400).send(error);
+  }
 });
 
 expressApp.use('/api/auth0-create-person', endNewRelicTransaction);
