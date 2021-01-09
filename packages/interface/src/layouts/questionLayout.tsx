@@ -100,7 +100,7 @@ const QuestionLayout: React.FC<{
                   >
                     {prompt}
                   </Heading>
-                  <Text>{answer}</Text>
+                  <Text>{helpText}</Text>
                 </Box>
               </Container>
             </Box>
