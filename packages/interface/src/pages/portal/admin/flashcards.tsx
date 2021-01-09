@@ -28,7 +28,7 @@ const AdminFlashcards = () => {
         <Breadcrumbs />
 
         <Button
-          flash={true}
+          flash={false}
           buttonScheme="teal"
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
