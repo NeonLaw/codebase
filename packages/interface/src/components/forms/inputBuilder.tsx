@@ -47,6 +47,7 @@ export const InputBuilder = ({
           case 'id':
             return (
               <input
+                key={i}
                 name={name}
                 type="hidden"
                 value={currentValues[name]}
@@ -85,7 +86,6 @@ export const InputBuilder = ({
                 testId={testId}
                 label={label}
                 errors={errors}
-                value={currentValues && currentValues[name]}
                 placeholder={intl.formatMessage({
                   id: `forms.${underscoreFieldName}.placeholder`,
                 })}
@@ -113,6 +113,7 @@ export const InputBuilder = ({
                   id: `forms.${underscoreFieldName}.placeholder`,
                 })}
                 control={control}
+                value={currentValues && currentValues[name]}
               />
             );
           case 'select':

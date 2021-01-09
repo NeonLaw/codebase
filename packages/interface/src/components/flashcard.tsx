@@ -1,6 +1,3 @@
-/* eslint-disable */
-// @ts-nocheck
-/* eslint-enable */
 import { Box, Text, useColorMode } from '@chakra-ui/core';
 import React, { useRef, useState } from 'react';
 import { Button } from './button';
@@ -27,7 +24,7 @@ export const Flashcard = ({
   const { colorMode } = useColorMode();
 
   const [userAnswer, changeUserAnswer] = useState('');
-  const { control, handleSubmit } = useForm();
+  const { control, handleSubmit, errors } = useForm();
 
   const onSubmit = async ({ answer }) => {
     changeUserAnswer(answer);
@@ -42,28 +39,17 @@ export const Flashcard = ({
           onSubmit={handleSubmit(onSubmit as any)}
           ref={formRef}
         >
-          <Text className fontSize="1.2em" marginBottom="1em">
+          <Text fontSize="1.2em" marginBottom="1em">
             {prompt}
           </Text>
           <Textarea
-            className="flascard-textarea"
             testId="flashcard-textarea"
             control={control}
             name="answer"
-            onKeyDown={(e: React.KeyboardEvent) => {
-              if (isShiftEnterPressed(e)) {
-                e.preventDefault();
-                handleSubmit();
-                setTimeout(() => {
-                  const showPromptButton = document.querySelector(
-                    '.show-prompt',
-                  );
-                  showPromptButton && showPromptButton.focus();
-                }, 10);
-              }
-            }}
-            size="xl"
+            label="answer"
+            placeholder="Type in the answer"
             value={userAnswer}
+            errors={errors}
           />
           <Button
             data-testid="flashcard-form-submit"
