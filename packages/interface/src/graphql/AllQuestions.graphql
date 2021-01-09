@@ -5,6 +5,7 @@ query AllQuestions {
       options
       questionType
       prompt
+      helpText
     }
   }
 }

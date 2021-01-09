@@ -17,7 +17,7 @@ import { gutters } from '../../../themes/neonLaw';
 
 const AdminMatterTemplates = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [showCreateMatterTemplateModal, changeShowFlashCardModal] = useState(
+  const [showCreateModal, changeShowCreateModal] = useState(
     true,
   );
   const [currentRow, setCurrentRow] = useState();
@@ -44,25 +44,25 @@ const AdminMatterTemplates = () => {
         </Button>
 
         <CreateMatterTemplateModal
-          isOpen={isOpen && showCreateMatterTemplateModal}
+          isOpen={isOpen && showCreateModal}
           onClose={() => {
-            changeShowFlashCardModal(true);
+            changeShowCreateModal(true);
             onClose();
           }}
         />
 
         <UpdateMatterTemplateModal
-          isOpen={isOpen && !showCreateMatterTemplateModal}
+          isOpen={isOpen && !showCreateModal}
           currentValues={(currentRow as any)?.values}
           onClose={() => {
-            changeShowFlashCardModal(true);
+            changeShowCreateModal(true);
             onClose();
           }}
         />
 
         <MatterTemplateTable
           onRowClick={(row) => {
-            changeShowFlashCardModal(false);
+            changeShowCreateModal(false);
             setCurrentRow(row);
             onOpen();
           }}

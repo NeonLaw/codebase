@@ -4315,7 +4315,7 @@ export type AllQuestionsQuery = (
     { __typename?: 'QuestionsConnection' }
     & { nodes: Array<(
       { __typename?: 'Question' }
-      & Pick<Question, 'id' | 'options' | 'questionType' | 'prompt'>
+      & Pick<Question, 'id' | 'options' | 'questionType' | 'prompt' | 'helpText'>
     )> }
   )> }
 );
@@ -4792,6 +4792,7 @@ export const AllQuestionsDocument = gql`
       options
       questionType
       prompt
+      helpText
     }
   }
 }
