@@ -1,7 +1,0 @@
-mutation DeleteDocumentTemplateById($id: UUID!) {
-  deleteDocumentTemplateById(input: { id: $id }) {
-    documentTemplate {
-      id
-    }
-  }
-}

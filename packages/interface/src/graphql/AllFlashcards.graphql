@@ -1,9 +1,0 @@
-query AllFlashcards {
-  allFlashcards(orderBy: PROMPT_ASC) {
-    nodes {
-      id
-      prompt
-      answer
-    }
-  }
-}

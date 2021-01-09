@@ -1,14 +1,14 @@
 import { Field } from '../forms/inputTypes';
 
-export const flashcardFields: Field[] = [
+export const matterDocumentTemplateFields: Field[] = [
   {
-    name: 'prompt',
+    name: 'name',
     required: true,
     type: 'string',
   },
   {
-    name: 'answer',
+    name: 'description',
     required: true,
-    type: 'textarea'
+    type: 'string',
   }
 ];

@@ -1,0 +1,7 @@
+mutation DeleteMatterDocumentTemplateById($id: UUID!) {
+  deleteMatterDocumentTemplateById(input: { id: $id }) {
+    matterDocumentTemplate {
+      id
+    }
+  }
+}

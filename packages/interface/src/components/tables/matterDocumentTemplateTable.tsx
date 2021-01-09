@@ -1,13 +1,15 @@
 import React from 'react';
 import { Table } from './base';
-import { useAllDocumentTemplatesQuery } from '../../utils/api';
+import { useAllMatterDocumentTemplatesQuery } from '../../utils/api';
 
-interface DocumentTemplateTableProps {
+interface MatterDocumentTemplateTableProps {
   onRowClick(row: any): void;
 }
 
-export const DocumentTemplateTable = (props: DocumentTemplateTableProps) => {
-  const { loading, data, error } = useAllDocumentTemplatesQuery();
+export const MatterDocumentTemplateTable = (
+  props: MatterDocumentTemplateTableProps
+) => {
+  const { loading, data, error } = useAllMatterDocumentTemplatesQuery();
 
   if (loading) {
     return (<h1>Loading</h1>);
@@ -26,7 +28,7 @@ export const DocumentTemplateTable = (props: DocumentTemplateTableProps) => {
       accessor: 'name',
     },
   ];
-  const nodes = data?.allDocumentTemplates?.nodes || [];
+  const nodes = data?.allMatterDocumentTemplates?.nodes || [];
 
   return (
     <Table

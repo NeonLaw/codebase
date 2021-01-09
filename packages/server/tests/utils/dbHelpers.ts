@@ -123,19 +123,6 @@ export const createUser = async (client: any) => {
   return rows[0];
 };
 
-export const createFlashcard = async (client: any) => {
-  const answer = faker.lorem.paragraph();
-  const prompt = faker.lorem.sentence();
-
-  const { rows } = await client.query(
-    'INSERT INTO flashcard (prompt, answer) ' +
-    'VALUES ($1, $2) RETURNING (id, prompt, answer)',
-    [prompt, answer]
-  );
-
-  return rows[0];
-};
-
 export const createMatterTemplate = async (
   client: any,
 ) => {

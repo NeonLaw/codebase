@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/core';
 import { Breadcrumbs } from '../../../../components/breadcrumbs';
-import {
-  CreateMatterDocumentModal
-} from '../../../../components/modals/createMatterDocumentModal';
+// import {
+//   CreateMatterDocumentModal
+// } from '../../../../components/modals/createMatterDocumentModal';
 import {
   DeleteMatterButton
 } from '../../../../components/deleteButtons/deleteMatterButton';
@@ -24,12 +24,12 @@ const AdminMattersDetail = ({ params: { id }}) => {
         <MatterDetailView id={id} />
 
 
-        <CreateMatterDocumentModal
+        {/* <CreateMatterDocumentModal
           isOpen={isOpen}
           onClose={() => {
             onClose();
           }}
-        />
+        /> */}
 
         <MatterDocumentsList matterId={id} />
 
