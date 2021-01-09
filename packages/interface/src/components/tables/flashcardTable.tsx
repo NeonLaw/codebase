@@ -36,7 +36,7 @@ export const FlashcardTable = (props: FlashcardTableProps) => {
     <Table
       columns={columns}
       data={nodes}
-      testId="admin-flashcards-table"
+      testId="flashcards-table"
       onRowClick={props.onRowClick}
     />
   );

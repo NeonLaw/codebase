@@ -52,7 +52,7 @@ const AdminFlashcards = () => {
 
         <UpdateFlashcardModal
           isOpen={isOpen && !showCreateFlashcardModal}
-          flashcard={currentRow}
+          currentValues={(currentRow as any)?.values}
           onClose={() => {
             changeShowFlashCardModal(true);
             onClose();
