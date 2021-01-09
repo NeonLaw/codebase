@@ -17,7 +17,7 @@ import { gutters } from '../../../themes/neonLaw';
 
 const AdminQuestions = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [showCreateQuestionModal, changeShowFlashCardModal] = useState(true);
+  const [showCreateModal, changeShowCreateModal] = useState(true);
   const [currentRow, setCurrentRow] = useState(undefined);
 
   return (
@@ -41,25 +41,25 @@ const AdminQuestions = () => {
         </Button>
 
         <CreateQuestionModal
-          isOpen={isOpen && showCreateQuestionModal}
+          isOpen={isOpen && showCreateModal}
           onClose={() => {
-            changeShowFlashCardModal(true);
+            changeShowCreateModal(true);
             onClose();
           }}
         />
 
         <UpdateQuestionModal
-          isOpen={isOpen && !showCreateQuestionModal}
+          isOpen={isOpen && !showCreateModal}
           question={currentRow}
           onClose={() => {
-            changeShowFlashCardModal(true);
+            changeShowCreateModal(true);
             onClose();
           }}
         />
 
         <QuestionTable
           onRowClick={(row) => {
-            changeShowFlashCardModal(false);
+            changeShowCreateModal(false);
             setCurrentRow(row);
             onOpen();
           }}
