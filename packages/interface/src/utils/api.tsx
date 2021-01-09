@@ -1407,28 +1407,6 @@ export enum DocumentsOrderBy {
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
 
-/** All input for the `findOrCreateLettersByLobIdentifier` mutation. */
-export type FindOrCreateLettersByLobIdentifierInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  lobLettersJson?: Maybe<Scalars['JSON']>;
-};
-
-/** The output of our `findOrCreateLettersByLobIdentifier` mutation. */
-export type FindOrCreateLettersByLobIdentifierPayload = {
-  __typename?: 'FindOrCreateLettersByLobIdentifierPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
 export type GetTransloaditTokenPayload = {
   __typename?: 'GetTransloaditTokenPayload';
   expires?: Maybe<Scalars['String']>;
@@ -2073,7 +2051,6 @@ export type Mutation = {
   deleteResponseDocumentById?: Maybe<DeleteResponseDocumentPayload>;
   createPrimaryKeyIdIfNotExists?: Maybe<CreatePrimaryKeyIdIfNotExistsPayload>;
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
-  findOrCreateLettersByLobIdentifier?: Maybe<FindOrCreateLettersByLobIdentifierPayload>;
   getTransloaditToken?: Maybe<GetTransloaditTokenPayload>;
   createResponseDocumentFromUpload?: Maybe<CreateResponseDocumentFromUploadPayload>;
 };
@@ -2502,12 +2479,6 @@ export type MutationCreatePrimaryKeyIdIfNotExistsArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateRoleIfNotExistsArgs = {
   input: CreateRoleIfNotExistsInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationFindOrCreateLettersByLobIdentifierArgs = {
-  input: FindOrCreateLettersByLobIdentifierInput;
 };
 
 
