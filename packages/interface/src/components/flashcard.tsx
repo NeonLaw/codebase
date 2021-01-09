@@ -3,9 +3,7 @@
 /* eslint-enable */
 import { Box, Text, useColorMode } from '@chakra-ui/core';
 import React, { useRef, useState } from 'react';
-
 import { Button } from './button';
-import { Node } from 'slate';
 import ReactDiffViewer from 'react-diff-viewer';
 import { Textarea } from './inputs';
 import { gutters } from '../themes/neonLaw';
@@ -32,8 +30,8 @@ export const Flashcard = ({
   const { control, handleSubmit } = useForm();
 
   const onSubmit = async ({ answer }) => {
-    const answerText = answer.map(n => Node.string(n)).join('\n');
-    changeUserAnswer(answerText);
+    changeUserAnswer(answer);
+    toggleShowAnswer(true);
   };
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -49,12 +47,13 @@ export const Flashcard = ({
           </Text>
           <Textarea
             className="flascard-textarea"
+            testId="flashcard-textarea"
             control={control}
             name="answer"
             onKeyDown={(e: React.KeyboardEvent) => {
               if (isShiftEnterPressed(e)) {
                 e.preventDefault();
-                toggleShowAnswer(true);
+                handleSubmit();
                 setTimeout(() => {
                   const showPromptButton = document.querySelector(
                     '.show-prompt',
@@ -67,12 +66,10 @@ export const Flashcard = ({
             value={userAnswer}
           />
           <Button
-            flash={true}
+            data-testid="flashcard-form-submit"
+            flash={false}
             type="submit"
             containerStyles={{marginTop: gutters.xSmallOne}}
-            onClick={() => {
-              toggleShowAnswer(!showAnswer);
-            }}
           >
             Show Answer
           </Button>
@@ -95,7 +92,7 @@ export const Flashcard = ({
             />
           )}
           <Button
-            flash={true}
+            flash={false}
             containerStyles={{marginTop: gutters.xSmallOne}}
             className="show-prompt"
             onClick={() => {

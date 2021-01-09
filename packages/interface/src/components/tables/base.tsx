@@ -72,7 +72,7 @@ export const Table = ({
       initialState: {
         hiddenColumns: ['id'],
         pageIndex: 0,
-        pageSize: 5,
+        pageSize: 10,
       },
     },
     useSortBy,
