@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const StyledQuestionTemplate = styled.div`
-  .flashcard-wrapper {
+  .question-wrapper {
     box-shadow: ${shadows.light2};
 
     @media(max-width: 600px) {
@@ -56,18 +56,18 @@ const StyledQuestionTemplate = styled.div`
 const QuestionLayout: React.FC<{
   data: {
     neon: {
-      flashcardById: {
+      questionById: {
         prompt: string;
-        answer: string;
+        helpText: string;
       };
     };
   };
   chlidren: ReactChildren;
 }> = ({ data }) => {
-  const { prompt, answer } = data.neon.flashcardById;
+  const { prompt, helpText } = data.neon.questionById;
   const { colorMode } = useColorMode();
   const title = `Neon Law | Question | ${prompt}`;
-  const description = answer;
+  const description = helpText;
   const { getAccessTokenSilently } = useAuth0();
   const apolloClient = getApolloClient(getAccessTokenSilently);
 
@@ -86,7 +86,7 @@ const QuestionLayout: React.FC<{
             >
               <Container>
                 <Box
-                  className="flashcard-wrapper wrapper--centered"
+                  className="question-wrapper wrapper--centered"
                   background={colors.background[colorMode]}
                   border={`1px solid ${colors.borders[colorMode]}`}
                 >
@@ -99,7 +99,7 @@ const QuestionLayout: React.FC<{
                   >
                     {prompt}
                   </Heading>
-                  <Text>{answer}</Text>
+                  <Text>{helpText}</Text>
                 </Box>
               </Container>
             </Box>
