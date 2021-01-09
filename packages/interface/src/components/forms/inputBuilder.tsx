@@ -99,6 +99,7 @@ export const InputBuilder = ({
                     : register({})
                 }
                 styles={{ marginBottom: gutters.xSmallOne }}
+                value={currentValues && currentValues[name]}
               />
             );
           case 'textarea':

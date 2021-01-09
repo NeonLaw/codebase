@@ -59,7 +59,7 @@ export const  convertHtmlToSlate = (html: string) => {
     }
   };
 
-  const document = new DOMParser().parseFromString(html, 'text/html');
+  const { body } = new DOMParser().parseFromString(html, 'text/html');
 
-  return deserialize(document.body);
+  return deserialize(body);
 };
