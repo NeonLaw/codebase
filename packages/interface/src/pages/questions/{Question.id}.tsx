@@ -4,22 +4,22 @@ import {
   colors,
   gutters,
   shadows,
-} from '../../../themes/neonLaw';
+} from '../../themes/neonLaw';
 
 import { ApolloProvider } from '@apollo/client';
-import { Breadcrumbs } from '../../../components/breadcrumbs';
-import { Container } from '../../../components/container';
-import { Footer } from '../../../components/footer';
+import { Breadcrumbs } from '../../components/breadcrumbs';
+import { Container } from '../../components/container';
+import { Footer } from '../../components/footer';
 import {
   PublicNavigationBar
-} from '../../../components/navigationBars/public';
-import { Seo } from '../../../components/seo';
-import { getApolloClient } from '../../../utils/getApolloClient';
+} from '../../components/navigationBars/public';
+import { Seo } from '../../components/seo';
+import { getApolloClient } from '../../utils/getApolloClient';
 import styled from '@emotion/styled';
 import { useAuth0 } from '@auth0/auth0-react';
 
-const StyledFlashcardTemplate = styled.div`
-  .flashcard-wrapper {
+const StyledQuestionTemplate = styled.div`
+  .question-wrapper {
     box-shadow: ${shadows.light2};
 
     @media(max-width: 600px) {
@@ -53,21 +53,21 @@ const StyledFlashcardTemplate = styled.div`
   }
 `;
 
-const FlashcardLayout: React.FC<{
+const QuestionLayout: React.FC<{
   data: {
     neon: {
-      flashcardById: {
+      questionById: {
         prompt: string;
-        answer: string;
+        helpText: string;
       };
     };
   };
   chlidren: ReactChildren;
 }> = ({ data }) => {
-  const { prompt, answer } = data.neon.flashcardById;
+  const { prompt, helpText } = data.neon.questionById;
   const { colorMode } = useColorMode();
-  const title = `Neon Law | Flashcard | ${prompt}`;
-  const description = answer;
+  const title = `Neon Law | Question | ${prompt}`;
+  const description = helpText;
   const { getAccessTokenSilently } = useAuth0();
   const apolloClient = getApolloClient(getAccessTokenSilently);
 
@@ -75,7 +75,7 @@ const FlashcardLayout: React.FC<{
     <Flex minHeight="100vh" direction="column">
       <Seo title={title} description={description} />
       <ApolloProvider client={apolloClient}>
-        <StyledFlashcardTemplate>
+        <StyledQuestionTemplate>
           <PublicNavigationBar />
           <Box background={colors.lighterBg[colorMode]}>
             <Box
@@ -86,7 +86,7 @@ const FlashcardLayout: React.FC<{
             >
               <Container>
                 <Box
-                  className="flashcard-wrapper wrapper--centered"
+                  className="question-wrapper wrapper--centered"
                   background={colors.background[colorMode]}
                   border={`1px solid ${colors.borders[colorMode]}`}
                 >
@@ -99,12 +99,12 @@ const FlashcardLayout: React.FC<{
                   >
                     {prompt}
                   </Heading>
-                  <Text>{answer}</Text>
+                  <Text>{helpText}</Text>
                 </Box>
               </Container>
             </Box>
           </Box>
-        </StyledFlashcardTemplate>
+        </StyledQuestionTemplate>
       </ApolloProvider>
       <Footer isWhite={true} />
     </Flex>
@@ -112,4 +112,4 @@ const FlashcardLayout: React.FC<{
 };
 
 /* eslint-disable-next-line import/no-default-export */
-export default FlashcardLayout;
+export default QuestionLayout;

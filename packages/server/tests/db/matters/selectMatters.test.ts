@@ -53,6 +53,7 @@ describe('SELECT * FROM matter;', () => {
   describe('as an admin user', () => {
     it('can select all matters', () =>
       withRootDb(async (pgClient: any) => {
+        await pgClient.query('DELETE FROM matter;');
         const { id: matterTemplateId } = await createMatterTemplate(pgClient);
         await createMatter({
           client: pgClient,

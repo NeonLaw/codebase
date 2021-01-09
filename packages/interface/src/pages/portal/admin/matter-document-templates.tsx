@@ -4,18 +4,18 @@ import React, { useState } from 'react';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
 import { Button } from '../../../components/button';
 import {
-  CreateDocumentTemplateModal
-} from '../../../components/modals/createDocumentTemplateModal';
+  CreateMatterDocumentTemplateModal
+} from '../../../components/modals/createMatterDocumentTemplateModal';
 import {
-  DocumentTemplateTable
-} from '../../../components/tables/documentTemplateTable';
+  MatterDocumentTemplateTable
+} from '../../../components/tables/matterDocumentTemplateTable';
 import { PortalLayout } from '../../../layouts/portalLayout';
 import {
-  UpdateDocumentTemplateModal
-} from '../../../components/modals/updateDocumentTemplateModal';
+  UpdateMatterDocumentTemplateModal
+} from '../../../components/modals/updateMatterDocumentTemplateModal';
 import { gutters } from '../../../themes/neonLaw';
 
-const AdminDocumentTemplates = () => {
+const AdminMatterDocumentTemplates = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [
     showCreateDocumentTemplateModal,
@@ -44,7 +44,7 @@ const AdminDocumentTemplates = () => {
           </Kbd>
         </Button>
 
-        <CreateDocumentTemplateModal
+        <CreateMatterDocumentTemplateModal
           isOpen={isOpen && showCreateDocumentTemplateModal}
           onClose={() => {
             changeShowFlashCardModal(true);
@@ -52,7 +52,7 @@ const AdminDocumentTemplates = () => {
           }}
         />
 
-        <UpdateDocumentTemplateModal
+        <UpdateMatterDocumentTemplateModal
           isOpen={isOpen && !showCreateDocumentTemplateModal}
           currentValues={(currentRow as any)?.values}
           onClose={() => {
@@ -61,7 +61,7 @@ const AdminDocumentTemplates = () => {
           }}
         />
 
-        <DocumentTemplateTable
+        <MatterDocumentTemplateTable
           onRowClick={(row) => {
             changeShowFlashCardModal(false);
             setCurrentRow(row);
@@ -74,4 +74,4 @@ const AdminDocumentTemplates = () => {
 };
 
 /* eslint-disable-next-line import/no-default-export */
-export default AdminDocumentTemplates;
+export default AdminMatterDocumentTemplates;

@@ -60,7 +60,8 @@ export const becomePortalUser = async (
 ) => {
   const { rows } = await client.query(
     'INSERT INTO person (email, role, sub) ' +
-    'VALUES ($1, \'portal\', \'portal-sub\') RETURNING id',
+    'VALUES ($1, \'portal\', \'portal-sub\') '+
+    'ON CONFLICT("email") DO UPDATE SET email=EXCLUDED.email RETURNING id',
     [email]
   );
   const { id } = rows[0];
@@ -79,7 +80,8 @@ export const becomeLawyerUser = async (
 ) => {
   const { rows } = await client.query(
     'INSERT INTO person (email, role, sub) ' +
-    'VALUES ($1, \'lawyer\', \'lawyer-sub\') RETURNING id',
+    'VALUES ($1, \'lawyer\', \'lawyer-sub\') ' +
+    'ON CONFLICT("email") DO UPDATE SET email=EXCLUDED.email RETURNING id',
     [email]
   );
   const { id } = rows[0];
@@ -98,7 +100,8 @@ export const becomeAdminUser = async (
 ) => {
   const { rows } = await client.query(
     'INSERT INTO person (email, role, sub) ' +
-    'VALUES ($1, \'admin\', \'admin-sub\') RETURNING id',
+    'VALUES ($1, \'admin\', \'admin-sub\') '+
+    'ON CONFLICT("email") DO UPDATE SET email=EXCLUDED.email RETURNING id',
     [email]
   );
   const { id } = rows[0];
@@ -118,19 +121,6 @@ export const createUser = async (client: any) => {
     'INSERT INTO person (email, sub) ' +
     'VALUES ($1, $2) RETURNING (id, email, role)',
     [email, 'test-email']
-  );
-
-  return rows[0];
-};
-
-export const createFlashcard = async (client: any) => {
-  const answer = faker.lorem.paragraph();
-  const prompt = faker.lorem.sentence();
-
-  const { rows } = await client.query(
-    'INSERT INTO flashcard (prompt, answer) ' +
-    'VALUES ($1, $2) RETURNING (id, prompt, answer)',
-    [prompt, answer]
   );
 
   return rows[0];

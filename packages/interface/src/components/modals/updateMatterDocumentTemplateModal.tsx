@@ -1,19 +1,21 @@
 import React from 'react';
 import { UpdateModalFormBuilder } from '../forms/updateModalFormBuilder';
-import { documentTemplateFields } from '../fields/documentTemplateFields';
+import {
+  matterDocumentTemplateFields
+} from '../fields/matterDocumentTemplateFields';
 
-export const UpdateDocumentTemplateModal = ({
+export const UpdateMatterDocumentTemplateModal = ({
   isOpen,
   onClose,
   currentValues,
 }) => {
   return (
     <UpdateModalFormBuilder
-      resourceName="documentTemplate"
+      resourceName="matterDocumentTemplate"
       currentValues={currentValues}
       isOpen={isOpen}
       onClose={onClose}
-      fields={documentTemplateFields.concat({ name: 'id', type: 'id' })}
+      fields={matterDocumentTemplateFields.concat({ name: 'id', type: 'id' })}
     />
   );
 };

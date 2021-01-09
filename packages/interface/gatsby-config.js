@@ -19,7 +19,7 @@ module.exports = {
       options: {
         fieldName: 'neon',
         typeName: 'neon',
-        url: 'https://www.neonlaw.com/api/graphql',
+        url: 'https://www.neonlaw.com/api/graphql'
       },
       resolve: 'gatsby-source-graphql'
     },

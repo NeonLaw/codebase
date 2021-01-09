@@ -52,14 +52,6 @@ module "law-job-resources-ssl-certificate" {
   domain_name      = var.law_job_resources_url
 }
 
-module "public_bucket" {
-  source = "./modules/public_bucket"
-  bucket_name = "${var.project_id}-public-assets"
-  allowed_origins = [
-    var.neon_law_url
-  ]
-}
-
 module "upload_bucket" {
   source = "./modules/write_only_bucket"
   bucket_name = "${var.project_id}-unprocessed-uploads"
@@ -71,14 +63,6 @@ module "upload_bucket" {
 module "user_bucket" {
   source = "./modules/private_bucket"
   bucket_name = "${var.project_id}-private-assets"
-  allowed_origins = [
-    var.neon_law_url
-  ]
-}
-
-module "company_bucket" {
-  source = "./modules/private_bucket"
-  bucket_name = "${var.project_id}-company-files"
   allowed_origins = [
     var.neon_law_url
   ]

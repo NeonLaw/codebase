@@ -16,17 +16,7 @@ const AdminDashboard = () => {
         </Heading>
 
         <Button
-          flash={true}
-          colorScheme="gray"
-          onClick={() => {
-            navigate('/portal/admin/flashcards');
-          }}
-        >
-          Flashcards
-        </Button>
-
-        <Button
-          flash={true}
+          flash={false}
           colorScheme="gray"
           onClick={() => {
             navigate('/portal/admin/questions');
@@ -36,17 +26,17 @@ const AdminDashboard = () => {
         </Button>
 
         <Button
-          flash={true}
+          flash={false}
           colorScheme="gray"
           onClick={() => {
-            navigate('/portal/admin/document-templates');
+            navigate('/portal/admin/matter-document-templates');
           }}
         >
-          Document Templates
+          Matter Document Templates
         </Button>
 
         <Button
-          flash={true}
+          flash={false}
           colorScheme="gray"
           onClick={() => {
             navigate('/portal/admin/matter-templates');
@@ -56,7 +46,7 @@ const AdminDashboard = () => {
         </Button>
 
         <Button
-          flash={true}
+          flash={false}
           colorScheme="gray"
           onClick={() => {
             navigate('/portal/admin/people');
@@ -67,7 +57,7 @@ const AdminDashboard = () => {
         </Button>
 
         <Button
-          flash={true}
+          flash={false}
           colorScheme="gray"
           onClick={() => {
             navigate('/portal/admin/matters');

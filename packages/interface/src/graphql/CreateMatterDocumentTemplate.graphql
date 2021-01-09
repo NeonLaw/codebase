@@ -1,0 +1,13 @@
+mutation CreateMatterDocumentTemplate($name: String!, $description: String!) {
+  createMatterDocumentTemplate(
+    input: {
+      matterDocumentTemplate: { name: $name, description: $description }
+    }
+  ) {
+    matterDocumentTemplate {
+      id
+      name
+      description
+    }
+  }
+}

@@ -1,0 +1,18 @@
+mutation UpdateMatterDocumentTemplateById(
+  $id: UUID!
+  $name: String
+  $description: String
+) {
+  updateMatterDocumentTemplateById(
+    input: {
+      matterDocumentTemplatePatch: { name: $name, description: $description }
+      id: $id
+    }
+  ) {
+    matterDocumentTemplate {
+      id
+      name
+      description
+    }
+  }
+}

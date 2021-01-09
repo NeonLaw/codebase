@@ -35,16 +35,10 @@ interface TextareaInput extends BasicInput {
   type: 'textarea'
 }
 
-interface FlagSwitchInput extends BasicInput {
-  type: 'flagSwitch';
-  flagName: string;
-}
-
 export type Field =
   Id |
   StringInput |
   CodeEditorInput |
   SelectInput |
   SelectWithQueryInput |
-  TextareaInput |
-  FlagSwitchInput;
+  TextareaInput;
