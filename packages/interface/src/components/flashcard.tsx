@@ -1,10 +1,13 @@
+/* eslint-disable */
+// @ts-nocheck
+/* eslint-enable */
+
 import { Box, Text, useColorMode } from '@chakra-ui/core';
 import React, { useRef, useState } from 'react';
 import { Button } from './button';
 import ReactDiffViewer from 'react-diff-viewer';
 import { Textarea } from './inputs';
 import { gutters } from '../themes/neonLaw';
-import { isShiftEnterPressed } from '../utils/keyboard';
 import { useForm } from 'react-hook-form';
 
 interface FlashcardProps {

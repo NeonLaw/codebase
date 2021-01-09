@@ -114,7 +114,6 @@ export const InputBuilder = ({
                   id: `forms.${underscoreFieldName}.placeholder`,
                 })}
                 control={control}
-                value={currentValues && currentValues[name]}
               />
             );
           case 'select':
