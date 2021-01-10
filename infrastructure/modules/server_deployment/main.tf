@@ -216,6 +216,16 @@ resource "kubernetes_deployment" "server" {
             }
           }
 
+          env {
+            name = "REDIS_URL"
+            value_from {
+              secret_key_ref {
+                key = "REDIS_URL"
+                name = "application-secrets"
+              }
+            }
+          }
+
           volume_mount {
             name       = "gcp-credentials"
             read_only  = true
