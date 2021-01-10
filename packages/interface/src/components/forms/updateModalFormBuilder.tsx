@@ -132,56 +132,55 @@ export const UpdateModalFormBuilder = ({
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
-      <ModalOverlay>
-        <ModalContent
-          data-testid={`update-${dasherizedResourceName}-form`}
-          margin="8em 2em 0 2em"
+      <ModalOverlay />
+      <ModalContent
+        data-testid={`update-${dasherizedResourceName}-form`}
+        margin="8em 2em 0 2em"
+      >
+        <ModalHeader
+          fontWeight="normal"
+          fontSize={theme.fontSizes['xl0']}
+          color={colors.text[colorMode]}
         >
-          <ModalHeader
-            fontWeight="normal"
-            fontSize={theme.fontSizes['xl0']}
-            color={colors.text[colorMode]}
-          >
             Update {titlecaseResourceName}
-          </ModalHeader>
-          <ModalCloseButton style={{ color: colors.text[colorMode] }} />
-          <form
-            onSubmit={handleSubmit(onSubmit as any)}
-            style={{ color: colors.text[colorMode] }}
-            ref={formRef}
-          >
-            <ModalBody>
-              {formError}
-              <InputBuilder
-                resourceName={resourceName}
-                fields={fields}
-                control={control}
-                errors={errors}
-                register={register}
-                currentValues={currentValues}
-              />
-            </ModalBody>
+        </ModalHeader>
+        <ModalCloseButton style={{ color: colors.text[colorMode] }} />
+        <form
+          onSubmit={handleSubmit(onSubmit as any)}
+          style={{ color: colors.text[colorMode] }}
+          ref={formRef}
+        >
+          <ModalBody>
+            {formError}
+            <InputBuilder
+              resourceName={resourceName}
+              fields={fields}
+              control={control}
+              errors={errors}
+              register={register}
+              currentValues={currentValues}
+            />
+          </ModalBody>
 
-            <StyledModalFooter>
-              <UpdateButton
-                dasherizedResourceName={dasherizedResourceName}
-                titlecaseResourceName={titlecaseResourceName}
-                isSubmitting={isSubmitting}
-                updateMutationLoading={updateMutationLoading}
-                deleteMutationLoading={deleteMutationLoading}
-              />
-              <DeleteButton
-                dasherizedResourceName={dasherizedResourceName}
-                titlecaseResourceName={titlecaseResourceName}
-                isSubmitting={isSubmitting}
-                updateMutationLoading={updateMutationLoading}
-                deleteHandler={deleteHandler}
-                deleteMutationLoading={deleteMutationLoading}
-              />
-            </StyledModalFooter>
-          </form>
-        </ModalContent>
-      </ModalOverlay>
+          <StyledModalFooter>
+            <UpdateButton
+              dasherizedResourceName={dasherizedResourceName}
+              titlecaseResourceName={titlecaseResourceName}
+              isSubmitting={isSubmitting}
+              updateMutationLoading={updateMutationLoading}
+              deleteMutationLoading={deleteMutationLoading}
+            />
+            <DeleteButton
+              dasherizedResourceName={dasherizedResourceName}
+              titlecaseResourceName={titlecaseResourceName}
+              isSubmitting={isSubmitting}
+              updateMutationLoading={updateMutationLoading}
+              deleteHandler={deleteHandler}
+              deleteMutationLoading={deleteMutationLoading}
+            />
+          </StyledModalFooter>
+        </form>
+      </ModalContent>
     </Modal>
   );
 };

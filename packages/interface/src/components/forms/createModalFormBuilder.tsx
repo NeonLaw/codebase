@@ -127,47 +127,46 @@ export const CreateModalFormBuilder = ({
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
-      <ModalOverlay>
-        <ModalContent
-          data-testid={`create-${dasherizedResourceName}-form`}
-          margin="8em 2em 0 2em"
+      <ModalOverlay />
+      <ModalContent
+        data-testid={`create-${dasherizedResourceName}-form`}
+        margin="8em 2em 0 2em"
+      >
+        <ModalHeader
+          fontWeight="normal"
+          fontSize={theme.fontSizes['xl0']}
+          color={colors.text[colorMode]}
         >
-          <ModalHeader
-            fontWeight="normal"
-            fontSize={theme.fontSizes['xl0']}
-            color={colors.text[colorMode]}
-          >
             Create {titlecaseResourceName}
-          </ModalHeader>
-          <ModalCloseButton style={{ color: colors.text[colorMode] }} />
-          <form
-            onSubmit={handleSubmit(onSubmit as any)}
-            style={{ color: colors.text[colorMode] }}
-            ref={formRef}
-          >
-            <ModalBody>
-              {formError}
-              <InputBuilder
-                resourceName={resourceName}
-                fields={fields}
-                control={control}
-                errors={errors}
-                register={register}
-                currentValues={{}}
-              />
-            </ModalBody>
+        </ModalHeader>
+        <ModalCloseButton style={{ color: colors.text[colorMode] }} />
+        <form
+          onSubmit={handleSubmit(onSubmit as any)}
+          style={{ color: colors.text[colorMode] }}
+          ref={formRef}
+        >
+          <ModalBody>
+            {formError}
+            <InputBuilder
+              resourceName={resourceName}
+              fields={fields}
+              control={control}
+              errors={errors}
+              register={register}
+              currentValues={{}}
+            />
+          </ModalBody>
 
-            <StyledModalFooter>
-              <CreateButton
-                dasherizedResourceName={dasherizedResourceName}
-                titlecaseResourceName={titlecaseResourceName}
-                isSubmitting={isSubmitting}
-                createMutationLoading={createMutationLoading}
-              />
-            </StyledModalFooter>
-          </form>
-        </ModalContent>
-      </ModalOverlay>
+          <StyledModalFooter>
+            <CreateButton
+              dasherizedResourceName={dasherizedResourceName}
+              titlecaseResourceName={titlecaseResourceName}
+              isSubmitting={isSubmitting}
+              createMutationLoading={createMutationLoading}
+            />
+          </StyledModalFooter>
+        </form>
+      </ModalContent>
     </Modal>
   );
 };
