@@ -1312,7 +1312,6 @@ export type Document = Node & {
   id: Scalars['UUID'];
   filename: Scalars['String'];
   documentableTableName: Scalars['String'];
-  documentableTableId: Scalars['UUID'];
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
   /** Reads and enables pagination through a set of `MatterDocument`. */
@@ -1359,7 +1358,6 @@ export type DocumentInput = {
   id?: Maybe<Scalars['UUID']>;
   filename: Scalars['String'];
   documentableTableName: Scalars['String'];
-  documentableTableId: Scalars['UUID'];
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
 };
@@ -1369,7 +1367,6 @@ export type DocumentPatch = {
   id?: Maybe<Scalars['UUID']>;
   filename?: Maybe<Scalars['String']>;
   documentableTableName?: Maybe<Scalars['String']>;
-  documentableTableId?: Maybe<Scalars['UUID']>;
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
 };
