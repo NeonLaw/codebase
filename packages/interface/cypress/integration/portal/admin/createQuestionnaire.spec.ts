@@ -38,7 +38,5 @@ describe('Creating Questionnaires', () => {
       cy.get('[data-testid="create-questionnaire-modal"]')
         .should('not.exist');
     });
-
-    cy.deleteMatterTemplate(matterTemplateName);
   });
 });

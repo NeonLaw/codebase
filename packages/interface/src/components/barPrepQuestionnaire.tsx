@@ -24,7 +24,7 @@ export const BarPrepQuestionnaire = (props: any) => {
     localStorage.setItem('upwardMobility.answers', JSON.stringify(answers));
   };
 
-  const basePath = '/upward-mobility';
+  const basePath = '/portal/bar-prep';
 
   const { questionId } = useParams();
 
