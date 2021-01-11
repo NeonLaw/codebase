@@ -1,11 +1,5 @@
 import { Box, Progress } from '@chakra-ui/core';
 import { decisionTree, questions } from './upwardMobilityQuestions';
-import {
-  BeginBarPrepQuestionnaire
-} from './beginBarPrepQuestionnaire';
-import {
-  FinishBarPrepQuestionnaire
-} from './finishBarPrepQuestionnaire';
 import React from 'react';
 import {
   SingleChoiceQuestion
@@ -33,14 +27,6 @@ export const BarPrepQuestionnaire = (props: any) => {
   const basePath = '/upward-mobility';
 
   const { questionId } = useParams();
-
-  if (questionId.toLowerCase() === 'begin') {
-    return <BeginBarPrepQuestionnaire />;
-  }
-
-  if (questionId.toLowerCase() === 'end') {
-    return <FinishBarPrepQuestionnaire />;
-  }
 
   const question = questions.find((question) => {
     return question.id === questionId;
