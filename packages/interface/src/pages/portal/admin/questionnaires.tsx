@@ -4,18 +4,18 @@ import React, { useState } from 'react';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
 import { Button } from '../../../components/button';
 import {
-  CreateQuestionModal
-} from '../../../components/modals/createQuestionModal';
+  CreateQuestionnaireModal
+} from '../../../components/modals/createQuestionnaireModal';
 import { PortalLayout } from '../../../layouts/portalLayout';
 import {
-  QuestionTable
-} from '../../../components/tables/questionTable';
+  QuestionnaireTable
+} from '../../../components/tables/questionnaireTable';
 import {
-  UpdateQuestionModal
-} from '../../../components/modals/updateQuestionModal';
+  UpdateQuestionnaireModal
+} from '../../../components/modals/updateQuestionnaireModal';
 import { gutters } from '../../../themes/neonLaw';
 
-const AdminQuestions = () => {
+const AdminQuestionnaires = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [showCreateModal, changeShowCreateModal] = useState(true);
   const [currentRow, setCurrentRow] = useState(undefined);
@@ -31,7 +31,7 @@ const AdminQuestions = () => {
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
         >
-          Create Question &nbsp;<Kbd
+          Create Questionnaire &nbsp;<Kbd
             background="inherit"
             border="1px solid #bbb"
             transition="all .2s"
@@ -40,7 +40,7 @@ const AdminQuestions = () => {
           </Kbd>
         </Button>
 
-        <CreateQuestionModal
+        <CreateQuestionnaireModal
           isOpen={isOpen && showCreateModal}
           onClose={() => {
             changeShowCreateModal(true);
@@ -48,7 +48,7 @@ const AdminQuestions = () => {
           }}
         />
 
-        <UpdateQuestionModal
+        <UpdateQuestionnaireModal
           isOpen={isOpen && !showCreateModal}
           currentValues={(currentRow as any)?.values}
           onClose={() => {
@@ -57,7 +57,7 @@ const AdminQuestions = () => {
           }}
         />
 
-        <QuestionTable
+        <QuestionnaireTable
           onRowClick={(row) => {
             changeShowCreateModal(false);
             setCurrentRow(row);
@@ -70,4 +70,4 @@ const AdminQuestions = () => {
 };
 
 /* eslint-disable-next-line import/no-default-export */
-export default AdminQuestions;
+export default AdminQuestionnaires;

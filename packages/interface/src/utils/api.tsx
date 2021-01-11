@@ -451,6 +451,8 @@ export type CreateQuestionnairePayload = {
   questionnaire?: Maybe<Questionnaire>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `MatterTemplate` that is related to this `Questionnaire`. */
+  matterTemplateByMatterTemplateId?: Maybe<MatterTemplate>;
   /** An edge for our `Questionnaire`. May be used by Relay 1. */
   questionnaireEdge?: Maybe<QuestionnairesEdge>;
 };
@@ -1130,6 +1132,8 @@ export type DeleteQuestionnairePayload = {
   deletedQuestionnaireId?: Maybe<Scalars['ID']>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `MatterTemplate` that is related to this `Questionnaire`. */
+  matterTemplateByMatterTemplateId?: Maybe<MatterTemplate>;
   /** An edge for our `Questionnaire`. May be used by Relay 1. */
   questionnaireEdge?: Maybe<QuestionnairesEdge>;
 };
@@ -1826,8 +1830,21 @@ export type MatterTemplate = Node & {
   category: Scalars['String'];
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
+  /** Reads and enables pagination through a set of `Questionnaire`. */
+  questionnairesByMatterTemplateId: QuestionnairesConnection;
   /** Reads and enables pagination through a set of `Matter`. */
   mattersByMatterTemplateId: MattersConnection;
+};
+
+
+export type MatterTemplateQuestionnairesByMatterTemplateIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<QuestionnairesOrderBy>>;
+  condition?: Maybe<QuestionnaireCondition>;
 };
 
 
@@ -3169,6 +3186,8 @@ export type Questionnaire = Node & {
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
   matterTemplateId: Scalars['UUID'];
+  /** Reads a single `MatterTemplate` that is related to this `Questionnaire`. */
+  matterTemplateByMatterTemplateId?: Maybe<MatterTemplate>;
   /** Reads and enables pagination through a set of `QuestionnaireResponse`. */
   questionnaireResponsesByQuestionnaireId: QuestionnaireResponsesConnection;
 };
@@ -3193,6 +3212,12 @@ export type QuestionnaireCondition = {
   id?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `name` field. */
   name?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `createdAt` field. */
+  createdAt?: Maybe<Scalars['Datetime']>;
+  /** Checks for equality with the object’s `updatedAt` field. */
+  updatedAt?: Maybe<Scalars['Datetime']>;
+  /** Checks for equality with the object’s `matterTemplateId` field. */
+  matterTemplateId?: Maybe<Scalars['UUID']>;
 };
 
 /** An input for mutations affecting `Questionnaire` */
@@ -3340,6 +3365,12 @@ export enum QuestionnairesOrderBy {
   IdDesc = 'ID_DESC',
   NameAsc = 'NAME_ASC',
   NameDesc = 'NAME_DESC',
+  CreatedAtAsc = 'CREATED_AT_ASC',
+  CreatedAtDesc = 'CREATED_AT_DESC',
+  UpdatedAtAsc = 'UPDATED_AT_ASC',
+  UpdatedAtDesc = 'UPDATED_AT_DESC',
+  MatterTemplateIdAsc = 'MATTER_TEMPLATE_ID_ASC',
+  MatterTemplateIdDesc = 'MATTER_TEMPLATE_ID_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -4042,6 +4073,8 @@ export type UpdateQuestionnairePayload = {
   questionnaire?: Maybe<Questionnaire>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `MatterTemplate` that is related to this `Questionnaire`. */
+  matterTemplateByMatterTemplateId?: Maybe<MatterTemplate>;
   /** An edge for our `Questionnaire`. May be used by Relay 1. */
   questionnaireEdge?: Maybe<QuestionnairesEdge>;
 };
@@ -4303,6 +4336,24 @@ export type AllPeopleQuery = (
   )> }
 );
 
+export type AllQuestionnairesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllQuestionnairesQuery = (
+  { __typename?: 'Query' }
+  & { allQuestionnaires?: Maybe<(
+    { __typename?: 'QuestionnairesConnection' }
+    & { nodes: Array<(
+      { __typename?: 'Questionnaire' }
+      & Pick<Questionnaire, 'id' | 'name' | 'questionTree' | 'createdAt' | 'updatedAt'>
+      & { matterTemplateByMatterTemplateId?: Maybe<(
+        { __typename?: 'MatterTemplate' }
+        & Pick<MatterTemplate, 'id' | 'name' | 'category'>
+      )> }
+    )> }
+  )> }
+);
+
 export type AllQuestionsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4387,6 +4438,24 @@ export type CreateQuestionMutation = (
   )> }
 );
 
+export type CreateQuestionnaireMutationVariables = Exact<{
+  name: Scalars['String'];
+  matterTemplateId: Scalars['UUID'];
+  questionTree: Scalars['JSON'];
+}>;
+
+
+export type CreateQuestionnaireMutation = (
+  { __typename?: 'Mutation' }
+  & { createQuestionnaire?: Maybe<(
+    { __typename?: 'CreateQuestionnairePayload' }
+    & { questionnaire?: Maybe<(
+      { __typename?: 'Questionnaire' }
+      & Pick<Questionnaire, 'id' | 'createdAt' | 'updatedAt'>
+    )> }
+  )> }
+);
+
 export type CurrentUserQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4458,6 +4527,22 @@ export type DeleteQuestionByIdMutation = (
     & { question?: Maybe<(
       { __typename?: 'Question' }
       & Pick<Question, 'id'>
+    )> }
+  )> }
+);
+
+export type DeleteQuestionnaireByIdMutationVariables = Exact<{
+  id: Scalars['UUID'];
+}>;
+
+
+export type DeleteQuestionnaireByIdMutation = (
+  { __typename?: 'Mutation' }
+  & { deleteQuestionnaireById?: Maybe<(
+    { __typename?: 'DeleteQuestionnairePayload' }
+    & { questionnaire?: Maybe<(
+      { __typename?: 'Questionnaire' }
+      & Pick<Questionnaire, 'id'>
     )> }
   )> }
 );
@@ -4582,6 +4667,24 @@ export type UpdateQuestionByIdMutation = (
     & { question?: Maybe<(
       { __typename?: 'Question' }
       & Pick<Question, 'id' | 'options' | 'questionType' | 'prompt'>
+    )> }
+  )> }
+);
+
+export type UpdateQuestionnaireByIdMutationVariables = Exact<{
+  id: Scalars['UUID'];
+  name?: Maybe<Scalars['String']>;
+  questionTree?: Maybe<Scalars['JSON']>;
+}>;
+
+
+export type UpdateQuestionnaireByIdMutation = (
+  { __typename?: 'Mutation' }
+  & { updateQuestionnaireById?: Maybe<(
+    { __typename?: 'UpdateQuestionnairePayload' }
+    & { questionnaire?: Maybe<(
+      { __typename?: 'Questionnaire' }
+      & Pick<Questionnaire, 'id' | 'name' | 'questionTree'>
     )> }
   )> }
 );
@@ -4781,6 +4884,49 @@ export function useAllPeopleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<
 export type AllPeopleQueryHookResult = ReturnType<typeof useAllPeopleQuery>;
 export type AllPeopleLazyQueryHookResult = ReturnType<typeof useAllPeopleLazyQuery>;
 export type AllPeopleQueryResult = Apollo.QueryResult<AllPeopleQuery, AllPeopleQueryVariables>;
+export const AllQuestionnairesDocument = gql`
+    query AllQuestionnaires {
+  allQuestionnaires(orderBy: UPDATED_AT_ASC) {
+    nodes {
+      id
+      matterTemplateByMatterTemplateId {
+        id
+        name
+        category
+      }
+      name
+      questionTree
+      createdAt
+      updatedAt
+    }
+  }
+}
+    `;
+
+/**
+ * __useAllQuestionnairesQuery__
+ *
+ * To run a query within a React component, call `useAllQuestionnairesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllQuestionnairesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAllQuestionnairesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useAllQuestionnairesQuery(baseOptions?: Apollo.QueryHookOptions<AllQuestionnairesQuery, AllQuestionnairesQueryVariables>) {
+        return Apollo.useQuery<AllQuestionnairesQuery, AllQuestionnairesQueryVariables>(AllQuestionnairesDocument, baseOptions);
+      }
+export function useAllQuestionnairesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllQuestionnairesQuery, AllQuestionnairesQueryVariables>) {
+          return Apollo.useLazyQuery<AllQuestionnairesQuery, AllQuestionnairesQueryVariables>(AllQuestionnairesDocument, baseOptions);
+        }
+export type AllQuestionnairesQueryHookResult = ReturnType<typeof useAllQuestionnairesQuery>;
+export type AllQuestionnairesLazyQueryHookResult = ReturnType<typeof useAllQuestionnairesLazyQuery>;
+export type AllQuestionnairesQueryResult = Apollo.QueryResult<AllQuestionnairesQuery, AllQuestionnairesQueryVariables>;
 export const AllQuestionsDocument = gql`
     query AllQuestions {
   allQuestions(orderBy: PROMPT_ASC) {
@@ -4970,6 +5116,44 @@ export function useCreateQuestionMutation(baseOptions?: Apollo.MutationHookOptio
 export type CreateQuestionMutationHookResult = ReturnType<typeof useCreateQuestionMutation>;
 export type CreateQuestionMutationResult = Apollo.MutationResult<CreateQuestionMutation>;
 export type CreateQuestionMutationOptions = Apollo.BaseMutationOptions<CreateQuestionMutation, CreateQuestionMutationVariables>;
+export const CreateQuestionnaireDocument = gql`
+    mutation CreateQuestionnaire($name: String!, $matterTemplateId: UUID!, $questionTree: JSON!) {
+  createQuestionnaire(input: {questionnaire: {name: $name, matterTemplateId: $matterTemplateId, questionTree: $questionTree}}) {
+    questionnaire {
+      id
+      createdAt
+      updatedAt
+    }
+  }
+}
+    `;
+export type CreateQuestionnaireMutationFn = Apollo.MutationFunction<CreateQuestionnaireMutation, CreateQuestionnaireMutationVariables>;
+
+/**
+ * __useCreateQuestionnaireMutation__
+ *
+ * To run a mutation, you first call `useCreateQuestionnaireMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateQuestionnaireMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createQuestionnaireMutation, { data, loading, error }] = useCreateQuestionnaireMutation({
+ *   variables: {
+ *      name: // value for 'name'
+ *      matterTemplateId: // value for 'matterTemplateId'
+ *      questionTree: // value for 'questionTree'
+ *   },
+ * });
+ */
+export function useCreateQuestionnaireMutation(baseOptions?: Apollo.MutationHookOptions<CreateQuestionnaireMutation, CreateQuestionnaireMutationVariables>) {
+        return Apollo.useMutation<CreateQuestionnaireMutation, CreateQuestionnaireMutationVariables>(CreateQuestionnaireDocument, baseOptions);
+      }
+export type CreateQuestionnaireMutationHookResult = ReturnType<typeof useCreateQuestionnaireMutation>;
+export type CreateQuestionnaireMutationResult = Apollo.MutationResult<CreateQuestionnaireMutation>;
+export type CreateQuestionnaireMutationOptions = Apollo.BaseMutationOptions<CreateQuestionnaireMutation, CreateQuestionnaireMutationVariables>;
 export const CurrentUserDocument = gql`
     query CurrentUser {
   getCurrentUser {
@@ -5143,6 +5327,40 @@ export function useDeleteQuestionByIdMutation(baseOptions?: Apollo.MutationHookO
 export type DeleteQuestionByIdMutationHookResult = ReturnType<typeof useDeleteQuestionByIdMutation>;
 export type DeleteQuestionByIdMutationResult = Apollo.MutationResult<DeleteQuestionByIdMutation>;
 export type DeleteQuestionByIdMutationOptions = Apollo.BaseMutationOptions<DeleteQuestionByIdMutation, DeleteQuestionByIdMutationVariables>;
+export const DeleteQuestionnaireByIdDocument = gql`
+    mutation DeleteQuestionnaireById($id: UUID!) {
+  deleteQuestionnaireById(input: {id: $id}) {
+    questionnaire {
+      id
+    }
+  }
+}
+    `;
+export type DeleteQuestionnaireByIdMutationFn = Apollo.MutationFunction<DeleteQuestionnaireByIdMutation, DeleteQuestionnaireByIdMutationVariables>;
+
+/**
+ * __useDeleteQuestionnaireByIdMutation__
+ *
+ * To run a mutation, you first call `useDeleteQuestionnaireByIdMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteQuestionnaireByIdMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteQuestionnaireByIdMutation, { data, loading, error }] = useDeleteQuestionnaireByIdMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useDeleteQuestionnaireByIdMutation(baseOptions?: Apollo.MutationHookOptions<DeleteQuestionnaireByIdMutation, DeleteQuestionnaireByIdMutationVariables>) {
+        return Apollo.useMutation<DeleteQuestionnaireByIdMutation, DeleteQuestionnaireByIdMutationVariables>(DeleteQuestionnaireByIdDocument, baseOptions);
+      }
+export type DeleteQuestionnaireByIdMutationHookResult = ReturnType<typeof useDeleteQuestionnaireByIdMutation>;
+export type DeleteQuestionnaireByIdMutationResult = Apollo.MutationResult<DeleteQuestionnaireByIdMutation>;
+export type DeleteQuestionnaireByIdMutationOptions = Apollo.BaseMutationOptions<DeleteQuestionnaireByIdMutation, DeleteQuestionnaireByIdMutationVariables>;
 export const GetTransloaditTokenDocument = gql`
     mutation GetTransloaditToken($template: String!) {
   getTransloaditToken(template: $template) {
@@ -5412,3 +5630,41 @@ export function useUpdateQuestionByIdMutation(baseOptions?: Apollo.MutationHookO
 export type UpdateQuestionByIdMutationHookResult = ReturnType<typeof useUpdateQuestionByIdMutation>;
 export type UpdateQuestionByIdMutationResult = Apollo.MutationResult<UpdateQuestionByIdMutation>;
 export type UpdateQuestionByIdMutationOptions = Apollo.BaseMutationOptions<UpdateQuestionByIdMutation, UpdateQuestionByIdMutationVariables>;
+export const UpdateQuestionnaireByIdDocument = gql`
+    mutation UpdateQuestionnaireById($id: UUID!, $name: String, $questionTree: JSON) {
+  updateQuestionnaireById(input: {questionnairePatch: {questionTree: $questionTree, name: $name}, id: $id}) {
+    questionnaire {
+      id
+      name
+      questionTree
+    }
+  }
+}
+    `;
+export type UpdateQuestionnaireByIdMutationFn = Apollo.MutationFunction<UpdateQuestionnaireByIdMutation, UpdateQuestionnaireByIdMutationVariables>;
+
+/**
+ * __useUpdateQuestionnaireByIdMutation__
+ *
+ * To run a mutation, you first call `useUpdateQuestionnaireByIdMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateQuestionnaireByIdMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateQuestionnaireByIdMutation, { data, loading, error }] = useUpdateQuestionnaireByIdMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      name: // value for 'name'
+ *      questionTree: // value for 'questionTree'
+ *   },
+ * });
+ */
+export function useUpdateQuestionnaireByIdMutation(baseOptions?: Apollo.MutationHookOptions<UpdateQuestionnaireByIdMutation, UpdateQuestionnaireByIdMutationVariables>) {
+        return Apollo.useMutation<UpdateQuestionnaireByIdMutation, UpdateQuestionnaireByIdMutationVariables>(UpdateQuestionnaireByIdDocument, baseOptions);
+      }
+export type UpdateQuestionnaireByIdMutationHookResult = ReturnType<typeof useUpdateQuestionnaireByIdMutation>;
+export type UpdateQuestionnaireByIdMutationResult = Apollo.MutationResult<UpdateQuestionnaireByIdMutation>;
+export type UpdateQuestionnaireByIdMutationOptions = Apollo.BaseMutationOptions<UpdateQuestionnaireByIdMutation, UpdateQuestionnaireByIdMutationVariables>;

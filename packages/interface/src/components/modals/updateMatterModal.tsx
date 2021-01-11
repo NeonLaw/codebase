@@ -11,7 +11,7 @@ export const UpdateMatterModal = ({ isOpen, onClose, matter }) => {
       resourceName="matter"
       onClose={onClose}
       currentValues={{ id }}
-      fields={matterFields}
+      fields={matterFields.concat({ name: 'id', type: 'id' })}
     />
   );
 };

@@ -2,11 +2,11 @@ import React from 'react';
 import { UpdateModalFormBuilder } from '../forms/updateModalFormBuilder';
 import { questionFields } from '../fields/questionFields';
 
-export const UpdateQuestionModal = ({ isOpen, onClose, question }) => {
+export const UpdateQuestionModal = ({ isOpen, onClose, currentValues }) => {
   return (
     <UpdateModalFormBuilder
       resourceName="question"
-      currentValues={question}
+      currentValues={currentValues}
       isOpen={isOpen}
       onClose={onClose}
       fields={questionFields}

@@ -29,6 +29,16 @@ const AdminDashboard = () => {
           flash={false}
           colorScheme="gray"
           onClick={() => {
+            navigate('/portal/admin/questionnaires');
+          }}
+        >
+          Questionnaires
+        </Button>
+
+        <Button
+          flash={false}
+          colorScheme="gray"
+          onClick={() => {
             navigate('/portal/admin/matter-document-templates');
           }}
         >

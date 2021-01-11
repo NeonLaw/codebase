@@ -1,0 +1,16 @@
+query AllQuestionnaires {
+  allQuestionnaires(orderBy: UPDATED_AT_ASC) {
+    nodes {
+      id
+      matterTemplateByMatterTemplateId {
+        id
+        name
+        category
+      }
+      name
+      questionTree
+      createdAt
+      updatedAt
+    }
+  }
+}
