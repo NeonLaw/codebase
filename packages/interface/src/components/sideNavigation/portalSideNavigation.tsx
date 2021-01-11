@@ -1,5 +1,5 @@
-import { AiOutlineAudit, AiOutlineShop } from 'react-icons/ai';
-import { BiHomeHeart, BiPen } from 'react-icons/bi';
+import { BiBook, BiHomeHeart, BiPen } from 'react-icons/bi';
+import { AiOutlineShop } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
 import { FaHands } from 'react-icons/fa';
 import { MdGavel } from 'react-icons/md';
@@ -41,7 +41,7 @@ export const PortalSideNavContent = ({ email }) => {
       route: '/portal/businesses'
     },
     admins.includes(email) ? {
-      icon: <AiOutlineAudit />, label: 'Audits', route: '/portal/audits'
+      icon: <BiBook />, label: 'Bar Prep', route: '/portal/bar-prep'
     }: null,
     { icon: <CgProfile />, label: 'Settings', route: '/portal/settings' },
     admins.includes(email) ? {

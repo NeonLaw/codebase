@@ -1,0 +1,21 @@
+mutation CreateQuestionnaire(
+  $name: String!
+  $matterTemplateId: UUID!
+  $questionTree: JSON!
+) {
+  createQuestionnaire(
+    input: {
+      questionnaire: {
+        name: $name
+        matterTemplateId: $matterTemplateId
+        questionTree: $questionTree
+      }
+    }
+  ) {
+    questionnaire {
+      id
+      createdAt
+      updatedAt
+    }
+  }
+}

@@ -1,24 +1,18 @@
 import { Box, Progress } from '@chakra-ui/core';
-import { decisionTree, questions } from '../components/upwardMobilityQuestions';
-import {
-  BeginUpwardMobilityQuestionnaire
-} from '../components/beginUpwardMobilityQuestionnaire';
-import {
-  FinishUpwardMobilityQuestionnaire
-} from '../components/finishUpwardMobilityQuestionnaire';
+import { decisionTree, questions } from './upwardMobilityQuestions';
 import React from 'react';
 import {
   SingleChoiceQuestion
-} from '../components/questions/singleChoiceQuestion';
+} from './questions/singleChoiceQuestion';
 import {
   SingleDateQuestion
-} from '../components/questions/singleDateQuestion';
+} from './questions/singleDateQuestion';
 import { gutters } from '../themes/neonLaw';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useParams } from '@reach/router';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-export const UpwardMobilityQuestionnaire = (props: any) => {
+export const BarPrepQuestionnaire = (props: any) => {
   /* eslint-enable @typescript-eslint/no-unused-vars */
   const intl = useIntl();
 
@@ -30,17 +24,9 @@ export const UpwardMobilityQuestionnaire = (props: any) => {
     localStorage.setItem('upwardMobility.answers', JSON.stringify(answers));
   };
 
-  const basePath = '/upward-mobility';
+  const basePath = '/portal/bar-prep';
 
   const { questionId } = useParams();
-
-  if (questionId.toLowerCase() === 'begin') {
-    return <BeginUpwardMobilityQuestionnaire />;
-  }
-
-  if (questionId.toLowerCase() === 'end') {
-    return <FinishUpwardMobilityQuestionnaire />;
-  }
 
   const question = questions.find((question) => {
     return question.id === questionId;

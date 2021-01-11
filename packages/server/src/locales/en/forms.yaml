@@ -11,7 +11,7 @@ forms:
     label: Name
     placeholder: Enter the name
     required: Name is required.
-  questionType:
+  question_type:
     label: Question Type
     placeholder: Enter the question type
     required: Question Type is required.
