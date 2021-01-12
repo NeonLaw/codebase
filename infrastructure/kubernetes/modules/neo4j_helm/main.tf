@@ -1,6 +1,7 @@
 resource "helm_release" "neo4j" {
-  name  = "${var.environment}-neo4j"
-  chart = "https://github.com/neo4j-contrib/neo4j-helm/releases/neo4j-4.2.0-1.tgz"
+  name   = "${var.environment}-neo4j"
+  chart  = "https://github.com/neo4j-contrib/neo4j-helm/releases/neo4j-4.2.0-1.tgz"
+  verify = false
 
   set {
     name  = "core.standalone"
