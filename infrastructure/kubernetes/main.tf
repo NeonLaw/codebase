@@ -65,6 +65,11 @@ module "redis" {
   environment = var.environment
 }
 
+module "neo4j" {
+  source      = "./modules/neo4j_helm"
+  environment = var.environment
+}
+
 module "application_secrets" {
   source                        = "../modules/application_secrets"
   api_url                       = var.api_url
