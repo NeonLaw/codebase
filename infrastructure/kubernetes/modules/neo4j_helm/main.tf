@@ -4,11 +4,6 @@ resource "helm_release" "neo4j" {
   verify = false
 
   set {
-    name  = "core.standalone"
-    value = "true"
-  }
-
-  set {
     name  = "acceptLicenseAgreement"
     value = "yes"
   }
