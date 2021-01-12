@@ -233,6 +233,7 @@ resource "kubernetes_deployment" "server" {
           }
 
           readiness_probe {
+            count = var.process_name == "api" ? 1 : 0
             http_get {
               path = "/"
               port = 3000
