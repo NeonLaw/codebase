@@ -16,7 +16,7 @@
         "@turf/bezier-spline": "^6.0.3",
         "@turf/helpers": "^6.1.4",
         "@types/cors": "^2.8.9",
-        "@types/express": "^4.17.9",
+        "@types/express": "^4.17.10",
         "@types/express-jwt": "^6.0.0",
         "@types/express-serve-static-core": "^4.17.18",
         "@types/faker": "^5.1.5",
