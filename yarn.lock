@@ -3302,25 +3302,25 @@
   resolved "https://registry.yarnpkg.com/@transloadit/prettier-bytes/-/prettier-bytes-0.0.7.tgz#cdb5399f445fdd606ed833872fa0cabdbc51686b"
   integrity sha512-VeJbUb0wEKbcwaSlj5n+LscBl9IPgLPkHVGBkh00cztv6X4L/TJXK58LzFuBKX7/GAfiGhIwH67YTLTlzvIzBA==
 
-"@turf/bezier-spline@^6.0.3":
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/@turf/bezier-spline/-/bezier-spline-6.0.3.tgz#783c1271d4a4636c25aa18110b7bf6dd93fd9039"
-  integrity sha512-cGNES26M8keEitliXEhYIjZWXYhkdkZe0drdKVSn5EaUz+GQVE+a7TiGwbAPokNbaL0a8RtgnagRBzhx8LsBKQ==
+"@turf/bezier-spline@^6.2.0":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@turf/bezier-spline/-/bezier-spline-6.2.0.tgz#25f943546b1d780c6f63f28e20f47fbea5197423"
+  integrity sha512-YYF2xLMY+NqB447sNBdlaPcmomQ224OR76dfZEUcEHhdxqlKQM6eKnDaK8F3zdnI8N1+AiG9JuimQ6JkLm/bFQ==
   dependencies:
-    "@turf/helpers" "6.x"
-    "@turf/invariant" "6.x"
+    "@turf/helpers" "^6.2.0"
+    "@turf/invariant" "^6.2.0"
 
-"@turf/helpers@6.x", "@turf/helpers@^6.2.0":
+"@turf/helpers@^6.2.0":
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-6.2.0.tgz#dc770ce3b35b230f6a661824f3f87591378e379b"
   integrity sha512-ANcZ0LFpnrza52y3um8KXgbpF1l7qmJXEqY1Bv5RovdQH+kUvMrZsb4SO3q4VH4eQqlsxDLxxXl7hkjjFbDtHg==
 
-"@turf/invariant@6.x":
-  version "6.1.2"
-  resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-6.1.2.tgz#6013ed6219f9ac2edada9b31e1dfa5918eb0a2f7"
-  integrity sha512-WU08Ph8j0J2jVGlQCKChXoCtI50BB3yEH21V++V0T4cR1T27HKCxkehV2sYMwTierfMBgjwSwDIsxnR4/2mWXg==
+"@turf/invariant@^6.2.0":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-6.2.0.tgz#91c732b7c53e95afdbea944be3316bb8afd6a118"
+  integrity sha512-kyhKp3rW1tDe78xFkgq9+zC6dkBJyvEwP4HNNculIXRyN4Xoo7GJECE1wPyujQppj3Lmu63GtE6B68coEZ0Gqw==
   dependencies:
-    "@turf/helpers" "6.x"
+    "@turf/helpers" "^6.2.0"
 
 "@turist/fetch@^7.1.7":
   version "7.1.7"
