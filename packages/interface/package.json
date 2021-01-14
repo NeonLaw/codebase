@@ -55,7 +55,7 @@
     "leaflet-polylinedecorator": "^1.6.0",
     "namor": "^2.0.2",
     "prism-react-renderer": "^1.1.1",
-    "qs": "^6.9.4",
+    "qs": "^6.9.6",
     "query-string": "^6.13.8",
     "react": "^17.0.1",
     "react-axe": "^3.5.3",
