@@ -67,7 +67,12 @@ export const PostBanner = ({
     >
       {children}
       <div className="text" style={{ borderColor: colors.borders[colorMode] }}>
-        <Heading as="h3" fontWeight="400" marginBottom={gutters.xSmallOne}>
+        <Heading 
+          as="h2" 
+          className="h3" 
+          fontWeight="400" 
+          marginBottom={gutters.xSmallOne}
+        >
           {title}
         </Heading>
         <Text marginBottom={gutters.xSmallOne}>
