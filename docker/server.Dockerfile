@@ -1,5 +1,7 @@
 FROM docker.pkg.github.com/neonlaw/codebase/base:latest
 
+RUN mkdir /app && chown -R node:node /app
+
 USER neon
 
 ENV DATABASE_URL $DATABASE_URL
@@ -9,16 +11,16 @@ ENV SHOW_GRAPHIQL $SHOW_GRAPHIQL
 
 WORKDIR /app
 
-COPY --chown neon:neon package.json .
-COPY --chown neon:neon yarn.lock .
+COPY package.json .
+COPY yarn.lock .
 RUN yarn install \
   --silent \
   --ignore-optional \
   --prefer-offline \
   --cache-folder ./node_modules
 
-COPY --chown neon:neon ./docker/server.entrypoint.sh ./docker
-COPY --chown neon:neon ./packages/server ./packages/server
+COPY ./docker/server.entrypoint.sh ./docker
+COPY ./packages/server ./packages/server
 
 EXPOSE 3000
 ENTRYPOINT [ "/app/docker/server.entrypoint.sh" ]
