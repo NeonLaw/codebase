@@ -2,7 +2,6 @@ FROM docker.pkg.github.com/neonlaw/codebase/base:latest
 
 RUN addgroup neon
 RUN useradd -r -s /bin/bash -g neon -G sudo -u 1001 neon
-RUN mkdir /app
 RUN chown -R neon:neon /app
 USER neon
 
