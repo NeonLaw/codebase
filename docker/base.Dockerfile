@@ -45,7 +45,7 @@ WORKDIR /app
 # Install Dependencies
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --cache-folder ./node_modules
+RUN yarn install --cache-folder --ignore-optional ./node_modules
 
 COPY . .
 
