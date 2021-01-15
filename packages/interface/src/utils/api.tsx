@@ -1423,7 +1423,7 @@ export type Letter = Node & {
   addressorId?: Maybe<Scalars['UUID']>;
   addresseeId?: Maybe<Scalars['UUID']>;
   lobIdentifier: Scalars['String'];
-  body: Scalars['String'];
+  body: Scalars['JSON'];
   createdAt?: Maybe<Scalars['Datetime']>;
   /** Reads a single `Person` that is related to this `Letter`. */
   personByAddressorId?: Maybe<Person>;
@@ -1449,7 +1449,7 @@ export type LetterInput = {
   addressorId?: Maybe<Scalars['UUID']>;
   addresseeId?: Maybe<Scalars['UUID']>;
   lobIdentifier: Scalars['String'];
-  body: Scalars['String'];
+  body: Scalars['JSON'];
   createdAt?: Maybe<Scalars['Datetime']>;
 };
 
@@ -1459,7 +1459,7 @@ export type LetterPatch = {
   addressorId?: Maybe<Scalars['UUID']>;
   addresseeId?: Maybe<Scalars['UUID']>;
   lobIdentifier?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['JSON']>;
   createdAt?: Maybe<Scalars['Datetime']>;
 };
 
@@ -3429,7 +3429,7 @@ export type Response = Node & {
   id: Scalars['UUID'];
   questionnaireResponseId: Scalars['UUID'];
   questionId: Scalars['UUID'];
-  answer: Scalars['String'];
+  answer: Scalars['JSON'];
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
   /** Reads a single `QuestionnaireResponse` that is related to this `Response`. */
@@ -3524,7 +3524,7 @@ export enum ResponseDocumentsOrderBy {
 export type ResponseInput = {
   questionnaireResponseId: Scalars['UUID'];
   questionId: Scalars['UUID'];
-  answer: Scalars['String'];
+  answer: Scalars['JSON'];
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
 };
@@ -3534,7 +3534,7 @@ export type ResponsePatch = {
   id?: Maybe<Scalars['UUID']>;
   questionnaireResponseId?: Maybe<Scalars['UUID']>;
   questionId?: Maybe<Scalars['UUID']>;
-  answer?: Maybe<Scalars['String']>;
+  answer?: Maybe<Scalars['JSON']>;
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
 };
