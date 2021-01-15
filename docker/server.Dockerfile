@@ -1,6 +1,7 @@
 FROM docker.pkg.github.com/neonlaw/codebase/base:latest
 
-RUN mkdir /app && chown -R node:node /app
+RUN addgroup neon && adduser -DH neon neon
+RUN mkdir /app && chown -R neon:neon /app
 
 USER neon
 
