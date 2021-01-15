@@ -1,8 +1,7 @@
 FROM docker.pkg.github.com/neonlaw/codebase/base:latest
 
-RUN addgroup neon && adduser -DH neon neon
-RUN mkdir /app && chown -R neon:neon /app
-
+RUN addgroup neon
+RUN useradd -r -s /bin/bash -g neon -G sudo -u 1001 neon
 USER neon
 
 ENV DATABASE_URL $DATABASE_URL
