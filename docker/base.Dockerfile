@@ -39,12 +39,18 @@ RUN wget -O ~/vsls-reqs https://aka.ms/vsls-linux-prereq-script &&\
 # Install yarn via NPM
 RUN npm i -g yarn
 
+RUN mkdir /app
+RUN addgroup neon
+RUN useradd -r -s /bin/bash -g neon -G sudo -u 1001 neon
+RUN chown -R neon:neon /app
+USER neon
+
 WORKDIR /app
 
 # Install Dependencies
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install
+RUN yarn install --cache-folder ./node_modules
 
 COPY . .
 

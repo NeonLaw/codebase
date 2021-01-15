@@ -1,10 +1,5 @@
 FROM docker.pkg.github.com/neonlaw/codebase/base:latest
 
-RUN addgroup neon
-RUN useradd -r -s /bin/bash -g neon -G sudo -u 1001 neon
-RUN chown -R neon:neon /
-USER neon
-
 ENV DATABASE_URL $DATABASE_URL
 ENV SHADOW_DATABASE_URL $SHADOW_DATABASE_URL
 ENV NODE_ENV $NODE_ENV
