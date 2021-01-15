@@ -34,18 +34,19 @@ RUN TEMP_DEB="$(mktemp)" &&\
 # Install yarn via NPM
 RUN npm i -g yarn
 
-RUN mkdir /app
 RUN addgroup neon
-RUN useradd -r -s /bin/bash -g neon -G sudo -u 1001 neon
-RUN chown -R neon:neon /app
+RUN useradd -r -s /bin/bash -g neon -G sudo -u 1001 -m neon
+RUN chown -R neon:neon /home/neon
+RUN chown -R neon:neon /usr/bin
+RUN chown -R neon:neon /usr/local
 USER neon
 
-WORKDIR /app
+WORKDIR /home/neon
 
 # Install Dependencies
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --cache-folder --ignore-optional ./node_modules
+RUN yarn install --cache-folder ./node_modules --ignore-optional
 
 COPY . .
 
