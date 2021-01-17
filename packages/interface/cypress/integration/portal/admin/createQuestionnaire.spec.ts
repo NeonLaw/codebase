@@ -21,10 +21,6 @@ describe('Creating Questionnaires', () => {
         .get('[data-testid="questionnaire-form-name"]')
         .type(faker.lorem.sentence());
 
-      cy
-        .get('[data-testid="questionnaire-form-question-tree"]')
-        .type(faker.lorem.sentence());
-
       cy.get('.react-select-matter-template-id__control')
         .click()
         .get('.react-select-matter-template-id__menu')
