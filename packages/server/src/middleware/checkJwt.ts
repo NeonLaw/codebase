@@ -10,8 +10,7 @@ export const checkJwt = (credentialsRequired: boolean) => {
     secret: expressJwtSecret({
       cache: true,
       jwksRequestsPerMinute: 5,
-      jwksUri:
-      `https://${process.env.AUTH0_TENANT}/.well-known/jwks.json`,
+      jwksUri: `https://${process.env.AUTH0_TENANT}/.well-known/jwks.json`,
       rateLimit: true,
     }),
   });

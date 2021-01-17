@@ -192,7 +192,9 @@ get_started:
 pages:
   bar_prep:
     heading: Bar Prep
-    text: Answer our slapdown rules to help you write effective bar prep essays
+    text: |
+      Answer our slapdown rules to help you write effective bar prep essays.
+      Click on a question set below to get started.
   business:
     heading: Business
     text: Contact us for help with your business

@@ -3,16 +3,18 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/core';
-import { gutters, sizes } from '../../themes/neonLaw';
-import { PortalLayout } from '../../layouts/portalLayout';
+import { gutters, sizes } from '../../../themes/neonLaw';
+import {
+  MatterTemplateQuestionnairesList
+} from '../../../components/lists/matterTemplateQuestionnairesList';
+import { PortalLayout } from '../../../layouts/portalLayout';
 import React from 'react';
-import { Router } from '@reach/router';
 import { useIntl } from 'gatsby-plugin-intl';
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 const BarPrepIndexPage = (props) => {
-  /* eslint-enable @typescript-eslint/no-unused-vars */
   const intl = useIntl();
+
   return (
     <PortalLayout>
       <Box maxWidth={sizes.textContainerXSmall}>
@@ -23,19 +25,14 @@ const BarPrepIndexPage = (props) => {
           {intl.formatMessage({ id: 'pages.bar_prep.text' })}
         </Text>
       </Box>
-    </PortalLayout>
-  );
-};
 
-const BarPrepRouter = () => {
-  return (
-    <PortalLayout>
-      <Router basepath="/upward-mobility">
-        <BarPrepIndexPage path="/" />
-      </Router>
+      <MatterTemplateQuestionnairesList
+        basePath="/portal/bar-prep"
+        category="bar-prep"
+      />
     </PortalLayout>
   );
 };
 
 /* eslint-disable-next-line import/no-default-export */
-export default BarPrepRouter;
+export default BarPrepIndexPage;

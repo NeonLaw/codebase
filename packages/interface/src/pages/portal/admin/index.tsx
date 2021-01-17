@@ -1,6 +1,5 @@
 import { Box, Heading } from '@chakra-ui/core';
 import { navigate, useIntl } from 'gatsby-plugin-intl';
-
 import { Button } from '../../../components/button';
 import { PortalLayout } from '../../../layouts/portalLayout';
 import React from 'react';
