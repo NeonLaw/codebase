@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import Redis from 'ioredis';
 import { getLeakyBucketRateLimiter } from 'graphile-worker-rate-limiter';
 import { default as neo4j } from 'neo4j-driver';
