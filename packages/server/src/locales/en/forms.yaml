@@ -26,3 +26,6 @@ forms:
     label: Matter Template
   primary_contact_id:
     label: Primary Contact
+  help_text:
+    label: Help Text
+    placeholder: Enter the help text for the question.

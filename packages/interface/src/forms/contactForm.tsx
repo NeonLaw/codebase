@@ -22,6 +22,7 @@ export const ContactForm = () => {
         name="Inquiry"
         label="Inquiry"
         placeholder="Write your question here."
+        defaultValue={null}
       />
     </form>
   );

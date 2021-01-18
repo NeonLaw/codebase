@@ -1,0 +1,8 @@
+query QuestionById($id: UUID!) {
+  questionById(id: $id) {
+    id
+    prompt
+    helpText
+    questionType
+  }
+}
