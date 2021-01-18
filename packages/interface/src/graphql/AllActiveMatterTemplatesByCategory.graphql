@@ -12,7 +12,6 @@ query AllActiveMatterTemplatesByCategory($category: String!) {
         nodes {
           id
           name
-          questionTree
         }
       }
     }

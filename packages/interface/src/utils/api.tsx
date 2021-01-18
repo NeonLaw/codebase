@@ -3192,8 +3192,6 @@ export type Questionnaire = Node & {
   id: Scalars['UUID'];
   /** The name of the questionnaire */
   name: Scalars['String'];
-  /** The question tree or how a person answers the questionnaire */
-  questionTree: Scalars['JSON'];
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
   matterTemplateId: Scalars['UUID'];
@@ -3235,8 +3233,6 @@ export type QuestionnaireCondition = {
 export type QuestionnaireInput = {
   /** The name of the questionnaire */
   name: Scalars['String'];
-  /** The question tree or how a person answers the questionnaire */
-  questionTree: Scalars['JSON'];
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
   matterTemplateId: Scalars['UUID'];
@@ -3247,8 +3243,6 @@ export type QuestionnairePatch = {
   id?: Maybe<Scalars['UUID']>;
   /** The name of the questionnaire */
   name?: Maybe<Scalars['String']>;
-  /** The question tree or how a person answers the questionnaire */
-  questionTree?: Maybe<Scalars['JSON']>;
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
   matterTemplateId?: Maybe<Scalars['UUID']>;
@@ -4286,7 +4280,7 @@ export type AllActiveMatterTemplatesByCategoryQuery = (
         { __typename?: 'QuestionnairesConnection' }
         & { nodes: Array<(
           { __typename?: 'Questionnaire' }
-          & Pick<Questionnaire, 'id' | 'name' | 'questionTree'>
+          & Pick<Questionnaire, 'id' | 'name'>
         )> }
       ) }
     )> }
@@ -4379,7 +4373,7 @@ export type AllQuestionnairesQuery = (
     { __typename?: 'QuestionnairesConnection' }
     & { nodes: Array<(
       { __typename?: 'Questionnaire' }
-      & Pick<Questionnaire, 'id' | 'name' | 'questionTree' | 'createdAt' | 'updatedAt'>
+      & Pick<Questionnaire, 'id' | 'name' | 'createdAt' | 'updatedAt'>
       & { matterTemplateByMatterTemplateId?: Maybe<(
         { __typename?: 'MatterTemplate' }
         & Pick<MatterTemplate, 'id' | 'name' | 'category'>
@@ -4475,7 +4469,6 @@ export type CreateQuestionMutation = (
 export type CreateQuestionnaireMutationVariables = Exact<{
   name: Scalars['String'];
   matterTemplateId: Scalars['UUID'];
-  questionTree: Scalars['JSON'];
 }>;
 
 
@@ -4721,7 +4714,6 @@ export type UpdateQuestionByIdMutation = (
 export type UpdateQuestionnaireByIdMutationVariables = Exact<{
   id: Scalars['UUID'];
   name?: Maybe<Scalars['String']>;
-  questionTree?: Maybe<Scalars['JSON']>;
 }>;
 
 
@@ -4731,7 +4723,7 @@ export type UpdateQuestionnaireByIdMutation = (
     { __typename?: 'UpdateQuestionnairePayload' }
     & { questionnaire?: Maybe<(
       { __typename?: 'Questionnaire' }
-      & Pick<Questionnaire, 'id' | 'name' | 'questionTree'>
+      & Pick<Questionnaire, 'id' | 'name'>
     )> }
   )> }
 );
@@ -4749,7 +4741,6 @@ export const AllActiveMatterTemplatesByCategoryDocument = gql`
         nodes {
           id
           name
-          questionTree
         }
       }
     }
@@ -4987,7 +4978,6 @@ export const AllQuestionnairesDocument = gql`
         category
       }
       name
-      questionTree
       createdAt
       updatedAt
     }
@@ -5209,8 +5199,8 @@ export type CreateQuestionMutationHookResult = ReturnType<typeof useCreateQuesti
 export type CreateQuestionMutationResult = Apollo.MutationResult<CreateQuestionMutation>;
 export type CreateQuestionMutationOptions = Apollo.BaseMutationOptions<CreateQuestionMutation, CreateQuestionMutationVariables>;
 export const CreateQuestionnaireDocument = gql`
-    mutation CreateQuestionnaire($name: String!, $matterTemplateId: UUID!, $questionTree: JSON!) {
-  createQuestionnaire(input: {questionnaire: {name: $name, matterTemplateId: $matterTemplateId, questionTree: $questionTree}}) {
+    mutation CreateQuestionnaire($name: String!, $matterTemplateId: UUID!) {
+  createQuestionnaire(input: {questionnaire: {name: $name, matterTemplateId: $matterTemplateId}}) {
     questionnaire {
       id
       createdAt
@@ -5236,7 +5226,6 @@ export type CreateQuestionnaireMutationFn = Apollo.MutationFunction<CreateQuesti
  *   variables: {
  *      name: // value for 'name'
  *      matterTemplateId: // value for 'matterTemplateId'
- *      questionTree: // value for 'questionTree'
  *   },
  * });
  */
@@ -5757,12 +5746,11 @@ export type UpdateQuestionByIdMutationHookResult = ReturnType<typeof useUpdateQu
 export type UpdateQuestionByIdMutationResult = Apollo.MutationResult<UpdateQuestionByIdMutation>;
 export type UpdateQuestionByIdMutationOptions = Apollo.BaseMutationOptions<UpdateQuestionByIdMutation, UpdateQuestionByIdMutationVariables>;
 export const UpdateQuestionnaireByIdDocument = gql`
-    mutation UpdateQuestionnaireById($id: UUID!, $name: String, $questionTree: JSON) {
-  updateQuestionnaireById(input: {questionnairePatch: {questionTree: $questionTree, name: $name}, id: $id}) {
+    mutation UpdateQuestionnaireById($id: UUID!, $name: String) {
+  updateQuestionnaireById(input: {questionnairePatch: {name: $name}, id: $id}) {
     questionnaire {
       id
       name
-      questionTree
     }
   }
 }
@@ -5784,7 +5772,6 @@ export type UpdateQuestionnaireByIdMutationFn = Apollo.MutationFunction<UpdateQu
  *   variables: {
  *      id: // value for 'id'
  *      name: // value for 'name'
- *      questionTree: // value for 'questionTree'
  *   },
  * });
  */

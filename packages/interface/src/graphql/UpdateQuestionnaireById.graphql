@@ -1,18 +1,10 @@
-mutation UpdateQuestionnaireById(
-  $id: UUID!
-  $name: String
-  $questionTree: JSON
-) {
+mutation UpdateQuestionnaireById($id: UUID!, $name: String) {
   updateQuestionnaireById(
-    input: {
-      questionnairePatch: { questionTree: $questionTree, name: $name }
-      id: $id
-    }
+    input: { questionnairePatch: { name: $name }, id: $id }
   ) {
     questionnaire {
       id
       name
-      questionTree
     }
   }
 }

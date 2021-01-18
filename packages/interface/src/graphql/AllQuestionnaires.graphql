@@ -8,7 +8,6 @@ query AllQuestionnaires {
         category
       }
       name
-      questionTree
       createdAt
       updatedAt
     }
