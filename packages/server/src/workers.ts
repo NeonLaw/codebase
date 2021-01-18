@@ -7,6 +7,7 @@ import { run } from 'graphile-worker';
 import { sendWelcomeEmail } from './tasks/sendWelcomeEmail';
 import { default as sgMail } from '@sendgrid/mail';
 import { upsertQuestionToNeo4j } from './tasks/upsertQuestionToNeo4j';
+import { upsertQuestionnaireToNeo4j } from './tasks/upsertQuestionnaireToNeo4j';
 
 const redis = new Redis(redisUrl);
 const rateLimiter = getLeakyBucketRateLimiter({
@@ -21,6 +22,16 @@ const rateLimiter = getLeakyBucketRateLimiter({
       drainCount: 1500,
       drainInterval: 30 * 1000,
     },
+    updateQuestionToNeo4j: {
+      capacity: 1000,
+      drainCount: 1500,
+      drainInterval: 30 * 1000,
+    },
+    updateQuestionnaireToNeo4j: {
+      capacity: 1000,
+      drainCount: 1500,
+      drainInterval: 30 * 1000,
+    }
   },
   redis,
 });
@@ -47,7 +58,10 @@ async function workers() {
     pollInterval: 1000,
     taskList: {
       sendWelcomeEmail: rateLimiter.wrapTask(sendWelcomeEmail),
-      upsertQuestionToNeo4j,
+      upsertQuestionToNeo4j: rateLimiter.wrapTask(upsertQuestionToNeo4j),
+      upsertQuestionnaireToNeo4j: rateLimiter.wrapTask(
+        upsertQuestionnaireToNeo4j
+      ),
     }
   });
 }

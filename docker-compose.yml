@@ -41,8 +41,6 @@ services:
     volumes:
       - ./docker/pg-init-scripts:/docker-entrypoint-initdb.d
     command: ["postgres", "-c", "shared_preload_libraries=pg_stat_statements"]
-    logging:
-      driver: none
 
   neo4j:
     image: neo4j:enterprise

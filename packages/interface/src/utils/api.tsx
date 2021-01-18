@@ -4434,6 +4434,7 @@ export type CreateMatterDocumentTemplateMutation = (
 export type CreateMatterTemplateMutationVariables = Exact<{
   name: Scalars['String'];
   javascriptModule: Scalars['String'];
+  category: Scalars['String'];
 }>;
 
 
@@ -4443,7 +4444,7 @@ export type CreateMatterTemplateMutation = (
     { __typename?: 'CreateMatterTemplatePayload' }
     & { matterTemplate?: Maybe<(
       { __typename?: 'MatterTemplate' }
-      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule'>
+      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule' | 'category'>
     )> }
   )> }
 );
@@ -5123,12 +5124,13 @@ export type CreateMatterDocumentTemplateMutationHookResult = ReturnType<typeof u
 export type CreateMatterDocumentTemplateMutationResult = Apollo.MutationResult<CreateMatterDocumentTemplateMutation>;
 export type CreateMatterDocumentTemplateMutationOptions = Apollo.BaseMutationOptions<CreateMatterDocumentTemplateMutation, CreateMatterDocumentTemplateMutationVariables>;
 export const CreateMatterTemplateDocument = gql`
-    mutation CreateMatterTemplate($name: String!, $javascriptModule: String!) {
-  createMatterTemplate(input: {matterTemplate: {name: $name, javascriptModule: $javascriptModule}}) {
+    mutation CreateMatterTemplate($name: String!, $javascriptModule: String!, $category: String!) {
+  createMatterTemplate(input: {matterTemplate: {name: $name, javascriptModule: $javascriptModule, category: $category}}) {
     matterTemplate {
       id
       name
       javascriptModule
+      category
     }
   }
 }
@@ -5150,6 +5152,7 @@ export type CreateMatterTemplateMutationFn = Apollo.MutationFunction<CreateMatte
  *   variables: {
  *      name: // value for 'name'
  *      javascriptModule: // value for 'javascriptModule'
+ *      category: // value for 'category'
  *   },
  * });
  */

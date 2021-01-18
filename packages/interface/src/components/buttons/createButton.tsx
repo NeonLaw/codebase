@@ -19,7 +19,7 @@ export const CreateButton = ({
 }: CreateButtonProps) => {
   return (
     <Button
-      flash={true}
+      flash={false}
       type="submit"
       data-testid={`create-${dasherizedResourceName}-form-submit`}
       isDisabled={isSubmitting || createMutationLoading}

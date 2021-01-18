@@ -19,6 +19,14 @@ Cypress.Commands.add('createMatterTemplate', (matterTemplateName) => {
       '[data-testid="matter-template-form-javascript-module"]'
     ).type(matterTemplateName);
 
+    cy.get('.react-select-category__control')
+      .click()
+      .get('.react-select-category__menu')
+      .find('.react-select-category__option')
+      .first()
+      .click();
+
+
     cy
       .get('[data-testid="create-matter-template-form-submit"]')
       .click();

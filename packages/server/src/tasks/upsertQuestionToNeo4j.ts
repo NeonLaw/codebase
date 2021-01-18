@@ -1,4 +1,4 @@
-import { default as neo4j } from 'neo4j-driver';
+import { neo4jSession } from '../utils/neo4jSession';
 
 export const upsertQuestionToNeo4j = async (
   payload,
@@ -12,11 +12,7 @@ export const upsertQuestionToNeo4j = async (
   );
   const { prompt, id } = questionQuery.rows[0];
 
-  const driver = neo4j.driver(
-    `${process.env.NEO4J_URL}/questionnaires`,
-    neo4j.auth.basic('neo4j', 'graphs')
-  );
-  const session = driver.session();
+  const session = neo4jSession({ databaseName: 'questionnaires' });
 
   try {
     await session.run(
