@@ -195,6 +195,20 @@ With either command (both cannot be ran at the same time), you'll have a
 PostgreSQL database running at `127.0.0.1:5432`, which you can then connect to
 with the GCP SQL credentials for staging and production.
 
+## Neo4j Proxy
+
+If you need to access either the staging or production neo4j on your local
+machine, you can connect to it via GKE Service Port forwarding. You can
+connect to `staging` and `production` with these respective commands:
+
+```
+yarn run neo4j-proxy-staging
+yarn run neo4j-proxy-production
+```
+
+With either command (both cannot be ran at the same time), you'll have a
+local Neo4j instance at `127.0.0.1:7474`, which you can then connect to with
+the GCP SQL credentials for staging and production.
 ### Getting KubeConfig on your machine
 
 ```bash
