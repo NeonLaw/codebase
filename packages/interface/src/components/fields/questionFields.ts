@@ -15,6 +15,26 @@ export const questionFields: Field[] = [
         label: 'Single File Upload',
         value: 'single-file-upload'
       },
+      {
+        label: 'Single Line Text',
+        value: 'single-line-text'
+      },
+      {
+        label: 'Text',
+        value: 'text'
+      },
+      {
+        label: 'Date Range',
+        value: 'date-range'
+      },
+      {
+        label: 'Number',
+        value: 'number'
+      },
+      {
+        label: 'Multiple File Upload',
+        value: 'multiple-file-upload'
+      },
     ],
     type: 'select',
   },
