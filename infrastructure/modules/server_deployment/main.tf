@@ -226,6 +226,16 @@ resource "kubernetes_deployment" "server" {
             }
           }
 
+          env {
+            name = "NEO4J_URL"
+            value_from {
+              secret_key_ref {
+                key = "NEO4J_URL"
+                name = "application-secrets"
+              }
+            }
+          }
+
           volume_mount {
             name       = "gcp-credentials"
             read_only  = true
