@@ -7,10 +7,6 @@ export const questionnaireFields: Field[] = [
     type: 'string',
   },
   {
-    name: 'questionTree',
-    type: 'codeEditor',
-  },
-  {
     labelColumn: 'name',
     name: 'matterTemplateId',
     queryName: 'allMatterTemplates',

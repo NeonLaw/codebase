@@ -1830,6 +1830,7 @@ export type MatterTemplate = Node & {
   category: Scalars['String'];
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
+  active: Scalars['Boolean'];
   /** Reads and enables pagination through a set of `Questionnaire`. */
   questionnairesByMatterTemplateId: QuestionnairesConnection;
   /** Reads and enables pagination through a set of `Matter`. */
@@ -1867,6 +1868,10 @@ export type MatterTemplateCondition = {
   id?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `name` field. */
   name?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `category` field. */
+  category?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `active` field. */
+  active?: Maybe<Scalars['Boolean']>;
 };
 
 /** An input for mutations affecting `MatterTemplate` */
@@ -1877,6 +1882,7 @@ export type MatterTemplateInput = {
   category?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
+  active?: Maybe<Scalars['Boolean']>;
 };
 
 /** Represents an update to a `MatterTemplate`. Fields that are set will be updated. */
@@ -1887,6 +1893,7 @@ export type MatterTemplatePatch = {
   category?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
+  active?: Maybe<Scalars['Boolean']>;
 };
 
 /** A connection to a list of `MatterTemplate` values. */
@@ -1918,6 +1925,10 @@ export enum MatterTemplatesOrderBy {
   IdDesc = 'ID_DESC',
   NameAsc = 'NAME_ASC',
   NameDesc = 'NAME_DESC',
+  CategoryAsc = 'CATEGORY_ASC',
+  CategoryDesc = 'CATEGORY_DESC',
+  ActiveAsc = 'ACTIVE_ASC',
+  ActiveDesc = 'ACTIVE_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -3134,7 +3145,7 @@ export type Question = Node & {
   options?: Maybe<Array<Maybe<Scalars['String']>>>;
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
-  helpText?: Maybe<Scalars['String']>;
+  helpText?: Maybe<Scalars['JSON']>;
   /** Reads and enables pagination through a set of `Response`. */
   responsesByQuestionId: ResponsesConnection;
 };
@@ -3171,7 +3182,7 @@ export type QuestionInput = {
   options?: Maybe<Array<Maybe<Scalars['String']>>>;
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
-  helpText?: Maybe<Scalars['String']>;
+  helpText?: Maybe<Scalars['JSON']>;
 };
 
 export type Questionnaire = Node & {
@@ -3181,8 +3192,6 @@ export type Questionnaire = Node & {
   id: Scalars['UUID'];
   /** The name of the questionnaire */
   name: Scalars['String'];
-  /** The question tree or how a person answers the questionnaire */
-  questionTree: Scalars['JSON'];
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
   matterTemplateId: Scalars['UUID'];
@@ -3224,8 +3233,6 @@ export type QuestionnaireCondition = {
 export type QuestionnaireInput = {
   /** The name of the questionnaire */
   name: Scalars['String'];
-  /** The question tree or how a person answers the questionnaire */
-  questionTree: Scalars['JSON'];
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
   matterTemplateId: Scalars['UUID'];
@@ -3236,8 +3243,6 @@ export type QuestionnairePatch = {
   id?: Maybe<Scalars['UUID']>;
   /** The name of the questionnaire */
   name?: Maybe<Scalars['String']>;
-  /** The question tree or how a person answers the questionnaire */
-  questionTree?: Maybe<Scalars['JSON']>;
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
   matterTemplateId?: Maybe<Scalars['UUID']>;
@@ -3386,7 +3391,7 @@ export type QuestionPatch = {
   options?: Maybe<Array<Maybe<Scalars['String']>>>;
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
-  helpText?: Maybe<Scalars['String']>;
+  helpText?: Maybe<Scalars['JSON']>;
 };
 
 /** A connection to a list of `Question` values. */
@@ -4259,6 +4264,29 @@ export type UpdateResponsePayloadResponseEdgeArgs = {
 };
 
 
+export type AllActiveMatterTemplatesByCategoryQueryVariables = Exact<{
+  category: Scalars['String'];
+}>;
+
+
+export type AllActiveMatterTemplatesByCategoryQuery = (
+  { __typename?: 'Query' }
+  & { allMatterTemplates?: Maybe<(
+    { __typename?: 'MatterTemplatesConnection' }
+    & { nodes: Array<(
+      { __typename?: 'MatterTemplate' }
+      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule' | 'category'>
+      & { questionnairesByMatterTemplateId: (
+        { __typename?: 'QuestionnairesConnection' }
+        & { nodes: Array<(
+          { __typename?: 'Questionnaire' }
+          & Pick<Questionnaire, 'id' | 'name'>
+        )> }
+      ) }
+    )> }
+  )> }
+);
+
 export type AllCurrentUserMattersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4345,7 +4373,7 @@ export type AllQuestionnairesQuery = (
     { __typename?: 'QuestionnairesConnection' }
     & { nodes: Array<(
       { __typename?: 'Questionnaire' }
-      & Pick<Questionnaire, 'id' | 'name' | 'questionTree' | 'createdAt' | 'updatedAt'>
+      & Pick<Questionnaire, 'id' | 'name' | 'createdAt' | 'updatedAt'>
       & { matterTemplateByMatterTemplateId?: Maybe<(
         { __typename?: 'MatterTemplate' }
         & Pick<MatterTemplate, 'id' | 'name' | 'category'>
@@ -4406,6 +4434,7 @@ export type CreateMatterDocumentTemplateMutation = (
 export type CreateMatterTemplateMutationVariables = Exact<{
   name: Scalars['String'];
   javascriptModule: Scalars['String'];
+  category: Scalars['String'];
 }>;
 
 
@@ -4415,7 +4444,7 @@ export type CreateMatterTemplateMutation = (
     { __typename?: 'CreateMatterTemplatePayload' }
     & { matterTemplate?: Maybe<(
       { __typename?: 'MatterTemplate' }
-      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule'>
+      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule' | 'category'>
     )> }
   )> }
 );
@@ -4441,7 +4470,6 @@ export type CreateQuestionMutation = (
 export type CreateQuestionnaireMutationVariables = Exact<{
   name: Scalars['String'];
   matterTemplateId: Scalars['UUID'];
-  questionTree: Scalars['JSON'];
 }>;
 
 
@@ -4580,6 +4608,19 @@ export type MatterByIdQuery = (
   )> }
 );
 
+export type QuestionnaireByIdQueryVariables = Exact<{
+  id: Scalars['UUID'];
+}>;
+
+
+export type QuestionnaireByIdQuery = (
+  { __typename?: 'Query' }
+  & { questionnaireById?: Maybe<(
+    { __typename?: 'Questionnaire' }
+    & Pick<Questionnaire, 'id' | 'name'>
+  )> }
+);
+
 export type UpdateMatterByIdMutationVariables = Exact<{
   id: Scalars['UUID'];
   name: Scalars['String'];
@@ -4674,7 +4715,6 @@ export type UpdateQuestionByIdMutation = (
 export type UpdateQuestionnaireByIdMutationVariables = Exact<{
   id: Scalars['UUID'];
   name?: Maybe<Scalars['String']>;
-  questionTree?: Maybe<Scalars['JSON']>;
 }>;
 
 
@@ -4684,12 +4724,56 @@ export type UpdateQuestionnaireByIdMutation = (
     { __typename?: 'UpdateQuestionnairePayload' }
     & { questionnaire?: Maybe<(
       { __typename?: 'Questionnaire' }
-      & Pick<Questionnaire, 'id' | 'name' | 'questionTree'>
+      & Pick<Questionnaire, 'id' | 'name'>
     )> }
   )> }
 );
 
 
+export const AllActiveMatterTemplatesByCategoryDocument = gql`
+    query AllActiveMatterTemplatesByCategory($category: String!) {
+  allMatterTemplates(condition: {category: $category, active: true}, orderBy: NAME_ASC) {
+    nodes {
+      id
+      name
+      javascriptModule
+      category
+      questionnairesByMatterTemplateId {
+        nodes {
+          id
+          name
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useAllActiveMatterTemplatesByCategoryQuery__
+ *
+ * To run a query within a React component, call `useAllActiveMatterTemplatesByCategoryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllActiveMatterTemplatesByCategoryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAllActiveMatterTemplatesByCategoryQuery({
+ *   variables: {
+ *      category: // value for 'category'
+ *   },
+ * });
+ */
+export function useAllActiveMatterTemplatesByCategoryQuery(baseOptions: Apollo.QueryHookOptions<AllActiveMatterTemplatesByCategoryQuery, AllActiveMatterTemplatesByCategoryQueryVariables>) {
+        return Apollo.useQuery<AllActiveMatterTemplatesByCategoryQuery, AllActiveMatterTemplatesByCategoryQueryVariables>(AllActiveMatterTemplatesByCategoryDocument, baseOptions);
+      }
+export function useAllActiveMatterTemplatesByCategoryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllActiveMatterTemplatesByCategoryQuery, AllActiveMatterTemplatesByCategoryQueryVariables>) {
+          return Apollo.useLazyQuery<AllActiveMatterTemplatesByCategoryQuery, AllActiveMatterTemplatesByCategoryQueryVariables>(AllActiveMatterTemplatesByCategoryDocument, baseOptions);
+        }
+export type AllActiveMatterTemplatesByCategoryQueryHookResult = ReturnType<typeof useAllActiveMatterTemplatesByCategoryQuery>;
+export type AllActiveMatterTemplatesByCategoryLazyQueryHookResult = ReturnType<typeof useAllActiveMatterTemplatesByCategoryLazyQuery>;
+export type AllActiveMatterTemplatesByCategoryQueryResult = Apollo.QueryResult<AllActiveMatterTemplatesByCategoryQuery, AllActiveMatterTemplatesByCategoryQueryVariables>;
 export const AllCurrentUserMattersDocument = gql`
     query AllCurrentUserMatters {
   allCurrentUserMatters {
@@ -4895,7 +4979,6 @@ export const AllQuestionnairesDocument = gql`
         category
       }
       name
-      questionTree
       createdAt
       updatedAt
     }
@@ -5041,12 +5124,13 @@ export type CreateMatterDocumentTemplateMutationHookResult = ReturnType<typeof u
 export type CreateMatterDocumentTemplateMutationResult = Apollo.MutationResult<CreateMatterDocumentTemplateMutation>;
 export type CreateMatterDocumentTemplateMutationOptions = Apollo.BaseMutationOptions<CreateMatterDocumentTemplateMutation, CreateMatterDocumentTemplateMutationVariables>;
 export const CreateMatterTemplateDocument = gql`
-    mutation CreateMatterTemplate($name: String!, $javascriptModule: String!) {
-  createMatterTemplate(input: {matterTemplate: {name: $name, javascriptModule: $javascriptModule}}) {
+    mutation CreateMatterTemplate($name: String!, $javascriptModule: String!, $category: String!) {
+  createMatterTemplate(input: {matterTemplate: {name: $name, javascriptModule: $javascriptModule, category: $category}}) {
     matterTemplate {
       id
       name
       javascriptModule
+      category
     }
   }
 }
@@ -5068,6 +5152,7 @@ export type CreateMatterTemplateMutationFn = Apollo.MutationFunction<CreateMatte
  *   variables: {
  *      name: // value for 'name'
  *      javascriptModule: // value for 'javascriptModule'
+ *      category: // value for 'category'
  *   },
  * });
  */
@@ -5117,8 +5202,8 @@ export type CreateQuestionMutationHookResult = ReturnType<typeof useCreateQuesti
 export type CreateQuestionMutationResult = Apollo.MutationResult<CreateQuestionMutation>;
 export type CreateQuestionMutationOptions = Apollo.BaseMutationOptions<CreateQuestionMutation, CreateQuestionMutationVariables>;
 export const CreateQuestionnaireDocument = gql`
-    mutation CreateQuestionnaire($name: String!, $matterTemplateId: UUID!, $questionTree: JSON!) {
-  createQuestionnaire(input: {questionnaire: {name: $name, matterTemplateId: $matterTemplateId, questionTree: $questionTree}}) {
+    mutation CreateQuestionnaire($name: String!, $matterTemplateId: UUID!) {
+  createQuestionnaire(input: {questionnaire: {name: $name, matterTemplateId: $matterTemplateId}}) {
     questionnaire {
       id
       createdAt
@@ -5144,7 +5229,6 @@ export type CreateQuestionnaireMutationFn = Apollo.MutationFunction<CreateQuesti
  *   variables: {
  *      name: // value for 'name'
  *      matterTemplateId: // value for 'matterTemplateId'
- *      questionTree: // value for 'questionTree'
  *   },
  * });
  */
@@ -5437,6 +5521,40 @@ export function useMatterByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type MatterByIdQueryHookResult = ReturnType<typeof useMatterByIdQuery>;
 export type MatterByIdLazyQueryHookResult = ReturnType<typeof useMatterByIdLazyQuery>;
 export type MatterByIdQueryResult = Apollo.QueryResult<MatterByIdQuery, MatterByIdQueryVariables>;
+export const QuestionnaireByIdDocument = gql`
+    query QuestionnaireById($id: UUID!) {
+  questionnaireById(id: $id) {
+    id
+    name
+  }
+}
+    `;
+
+/**
+ * __useQuestionnaireByIdQuery__
+ *
+ * To run a query within a React component, call `useQuestionnaireByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useQuestionnaireByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useQuestionnaireByIdQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useQuestionnaireByIdQuery(baseOptions: Apollo.QueryHookOptions<QuestionnaireByIdQuery, QuestionnaireByIdQueryVariables>) {
+        return Apollo.useQuery<QuestionnaireByIdQuery, QuestionnaireByIdQueryVariables>(QuestionnaireByIdDocument, baseOptions);
+      }
+export function useQuestionnaireByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<QuestionnaireByIdQuery, QuestionnaireByIdQueryVariables>) {
+          return Apollo.useLazyQuery<QuestionnaireByIdQuery, QuestionnaireByIdQueryVariables>(QuestionnaireByIdDocument, baseOptions);
+        }
+export type QuestionnaireByIdQueryHookResult = ReturnType<typeof useQuestionnaireByIdQuery>;
+export type QuestionnaireByIdLazyQueryHookResult = ReturnType<typeof useQuestionnaireByIdLazyQuery>;
+export type QuestionnaireByIdQueryResult = Apollo.QueryResult<QuestionnaireByIdQuery, QuestionnaireByIdQueryVariables>;
 export const UpdateMatterByIdDocument = gql`
     mutation UpdateMatterById($id: UUID!, $name: String!) {
   updateMatterById(input: {id: $id, matterPatch: {name: $name}}) {
@@ -5631,12 +5749,11 @@ export type UpdateQuestionByIdMutationHookResult = ReturnType<typeof useUpdateQu
 export type UpdateQuestionByIdMutationResult = Apollo.MutationResult<UpdateQuestionByIdMutation>;
 export type UpdateQuestionByIdMutationOptions = Apollo.BaseMutationOptions<UpdateQuestionByIdMutation, UpdateQuestionByIdMutationVariables>;
 export const UpdateQuestionnaireByIdDocument = gql`
-    mutation UpdateQuestionnaireById($id: UUID!, $name: String, $questionTree: JSON) {
-  updateQuestionnaireById(input: {questionnairePatch: {questionTree: $questionTree, name: $name}, id: $id}) {
+    mutation UpdateQuestionnaireById($id: UUID!, $name: String) {
+  updateQuestionnaireById(input: {questionnairePatch: {name: $name}, id: $id}) {
     questionnaire {
       id
       name
-      questionTree
     }
   }
 }
@@ -5658,7 +5775,6 @@ export type UpdateQuestionnaireByIdMutationFn = Apollo.MutationFunction<UpdateQu
  *   variables: {
  *      id: // value for 'id'
  *      name: // value for 'name'
- *      questionTree: // value for 'questionTree'
  *   },
  * });
  */

@@ -17,6 +17,7 @@ export const matterTemplateFields: Field[] = [
       { label: 'Litigation', value: 'litigation' },
       { label: 'Estate', value: 'estate' },
       { label: 'Business', value: 'business' },
+      { label: 'Bar Prep', value: 'bar-prep' },
     ],
     type: 'select',
   }

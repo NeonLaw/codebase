@@ -1,0 +1,19 @@
+query AllActiveMatterTemplatesByCategory($category: String!) {
+  allMatterTemplates(
+    condition: { category: $category, active: true }
+    orderBy: NAME_ASC
+  ) {
+    nodes {
+      id
+      name
+      javascriptModule
+      category
+      questionnairesByMatterTemplateId {
+        nodes {
+          id
+          name
+        }
+      }
+    }
+  }
+}
