@@ -81,7 +81,7 @@ module "application_secrets" {
   lob_api_secret                = var.lob_api_secret
   new_relic_license_key         = var.new_relic_license_key
   redis_url                     = "redis://${var.environment}-redis-headless:6379"
-  neo4j_url                     = "bolt://${var.environment}-neo4j-neo4j:7687"
+  neo4j_url                     = "bolt+routing://${var.environment}-neo4j-neo4j:7687"
   sendgrid_api_key              = var.sendgrid_api_key
   stripe_api_publishable_key    = var.stripe_api_publishable_key
   stripe_api_secret_key         = var.stripe_api_secret_key
