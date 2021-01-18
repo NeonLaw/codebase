@@ -17,5 +17,9 @@ export const questionFields: Field[] = [
       },
     ],
     type: 'select',
-  }
+  },
+  {
+    name: 'helpText',
+    type: 'textarea',
+  },
 ];

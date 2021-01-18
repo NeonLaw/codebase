@@ -4453,6 +4453,7 @@ export type CreateQuestionMutationVariables = Exact<{
   options?: Maybe<Array<Maybe<Scalars['String']>> | Maybe<Scalars['String']>>;
   questionType: Scalars['String'];
   prompt: Scalars['String'];
+  helpText?: Maybe<Scalars['JSON']>;
 }>;
 
 
@@ -4462,7 +4463,7 @@ export type CreateQuestionMutation = (
     { __typename?: 'CreateQuestionPayload' }
     & { question?: Maybe<(
       { __typename?: 'Question' }
-      & Pick<Question, 'id' | 'options' | 'questionType' | 'prompt'>
+      & Pick<Question, 'id' | 'options' | 'questionType' | 'prompt' | 'helpText'>
     )> }
   )> }
 );
@@ -4608,6 +4609,19 @@ export type MatterByIdQuery = (
   )> }
 );
 
+export type QuestionByIdQueryVariables = Exact<{
+  id: Scalars['UUID'];
+}>;
+
+
+export type QuestionByIdQuery = (
+  { __typename?: 'Query' }
+  & { questionById?: Maybe<(
+    { __typename?: 'Question' }
+    & Pick<Question, 'id' | 'prompt' | 'helpText' | 'questionType'>
+  )> }
+);
+
 export type QuestionnaireByIdQueryVariables = Exact<{
   id: Scalars['UUID'];
 }>;
@@ -4698,6 +4712,7 @@ export type UpdateQuestionByIdMutationVariables = Exact<{
   options?: Maybe<Array<Maybe<Scalars['String']>> | Maybe<Scalars['String']>>;
   questionType?: Maybe<Scalars['String']>;
   prompt?: Maybe<Scalars['String']>;
+  helpText?: Maybe<Scalars['JSON']>;
 }>;
 
 
@@ -4707,7 +4722,7 @@ export type UpdateQuestionByIdMutation = (
     { __typename?: 'UpdateQuestionPayload' }
     & { question?: Maybe<(
       { __typename?: 'Question' }
-      & Pick<Question, 'id' | 'options' | 'questionType' | 'prompt'>
+      & Pick<Question, 'id' | 'options' | 'questionType' | 'prompt' | 'helpText'>
     )> }
   )> }
 );
@@ -5163,13 +5178,14 @@ export type CreateMatterTemplateMutationHookResult = ReturnType<typeof useCreate
 export type CreateMatterTemplateMutationResult = Apollo.MutationResult<CreateMatterTemplateMutation>;
 export type CreateMatterTemplateMutationOptions = Apollo.BaseMutationOptions<CreateMatterTemplateMutation, CreateMatterTemplateMutationVariables>;
 export const CreateQuestionDocument = gql`
-    mutation CreateQuestion($options: [String], $questionType: String!, $prompt: String!) {
-  createQuestion(input: {question: {options: $options, questionType: $questionType, prompt: $prompt}}) {
+    mutation CreateQuestion($options: [String], $questionType: String!, $prompt: String!, $helpText: JSON) {
+  createQuestion(input: {question: {options: $options, questionType: $questionType, prompt: $prompt, helpText: $helpText}}) {
     question {
       id
       options
       questionType
       prompt
+      helpText
     }
   }
 }
@@ -5192,6 +5208,7 @@ export type CreateQuestionMutationFn = Apollo.MutationFunction<CreateQuestionMut
  *      options: // value for 'options'
  *      questionType: // value for 'questionType'
  *      prompt: // value for 'prompt'
+ *      helpText: // value for 'helpText'
  *   },
  * });
  */
@@ -5521,6 +5538,42 @@ export function useMatterByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type MatterByIdQueryHookResult = ReturnType<typeof useMatterByIdQuery>;
 export type MatterByIdLazyQueryHookResult = ReturnType<typeof useMatterByIdLazyQuery>;
 export type MatterByIdQueryResult = Apollo.QueryResult<MatterByIdQuery, MatterByIdQueryVariables>;
+export const QuestionByIdDocument = gql`
+    query QuestionById($id: UUID!) {
+  questionById(id: $id) {
+    id
+    prompt
+    helpText
+    questionType
+  }
+}
+    `;
+
+/**
+ * __useQuestionByIdQuery__
+ *
+ * To run a query within a React component, call `useQuestionByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useQuestionByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useQuestionByIdQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useQuestionByIdQuery(baseOptions: Apollo.QueryHookOptions<QuestionByIdQuery, QuestionByIdQueryVariables>) {
+        return Apollo.useQuery<QuestionByIdQuery, QuestionByIdQueryVariables>(QuestionByIdDocument, baseOptions);
+      }
+export function useQuestionByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<QuestionByIdQuery, QuestionByIdQueryVariables>) {
+          return Apollo.useLazyQuery<QuestionByIdQuery, QuestionByIdQueryVariables>(QuestionByIdDocument, baseOptions);
+        }
+export type QuestionByIdQueryHookResult = ReturnType<typeof useQuestionByIdQuery>;
+export type QuestionByIdLazyQueryHookResult = ReturnType<typeof useQuestionByIdLazyQuery>;
+export type QuestionByIdQueryResult = Apollo.QueryResult<QuestionByIdQuery, QuestionByIdQueryVariables>;
 export const QuestionnaireByIdDocument = gql`
     query QuestionnaireById($id: UUID!) {
   questionnaireById(id: $id) {
@@ -5709,13 +5762,14 @@ export type UpdatePersonByIdMutationHookResult = ReturnType<typeof useUpdatePers
 export type UpdatePersonByIdMutationResult = Apollo.MutationResult<UpdatePersonByIdMutation>;
 export type UpdatePersonByIdMutationOptions = Apollo.BaseMutationOptions<UpdatePersonByIdMutation, UpdatePersonByIdMutationVariables>;
 export const UpdateQuestionByIdDocument = gql`
-    mutation UpdateQuestionById($id: UUID!, $options: [String], $questionType: String, $prompt: String) {
-  updateQuestionById(input: {questionPatch: {options: $options, questionType: $questionType, prompt: $prompt}, id: $id}) {
+    mutation UpdateQuestionById($id: UUID!, $options: [String], $questionType: String, $prompt: String, $helpText: JSON) {
+  updateQuestionById(input: {questionPatch: {options: $options, questionType: $questionType, prompt: $prompt, helpText: $helpText}, id: $id}) {
     question {
       id
       options
       questionType
       prompt
+      helpText
     }
   }
 }
@@ -5739,6 +5793,7 @@ export type UpdateQuestionByIdMutationFn = Apollo.MutationFunction<UpdateQuestio
  *      options: // value for 'options'
  *      questionType: // value for 'questionType'
  *      prompt: // value for 'prompt'
+ *      helpText: // value for 'helpText'
  *   },
  * });
  */

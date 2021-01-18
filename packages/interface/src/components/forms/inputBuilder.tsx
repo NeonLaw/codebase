@@ -114,6 +114,7 @@ export const InputBuilder = ({
                   id: `forms.${underscoreFieldName}.placeholder`,
                 })}
                 control={control}
+                defaultValue={currentValues && currentValues[name]}
               />
             );
           case 'select':

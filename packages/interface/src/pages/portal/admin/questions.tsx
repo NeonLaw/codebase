@@ -26,7 +26,7 @@ const AdminQuestions = () => {
         <Breadcrumbs />
 
         <Button
-          flash={true}
+          flash={false}
           buttonScheme="teal"
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
@@ -50,7 +50,7 @@ const AdminQuestions = () => {
 
         <UpdateQuestionModal
           isOpen={isOpen && !showCreateModal}
-          currentValues={(currentRow as any)?.values}
+          questionId={(currentRow as any)?.values.id}
           onClose={() => {
             changeShowCreateModal(true);
             onClose();

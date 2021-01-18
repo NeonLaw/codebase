@@ -2,6 +2,7 @@ mutation CreateQuestion(
   $options: [String]
   $questionType: String!
   $prompt: String!
+  $helpText: JSON
 ) {
   createQuestion(
     input: {
@@ -9,6 +10,7 @@ mutation CreateQuestion(
         options: $options
         questionType: $questionType
         prompt: $prompt
+        helpText: $helpText
       }
     }
   ) {
@@ -17,6 +19,7 @@ mutation CreateQuestion(
       options
       questionType
       prompt
+      helpText
     }
   }
 }

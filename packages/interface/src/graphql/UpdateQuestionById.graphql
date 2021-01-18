@@ -3,6 +3,7 @@ mutation UpdateQuestionById(
   $options: [String]
   $questionType: String
   $prompt: String
+  $helpText: JSON
 ) {
   updateQuestionById(
     input: {
@@ -10,6 +11,7 @@ mutation UpdateQuestionById(
         options: $options
         questionType: $questionType
         prompt: $prompt
+        helpText: $helpText
       }
       id: $id
     }
@@ -19,6 +21,7 @@ mutation UpdateQuestionById(
       options
       questionType
       prompt
+      helpText
     }
   }
 }
