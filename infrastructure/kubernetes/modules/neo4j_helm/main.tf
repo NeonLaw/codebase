@@ -12,4 +12,9 @@ resource "helm_release" "neo4j" {
     name  = "neo4jPassword"
     value = "graphs"
   }
+
+  set {
+    name  = "core.numberOfServers"
+    value = "1"
+  }
 }
