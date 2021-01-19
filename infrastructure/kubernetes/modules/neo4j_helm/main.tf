@@ -14,7 +14,7 @@ resource "helm_release" "neo4j" {
   }
 
   set {
-    name  = "core.numberOfServers"
-    value = "1"
+    name  = "core.standalone"
+    value = "true"
   }
 }
