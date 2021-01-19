@@ -14979,10 +14979,10 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-neo4j-driver@^4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/neo4j-driver/-/neo4j-driver-4.2.1.tgz#b2b7542c4a83f0d1085e86826ee7ff11da71a7dc"
-  integrity sha512-5Zkb7yIsoManNvVW1dePeotb+qcLOEdFPScdIUaHAvhU/guiqvc2OHwjpIXWjz+4xdKTXZ4YWJBEr2ZaW9f+MQ==
+neo4j-driver@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/neo4j-driver/-/neo4j-driver-4.2.2.tgz#658dcb83fab95d1b1ceb29c23570fc3e6715a753"
+  integrity sha512-2XItlip3L8g4ONCu3XgrdhHAgPEomNFEzfc3oNkeKBTSHtykStwKkssWGZrwnZx+l0GbQ1KkeZBVqLtuxGK7wA==
   dependencies:
     "@babel/runtime" "^7.5.5"
     rxjs "^6.6.3"
@@ -21599,14 +21599,7 @@ upper-case@^2.0.1, upper-case@^2.0.2:
   dependencies:
     tslib "^2.0.3"
 
-uri-js@^4.2.2:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.4.0.tgz#aa714261de793e8a82347a7bcc9ce74e86f28602"
-  integrity sha512-B0yRTzYdUCCn9n+F4+Gh4yIDtMQcaJsmYBDsTSG8g/OejKBodLQ2IHfN3bM7jUsRXndopT7OIXWdYqc1fjmV6g==
-  dependencies:
-    punycode "^2.1.0"
-
-uri-js@^4.4.0:
+uri-js@^4.2.2, uri-js@^4.4.0:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.4.1.tgz#9b1a52595225859e55f669d928f88c6c57f2a77e"
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
