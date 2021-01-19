@@ -98,7 +98,7 @@ module "gcp_credentials_kubernetes_secret" {
 }
 
 module "api_deployment" {
-  source       = "../modules/server_deployment"
+  source       = "./modules/server_deployment"
   environment  = var.environment
   process_name = "api"
   image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/server:latest"
@@ -118,7 +118,7 @@ module "api_deployment" {
 }
 
 module "worker_deployment" {
-  source       = "../modules/server_deployment"
+  source       = "./modules/background_job_deployment"
   environment  = var.environment
   process_name = "workers"
   image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/server:latest"
