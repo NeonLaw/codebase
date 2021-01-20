@@ -7,10 +7,10 @@ export const upsertQuestionToNeo4j = async (
   const { questionId } = payload;
 
   const questionQuery = await helpers.query(
-    'SELECT id, prompt FROM question WHERE id = $1 LIMIT 1',
+    'SELECT id, prompt, help_text FROM question WHERE id = $1 LIMIT 1',
     [questionId]
   );
-  const { prompt, id } = questionQuery.rows[0];
+  const { prompt, id, help_text } = questionQuery.rows[0];
 
   const session = neo4jSession({ databaseName: 'questionnaires' });
 
@@ -20,8 +20,11 @@ export const upsertQuestionToNeo4j = async (
       { id }
     );
     await session.run(
-      'MATCH (q:Question {id: $id}) SET q.prompt = $prompt RETURN q',
-      { id, prompt }
+      'MATCH (q:Question {id: $id}) '+
+      'SET q.prompt = $prompt '+
+      'SET q.help_text = $help_text '+
+      'RETURN q',
+      { help_text, id, prompt }
     );
   } finally {
     await session.close();
