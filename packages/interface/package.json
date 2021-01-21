@@ -87,7 +87,7 @@
     "yup": "^0.32.8"
   },
   "optionalDependencies": {
-    "cypress": "^6.2.1"
+    "cypress": "^6.3.0"
   },
   "scripts": {
     "build": "yarn intl:en && yarn intl:es && gatsby build",
