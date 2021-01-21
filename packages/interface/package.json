@@ -30,7 +30,7 @@
     "gatsby-plugin-canonical-urls": "^2.8.0",
     "gatsby-plugin-create-client-paths": "^2.9.0",
     "gatsby-plugin-intl": "^0.3.3",
-    "gatsby-plugin-layout": "^1.8.0",
+    "gatsby-plugin-layout": "^1.9.0",
     "gatsby-plugin-manifest": "^2.11.0",
     "gatsby-plugin-mdx": "^1.9.0",
     "gatsby-plugin-module-resolver": "^1.0.3",
