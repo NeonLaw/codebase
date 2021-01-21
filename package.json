@@ -14,7 +14,7 @@
         "@testing-library/jest-dom": "^5.11.9",
         "@testing-library/react": "^11.2.3",
         "@turf/bezier-spline": "^6.2.0",
-        "@turf/helpers": "^6.2.0",
+        "@turf/helpers": "^6.3.0",
         "@types/cors": "^2.8.9",
         "@types/express": "^4.17.11",
         "@types/express-jwt": "^6.0.0",
