@@ -3,6 +3,7 @@ import GraphilePro from '@graphile/pro';
 import PgPubsub from '@graphile/pg-pubsub';
 import { fileUploadsPlugin } from './resolvers/fileUploads';
 import newrelic from 'newrelic';
+import { slatePlugin } from './slateTypes';
 
 const pluginHook = makePluginHook([
   PgPubsub,
@@ -22,7 +23,7 @@ export const postgraphileOptions: PostGraphileOptions = {
     return {};
   },
   allowExplain: process.env.SHOW_GRAPHIQL === 'true' ? true : false,
-  appendPlugins: [fileUploadsPlugin],
+  appendPlugins: [fileUploadsPlugin, slatePlugin],
   defaultPaginationCap:
     parseInt(process.env.GRAPHQL_PAGINATION_CAP || '', 10) || 50,
   disableQueryLog: false,
@@ -56,7 +57,6 @@ export const postgraphileOptions: PostGraphileOptions = {
       settings['role'] = 'anonymous';
       settings['application_name'] = traceId;
     }
-
 
     if (process.env.NODE_ENV === 'production') {
       newrelic.setTransactionName(settings['application_name']);

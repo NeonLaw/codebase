@@ -11,6 +11,9 @@ import {
   QuestionnaireTable
 } from '../../../components/tables/questionnaireTable';
 import {
+  SyncQuestionnaireButton
+} from '../../../components/syncQuestionnaireButton';
+import {
   UpdateQuestionnaireModal
 } from '../../../components/modals/updateQuestionnaireModal';
 import { gutters } from '../../../themes/neonLaw';
@@ -39,6 +42,8 @@ const AdminQuestionnaires = () => {
             C
           </Kbd>
         </Button>
+
+        <SyncQuestionnaireButton id={(currentRow as any)?.values.id} />
 
         <CreateQuestionnaireModal
           isOpen={isOpen && showCreateModal}
