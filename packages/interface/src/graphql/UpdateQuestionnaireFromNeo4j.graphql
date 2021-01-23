@@ -1,0 +1,8 @@
+mutation UpdateQuestionnaireFromNeo4J($id: UUID!) {
+  updateQuestionnaireFromNeo4J(input: { questionnaireId: $id }) {
+    questionnaire {
+      id
+      name
+    }
+  }
+}

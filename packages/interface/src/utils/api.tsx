@@ -2076,6 +2076,7 @@ export type Mutation = {
   deleteResponseDocumentById?: Maybe<DeleteResponseDocumentPayload>;
   createPrimaryKeyIdIfNotExists?: Maybe<CreatePrimaryKeyIdIfNotExistsPayload>;
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
+  updateQuestionnaireFromNeo4J?: Maybe<UpdateQuestionnaireFromNeo4JPayload>;
   getTransloaditToken?: Maybe<GetTransloaditTokenPayload>;
   createResponseDocumentFromUpload?: Maybe<CreateResponseDocumentFromUploadPayload>;
 };
@@ -2504,6 +2505,12 @@ export type MutationCreatePrimaryKeyIdIfNotExistsArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateRoleIfNotExistsArgs = {
   input: CreateRoleIfNotExistsInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateQuestionnaireFromNeo4JArgs = {
+  input: UpdateQuestionnaireFromNeo4JInput;
 };
 
 
@@ -4053,6 +4060,39 @@ export type UpdateQuestionnaireByIdInput = {
   id: Scalars['UUID'];
 };
 
+/** All input for the `updateQuestionnaireFromNeo4J` mutation. */
+export type UpdateQuestionnaireFromNeo4JInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  questionnaireId?: Maybe<Scalars['UUID']>;
+};
+
+/** The output of our `updateQuestionnaireFromNeo4J` mutation. */
+export type UpdateQuestionnaireFromNeo4JPayload = {
+  __typename?: 'UpdateQuestionnaireFromNeo4JPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  questionnaire?: Maybe<Questionnaire>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `MatterTemplate` that is related to this `Questionnaire`. */
+  matterTemplateByMatterTemplateId?: Maybe<MatterTemplate>;
+  /** An edge for our `Questionnaire`. May be used by Relay 1. */
+  questionnaireEdge?: Maybe<QuestionnairesEdge>;
+};
+
+
+/** The output of our `updateQuestionnaireFromNeo4J` mutation. */
+export type UpdateQuestionnaireFromNeo4JPayloadQuestionnaireEdgeArgs = {
+  orderBy?: Maybe<Array<QuestionnairesOrderBy>>;
+};
+
 /** All input for the `updateQuestionnaire` mutation. */
 export type UpdateQuestionnaireInput = {
   /**
@@ -4737,6 +4777,22 @@ export type UpdateQuestionnaireByIdMutation = (
   { __typename?: 'Mutation' }
   & { updateQuestionnaireById?: Maybe<(
     { __typename?: 'UpdateQuestionnairePayload' }
+    & { questionnaire?: Maybe<(
+      { __typename?: 'Questionnaire' }
+      & Pick<Questionnaire, 'id' | 'name'>
+    )> }
+  )> }
+);
+
+export type UpdateQuestionnaireFromNeo4JMutationVariables = Exact<{
+  id: Scalars['UUID'];
+}>;
+
+
+export type UpdateQuestionnaireFromNeo4JMutation = (
+  { __typename?: 'Mutation' }
+  & { updateQuestionnaireFromNeo4J?: Maybe<(
+    { __typename?: 'UpdateQuestionnaireFromNeo4JPayload' }
     & { questionnaire?: Maybe<(
       { __typename?: 'Questionnaire' }
       & Pick<Questionnaire, 'id' | 'name'>
@@ -5839,3 +5895,38 @@ export function useUpdateQuestionnaireByIdMutation(baseOptions?: Apollo.Mutation
 export type UpdateQuestionnaireByIdMutationHookResult = ReturnType<typeof useUpdateQuestionnaireByIdMutation>;
 export type UpdateQuestionnaireByIdMutationResult = Apollo.MutationResult<UpdateQuestionnaireByIdMutation>;
 export type UpdateQuestionnaireByIdMutationOptions = Apollo.BaseMutationOptions<UpdateQuestionnaireByIdMutation, UpdateQuestionnaireByIdMutationVariables>;
+export const UpdateQuestionnaireFromNeo4JDocument = gql`
+    mutation UpdateQuestionnaireFromNeo4J($id: UUID!) {
+  updateQuestionnaireFromNeo4J(input: {questionnaireId: $id}) {
+    questionnaire {
+      id
+      name
+    }
+  }
+}
+    `;
+export type UpdateQuestionnaireFromNeo4JMutationFn = Apollo.MutationFunction<UpdateQuestionnaireFromNeo4JMutation, UpdateQuestionnaireFromNeo4JMutationVariables>;
+
+/**
+ * __useUpdateQuestionnaireFromNeo4JMutation__
+ *
+ * To run a mutation, you first call `useUpdateQuestionnaireFromNeo4JMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateQuestionnaireFromNeo4JMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateQuestionnaireFromNeo4JMutation, { data, loading, error }] = useUpdateQuestionnaireFromNeo4JMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useUpdateQuestionnaireFromNeo4JMutation(baseOptions?: Apollo.MutationHookOptions<UpdateQuestionnaireFromNeo4JMutation, UpdateQuestionnaireFromNeo4JMutationVariables>) {
+        return Apollo.useMutation<UpdateQuestionnaireFromNeo4JMutation, UpdateQuestionnaireFromNeo4JMutationVariables>(UpdateQuestionnaireFromNeo4JDocument, baseOptions);
+      }
+export type UpdateQuestionnaireFromNeo4JMutationHookResult = ReturnType<typeof useUpdateQuestionnaireFromNeo4JMutation>;
+export type UpdateQuestionnaireFromNeo4JMutationResult = Apollo.MutationResult<UpdateQuestionnaireFromNeo4JMutation>;
+export type UpdateQuestionnaireFromNeo4JMutationOptions = Apollo.BaseMutationOptions<UpdateQuestionnaireFromNeo4JMutation, UpdateQuestionnaireFromNeo4JMutationVariables>;
