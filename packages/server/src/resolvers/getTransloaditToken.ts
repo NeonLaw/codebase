@@ -23,8 +23,6 @@ export const getTransloaditToken = async (): Promise<any> => {
     template_id: templateId,
   });
 
-  console.log(transloaditTokenParams);
-
   const signature = crypto
     .createHmac('sha1', authSecret)
     .update(Buffer.from(transloaditTokenParams, 'utf-8'))
