@@ -17,9 +17,7 @@ export const DragAndDrop = (props: DragAndDropProps) => {
   const [getTransloaditToken] = useGetTransloaditTokenMutation();
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await getTransloaditToken(
-        { variables: { template: fileType }}
-      );
+      const { data } = await getTransloaditToken();
       if (data) {
         localStorage.setItem(
           'transloaditToken',
