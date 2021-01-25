@@ -1,28 +1,22 @@
 import { gql, makeExtendSchemaPlugin } from 'graphile-utils';
 import { getTransloaditToken } from './getTransloaditToken';
 
-export const fileUploadsPlugin = makeExtendSchemaPlugin(() => ({
-  resolvers: {
-    Mutation: {
-      async getTransloaditToken(_, args, context) {
-        if (!context.authenticatedPerson) {
-          return;
-        }
-
-        const { expires, signature } = await getTransloaditToken();
-
-        return { expires, signature };
+export const fileUploadsPlugin = makeExtendSchemaPlugin(() => {
+  return {
+    resolvers: {
+      Mutation: {
+        getTransloaditToken,
       }
-    }
-  },
-  typeDefs: gql`
-    extend type Mutation {
-      getTransloaditToken(): GetTransloaditTokenPayload
-    }
+    },
+    typeDefs: gql`
+      extend type Mutation {
+        getTransloaditToken(): GetTransloaditTokenPayload
+      }
 
-    type GetTransloaditTokenPayload {
-      expires: String
-      signature: String
-    }
-  `,
-}));
+      type GetTransloaditTokenPayload {
+        expires: String
+        signature: String
+      }
+    `,
+  };
+});

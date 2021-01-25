@@ -3,7 +3,6 @@
 /* eslint-enable */
 import 'dotenv/config';
 import express from 'express';
-import newrelic from 'newrelic';
 
 export const beginNewRelicTransaction: express.RequestHandler = async (
   request,
@@ -11,7 +10,7 @@ export const beginNewRelicTransaction: express.RequestHandler = async (
   next
 ) => {
   if (process.env.NODE_ENV === 'production') {
-    newrelic.startWebTransaction(request.originalUrl);
+    require('newrelic').startWebTransaction(request.originalUrl);
   }
   return next();
 };
