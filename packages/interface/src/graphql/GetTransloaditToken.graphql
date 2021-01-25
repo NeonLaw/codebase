@@ -1,5 +1,5 @@
-mutation GetTransloaditToken($template: String!) {
-  getTransloaditToken(template: $template) {
+mutation GetTransloaditToken {
+  getTransloaditToken {
     expires
     signature
   }

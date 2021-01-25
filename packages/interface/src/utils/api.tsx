@@ -489,16 +489,6 @@ export type CreateQuestionPayloadQuestionEdgeArgs = {
   orderBy?: Maybe<Array<QuestionsOrderBy>>;
 };
 
-export type CreateResponseDocumentFromUploadInput = {
-  uploadUrl: Scalars['String'];
-  responseId: Scalars['UUID'];
-};
-
-export type CreateResponseDocumentFromUploadPayload = {
-  __typename?: 'CreateResponseDocumentFromUploadPayload';
-  document?: Maybe<Document>;
-};
-
 /** All input for the create `Response` mutation. */
 export type CreateResponseInput = {
   /**
@@ -1933,7 +1923,6 @@ export type Mutation = {
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
   updateQuestionnaireFromNeo4J?: Maybe<UpdateQuestionnaireFromNeo4JPayload>;
   getTransloaditToken?: Maybe<GetTransloaditTokenPayload>;
-  createResponseDocumentFromUpload?: Maybe<CreateResponseDocumentFromUploadPayload>;
 };
 
 
@@ -2318,18 +2307,6 @@ export type MutationCreateRoleIfNotExistsArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateQuestionnaireFromNeo4JArgs = {
   input: UpdateQuestionnaireFromNeo4JInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationGetTransloaditTokenArgs = {
-  template: Scalars['String'];
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateResponseDocumentFromUploadArgs = {
-  input: CreateResponseDocumentFromUploadInput;
 };
 
 /** An object with a globally unique `ID`. */
@@ -4238,9 +4215,7 @@ export type DeleteQuestionnaireByIdMutation = (
   )> }
 );
 
-export type GetTransloaditTokenMutationVariables = Exact<{
-  template: Scalars['String'];
-}>;
+export type GetTransloaditTokenMutationVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetTransloaditTokenMutation = (
@@ -5177,8 +5152,8 @@ export type DeleteQuestionnaireByIdMutationHookResult = ReturnType<typeof useDel
 export type DeleteQuestionnaireByIdMutationResult = Apollo.MutationResult<DeleteQuestionnaireByIdMutation>;
 export type DeleteQuestionnaireByIdMutationOptions = Apollo.BaseMutationOptions<DeleteQuestionnaireByIdMutation, DeleteQuestionnaireByIdMutationVariables>;
 export const GetTransloaditTokenDocument = gql`
-    mutation GetTransloaditToken($template: String!) {
-  getTransloaditToken(template: $template) {
+    mutation GetTransloaditToken {
+  getTransloaditToken {
     expires
     signature
   }
@@ -5199,7 +5174,6 @@ export type GetTransloaditTokenMutationFn = Apollo.MutationFunction<GetTransload
  * @example
  * const [getTransloaditTokenMutation, { data, loading, error }] = useGetTransloaditTokenMutation({
  *   variables: {
- *      template: // value for 'template'
  *   },
  * });
  */
