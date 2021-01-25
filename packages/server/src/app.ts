@@ -7,6 +7,7 @@ import {
   beginNewRelicTransaction,
   checkJwt,
   currentUser,
+  developmentLogger,
   endNewRelicTransaction,
   logger,
 } from './middleware';
@@ -22,7 +23,11 @@ import rateLimit from 'express-rate-limit';
 const expressApp = express();
 expressApp.use(cors());
 
-expressApp.use(logger);
+if (process.env.NODE_ENV === 'production') {
+  expressApp.use(logger);
+} else {
+  expressApp.use(developmentLogger);
+}
 
 expressApp.get('/', function (_, res) {
   res.send('Neon Law API');

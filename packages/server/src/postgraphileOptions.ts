@@ -2,7 +2,6 @@ import { PostGraphileOptions, makePluginHook } from 'postgraphile';
 import GraphilePro from '@graphile/pro';
 import PgPubsub from '@graphile/pg-pubsub';
 import { fileUploadsPlugin } from './resolvers/fileUploads';
-import newrelic from 'newrelic';
 import { slatePlugin } from './slateTypes';
 
 const pluginHook = makePluginHook([
@@ -59,7 +58,7 @@ export const postgraphileOptions: PostGraphileOptions = {
     }
 
     if (process.env.NODE_ENV === 'production') {
-      newrelic.setTransactionName(settings['application_name']);
+      require('newrelic').setTransactionName(settings['application_name']);
     }
 
     return settings;

@@ -1,0 +1,17 @@
+mutation CreateMatterDocumentFromUploadUrl(
+  $matterDocumentTemplateId: UUID!
+  $matterId: UUID!
+  $uploadDocumentUrl: String!
+) {
+  createMatterDocumentFromUploadUrl(
+    input: {
+      matterDocumentTemplateId: $matterDocumentTemplateId
+      matterId: $matterId
+      uploadDocumentUrl: $uploadDocumentUrl
+    }
+  ) {
+    matterDocument {
+      id
+    }
+  }
+}

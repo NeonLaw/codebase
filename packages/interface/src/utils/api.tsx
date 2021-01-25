@@ -152,39 +152,6 @@ export type CreateAddressPayloadAddressEdgeArgs = {
   orderBy?: Maybe<Array<AddressesOrderBy>>;
 };
 
-/** All input for the create `Document` mutation. */
-export type CreateDocumentInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `Document` to be created by this mutation. */
-  document: DocumentInput;
-};
-
-/** The output of our create `Document` mutation. */
-export type CreateDocumentPayload = {
-  __typename?: 'CreateDocumentPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `Document` that was created by this mutation. */
-  document?: Maybe<Document>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** An edge for our `Document`. May be used by Relay 1. */
-  documentEdge?: Maybe<DocumentsEdge>;
-};
-
-
-/** The output of our create `Document` mutation. */
-export type CreateDocumentPayloadDocumentEdgeArgs = {
-  orderBy?: Maybe<Array<DocumentsOrderBy>>;
-};
-
 /** All input for the create `Letter` mutation. */
 export type CreateLetterInput = {
   /**
@@ -255,26 +222,26 @@ export type CreateMatterContactPayloadMatterContactEdgeArgs = {
   orderBy?: Maybe<Array<MatterContactsOrderBy>>;
 };
 
-/** All input for the create `MatterDocument` mutation. */
-export type CreateMatterDocumentInput = {
+/** All input for the `createMatterDocumentFromUploadUrl` mutation. */
+export type CreateMatterDocumentFromUploadUrlInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars['String']>;
-  /** The `MatterDocument` to be created by this mutation. */
-  matterDocument: MatterDocumentInput;
+  matterId?: Maybe<Scalars['UUID']>;
+  matterDocumentTemplateId?: Maybe<Scalars['UUID']>;
+  uploadDocumentUrl?: Maybe<Scalars['String']>;
 };
 
-/** The output of our create `MatterDocument` mutation. */
-export type CreateMatterDocumentPayload = {
-  __typename?: 'CreateMatterDocumentPayload';
+/** The output of our `createMatterDocumentFromUploadUrl` mutation. */
+export type CreateMatterDocumentFromUploadUrlPayload = {
+  __typename?: 'CreateMatterDocumentFromUploadUrlPayload';
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']>;
-  /** The `MatterDocument` that was created by this mutation. */
   matterDocument?: Maybe<MatterDocument>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
@@ -287,8 +254,8 @@ export type CreateMatterDocumentPayload = {
 };
 
 
-/** The output of our create `MatterDocument` mutation. */
-export type CreateMatterDocumentPayloadMatterDocumentEdgeArgs = {
+/** The output of our `createMatterDocumentFromUploadUrl` mutation. */
+export type CreateMatterDocumentFromUploadUrlPayloadMatterDocumentEdgeArgs = {
   orderBy?: Maybe<Array<MatterDocumentsOrderBy>>;
 };
 
@@ -520,51 +487,6 @@ export type CreateQuestionPayload = {
 /** The output of our create `Question` mutation. */
 export type CreateQuestionPayloadQuestionEdgeArgs = {
   orderBy?: Maybe<Array<QuestionsOrderBy>>;
-};
-
-export type CreateResponseDocumentFromUploadInput = {
-  uploadUrl: Scalars['String'];
-  responseId: Scalars['UUID'];
-};
-
-export type CreateResponseDocumentFromUploadPayload = {
-  __typename?: 'CreateResponseDocumentFromUploadPayload';
-  document?: Maybe<Document>;
-};
-
-/** All input for the create `ResponseDocument` mutation. */
-export type CreateResponseDocumentInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `ResponseDocument` to be created by this mutation. */
-  responseDocument: ResponseDocumentInput;
-};
-
-/** The output of our create `ResponseDocument` mutation. */
-export type CreateResponseDocumentPayload = {
-  __typename?: 'CreateResponseDocumentPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `ResponseDocument` that was created by this mutation. */
-  responseDocument?: Maybe<ResponseDocument>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `Document` that is related to this `ResponseDocument`. */
-  documentByDocumentId?: Maybe<Document>;
-  /** An edge for our `ResponseDocument`. May be used by Relay 1. */
-  responseDocumentEdge?: Maybe<ResponseDocumentsEdge>;
-};
-
-
-/** The output of our create `ResponseDocument` mutation. */
-export type CreateResponseDocumentPayloadResponseDocumentEdgeArgs = {
-  orderBy?: Maybe<Array<ResponseDocumentsOrderBy>>;
 };
 
 /** All input for the create `Response` mutation. */
@@ -1346,48 +1268,6 @@ export type DocumentResponseDocumentsByDocumentIdArgs = {
   condition?: Maybe<ResponseDocumentCondition>;
 };
 
-/**
- * A condition to be used against `Document` object types. All fields are tested
- * for equality and combined with a logical ‘and.’
- */
-export type DocumentCondition = {
-  /** Checks for equality with the object’s `id` field. */
-  id?: Maybe<Scalars['UUID']>;
-  /** Checks for equality with the object’s `documentableTableName` field. */
-  documentableTableName?: Maybe<Scalars['String']>;
-};
-
-/** An input for mutations affecting `Document` */
-export type DocumentInput = {
-  id?: Maybe<Scalars['UUID']>;
-  filename: Scalars['String'];
-  documentableTableName: Scalars['String'];
-  createdAt?: Maybe<Scalars['Datetime']>;
-  updatedAt?: Maybe<Scalars['Datetime']>;
-};
-
-/** Represents an update to a `Document`. Fields that are set will be updated. */
-export type DocumentPatch = {
-  id?: Maybe<Scalars['UUID']>;
-  filename?: Maybe<Scalars['String']>;
-  documentableTableName?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Datetime']>;
-  updatedAt?: Maybe<Scalars['Datetime']>;
-};
-
-/** A connection to a list of `Document` values. */
-export type DocumentsConnection = {
-  __typename?: 'DocumentsConnection';
-  /** A list of `Document` objects. */
-  nodes: Array<Document>;
-  /** A list of edges which contains the `Document` and cursor to aid in pagination. */
-  edges: Array<DocumentsEdge>;
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo;
-  /** The count of *all* `Document` you could get from the connection. */
-  totalCount: Scalars['Int'];
-};
-
 /** A `Document` edge in the connection. */
 export type DocumentsEdge = {
   __typename?: 'DocumentsEdge';
@@ -1631,24 +1511,6 @@ export type MatterDocumentCondition = {
   documentId?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `authorId` field. */
   authorId?: Maybe<Scalars['UUID']>;
-};
-
-/** An input for mutations affecting `MatterDocument` */
-export type MatterDocumentInput = {
-  id?: Maybe<Scalars['UUID']>;
-  documentId: Scalars['UUID'];
-  authorId: Scalars['UUID'];
-  matterId: Scalars['UUID'];
-  matterDocumentTemplateId: Scalars['UUID'];
-};
-
-/** Represents an update to a `MatterDocument`. Fields that are set will be updated. */
-export type MatterDocumentPatch = {
-  id?: Maybe<Scalars['UUID']>;
-  documentId?: Maybe<Scalars['UUID']>;
-  authorId?: Maybe<Scalars['UUID']>;
-  matterId?: Maybe<Scalars['UUID']>;
-  matterDocumentTemplateId?: Maybe<Scalars['UUID']>;
 };
 
 /** A connection to a list of `MatterDocument` values. */
@@ -1938,16 +1800,12 @@ export type Mutation = {
   __typename?: 'Mutation';
   /** Creates a single `Address`. */
   createAddress?: Maybe<CreateAddressPayload>;
-  /** Creates a single `Document`. */
-  createDocument?: Maybe<CreateDocumentPayload>;
   /** Creates a single `Letter`. */
   createLetter?: Maybe<CreateLetterPayload>;
   /** Creates a single `Matter`. */
   createMatter?: Maybe<CreateMatterPayload>;
   /** Creates a single `MatterContact`. */
   createMatterContact?: Maybe<CreateMatterContactPayload>;
-  /** Creates a single `MatterDocument`. */
-  createMatterDocument?: Maybe<CreateMatterDocumentPayload>;
   /** Creates a single `MatterDocumentTemplate`. */
   createMatterDocumentTemplate?: Maybe<CreateMatterDocumentTemplatePayload>;
   /** Creates a single `MatterTemplate`. */
@@ -1960,16 +1818,10 @@ export type Mutation = {
   createQuestionnaireResponse?: Maybe<CreateQuestionnaireResponsePayload>;
   /** Creates a single `Response`. */
   createResponse?: Maybe<CreateResponsePayload>;
-  /** Creates a single `ResponseDocument`. */
-  createResponseDocument?: Maybe<CreateResponseDocumentPayload>;
   /** Updates a single `Address` using its globally unique id and a patch. */
   updateAddress?: Maybe<UpdateAddressPayload>;
   /** Updates a single `Address` using a unique key and a patch. */
   updateAddressById?: Maybe<UpdateAddressPayload>;
-  /** Updates a single `Document` using its globally unique id and a patch. */
-  updateDocument?: Maybe<UpdateDocumentPayload>;
-  /** Updates a single `Document` using a unique key and a patch. */
-  updateDocumentById?: Maybe<UpdateDocumentPayload>;
   /** Updates a single `Letter` using its globally unique id and a patch. */
   updateLetter?: Maybe<UpdateLetterPayload>;
   /** Updates a single `Letter` using a unique key and a patch. */
@@ -1982,10 +1834,6 @@ export type Mutation = {
   updateMatterContact?: Maybe<UpdateMatterContactPayload>;
   /** Updates a single `MatterContact` using a unique key and a patch. */
   updateMatterContactById?: Maybe<UpdateMatterContactPayload>;
-  /** Updates a single `MatterDocument` using its globally unique id and a patch. */
-  updateMatterDocument?: Maybe<UpdateMatterDocumentPayload>;
-  /** Updates a single `MatterDocument` using a unique key and a patch. */
-  updateMatterDocumentById?: Maybe<UpdateMatterDocumentPayload>;
   /** Updates a single `MatterDocumentTemplate` using its globally unique id and a patch. */
   updateMatterDocumentTemplate?: Maybe<UpdateMatterDocumentTemplatePayload>;
   /** Updates a single `MatterDocumentTemplate` using a unique key and a patch. */
@@ -2014,10 +1862,6 @@ export type Mutation = {
   updateResponse?: Maybe<UpdateResponsePayload>;
   /** Updates a single `Response` using a unique key and a patch. */
   updateResponseById?: Maybe<UpdateResponsePayload>;
-  /** Updates a single `ResponseDocument` using its globally unique id and a patch. */
-  updateResponseDocument?: Maybe<UpdateResponseDocumentPayload>;
-  /** Updates a single `ResponseDocument` using a unique key and a patch. */
-  updateResponseDocumentById?: Maybe<UpdateResponseDocumentPayload>;
   /** Deletes a single `Address` using its globally unique id. */
   deleteAddress?: Maybe<DeleteAddressPayload>;
   /** Deletes a single `Address` using a unique key. */
@@ -2074,23 +1918,17 @@ export type Mutation = {
   deleteResponseDocument?: Maybe<DeleteResponseDocumentPayload>;
   /** Deletes a single `ResponseDocument` using a unique key. */
   deleteResponseDocumentById?: Maybe<DeleteResponseDocumentPayload>;
+  createMatterDocumentFromUploadUrl?: Maybe<CreateMatterDocumentFromUploadUrlPayload>;
   createPrimaryKeyIdIfNotExists?: Maybe<CreatePrimaryKeyIdIfNotExistsPayload>;
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
   updateQuestionnaireFromNeo4J?: Maybe<UpdateQuestionnaireFromNeo4JPayload>;
   getTransloaditToken?: Maybe<GetTransloaditTokenPayload>;
-  createResponseDocumentFromUpload?: Maybe<CreateResponseDocumentFromUploadPayload>;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateAddressArgs = {
   input: CreateAddressInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateDocumentArgs = {
-  input: CreateDocumentInput;
 };
 
 
@@ -2109,12 +1947,6 @@ export type MutationCreateMatterArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateMatterContactArgs = {
   input: CreateMatterContactInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateMatterDocumentArgs = {
-  input: CreateMatterDocumentInput;
 };
 
 
@@ -2155,12 +1987,6 @@ export type MutationCreateResponseArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateResponseDocumentArgs = {
-  input: CreateResponseDocumentInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateAddressArgs = {
   input: UpdateAddressInput;
 };
@@ -2169,18 +1995,6 @@ export type MutationUpdateAddressArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateAddressByIdArgs = {
   input: UpdateAddressByIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDocumentArgs = {
-  input: UpdateDocumentInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateDocumentByIdArgs = {
-  input: UpdateDocumentByIdInput;
 };
 
 
@@ -2217,18 +2031,6 @@ export type MutationUpdateMatterContactArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateMatterContactByIdArgs = {
   input: UpdateMatterContactByIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateMatterDocumentArgs = {
-  input: UpdateMatterDocumentInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateMatterDocumentByIdArgs = {
-  input: UpdateMatterDocumentByIdInput;
 };
 
 
@@ -2313,18 +2115,6 @@ export type MutationUpdateResponseArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateResponseByIdArgs = {
   input: UpdateResponseByIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateResponseDocumentArgs = {
-  input: UpdateResponseDocumentInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateResponseDocumentByIdArgs = {
-  input: UpdateResponseDocumentByIdInput;
 };
 
 
@@ -2497,6 +2287,12 @@ export type MutationDeleteResponseDocumentByIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateMatterDocumentFromUploadUrlArgs = {
+  input: CreateMatterDocumentFromUploadUrlInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreatePrimaryKeyIdIfNotExistsArgs = {
   input: CreatePrimaryKeyIdIfNotExistsInput;
 };
@@ -2511,18 +2307,6 @@ export type MutationCreateRoleIfNotExistsArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateQuestionnaireFromNeo4JArgs = {
   input: UpdateQuestionnaireFromNeo4JInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationGetTransloaditTokenArgs = {
-  template: Scalars['String'];
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateResponseDocumentFromUploadArgs = {
-  input: CreateResponseDocumentFromUploadInput;
 };
 
 /** An object with a globally unique `ID`. */
@@ -2707,16 +2491,12 @@ export type Query = Node & {
   allAddresses?: Maybe<AddressesConnection>;
   /** Reads and enables pagination through a set of `CurrentUserMatter`. */
   allCurrentUserMatters?: Maybe<CurrentUserMattersConnection>;
-  /** Reads and enables pagination through a set of `Document`. */
-  allDocuments?: Maybe<DocumentsConnection>;
   /** Reads and enables pagination through a set of `Letter`. */
   allLetters?: Maybe<LettersConnection>;
   /** Reads and enables pagination through a set of `Matter`. */
   allMatters?: Maybe<MattersConnection>;
   /** Reads and enables pagination through a set of `MatterContact`. */
   allMatterContacts?: Maybe<MatterContactsConnection>;
-  /** Reads and enables pagination through a set of `MatterDocument`. */
-  allMatterDocuments?: Maybe<MatterDocumentsConnection>;
   /** Reads and enables pagination through a set of `MatterDocumentTemplate`. */
   allMatterDocumentTemplates?: Maybe<MatterDocumentTemplatesConnection>;
   /** Reads and enables pagination through a set of `MatterTemplate`. */
@@ -2731,8 +2511,6 @@ export type Query = Node & {
   allQuestionnaireResponses?: Maybe<QuestionnaireResponsesConnection>;
   /** Reads and enables pagination through a set of `Response`. */
   allResponses?: Maybe<ResponsesConnection>;
-  /** Reads and enables pagination through a set of `ResponseDocument`. */
-  allResponseDocuments?: Maybe<ResponseDocumentsConnection>;
   addressById?: Maybe<Address>;
   documentById?: Maybe<Document>;
   letterById?: Maybe<Letter>;
@@ -2810,18 +2588,6 @@ export type QueryAllCurrentUserMattersArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryAllDocumentsArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<DocumentsOrderBy>>;
-  condition?: Maybe<DocumentCondition>;
-};
-
-
-/** The root query type which gives access points into the data universe. */
 export type QueryAllLettersArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
@@ -2854,18 +2620,6 @@ export type QueryAllMatterContactsArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<MatterContactsOrderBy>>;
   condition?: Maybe<MatterContactCondition>;
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryAllMatterDocumentsArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<MatterDocumentsOrderBy>>;
-  condition?: Maybe<MatterDocumentCondition>;
 };
 
 
@@ -2950,18 +2704,6 @@ export type QueryAllResponsesArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<ResponsesOrderBy>>;
   condition?: Maybe<ResponseCondition>;
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryAllResponseDocumentsArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<ResponseDocumentsOrderBy>>;
-  condition?: Maybe<ResponseDocumentCondition>;
 };
 
 
@@ -3485,20 +3227,6 @@ export type ResponseDocumentCondition = {
   documentId?: Maybe<Scalars['UUID']>;
 };
 
-/** An input for mutations affecting `ResponseDocument` */
-export type ResponseDocumentInput = {
-  id?: Maybe<Scalars['UUID']>;
-  documentId: Scalars['UUID'];
-  responseId: Scalars['UUID'];
-};
-
-/** Represents an update to a `ResponseDocument`. Fields that are set will be updated. */
-export type ResponseDocumentPatch = {
-  id?: Maybe<Scalars['UUID']>;
-  documentId?: Maybe<Scalars['UUID']>;
-  responseId?: Maybe<Scalars['UUID']>;
-};
-
 /** A connection to a list of `ResponseDocument` values. */
 export type ResponseDocumentsConnection = {
   __typename?: 'ResponseDocumentsConnection';
@@ -3635,53 +3363,6 @@ export type UpdateAddressPayloadAddressEdgeArgs = {
   orderBy?: Maybe<Array<AddressesOrderBy>>;
 };
 
-/** All input for the `updateDocumentById` mutation. */
-export type UpdateDocumentByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** An object where the defined keys will be set on the `Document` being updated. */
-  documentPatch: DocumentPatch;
-  id: Scalars['UUID'];
-};
-
-/** All input for the `updateDocument` mutation. */
-export type UpdateDocumentInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The globally unique `ID` which will identify a single `Document` to be updated. */
-  nodeId: Scalars['ID'];
-  /** An object where the defined keys will be set on the `Document` being updated. */
-  documentPatch: DocumentPatch;
-};
-
-/** The output of our update `Document` mutation. */
-export type UpdateDocumentPayload = {
-  __typename?: 'UpdateDocumentPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `Document` that was updated by this mutation. */
-  document?: Maybe<Document>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** An edge for our `Document`. May be used by Relay 1. */
-  documentEdge?: Maybe<DocumentsEdge>;
-};
-
-
-/** The output of our update `Document` mutation. */
-export type UpdateDocumentPayloadDocumentEdgeArgs = {
-  orderBy?: Maybe<Array<DocumentsOrderBy>>;
-};
-
 /** All input for the `updateLetterById` mutation. */
 export type UpdateLetterByIdInput = {
   /**
@@ -3790,57 +3471,6 @@ export type UpdateMatterContactPayload = {
 /** The output of our update `MatterContact` mutation. */
 export type UpdateMatterContactPayloadMatterContactEdgeArgs = {
   orderBy?: Maybe<Array<MatterContactsOrderBy>>;
-};
-
-/** All input for the `updateMatterDocumentById` mutation. */
-export type UpdateMatterDocumentByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** An object where the defined keys will be set on the `MatterDocument` being updated. */
-  matterDocumentPatch: MatterDocumentPatch;
-  id: Scalars['UUID'];
-};
-
-/** All input for the `updateMatterDocument` mutation. */
-export type UpdateMatterDocumentInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The globally unique `ID` which will identify a single `MatterDocument` to be updated. */
-  nodeId: Scalars['ID'];
-  /** An object where the defined keys will be set on the `MatterDocument` being updated. */
-  matterDocumentPatch: MatterDocumentPatch;
-};
-
-/** The output of our update `MatterDocument` mutation. */
-export type UpdateMatterDocumentPayload = {
-  __typename?: 'UpdateMatterDocumentPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `MatterDocument` that was updated by this mutation. */
-  matterDocument?: Maybe<MatterDocument>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `Document` that is related to this `MatterDocument`. */
-  documentByDocumentId?: Maybe<Document>;
-  /** Reads a single `Person` that is related to this `MatterDocument`. */
-  personByAuthorId?: Maybe<Person>;
-  /** An edge for our `MatterDocument`. May be used by Relay 1. */
-  matterDocumentEdge?: Maybe<MatterDocumentsEdge>;
-};
-
-
-/** The output of our update `MatterDocument` mutation. */
-export type UpdateMatterDocumentPayloadMatterDocumentEdgeArgs = {
-  orderBy?: Maybe<Array<MatterDocumentsOrderBy>>;
 };
 
 /** All input for the `updateMatterDocumentTemplateById` mutation. */
@@ -4215,55 +3845,6 @@ export type UpdateResponseByIdInput = {
   id: Scalars['UUID'];
 };
 
-/** All input for the `updateResponseDocumentById` mutation. */
-export type UpdateResponseDocumentByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** An object where the defined keys will be set on the `ResponseDocument` being updated. */
-  responseDocumentPatch: ResponseDocumentPatch;
-  id: Scalars['UUID'];
-};
-
-/** All input for the `updateResponseDocument` mutation. */
-export type UpdateResponseDocumentInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The globally unique `ID` which will identify a single `ResponseDocument` to be updated. */
-  nodeId: Scalars['ID'];
-  /** An object where the defined keys will be set on the `ResponseDocument` being updated. */
-  responseDocumentPatch: ResponseDocumentPatch;
-};
-
-/** The output of our update `ResponseDocument` mutation. */
-export type UpdateResponseDocumentPayload = {
-  __typename?: 'UpdateResponseDocumentPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `ResponseDocument` that was updated by this mutation. */
-  responseDocument?: Maybe<ResponseDocument>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `Document` that is related to this `ResponseDocument`. */
-  documentByDocumentId?: Maybe<Document>;
-  /** An edge for our `ResponseDocument`. May be used by Relay 1. */
-  responseDocumentEdge?: Maybe<ResponseDocumentsEdge>;
-};
-
-
-/** The output of our update `ResponseDocument` mutation. */
-export type UpdateResponseDocumentPayloadResponseDocumentEdgeArgs = {
-  orderBy?: Maybe<Array<ResponseDocumentsOrderBy>>;
-};
-
 /** All input for the `updateResponse` mutation. */
 export type UpdateResponseInput = {
   /**
@@ -4454,6 +4035,24 @@ export type CreateMatterMutation = (
   )> }
 );
 
+export type CreateMatterDocumentFromUploadUrlMutationVariables = Exact<{
+  matterDocumentTemplateId: Scalars['UUID'];
+  matterId: Scalars['UUID'];
+  uploadDocumentUrl: Scalars['String'];
+}>;
+
+
+export type CreateMatterDocumentFromUploadUrlMutation = (
+  { __typename?: 'Mutation' }
+  & { createMatterDocumentFromUploadUrl?: Maybe<(
+    { __typename?: 'CreateMatterDocumentFromUploadUrlPayload' }
+    & { matterDocument?: Maybe<(
+      { __typename?: 'MatterDocument' }
+      & Pick<MatterDocument, 'id'>
+    )> }
+  )> }
+);
+
 export type CreateMatterDocumentTemplateMutationVariables = Exact<{
   name: Scalars['String'];
   description: Scalars['String'];
@@ -4616,9 +4215,7 @@ export type DeleteQuestionnaireByIdMutation = (
   )> }
 );
 
-export type GetTransloaditTokenMutationVariables = Exact<{
-  template: Scalars['String'];
-}>;
+export type GetTransloaditTokenMutationVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetTransloaditTokenMutation = (
@@ -5157,6 +4754,42 @@ export function useCreateMatterMutation(baseOptions?: Apollo.MutationHookOptions
 export type CreateMatterMutationHookResult = ReturnType<typeof useCreateMatterMutation>;
 export type CreateMatterMutationResult = Apollo.MutationResult<CreateMatterMutation>;
 export type CreateMatterMutationOptions = Apollo.BaseMutationOptions<CreateMatterMutation, CreateMatterMutationVariables>;
+export const CreateMatterDocumentFromUploadUrlDocument = gql`
+    mutation CreateMatterDocumentFromUploadUrl($matterDocumentTemplateId: UUID!, $matterId: UUID!, $uploadDocumentUrl: String!) {
+  createMatterDocumentFromUploadUrl(input: {matterDocumentTemplateId: $matterDocumentTemplateId, matterId: $matterId, uploadDocumentUrl: $uploadDocumentUrl}) {
+    matterDocument {
+      id
+    }
+  }
+}
+    `;
+export type CreateMatterDocumentFromUploadUrlMutationFn = Apollo.MutationFunction<CreateMatterDocumentFromUploadUrlMutation, CreateMatterDocumentFromUploadUrlMutationVariables>;
+
+/**
+ * __useCreateMatterDocumentFromUploadUrlMutation__
+ *
+ * To run a mutation, you first call `useCreateMatterDocumentFromUploadUrlMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateMatterDocumentFromUploadUrlMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createMatterDocumentFromUploadUrlMutation, { data, loading, error }] = useCreateMatterDocumentFromUploadUrlMutation({
+ *   variables: {
+ *      matterDocumentTemplateId: // value for 'matterDocumentTemplateId'
+ *      matterId: // value for 'matterId'
+ *      uploadDocumentUrl: // value for 'uploadDocumentUrl'
+ *   },
+ * });
+ */
+export function useCreateMatterDocumentFromUploadUrlMutation(baseOptions?: Apollo.MutationHookOptions<CreateMatterDocumentFromUploadUrlMutation, CreateMatterDocumentFromUploadUrlMutationVariables>) {
+        return Apollo.useMutation<CreateMatterDocumentFromUploadUrlMutation, CreateMatterDocumentFromUploadUrlMutationVariables>(CreateMatterDocumentFromUploadUrlDocument, baseOptions);
+      }
+export type CreateMatterDocumentFromUploadUrlMutationHookResult = ReturnType<typeof useCreateMatterDocumentFromUploadUrlMutation>;
+export type CreateMatterDocumentFromUploadUrlMutationResult = Apollo.MutationResult<CreateMatterDocumentFromUploadUrlMutation>;
+export type CreateMatterDocumentFromUploadUrlMutationOptions = Apollo.BaseMutationOptions<CreateMatterDocumentFromUploadUrlMutation, CreateMatterDocumentFromUploadUrlMutationVariables>;
 export const CreateMatterDocumentTemplateDocument = gql`
     mutation CreateMatterDocumentTemplate($name: String!, $description: String!) {
   createMatterDocumentTemplate(input: {matterDocumentTemplate: {name: $name, description: $description}}) {
@@ -5519,8 +5152,8 @@ export type DeleteQuestionnaireByIdMutationHookResult = ReturnType<typeof useDel
 export type DeleteQuestionnaireByIdMutationResult = Apollo.MutationResult<DeleteQuestionnaireByIdMutation>;
 export type DeleteQuestionnaireByIdMutationOptions = Apollo.BaseMutationOptions<DeleteQuestionnaireByIdMutation, DeleteQuestionnaireByIdMutationVariables>;
 export const GetTransloaditTokenDocument = gql`
-    mutation GetTransloaditToken($template: String!) {
-  getTransloaditToken(template: $template) {
+    mutation GetTransloaditToken {
+  getTransloaditToken {
     expires
     signature
   }
@@ -5541,7 +5174,6 @@ export type GetTransloaditTokenMutationFn = Apollo.MutationFunction<GetTransload
  * @example
  * const [getTransloaditTokenMutation, { data, loading, error }] = useGetTransloaditTokenMutation({
  *   variables: {
- *      template: // value for 'template'
  *   },
  * });
  */

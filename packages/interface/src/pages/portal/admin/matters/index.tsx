@@ -1,6 +1,5 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
-
 import { Breadcrumbs } from '../../../../components/breadcrumbs';
 import { Button } from '../../../../components/button';
 import {
@@ -26,7 +25,7 @@ const AdminMatters = () => {
         <Breadcrumbs showHome={false} />
 
         <Button
-          flash={true}
+          flash={false}
           buttonScheme="teal"
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}

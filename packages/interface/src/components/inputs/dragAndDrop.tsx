@@ -1,5 +1,3 @@
-import '@uppy/core/dist/style.css';
-import '@uppy/drag-drop/dist/style.css';
 import React, { useEffect, useMemo, } from 'react';
 import { Box } from '@chakra-ui/core';
 import Transloadit from '@uppy/transloadit';

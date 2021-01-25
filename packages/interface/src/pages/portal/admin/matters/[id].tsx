@@ -1,5 +1,6 @@
 import { Box, useDisclosure } from '@chakra-ui/core';
 import { Breadcrumbs } from '../../../../components/breadcrumbs';
+import { Button } from '../../../../components/button';
 import {
   CreateMatterDocumentModal
 } from '../../../../components/modals/createMatterDocumentModal';
@@ -14,28 +15,37 @@ import {
 } from '../../../../components/lists/matterDocumentsList';
 import { PortalLayout } from '../../../../layouts/portalLayout';
 import React from 'react';
+import { gutters } from '../../../../themes/neonLaw';
 
 const AdminMattersDetail = ({ params: { id }}) => {
-  const { isOpen, onClose } = useDisclosure();
+  const { isOpen, onClose, onOpen } = useDisclosure();
 
   return (
     <PortalLayout>
       <Box>
         <Breadcrumbs showHome={false} />
 
-        <MatterDetailView id={id} />
+        <Button
+          flash={false}
+          buttonScheme="teal"
+          containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
+          onClick={onOpen}
+        >
+          Create Matter Document
+        </Button>
 
+        <DeleteMatterButton id={id} />
 
         <CreateMatterDocumentModal
           isOpen={isOpen}
+          matterId={id}
           onClose={() => {
             onClose();
           }}
         />
 
+        <MatterDetailView id={id} />
         <MatterDocumentsList matterId={id} />
-
-        <DeleteMatterButton id={id} />
       </Box>
     </PortalLayout>
   );

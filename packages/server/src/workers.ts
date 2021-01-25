@@ -6,6 +6,9 @@ import { default as neo4j } from 'neo4j-driver';
 import { postgresUrl } from './postgresUrl';
 import { redisUrl } from './redisUrl';
 import { run } from 'graphile-worker';
+import {
+  saveDocumentInLongTermStorage
+} from './tasks/saveDocumentInLongTermStorage';
 import { sendWelcomeEmail } from './tasks/sendWelcomeEmail';
 import { default as sgMail } from '@sendgrid/mail';
 import {
@@ -67,6 +70,7 @@ async function workers() {
     noHandleSignals: false,
     pollInterval: 1000,
     taskList: {
+      saveDocumentInLongTermStorage,
       sendWelcomeEmail: rateLimiter.wrapTask(sendWelcomeEmail),
       updateQuestionnaireFromNeo4j: rateLimiter.wrapTask(
         updateQuestionnaireFromNeo4j
