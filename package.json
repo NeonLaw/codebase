@@ -86,7 +86,7 @@
         "@auth0/auth0-react": "^1.2.0",
         "@chakra-ui/core": "^1.0.0-rc.8",
         "@chakra-ui/icons": "^1.0.3",
-        "@typescript-eslint/parser": "^4.14.0",
+        "@typescript-eslint/parser": "^4.14.1",
         "@uppy/core": "^1.15.0",
         "@uppy/react": "^1.11.0",
         "@uppy/transloadit": "^1.6.16",
