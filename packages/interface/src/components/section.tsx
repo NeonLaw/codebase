@@ -16,7 +16,7 @@ const StyledSection = styled(Box)`
 `;
 
 export interface SectionProps {
-  children: JSX.Element | JSX.Element[];
+  children: JSX.Element | JSX.Element[] | string;
   styles?: CSSProperties;
   title?: string;
   isTitleNotUnderlined?: boolean;

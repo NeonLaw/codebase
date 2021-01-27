@@ -15,6 +15,7 @@ export const theme = Object.assign(chakraTheme, {
     xl: '3.25rem',
     xl0: '2.50rem',
     xl1: '2.25rem',
+    xl2: '3.5rem'
   },
   fonts: {
     body: '"HK Grotesk", sans-serif',

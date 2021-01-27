@@ -132,12 +132,12 @@ export const MDXComponents = {
       as="h2"
       fontWeight="normal"
       fontSize="xl1"
-      margin=".5em 0"
+      margin="1em 0 .5em"
       {...props}
     />
   ),
   h3: (props) => (
-    <Heading as="h3" margin="1em 0" fontWeight="normal" {...props} />
+    <Heading as="h3" margin="1em 0 .5em" fontWeight="normal" {...props} />
   ),
   hr: (props) => <Box as="hr" borderTopWidth="1px" my={8} {...props} />,
   inlineCode: (props) => (

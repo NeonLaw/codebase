@@ -10,4 +10,19 @@ describe('Visiting /upward-mobility', function () {
     cy.url().should('include', '/upward-mobility/current-worth');
     cy.url().should('not.include', '/upward-mobility/begin');
   });
+
+  it('verfies that the radio group works.', () => {
+    cy.contains('I am barely managing to pay my bills').click();
+    cy.contains('Submit').click();
+    cy.contains('No').click();
+    cy.contains('Submit').click();
+    cy.wait(1000);
+    cy.contains('Submit').click();
+    cy.wait(1000);
+    cy.contains('No').click();
+    cy.contains('Submit').click();
+    cy.wait(1000);
+    cy.contains('I am barely managing to pay my bills');
+    cy.contains('No');
+  });
 });
