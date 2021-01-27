@@ -1,5 +1,6 @@
-import { Box, Heading, List, ListItem } from '@chakra-ui/core';
+import { Box, List, ListItem } from '@chakra-ui/core';
 import { gutters, sizes } from '../themes/neonLaw';
+
 import { Container } from '../components/container';
 import { Image } from '../components/image';
 import { PostBanner } from '../components/blog/postBanner';
@@ -26,9 +27,9 @@ const BlogIndex = ({ data }) => {
         <Seo title="Blog" />
         <Container>
           <Box padding="9rem 0 4rem">
-            <Heading fontWeight="normal" marginBottom={gutters.small}>
+            <h1 style={{marginBottom: gutters.xSmallOne}}>
               Neon Law Blog
-            </Heading>
+            </h1>
 
             <List spacing="0.5rem" maxWidth={sizes.textContainerMedium}>
               {edges.map(({ node: post }) => {

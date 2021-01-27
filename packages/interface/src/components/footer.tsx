@@ -51,7 +51,12 @@ export const Footer = ({ isWhite }: FooterProps) => {
     >
       <Section>
         <Box maxWidth={sizes.textContainerSmall}>
-          <Heading as="h3" fontWeight="normal" color={colors.text[colorMode]}>
+          <Heading 
+            as="h2" 
+            className="h3" 
+            fontWeight="normal" 
+            color={colors.text[colorMode]}
+          >
             {intl.formatMessage({
               id: 'footer.neon_law.heading'
             })}

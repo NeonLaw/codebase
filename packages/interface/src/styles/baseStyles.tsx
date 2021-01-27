@@ -63,7 +63,7 @@ export const BaseStyles = (): JSX.Element => (
       }
 
       h1 {
-        font-size: ${theme.fontSizes['2xl']};
+        font-size: ${theme.fontSizes['xl2']};
       }
 
       h2 {
@@ -74,7 +74,8 @@ export const BaseStyles = (): JSX.Element => (
         }
       }
 
-      h3 {
+      h3,
+      .h3 {
         font-size: 2rem;
         margin-bottom: ${gutters.xSmall};
 
