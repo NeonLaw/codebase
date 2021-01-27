@@ -1,5 +1,6 @@
 import { Box, Progress } from '@chakra-ui/core';
 import { decisionTree, questions } from '../components/upwardMobilityQuestions';
+
 import {
   BeginUpwardMobilityQuestionnaire
 } from '../components/beginUpwardMobilityQuestionnaire';
@@ -7,6 +8,7 @@ import {
   FinishUpwardMobilityQuestionnaire
 } from '../components/finishUpwardMobilityQuestionnaire';
 import React from 'react';
+import { Section } from './section';
 import {
   SingleChoiceQuestion
 } from '../components/questions/singleChoiceQuestion';
@@ -48,7 +50,11 @@ export const UpwardMobilityQuestionnaire = (props: any) => {
 
   if (!question || !question.prompt) {
     return (
-      <span>{intl.formatMessage({ id: 'upwardMQ.missing_question' })}</span>
+      <Box margin={`${gutters.large} 0 ${gutters.xSmallOne}`}>
+        <Section>
+          {intl.formatMessage({ id: 'upwardMQ.missing_question' })}
+        </Section>
+      </Box>
     );
   }
 
