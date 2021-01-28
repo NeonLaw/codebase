@@ -1,48 +1,33 @@
 import { Box, useColorMode } from '@chakra-ui/core';
-import { colors, gutters, theme } from '../../themes/neonLaw';
+import { colors, gutters } from '../../themes/neonLaw';
+
 import { Link } from 'gatsby-plugin-intl';
 import React from 'react';
 import { Search } from '../navigationBars/search';
-import { navigate } from 'gatsby';
 import styled from '@emotion/styled';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useIntl } from 'gatsby-plugin-intl';
 
 const StyledSideNavContent = styled.div<{ isRenderedOnDashboard?: boolean }>`
+  height: 100%;
+  
   nav {
     padding: ${({ isRenderedOnDashboard }) =>
-    !isRenderedOnDashboard ? '1.5rem' : gutters.xSmall};
+    !isRenderedOnDashboard ? '1.5rem' : `${gutters.xSmall} 0`};
 
     @media (max-width: 800px) {
       padding: ${({ isRenderedOnDashboard }) =>
-    !isRenderedOnDashboard ? '1.5rem' : '.2em'};
-    }
-  }
-
-  .logo {
-    &-container {
-      display: ${({ isRenderedOnDashboard }) =>
-    isRenderedOnDashboard ? 'flex' : ''};
-      height: 100%;
-      width: 100%;
-      justify-content: center;
-    }
-
-    @media (max-width: 800px) {
-      width: ${({ isRenderedOnDashboard }) =>
-    isRenderedOnDashboard ? '3.5rem' : ''};
-      margin-top: ${({ isRenderedOnDashboard }) =>
-    isRenderedOnDashboard ? gutters.xSmallOne : ''};
+    !isRenderedOnDashboard ? '1.5rem' : '0'};
     }
   }
 
   .links {
-    margin-top: ${gutters.small};
+    margin-top: ${gutters.xSmallOne};
 
-    @media (max-width: 800px) {
-      margin-top: ${gutters.medium};
+    @media(max-width: 800px) {
+      margin: ${gutters.small} 0;
     }
-
+    
     & > * {
       &:not(:last-child) {
         margin-bottom: ${gutters.small};
@@ -52,24 +37,7 @@ const StyledSideNavContent = styled.div<{ isRenderedOnDashboard?: boolean }>`
     .link {
       transition: all 0.2s;
       padding: 0.1rem 1rem;
-      border-left: 2px solid transparent;
-
-      @media (max-width: 800px) {
-        display: flex;
-        flex-direction: column;
-        align-items: ${({ isRenderedOnDashboard }) =>
-    isRenderedOnDashboard ? 'center' : ''};
-        font-size: ${({ isRenderedOnDashboard }) =>
-    isRenderedOnDashboard ? '90%' : ''};
-        margin: 0 2.5rem;
-        padding: 0.1rem 0.2rem;
-        border-left: none;
-        border-bottom: 2px solid transparent;
-      }
-
-      @media (max-width: 640px) {
-        margin: 0;
-      }
+      border-left: 4px solid transparent;
 
       &:hover {
         color: ${colors.primaryColor400};
@@ -78,23 +46,12 @@ const StyledSideNavContent = styled.div<{ isRenderedOnDashboard?: boolean }>`
 
     .active {
       color: ${colors.primaryColor400};
-      border-left: 2px solid ${colors.primaryColor400};
-
-      @media (max-width: 800px) {
-        border-left: none;
-        border-bottom: 2px solid ${colors.primaryColor400};
-      }
+      border-left: 4px solid ${colors.primaryColor400};
     }
 
     svg {
       display: inline-block;
       margin-right: ${gutters.xSmallOne};
-
-      @media (max-width: 800px) {
-        margin-right: 0;
-        margin-bottom: 0.3rem;
-        display: inline-block;
-      }
     }
   }
 `;
@@ -114,17 +71,21 @@ export const SideNavContent = ({
   const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
 
   return (
-    <StyledSideNavContent isRenderedOnDashboard={isRenderedOnDashboard}>
+    <StyledSideNavContent 
+      isRenderedOnDashboard={isRenderedOnDashboard}
+      style={{
+        borderRight: colorMode === 'light' ? 'none' : '1px solid #222'
+      }}
+    >
       <Box
         position="relative"
-        color={!isRenderedOnDashboard ? color[colorMode] : theme.colors.white}
-        bg={!isRenderedOnDashboard ? bg[colorMode] : {}}
-        height="100%"
+        color={color[colorMode]}
+        bg={bg[colorMode]}
         overflowY="auto"
+        height="100%"
       >
         <Box
           as="nav"
-          height={!isRenderedOnDashboard ? '100vh' : ''}
           aria-label="Main navigation"
           style={
             isRenderedOnDashboard
@@ -135,20 +96,6 @@ export const SideNavContent = ({
               : {}
           }
         >
-          <Box
-            margin="0 auto"
-            as="a"
-            cursor="pointer"
-            className={`${
-              !isRenderedOnDashboard ? 'nav-content-mobile' : ''
-            } logo-container`}
-            onClick={() => {
-              navigate('/');
-            }}
-            aria-label="Neon Law, Back to homepage"
-          >
-            <img className="logo" src="/images/logo.svg" alt="Neon Law" />
-          </Box>
           <Box mb="10" display={isRenderedOnDashboard ? 'none' : ''}>
             <Search
               version="mobile"

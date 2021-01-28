@@ -78,6 +78,7 @@ export const Search = ({
         aria-label={message}
         placeholder={message}
         borderRadius="0"
+        color={colors.text[colorMode]}
         background={
           version === 'mobile'
             ? `${colors.background[colorMode]} !important`

@@ -1,7 +1,7 @@
 import { Box, useColorMode, useColorModeValue } from '@chakra-ui/core';
 import { Global, css } from '@emotion/core';
+import React, { CSSProperties } from 'react';
 
-import React from 'react';
 import { gutters } from '../themes/neonLaw';
 import styled from '@emotion/styled';
 
@@ -52,11 +52,25 @@ const StyledThemeSwitcher = styled.div<{isRenderedOnDashboard?: boolean}>`
     border-radius: 50%;
     transition: 0.2s ease-in;
   }
+
+  .label {
+    @media(max-width: 350px) {
+      display: none;
+    }
+  }
 `;
 
+interface ThemeSwitcherProps {
+  isRenderedOnDashboard?: boolean; 
+  styles?: CSSProperties;
+  renderText?: boolean;
+}
+
 export const ThemeSwitcher = ({
-  isRenderedOnDashboard
-}: {isRenderedOnDashboard?: boolean}) => {
+  isRenderedOnDashboard, 
+  styles,
+  renderText
+}: ThemeSwitcherProps) => {
   const { toggleColorMode, colorMode } = useColorMode();
 
   const handleToggleTheme = () => {
@@ -68,8 +82,18 @@ export const ThemeSwitcher = ({
   const moonBg = useColorModeValue('#9f9f9f', moonBgColor);
 
   return (
-    <StyledThemeSwitcher isRenderedOnDashboard={isRenderedOnDashboard}>
+    <StyledThemeSwitcher
+      isRenderedOnDashboard={isRenderedOnDashboard} 
+      style={styles}
+    >
+      { renderText ? 
+        <h3 style={{marginTop: gutters.small}}>Theme: </h3> 
+        : null }
       <label title='Change Color Mode'>
+        { renderText ? 
+          <div className="label" style={{marginRight: gutters.xSmallOne}}>
+            Light Mode
+          </div> : null }
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -126,6 +150,10 @@ export const ThemeSwitcher = ({
             style={{ fill: moonBg }}
           />
         </svg>
+        { renderText ? 
+          <div className="label" style={{marginLeft: gutters.xSmallOne}}>
+            Dark Mode
+          </div> : null }
       </label>
     </StyledThemeSwitcher>
   );

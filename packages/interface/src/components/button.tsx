@@ -3,8 +3,8 @@
 /* eslint-enable */
 import { Button as ChakraButton, useColorMode } from '@chakra-ui/core';
 import { Global, css, keyframes } from '@emotion/core';
+import React, { CSSProperties } from 'react';
 
-import React from 'react';
 import { colors } from '../themes/neonLaw';
 import styled from '@emotion/styled';
 
@@ -37,12 +37,36 @@ export const flashAnimation = keyframes`
  }
 `;
 
-const FlashButtonWrapper = styled.div`
+const StyledFlashButtonWrapper = styled.div`
   display: inline-block;
   outline: var(--outline-transparent);
   outline-offset: 0.3rem;
   transition: all 0.3s;
+
+  & > * {
+    width: 100%;
+  }
 `;
+
+interface WrapOrUnWrapProps {
+  flash: boolean;
+  children: JSX.Element;
+  containerStyles: CSSProperties;
+}
+
+const WrapOrUnWrap = ({
+  flash,
+  children,
+  containerStyles,
+}: WrapOrUnWrapProps) => {
+  return flash ? (
+    <StyledFlashButtonWrapper style={{ ...containerStyles }}>
+      {children}
+    </StyledFlashButtonWrapper>
+  ) : (
+    children
+  );
+};
 
 export const Button = ({
   children,
@@ -77,17 +101,16 @@ export const Button = ({
   const shouldHaveTealStyles = !flash || buttonScheme === 'teal';
 
   return (
-    <FlashButtonWrapper style={flash ? { ...containerStyles } : {}}>
+    <WrapOrUnWrap
+      flash={flash}
+      containerStyles={containerStyles}
+    >
       <ChakraButton
         as={props.as}
-        onClick={
-          flash
-            ? handleClickFlash
-            : onClick
-        }
+        onClick={flash ? handleClickFlash : onClick}
         onMouseDown={onMouseDown}
         onMouseOver={onMouseOver}
-        style={{ ...styles }}
+        style={styles}
         background={
           shouldHaveTealStyles ? colors.primaryButtonBg[colorMode] : props.bg
         }
@@ -123,6 +146,6 @@ export const Button = ({
         ) : null}
         {children}
       </ChakraButton>
-    </FlashButtonWrapper>
+    </WrapOrUnWrap>
   );
 };

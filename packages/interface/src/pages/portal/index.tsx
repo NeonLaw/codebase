@@ -4,6 +4,7 @@ import {
   Text,
 } from '@chakra-ui/core';
 import { gutters, sizes } from '../../themes/neonLaw';
+
 import { PortalLayout } from '../../layouts/portalLayout';
 import React from 'react';
 import { useIntl } from 'gatsby-plugin-intl';
