@@ -4142,13 +4142,14 @@
   resolved "https://registry.yarnpkg.com/@ungap/global-this/-/global-this-0.4.3.tgz#44cb668b03e7c4bc88cb6e6f9329d381131878ee"
   integrity sha512-MuHEpDBurNVeD6mV9xBcAN2wfTwuaFQhHuhWkJuXmyVJ5P5sBCw+nnFpdfb0tAvgWkfefWCsAoAsh7MTUr3LPg==
 
-"@uppy/companion-client@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@uppy/companion-client/-/companion-client-1.7.0.tgz#aa001ba95277dd4af62852ce7efbdc85b3965d4c"
-  integrity sha512-nDE+yaSFH/DQhttwhMd6SsaifCpifY6a7HchYdCF7/eR+E2VgRYyMrNHRA7YiWVIXlhXciaU3fmDUkEicD2dww==
+"@uppy/companion-client@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@uppy/companion-client/-/companion-client-1.8.0.tgz#925dbaf4428b983f0c2af132bfd7c90f12a54285"
+  integrity sha512-mwssvehLV2upcdsDBnYYlkTLdwgL7Sbqib0YF9b9Wjk/WG6LzlpbqhlT9sixy2dX6YT0shMOFOwKfRfNn6BauQ==
   dependencies:
-    "@uppy/utils" "^3.3.0"
+    "@uppy/utils" "^3.3.1"
     namespace-emitter "^2.0.1"
+    qs-stringify "^1.1.0"
 
 "@uppy/core@^1.14.2", "@uppy/core@^1.15.0":
   version "1.15.0"
@@ -4216,12 +4217,12 @@
     "@uppy/utils" "^3.3.0"
     preact "8.2.9"
 
-"@uppy/provider-views@^1.9.2":
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/@uppy/provider-views/-/provider-views-1.9.2.tgz#95716b4ea19967c1884447323b645f80c611b3ee"
-  integrity sha512-E4qXBEeUkj12GQzW8+mZOZBfO73x23oEbyGO2+sQslsomVYX1iRtju8qMwH+8S3Aqt6c8upCVEUvtcyXC3cG4w==
+"@uppy/provider-views@^1.10.0", "@uppy/provider-views@^1.9.2":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@uppy/provider-views/-/provider-views-1.10.0.tgz#256236d6cf0eae707108ce7709b8f3807b06e3a2"
+  integrity sha512-DsDXb7Y+cphrwZ6fCEe9xHh/JlXJXZdbGuDI35mEWkpB/vOdN6X50JR5/t2b3oQtARwZcOi0Vj0upXBl+k2FSA==
   dependencies:
-    "@uppy/utils" "^3.3.0"
+    "@uppy/utils" "^3.3.1"
     classnames "^2.2.6"
     preact "8.2.9"
 
@@ -4263,31 +4264,31 @@
     exifr "^6.0.0"
     math-log2 "^1.0.1"
 
-"@uppy/transloadit@^1.6.15", "@uppy/transloadit@^1.6.16":
-  version "1.6.16"
-  resolved "https://registry.yarnpkg.com/@uppy/transloadit/-/transloadit-1.6.16.tgz#a1c9f9f6eb068e0426f0db736cfc222924e47f9a"
-  integrity sha512-4mSTA+DFlJh7/UyTt8tkDsLKYUYr/O+Eu1dF61zPjAv3y/EcVQlC0kHWvtR32JLALukeINiYmw+clpwBlbskPA==
+"@uppy/transloadit@^1.6.17":
+  version "1.6.17"
+  resolved "https://registry.yarnpkg.com/@uppy/transloadit/-/transloadit-1.6.17.tgz#e955aa685501c47cffe0b3cb6be52f62b21c5f2a"
+  integrity sha512-Mb3nFU7cYZP8rwuHiGyfKamaC9rRtGZLa6Igvw2qQfT1P2Ofj4A2EPMY/go552y/ymUCD821QPaww/aOTYFWJQ==
   dependencies:
-    "@uppy/companion-client" "^1.7.0"
-    "@uppy/provider-views" "^1.9.2"
-    "@uppy/tus" "^1.8.2"
-    "@uppy/utils" "^3.3.0"
+    "@uppy/companion-client" "^1.8.0"
+    "@uppy/provider-views" "^1.10.0"
+    "@uppy/tus" "^1.8.3"
+    "@uppy/utils" "^3.3.1"
     component-emitter "^1.2.1"
     socket.io-client "~2.2.0"
 
-"@uppy/tus@^1.8.1", "@uppy/tus@^1.8.2":
-  version "1.8.2"
-  resolved "https://registry.yarnpkg.com/@uppy/tus/-/tus-1.8.2.tgz#959b3c9355f7ba9515b73d8908c416ab3fa96fd7"
-  integrity sha512-CX3O0h3wkToJZ+j6ZWipULUzP181fj6zyj6DLNQrzU6j1lPSeLBb1Yo5hE63ae3uS8vAZVWOrGWlTucpZlrEpg==
+"@uppy/tus@^1.8.1", "@uppy/tus@^1.8.2", "@uppy/tus@^1.8.3":
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/@uppy/tus/-/tus-1.8.3.tgz#0ca3661d2d1e9b592bce2e5f7bed7001bebb6aaa"
+  integrity sha512-g9u0sccuk/jNq8FuiVlOJTJJnYUkQAZjhukdBHZ6H3noXtGrjzHJ6X/pIOnpp/oV9RU96PwTS/efLwriYwOgRA==
   dependencies:
-    "@uppy/companion-client" "^1.7.0"
-    "@uppy/utils" "^3.3.0"
+    "@uppy/companion-client" "^1.8.0"
+    "@uppy/utils" "^3.3.1"
     tus-js-client "^2.1.1"
 
-"@uppy/utils@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@uppy/utils/-/utils-3.3.0.tgz#c9501a4f1cd98bf91fb8f5a5651b47df40ac785f"
-  integrity sha512-oPNZjjRDDBLC7763idAlzIZiaQoFq2ms/G0TOFq5YeiBv/usbvb/mcEugrwsvLAvLYum2wJzYvWzAx4tlFF/ag==
+"@uppy/utils@^3.3.0", "@uppy/utils@^3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@uppy/utils/-/utils-3.3.1.tgz#b674e1aa2cd64b98422e6df58a614d396ae40b13"
+  integrity sha512-EeP3LgzBorAfXQSuEfXmtDp6MjdnEAm/xnIplAQg0ywrrR5Ht3FnJdGySRQnUVjiEb1umRI7eiJoe8Av/hC4Wg==
   dependencies:
     abortcontroller-polyfill "^1.4.0"
     lodash.throttle "^4.1.1"
@@ -17114,6 +17115,11 @@ q@^1.1.2:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
+
+qs-stringify@^1.1.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/qs-stringify/-/qs-stringify-1.2.1.tgz#9b39ef6b816bd83309628fc9dad435fc0eccc28b"
+  integrity sha512-2N5xGLGZUxpgAYq1fD1LmBSCbxQVsXYt5JU0nU3FuPWO8PlCnKNFQwXkZgyB6mrTdg7IbexX4wxIR403dJw9pw==
 
 qs@6.7.0:
   version "6.7.0"
