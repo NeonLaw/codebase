@@ -57,9 +57,9 @@ export const SocialMediaIcons = () => {
           <FaLinkedinIn style={{ display: 'inline' }} />
         </Button>
         <Button
-          aria-label="Call Neon Law at 1.415.949.3892"
+          aria-label="Call Neon Law at 1.510.281.3180"
           as="a"
-          href="tel:415-949-3892"
+          href="tel:1-510-281-3180"
         >
           <BiPhone style={{ display: 'inline' }} />
         </Button>

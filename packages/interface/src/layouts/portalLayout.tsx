@@ -1,9 +1,7 @@
 import { colors, gutters, theme } from '../themes/neonLaw';
-
 import { ApolloProvider } from '@apollo/client';
 import { LoadingPage } from '../components/loadingPage';
 import PortalBg from '../../../interface/src/images/dashboard-bg.jpg';
-import { PortalNavLinks } from '../components/navigationBars/portalNavLinks';
 import {
   PortalNavigationBar
 } from '../components/navigationBars/portalNavigationBar';
@@ -16,6 +14,7 @@ import {
 import React from 'react';
 import { Redirect } from '@reach/router';
 import { getApolloClient } from '../utils/getApolloClient';
+import { portalNavLinks } from '../components/navigationBars/portalNavLinks';
 import styled from '@emotion/styled';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useColorMode } from '@chakra-ui/core';
@@ -40,7 +39,7 @@ const StyledPortalLayout = styled.div`
     margin: 3vw;
     overflow: hidden;
 
-    @media (max-width: 800px) { 
+    @media (max-width: 800px) {
       grid-template-columns: 1fr;
       margin: 0;
     }
@@ -92,13 +91,13 @@ const Main = styled.main`
 
 export const PortalLayout = ({ children }) => {
   const { colorMode } = useColorMode();
-  const { 
-    isAuthenticated, 
-    isLoading, 
-    getAccessTokenSilently
+  const {
+    isAuthenticated,
+    isLoading,
+    getAccessTokenSilently,
+    user
   } = useAuth0();
   const apolloClient = getApolloClient(getAccessTokenSilently);
-  const links = PortalNavLinks();
 
   if (isLoading) {
     return <LoadingPage />;
@@ -108,25 +107,27 @@ export const PortalLayout = ({ children }) => {
     return <Redirect noThrow={true} to="/" />;
   }
 
+  const links = portalNavLinks({ email: user.email });
+
   return (
     <ApolloProvider client={apolloClient}>
       <StyledPortalLayout>
         <div className="wrapper">
           <Aside
             style={{
-              background: 
+              background:
                colorMode === 'dark' ? '#000000b0' : 'rgba(255, 255, 255, 0.8)',
               color: colors.text[colorMode],
               height: '100%'
             }}
           >
-            <PortalSideNavigation  
+            <PortalSideNavigation
               links={links}
             />
           </Aside>
-          <PortalNavigationBar 
-            isRenderedOnDashboard={true} 
-            sideNavigationDrawer={<PortalSideNavContent links={links} />} 
+          <PortalNavigationBar
+            isRenderedOnDashboard={true}
+            sideNavigationDrawer={<PortalSideNavContent links={links} />}
           />
           <Main
             style={{

@@ -1,5 +1,4 @@
 import { BiBook, BiHomeHeart, BiPen } from 'react-icons/bi';
-
 import { AiOutlineShop } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
 import { FaHands } from 'react-icons/fa';
@@ -9,14 +8,9 @@ import { RiAdminLine } from 'react-icons/ri';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { VscLaw } from 'react-icons/vsc';
 import { admins } from '@neonlaw/server/src/admins';
-import { useAuth0 } from '@auth0/auth0-react';
 
-export const PortalNavLinks = () => {
-  const {
-    user: { email },
-  } = useAuth0();
-
-  const links = [
+export const portalNavLinks = ({ email }) => {
+  return [
     {
       icon: <BiHomeHeart />,
       label: 'Dashboard',
@@ -70,6 +64,4 @@ export const PortalNavLinks = () => {
       }
       : null,
   ];
-
-  return links;
 };
