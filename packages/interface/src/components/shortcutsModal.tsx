@@ -63,8 +63,20 @@ export const ShortcutsModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode } = useColorMode();
 
+  const isThereAModalOpen = () => {
+    const modals = document.querySelectorAll('.chakra-portal');
+    return modals.length === 1;
+  };
+
+  const isThereAnInputFocused = () => {
+    const focused = document.activeElement?.tagName;
+    return focused === 'INPUT';
+    
+  };
+
   const handleOpenModal = (e: any) => {
-    if (e.key == '?') {
+    isThereAnInputFocused();
+    if (e.key == '?' && !isThereAModalOpen() && !isThereAnInputFocused()) {
       // detect Shift + / i.e '?'
       onOpen();
     }
