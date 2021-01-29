@@ -30,7 +30,7 @@ const AdminMatterTemplates = () => {
         <Button
           flash={false}
           buttonScheme="teal"
-          containerStyles={{ margin: `0 0 ${gutters.xSmallOne}` }}
+          marginBottom={gutters.xSmall}
           onClick={onOpen}
         >
           Create Matter Template&nbsp;

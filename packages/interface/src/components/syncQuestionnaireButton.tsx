@@ -1,5 +1,7 @@
 import { Button, Skeleton } from '@chakra-ui/core';
+
 import React from 'react';
+import { gutters } from '../themes/neonLaw';
 import { useUpdateQuestionnaireFromNeo4JMutation } from '../utils/api';
 
 export const SyncQuestionnaireButton = ({ id }) => {
@@ -9,7 +11,7 @@ export const SyncQuestionnaireButton = ({ id }) => {
 
   if (!id) {
     return (
-      <Button>
+      <Button marginBottom={gutters.xSmall}>
       Select a Questionnaire to Sync
       </Button>
     );
@@ -20,7 +22,8 @@ export const SyncQuestionnaireButton = ({ id }) => {
   }
 
   return (
-    <Button
+    <Button 
+      marginBottom={gutters.xSmall}
       flash={false}
       buttonScheme="teal"
       onClick={async () => {

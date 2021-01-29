@@ -31,7 +31,8 @@ const AdminQuestionnaires = () => {
         <Button
           flash={false}
           buttonScheme="teal"
-          containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
+          marginBottom={gutters.xSmall}
+          marginRight={gutters.xSmall}
           onClick={onOpen}
         >
           Create Questionnaire &nbsp;<Kbd

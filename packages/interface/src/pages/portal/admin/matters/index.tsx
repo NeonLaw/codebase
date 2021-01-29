@@ -1,5 +1,6 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
+
 import { Breadcrumbs } from '../../../../components/breadcrumbs';
 import { Button } from '../../../../components/button';
 import {
@@ -27,7 +28,7 @@ const AdminMatters = () => {
         <Button
           flash={false}
           buttonScheme="teal"
-          containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
+          marginBottom={gutters.xSmall}
           onClick={onOpen}
         >
           Create Matter &nbsp;

@@ -28,7 +28,7 @@ const AdminMatterDocumentTemplates = () => {
         <Button
           flash={true}
           buttonScheme="teal"
-          containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
+          marginBottom={gutters.xSmall}
           onClick={onOpen}
         >
           Create Document Template&nbsp;
