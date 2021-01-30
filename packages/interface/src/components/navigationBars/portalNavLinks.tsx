@@ -33,7 +33,7 @@ export const portalNavLinks = ({ email }) => {
     },
     {
       icon: <FaHands />,
-      label: 'Estate',
+      label: 'Estate & Trust',
       route: '/portal/estate',
     },
     {

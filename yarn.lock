@@ -4028,7 +4028,7 @@
     regexpp "^3.0.0"
     tsutils "^3.17.1"
 
-"@typescript-eslint/eslint-plugin@^4.14.1":
+"@typescript-eslint/eslint-plugin@^4.14.0", "@typescript-eslint/eslint-plugin@^4.14.1":
   version "4.14.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-4.14.1.tgz#22dd301ce228aaab3416b14ead10b1db3e7d3180"
   integrity sha512-5JriGbYhtqMS1kRcZTQxndz1lKMwwEXKbwZbkUZNnp6MJX0+OVXnG0kOlBZP4LUAxEyzu3cs+EXd/97MJXsGfw==
@@ -4074,7 +4074,7 @@
     "@typescript-eslint/typescript-estree" "2.34.0"
     eslint-visitor-keys "^1.1.0"
 
-"@typescript-eslint/parser@^4.14.1":
+"@typescript-eslint/parser@^4.14.0", "@typescript-eslint/parser@^4.14.1":
   version "4.14.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-4.14.1.tgz#3bd6c24710cd557d8446625284bcc9c6d52817c6"
   integrity sha512-mL3+gU18g9JPsHZuKMZ8Z0Ss9YP1S5xYZ7n68Z98GnPq02pYNQuRXL85b9GYhl6jpdvUc45Km7hAl71vybjUmw==
@@ -8674,7 +8674,7 @@ eslint-plugin-jest@^24.1.3:
   dependencies:
     "@typescript-eslint/experimental-utils" "^4.0.1"
 
-eslint-plugin-jsdoc@^31.4.0:
+eslint-plugin-jsdoc@^31.2.1, eslint-plugin-jsdoc@^31.4.0:
   version "31.4.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-31.4.0.tgz#70e00f5f8f7cc695de36319d0e761e1a784ae10e"
   integrity sha512-NX387IVQrA/ZE9F1tpeEFzZDsXb/BJS4HdT1ZH0RME3O/4DJF8GNQnjMSia8O3gFx/kjfASsdmK5LglVs+xGLA==
@@ -9976,7 +9976,7 @@ gatsby-graphiql-explorer@^0.10.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-gatsby-image@^2.10.0:
+gatsby-image@^2.10.0, gatsby-image@^2.5.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-2.10.0.tgz#5d8951a1a0ac1f2717d01a7f30efa84f6fc245f5"
   integrity sha512-LPBHWfnguwH5syGLUSv2SyWn+LPn++ulOU8THNOkaMDGCAOrQu/cVPKVsweRkAaDAB/8Sl9g1mPP4EERw/Ysfg==
@@ -10048,7 +10048,7 @@ gatsby-plugin-layout@^1.9.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-gatsby-plugin-manifest@^2.11.0:
+gatsby-plugin-manifest@^2.11.0, gatsby-plugin-manifest@^2.6.1:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.11.0.tgz#66d4b9c29a83211c289ef597f700bd089a399193"
   integrity sha512-FyKye5egB4nBggKPIx4XlwcXAZYi0e7UoHYTGQkeRtci1nzHC3Q1/GLFfMi9F6jpmJ1Z4S3A+yYshxSap4ySJQ==
@@ -10106,7 +10106,7 @@ gatsby-plugin-module-resolver@^1.0.3:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-module-resolver/-/gatsby-plugin-module-resolver-1.0.3.tgz#d98d0b51b5b99aa40db3382f6b5c049ca3018f01"
   integrity sha512-MrE2JhDEiiZB6uLVJ0zpoZmHi36zkgGoNgBr9YQ4r6TUqayiNXU97NBhO87CRJQz8I4MaL6ZrOWjUdoHEXvndg==
 
-gatsby-plugin-offline@^3.9.0:
+gatsby-plugin-offline@^3.4.0, gatsby-plugin-offline@^3.9.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-3.9.0.tgz#2d5d830b03c812ed4f52ff178cfc77ee4c0aac3f"
   integrity sha512-sLxU+QMYq7QLte+/gRNm0vTRgil6VvbkxtEjf/e/oXpAkuy+Pm9IeaWKRtNfWcThpr2CjQbdkZpELLr8PZrCDw==
@@ -10140,7 +10140,7 @@ gatsby-plugin-react-axe@0.5.0, gatsby-plugin-react-axe@^0.5.0:
   dependencies:
     react-axe "^3.4.1"
 
-gatsby-plugin-react-helmet@^3.9.0:
+gatsby-plugin-react-helmet@^3.4.0, gatsby-plugin-react-helmet@^3.9.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.9.0.tgz#62dbbc15145004b3ce9d55d9f620726f1900bd7c"
   integrity sha512-u9KAVomMMYvX5swwMF2ToyyVWwwduLMuRggeydYGVae9IOz9pRK4QZYpN303tWeuOSKNSAOVo4tcSQ40//jgVg==
@@ -10169,6 +10169,31 @@ gatsby-plugin-sharp@^2.13.3:
   version "2.13.3"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.13.3.tgz#f06f7928dfccea139a3e69424bc59962ee1ecf82"
   integrity sha512-ke5yY1L0ov9nm8kliBAGdZ/R5rSwmQmZBku79kOfMimK3IXtxWUc3tsQpepmLtmdNsQIeMY65gyNPHE5OrsYzg==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    async "^3.2.0"
+    bluebird "^3.7.2"
+    fs-extra "^9.0.1"
+    gatsby-core-utils "^1.9.0"
+    gatsby-telemetry "^1.9.0"
+    got "^10.7.0"
+    imagemin "^7.0.1"
+    imagemin-mozjpeg "^9.0.0"
+    imagemin-pngquant "^9.0.1"
+    lodash "^4.17.20"
+    mini-svg-data-uri "^1.2.3"
+    potrace "^2.1.8"
+    probe-image-size "^6.0.0"
+    progress "^2.0.3"
+    semver "^7.3.4"
+    sharp "^0.27.0"
+    svgo "1.3.2"
+    uuid "3.4.0"
+
+gatsby-plugin-sharp@^2.8.0:
+  version "2.13.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.13.4.tgz#67f730418113072e8c8a011d37416a25a241f680"
+  integrity sha512-51k2/aCHGw3Cic8wRyPR5ny59OVUTXs+AhHOe3BwEOTWiAtpZ5eDKVMPHNviYDHOmiUpn17L08Ht6njbohs39g==
   dependencies:
     "@babel/runtime" "^7.12.5"
     async "^3.2.0"
@@ -10309,7 +10334,7 @@ gatsby-remark-images@^3.10.0:
     unist-util-select "^1.5.0"
     unist-util-visit-parents "^2.1.2"
 
-gatsby-source-filesystem@^2.10.0, gatsby-source-filesystem@^2.3.18:
+gatsby-source-filesystem@^2.10.0, gatsby-source-filesystem@^2.3.18, gatsby-source-filesystem@^2.5.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.10.0.tgz#9ee2f770d3ae15062a111bb1faea76b7d6e2b059"
   integrity sha512-kf1D25wBe+mXa+c4C0HgI+5bwgEoTUQupP1q7nk4Q1+RC2mHlWSm3X+lNPWVfxg8MKNWrLmrX1GrXorW8cEtEQ==
@@ -10372,7 +10397,7 @@ gatsby-telemetry@^1.9.0:
     node-fetch "^2.6.1"
     uuid "3.4.0"
 
-gatsby-transformer-sharp@^2.11.0:
+gatsby-transformer-sharp@^2.11.0, gatsby-transformer-sharp@^2.6.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/gatsby-transformer-sharp/-/gatsby-transformer-sharp-2.11.0.tgz#cb03f9cc4001101ae370f4dbe82cc2e99ea0e7e6"
   integrity sha512-esL884HBUGhZdoa6M7sP1aFC4JqCDh6PVReEEA2O0k26a4IC6cWTbIPeNa106vjrvYOEpSd359wUSFET9hpBMA==
@@ -10385,7 +10410,7 @@ gatsby-transformer-sharp@^2.11.0:
     semver "^7.3.4"
     sharp "^0.27.0"
 
-gatsby@2.31.1, gatsby@^2.23.22:
+gatsby@2.31.1, gatsby@^2.23.22, gatsby@^2.26.1:
   version "2.31.1"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.31.1.tgz#c124fea85d59e24936b49860450656029cf9ed55"
   integrity sha512-Q6awOrn4k3d44/eJ90b715VMWzm4rqPB3cACqbO8RkqU9jODEpbpB8JTXjZpQMO9Sx1fMazo8VG26AktLC5MOw==
@@ -16842,7 +16867,7 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^2.0.5:
+prettier@2.2.1, prettier@^2.0.5:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
   integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
@@ -17304,6 +17329,16 @@ react-diff-viewer@^3.1.1:
     memoize-one "^5.0.4"
     prop-types "^15.6.2"
 
+react-dom@^16.12.0:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
+  integrity sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.19.1"
+
 react-dom@^17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.1.tgz#1de2560474ec9f0e334285662ede52dbc5426fc6"
@@ -17547,6 +17582,15 @@ react-transition-group@^4.3.0:
     "@babel/runtime" "^7.5.5"
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
+    prop-types "^15.6.2"
+
+react@^16.12.0:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
+  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
     prop-types "^15.6.2"
 
 react@^17.0.1:
@@ -19103,6 +19147,14 @@ saxes@^5.0.0:
   integrity sha512-5LBh1Tls8c9xgGjw3QrMwETmTMVk0oFgvrFSvWx62llR2hcEInrKNZ2GZCCuuy2lvWrdl5jhbpeqc5hRYKFOcw==
   dependencies:
     xmlchars "^2.2.0"
+
+scheduler@^0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.19.1.tgz#4f3e2ed2c1a7d65681f4c854fa8c5a1ccb40f196"
+  integrity sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
 
 scheduler@^0.20.1:
   version "0.20.1"

@@ -91,5 +91,4 @@ dist/
 **/cypress/screenshots
 
 /packages/interface/src/intl/*.json
-/packages/justice-for-rickie-slaughter/src/intl/*.json
-/packages/law-job-resources/src/intl/*.json
+/packages/shook-family/src/intl/*.json
