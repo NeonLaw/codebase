@@ -1,9 +1,11 @@
 ARG DOMAIN_NAME
+ARG APP_NAME
 ARG GATSBY_ACTIVE_ENV
 
 FROM docker.pkg.github.com/neonlaw/codebase/base:latest AS build
 
 ARG DOMAIN_NAME
+ARG APP_NAME
 ARG GATSBY_ACTIVE_ENV
 
 WORKDIR /app
