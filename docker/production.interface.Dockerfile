@@ -22,6 +22,8 @@ RUN awk "{gsub(/DOMAIN_NAME/, \"$DOMAIN_NAME\"); print}" ./docker/production.ngi
 
 FROM nginx
 
+ARG APP_NAME
+
 COPY --from=build /app/packages/interface/public /usr/share/nginx/html
 COPY --from=build /app/docker.nginx.conf /etc/nginx/nginx.conf
 
