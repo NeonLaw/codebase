@@ -1,8 +1,8 @@
 resource "kubernetes_deployment" "interface" {
   metadata {
-    name = "${var.environment}-interface"
+    name = "${var.environment}-${var.app_name}"
     labels = {
-      app = "${var.environment}-interface"
+      app = "${var.environment}-${var.app_name}"
     }
   }
 
@@ -11,21 +11,21 @@ resource "kubernetes_deployment" "interface" {
 
     selector {
       match_labels = {
-        app = "${var.environment}-interface"
+        app = "${var.environment}-${var.app_name}"
       }
     }
 
     template {
       metadata {
         labels = {
-          app = "${var.environment}-interface"
+          app = "${var.environment}-${var.app_name}"
         }
       }
 
       spec {
         container {
           image = var.image_url
-          name  = "interface"
+          name  = var.app_name
         }
       }
     }
@@ -34,11 +34,11 @@ resource "kubernetes_deployment" "interface" {
 
 resource "kubernetes_service" "primary" {
   metadata {
-    name = "${var.environment}-interface"
+    name = "${var.environment}-${var.app_name}"
   }
   spec {
     selector = {
-      app = "${var.environment}-interface"
+      app = "${var.environment}-${var.app_name}"
     }
     session_affinity = "ClientIP"
     port {
