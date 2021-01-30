@@ -136,7 +136,7 @@ module "worker_deployment" {
 }
 
 module "interface_deployment" {
-  source      = "../modules/interface_deployment"
+  source      = "./modules/interface_deployment"
   app_name    = "interface"
   environment = var.environment
   image_url   = "${data.terraform_remote_state.gcp.outputs.container_registry}/interface:latest"
