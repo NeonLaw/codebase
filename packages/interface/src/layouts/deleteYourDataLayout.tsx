@@ -1,7 +1,7 @@
 import '../themes/fonts.css';
 import { Box, useColorMode } from '@chakra-ui/core';
 import { ApolloProvider } from '@apollo/client';
-import { DeleteYourDataStyles } from '../styles/deleteYourData';
+import { DeleteYourDataStyles } from '../styles/deleteYourDataStyles';
 import { Footer } from '../components/footer';
 import React from 'react';
 import { colors } from '../themes/deleteYourData';
