@@ -3,7 +3,7 @@ import { PublicTrustLayout } from '../../../layouts/publicTrustLayout';
 import React from 'react';
 import { Seo } from '../../../components/seo';
 
-const HomePage = () => {
+const ShookFamilyWeddingPage = () => {
   const title = 'Shook Family Wedding';
   const description = 'The Shook Family Wedding February 1, 2021';
 
@@ -17,4 +17,4 @@ const HomePage = () => {
 };
 
 /* eslint-disable-next-line import/no-default-export */
-export default HomePage;
+export default ShookFamilyWeddingPage;
