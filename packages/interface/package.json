@@ -14,6 +14,7 @@
     "@mdx-js/mdx": "^1.6.21",
     "@mdx-js/react": "^1.6.21",
     "@reach/router": "^1.3.4",
+    "@stripe/stripe-js": "^1.11.0",
     "@turf/bezier-spline": "^6.3.0",
     "@turf/helpers": "^6.2.0",
     "@uppy/core": "^1.16.0",

@@ -11,6 +11,7 @@ import {
   endNewRelicTransaction,
   logger,
 } from './middleware';
+import Stripe from 'stripe';
 import cors from 'cors';
 import { createPerson } from './createPerson';
 import express from 'express';
@@ -77,6 +78,34 @@ expressApp.post('/api/auth0-create-person', async (request, response) => {
 });
 
 expressApp.use('/api/auth0-create-person', endNewRelicTransaction);
+
+expressApp.use('/api/create-checkout-session', beginNewRelicTransaction);
+expressApp.use('/api/create-checkout-session', async (request, response) => {
+  const stripe = Stripe(process.env.STRIPE_API_SECRET_KEY as string);
+  const session = await stripe.checkout.sessions.create({
+    cancel_url: 'https://www.neonlaw.com/cancel-transaction',
+    line_items: [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: 'Michelle and Nick\'s Honeymoon',
+          },
+          unit_amount: 2000,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    payment_method_types: ['card'],
+    success_url: 'https://www.neonlaw.com/successful-transaction',
+  });
+
+  console.log(JSON.stringify(session));
+
+  response.json({ id: session.id });
+});
+expressApp.use('/api/create-checkout-session', endNewRelicTransaction);
 
 const limiter = rateLimit({
   max: 180,
