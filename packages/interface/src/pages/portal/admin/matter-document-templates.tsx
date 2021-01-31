@@ -43,6 +43,7 @@ const AdminMatterDocumentTemplates = () => {
 
         <CreateMatterDocumentTemplateModal
           isOpen={isOpen && showCreateModal}
+          onOpen={onOpen}
           onClose={() => {
             changeShowCreateModal(true);
             onClose();

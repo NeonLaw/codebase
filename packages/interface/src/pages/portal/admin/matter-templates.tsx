@@ -45,6 +45,7 @@ const AdminMatterTemplates = () => {
 
         <CreateMatterTemplateModal
           isOpen={isOpen && showCreateModal}
+          onOpen={onOpen}
           onClose={() => {
             changeShowCreateModal(true);
             onClose();

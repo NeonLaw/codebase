@@ -42,6 +42,7 @@ const AdminQuestions = () => {
 
         <CreateQuestionModal
           isOpen={isOpen && showCreateModal}
+          onOpen={onOpen}
           onClose={() => {
             changeShowCreateModal(true);
             onClose();

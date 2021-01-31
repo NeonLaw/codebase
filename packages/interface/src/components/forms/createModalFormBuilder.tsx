@@ -13,6 +13,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { colors, gutters } from '../../themes/neonLaw';
 import { kebabCase, titleCase } from 'voca';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
+
 import { CreateButton } from '../buttons/createButton';
 import { Field } from './inputTypes';
 import { InputBuilder } from './inputBuilder';
@@ -25,6 +26,7 @@ interface FormBuilderProps {
   fields: Field[];
   resourceName: string;
   onClose(): void;
+  onOpen(): void;
   isOpen: boolean;
 }
 
@@ -43,6 +45,7 @@ export const CreateModalFormBuilder = ({
   resourceName,
   fields,
   onClose,
+  onOpen,
   isOpen,
 }: FormBuilderProps) => {
   const dasherizedResourceName = kebabCase(resourceName);
@@ -57,7 +60,7 @@ export const CreateModalFormBuilder = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
   const OS = useOperatingSystem();
-
+  
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -67,10 +70,13 @@ export const CreateModalFormBuilder = ({
       input.addEventListener('keydown', keyDownHandler);
     }
 
+    window.addEventListener('keydown', handleCPress);
+
     return () => {
       if (null !== input) {
         input.removeEventListener('keydown', keyDownHandler);
       }
+      window.removeEventListener('keydown', handleCPress);
     };
   });
 
@@ -79,6 +85,12 @@ export const CreateModalFormBuilder = ({
       submitOnMetaEnter(e, formRef);
     } else {
       submitOnShiftEnter(e, formRef);
+    }
+  };
+
+  const handleCPress = (e) => {
+    if (e.key === 'c' || e.key === 'C') {
+      onOpen();
     }
   };
 
