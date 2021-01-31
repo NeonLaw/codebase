@@ -9976,7 +9976,7 @@ gatsby-graphiql-explorer@^0.10.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-gatsby-image@^2.10.0, gatsby-image@^2.5.0:
+gatsby-image@^2.10.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-2.10.0.tgz#5d8951a1a0ac1f2717d01a7f30efa84f6fc245f5"
   integrity sha512-LPBHWfnguwH5syGLUSv2SyWn+LPn++ulOU8THNOkaMDGCAOrQu/cVPKVsweRkAaDAB/8Sl9g1mPP4EERw/Ysfg==
@@ -10048,7 +10048,7 @@ gatsby-plugin-layout@^1.9.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-gatsby-plugin-manifest@^2.11.0, gatsby-plugin-manifest@^2.6.1:
+gatsby-plugin-manifest@^2.11.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.11.0.tgz#66d4b9c29a83211c289ef597f700bd089a399193"
   integrity sha512-FyKye5egB4nBggKPIx4XlwcXAZYi0e7UoHYTGQkeRtci1nzHC3Q1/GLFfMi9F6jpmJ1Z4S3A+yYshxSap4ySJQ==
@@ -10169,31 +10169,6 @@ gatsby-plugin-sharp@^2.13.3:
   version "2.13.3"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.13.3.tgz#f06f7928dfccea139a3e69424bc59962ee1ecf82"
   integrity sha512-ke5yY1L0ov9nm8kliBAGdZ/R5rSwmQmZBku79kOfMimK3IXtxWUc3tsQpepmLtmdNsQIeMY65gyNPHE5OrsYzg==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-    async "^3.2.0"
-    bluebird "^3.7.2"
-    fs-extra "^9.0.1"
-    gatsby-core-utils "^1.9.0"
-    gatsby-telemetry "^1.9.0"
-    got "^10.7.0"
-    imagemin "^7.0.1"
-    imagemin-mozjpeg "^9.0.0"
-    imagemin-pngquant "^9.0.1"
-    lodash "^4.17.20"
-    mini-svg-data-uri "^1.2.3"
-    potrace "^2.1.8"
-    probe-image-size "^6.0.0"
-    progress "^2.0.3"
-    semver "^7.3.4"
-    sharp "^0.27.0"
-    svgo "1.3.2"
-    uuid "3.4.0"
-
-gatsby-plugin-sharp@^2.8.0:
-  version "2.13.4"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.13.4.tgz#67f730418113072e8c8a011d37416a25a241f680"
-  integrity sha512-51k2/aCHGw3Cic8wRyPR5ny59OVUTXs+AhHOe3BwEOTWiAtpZ5eDKVMPHNviYDHOmiUpn17L08Ht6njbohs39g==
   dependencies:
     "@babel/runtime" "^7.12.5"
     async "^3.2.0"
@@ -10410,7 +10385,7 @@ gatsby-transformer-sharp@^2.11.0, gatsby-transformer-sharp@^2.6.0:
     semver "^7.3.4"
     sharp "^0.27.0"
 
-gatsby@2.31.1, gatsby@^2.23.22, gatsby@^2.26.1:
+gatsby@2.31.1, gatsby@^2.23.22:
   version "2.31.1"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.31.1.tgz#c124fea85d59e24936b49860450656029cf9ed55"
   integrity sha512-Q6awOrn4k3d44/eJ90b715VMWzm4rqPB3cACqbO8RkqU9jODEpbpB8JTXjZpQMO9Sx1fMazo8VG26AktLC5MOw==
