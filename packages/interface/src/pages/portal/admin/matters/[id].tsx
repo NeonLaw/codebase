@@ -1,6 +1,6 @@
 import { Box, useDisclosure } from '@chakra-ui/core';
 import { Breadcrumbs } from '../../../../components/breadcrumbs';
-import { Button } from '../../../../components/button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import {
   CreateMatterDocumentModal
 } from '../../../../components/modals/createMatterDocumentModal';
