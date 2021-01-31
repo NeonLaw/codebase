@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { Location } from '@reach/router';
 import React from 'react';
-import { useSiteMetadata } from '@neonlaw/shared-ui/src/hooks/useSiteMetadata';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
 
 interface SeoProps {
   description?: string;

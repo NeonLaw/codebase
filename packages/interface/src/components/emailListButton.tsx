@@ -1,6 +1,6 @@
 import { Box, Center } from '@chakra-ui/core';
 
-import { Button } from '../components/button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import React from 'react';
 
 export const EmailListButton = () => {

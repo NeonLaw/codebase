@@ -11,7 +11,7 @@ import React, { useState } from 'react';
 import { StringInput, Switch } from '../../components/inputs';
 import { colors, gutters, theme } from '../../themes/neonLaw';
 
-import { Button } from '../../components/button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import { SubmissionInProgress } from '../../components/submissionInProgress';
 import { useCurrentUserQuery } from '../../utils/api';
 import { useForm } from 'react-hook-form';

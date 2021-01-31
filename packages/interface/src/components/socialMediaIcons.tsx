@@ -3,7 +3,7 @@ import {
   FaFacebook, FaGithub, FaInstagram, FaLinkedinIn, FaTwitter
 } from 'react-icons/fa';
 import { BiPhone } from 'react-icons/bi';
-import { Button } from '../components/button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import { MdEmail } from 'react-icons/md';
 import React from 'react';
 

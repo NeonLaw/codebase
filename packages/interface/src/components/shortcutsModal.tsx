@@ -12,7 +12,7 @@ import {
 import React, { useEffect } from 'react';
 import { colors, shadows, theme } from '../themes/neonLaw';
 
-import { Button } from './button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import styled from '@emotion/styled';
 
 const StyledShortCut = styled.li`
@@ -71,7 +71,7 @@ export const ShortcutsModal = () => {
   const isThereAnInputFocused = () => {
     const focused = document.activeElement?.tagName;
     return focused === 'INPUT';
-    
+
   };
 
   const handleOpenModal = (e: any) => {

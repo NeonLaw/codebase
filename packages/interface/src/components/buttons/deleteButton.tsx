@@ -1,4 +1,4 @@
-import { Button } from '../button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import { Kbd } from '@chakra-ui/core';
 import React from 'react';
 import { SubmissionInProgress } from '../submissionInProgress';

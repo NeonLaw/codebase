@@ -1,4 +1,4 @@
-import { Button } from '../button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import React from 'react';
 import { SubmissionInProgress } from '../submissionInProgress';
 import { SubmitForm } from '../keybindings/submitForm';

@@ -1,4 +1,4 @@
-import { Button } from '../button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import React from 'react';
 import { navigate } from 'gatsby';
 import { useDeleteMatterByIdMutation, } from '../../utils/api';

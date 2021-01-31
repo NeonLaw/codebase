@@ -3,7 +3,7 @@ import {
   useGoogleReCaptcha
 } from 'react-google-recaptcha-v3';
 
-import { Button } from '../button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import React from 'react';
 
 export const ReCaptchaButton = ({ onVerifyCaptcha, children, ...props }) => {

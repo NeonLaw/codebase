@@ -1,4 +1,4 @@
-import { Button } from '../components/button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import { PublicLayout } from '../layouts/publicLayout';
 import React from 'react';
 import { Router } from '@reach/router';
@@ -18,7 +18,7 @@ const UpwardMobilityHome = (props) => {
   return (
     <>
       <Seo title="Upward Mobility" />
-      <Section 
+      <Section
         title={intl.formatMessage({ id: 'pages_upward_mobility.heading' })}
         titleStyles={{marginTop: '4.5rem'}}
       >

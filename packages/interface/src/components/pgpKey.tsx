@@ -1,7 +1,7 @@
 import { Box, Tooltip } from '@chakra-ui/core';
 import React, { useRef, useState } from 'react';
 
-import { Button } from './button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import copy from 'clipboard-copy';
 import { gutters } from '../themes/neonLaw';
 

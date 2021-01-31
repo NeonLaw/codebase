@@ -5,7 +5,7 @@ import { Box, Heading, Text } from '@chakra-ui/core';
 import { colors, gutters, sizes } from '../../themes/neonLaw';
 
 import BannerBg from '../../images/banner.jpg';
-import { Button } from '../button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import { Container } from '../container';
 import React from 'react';
 import { navigate } from 'gatsby';

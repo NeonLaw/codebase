@@ -1,7 +1,7 @@
 import { gutters, sizes } from '../themes/neonLaw';
 
 import { Box, } from '@chakra-ui/core';
-import { Button } from './button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import React from 'react';
 import { Section } from './section';
 import { navigate } from 'gatsby';

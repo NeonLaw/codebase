@@ -2,7 +2,7 @@ import { Box, Kbd, useDisclosure } from '@chakra-ui/core';
 import React, { useState } from 'react';
 
 import { Breadcrumbs } from '../../../components/breadcrumbs';
-import { Button } from '../../../components/button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import {
   CreateQuestionnaireModal
 } from '../../../components/modals/createQuestionnaireModal';

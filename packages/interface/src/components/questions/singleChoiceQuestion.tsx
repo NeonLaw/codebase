@@ -1,7 +1,7 @@
 import { Heading, Radio, RadioGroup } from '@chakra-ui/core';
 import React, { useState } from 'react';
 
-import { Button } from '../../components/button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import { Section } from '../section';
 import { gutters } from '../../themes/neonLaw';
 import { navigate } from 'gatsby';

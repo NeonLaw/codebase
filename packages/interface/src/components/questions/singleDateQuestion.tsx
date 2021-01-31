@@ -1,7 +1,7 @@
 import { Heading, useColorMode } from '@chakra-ui/core';
 import React, { useState } from 'react';
 
-import { Button } from '../button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import DatePicker from 'react-datepicker';
 import { Section } from '../section';
 import { gutters } from '../../themes/neonLaw';

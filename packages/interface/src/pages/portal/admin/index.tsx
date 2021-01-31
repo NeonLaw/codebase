@@ -1,7 +1,7 @@
 import { Box, Heading } from '@chakra-ui/core';
 import { navigate, useIntl } from 'gatsby-plugin-intl';
 
-import { Button } from '../../../components/button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import { PortalLayout } from '../../../layouts/portalLayout';
 import React from 'react';
 import { gutters } from '../../../themes/neonLaw';

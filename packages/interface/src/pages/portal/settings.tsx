@@ -1,7 +1,7 @@
 import { Heading, useDisclosure } from '@chakra-ui/core';
 import { gutters, sizes } from '../../themes/neonLaw';
 
-import { Button } from '../../components/button';
+import { Button } from '@neonlaw/shared-ui/src/components/button';
 import { PortalLayout } from '../../layouts/portalLayout';
 import {
   PortalProfileCard
