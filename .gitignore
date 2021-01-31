@@ -69,8 +69,9 @@ coverage/
 
 staging_htpasswd
 
-# Fonts
+# I18n
 packages/interface/src/intl/**
+packages/shook-family/src/intl/**
 
 *.tfstate
 *.tfstate.backup
@@ -90,5 +91,3 @@ dist/
 **/cypress/videos
 **/cypress/screenshots
 
-/packages/interface/src/intl/*.json
-/packages/shook-family/src/intl/*.json
