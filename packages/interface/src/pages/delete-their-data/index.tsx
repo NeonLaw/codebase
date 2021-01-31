@@ -5,10 +5,9 @@ import React from 'react';
 import { Seo } from '../../components/seo';
 
 const HomePage = () => {
-  const title = 'Delete Your Data';
+  const title = 'Delete Their Data';
   const description =
-    'Neon Law and its affiliates will find and ' +
-    'delete your data on the Internet.';
+    'Neon Law will help your company respond to data deletion requests';
 
   return (
     <DeleteYourDataLayout>
