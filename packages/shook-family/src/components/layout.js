@@ -1,6 +1,5 @@
 import './layout.css';
 import Header from './header';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 const Layout = ({ children }) => {
@@ -27,10 +26,6 @@ const Layout = ({ children }) => {
       </div>
     </>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 /* eslint-disable-next-line */
