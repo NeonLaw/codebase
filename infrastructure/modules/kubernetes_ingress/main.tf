@@ -39,5 +39,17 @@ resource "kubernetes_ingress" "primary" {
         }
       }
     }
+
+    rule {
+      host = var.environment == "production" ? "www.shook.family" : "staging.shook.family"
+      http {
+        path {
+          backend {
+            service_name = "${var.environment}-shook-family"
+            service_port = 80
+          }
+        }
+      }
+    }
   }
 }
