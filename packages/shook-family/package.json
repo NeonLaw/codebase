@@ -39,7 +39,7 @@
   ],
   "license": "PolyForm-Noncommercial-1.0.0",
   "scripts": {
-    "build": "yarn intl:en && yarn intl:es && gatsby build",
+    "build": "gatsby build",
     "cy:open": "cypress open",
     "dev": "yarn intl:en && yarn intl:es && yarn run develop",
     "develop": "gatsby develop -H 127.0.0.1",

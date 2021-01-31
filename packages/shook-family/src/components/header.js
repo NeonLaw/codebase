@@ -39,4 +39,5 @@ Header.defaultProps = {
   siteTitle: '',
 };
 
+/* eslint-disable-next-line */
 export default Header;
