@@ -24,7 +24,7 @@ import { ShareButtons } from '../components/shareButtons';
 import { getApolloClient } from '../utils/getApolloClient';
 import { graphql } from 'gatsby';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useSiteMetadata } from '../components/hooks';
+import { useSiteMetadata } from '@neonlaw/shared-ui/src/hooks/useSiteMetadata';
 
 const TemplateLayout: React.FC<{
   data: {
