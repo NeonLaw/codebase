@@ -2,7 +2,6 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { Location } from '@reach/router';
 import React from 'react';
-import { useSiteMetadata } from '../hooks/useSiteMetadata';
 
 interface SeoProps {
   description?: string;
@@ -10,6 +9,7 @@ interface SeoProps {
   meta?: any[];
   title?: string;
   image?: string;
+  siteUrl?: string;
 }
 
 export const Seo: React.FC<SeoProps> = (
@@ -17,18 +17,11 @@ export const Seo: React.FC<SeoProps> = (
     description = '',
     lang = 'en',
     meta = [],
+    siteUrl = '',
     title,
     image
   }
 ) => {
-  const {
-    title: metaTitle,
-    description: metaDescription,
-    siteUrl
-  } = useSiteMetadata();
-
-  description = description || metaDescription;
-  title = title || metaTitle;
   const data = useStaticQuery(
     graphql`
       query {
@@ -67,14 +60,14 @@ export const Seo: React.FC<SeoProps> = (
             lang,
           }}
           title={title}
-          titleTemplate={`%s | ${metaTitle}`}
+          titleTemplate={`%s | ${title}`}
           meta={[
             {
               content: description,
               name: 'description',
             },
             {
-              content: `${title} | ${metaTitle}`,
+              content: `${title} | ${title}`,
               property: 'og:title',
             },
             {

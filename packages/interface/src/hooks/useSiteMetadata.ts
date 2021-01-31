@@ -14,7 +14,7 @@ export const useSiteMetadata = (): SiteMedataInterface => {
     } = {},
   } = useStaticQuery(
     graphql`
-      query SiteMetaData {
+      query {
         site {
           siteMetadata {
             title
