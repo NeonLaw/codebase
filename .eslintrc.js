@@ -55,6 +55,7 @@ module.exports = {
     'max-len': ['error', { code: 80 }],
     quotes: [2, 'single'],
     'react/no-children-prop': 'off',
+    'react/prop-types': 'off',
     semi: ['error', 'always'],
     'sort-imports': 'error',
     'sort-keys': 'error',
