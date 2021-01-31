@@ -135,6 +135,13 @@ module "worker_deployment" {
   ]
 }
 
+module "shook_family_deployment" {
+  source      = "./modules/website_deployment"
+  app_name    = "shook-family"
+  environment = var.environment
+  image_url   = "${data.terraform_remote_state.gcp.outputs.container_registry}/shook-family:latest"
+}
+
 module "interface_deployment" {
   source      = "./modules/website_deployment"
   app_name    = "interface"
