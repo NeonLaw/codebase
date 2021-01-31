@@ -37,6 +37,7 @@
     "newrelic": "latest",
     "pg": "^8.5.1",
     "postgraphile": "^4.10.0",
+    "stripe": "^8.132.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3",
     "winston": "^3.3.3"

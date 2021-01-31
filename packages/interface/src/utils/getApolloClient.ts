@@ -22,7 +22,7 @@ export const getApolloClient = (
 
   const httpLink = createHttpLink({
     fetch,
-    uri: process.env.GATSBY_API_URL,
+    uri: `${process.env.GATSBY_API_URL}/api/graphql`,
     useGETForQueries: false,
   });
 
