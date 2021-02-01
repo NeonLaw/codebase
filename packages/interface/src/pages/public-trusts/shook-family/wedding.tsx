@@ -67,7 +67,7 @@ const ShookFamilyWeddingPage = () => {
         />
         <Box
           borderRadius="md"
-          margin="2em 0"
+          padding="2em 0"
           overflow="hidden"
         >
           <Carousel showArrows={true} showThumbs={false}>
