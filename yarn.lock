@@ -10314,7 +10314,7 @@ gatsby-remark-images@^3.10.0:
     unist-util-select "^1.5.0"
     unist-util-visit-parents "^2.1.2"
 
-gatsby-source-filesystem@^2.10.0, gatsby-source-filesystem@^2.3.18:
+gatsby-source-filesystem@^2.10.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.10.0.tgz#9ee2f770d3ae15062a111bb1faea76b7d6e2b059"
   integrity sha512-kf1D25wBe+mXa+c4C0HgI+5bwgEoTUQupP1q7nk4Q1+RC2mHlWSm3X+lNPWVfxg8MKNWrLmrX1GrXorW8cEtEQ==
@@ -10349,13 +10349,13 @@ gatsby-source-graphql@^2.13.0:
     node-fetch "^2.6.1"
     uuid "3.4.0"
 
-gatsby-source-remote-file@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/gatsby-source-remote-file/-/gatsby-source-remote-file-0.2.1.tgz#81967ed2fa1ffecf68f3ea248ab57fe71efe7218"
-  integrity sha512-ZCavRAZKyDcctd+sDULlMh5ExXtW8HH39IDlZcUUkFTq/ffK/DCcCphOXTeK6G1000JceqUQclPGXBs0IRUWmg==
+gatsby-source-remote-file@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/gatsby-source-remote-file/-/gatsby-source-remote-file-0.2.3.tgz#6700a5c04168e57ed17bc1220c1ee4cef743c304"
+  integrity sha512-bBIqwFe+Abpj5J3QozkCKFW92pRYDImXPeaY7luZb2AOITjjaGyD+SSn3RZcSUeP7DNkExvtmV0noAr0kvrhTw==
   dependencies:
-    gatsby "^2.23.22"
-    gatsby-source-filesystem "^2.3.18"
+    gatsby "^2.31.1"
+    gatsby-source-filesystem "^2.10.0"
 
 gatsby-telemetry@^1.9.0:
   version "1.9.0"
@@ -10390,7 +10390,7 @@ gatsby-transformer-sharp@^2.11.0:
     semver "^7.3.4"
     sharp "^0.27.0"
 
-gatsby@2.31.1, gatsby@^2.23.22:
+gatsby@2.31.1, gatsby@^2.31.1:
   version "2.31.1"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.31.1.tgz#c124fea85d59e24936b49860450656029cf9ed55"
   integrity sha512-Q6awOrn4k3d44/eJ90b715VMWzm4rqPB3cACqbO8RkqU9jODEpbpB8JTXjZpQMO9Sx1fMazo8VG26AktLC5MOw==
