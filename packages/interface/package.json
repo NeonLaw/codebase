@@ -41,7 +41,7 @@
     "gatsby-plugin-react-leaflet": "^3.0.0",
     "gatsby-plugin-robots-txt": "^1.5.5",
     "gatsby-plugin-segment-js": "^3.6.0",
-    "gatsby-plugin-sharp": "^2.13.3",
+    "gatsby-plugin-sharp": "^2.13.4",
     "gatsby-plugin-sitemap": "^2.11.0",
     "gatsby-plugin-typescript": "^2.10.0",
     "gatsby-remark-images": "^3.10.0",
