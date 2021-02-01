@@ -29,3 +29,7 @@ forms:
   help_text:
     label: Help Text
     placeholder: Enter the help text for the question.
+  amount:
+    label: Amount
+    placeholder: Enter the amount
+    required: The amount is required.
