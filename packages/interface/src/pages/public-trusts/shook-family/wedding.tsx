@@ -2,6 +2,7 @@ import { Box, Divider, Grid, GridItem, Heading, Text } from '@chakra-ui/core';
 import React, { useRef } from 'react';
 import { AiFillGift } from 'react-icons/ai';
 import { Button } from '../../../components/button';
+import { Carousel } from 'react-responsive-carousel';
 import { Container } from '../../../components/container';
 import { Image } from '../../../components/image';
 import { PublicTrustLayout } from '../../../layouts/publicTrustLayout';
@@ -61,39 +62,33 @@ const ShookFamilyWeddingPage = () => {
       <Container>
         <Divider
           orientation="horizontal"
-          padding={['0.5em 0', '0.5em 0', '1em 0']}
+          display={['none', 'none', 'inherit']}
+          padding={'1em 0'}
         />
         <Box
           borderRadius="md"
           margin="2em 0"
           overflow="hidden"
         >
-          <Grid templateColumns="repeat(3, 1fr)" >
-            <GridItem colSpan={1}>
-              <Image
-                src="nick-michelle-bbk.png"
-                alt="oakland wedding"
-                aspectRatio={3/4}
-              />
-            </GridItem>
-            <GridItem colSpan={2}>
-              <Image
-                src="nick-michelle-looking-out.png"
-                alt="oakland wedding"
-                aspectRatio={3/2}
-              />
-            </GridItem>
-          </Grid>
+          <Carousel showArrows={true} showThumbs={false}>
+            <div>
+              <img src="/images/wedding-photo-1.png" alt="oakland wedding"/>
+            </div>
+            <div>
+              <img src="/images/wedding-photo-2.png" alt="oakland wedding"/>
+            </div>
+            <div>
+              <img src="/images/wedding-photo-3.png" alt="oakland wedding"/>
+            </div>
+          </Carousel>
         </Box>
         <Box
           width="100%"
           textAlign="center"
+          margin="1em 0"
         >
           <Heading as="h1">
             Michelle and Nick
-          </Heading>
-          <Heading as="h2">
-            Our Story
           </Heading>
         </Box>
         <Grid templateColumns={[

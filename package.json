@@ -96,6 +96,7 @@
         "gatsby-plugin-react-axe": "^0.5.0",
         "jwt-decode": "^3.1.2",
         "react-player": "^2.8.2",
+        "react-responsive-carousel": "^3.2.11",
         "slate": "^0.59.0",
         "slate-history": "^0.59.0",
         "slate-hyperscript": "^0.59.0",
