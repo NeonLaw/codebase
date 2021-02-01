@@ -1,7 +1,6 @@
-import { Box, Heading, Text } from '@chakra-ui/core';
+import { Box, Divider, Grid, GridItem, Heading, Text } from '@chakra-ui/core';
 import React, { useRef } from 'react';
 import { AiFillGift } from 'react-icons/ai';
-import { Breadcrumbs } from '../../../components/breadcrumbs';
 import { Button } from '../../../components/button';
 import { Container } from '../../../components/container';
 import { Image } from '../../../components/image';
@@ -58,61 +57,134 @@ const ShookFamilyWeddingPage = () => {
 
   return (
     <PublicTrustLayout>
+      <Seo title={title} description={description} />
       <Container>
-        <Breadcrumbs />
-        <Seo title={title} description={description} />
+        <Divider
+          orientation="horizontal"
+          padding={['0.5em 0', '0.5em 0', '1em 0']}
+        />
+        <Box
+          borderRadius="md"
+          margin="2em 0"
+          overflow="hidden"
+        >
+          <Grid templateColumns="repeat(3, 1fr)" >
+            <GridItem colSpan={1}>
+              <Image
+                src="nick-michelle-bbk.png"
+                alt="oakland wedding"
+                aspectRatio={3/4}
+              />
+            </GridItem>
+            <GridItem colSpan={2}>
+              <Image
+                src="nick-michelle-looking-out.png"
+                alt="oakland wedding"
+                aspectRatio={3/2}
+              />
+            </GridItem>
+          </Grid>
+        </Box>
         <Box
           width="100%"
           textAlign="center"
         >
           <Heading as="h1">
-      Michelle and Nick
+            Michelle and Nick
           </Heading>
           <Heading as="h2">
-      February 1, 2021
+            Our Story
           </Heading>
         </Box>
-        <Box
-          borderRadius="md"
-          border="1px solid black"
-        >
-          <Image src="polynesia.jpg" alt="polynesia" aspectRatio={16/9} />
-          <Heading as="h3" textAlign="center" padding="1em 0 0.5em 0">
-            Donate to Michelle and Nick&apos;s Honeymoon Fund
-          </Heading>
-          <Box
-            width="90%"
-            margin="0 auto"
-          >
-            <form
-              onSubmit={handleSubmit(onSubmit as any)}
-              ref={formRef}
+        <Grid templateColumns={[
+          'repeat(1, 1fr)',
+          'repeat(1, 1fr)',
+          'repeat(5, 1fr)',
+          'repeat(2, 1fr)',
+        ]} >
+          <GridItem colSpan={[1,1,3,1]}>
+            <Text margin="0.5em">
+              We met at Pegasus Books in Berekeley and got tacos thereafter.
+              Despite being Nick&apos;s favorite college taqueria, Michelle
+              thought they were okay but was still interested in watching
+              together what turned out to be a terrible Game of Thrones
+              Season 8.
+            </Text>
+            <Text margin="0.5em">
+              Cuddling on the couch and talking about the world, we started
+              forming an inseparable bond and pursued our joint loves of
+              travel, food, tech, and group fitness classes. Until the world
+              shut down that is. Since lockdown, we realized that if the only
+              person one could spend time with the other, life was and is
+              amazing.
+            </Text>
+            <Text margin="0.5em">
+              We are getting married on&nbsp; <strong>February 1,
+              2021</strong> in Oakland, California with just our immediate
+              family. When the world opens up, we would love to celebrate
+              with all of you. Until then, please get in touch at
+              family@shook.family.
+            </Text>
+          </GridItem>
+          <GridItem colSpan={[1,1,2,1]}>
+            <Box
+              borderRadius="md"
+              border="1px solid black"
             >
-              <UsdInput
-                name="amount"
-                testId="shook-family-wedding-form-amount"
-                label={intl.formatMessage({ id: 'forms.amount.label' })}
-                errors={errors}
-                placeholder={intl.formatMessage({
-                  id: 'forms.amount.placeholder'
-                })}
-                register={register({
-                  required: intl.formatMessage({ id: 'forms.amount.required' }),
-                })}
-              />
-              <Box width="100%" padding="1em 0">
-                <Button type="submit" width="100%" color="white">
-                  <AiFillGift/>
-                &nbsp;Donate Now
-                </Button>
+              <Box margin="0.5em" borderRadius="md" overflow="hidden">
+                <Image
+                  src="polynesia.png"
+                  alt="polynesia"
+                  aspectRatio={16/9}
+                />
               </Box>
-              <Text paddingBottom="1em" width="100%">
-                Transactions will be processed by <em>www.neonlaw.com</em>&nbsp;
-                for Michelle and Nick.
-              </Text>
-            </form>
-          </Box>
-        </Box>
+              <Box
+                width="90%"
+                margin="0 auto"
+              >
+                <Heading as="h3" textAlign="center" paddingTop="1em">
+                  Honeymoon Fund
+                </Heading>
+                <form
+                  onSubmit={handleSubmit(onSubmit as any)}
+                  ref={formRef}
+                >
+                  <UsdInput
+                    name="amount"
+                    testId="shook-family-wedding-form-amount"
+                    label={intl.formatMessage({ id: 'forms.amount.label' })}
+                    errors={errors}
+                    placeholder={intl.formatMessage({
+                      id: 'forms.amount.placeholder'
+                    })}
+                    register={register({
+                      required: intl.formatMessage({
+                        id: 'forms.amount.required'
+                      }),
+                    })}
+                  />
+                  <Box width="100%" padding="1em 0">
+                    <Button type="submit" width="100%" color="white">
+                      <AiFillGift/>
+                      &nbsp;Donate Now
+                    </Button>
+                  </Box>
+                  <Text width="100%" fontSize="0.7em">
+                  Please do not feel any pressure to give at all.
+                  Michelle and Nick would love to spend time in Polynesia, a
+                  place neither has been.
+                  </Text>
+                  <Text paddingBottom="1em" width="100%" fontSize="0.5em">
+                    *Gifts are handled by Neon Law and will show up on your bank
+                    statement as&nbsp;<strong>Neon Law</strong>&nbsp;or
+                    &nbsp;<strong>www.neonlaw.com</strong>.&nbsp;
+                    All proceeds will be given to Michelle and Nick.
+                  </Text>
+                </form>
+              </Box>
+            </Box>
+          </GridItem>
+        </Grid>
       </Container>
     </PublicTrustLayout>
   );

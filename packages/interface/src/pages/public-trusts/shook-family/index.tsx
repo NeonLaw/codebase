@@ -1,4 +1,4 @@
-import { Breadcrumbs } from '../../../components/breadcrumbs';
+import { Box } from '@chakra-ui/core';
 import { Link } from '../../../components/link';
 import { PublicTrustLayout } from '../../../layouts/publicTrustLayout';
 import React from 'react';
@@ -10,12 +10,12 @@ const ShookFamilyIndexPage = () => {
 
   return (
     <PublicTrustLayout>
-      <Breadcrumbs />
       <Seo title={title} description={description} />
-      Shook Family
-      <Link to="/public-trusts/shook-family/wedding">
+      <Box textDecoration="underline">
+        <Link to="/public-trusts/shook-family/wedding">
         Shook Family Wedding, February 1, 2021
-      </Link>
+        </Link>
+      </Box>
     </PublicTrustLayout>
   );
 };

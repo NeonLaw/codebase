@@ -5,11 +5,10 @@ import {
   gutters,
   shadows,
 } from '../themes/neonLaw';
-
 import { ApolloProvider } from '@apollo/client';
+import { BaseFooter } from '../components/footer/baseFooter';
 import { Breadcrumbs } from '../components/breadcrumbs';
 import { Container } from '../components/container';
-import { Footer } from '../components/footer';
 import {
   PublicNavigationBar
 } from '../components/navigationBars/public';
@@ -107,7 +106,7 @@ const QuestionLayout: React.FC<{
           </Box>
         </StyledQuestionTemplate>
       </ApolloProvider>
-      <Footer isWhite={true} />
+      <BaseFooter isWhite={true} />
     </Flex>
   );
 };
