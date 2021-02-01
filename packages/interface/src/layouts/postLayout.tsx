@@ -5,12 +5,11 @@ import {
   gutters,
   shadows,
 } from '../themes/neonLaw';
-
 import { ApolloProvider } from '@apollo/client';
+import { BaseFooter } from '../components/footer/baseFooter';
 import { Breadcrumbs } from '../components/breadcrumbs';
 import { Container } from '../components/container';
 import { EditOnGithub } from '../components/editOnGithub';
-import { Footer } from '../components/footer';
 import { Image } from '../components/image';
 import { MDXComponents } from '../utils/mdxComponents';
 import { MDXProvider } from '@mdx-js/react';
@@ -135,7 +134,7 @@ const PostLayout: React.FC<{
           </Box>
         </StyledPostTemplate>
       </ApolloProvider>
-      <Footer isWhite={true} />
+      <BaseFooter isWhite={true} />
     </Flex>
   );
 };

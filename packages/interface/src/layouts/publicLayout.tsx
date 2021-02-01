@@ -1,7 +1,7 @@
 import { Box, Flex, useColorMode } from '@chakra-ui/core';
 import { ApolloProvider } from '@apollo/client';
+import { BaseFooter } from '../components/footer/baseFooter';
 import { Breadcrumbs } from '../components/breadcrumbs';
-import { Footer } from '../components/footer';
 import { PublicNavigationBar } from '../components/navigationBars/public';
 import React from 'react';
 import { colors } from '../themes/neonLaw';
@@ -41,7 +41,7 @@ export const PublicLayout = ({
             </Box>
           </>
         </ApolloProvider>
-        <Footer isWhite={isFooterWhite} />
+        <BaseFooter isWhite={isFooterWhite} />
       </Flex>
     </Box>
   );

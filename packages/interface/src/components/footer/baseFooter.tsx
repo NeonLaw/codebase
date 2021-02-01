@@ -9,16 +9,16 @@ import {
   useBreakpointValue,
   useColorMode
 } from '@chakra-ui/core';
-import { colors, sizes } from '../themes/neonLaw';
+import { colors, sizes } from '../../themes/neonLaw';
 
-import { Container } from './container';
-import { EmailListButton } from './emailListButton';
-import { LanguageDropdown } from './languageDropdown';
-import { Link } from './link';
+import { Container } from '../container';
+import { EmailListButton } from '../emailListButton';
+import { LanguageDropdown } from '../languageDropdown';
+import { Link } from '../link';
 import React from 'react';
-import { Section } from './section';
-import { SocialMediaIcons } from './socialMediaIcons';
-import { ThemeSwitcher } from './themeSwitcher';
+import { Section } from '../section';
+import { SocialMediaIcons } from '../socialMediaIcons';
+import { ThemeSwitcher } from '../themeSwitcher';
 import { useIntl } from 'gatsby-plugin-intl';
 
 const FooterLink = ({ path, i18nMessage }) => {
@@ -31,11 +31,11 @@ const FooterLink = ({ path, i18nMessage }) => {
   );
 };
 
-interface FooterProps {
+interface BaseFooterProps {
   isWhite?: boolean;
 }
 
-export const Footer = ({ isWhite }: FooterProps) => {
+export const BaseFooter = ({ isWhite }: BaseFooterProps) => {
   const { colorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
   const intl = useIntl();
@@ -51,10 +51,10 @@ export const Footer = ({ isWhite }: FooterProps) => {
     >
       <Section>
         <Box maxWidth={sizes.textContainerSmall}>
-          <Heading 
-            as="h2" 
-            className="h3" 
-            fontWeight="normal" 
+          <Heading
+            as="h2"
+            className="h3"
+            fontWeight="normal"
             color={colors.text[colorMode]}
           >
             {intl.formatMessage({
