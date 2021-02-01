@@ -13,7 +13,7 @@ const StyledAdminPortalOptions = styled.div`
   gap: ${gutters.xSmall};
   max-width: 100%;
 
-  @media(min-width: 1215px) {
+  @media (min-width: 1215px) {
     max-width: 1000px;
   }
 `;
@@ -75,7 +75,7 @@ const AdminDashboard = () => {
                 navigate(`/portal/admin/${path}`);
               }}
               data-testid={dataTestId}
-              key={i+path}
+              key={i + path}
             >
               {text}
             </Button>

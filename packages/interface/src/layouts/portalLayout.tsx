@@ -1,4 +1,6 @@
+import { SkipNavContent, SkipNavLink } from '@chakra-ui/skip-nav';
 import { colors, gutters, theme } from '../themes/neonLaw';
+
 import { ApolloProvider } from '@apollo/client';
 import { LoadingPage } from '../components/loadingPage';
 import PortalBg from '../../../interface/src/images/dashboard-bg.jpg';
@@ -78,7 +80,7 @@ const Aside = styled.div`
   }
 `;
 
-const Main = styled.main`
+const Main = styled(SkipNavContent)`
     grid-area: 'main';
     padding: ${gutters.small};
     overflow: hidden;
@@ -110,6 +112,7 @@ export const PortalLayout = ({ children }) => {
 
   return (
     <ApolloProvider client={apolloClient}>
+      <SkipNavLink style={{top: 0, left: 0, color: colors.text[colorMode], padding: '10px', borderRadius: 'none'}}>Skip to content</SkipNavLink>
       <StyledPortalLayout>
         <div className="wrapper">
           <Aside
