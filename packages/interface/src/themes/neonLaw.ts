@@ -1,6 +1,7 @@
 import 'react-datepicker/dist/react-datepicker.css';
 import '@uppy/core/dist/style.css';
 import '@uppy/dashboard/dist/style.css';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './fonts.css';
 
 import { theme as chakraTheme } from '@chakra-ui/core';
