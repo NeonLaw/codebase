@@ -114,7 +114,10 @@ export const Button = ({
         background={
           shouldHaveTealStyles ? colors.primaryButtonBg[colorMode] : props.bg
         }
-        color={shouldHaveTealStyles ? colors.primaryButtonColor[colorMode] : ''}
+        color={shouldHaveTealStyles ?
+          colors.primaryButtonColor[colorMode] :
+          'inherit'
+        }
         boxShadow={'none !important'}
         {...props}
         _hover={
