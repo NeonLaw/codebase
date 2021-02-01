@@ -1,5 +1,10 @@
+import { Box, Heading, Text } from '@chakra-ui/core';
 import React, { useRef } from 'react';
+import { AiFillGift } from 'react-icons/ai';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
+import { Button } from '../../../components/button';
+import { Container } from '../../../components/container';
+import { Image } from '../../../components/image';
 import { PublicTrustLayout } from '../../../layouts/publicTrustLayout';
 import { Seo } from '../../../components/seo';
 import { UsdInput } from '../../../components/inputs';
@@ -53,30 +58,62 @@ const ShookFamilyWeddingPage = () => {
 
   return (
     <PublicTrustLayout>
-      <Breadcrumbs />
-      <Seo title={title} description={description} />
-      Shook Family Wedding
-
-      <form
-        onSubmit={handleSubmit(onSubmit as any)}
-        ref={formRef}
-      >
-        <UsdInput
-          name="amount"
-          testId="shook-family-wedding-form-amount"
-          label={intl.formatMessage({ id: 'forms.amount.label' })}
-          errors={errors}
-          placeholder={intl.formatMessage({
-            id: 'forms.amount.placeholder'
-          })}
-          register={register({
-            required: intl.formatMessage({ id: 'forms.amount.required' }),
-          })}
-        />
-        <button type="submit">
-        Pay
-        </button>
-      </form>
+      <Container>
+        <Breadcrumbs />
+        <Seo title={title} description={description} />
+        <Box
+          width="100%"
+          textAlign="center"
+        >
+          <Heading as="h1">
+      Michelle and Nick
+          </Heading>
+          <Heading as="h2">
+      February 1, 2021
+          </Heading>
+        </Box>
+        <Box
+          borderRadius="md"
+          border="1px solid black"
+        >
+          <Image src="polynesia.jpg" alt="polynesia" aspectRatio={16/9} />
+          <Heading as="h3" textAlign="center" padding="1em 0 0.5em 0">
+            Donate to Michelle and Nick&apos;s Honeymoon Fund
+          </Heading>
+          <Box
+            width="90%"
+            margin="0 auto"
+          >
+            <form
+              onSubmit={handleSubmit(onSubmit as any)}
+              ref={formRef}
+            >
+              <UsdInput
+                name="amount"
+                testId="shook-family-wedding-form-amount"
+                label={intl.formatMessage({ id: 'forms.amount.label' })}
+                errors={errors}
+                placeholder={intl.formatMessage({
+                  id: 'forms.amount.placeholder'
+                })}
+                register={register({
+                  required: intl.formatMessage({ id: 'forms.amount.required' }),
+                })}
+              />
+              <Box width="100%" padding="1em 0">
+                <Button type="submit" width="100%" color="white">
+                  <AiFillGift/>
+                &nbsp;Donate Now
+                </Button>
+              </Box>
+              <Text paddingBottom="1em" width="100%">
+                Transactions will be processed by <em>www.neonlaw.com</em>&nbsp;
+                for Michelle and Nick.
+              </Text>
+            </form>
+          </Box>
+        </Box>
+      </Container>
     </PublicTrustLayout>
   );
 };
