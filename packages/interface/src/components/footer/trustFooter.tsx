@@ -5,16 +5,17 @@ import {
   useColorMode
 } from '@chakra-ui/core';
 import { colors, sizes } from '../../themes/neonLaw';
+import { Breadcrumbs } from '../../components/breadcrumbs';
 import { FooterLinks } from './footerLinks';
 import React from 'react';
 import { Section } from '../section';
 import { useIntl } from 'gatsby-plugin-intl';
 
-interface BaseFooterProps {
+interface TrustFooterProps {
   isWhite?: boolean;
 }
 
-export const BaseFooter = ({ isWhite }: BaseFooterProps) => {
+export const TrustFooter = ({ isWhite }: TrustFooterProps) => {
   const { colorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
   const intl = useIntl();
@@ -36,10 +37,9 @@ export const BaseFooter = ({ isWhite }: BaseFooterProps) => {
             fontWeight="normal"
             color={colors.text[colorMode]}
           >
-            {intl.formatMessage({
-              id: 'footer.neon_law.heading'
-            })}
+            The Shook Family Trust is managed by Neon Law.
           </Heading>
+          <Breadcrumbs />
           <Text>
             {intl.formatMessage({
               id: 'footer.neon_law.text'
