@@ -73,6 +73,7 @@ expressApp.post('/api/auth0-create-person', async (request, response) => {
 
     response.status(201).json(person);
   } catch (error) {
+    console.error(error);
     response.status(400).send(error);
   }
 });
