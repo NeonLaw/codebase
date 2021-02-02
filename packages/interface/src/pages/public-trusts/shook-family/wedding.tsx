@@ -1,4 +1,12 @@
-import { Box, Divider, Grid, GridItem, Heading, Text } from '@chakra-ui/core';
+import {
+  Box,
+  Divider,
+  Grid,
+  GridItem,
+  Heading,
+  Text,
+  useColorMode
+} from '@chakra-ui/core';
 import React, { useRef } from 'react';
 import { AiFillGift } from 'react-icons/ai';
 import { Button } from '../../../components/button';
@@ -8,6 +16,7 @@ import { Image } from '../../../components/image';
 import { PublicTrustLayout } from '../../../layouts/publicTrustLayout';
 import { Seo } from '../../../components/seo';
 import { UsdInput } from '../../../components/inputs';
+import { colors } from '../../../themes/neonLaw';
 import { loadStripe } from '@stripe/stripe-js';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'gatsby-plugin-intl';
@@ -21,6 +30,7 @@ const ShookFamilyWeddingPage = () => {
     defaultValues: { amount: 100 }
   });
   const intl = useIntl();
+  const { colorMode } = useColorMode();
 
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -114,17 +124,16 @@ const ShookFamilyWeddingPage = () => {
               amazing.
             </Text>
             <Text margin="0.5em">
-              We are getting married on&nbsp; <strong>February 1,
-              2021</strong> in Oakland, California with just our immediate
-              family. When the world opens up, we would love to celebrate
-              with all of you. Until then, please get in touch at
-              family@shook.family.
+              We got married on&nbsp; <strong>February 1, 2021</strong> in
+              Oakland, California with just our immediate family. When the
+              world opens up, we would love to celebrate with all of you.
+              Until then, please get in touch at family@shook.family.
             </Text>
           </GridItem>
           <GridItem colSpan={[1,1,2,1]}>
             <Box
               borderRadius="md"
-              border="1px solid black"
+              border={`1px solid ${colors.borders[colorMode]}`}
             >
               <Box margin="0.5em" borderRadius="md" overflow="hidden">
                 <Image
