@@ -39,7 +39,8 @@ export const createPerson = async (
 
   if (currentPersonByEmail) {
     await client.query(
-      `UPDATE person SET sub = '${sub}' WHERE email = '${email}'`
+      'UPDATE person SET sub = $1 WHERE email = $2',
+      [sub, email]
     );
     await client.end();
     return currentPersonByEmail;
