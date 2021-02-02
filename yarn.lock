@@ -1940,10 +1940,10 @@
   dependencies:
     tslib "^2.0.1"
 
-"@graphile/pg-pubsub@^4.10.0":
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/@graphile/pg-pubsub/-/pg-pubsub-4.10.0.tgz#50b974f711543ae4677ceb2d459c054a0e98a955"
-  integrity sha512-GnqrPnejpINcWlfGqXG3ZpoqxIDTr4j/QOC8F5sbdEhHuEHrgaKtLpKqcG3Ftyi2kpa/F95jm4+ktHSEf+iVZw==
+"@graphile/pg-pubsub@^4.11.0":
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/@graphile/pg-pubsub/-/pg-pubsub-4.11.0.tgz#a3542545d84290c40b03bedf3a2dbd5a557d4525"
+  integrity sha512-7U2J/QpSu+hsn3bAvEZb8RmS/rYmgY3G1c+TGl+9ZXVVyaQ3sXNACoOnCaF0oAzRak2YTVYuc/o8iIAWxPEv2A==
   dependencies:
     "@types/debug" "^4.1.4"
     "@types/pg" "^7.4.14"
