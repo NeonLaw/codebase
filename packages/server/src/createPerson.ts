@@ -21,7 +21,7 @@ export const createPerson = async (
   const { sub, email } = args;
 
   const currentPersonQuery = await client.query(
-    'SELECT id, role FROM person WHERE sub = $1 LIMIT 1',
+    'SELECT * FROM person WHERE sub = $1 LIMIT 1',
     [sub]
   );
   const currentPerson = currentPersonQuery.rows[0];
@@ -32,7 +32,7 @@ export const createPerson = async (
   }
 
   const currentPersonByEmailQuery = await client.query(
-    'SELECT id, role FROM person WHERE email = $1 LIMIT 1',
+    'SELECT * FROM person WHERE email = $1 LIMIT 1',
     [email]
   );
   const currentPersonByEmail = currentPersonByEmailQuery.rows[0];

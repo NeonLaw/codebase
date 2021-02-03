@@ -24,7 +24,7 @@ export const upsertQuestionToNeo4j = async (
       'SET q.prompt = $prompt '+
       'SET q.help_text = $help_text '+
       'RETURN q',
-      { help_text, id, prompt }
+      { help_text: JSON.stringify(help_text), id, prompt }
     );
   } finally {
     await session.close();
