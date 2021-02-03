@@ -14,7 +14,10 @@ export const QuestionnaireDetailView = ({ id }) => {
 
   if (data) {
     return (
-      <h1>Questionnaire &nbsp;{JSON.stringify(data)}</h1>
+      <>
+        <h1>Questionnaire</h1>
+        <p>{data.questionTree}</p>
+      </>
     );
   }
 

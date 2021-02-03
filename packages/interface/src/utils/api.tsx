@@ -2944,6 +2944,7 @@ export type Questionnaire = Node & {
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
   matterTemplateId: Scalars['UUID'];
+  questionTree: Scalars['JSON'];
   /** Reads a single `MatterTemplate` that is related to this `Questionnaire`. */
   matterTemplateByMatterTemplateId?: Maybe<MatterTemplate>;
   /** Reads and enables pagination through a set of `QuestionnaireResponse`. */
@@ -2985,6 +2986,7 @@ export type QuestionnaireInput = {
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
   matterTemplateId: Scalars['UUID'];
+  questionTree?: Maybe<Scalars['JSON']>;
 };
 
 /** Represents an update to a `Questionnaire`. Fields that are set will be updated. */
@@ -2995,6 +2997,7 @@ export type QuestionnairePatch = {
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
   matterTemplateId?: Maybe<Scalars['UUID']>;
+  questionTree?: Maybe<Scalars['JSON']>;
 };
 
 export type QuestionnaireResponse = Node & {
@@ -4268,7 +4271,7 @@ export type QuestionnaireByIdQuery = (
   { __typename?: 'Query' }
   & { questionnaireById?: Maybe<(
     { __typename?: 'Questionnaire' }
-    & Pick<Questionnaire, 'id' | 'name'>
+    & Pick<Questionnaire, 'id' | 'name' | 'questionTree'>
   )> }
 );
 
@@ -5267,6 +5270,7 @@ export const QuestionnaireByIdDocument = gql`
   questionnaireById(id: $id) {
     id
     name
+    questionTree
   }
 }
     `;
