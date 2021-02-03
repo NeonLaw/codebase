@@ -2,5 +2,6 @@ query QuestionnaireById($id: UUID!) {
   questionnaireById(id: $id) {
     id
     name
+    questionTree
   }
 }

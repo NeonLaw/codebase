@@ -1,31 +1,43 @@
-// import { neo4jSession } from '../utils/neo4jSession';
+import { neo4jSession } from '../utils/neo4jSession';
 
 export const updateQuestionnaireFromNeo4j = async (
   payload,
-  helpers
+  { logger, query }
 ): Promise<void> => {
   const { questionnaireId } = payload;
 
-  const questionnaireQuery = await helpers.query(
-    'SELECT id, name FROM questionnaire WHERE id = $1 LIMIT 1',
+  const questionnaireQuery = await query(
+    'SELECT id, question_tree FROM questionnaire WHERE id = $1 LIMIT 1',
     [questionnaireId]
   );
-  const { id } = questionnaireQuery.rows[0];
+  const { id, questionTree } = questionnaireQuery.rows[0];
 
-  helpers.log(id);
+  const session = neo4jSession({ databaseName: 'questionnaires' });
+  const newQuestionTree = Object.assign({}, questionTree);
 
-  // const session = neo4jSession({ databaseName: 'questionnaires' });
+  try {
+    const firstQuestion = await session.run(
+      'MATCH (a:Questionnaire {id: $id})-[:NEXT_QUESTION]->(question) '+
+      'RETURN question',
+      { id }
+    );
+    const firstQuestionId =
+      firstQuestion.records &&
+      firstQuestion.records[0]['_fields'][0].properties.id;
+    if (!firstQuestionId) {
+      logger.info('no questions');
+      return;
+    }
+    logger.info(firstQuestionId);
 
-  // try {
-  //   await session.run(
-  //     'MERGE (n:Questionnaire { id: $id }) return n',
-  //     { id }
-  //   );
-  //   await session.run(
-  //     'MATCH (q:Questionnaire {id: $id}) SET q.name = $name RETURN q',
-  //     { id, name }
-  //   );
-  // } finally {
-  //   await session.close();
-  // }
+    newQuestionTree['begin'] = firstQuestionId;
+
+    await query(
+      'UPDATE questionnaire SET question_tree = $1 WHERE id = $2',
+      [JSON.stringify(newQuestionTree), id]
+    );
+
+  } finally {
+    await session.close();
+  }
 };
