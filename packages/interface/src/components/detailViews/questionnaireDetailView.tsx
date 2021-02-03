@@ -16,7 +16,7 @@ export const QuestionnaireDetailView = ({ id }) => {
     return (
       <>
         <h1>Questionnaire</h1>
-        <p>{data.questionTree}</p>
+        <p>{JSON.stringify(data.questionnaireById?.questionTree)}</p>
       </>
     );
   }

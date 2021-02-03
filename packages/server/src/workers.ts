@@ -1,5 +1,4 @@
 import 'dotenv/config';
-
 import Redis from 'ioredis';
 import { getLeakyBucketRateLimiter } from 'graphile-worker-rate-limiter';
 import { default as neo4j } from 'neo4j-driver';
@@ -25,22 +24,7 @@ const rateLimiter = getLeakyBucketRateLimiter({
       drainCount: 500,
       drainInterval: 15 * 1000,
     },
-    sendSendgridEmail: {
-      capacity: 1000,
-      drainCount: 1500,
-      drainInterval: 30 * 1000,
-    },
-    updateQuestionnaireFromNeo4j: {
-      capacity: 1000,
-      drainCount: 1500,
-      drainInterval: 30 * 1000,
-    },
-    upsertQuestionToNeo4j: {
-      capacity: 1000,
-      drainCount: 1500,
-      drainInterval: 30 * 1000,
-    },
-    upsertQuestionnaireToNeo4j: {
+    sendWelcomeEmail: {
       capacity: 1000,
       drainCount: 1500,
       drainInterval: 30 * 1000,
@@ -72,13 +56,9 @@ async function workers() {
     taskList: {
       saveDocumentInLongTermStorage,
       sendWelcomeEmail: rateLimiter.wrapTask(sendWelcomeEmail),
-      updateQuestionnaireFromNeo4j: rateLimiter.wrapTask(
-        updateQuestionnaireFromNeo4j
-      ),
-      upsertQuestionToNeo4j: rateLimiter.wrapTask(upsertQuestionToNeo4j),
-      upsertQuestionnaireToNeo4j: rateLimiter.wrapTask(
-        upsertQuestionnaireToNeo4j
-      ),
+      updateQuestionnaireFromNeo4j,
+      upsertQuestionToNeo4j,
+      upsertQuestionnaireToNeo4j,
     }
   });
 }
