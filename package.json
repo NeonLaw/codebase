@@ -50,7 +50,7 @@
         "jest": "^26.6.3",
         "leaflet": "^1.7.1",
         "leaflet-polylinedecorator": "^1.6.0",
-	"react-leaflet": "^2.7.0",
+	"react-leaflet": "^3.1.0",
         "remark-cli": "^9.0.0",
         "remark-comment-config": "^6.0.0",
         "remark-github": "^10.0.1",
