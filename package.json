@@ -87,7 +87,7 @@
         "@auth0/auth0-react": "^1.2.0",
         "@chakra-ui/core": "^1.0.0-rc.8",
         "@chakra-ui/icons": "^1.0.4",
-        "@stripe/stripe-js": "^1.11.0",
+        "@stripe/stripe-js": "^1.12.1",
         "@typescript-eslint/parser": "^4.14.2",
         "@uppy/core": "^1.16.0",
         "@uppy/react": "^1.11.2",
