@@ -15,7 +15,7 @@ export const SelectWithQuery = ({
   queryName,
   name,
   testId,
-  value = '',
+  defaultValue,
 }) => {
   const capitalize = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -38,8 +38,8 @@ export const SelectWithQuery = ({
   const options = nodes.map((node) => ({
     label: node[labelColumn], value: node.id
   }));
-  const defaultValue = options.find((option) => {
-    return option.value === value;
+  const defaultValueForSelect = options.find((option) => {
+    return option.value === defaultValue;
   });
 
   return (
@@ -55,7 +55,7 @@ export const SelectWithQuery = ({
               classNamePrefix={`react-select-${kebabCase(name)}`}
               onChange={(option) => onChange(option.value)}
               name={name}
-              defaultValue={defaultValue}
+              defaultValue={defaultValueForSelect}
             />
           )}
           name={name}

@@ -14,10 +14,10 @@ export const Select = ({
   name,
   testId,
   options,
-  value = '',
+  defaultValue,
 }) => {
-  const defaultValue = options.find((option) => {
-    return option.value === value;
+  const defaultValueForSelect = options.find((option) => {
+    return option.value === defaultValue;
   });
 
   return (
@@ -33,7 +33,7 @@ export const Select = ({
               classNamePrefix={`react-select-${kebabCase(name)}`}
               onChange={(option) => onChange(option.value)}
               name={name}
-              defaultValue={defaultValue}
+              defaultValue={defaultValueForSelect}
             />
           )}
           name={name}

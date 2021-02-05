@@ -127,7 +127,7 @@ export const InputBuilder = ({
                 errors={errors}
                 testId={testId}
                 control={control}
-                value={currentValues && currentValues[name]}
+                defaultValue={currentValues && currentValues[name]}
               />
             );
           case 'selectWithQuery':
@@ -141,7 +141,7 @@ export const InputBuilder = ({
                 errors={errors}
                 testId={testId}
                 control={control}
-                value={currentValues && currentValues[name]}
+                defaultValue={currentValues && currentValues[name]}
               />
             );
           default:

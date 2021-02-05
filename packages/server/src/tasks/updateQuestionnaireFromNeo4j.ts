@@ -23,6 +23,7 @@ export const updateQuestionnaireFromNeo4j = async (
     );
     const firstQuestionId =
       firstQuestion.records &&
+      firstQuestion.records[0] &&
       firstQuestion.records[0]['_fields'][0].properties.id;
     if (!firstQuestionId) {
       logger.info('no questions');
