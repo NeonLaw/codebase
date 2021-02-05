@@ -23,20 +23,19 @@ export const QuestionnaireDetailView = ({ id }) => {
 
         <Box padding="1em" />
 
-        {!currentQuestion && (
-          <Button width="100%" onClick={() => {
-            changeCurrentQuestion(data.questionnaireById?.questionTree.begin);
-          }}>
-            Begin Questionnaire
-          </Button>
-        )}
-        {currentQuestion && (
+        {currentQuestion ? (
           <Button width="100%" onClick={() => {
             changeCurrentQuestion(
               data.questionnaireById?.questionTree[currentQuestion]
             );
           }}>
             Next Question
+          </Button>
+        ) : (
+          <Button width="100%" onClick={() => {
+            changeCurrentQuestion(data.questionnaireById?.questionTree.begin);
+          }}>
+            Begin Questionnaire
           </Button>
         )}
       </>
