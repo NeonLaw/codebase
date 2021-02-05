@@ -1,4 +1,4 @@
-import { neo4jSession } from '../utils/neo4jSession';
+import { neo4jDriver } from '../utils/neo4jDriver';
 
 export const upsertQuestionToNeo4j = async (
   payload,
@@ -12,7 +12,7 @@ export const upsertQuestionToNeo4j = async (
   );
   const { prompt, id, help_text } = questionQuery.rows[0];
 
-  const session = neo4jSession({ databaseName: 'questionnaires' });
+  const session = neo4jDriver({ databaseName: 'questionnaires' }).session();
 
   try {
     await session.run(

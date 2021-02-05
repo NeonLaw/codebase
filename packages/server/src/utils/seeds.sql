@@ -7,3 +7,11 @@ INSERT INTO questionnaire (name, matter_template_id) VALUES ('Community Property
 INSERT INTO question (prompt, question_type, help_text)
 VALUES ('Character Evidence', 'text', '[{ "type": "paragraph", "children": [{ "text": "help" }]}]')
 ON CONFLICT DO NOTHING;
+
+INSERT INTO question (prompt, question_type, help_text)
+VALUES ('Non-Hearsay', 'text', '[{ "type": "paragraph", "children": [{ "text": "help" }]}]')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO question (prompt, question_type, help_text)
+VALUES ('Hearsay Exception Unavailable Witness', 'text', '[{ "type": "paragraph", "children": [{ "text": "help" }]}]')
+ON CONFLICT DO NOTHING;

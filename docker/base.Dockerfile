@@ -1,4 +1,4 @@
-FROM python
+FROM python:buster
 
 # Add Node repositories
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
@@ -28,6 +28,12 @@ RUN apt-get update -qqy &&\
 # Install pandoc
 RUN TEMP_DEB="$(mktemp)" &&\
   wget -O "$TEMP_DEB" https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-1-amd64.deb &&\
+  dpkg -i "$TEMP_DEB" &&\
+  rm -f "$TEMP_DEB"
+
+# Install neo4j
+RUN TEMP_DEB="$(mktemp)" &&\
+  wget -O "$TEMP_DEB" https://dist.neo4j.org/cypher-shell/cypher-shell_4.2.2_all.deb &&\
   dpkg -i "$TEMP_DEB" &&\
   rm -f "$TEMP_DEB"
 
