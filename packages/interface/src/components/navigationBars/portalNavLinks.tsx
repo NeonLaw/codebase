@@ -41,13 +41,11 @@ export const portalNavLinks = ({ email }) => {
       label: 'Businesses',
       route: '/portal/businesses',
     },
-    admins.includes(email)
-      ? {
-        icon: <BiBook />,
-        label: 'Bar Prep',
-        route: '/portal/bar-prep',
-      }
-      : null,
+    {
+      icon: <BiBook />,
+      label: 'Bar Prep',
+      route: '/portal/bar-prep',
+    },
     { icon: <CgProfile />, label: 'Settings', route: '/portal/settings' },
     admins.includes(email)
       ? {
