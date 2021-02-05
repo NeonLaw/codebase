@@ -46,7 +46,7 @@
     "gatsby-plugin-typescript": "^2.12.0",
     "gatsby-remark-images": "^3.11.0",
     "gatsby-source-filesystem": "^2.11.0",
-    "gatsby-source-graphql": "^2.13.0",
+    "gatsby-source-graphql": "^2.14.0",
     "gatsby-source-remote-file": "^0.2.3",
     "gatsby-transformer-sharp": "^2.12.0",
     "graphql-tag": "^2.11.0",
