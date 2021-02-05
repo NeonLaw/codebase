@@ -32,7 +32,39 @@ export const QuestionDetailView = ({ id }) => {
     const answer = convertSlateToPlaintext(data.questionById?.helpText);
     const prompt  = data.questionById?.prompt;
 
-    return !showAnswer ? (
+    if (showAnswer) {
+      return (
+        <>
+          <Text fontSize="1.2em" marginBottom="1em">
+            {prompt}
+          </Text>
+          {answer === userAnswer ? (
+            <Text>You got it!</Text>
+          ) : (
+            <ReactDiffViewer
+              oldValue={answer}
+              newValue={convertSlateToPlaintext(userAnswer) || ''}
+              hideLineNumbers={true}
+              showDiffOnly={false}
+              splitView={false}
+              useDarkTheme={colorMode === 'dark'}
+            />
+          )}
+          <Button
+            flash={false}
+            containerStyles={{marginTop: gutters.xSmallOne}}
+            marginTop="1em"
+            width="100%"
+            className="show-prompt"
+            onClick={() => { toggleShowAnswer(false); }}
+          >
+            Try Typing the Answer
+          </Button>
+        </>
+      );
+    }
+
+    return (
       <form
         onSubmit={handleSubmit(onSubmit as any)}
         ref={formRef}
@@ -58,32 +90,6 @@ export const QuestionDetailView = ({ id }) => {
             Show Answer
         </Button>
       </form>
-    ) : (
-      <>
-        <Text fontSize="1.2em" marginBottom="1em">
-          {prompt}
-        </Text>
-        {answer === userAnswer ? (
-          <Text>You got it!</Text>
-        ) : (
-          <ReactDiffViewer
-            oldValue={answer}
-            newValue={convertSlateToPlaintext(userAnswer) || ''}
-            hideLineNumbers={true}
-            showDiffOnly={false}
-            splitView={false}
-            useDarkTheme={colorMode === 'dark'}
-          />
-        )}
-        <Button
-          flash={false}
-          containerStyles={{marginTop: gutters.xSmallOne}}
-          className="show-prompt"
-          onClick={() => { toggleShowAnswer(false); }}
-        >
-            Try Typing the Answer
-        </Button>
-      </>
     );
   }
 
