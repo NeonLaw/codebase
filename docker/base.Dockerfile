@@ -31,11 +31,11 @@ RUN TEMP_DEB="$(mktemp)" &&\
   dpkg -i "$TEMP_DEB" &&\
   rm -f "$TEMP_DEB"
 
-# Install neo4j
-RUN TEMP_DEB="$(mktemp)" &&\
-  wget -O "$TEMP_DEB" https://dist.neo4j.org/cypher-shell/cypher-shell_4.2.2_all.deb &&\
-  dpkg -i "$TEMP_DEB" &&\
-  rm -f "$TEMP_DEB"
+# Install neo4j - need to install openjdk
+# RUN TEMP_DEB="$(mktemp)" &&\
+#   wget -O "$TEMP_DEB" https://dist.neo4j.org/cypher-shell/cypher-shell_4.2.2_all.deb &&\
+#   dpkg -i "$TEMP_DEB" &&\
+#   rm -f "$TEMP_DEB"
 
 # Install yarn via NPM
 RUN npm i -g yarn
