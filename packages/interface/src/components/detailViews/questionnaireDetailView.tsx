@@ -1,3 +1,4 @@
+import { QuestionDetailView } from './questionDetailView';
 import React from 'react';
 import { Skeleton } from '@chakra-ui/core';
 import { useQuestionnaireByIdQuery } from '../../utils/api';
@@ -16,7 +17,7 @@ export const QuestionnaireDetailView = ({ id }) => {
     return (
       <>
         <h1>Questionnaire</h1>
-        <p>{JSON.stringify(data.questionnaireById?.questionTree)}</p>
+        <QuestionDetailView id={data.questionnaireById?.questionTree.begin} />
       </>
     );
   }
