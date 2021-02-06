@@ -38,6 +38,7 @@ export const QuestionTable = (props: QuestionTableProps) => {
       data={nodes}
       testId="admin-questions-table"
       onRowClick={props.onRowClick}
+      defaultPageSize={50}
     />
   );
 };

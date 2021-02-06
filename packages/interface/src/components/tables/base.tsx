@@ -34,6 +34,7 @@ interface TableInterface {
   columns: any;
   data: any;
   testId: string;
+  defaultPageSize?: number;
   onRowClick?(row: any): any;
 }
 
@@ -41,6 +42,7 @@ export const Table = ({
   columns,
   data,
   testId,
+  defaultPageSize = 5,
   onRowClick = () => {
     return;
   },
@@ -72,7 +74,7 @@ export const Table = ({
       initialState: {
         hiddenColumns: ['id'],
         pageIndex: 0,
-        pageSize: 5,
+        pageSize: defaultPageSize,
       },
     },
     useSortBy,

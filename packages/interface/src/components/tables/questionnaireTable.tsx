@@ -36,6 +36,7 @@ export const QuestionnaireTable = (props: QuestionnaireTableProps) => {
     <Table
       columns={columns}
       data={nodes}
+      defaultPageSize={10}
       testId="admin-questionnaires-table"
       onRowClick={props.onRowClick}
     />
