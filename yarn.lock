@@ -20432,10 +20432,10 @@ strip-outer@^1.0.0, strip-outer@^1.0.1:
   dependencies:
     escape-string-regexp "^1.0.2"
 
-stripe@^8.133.0:
-  version "8.133.0"
-  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.133.0.tgz#1a8a240b2f8b1302e2973cf72d765e4b5f37e4b3"
-  integrity sha512-PuivLI6PawvRMhMZ2pvRVJiDlQ4UnIyiWbsEj1Netu8FjOLHmBUjAGFT52wOFgc0OWkLN4Y+93/RWB6e+u6VXQ==
+stripe@^8.134.0:
+  version "8.134.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.134.0.tgz#667b93a394b7e0d623de3b96b067172f20797a99"
+  integrity sha512-aytY1AiHgEeNgy9Z3gKSq2Npij11wxr32+Fn6EPdNBmzpYAs/iLbUNQsyV953l3NKV1o1mhATsmKqRgD5nDmTA==
   dependencies:
     "@types/node" ">=8.1.0"
     qs "^6.6.0"
