@@ -12,7 +12,7 @@ WORKDIR /app
 
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --silent
+RUN yarn install --silent --ignore-optional
 
 COPY . .
 

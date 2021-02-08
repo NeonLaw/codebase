@@ -6,11 +6,7 @@ WORKDIR /app
 
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install \
-  --silent \
-  --ignore-optional \
-  --frozen-lockfile \
-  --prefer-offline
+RUN yarn install --silent --ignore-optional
 
 ADD . ./
 

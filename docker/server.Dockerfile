@@ -9,11 +9,7 @@ WORKDIR /app
 
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install \
-  --silent \
-  --ignore-optional \
-  --prefer-offline \
-  --cache-folder ./node_modules
+RUN yarn install --silent --ignore-optional
 
 COPY ./docker/server.entrypoint.sh ./docker
 COPY ./packages/server ./packages/server
