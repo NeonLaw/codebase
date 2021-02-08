@@ -5439,7 +5439,7 @@ babel-preset-fbjs@^3.3.0:
     "@babel/plugin-transform-template-literals" "^7.0.0"
     babel-plugin-syntax-trailing-function-commas "^7.0.0-beta.0"
 
-babel-preset-gatsby@^0.12.0, babel-preset-gatsby@^0.12.1:
+babel-preset-gatsby@^0.12.1:
   version "0.12.1"
   resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-0.12.1.tgz#b1d2facecd29399817d38dd65ff520750ba67bb0"
   integrity sha512-nCIT2ptMftfEQAyNpyc1eKM1oazJWxUlvJhA3kCzrPNWDTb0IniTlKnFZq2jPRLmDAafH5Mq8lYB/sFzFzdy6Q==
