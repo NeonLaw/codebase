@@ -26,7 +26,7 @@
     "clipboard-copy": "^4.0.1",
     "eslint-plugin-jsdoc": "^31.6.1",
     "framer-motion": "^3.3.0",
-    "gatsby": "2.32.2",
+    "gatsby": "2.32.3",
     "gatsby-image": "^2.11.0",
     "gatsby-plugin-canonical-urls": "^2.10.0",
     "gatsby-plugin-create-client-paths": "^2.10.0",
