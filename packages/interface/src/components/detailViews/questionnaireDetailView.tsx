@@ -18,7 +18,7 @@ export const QuestionnaireDetailView = ({ id }) => {
   if (data) {
     return (
       <>
-        <h1>Questionnaire</h1>
+        <h1>{data?.questionnaireById?.name}</h1>
         <QuestionDetailView id={currentQuestion} />
 
         <Box padding="1em" />

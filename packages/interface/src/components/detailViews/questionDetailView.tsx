@@ -1,5 +1,5 @@
+import { Box, Text, useColorMode } from '@chakra-ui/core';
 import React, { useRef, useState } from 'react';
-import { Text, useColorMode } from '@chakra-ui/core';
 import { Button } from '../button';
 import ReactDiffViewer from 'react-diff-viewer';
 import { Skeleton } from '@chakra-ui/core';
@@ -41,14 +41,21 @@ export const QuestionDetailView = ({ id }) => {
           {answer === userAnswer ? (
             <Text>You got it!</Text>
           ) : (
-            <ReactDiffViewer
-              oldValue={answer}
-              newValue={convertSlateToPlaintext(userAnswer) || ''}
-              hideLineNumbers={true}
-              showDiffOnly={false}
-              splitView={false}
-              useDarkTheme={colorMode === 'dark'}
-            />
+            <>
+              <Box display={['none', 'none', 'inherit']}>
+                <ReactDiffViewer
+                  oldValue={answer}
+                  newValue={convertSlateToPlaintext(userAnswer) || ''}
+                  hideLineNumbers={true}
+                  showDiffOnly={false}
+                  splitView={false}
+                  useDarkTheme={colorMode === 'dark'}
+                />
+              </Box>
+              <Text display={['inherit', 'inherit', 'none']}>
+                {answer}
+              </Text>
+            </>
           )}
           <Button
             flash={false}

@@ -45,7 +45,6 @@ const StyledPortalLayout = styled.div`
     }
 
     @media (max-width: 640px) {
-      height: 100vh;
       width: 100vh;
     }
 
@@ -116,7 +115,7 @@ export const PortalLayout = ({ children }) => {
           <Aside
             style={{
               background:
-               colorMode === 'dark' ? '#000000b0' : 'rgba(255, 255, 255, 0.8)',
+               colorMode === 'dark' ? '#000' : 'rgba(255, 255, 255, 0.8)',
               color: colors.text[colorMode],
               height: '100%'
             }}
