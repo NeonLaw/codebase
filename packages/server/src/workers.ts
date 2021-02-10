@@ -1,20 +1,19 @@
 import 'dotenv/config';
+import {
+  createNeo4jRelationship,
+  saveDocumentInLongTermStorage,
+  sendWelcomeEmail,
+  updateQuestionnaireFromNeo4j,
+  upsertQuestionToNeo4j,
+  upsertQuestionnaireToNeo4j,
+} from './tasks';
 import Redis from 'ioredis';
 import { getLeakyBucketRateLimiter } from 'graphile-worker-rate-limiter';
 import { default as neo4j } from 'neo4j-driver';
 import { postgresUrl } from './postgresUrl';
 import { redisUrl } from './redisUrl';
 import { run } from 'graphile-worker';
-import {
-  saveDocumentInLongTermStorage
-} from './tasks/saveDocumentInLongTermStorage';
-import { sendWelcomeEmail } from './tasks/sendWelcomeEmail';
 import { default as sgMail } from '@sendgrid/mail';
-import {
-  updateQuestionnaireFromNeo4j
-} from './tasks/updateQuestionnaireFromNeo4j';
-import { upsertQuestionToNeo4j } from './tasks/upsertQuestionToNeo4j';
-import { upsertQuestionnaireToNeo4j } from './tasks/upsertQuestionnaireToNeo4j';
 
 const redis = new Redis(redisUrl);
 const rateLimiter = getLeakyBucketRateLimiter({
@@ -54,6 +53,7 @@ async function workers() {
     noHandleSignals: false,
     pollInterval: 1000,
     taskList: {
+      createNeo4jRelationship,
       saveDocumentInLongTermStorage,
       sendWelcomeEmail: rateLimiter.wrapTask(sendWelcomeEmail),
       updateQuestionnaireFromNeo4j,

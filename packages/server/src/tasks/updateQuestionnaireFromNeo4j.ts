@@ -60,7 +60,7 @@ export const updateQuestionnaireFromNeo4j = async (
     );
   } catch(error) {
     throw new Error(error);
-  }finally {
+  } finally {
     await session.close();
   }
 };
