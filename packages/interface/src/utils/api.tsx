@@ -489,6 +489,33 @@ export type CreateQuestionPayloadQuestionEdgeArgs = {
   orderBy?: Maybe<Array<QuestionsOrderBy>>;
 };
 
+/** All input for the `createRelationship` mutation. */
+export type CreateRelationshipInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  relationship?: Maybe<Scalars['String']>;
+  fromId?: Maybe<Scalars['UUID']>;
+  fromType?: Maybe<Scalars['String']>;
+  toId?: Maybe<Scalars['UUID']>;
+  toType?: Maybe<Scalars['String']>;
+};
+
+/** The output of our `createRelationship` mutation. */
+export type CreateRelationshipPayload = {
+  __typename?: 'CreateRelationshipPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  string?: Maybe<Scalars['String']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
 /** All input for the create `Response` mutation. */
 export type CreateResponseInput = {
   /**
@@ -1920,6 +1947,7 @@ export type Mutation = {
   deleteResponseDocumentById?: Maybe<DeleteResponseDocumentPayload>;
   createMatterDocumentFromUploadUrl?: Maybe<CreateMatterDocumentFromUploadUrlPayload>;
   createPrimaryKeyIdIfNotExists?: Maybe<CreatePrimaryKeyIdIfNotExistsPayload>;
+  createRelationship?: Maybe<CreateRelationshipPayload>;
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
   updateQuestionnaireFromNeo4J?: Maybe<UpdateQuestionnaireFromNeo4JPayload>;
   getTransloaditToken?: Maybe<GetTransloaditTokenPayload>;
@@ -2295,6 +2323,12 @@ export type MutationCreateMatterDocumentFromUploadUrlArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreatePrimaryKeyIdIfNotExistsArgs = {
   input: CreatePrimaryKeyIdIfNotExistsInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateRelationshipArgs = {
+  input: CreateRelationshipInput;
 };
 
 
