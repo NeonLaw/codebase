@@ -93,7 +93,7 @@
         "@uppy/core": "^1.16.0",
         "@uppy/react": "^1.11.2",
         "@uppy/transloadit": "^1.6.18",
-        "@uppy/tus": "^1.8.4",
+        "@uppy/tus": "^1.8.5",
         "clipboard-copy": "^4.0.1",
         "gatsby-plugin-react-axe": "^0.5.0",
         "jwt-decode": "^3.1.2",
