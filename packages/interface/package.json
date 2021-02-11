@@ -19,7 +19,7 @@
     "@turf/helpers": "^6.2.0",
     "@uppy/core": "^1.16.1",
     "@uppy/react": "^1.11.2",
-    "@uppy/transloadit": "^1.6.18",
+    "@uppy/transloadit": "^1.6.19",
     "@uppy/tus": "^1.8.4",
     "apollo-boost": "^0.4.9",
     "apollo-link-context": "^1.0.20",
