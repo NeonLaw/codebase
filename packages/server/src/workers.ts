@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import {
+  addQuestionToEndOfQuestionnaire,
   createNeo4jRelationship,
   saveDocumentInLongTermStorage,
   sendWelcomeEmail,
@@ -53,6 +54,7 @@ async function workers() {
     noHandleSignals: false,
     pollInterval: 1000,
     taskList: {
+      addQuestionToEndOfQuestionnaire,
       createNeo4jRelationship,
       saveDocumentInLongTermStorage,
       sendWelcomeEmail: rateLimiter.wrapTask(sendWelcomeEmail),
