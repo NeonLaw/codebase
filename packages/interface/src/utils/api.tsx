@@ -2931,6 +2931,7 @@ export type Question = Node & {
   helpText?: Maybe<Scalars['JSON']>;
   /** Reads and enables pagination through a set of `Response`. */
   responsesByQuestionId: ResponsesConnection;
+  isLinkedToQuestionnaire?: Maybe<Scalars['Boolean']>;
 };
 
 
