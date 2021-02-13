@@ -24,40 +24,6 @@ export type Scalars = {
   JSON: { [key: string]: any };
 };
 
-/** All input for the `addQuestionToEndOfQuestionnaire` mutation. */
-export type AddQuestionToEndOfQuestionnaireInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  questionId?: Maybe<Scalars['UUID']>;
-  questionnaireId?: Maybe<Scalars['UUID']>;
-};
-
-/** The output of our `addQuestionToEndOfQuestionnaire` mutation. */
-export type AddQuestionToEndOfQuestionnairePayload = {
-  __typename?: 'AddQuestionToEndOfQuestionnairePayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  questionnaire?: Maybe<Questionnaire>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `MatterTemplate` that is related to this `Questionnaire`. */
-  matterTemplateByMatterTemplateId?: Maybe<MatterTemplate>;
-  /** An edge for our `Questionnaire`. May be used by Relay 1. */
-  questionnaireEdge?: Maybe<QuestionnairesEdge>;
-};
-
-
-/** The output of our `addQuestionToEndOfQuestionnaire` mutation. */
-export type AddQuestionToEndOfQuestionnairePayloadQuestionnaireEdgeArgs = {
-  orderBy?: Maybe<Array<QuestionnairesOrderBy>>;
-};
-
 export type Address = Node & {
   __typename?: 'Address';
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -1979,7 +1945,6 @@ export type Mutation = {
   deleteResponseDocument?: Maybe<DeleteResponseDocumentPayload>;
   /** Deletes a single `ResponseDocument` using a unique key. */
   deleteResponseDocumentById?: Maybe<DeleteResponseDocumentPayload>;
-  addQuestionToEndOfQuestionnaire?: Maybe<AddQuestionToEndOfQuestionnairePayload>;
   createMatterDocumentFromUploadUrl?: Maybe<CreateMatterDocumentFromUploadUrlPayload>;
   createPrimaryKeyIdIfNotExists?: Maybe<CreatePrimaryKeyIdIfNotExistsPayload>;
   createRelationship?: Maybe<CreateRelationshipPayload>;
@@ -2346,12 +2311,6 @@ export type MutationDeleteResponseDocumentArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteResponseDocumentByIdArgs = {
   input: DeleteResponseDocumentByIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationAddQuestionToEndOfQuestionnaireArgs = {
-  input: AddQuestionToEndOfQuestionnaireInput;
 };
 
 
