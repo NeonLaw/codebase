@@ -1,5 +1,7 @@
 import { colors, gutters, theme } from '../themes/neonLaw';
+
 import { ApolloProvider } from '@apollo/client';
+import { BaseFooter } from '../components/footer/baseFooter';
 import { LoadingPage } from '../components/loadingPage';
 import PortalBg from '../../../interface/src/images/dashboard-bg.jpg';
 import {
@@ -48,7 +50,7 @@ const StyledPortalLayout = styled.div`
       width: 100vh;
     }
 
-    @media(min-height: 1100px) {
+    @media (min-height: 1100px) {
       grid-template-rows: auto minmax(90vh, auto);
       margin: 3vh 3vw;
     }
@@ -61,7 +63,7 @@ const StyledPortalLayout = styled.div`
   .portal-hamburger {
     display: none;
 
-    @media(max-width: 800px) {
+    @media (max-width: 800px) {
       display: flex;
       justify-content: center;
       min-width: 2.5rem;
@@ -73,19 +75,25 @@ const Aside = styled.div`
   grid-area: 'aside';
   position: relative;
 
-  @media(max-width: 800px) {
+  @media (max-width: 800px) {
     display: none;
   }
 `;
 
 const Main = styled.main`
-    grid-area: 'main';
-    padding: ${gutters.small};
-    overflow: hidden;
+  grid-area: 'main';
+  padding: ${gutters.small};
+  overflow: hidden;
 
-    @media (max-width: 800px) {
-      padding: ${gutters.xSmallOne};
-    }
+  @media (max-width: 800px) {
+    padding: ${gutters.xSmallOne};
+  }
+`;
+
+const FooterWrapperMobile = styled.div`
+  @media (min-width: 800px) {
+    display: none;
+  }
 `;
 
 export const PortalLayout = ({ children }) => {
@@ -94,7 +102,7 @@ export const PortalLayout = ({ children }) => {
     isAuthenticated,
     isLoading,
     getAccessTokenSilently,
-    user
+    user,
   } = useAuth0();
   const apolloClient = getApolloClient(getAccessTokenSilently);
 
@@ -115,14 +123,12 @@ export const PortalLayout = ({ children }) => {
           <Aside
             style={{
               background:
-               colorMode === 'dark' ? '#000' : 'rgba(255, 255, 255, 0.8)',
+                colorMode === 'dark' ? '#000' : 'rgba(255, 255, 255, 0.8)',
               color: colors.text[colorMode],
-              height: '100%'
+              height: '100%',
             }}
           >
-            <PortalSideNavigation
-              links={links}
-            />
+            <PortalSideNavigation links={links} />
           </Aside>
           <PortalNavigationBar
             isRenderedOnDashboard={true}
@@ -138,6 +144,9 @@ export const PortalLayout = ({ children }) => {
           </Main>
         </div>
       </StyledPortalLayout>
+      <FooterWrapperMobile>
+        <BaseFooter hideTheSection={true} />
+      </FooterWrapperMobile>
     </ApolloProvider>
   );
 };
