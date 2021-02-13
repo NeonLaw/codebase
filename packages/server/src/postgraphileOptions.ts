@@ -2,6 +2,7 @@ import { PostGraphileOptions, makePluginHook } from 'postgraphile';
 import GraphilePro from '@graphile/pro';
 import PgPubsub from '@graphile/pg-pubsub';
 import { fileUploadsPlugin } from './resolvers/fileUploads';
+import { questionPlugin } from './resolvers/questionPlugin';
 import { slatePlugin } from './slateTypes';
 
 const pluginHook = makePluginHook([
@@ -22,7 +23,7 @@ export const postgraphileOptions: PostGraphileOptions = {
     return {};
   },
   allowExplain: process.env.SHOW_GRAPHIQL === 'true' ? true : false,
-  appendPlugins: [fileUploadsPlugin, slatePlugin],
+  appendPlugins: [fileUploadsPlugin, questionPlugin, slatePlugin],
   defaultPaginationCap:
     parseInt(process.env.GRAPHQL_PAGINATION_CAP || '', 10) || 50,
   disableQueryLog: false,
