@@ -17,14 +17,5 @@ RUN yarn install --silent --ignore-optional
 COPY . .
 
 RUN yarn workspace @neonlaw/web build
-
-RUN awk "{gsub(/DOMAIN_NAME/, \"$DOMAIN_NAME\"); print}" ./docker/production.nginx.conf > docker.nginx.conf
-
-FROM nginx
-
-ARG APP_NAME
-
-COPY --from=build /app/web/.next /usr/share/nginx/html
-COPY --from=build /app/docker.nginx.conf /etc/nginx/nginx.conf
-
-EXPOSE 80
+EXPOSE 3000
+CMD ["yarn", "workspace", "@neonlaw/web", "start"]
