@@ -1,6 +1,9 @@
 export {
   addQuestionToEndOfQuestionnaire
 } from './addQuestionToEndOfQuestionnaire';
+export {
+  addRelatedQuestionRelationship
+} from './addRelatedQuestionRelationship';
 export { createNeo4jRelationship } from './createNeo4jRelationship';
 export { saveDocumentInLongTermStorage } from './saveDocumentInLongTermStorage';
 export { sendWelcomeEmail } from './sendWelcomeEmail';
