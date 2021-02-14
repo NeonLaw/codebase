@@ -1,4 +1,4 @@
-import { Global, css } from '@emotion/core';
+import { Global, css } from '@emotion/react';
 
 import { Banner } from '../components/homepage/banner';
 import { Experience } from '../components/homepage/experience';

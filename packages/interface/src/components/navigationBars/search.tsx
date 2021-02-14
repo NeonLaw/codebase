@@ -1,4 +1,4 @@
-import { Global, css } from '@emotion/core';
+import { Global, css } from '@emotion/react';
 import { Input, theme, useColorMode } from '@chakra-ui/react';
 import React, { useEffect, useRef } from 'react';
 

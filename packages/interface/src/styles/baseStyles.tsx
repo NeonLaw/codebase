@@ -1,4 +1,4 @@
-import { Global, css } from '@emotion/core';
+import { Global, css } from '@emotion/react';
 import { colors, gutters, sizes } from '../themes/neonLaw';
 
 import { colors as DydColors } from '../themes/deleteYourData';
