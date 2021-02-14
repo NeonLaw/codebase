@@ -2,6 +2,7 @@
     "private": true,
     "workspaces": [
         "packages/*",
+        "server",
         "web"
     ],
     "optionalDependencies": {
@@ -68,8 +69,8 @@
     "scripts": {
         "check-types": "tsc -p .",
         "cypress:seed-users": "psql -c \"INSERT INTO person (email, role) VALUES ('portal@sink.sendgrid.com', 'portal'), ('admin@sink.sendgrid.com', 'admin');\" $DATABASE_URL",
-        "develop:seed": "psql -f ./packages/server/src/utils/seeds.sql $DATABASE_URL",
-        "develop:seed-neo4j": "cypher-shell -f ./packages/server/src/utils/seeds.cypher $NEO4J_URL",
+        "develop:seed": "psql -f ./server/src/utils/seeds.sql $DATABASE_URL",
+        "develop:seed-neo4j": "cypher-shell -f ./server/src/utils/seeds.cypher $NEO4J_URL",
         "develop:shell": "docker exec -it shell /bin/bash",
         "docker-remove-containers": "docker container kill $(docker ps -q)",
         "docker-prune": "docker system prune -a -f --volumes",
