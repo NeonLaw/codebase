@@ -59,13 +59,13 @@ jobs:
           coverageCommand: docker exec shell yarn test
       - name: Seed Database users for Cypress
         run: docker exec shell yarn cypress:seed-users
-      - name: Run Cypress tests for @neonlaw/interface
+      - name: Run Cypress tests for @neonlaw/web
         uses: cypress-io/github-action@v2
         with:
           record: true
           wait-on-timeout: 300
           wait-on: 'http://127.0.0.1:8000'
-          working-directory: ./packages/interface
+          working-directory: ./web
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
