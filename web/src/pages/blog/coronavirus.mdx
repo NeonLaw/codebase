@@ -1,11 +1,10 @@
----
-title: Coronavirus
-featuredImage: coronavirus.jpg
-slug: /blog/coronavirus
-updatedAt: "2020-04-01"
-tags: musings,coronavirus
----
-export const meta = {};
+export const meta = {
+  title: "Coronavirus",
+  featuredImage: "coronavirus.jpg",
+  slug: "/blog/coronavirus",
+  updatedAt: "2020-04-01",
+  tags: "musings,coronavirus",
+};
 import { BlogLayout } from '../../components/layouts/blogLayout';
 export default ({ children }) => <BlogLayout meta={meta}>{children}</BlogLayout>
 
