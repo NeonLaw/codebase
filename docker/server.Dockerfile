@@ -12,7 +12,7 @@ COPY yarn.lock .
 RUN yarn install --silent --ignore-optional
 
 COPY ./docker/server.entrypoint.sh ./docker
-COPY ./packages/server ./packages/server
+COPY ./server ./server
 
 EXPOSE 3000
 ENTRYPOINT [ "/app/docker/server.entrypoint.sh" ]

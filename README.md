@@ -11,7 +11,7 @@ This is repo contains:
 
 - An interface written in Gatsby.JS at `./packages/interface`
 - A server written with a Postgraphile GraphQL API and Graphile Workers at
-  `./packages/server`
+  `./server`
 - A collection of Terraform modules located in the `./infrastructure` folder,
   for building out our cloud computing on Kubernetes on GCP.
 - A collection of `Dockerfile`s and entrypoint scripts modules located in the
