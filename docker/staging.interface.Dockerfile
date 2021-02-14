@@ -24,7 +24,7 @@ FROM nginx
 
 ARG APP_NAME
 
-COPY --from=build /app/packages/web/.next /usr/share/nginx/html
+COPY --from=build /app/web/.next /usr/share/nginx/html
 COPY --from=build /app/docker.nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
