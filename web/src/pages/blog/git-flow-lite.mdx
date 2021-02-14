@@ -1,15 +1,11 @@
----
-title: Git Flow Lite
-slug: /blog/git-flow-lite
-updatedAt: '2020-10-10'
-tags: programming,git-flow
-widescreen: true
-description: >
-  Instead of having multiple branches, have one main `development` branch.
-  Staging is deployed upon each commit, and production is deployed on a regular
-  schedule + manually.
----
-export const meta = {};
+export const meta = {
+  title: "Git Flow Lite",
+  slug: "/blog/git-flow-lite",
+  updatedAt: "2020-10-10",
+  tags: "programming,git-flow",
+  widescreen: "true",
+  description: "Instead of having multiple branches, have one main `development` branch. Staging is deployed upon each commit, and production is deployed on a regular schedule + manually.",
+};
 import { BlogLayout } from '../../components/layouts/blogLayout';
 export default ({ children }) => <BlogLayout meta={meta}>{children}</BlogLayout>
 

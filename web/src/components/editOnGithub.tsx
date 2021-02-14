@@ -2,6 +2,7 @@
 // @ts-nocheck
 /* eslint-enable */
 import { Box, Flex } from '@chakra-ui/react';
+
 import { FaPencilAlt } from 'react-icons/fa';
 import React from 'react';
 
@@ -11,9 +12,9 @@ interface EditOnGithubInterface {
 }
 
 export const EditOnGithub = ({ app, path }: EditOnGithubInterface) => {
-  console.log(path);
-  const contentPath = [];
-  if ([].includes('/blog/')) {
+  const contentPath = path === '/' ? '/index' : path;
+  let githubPath;
+  if (path.includes('/blog/')) {
     githubPath =
     'https://github.com/NeonLaw/codebase/blob' +
     `/development/packages/${app}/src/blogPosts/${
