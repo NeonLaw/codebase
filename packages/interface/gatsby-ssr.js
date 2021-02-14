@@ -1,5 +1,5 @@
 import { BaseLayout } from './src/layouts/baseLayout';
-import { ColorModeScript } from '@chakra-ui/core';
+import { ColorModeScript } from '@chakra-ui/react';
 import React from 'react';
 import { theme } from './src/themes/neonLaw';
 

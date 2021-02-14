@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Box, Heading, Text } from '@chakra-ui/core';
+import { Box, Heading, Text } from '@chakra-ui/react';
 import { colors, gutters, sizes } from '../../themes/neonLaw';
 
 import BannerBg from '../../images/banner.jpg';
@@ -9,7 +9,7 @@ import { Button } from '../button';
 import { Container } from '../container';
 import React from 'react';
 import { navigate } from 'gatsby';
-import { theme } from '@chakra-ui/core';
+import { theme } from '@chakra-ui/react';
 
 interface BannerProps {
   title: string;

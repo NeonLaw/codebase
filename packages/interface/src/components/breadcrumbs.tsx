@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/core';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
 import { Link } from '../components/link';
 import { Location } from '@reach/router';
 import React from 'react';

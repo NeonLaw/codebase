@@ -1,5 +1,5 @@
-import { Global, css } from '@emotion/core';
-import { Input, theme, useColorMode } from '@chakra-ui/core';
+import { Global, css } from '@emotion/react';
+import { Input, theme, useColorMode } from '@chakra-ui/react';
 import React, { useEffect, useRef } from 'react';
 
 import { colors } from '../../themes/neonLaw';

@@ -1,7 +1,7 @@
 import 'react-datepicker/dist/react-datepicker.css';
 import './fonts.css';
 
-import { theme as chakraTheme } from '@chakra-ui/core';
+import { theme as chakraTheme } from '@chakra-ui/react';
 
 export const theme = Object.assign(chakraTheme, {
   fontSizes: {

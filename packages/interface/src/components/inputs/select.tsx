@@ -1,4 +1,9 @@
-import { Box, FormControl, FormErrorMessage, FormLabel } from '@chakra-ui/core';
+import {
+  Box,
+  FormControl,
+  FormErrorMessage,
+  FormLabel
+} from '@chakra-ui/react';
 
 import { Controller } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';

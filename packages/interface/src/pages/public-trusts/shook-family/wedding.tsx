@@ -6,7 +6,7 @@ import {
   Heading,
   Text,
   useColorMode
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import React, { useRef } from 'react';
 import { AiFillGift } from 'react-icons/ai';
 import { Button } from '../../../components/button';

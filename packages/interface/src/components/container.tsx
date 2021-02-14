@@ -1,9 +1,9 @@
-import { Box } from '@chakra-ui/core';
+import { Box } from '@chakra-ui/react';
 import React from 'react';
 
-export const Container = ({ 
-  children, 
-  isFullBleed 
+export const Container = ({
+  children,
+  isFullBleed
 }: {children: JSX.Element | JSX.Element[]; isFullBleed?: any}) => (
   <Box
     maxWidth={!isFullBleed ? 'var(--grid-max-width)' : 'auto'}

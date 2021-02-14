@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Box, useColorMode } from '@chakra-ui/core';
+import { Box, useColorMode } from '@chakra-ui/react';
 import { colors, shadows } from '../themes/neonLaw';
 
 import { Link } from '../components/link';

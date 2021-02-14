@@ -49,6 +49,8 @@ jobs:
         run: docker exec shell yarn lint
       - name: Type-check TypeScript Files.
         run: docker exec shell yarn check-types
+      - name: Build Next.JS website
+        run: docker exec shell yarn workspace @neonlaw/web build
       - name: Run Jest tests and publish coverage to Code Climate.
         uses: paambaati/codeclimate-action@v2.6.0
         env:

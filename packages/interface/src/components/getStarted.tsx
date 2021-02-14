@@ -1,6 +1,6 @@
 import { gutters, sizes } from '../themes/neonLaw';
 
-import { Box, } from '@chakra-ui/core';
+import { Box, } from '@chakra-ui/react';
 import { Button } from './button';
 import React from 'react';
 import { Section } from './section';

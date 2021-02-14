@@ -1,7 +1,7 @@
 import { Button } from '../components/button';
 import React from 'react';
 import { Section } from './section';
-import { Text } from '@chakra-ui/core';
+import { Text } from '@chakra-ui/react';
 import { decisionTree } from '../components/upwardMobilityQuestions';
 import { navigate } from 'gatsby';
 import { useIntl } from 'gatsby-plugin-intl';

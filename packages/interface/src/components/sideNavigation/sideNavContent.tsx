@@ -1,4 +1,4 @@
-import { Box, useColorMode } from '@chakra-ui/core';
+import { Box, useColorMode } from '@chakra-ui/react';
 import { colors, gutters } from '../../themes/neonLaw';
 
 import { Link } from 'gatsby-plugin-intl';
@@ -10,7 +10,7 @@ import { useIntl } from 'gatsby-plugin-intl';
 
 const StyledSideNavContent = styled.div<{ isRenderedOnDashboard?: boolean }>`
   height: 100%;
-  
+
   nav {
     padding: ${({ isRenderedOnDashboard }) =>
     !isRenderedOnDashboard ? '1.5rem' : `${gutters.xSmall} 0`};
@@ -27,7 +27,7 @@ const StyledSideNavContent = styled.div<{ isRenderedOnDashboard?: boolean }>`
     @media(max-width: 800px) {
       margin: ${gutters.small} 0;
     }
-    
+
     & > * {
       &:not(:last-child) {
         margin-bottom: ${gutters.small};
@@ -71,7 +71,7 @@ export const SideNavContent = ({
   const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
 
   return (
-    <StyledSideNavContent 
+    <StyledSideNavContent
       isRenderedOnDashboard={isRenderedOnDashboard}
       style={{
         borderRight: colorMode === 'light' ? 'none' : '1px solid #222'

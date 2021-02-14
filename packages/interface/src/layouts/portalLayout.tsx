@@ -19,7 +19,7 @@ import { getApolloClient } from '../utils/getApolloClient';
 import { portalNavLinks } from '../components/navigationBars/portalNavLinks';
 import styled from '@emotion/styled';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useColorMode } from '@chakra-ui/core';
+import { useColorMode } from '@chakra-ui/react';
 
 const StyledPortalLayout = styled.div`
   display: flex;

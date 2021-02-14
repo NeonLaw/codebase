@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/core';
+import { Flex } from '@chakra-ui/react';
 import React from 'react';
 import { animated } from 'react-spring';
 import { useFadeUp } from '../../utils/useFadeUp';

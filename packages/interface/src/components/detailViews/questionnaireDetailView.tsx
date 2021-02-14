@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Box } from '@chakra-ui/core';
+import { Box } from '@chakra-ui/react';
 import { Button } from '../button';
 import { QuestionDetailView } from './questionDetailView';
-import { Skeleton } from '@chakra-ui/core';
+import { Skeleton } from '@chakra-ui/react';
 import { useQuestionnaireByIdQuery } from '../../utils/api';
 
 export const QuestionnaireDetailView = ({ id }) => {

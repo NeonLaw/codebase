@@ -8,7 +8,7 @@ import {
   ModalOverlay,
   theme,
   useColorMode
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import React, { useEffect, useRef, useState } from 'react';
 import { colors, gutters } from '../../themes/neonLaw';
 import { kebabCase, titleCase } from 'voca';

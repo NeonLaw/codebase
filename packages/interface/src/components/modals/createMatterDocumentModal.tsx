@@ -9,7 +9,7 @@ import {
   ModalOverlay,
   theme,
   useColorMode,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import React, { useRef, useState } from 'react';
 import { CreateButton } from '../buttons/createButton';
 import Transloadit from '@uppy/transloadit';

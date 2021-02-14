@@ -1,7 +1,7 @@
-import { Box } from '@chakra-ui/core';
+import { Box } from '@chakra-ui/react';
 import { Link } from 'gatsby-plugin-intl';
 import React from 'react';
-import { Skeleton } from '@chakra-ui/core';
+import { Skeleton } from '@chakra-ui/react';
 import { useAllActiveMatterTemplatesByCategoryQuery } from '../../utils/api';
 
 export const MatterTemplateQuestionnairesList = ({ basePath, category }) => {

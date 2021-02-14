@@ -56,6 +56,7 @@ module.exports = {
     quotes: [2, 'single'],
     'react/no-children-prop': 'off',
     'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
     semi: ['error', 'always'],
     'sort-imports': 'error',
     'sort-keys': 'error',

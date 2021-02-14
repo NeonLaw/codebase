@@ -1,5 +1,5 @@
 import { AiOutlineOrderedList, AiOutlineUnorderedList } from 'react-icons/ai';
-import { Box, Divider, Kbd, useColorMode } from '@chakra-ui/core';
+import { Box, Divider, Kbd, useColorMode } from '@chakra-ui/react';
 import { Editor, Text, Transforms } from 'slate';
 import { FaBold, FaItalic, FaQuoteRight, FaUnderline } from 'react-icons/fa';
 import React, { useCallback } from 'react';

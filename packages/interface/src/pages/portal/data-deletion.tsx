@@ -1,7 +1,7 @@
 import {
   Box,
   Heading,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { gutters, sizes } from '../../themes/neonLaw';
 import {
   DataDeletionDashborard

@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Box, Heading, theme } from '@chakra-ui/core';
+import { Box, Heading, theme } from '@chakra-ui/react';
 
 import { Link } from '../link';
 import React from 'react';

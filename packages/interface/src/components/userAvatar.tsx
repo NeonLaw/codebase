@@ -1,4 +1,4 @@
-import { Avatar } from '@chakra-ui/core';
+import { Avatar } from '@chakra-ui/react';
 import React from 'react';
 import styled from '@emotion/styled';
 import { useAuth0 } from '@auth0/auth0-react';

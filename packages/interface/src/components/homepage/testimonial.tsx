@@ -1,4 +1,4 @@
-import { Avatar, useColorMode } from '@chakra-ui/core';
+import { Avatar, useColorMode } from '@chakra-ui/react';
 import {
   colors,
   gutters,

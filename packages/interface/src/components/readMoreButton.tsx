@@ -1,4 +1,4 @@
-import { Box, useColorMode } from '@chakra-ui/core';
+import { Box, useColorMode } from '@chakra-ui/react';
 import { colors, gutters, shadows } from '../themes/neonLaw';
 
 import { Link } from 'gatsby';

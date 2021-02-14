@@ -4,7 +4,7 @@ import {
   FormControl,
   FormErrorMessage,
   FormLabel,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import React, { useCallback, useMemo } from 'react';
 import { Slate, withReact } from 'slate-react';
 import { Controller } from 'react-hook-form';

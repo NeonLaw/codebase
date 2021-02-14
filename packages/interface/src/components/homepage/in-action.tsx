@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/core';
+import { Box, Text } from '@chakra-ui/react';
 import { colors, gutters } from '../../themes/neonLaw';
 
 import InActionBG from '../../images/in-action-bg.jpg';

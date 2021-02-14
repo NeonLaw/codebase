@@ -1,4 +1,4 @@
-import { Box, useColorMode } from '@chakra-ui/core';
+import { Box, useColorMode } from '@chakra-ui/react';
 import React, { CSSProperties } from 'react';
 import { colors, gutters } from '../themes/neonLaw';
 

@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Box, Flex, Text } from '@chakra-ui/core';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import {
   FaFacebookF, FaLinkedinIn, FaTwitter
 } from 'react-icons/fa';

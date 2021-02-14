@@ -4,7 +4,7 @@ import {
   gradients,
   gutters
 } from '../../themes/deleteYourData';
-import { useColorMode, useColorModeValue } from '@chakra-ui/core';
+import { useColorMode, useColorModeValue } from '@chakra-ui/react';
 
 import React from 'react';
 import styled from '@emotion/styled';

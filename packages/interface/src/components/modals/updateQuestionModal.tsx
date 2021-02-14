@@ -1,5 +1,5 @@
 import React from 'react';
-import { Skeleton } from '@chakra-ui/core';
+import { Skeleton } from '@chakra-ui/react';
 import { UpdateModalFormBuilder } from '../forms/updateModalFormBuilder';
 import { questionFields } from '../fields/questionFields';
 import { useQuestionByIdQuery } from '../../utils/api';

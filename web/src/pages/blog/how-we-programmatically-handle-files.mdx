@@ -1,0 +1,69 @@
+---
+title: How We Programmatically Handle Files
+featuredImage: upload-diagram.png
+slug: /blog/how-we-programmatically-handle-files
+updatedAt: "2021-01-09"
+tags: programming,postgres,transloadit
+---
+export const meta = {};
+import { BlogLayout } from '../../components/layouts/blogLayout';
+export default ({ children }) => <BlogLayout meta={meta}>{children}</BlogLayout>
+
+We consider files grouped data that is not stored in our primary PostgreSQL
+database, such as images, Microsoft Word documents, PDF files, audio and video.
+This blog post will go over how we capture user uploads, store the files on our
+server, and render them to users.
+
+## Designing a Data Model
+
+We have two different type of files in our system, `ResponseDocuments` or
+files that our clients upload in response to questions we ask them and
+`MatterDocuments` or files that we upload for our clients when providing
+legal advice. If you have read our [blog post about
+authorization](/blog/authorization), `portal` users can upload documents in
+response to a question, and `lawyer` and `admin` users can upload matter
+documents. This is enforced with a PostgreSQL `check` before creating either
+record.
+
+## Storage in GCP Buckets
+
+We maintain two GCP buckets for storing files, one for unprocessed uploads that
+any user can upload to and one for storing the files after they have been
+processed by our server.
+
+### Unprocessed Uploads Bucket
+
+Uploaded documents in the unprocessed folder are deleted after 2 hours from
+when it was uploaded. A filename in this bucket is the `base64` encoding of
+the `uploadURL` created from Transloadit.
+
+### Private Assets Bucket
+
+After a document is processed by our server, we copy the file from the
+unprocessed uploads folder to our private assets bucket. Each file follows
+the format `matters/${matterId}/filename` or
+`responses/${responseId}/filename`.
+
+You may have correctly guessed that `MatterDocuments` are stored in the form of
+`matters/${matterId}/filename` and `ResponseDocuments` are stored in the form of
+`responses/${responseId}/filename`.
+
+## File Uploads
+
+We use Transloadit to process file uploads from our application. Our upload
+process is two HTTP requests. First, a HTTP POST request is made to Transloadit
+to upload our file to its server. Second, with the `uploadURL` returned from
+`Transloadit`, a user sends a GraphQL mutation request to our API to create a
+`response_document` or `matter_document` with either the
+`createResponseDocument` or `createMatterDocument` mutation respectively.
+
+### Choose a Transloadit Template and `getTransloaditToken`
+
+### Upload to Transloadit
+
+After you upload a file to Transloadit, Transloadit will return an `uploadURL`
+in the response body. This `uploadURL` is what is sent to `react-hook-form`.
+
+### After Transloadit Processes the File, the `Unprocessed Upload` Bucket
+
+### Create a Matter Document or Response Document

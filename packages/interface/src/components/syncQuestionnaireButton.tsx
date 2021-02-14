@@ -1,4 +1,4 @@
-import { Button, Skeleton } from '@chakra-ui/core';
+import { Button, Skeleton } from '@chakra-ui/react';
 
 import React from 'react';
 import { gutters } from '../themes/neonLaw';
@@ -22,7 +22,7 @@ export const SyncQuestionnaireButton = ({ id }) => {
   }
 
   return (
-    <Button 
+    <Button
       marginBottom={gutters.xSmall}
       flash={false}
       buttonScheme="teal"

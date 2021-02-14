@@ -1,4 +1,4 @@
-import { Skeleton, Text } from '@chakra-ui/core';
+import { Skeleton, Text } from '@chakra-ui/react';
 import { colors, gutters, shadows } from '../../themes/neonLaw';
 import React from 'react';
 import { UserAvatar } from '../userAvatar';

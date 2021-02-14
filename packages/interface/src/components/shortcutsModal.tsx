@@ -8,7 +8,7 @@ import {
   ModalOverlay,
   useColorMode,
   useDisclosure,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import React, { useEffect } from 'react';
 import { colors, shadows, theme } from '../themes/neonLaw';
 
@@ -71,7 +71,7 @@ export const ShortcutsModal = () => {
   const isThereAnInputFocused = () => {
     const focused = document.activeElement?.tagName;
     return focused === 'INPUT';
-    
+
   };
 
   const handleOpenModal = (e: any) => {

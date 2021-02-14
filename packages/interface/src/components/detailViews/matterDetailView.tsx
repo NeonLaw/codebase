@@ -1,5 +1,5 @@
 import React from 'react';
-import { Skeleton } from '@chakra-ui/core';
+import { Skeleton } from '@chakra-ui/react';
 import { useMatterByIdQuery } from '../../utils/api';
 
 export const MatterDetailView = ({ id }) => {

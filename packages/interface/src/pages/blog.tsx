@@ -1,4 +1,4 @@
-import { Box, List, ListItem } from '@chakra-ui/core';
+import { Box, List, ListItem } from '@chakra-ui/react';
 import { gutters, sizes } from '../themes/neonLaw';
 
 import { Container } from '../components/container';

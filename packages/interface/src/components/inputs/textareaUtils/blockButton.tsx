@@ -1,5 +1,5 @@
 import { Editor, Transforms } from 'slate';
-import { IconButton, useColorMode } from '@chakra-ui/core';
+import { IconButton, useColorMode } from '@chakra-ui/react';
 import React from 'react';
 import { colors } from '../../../themes/neonLaw';
 import { useSlate } from 'slate-react';

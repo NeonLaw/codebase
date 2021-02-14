@@ -6,7 +6,7 @@ import {
   Text,
   theme,
   useBreakpointValue,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { Container } from '../container';
 import { EmailListButton } from '../emailListButton';
 import { FooterLink } from './footerLink';

@@ -1,7 +1,7 @@
 import { HelpWith, HelpWithProps } from './helpWith';
 
 import Afford from '../../images/what-we-can-help-with/cant-afford.jpg';
-import { Box } from '@chakra-ui/core';
+import { Box } from '@chakra-ui/react';
 import Bussiness from '../../images/what-we-can-help-with/bussiness.jpg';
 import Dead from '../../images/what-we-can-help-with/dead.jpg';
 import Debt from '../../images/what-we-can-help-with/debt.jpg';

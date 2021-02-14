@@ -1,4 +1,4 @@
-import { Kbd } from '@chakra-ui/core';
+import { Kbd } from '@chakra-ui/react';
 import React from 'react';
 import { useOperatingSystem } from '../../utils/useOperatingSystem';
 

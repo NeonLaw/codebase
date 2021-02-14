@@ -1,4 +1,4 @@
-import { Box, Center } from '@chakra-ui/core';
+import { Box, Center } from '@chakra-ui/react';
 import {
   FaFacebook, FaGithub, FaInstagram, FaLinkedinIn, FaTwitter
 } from 'react-icons/fa';

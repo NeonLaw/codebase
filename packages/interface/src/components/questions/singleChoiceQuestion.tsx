@@ -1,4 +1,4 @@
-import { Heading, Radio, RadioGroup } from '@chakra-ui/core';
+import { Heading, Radio, RadioGroup } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
 import { Button } from '../../components/button';
