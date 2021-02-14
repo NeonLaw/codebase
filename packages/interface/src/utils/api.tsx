@@ -48,6 +48,30 @@ export type AddQuestionToEndOfQuestionnairePayload = {
   query?: Maybe<Query>;
 };
 
+/** All input for the `addRelatedQuestionRelationship` mutation. */
+export type AddRelatedQuestionRelationshipInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  firstQuestionId?: Maybe<Scalars['UUID']>;
+  secondQuestionId?: Maybe<Scalars['UUID']>;
+};
+
+/** The output of our `addRelatedQuestionRelationship` mutation. */
+export type AddRelatedQuestionRelationshipPayload = {
+  __typename?: 'AddRelatedQuestionRelationshipPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  questions?: Maybe<Array<Question>>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
 export type Address = Node & {
   __typename?: 'Address';
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -1970,6 +1994,7 @@ export type Mutation = {
   /** Deletes a single `ResponseDocument` using a unique key. */
   deleteResponseDocumentById?: Maybe<DeleteResponseDocumentPayload>;
   addQuestionToEndOfQuestionnaire?: Maybe<AddQuestionToEndOfQuestionnairePayload>;
+  addRelatedQuestionRelationship?: Maybe<AddRelatedQuestionRelationshipPayload>;
   createMatterDocumentFromUploadUrl?: Maybe<CreateMatterDocumentFromUploadUrlPayload>;
   createPrimaryKeyIdIfNotExists?: Maybe<CreatePrimaryKeyIdIfNotExistsPayload>;
   createRelationship?: Maybe<CreateRelationshipPayload>;
@@ -2342,6 +2367,12 @@ export type MutationDeleteResponseDocumentByIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationAddQuestionToEndOfQuestionnaireArgs = {
   input: AddQuestionToEndOfQuestionnaireInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationAddRelatedQuestionRelationshipArgs = {
+  input: AddRelatedQuestionRelationshipInput;
 };
 
 

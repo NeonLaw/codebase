@@ -22,6 +22,23 @@ export const questionPlugin = makeExtendSchemaPlugin(() => {
 
           return linkedQuestionQuery.records.length === 1;
         },
+        relatedQuestions: async (question) => {
+          const { id } = question;
+
+          const session = neo4jDriver(
+            { databaseName: 'questionnaires' }
+          ).session();
+
+          const relatedQuestionsQuery = await session.run(
+            'MATCH (q:Question { id: $id }) '+
+            'WHERE NOT ((:Question)-[:NEXT_QUESTION]-(q) ' +
+            'OR (:Questionnaire)-[:NEXT_QUESTION]-(q)) ' +
+            'RETURN q',
+            { id }
+          );
+
+          return relatedQuestionsQuery.records.length === 1;
+        },
       },
     },
     typeDefs: gql`
