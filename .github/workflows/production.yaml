@@ -7,8 +7,8 @@ on:
       - development
 
   # Deploy production from development at 7:00 am PST every day
-  schedule:
-    - cron: "0 15 * * *"
+  # schedule:
+  #   - cron: "0 15 * * *"
 
   workflow_dispatch:
 
