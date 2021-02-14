@@ -1,12 +1,13 @@
-import { Box } from '@chakra-ui/react';
+import { useIntl } from 'react-intl'
 
-const Home = () => {
+export default () => {
+  const intl = useIntl();
+
+  console.log(intl.formatMessage({ id: 'we_can_help_with.title' }))
+
   return (
-    <Box mb={8} w="full">
-      Hello
-    </Box>
+    <>
+      <h1>Test</h1>
+    </>
   );
 };
-
-/* eslint-disable-next-line */
-export default Home;

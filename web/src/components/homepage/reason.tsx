@@ -1,4 +1,4 @@
-import { gutters, shadows, sizes } from '../../themes/neonLaw';
+import { gutters, shadows, sizes } from '../../styles/neonLaw';
 
 import React from 'react';
 import { ReadMoreButton } from '../readMoreButton';
@@ -56,7 +56,7 @@ const StyledReason = styled.div`
   .image {
     min-height: 15rem;
     width: 100%;
-    background: url('/images/placeholder.jpg');
+    background: url("/images/placeholder.jpg");
     background-size: cover;
     background-position: center;
     flex: 1;

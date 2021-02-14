@@ -1,4 +1,5 @@
 const withPWA = require('next-pwa');
+const withNextIntl = require('@moxy/next-intl/plugin');
 
 module.exports = withPWA({
   pwa: {
@@ -16,3 +17,5 @@ const withMDX = require('@next/mdx')({
 module.exports = withMDX({
   pageExtensions: ['js', 'jsx', 'mdx', 'tsx', 'ts'],
 });
+
+module.exports = withNextIntl()();
