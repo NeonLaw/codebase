@@ -1,3 +1,4 @@
+import { default as Head } from 'next/head';
 import React from 'react';
 
 interface SeoProps {
@@ -9,12 +10,16 @@ interface SeoProps {
 }
 
 export const Seo: React.FC<SeoProps> = (props: SeoProps) => {
-  console.log(props);
-  return null;
+  const { title } = props;
+
+  return (
+    <Head>
+      <title>{title}</title>
+    </Head>
+  );
 
   // const siteUrl = 'https://www.neonlaw.com';
   // const metaTitle = 'title';
-
 
   // // Find the fixed URL for the image
   // image = data.images.edges.find(n => {
