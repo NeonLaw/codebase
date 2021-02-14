@@ -11,6 +11,9 @@
     "start": "next start",
     "prettify": "prettier --write src/"
   },
+  "optionalDependencies": {
+    "cypress": "^6.4.0"
+  },
   "dependencies": {
     "@chakra-ui/react": "^1.3.3",
     "@emotion/react": "^11.1.5",
