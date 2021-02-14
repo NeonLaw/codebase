@@ -1,12 +1,10 @@
+import { Flex, IconButton } from '@chakra-ui/react';
 import {
-  ColorProps,
-  JustifyContentProps,
   SpaceProps,
   color,
   justifyContent,
   space
 } from 'styled-system';
-import { Flex, IconButton } from '@chakra-ui/core';
 
 import React from 'react';
 import styled from '@emotion/styled';
@@ -29,10 +27,7 @@ export const TableHead = styled.div<SpaceProps>`
   flex-direction: row;
 `;
 
-export const TableCell = styled<
-  'div',
-  SpaceProps & ColorProps & JustifyContentProps
->('div')`
+export const TableCell = styled.div`
   ${space};
   ${color};
   ${justifyContent};

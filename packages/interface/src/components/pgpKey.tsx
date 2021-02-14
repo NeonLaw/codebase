@@ -1,4 +1,4 @@
-import { Box, Tooltip } from '@chakra-ui/core';
+import { Box, Tooltip } from '@chakra-ui/react';
 import React, { useRef, useState } from 'react';
 
 import { Button } from './button';

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, } from 'react';
-import { Box } from '@chakra-ui/core';
+import { Box } from '@chakra-ui/react';
 import Transloadit from '@uppy/transloadit';
 import Uppy from '@uppy/core';
 import { DragDrop as UppyDragAndDrop } from '@uppy/react';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { colors, gutters, theme } from '../../themes/deleteYourData';
-import { Box } from '@chakra-ui/core';
+import { Box } from '@chakra-ui/react';
 import DYDBg from '../../images/dyd-bg.png';
 import { Nav } from './nav';
 import styled from '@emotion/styled';

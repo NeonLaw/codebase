@@ -44,7 +44,7 @@ typings/
 
 # gatsby files
 .cache/
-public/
+packages/interface/public/
 
 # Mac files
 .DS_Store

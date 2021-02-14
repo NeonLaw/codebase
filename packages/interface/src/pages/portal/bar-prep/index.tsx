@@ -2,7 +2,7 @@ import {
   Box,
   Heading,
   Text,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { gutters, sizes } from '../../../themes/neonLaw';
 import {
   MatterTemplateQuestionnairesList

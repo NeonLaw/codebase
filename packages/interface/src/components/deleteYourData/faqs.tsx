@@ -5,7 +5,7 @@ import React from 'react';
 import { Section } from '../section';
 import { faqs } from './contents';
 import styled from '@emotion/styled';
-import { useColorModeValue } from '@chakra-ui/core';
+import { useColorModeValue } from '@chakra-ui/react';
 
 const StyledFAQs = styled.div`
   .faqs {
@@ -22,7 +22,7 @@ const StyledFAQs = styled.div`
 
 export const FAQs = () => (
   <StyledFAQs>
-    <Section 
+    <Section
       title="Frequently Asked Questions"
       isTitleCentered={true}
       underlineColor='orange'

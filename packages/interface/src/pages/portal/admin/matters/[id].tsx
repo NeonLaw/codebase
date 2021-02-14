@@ -1,4 +1,4 @@
-import { Box, useDisclosure } from '@chakra-ui/core';
+import { Box, useDisclosure } from '@chakra-ui/react';
 import { Breadcrumbs } from '../../../../components/breadcrumbs';
 import { Button } from '../../../../components/button';
 import {

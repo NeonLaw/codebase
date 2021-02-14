@@ -1,4 +1,4 @@
-import { Box, Divider, Flex, Heading, useColorMode } from '@chakra-ui/core';
+import { Box, Divider, Flex, Heading, useColorMode } from '@chakra-ui/react';
 import React, { ReactChildren } from 'react';
 import {
   colors,

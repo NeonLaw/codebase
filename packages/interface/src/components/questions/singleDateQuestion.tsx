@@ -1,4 +1,4 @@
-import { Heading, useColorMode } from '@chakra-ui/core';
+import { Heading, useColorMode } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
 import { Button } from '../button';

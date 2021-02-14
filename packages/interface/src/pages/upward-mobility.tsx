@@ -4,7 +4,7 @@ import React from 'react';
 import { Router } from '@reach/router';
 import { Section } from '../components/section';
 import { Seo } from '../components/seo';
-import { Text } from '@chakra-ui/core';
+import { Text } from '@chakra-ui/react';
 import {
   UpwardMobilityQuestionnaire
 } from '../components/upwardMobilityQuestionnaire';
@@ -18,7 +18,7 @@ const UpwardMobilityHome = (props) => {
   return (
     <>
       <Seo title="Upward Mobility" />
-      <Section 
+      <Section
         title={intl.formatMessage({ id: 'pages_upward_mobility.heading' })}
         titleStyles={{marginTop: '4.5rem'}}
       >

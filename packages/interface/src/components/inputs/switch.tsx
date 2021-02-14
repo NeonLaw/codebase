@@ -3,7 +3,7 @@ import {
   FormControl,
   FormErrorMessage,
   FormLabel,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 import React from 'react';
 

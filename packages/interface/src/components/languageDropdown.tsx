@@ -6,7 +6,7 @@ import {
   MenuList,
   Text,
   useColorMode
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { changeLocale, useIntl } from 'gatsby-plugin-intl';
 
 import { ChevronUpIcon } from '@chakra-ui/icons';

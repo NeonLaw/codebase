@@ -1,5 +1,5 @@
 import '../themes/fonts.css';
-import { Box, useColorMode } from '@chakra-ui/core';
+import { Box, useColorMode } from '@chakra-ui/react';
 import { ApolloProvider } from '@apollo/client';
 import { BaseFooter } from '../components/footer/baseFooter';
 import { DeleteYourDataStyles } from '../styles/deleteYourDataStyles';

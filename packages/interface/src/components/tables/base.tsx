@@ -8,7 +8,7 @@ import {
   Flex,
   Text,
   useColorMode,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import {
   ChevronDownIcon,
   ChevronLeftIcon,

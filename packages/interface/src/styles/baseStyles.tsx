@@ -3,7 +3,7 @@ import { colors, gutters, sizes } from '../themes/neonLaw';
 
 import { colors as DydColors } from '../themes/deleteYourData';
 import React from 'react';
-import { theme } from '@chakra-ui/core';
+import { theme } from '@chakra-ui/react';
 
 export const BaseStyles = (): JSX.Element => (
   <Global

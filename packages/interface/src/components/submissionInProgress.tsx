@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spinner } from '@chakra-ui/core';
+import { Spinner } from '@chakra-ui/react';
 import { gutters } from '../themes/neonLaw';
 
 interface SubmissionInProgressProps {

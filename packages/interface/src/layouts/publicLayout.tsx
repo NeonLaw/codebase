@@ -1,4 +1,4 @@
-import { Box, Flex, useColorMode } from '@chakra-ui/core';
+import { Box, Flex, useColorMode } from '@chakra-ui/react';
 import { ApolloProvider } from '@apollo/client';
 import { BaseFooter } from '../components/footer/baseFooter';
 import { Breadcrumbs } from '../components/breadcrumbs';

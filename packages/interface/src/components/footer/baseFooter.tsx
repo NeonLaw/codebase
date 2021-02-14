@@ -4,7 +4,7 @@ import {
   Text,
   useColorMode,
   useColorModeValue,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { colors, sizes } from '../../themes/neonLaw';
 
 import { FooterLinks } from './footerLinks';

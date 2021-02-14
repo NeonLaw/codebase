@@ -1,4 +1,4 @@
-import { Box, Progress } from '@chakra-ui/core';
+import { Box, Progress } from '@chakra-ui/react';
 import { decisionTree, questions } from '../components/upwardMobilityQuestions';
 
 import {

@@ -15,7 +15,7 @@ import {
 } from '../components/homepage/whatWeCanHelpWith';
 import { WhyNeonLaw } from '../components/homepage/whyNeonLaw';
 import { colors } from '../themes/neonLaw';
-import { useColorMode } from '@chakra-ui/core';
+import { useColorMode } from '@chakra-ui/react';
 import { useIntl } from 'gatsby-plugin-intl';
 
 const Home = (): JSX.Element => {

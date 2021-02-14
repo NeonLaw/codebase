@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Button as ChakraButton, useColorMode } from '@chakra-ui/core';
+import { Button as ChakraButton, useColorMode } from '@chakra-ui/react';
 import { Global, css, keyframes } from '@emotion/core';
 import React, { CSSProperties } from 'react';
 

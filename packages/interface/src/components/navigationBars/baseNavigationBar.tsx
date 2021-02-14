@@ -12,7 +12,7 @@ import {
   MenuItem,
   MenuList,
   useDisclosure,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { BlackLivesMatter } from './blackLivesMatter';

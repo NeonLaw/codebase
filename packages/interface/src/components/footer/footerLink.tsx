@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/core';
+import { Box } from '@chakra-ui/react';
 import { Link } from '../link';
 import React from 'react';
 import { useIntl } from 'gatsby-plugin-intl';

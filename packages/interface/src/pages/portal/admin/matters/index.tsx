@@ -1,4 +1,4 @@
-import { Box, Kbd, useDisclosure } from '@chakra-ui/core';
+import { Box, Kbd, useDisclosure } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
 import { Breadcrumbs } from '../../../../components/breadcrumbs';

@@ -1,4 +1,4 @@
-import { ChakraProvider, ColorModeProvider } from '@chakra-ui/core';
+import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react';
 import React, { ReactChildren, useEffect } from 'react';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { Background } from '../components/background';

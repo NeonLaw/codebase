@@ -13,7 +13,7 @@ import {
   MenuList,
   useColorModeValue,
   useDisclosure,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { colors, gutters, theme } from '../../themes/neonLaw';
 

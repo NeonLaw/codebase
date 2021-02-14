@@ -3,7 +3,7 @@ import {
   Divider,
   Flex,
   Heading,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import React, { ReactChildren } from 'react';
 import { ApolloProvider } from '@apollo/client';
 import { BaseFooter } from '../components/footer/baseFooter';

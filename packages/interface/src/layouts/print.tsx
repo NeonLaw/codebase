@@ -11,7 +11,7 @@ import {
   Kbd,
   Text,
   useColorMode,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 import { CodeBlock } from '../components/codeBlock';
 import React from 'react';

@@ -1,4 +1,4 @@
-import { IconButton, useColorMode } from '@chakra-ui/core';
+import { IconButton, useColorMode } from '@chakra-ui/react';
 import { Editor } from 'slate';
 import React from 'react';
 import { colors } from '../../../themes/neonLaw';

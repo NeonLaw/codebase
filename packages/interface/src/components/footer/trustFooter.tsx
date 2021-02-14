@@ -3,7 +3,7 @@ import {
   Heading,
   Text,
   useColorMode
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { colors, sizes } from '../../themes/neonLaw';
 import { Breadcrumbs } from '../../components/breadcrumbs';
 import { FooterLinks } from './footerLinks';

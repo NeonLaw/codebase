@@ -5,7 +5,7 @@ import {
   MenuItem,
   MenuList,
   useColorMode
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { Link } from '../../components/link';
 import React from 'react';
 import { UserAvatar } from '../userAvatar';

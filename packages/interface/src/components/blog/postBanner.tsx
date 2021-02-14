@@ -1,4 +1,4 @@
-import { Heading, Text, useColorMode } from '@chakra-ui/core';
+import { Heading, Text, useColorMode } from '@chakra-ui/react';
 import {
   colors,
   gutters,
@@ -67,10 +67,10 @@ export const PostBanner = ({
     >
       {children}
       <div className="text" style={{ borderColor: colors.borders[colorMode] }}>
-        <Heading 
-          as="h2" 
-          className="h3" 
-          fontWeight="400" 
+        <Heading
+          as="h2"
+          className="h3"
+          fontWeight="400"
           marginBottom={gutters.xSmallOne}
         >
           {title}

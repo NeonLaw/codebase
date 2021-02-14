@@ -1,4 +1,4 @@
-import { Heading, useDisclosure } from '@chakra-ui/core';
+import { Heading, useDisclosure } from '@chakra-ui/react';
 import { gutters, sizes } from '../../themes/neonLaw';
 
 import { Button } from '../../components/button';

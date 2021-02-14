@@ -1,4 +1,4 @@
-import { Box, Heading } from '@chakra-ui/core';
+import { Box, Heading } from '@chakra-ui/react';
 import { navigate, useIntl } from 'gatsby-plugin-intl';
 
 import { Button } from '../../../components/button';

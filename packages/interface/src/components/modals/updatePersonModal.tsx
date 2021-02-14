@@ -6,7 +6,7 @@ import {
   ModalHeader,
   ModalOverlay,
   useColorMode,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { StringInput, Switch } from '../../components/inputs';
 import { colors, gutters, theme } from '../../themes/neonLaw';

@@ -2,7 +2,7 @@ import {
   DataDeletionDetailView
 } from '../detailViews/dataDeletionMatterDetailView';
 import React from 'react';
-import { Skeleton } from '@chakra-ui/core';
+import { Skeleton } from '@chakra-ui/react';
 import { useAllCurrentUserMattersQuery } from '../../utils/api';
 
 export const DataDeletionDashborard = () => {

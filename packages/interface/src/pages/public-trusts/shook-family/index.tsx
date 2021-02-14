@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/core';
+import { Box } from '@chakra-ui/react';
 import { Link } from '../../../components/link';
 import { PublicTrustLayout } from '../../../layouts/publicTrustLayout';
 import React from 'react';

@@ -4,7 +4,7 @@ import {
   Stack,
   Text,
   Textarea
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { Button } from '../../../components/button';
 import { PublicLayout } from '../../../layouts/publicLayout';
 import React from 'react';

@@ -1,8 +1,8 @@
-import { Box, Text, useColorMode } from '@chakra-ui/core';
+import { Box, Text, useColorMode } from '@chakra-ui/react';
 import React, { useRef, useState } from 'react';
 import { Button } from '../button';
 import ReactDiffViewer from 'react-diff-viewer';
-import { Skeleton } from '@chakra-ui/core';
+import { Skeleton } from '@chakra-ui/react';
 import { Textarea } from '../inputs';
 import { convertSlateToPlaintext } from '../../utils/slate';
 import { gutters } from '../../themes/neonLaw';
