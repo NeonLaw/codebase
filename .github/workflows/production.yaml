@@ -7,8 +7,8 @@ on:
       - development
 
   # Deploy production from development at 7:00 am PST every day
-  schedule:
-    - cron: "0 15 * * *"
+  # schedule:
+  #   - cron: "0 15 * * *"
 
   workflow_dispatch:
 
@@ -35,7 +35,7 @@ jobs:
             --tag "us.gcr.io/neon-law-production/interface:latest" \
             --build-arg GATSBY_ACTIVE_ENV=production \
             --build-arg DOMAIN_NAME=www.neonlaw.com \
-            --build-arg APP_NAME=interface \
+            --build-arg APP_NAME=web \
             -f docker/production.interface.Dockerfile \
             .
 

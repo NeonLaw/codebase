@@ -65,6 +65,7 @@ module.exports = {
         case: 'camelCase',
         ignore: [
           /.+\.tsx/,
+          /.+\.d.ts/,
           /.*gatsby-.*\.js$/,
           /^jest-preprocess.js$/
         ]
