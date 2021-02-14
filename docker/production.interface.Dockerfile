@@ -16,7 +16,7 @@ RUN yarn install --silent --ignore-optional
 
 COPY . .
 
-RUN yarn workspace @neonlaw/interface build
+RUN yarn workspace @neonlaw/web build
 
 RUN awk "{gsub(/DOMAIN_NAME/, \"$DOMAIN_NAME\"); print}" ./docker/production.nginx.conf > docker.nginx.conf
 
@@ -24,7 +24,7 @@ FROM nginx
 
 ARG APP_NAME
 
-COPY --from=build /app/packages/interface/public /usr/share/nginx/html
+COPY --from=build /app/packages/web/.next /usr/share/nginx/html
 COPY --from=build /app/docker.nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
