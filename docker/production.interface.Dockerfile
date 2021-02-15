@@ -16,7 +16,6 @@ RUN yarn install --silent --ignore-optional
 
 COPY ./web ./web
 
-WORKDIR /app/web
-RUN yarn build
+RUN yarn workspace @neonlaw/web build
 EXPOSE 3000
-CMD ["yarn", "start"]
+CMD ["yarn", "workspace", "@neonlaw/web", "start"]
