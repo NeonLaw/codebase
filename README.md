@@ -9,7 +9,7 @@
 
 This is repo contains:
 
-- An interface written in Gatsby.JS at `./packages/interface`
+- An interface written in Next.JS at `./web`
 - A server written with a Postgraphile GraphQL API and Graphile Workers at
   `./server`
 - A collection of Terraform modules located in the `./infrastructure` folder,
