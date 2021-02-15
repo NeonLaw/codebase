@@ -2994,6 +2994,7 @@ export type Question = Node & {
   /** Reads and enables pagination through a set of `Response`. */
   responsesByQuestionId: ResponsesConnection;
   isLinkedToQuestionnaire?: Maybe<Scalars['Boolean']>;
+  relatedQuestions?: Maybe<Array<Maybe<Question>>>;
 };
 
 
