@@ -25,10 +25,11 @@
   "exclude": [
     "./node_modules",
     "./build",
-    "packages/server/tests/utils/graphqlHelpers.ts",
-    "./packages/**/*.test.ts",
-    "packages/server/tests/utils/dbHelpers.ts",
-    "packages/server/tests/utils/sanitizeSnapshot.ts",
-    "./packages/**/*.test.tsx"
+    "server/tests/utils/graphqlHelpers.ts",
+    "server/tests/utils/dbHelpers.ts",
+    "server/tests/utils/sanitizeSnapshot.ts",
+    "./**/*.test.ts",
+    "./**/*.test.tsx",
+    "packages/**/*"
   ]
 }
