@@ -12,9 +12,9 @@ WORKDIR /app
 
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --silent --ignore-optional
+RUN yarn install --silent --ignore-optional --no-cache --frozen-lockfile
 
-COPY . .
+COPY ./web ./web
 
 RUN yarn workspace @neonlaw/web build
 EXPOSE 3000

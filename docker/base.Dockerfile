@@ -16,6 +16,7 @@ RUN apt-get update -qqy &&\
   libnotify-dev \
   libgconf-2-4 \
   libnss3 \
+  libvips \
   libxss1 \
   libasound2 \
   libxtst6 \
