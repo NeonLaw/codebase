@@ -4,8 +4,6 @@ import { Box, } from '@chakra-ui/react';
 import { Button } from './button';
 import React from 'react';
 import { Section } from './section';
-import { navigate } from 'gatsby';
-import { useIntl } from 'gatsby-plugin-intl';
 
 export const GetStarted = () => {
   const intl = useIntl();

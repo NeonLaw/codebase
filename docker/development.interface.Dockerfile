@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install --silent --ignore-optional
+RUN yarn install --silent --ignore-optional --no-cache
 
 ADD . ./
 
