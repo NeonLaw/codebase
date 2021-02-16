@@ -21,14 +21,14 @@ This is repo contains:
 
 ### Native Setup
 
-If you are planning on working on just front-end code, you can spin up a Gatsby
+If you are planning on working on just front-end code, you can spin up a Next.JS
 development server on your machine and point that to our staging server with the
 following command. This assumes you already have node, yarn, and python
 installed on your machine.
 
 ```bash
-GATSBY_API_URL=https://www.neonlaw.net/api/graphql \
-  yarn workspace @neonlaw/interface dev
+yarn
+yarn workspace @neonlaw/web dev
 ```
 
 ### Dockerized Setup (recommended for full-stack development)
