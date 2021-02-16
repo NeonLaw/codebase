@@ -88,7 +88,7 @@
         "@emotion/react": "^11.1.5",
         "@emotion/styled": "^11.1.5",
         "@stripe/stripe-js": "^1.12.1",
-        "@typescript-eslint/parser": "^4.15.0",
+        "@typescript-eslint/parser": "^4.15.1",
         "@uppy/core": "^1.16.1",
         "@uppy/react": "^1.11.3",
         "@uppy/transloadit": "^1.6.20",
