@@ -16,5 +16,8 @@ module.exports = withPlugins([
   withMDX(),
   withNextIntl(),
 ], {
+  env: {
+    environment: process.env.NODE_ENV
+  },
   pageExtensions: ['mdx', 'jsx', 'js', 'ts', 'tsx'],
 });
