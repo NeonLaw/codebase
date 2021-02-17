@@ -28,7 +28,8 @@ installed on your machine.
 
 ```bash
 yarn
-yarn workspace @neonlaw/web dev
+cd ./web
+yarn dev
 ```
 
 ### Dockerized Setup (recommended for full-stack development)
