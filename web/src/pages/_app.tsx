@@ -1,12 +1,14 @@
 import '../styles/globals.css';
+
 import { ChakraProvider } from '@chakra-ui/react';
 import Head from 'next/head';
-
-import customTheme from '../styles/customTheme';
+import nextIntlConfig from '../intl';
+import { theme } from '../styles/neonLaw';
+import { withNextIntlSetup } from '@moxy/next-intl';
 
 const MyApp = ({ Component, pageProps }) => {
   return (
-    <ChakraProvider theme={customTheme}>
+    <ChakraProvider theme={theme}>
       <Head>
         <meta
           name="viewport"
@@ -18,4 +20,4 @@ const MyApp = ({ Component, pageProps }) => {
 };
 
 /* eslint-disable-next-line */
-export default MyApp;
+export default  withNextIntlSetup(nextIntlConfig)(MyApp);

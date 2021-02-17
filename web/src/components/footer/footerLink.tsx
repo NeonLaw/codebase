@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import { Link } from '../link';
 import React from 'react';
-// import { useIntl } from 'gatsby-plugin-intl';
+// import { useIntl } from 'react-intl';
 
 // export const FooterLink = ({ path, i18nMessage }) => {
 export const FooterLink = ({ path }) => {
