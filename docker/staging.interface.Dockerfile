@@ -18,6 +18,8 @@ COPY ./web ./web
 
 WORKDIR /app/web
 
+RUN mv ./.env.staging ./.env.production
 RUN yarn build
+
 EXPOSE 3000
 CMD ["yarn", "start"]
