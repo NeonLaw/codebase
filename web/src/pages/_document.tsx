@@ -45,7 +45,7 @@ class MyDocument extends Document {
           <NextIntlScript />
           <Main />
           <NextScript />
-          {process.env.environment !== "development" &&
+          {process.env.environment !== 'development' &&
           <script
             id="ze-snippet"
             key="zendesk"
