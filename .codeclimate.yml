@@ -6,6 +6,6 @@ exclude_patterns:
   - "**/*.jpg"
   - "**/*.pdf"
   - "**/*.png"
-  - "packages/interface/src/utils/api.tsx"
+  - "web/src/utils/api.tsx"
   - "packages/interface/**/*"
   - "packages/web/cypress/**/*"
