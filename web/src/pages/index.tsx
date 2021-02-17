@@ -8,7 +8,8 @@ export default () => {
 
   return (
     <>
-      <h1>Test</h1>
+      <h1>Neon Law</h1>
+      <p>Website under construction, please contact us in the chat below.</p>
     </>
   );
 };
