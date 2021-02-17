@@ -39,7 +39,7 @@ export const Search = ({
     if (e.key === '/') {
       console.log(e.key);
       const activeEl = document.activeElement;
-      const focusWrapper = document.querySelector('#gatsby-focus-wrapper');
+      const focusWrapper = document.querySelector('#focus-wrapper');
 
       if (activeEl === focusWrapper || activeEl === document.body) {
         e.preventDefault();

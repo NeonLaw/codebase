@@ -3,7 +3,7 @@ import { HelpWith, HelpWithProps } from './helpWith';
 import { Box } from '@chakra-ui/react';
 import React from 'react';
 import { Section } from '../section';
-import { useIntl } from 'gatsby-plugin-intl';
+import { useIntl } from 'react-intl';
 
 export const WhatWeCanHelpWith = () => {
   const intl = useIntl();

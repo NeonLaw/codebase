@@ -3,7 +3,7 @@ import { Testimonial, TestimonialProps } from './testimonial';
 import React from 'react';
 import { Section } from '../section';
 import styled from '@emotion/styled';
-import { useIntl } from 'gatsby-plugin-intl';
+import { useIntl } from 'react-intl';
 
 const StyledTestimonials = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ export const Testimonials = () => {
   const testimonails: TestimonialProps[] = [];
 
   return (
-    <Section 
+    <Section
       title={intl.formatMessage({ id: 'testimonials.title' })}
     >
       <StyledTestimonials>

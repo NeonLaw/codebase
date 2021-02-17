@@ -14,7 +14,7 @@ import { LanguageDropdown } from '../languageDropdown';
 import React from 'react';
 import { SocialMediaIcons } from '../socialMediaIcons';
 import { ThemeSwitcher } from '../themeSwitcher';
-// import { useIntl } from 'gatsby-plugin-intl';
+// import { useIntl } from 'react-intl';
 
 export const FooterLinks = () => {
   // const intl = useIntl();

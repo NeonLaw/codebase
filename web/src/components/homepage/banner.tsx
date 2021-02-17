@@ -3,11 +3,10 @@
 /* eslint-enable */
 import { Box, Heading, Text } from '@chakra-ui/react';
 import { colors, gutters, sizes } from '../../styles/neonLaw';
-
 import { Button } from '../button';
 import { Container } from '../container';
+import { default as Link } from 'next/link';
 import React from 'react';
-import { navigate } from 'gatsby';
 import { theme } from '@chakra-ui/react';
 
 interface BannerProps {
@@ -53,11 +52,10 @@ export const Banner = ({ title, text, buttonText }: BannerProps) => (
         </Text>
         <Button
           flash={true}
+          as={Link}
+          to="/contact"
           bg={colors.primaryColor900}
           _hover={{ bg: colors.primaryColor800 }}
-          onClick={() => {
-            navigate('/contact');
-          }}
         >
           {buttonText}
         </Button>

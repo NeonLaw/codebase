@@ -3,7 +3,7 @@ import { gutters, shadows, sizes } from '../../styles/neonLaw';
 import React from 'react';
 import { ReadMoreButton } from '../readMoreButton';
 import styled from '@emotion/styled';
-import { useIntl } from 'gatsby-plugin-intl';
+import { useIntl } from 'react-intl';
 
 export interface ReasonProps {
   title: string;

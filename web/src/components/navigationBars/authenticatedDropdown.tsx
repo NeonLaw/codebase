@@ -48,7 +48,7 @@ export const AuthenticatedDropdown = () => {
             (
               <MenuItem
                 onClick={
-                  () => logout({ returnTo: process.env.GATSBY_SITE_URL })
+                  () => logout({ returnTo: process.env.NEXT_SITE_URL })
                 }
                 _hover={{ backgroundColor: evenLighterBg[colorMode] }}
               >

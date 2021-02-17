@@ -3,7 +3,7 @@ import React from 'react';
 import { Section } from '../section';
 import { UnderlineLink } from '../mdxComponents';
 import { sizes } from '../../styles/neonLaw';
-import { useIntl } from 'gatsby-plugin-intl';
+import { useIntl } from 'react-intl';
 
 export const ProBono = () => {
   const intl = useIntl();

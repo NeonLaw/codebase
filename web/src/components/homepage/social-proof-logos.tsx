@@ -2,7 +2,7 @@ import React from 'react';
 import { Section } from '../section';
 import { gutters } from '../../themes/neonLaw';
 import styled from '@emotion/styled';
-import { useIntl } from 'gatsby-plugin-intl';
+import { useIntl } from 'react-intl';
 
 const StyledLogosContainer = styled.div`
   display: flex;

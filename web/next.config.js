@@ -1,5 +1,7 @@
+const withPlugins = require('next-compose-plugins');
 const withPWA = require('next-pwa');
 const withNextIntl = require('@moxy/next-intl/plugin');
+const withMDX = require('@next/mdx');
 
 module.exports = withPWA({
   pwa: {
@@ -10,12 +12,9 @@ module.exports = withPWA({
   target: 'serverless',
 });
 
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/,
+module.exports = withPlugins([
+  withMDX(),
+  withNextIntl(),
+], {
+  pageExtensions: ['mdx', 'jsx', 'js', 'ts', 'tsx'],
 });
-
-module.exports = withMDX({
-  pageExtensions: ['js', 'jsx', 'mdx', 'tsx', 'ts'],
-});
-
-module.exports = withNextIntl()();

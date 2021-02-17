@@ -3,7 +3,7 @@ import { colors, gutters } from '../../styles/neonLaw';
 import React from 'react';
 import { Section } from '../section';
 import styled from '@emotion/styled';
-import { useIntl } from 'gatsby-plugin-intl';
+import { useIntl } from 'react-intl';
 
 const StyledExperience = styled.div`
   display: flex;

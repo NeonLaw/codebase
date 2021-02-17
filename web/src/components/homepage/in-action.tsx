@@ -2,7 +2,7 @@ import { Box, Text } from '@chakra-ui/react';
 import { colors, gutters } from '../../styles/neonLaw';
 
 import React from 'react';
-import { useIntl } from 'gatsby-plugin-intl';
+import { useIntl } from 'react-intl';
 
 export const InAction = (): JSX.Element => {
   const intl = useIntl();
