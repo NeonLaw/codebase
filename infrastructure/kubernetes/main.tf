@@ -51,7 +51,7 @@ provider "helm" {
 provider "kubernetes-alpha" {
   server_side_planning = true
 
-  host     = "https://${data.terraform_remote_state.gcp.outputs.gke_host}"
+  host = "https://${data.terraform_remote_state.gcp.outputs.gke_host}"
 
   client_certificate     = base64decode(data.terraform_remote_state.gcp.outputs.gke_client_certificate)
   client_key             = base64decode(data.terraform_remote_state.gcp.outputs.gke_client_key)
@@ -109,8 +109,6 @@ module "api_deployment" {
 
   args = [
     "yarn",
-    "workspace",
-    "@neonlaw/server",
     "start:api",
   ]
 }
@@ -129,8 +127,6 @@ module "worker_deployment" {
 
   args = [
     "yarn",
-    "workspace",
-    "@neonlaw/server",
     "start:workers",
   ]
 }

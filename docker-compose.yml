@@ -99,8 +99,6 @@ services:
     volumes: *node-volumes
     command:
       - yarn
-      - workspace
-      - '@neonlaw/server'
       - start:workers
 
   interface:
