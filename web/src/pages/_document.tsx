@@ -1,12 +1,11 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
-
 import { ColorModeScript } from '@chakra-ui/react';
 import { NextIntlScript } from '@moxy/next-intl';
 import { theme } from '../styles/neonLaw';
 
-const APP_NAME = 'nextchakra-starter';
+const APP_NAME = 'Neon Law';
 const APP_DESCRIPTION =
-  'Next.js app template with Chakra-UI, TypeScript, and PWA configured';
+  'A progressive tech-infused law firm dedicated to access to justice';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -15,6 +14,8 @@ class MyDocument extends Document {
   }
 
   render() {
+    const zendeskKey = '81e26970-baa7-4b83-a913-984711a0b5f1';
+
     return (
       <Html lang="en">
         <Head>
@@ -44,6 +45,20 @@ class MyDocument extends Document {
           <NextIntlScript />
           <Main />
           <NextScript />
+          {process.env.environment !== "development" &&
+          <script
+            id="ze-snippet"
+            key="zendesk"
+            src={`https://static.zdassets.com/ekr/snippet.js?key=${zendeskKey}`}
+          />
+          }
+          <script
+            key="fathom"
+            src="https://anglerfish.neonlaw.com/script.js"
+            data-site="DUBLGHDJ"
+            excluded-domains="127.0.0.1,neonlaw.net,interface"
+            defer
+          />
         </body>
       </Html>
     );
