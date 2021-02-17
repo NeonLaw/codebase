@@ -11,9 +11,10 @@ COPY package.json .
 COPY yarn.lock .
 RUN yarn install --silent --ignore-optional
 
-COPY ./docker/server.entrypoint.sh ./docker
-COPY ./server ./server
+WORKDIR /app/server
+
+COPY ./server ./
 
 EXPOSE 3000
-ENTRYPOINT [ "/app/docker/server.entrypoint.sh" ]
-CMD [ "yarn", "workspace", "@neonlaw/server", "start" ]
+ENTRYPOINT [ "./entrypoint.sh" ]
+CMD [ "yarn", "start" ]

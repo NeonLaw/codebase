@@ -70,7 +70,7 @@ services:
   api:
     build:
       context: ./
-      dockerfile: ./docker/server.Dockerfile
+      dockerfile: ./server/Dockerfile
     restart: always
     depends_on:
       - postgres
@@ -86,7 +86,7 @@ services:
   workers:
     build:
       context: ./
-      dockerfile: ./docker/server.Dockerfile
+      dockerfile: ./server/Dockerfile
     restart: always
     depends_on:
       - postgres
@@ -99,8 +99,6 @@ services:
     volumes: *node-volumes
     command:
       - yarn
-      - workspace
-      - '@neonlaw/server'
       - start:workers
 
   interface:
