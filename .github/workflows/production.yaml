@@ -89,7 +89,7 @@ jobs:
           docker build \
             --tag "us.gcr.io/neon-law-production/server:$GITHUB_SHA" \
             --tag "us.gcr.io/neon-law-production/server:latest" \
-            -f docker/server.Dockerfile \
+            -f ./server/Dockerfile \
             .
 
       - uses: google-github-actions/setup-gcloud@master
