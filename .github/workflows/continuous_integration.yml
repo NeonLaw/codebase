@@ -67,7 +67,7 @@ jobs:
       - name: Check api.tsx file against development server
         run: |
           docker exec shell yarn graphql-codegen
-          git diff -G. --exit-code ./packages/interface/src/utils/api.tsx
+          git diff -G. --exit-code ./web/src/utils/api.tsx
       - name: Seed Database users for Cypress
         run: docker exec shell yarn cypress:seed-users
       - name: Run Cypress tests for @neonlaw/web

@@ -1,13 +1,13 @@
 ---
 overwrite: true
 schema: http://api:3000/api/graphql
-documents: packages/interface/src/graphql/*.graphql
+documents: web/src/graphql/*.graphql
 config:
   scalars:
     Datetime: "string"
     JSON: "{ [key: string]: any }"
 generates:
-  packages/interface/src/utils/api.tsx:
+  web/src/utils/api.tsx:
     plugins:
       - typescript
       - typescript-operations
