@@ -1,12 +1,10 @@
-import { Avatar, useColorMode } from '@chakra-ui/react';
 import {
   colors,
   gutters,
   shadows,
 } from '../../styles/neonLaw';
-
-import React from 'react';
 import styled from '@emotion/styled';
+import { useColorMode } from '@chakra-ui/react';
 
 export interface TestimonialProps {
   quote: string;
