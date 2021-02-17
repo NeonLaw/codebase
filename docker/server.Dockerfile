@@ -17,5 +17,5 @@ COPY ./server ./
 COPY ./docker/server.entrypoint.sh ./entrypoint.sh
 
 EXPOSE 3000
-ENTRYPOINT [ "./entrypoint.sh" ]
+ENTRYPOINT [ "/app/server/entrypoint.sh" ]
 CMD [ "yarn", "start" ]
