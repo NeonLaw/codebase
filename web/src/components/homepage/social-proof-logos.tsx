@@ -1,6 +1,6 @@
 import React from 'react';
 import { Section } from '../section';
-import { gutters } from '../../themes/neonLaw';
+import { gutters } from '../../styles/neonLaw';
 import styled from '@emotion/styled';
 import { useIntl } from 'react-intl';
 
