@@ -1,21 +1,25 @@
-import { acceptLanguagePolicy, cookiePolicy, defaultPolicy } from '@moxy/next-intl';
+import {
+  acceptLanguagePolicy,
+  cookiePolicy,
+  defaultPolicy
+} from '@moxy/next-intl';
 
+/* eslint-disable-next-line */
 export default {
-    locales: [
-        {
-            id: 'en',
-            name: 'English',
-            loadMessages: async () => {
-                // @ts-ignore
-                const module = await import(/* webpackChunkName: "intl-messages/en-US" */ './en.json');
+  locales: [
+    {
+      id: 'en',
+      loadMessages: async () => {
+        const module = await import('./en.json');
 
-                return module.default;
-            },
-        },
-    ],
-    policies: [
-        cookiePolicy(),
-        acceptLanguagePolicy(),
-        defaultPolicy('en'),
-    ],
+        return module.default;
+      },
+      name: 'English',
+    },
+  ],
+  policies: [
+    cookiePolicy(),
+    acceptLanguagePolicy(),
+    defaultPolicy('en'),
+  ],
 };
