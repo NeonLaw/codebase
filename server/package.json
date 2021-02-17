@@ -40,6 +40,7 @@
     "stripe": "^8.135.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.5",
+    "uuid": "^8.3.2",
     "winston": "^3.3.3"
   },
   "resolutions": {
