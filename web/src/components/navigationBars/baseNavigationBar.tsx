@@ -14,7 +14,6 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { BlackLivesMatter } from './blackLivesMatter';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
@@ -133,7 +132,6 @@ export const BaseNavigationBar = ({
                   disabled={loginButtonDisabled}
                   onClick={() => {
                     disableLoginButton(true);
-                    loginWithRedirect();
                   }}
                 >
                       auth.login
