@@ -40,7 +40,7 @@ jobs:
           COMPOSE_HTTP_TIMEOUT: 300
       - name: Install depedencies
         run: |
-          docker exec shell yarn install --frozen-lockfile
+          docker exec shell yarn install --frozen-lockfile --no-cache
           sudo chown -R $USER .
           yarn install --frozen-lockfile
       - name: Lint Markdown files.
