@@ -32,17 +32,5 @@ resource "kubernetes_ingress" "primary" {
         }
       }
     }
-
-    rule {
-      host = var.environment == "production" ? "www.lawjobresources.com" : "www.lawjobresources.info"
-      http {
-        path {
-          backend {
-            service_name = "${var.environment}-law-job-resources"
-            service_port = 80
-          }
-        }
-      }
-    }
   }
 }
