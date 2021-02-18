@@ -15,7 +15,7 @@ resource "kubernetes_ingress" "primary" {
         path {
           backend {
             service_name = "${var.environment}-interface"
-            service_port = 3000
+            service_port = 80
           }
         }
       }
