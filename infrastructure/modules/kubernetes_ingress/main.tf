@@ -38,7 +38,7 @@ resource "kubernetes_ingress" "primary" {
       http {
         path {
           backend {
-            service_name = "${var.environment}-law-job-resources-interface"
+            service_name = "${var.environment}-law-job-resources"
             service_port = 80
           }
         }
