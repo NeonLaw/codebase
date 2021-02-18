@@ -1,8 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Box, Heading, theme } from '@chakra-ui/react';
-
+import { Heading, theme } from '@chakra-ui/react';
 import { Link } from '../link';
 import React from 'react';
 
@@ -13,9 +12,8 @@ export interface HelpWithProps {
 }
 
 export const HelpWith = ({ image, text, path }: HelpWithProps) => (
-  <Box
-    as={Link}
-    to={path}
+  <Link
+    href={path}
     position="relative"
     padding="5rem 3rem"
     display="block"
@@ -60,5 +58,5 @@ export const HelpWith = ({ image, text, path }: HelpWithProps) => (
       fontWeight="normal"
       dangerouslySetInnerHTML={{ __html: text }}
     />
-  </Box>
+  </Link>
 );

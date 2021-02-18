@@ -11,11 +11,9 @@ import {
   Text,
   useColorMode,
 } from '@chakra-ui/react';
-
 import { CodeBlock } from '../components/codeBlock';
 import { DesktopHalfMobileFullCard } from './desktopHalfMobileFullCard';
-import { Link } from './link';
-import { PublicLayout } from './layouts/publicLayout';
+import { default as Link } from 'next/link';
 import React from 'react';
 import { colors } from '../styles/neonLaw';
 
@@ -52,18 +50,19 @@ const TData = (props) => (
   />
 );
 
-export const UnderlineLink = (props) => {
+export const UnderlineLink = ({ href, ...props }) => {
   const { colorMode } = useColorMode();
 
   return (
     <Box
+      as={Link}
       color={colors.link[colorMode]}
       cursor="pointer"
-      as={Link}
       textDecoration="underline"
       outline="none"
       _hover={{ opacity: 0.8 }}
       _focus={{ boxShadow: 'outline' }}
+      href={href}
       {...props}
     />
   );
@@ -76,7 +75,6 @@ export const MDXComponents = {
   Box,
   DesktopHalfMobileFullCard,
   Flex,
-  PublicLayout,
   Text,
   a: ({ href, ...props }) => {
     const outsideLink = new RegExp('(^http|^/audio|^/pdf)');
@@ -109,7 +107,7 @@ export const MDXComponents = {
       return <a href={href}>{props.children}</a>;
     }
     return (
-      <UnderlineLink to={href} {...props} />
+      <UnderlineLink href={href} {...props} />
     );
   },
   blockquote: (props) => (
