@@ -1,20 +1,23 @@
-variable region {
+variable "region" {
 }
 
-variable zone {
+variable "zone" {
 }
 
-variable project_id {
+variable "project_id" {
 }
 
-variable environment {
+variable "environment" {
 }
 
-variable gcp_credentials {
+variable "gcp_credentials" {
 }
 
-variable neon_law_url {
+variable "neon_law_url" {
 }
 
-variable law_job_resources_url {
+variable "neon_law_api_url" {
+}
+
+variable "law_job_resources_url" {
 }
