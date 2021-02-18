@@ -1,7 +1,7 @@
 import { Avatar } from '@chakra-ui/react';
 import React from 'react';
 import styled from '@emotion/styled';
-import { useAuth0 } from '@auth0/auth0-react';
+import { useUser } from '@auth0/nextjs-auth0';
 
 const StyledUserAvatar = styled.div`
     .avatar--square {
@@ -16,7 +16,7 @@ interface UserAvatarProps {
 }
 
 export const UserAvatar = ({ style, alt }: UserAvatarProps) => {
-  const { user: { name, picture } } = useAuth0();
+  const { user: { name, picture } } = useUser();
   return (
     <StyledUserAvatar>
       {style === 'square' ? (

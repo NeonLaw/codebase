@@ -14,7 +14,6 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { BlackLivesMatter } from './blackLivesMatter';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
@@ -23,7 +22,6 @@ import { MdDehaze } from 'react-icons/md';
 import { default as NextLink } from 'next/link';
 import { Search } from './search';
 import { colors } from '../../styles/neonLaw';
-import { useAuth0 } from '@auth0/auth0-react';
 
 interface BaseNavigationBarProps {
   isRenderedOnDashboard?: boolean;
@@ -40,7 +38,6 @@ export const BaseNavigationBar = ({
   const { isOpen, onToggle, onClose } = useDisclosure();
 
   const [loginButtonDisabled, disableLoginButton] = useState(false);
-  const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
 
   return (
     <>
@@ -126,24 +123,20 @@ export const BaseNavigationBar = ({
                 </Box>
               ))}
 
-              {isLoading ? null :
-                (isAuthenticated ? <AuthenticatedDropdown /> :
-                  <Flex>
-                    <Box width="6px" />
-                    <Button
-                      bg="transparent"
-                      border="1px"
-                      className="nav-content-desktop"
-                      disabled={loginButtonDisabled}
-                      onClick={() => {
-                        disableLoginButton(true);
-                        loginWithRedirect();
-                      }}
-                    >
+              <Flex>
+                <Box width="6px" />
+                <Button
+                  bg="transparent"
+                  border="1px"
+                  className="nav-content-desktop"
+                  disabled={loginButtonDisabled}
+                  onClick={() => {
+                    disableLoginButton(true);
+                  }}
+                >
                       auth.login
-                    </Button>
-                  </Flex>
-                )}
+                </Button>
+              </Flex>
               <IconButton
                 className="nav-content-mobile"
                 aria-label="Navigation Menu"

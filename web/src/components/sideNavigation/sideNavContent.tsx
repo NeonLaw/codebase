@@ -3,7 +3,6 @@ import { colors, gutters } from '../../styles/neonLaw';
 import React from 'react';
 import { Search } from '../navigationBars/search';
 import styled from '@emotion/styled';
-import { useAuth0 } from '@auth0/auth0-react';
 
 const StyledSideNavContent = styled.div<{ isRenderedOnDashboard?: boolean }>`
   height: 100%;
@@ -64,7 +63,6 @@ export const SideNavContent = ({
   const activeColor = { dark: 'cyan.500', light: 'cyan.800' };
   const bg = { dark: 'black', light: 'gray.200' };
   const { colorMode } = useColorMode();
-  const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
 
   return (
     <StyledSideNavContent
@@ -114,17 +112,12 @@ export const SideNavContent = ({
                 </Box>
               </Box>
             ))}
-            {isAuthenticated || isLoading ? null :
-              <Box
-                mb="10"
-                onClick={() => {
-                  loginWithRedirect();
-                }}
-                cursor="pointer"
-              >
+            <Box
+              mb="10"
+              cursor="pointer"
+            >
                 auth.login
-              </Box>
-            }
+            </Box>
           </div>
         </Box>
       </Box>

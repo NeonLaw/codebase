@@ -17,7 +17,6 @@ import { Seo } from '../seo';
 import { ShareButtons } from '../shareButtons';
 import { getApolloClient } from '../../utils/getApolloClient';
 import styled from '@emotion/styled';
-import { useAuth0 } from '@auth0/auth0-react';
 
 const StyledPostTemplate = styled.div`
   .post-wrapper {
@@ -57,8 +56,7 @@ const StyledPostTemplate = styled.div`
 export const BlogLayout = ({ children, meta }) => {
   const { title, slug, featuredImage, description, widescreen } = meta;
   const { colorMode } = useColorMode();
-  const { getAccessTokenSilently } = useAuth0();
-  const apolloClient = getApolloClient(getAccessTokenSilently);
+  const apolloClient = getApolloClient();
 
   return (
     <Flex minHeight="100vh" direction="column">

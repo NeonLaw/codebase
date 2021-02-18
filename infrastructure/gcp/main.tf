@@ -20,10 +20,10 @@ module "networking_service_connection" {
 }
 
 module "postgres" {
-  source        = "./modules/postgres"
-  zone          = var.zone
-  region        = var.region
-  project_id    = var.project_id
+  source      = "./modules/postgres"
+  zone        = var.zone
+  region      = var.region
+  project_id  = var.project_id
   environment = var.environment
 }
 
@@ -46,14 +46,20 @@ module "neon-law-ssl-certificate" {
   domain_name      = var.neon_law_url
 }
 
+module "neon-law-api-ssl-certificate" {
+  source           = "./modules/ssl_certificate"
+  certificate_name = "neon-law-api"
+  domain_name      = var.neon_law_api_url
+}
+
 module "law-job-resources-ssl-certificate" {
-  source = "./modules/ssl_certificate"
+  source           = "./modules/ssl_certificate"
   certificate_name = "law-job-resources"
   domain_name      = var.law_job_resources_url
 }
 
 module "upload_bucket" {
-  source = "./modules/write_only_bucket"
+  source      = "./modules/write_only_bucket"
   bucket_name = "${var.project_id}-unprocessed-uploads"
   allowed_origins = [
     var.neon_law_url
@@ -61,7 +67,7 @@ module "upload_bucket" {
 }
 
 module "user_bucket" {
-  source = "./modules/private_bucket"
+  source      = "./modules/private_bucket"
   bucket_name = "${var.project_id}-private-assets"
   allowed_origins = [
     var.neon_law_url
@@ -69,5 +75,5 @@ module "user_bucket" {
 }
 
 module "application_user" {
-  source     = "./modules/application_user"
+  source = "./modules/application_user"
 }
