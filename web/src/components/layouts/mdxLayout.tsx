@@ -13,7 +13,6 @@ import { PublicNavigationBar } from '../navigationBars/publicNavigationBar';
 import { Seo } from '../seo';
 import { ShareButtons } from '../shareButtons';
 import { getApolloClient } from '../../utils/getApolloClient';
-import { useAuth0 } from '@auth0/auth0-react';
 
 export const MdxLayout: React.FC<{
   chlidren: ReactChildren;
@@ -21,9 +20,8 @@ export const MdxLayout: React.FC<{
 }> = ({ children, meta }) => {
   const { title, slug, featuredImage, description } = meta;
   const { colorMode } = useColorMode();
-  const { getAccessTokenSilently } = useAuth0();
   const widescreen = 'false';
-  const apolloClient = getApolloClient(getAccessTokenSilently);
+  const apolloClient = getApolloClient();
 
   return (
     <Flex minHeight="100vh" direction="column">

@@ -2,13 +2,8 @@ import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import fetch from 'isomorphic-fetch';
 import { setContext } from '@apollo/client/link/context';
 
-export const getApolloClient = (
-  getAccessTokenSilently: (
-    options?: any | undefined
-  ) => Promise<string>
-) => {
+export const getApolloClient = () => {
   const authLink = setContext(async (_, { headers }) => {
-    const token = await getAccessTokenSilently();
     if (!token) {
       return { headers };
     }

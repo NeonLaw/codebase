@@ -17,7 +17,7 @@ import { Seo } from '../seo';
 import { ShareButtons } from '../shareButtons';
 import { getApolloClient } from '../../utils/getApolloClient';
 import styled from '@emotion/styled';
-import { useAuth0 } from '@auth0/auth0-react';
+import { useUser } from '@auth0/nextjs-auth0';
 
 const StyledPostTemplate = styled.div`
   .post-wrapper {
