@@ -52,12 +52,6 @@ module "neon-law-api-ssl-certificate" {
   domain_name      = var.neon_law_api_url
 }
 
-module "law-job-resources-ssl-certificate" {
-  source           = "./modules/ssl_certificate"
-  certificate_name = "law-job-resources"
-  domain_name      = var.law_job_resources_url
-}
-
 module "upload_bucket" {
   source      = "./modules/write_only_bucket"
   bucket_name = "${var.project_id}-unprocessed-uploads"
