@@ -20,6 +20,7 @@ import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
 import { Link } from '../link';
 import { MdDehaze } from 'react-icons/md';
+import { default as NextLink } from 'next/link';
 import { Search } from './search';
 import { colors } from '../../styles/neonLaw';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -57,17 +58,16 @@ export const BaseNavigationBar = ({
       >
         <Container>
           <Flex boxSize="100%" align="center">
-            <Box
+            <Link
               mr={5}
-              as={Link}
               cursor="pointer"
               display="block"
-              to="/"
+              href="/"
               aria-label="Neon Law, Back to homepage"
               minWidth="3em"
             >
               <img src="/images/logo.svg" alt="Neon Law" />
-            </Box>
+            </Link>
 
             <Search
               version="desktop"
@@ -78,12 +78,11 @@ export const BaseNavigationBar = ({
             <Flex flexGrow={1} align="center" justify="flex-end">
               {links.map((link, i) => (
                 <Box className="nav-content-desktop" key={i} mr="0.5em">
-                  <Box
-                    as={Link}
+                  <Link
                     cursor="pointer"
                     margin="0 10px"
                     paddingBottom="0.5em"
-                    to={link.route}
+                    href={link.route}
                     position="relative"
                     transition="all .2s"
                     _after={{
@@ -107,7 +106,7 @@ export const BaseNavigationBar = ({
                     activeClassName="nav-link--active"
                   >
                     {link.label}
-                  </Box>
+                  </Link>
                 </Box>
               ))}
               {menus.map((menu, i) => (
@@ -118,7 +117,7 @@ export const BaseNavigationBar = ({
                     </MenuButton>
                     <MenuList>
                       {menu.links.map((link, j) => (
-                        <MenuItem key={j} as={Link} to={link.route}>
+                        <MenuItem key={j} as={NextLink} href={link.route}>
                           {link.label}
                         </MenuItem>
                       ))}

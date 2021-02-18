@@ -2,7 +2,7 @@ import { Box, Flex, useColorMode } from '@chakra-ui/react';
 import { ApolloProvider } from '@apollo/client';
 import { BaseFooter } from '../footer/baseFooter';
 import { Breadcrumbs } from '../breadcrumbs';
-import { PublicNavigationBar } from '../navigationBars/public';
+import { PublicNavigationBar } from '../navigationBars/publicNavigationBar';
 import React from 'react';
 import { colors } from '../../styles/neonLaw';
 import { getApolloClient } from '../../utils/getApolloClient';

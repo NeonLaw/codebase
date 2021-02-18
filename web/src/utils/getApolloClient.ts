@@ -20,9 +20,11 @@ export const getApolloClient = (
     };
   });
 
+  const uri = process.env.NEXT_PUBLIC_API_URI;
+
   const httpLink = createHttpLink({
     fetch,
-    uri: 'https://www.neonlaw.net/api/graphql',
+    uri,
     useGETForQueries: false,
   });
 

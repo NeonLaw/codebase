@@ -12,7 +12,7 @@ import { EditOnGithub } from '../editOnGithub';
 import { Image } from '../image';
 import { MDXComponents } from '../mdxComponents';
 import { MDXProvider } from '@mdx-js/react';
-import { PublicNavigationBar } from '../navigationBars/public';
+import { PublicNavigationBar } from '../navigationBars/publicNavigationBar';
 import { Seo } from '../seo';
 import { ShareButtons } from '../shareButtons';
 import { getApolloClient } from '../../utils/getApolloClient';
