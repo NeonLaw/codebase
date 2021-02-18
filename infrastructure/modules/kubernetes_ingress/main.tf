@@ -9,9 +9,16 @@ resource "kubernetes_ingress" "primary" {
   }
 
   spec {
-    backend {
-      service_name = "${var.environment}-interface"
-      service_port = 80
+    rule {
+      host = var.environment == "production" ? "www.neonlaw.com" : "www.neonlaw.net"
+      http {
+        path {
+          backend {
+            service_name = "${var.environment}-interface"
+            service_port = 3000
+          }
+        }
+      }
     }
 
     rule {
