@@ -46,7 +46,7 @@ module "neon-law-ssl-certificate" {
   domain_name      = var.neon_law_url
 }
 
-module "neon-law-ssl-certificate" {
+module "neon-law-api-ssl-certificate" {
   source           = "./modules/ssl_certificate"
   certificate_name = "neon-law-api"
   domain_name      = var.neon_law_api_url
