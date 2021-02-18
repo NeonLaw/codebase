@@ -10,7 +10,7 @@ export const BlockButton = ({ format, icon }) => {
   const { colorMode } = useColorMode();
 
   const isBlockActive = (editor, format) => {
-    const [match] = Editor.nodes(editor, {
+    const match = Editor.nodes(editor, {
       match: n => n.type === format,
     });
 

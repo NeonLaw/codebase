@@ -88,7 +88,7 @@ export const Editable = ({ editor }) => {
               case '`': {
                 event.preventDefault();
 
-                const [match] = Editor.nodes(editor, {
+                const match = Editor.nodes(editor, {
                   match: n => n.type === 'code',
                 });
                 Transforms.setNodes(
@@ -102,7 +102,7 @@ export const Editable = ({ editor }) => {
               case 'b': {
                 event.preventDefault();
 
-                const [match] = Editor.nodes(editor, {
+                const match = Editor.nodes(editor, {
                   match: n => n.bold === true,
                   universal: true,
                 });
