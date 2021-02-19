@@ -4,5 +4,9 @@ query QuestionById($id: UUID!) {
     prompt
     helpText
     questionType
+    relatedQuestions {
+      id
+      prompt
+    }
   }
 }

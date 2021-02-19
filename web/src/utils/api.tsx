@@ -4357,6 +4357,10 @@ export type QuestionByIdQuery = (
   & { questionById?: Maybe<(
     { __typename?: 'Question' }
     & Pick<Question, 'id' | 'prompt' | 'helpText' | 'questionType'>
+    & { relatedQuestions?: Maybe<Array<Maybe<(
+      { __typename?: 'Question' }
+      & Pick<Question, 'id' | 'prompt'>
+    )>>> }
   )> }
 );
 
@@ -5334,6 +5338,10 @@ export const QuestionByIdDocument = gql`
     prompt
     helpText
     questionType
+    relatedQuestions {
+      id
+      prompt
+    }
   }
 }
     `;
