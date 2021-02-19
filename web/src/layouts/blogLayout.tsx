@@ -3,19 +3,20 @@ import {
   colors,
   gutters,
   shadows,
-} from '../../styles/neonLaw';
+} from '../styles/neonLaw';
+
 import { ApolloProvider } from '@apollo/client';
-import { BaseFooter } from '../footer/baseFooter';
-import { Breadcrumbs } from '../breadcrumbs';
-import { Container } from '../container';
-import { EditOnGithub } from '../editOnGithub';
-import { Image } from '../image';
-import { MDXComponents } from '../mdxComponents';
+import { BaseFooter } from '../components/footer/baseFooter';
+import { Breadcrumbs } from '../components/breadcrumbs';
+import { Container } from '../components/container';
+import { EditOnGithub } from '../components/editOnGithub';
+import { Image } from '../components/image';
+import { MDXComponents } from '../components/mdxComponents';
 import { MDXProvider } from '@mdx-js/react';
-import { PublicNavigationBar } from '../navigationBars/publicNavigationBar';
-import { Seo } from '../seo';
-import { ShareButtons } from '../shareButtons';
-import { getApolloClient } from '../../utils/getApolloClient';
+import { PublicNavigationBar } from '../components/navigationBars/publicNavigationBar';
+import { Seo } from '../components/seo';
+import { ShareButtons } from '../components/shareButtons';
+import { getApolloClient } from '../utils/getApolloClient';
 import styled from '@emotion/styled';
 
 const StyledPostTemplate = styled.div`

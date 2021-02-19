@@ -1,16 +1,21 @@
-import { Box } from '@chakra-ui/react';
-import { Link } from '../link';
+import Link from 'next/link';
 import React from 'react';
-// import { useIntl } from 'react-intl';
+import styled from '@emotion/styled';
+import { useIntl } from 'react-intl';
 
-// export const FooterLink = ({ path, i18nMessage }) => {
-export const FooterLink = ({ path }) => {
-  // const intl = useIntl();
+const Anchor = styled.a`
+  display: block;
+  padding: 7px 0;
+`;
+
+export const FooterLink = ({ path, i18nMessage }) => {
+  const intl = useIntl();
 
   return (
-    <Box as={Link} to={path} padding="7px 0">
-      Hi
-      {/* {intl.formatMessage({ id: i18nMessage })} */}
-    </Box>
+    <Link href={path} passHref>
+      <Anchor>
+        {intl.formatMessage({ id: i18nMessage })}
+      </Anchor>
+    </Link>
   );
 };

@@ -1,11 +1,12 @@
 import { Box, Flex, useColorMode } from '@chakra-ui/react';
+
 import { ApolloProvider } from '@apollo/client';
-import { BaseFooter } from '../footer/baseFooter';
-import { Breadcrumbs } from '../breadcrumbs';
-import { PublicNavigationBar } from '../navigationBars/publicNavigationBar';
+import { BaseFooter } from '../components/footer/baseFooter';
+import { Breadcrumbs } from '../components/breadcrumbs';
+import { PublicNavigationBar } from '../components/navigationBars/publicNavigationBar';
 import React from 'react';
-import { colors } from '../../styles/neonLaw';
-import { getApolloClient } from '../../utils/getApolloClient';
+import { colors } from '../styles/neonLaw';
+import { getApolloClient } from '../utils/getApolloClient';
 
 export const PublicLayout = ({
   children,
