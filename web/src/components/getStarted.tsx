@@ -1,7 +1,6 @@
 import { gutters, sizes } from '../styles/neonLaw';
+
 import { Box } from '@chakra-ui/react';
-import { Button } from './button';
-import { default as Link } from 'next/link';
 import { Section } from './section';
 import { useIntl } from 'react-intl';
 
@@ -19,14 +18,14 @@ export const GetStarted = () => {
       >
         {intl.formatMessage({ id: 'get_started.sub_text' })}
       </Box>
-      <Button
+      {/* <Button
         as={Link}
         to="/contact"
         flash={true}
         buttonScheme="teal"
       >
         {intl.formatMessage({ id: 'auth.sign_up' })}
-      </Button>
+      </Button> */}
     </Section>
   );
 };

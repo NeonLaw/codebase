@@ -1,6 +1,28 @@
+// import { useIntl } from 'react-intl';
+
 export const PublicLinks = () => {
-  return [];
-  // const links = [
+  // const intl = useIntl();
+
+  return [
+    {
+      label: 'Upward Mobility',
+      route: '/upward-mobility'
+    },
+    {
+      label: 'Practice Areas',
+      route: '/practice-areas'
+    },
+    {
+      label: 'Blog',
+      route: '/blog'
+    },
+    {
+      label: 'Contact',
+      route: '/contact'
+    }
+  ];
+
+  // return [
   //   {
   //     label: intl.formatMessage({ id: 'navigation_publicL.upward' }),
   //     route: '/upward-mobility'

@@ -3,19 +3,20 @@
 /* eslint-enable */
 import { Box, Heading, Text } from '@chakra-ui/react';
 import { colors, gutters, sizes } from '../../styles/neonLaw';
+
 import { Button } from '../button';
 import { Container } from '../container';
-import { default as Link } from 'next/link';
+// import { default as Link } from 'next/link';
 import React from 'react';
 import { theme } from '@chakra-ui/react';
 
-interface BannerProps {
+interface HeroProps {
   title: string;
   text: string;
   buttonText: string;
 }
 
-export const Banner = ({ title, text, buttonText }: BannerProps) => (
+export const Hero = ({ title, text, buttonText }: HeroProps) => (
   <Box
     as="section"
     display="flex"
@@ -52,8 +53,8 @@ export const Banner = ({ title, text, buttonText }: BannerProps) => (
         </Text>
         <Button
           flash={true}
-          as={Link}
-          to="/contact"
+          as={'a'}
+          href="/contact"
           bg={colors.primaryColor900}
           _hover={{ bg: colors.primaryColor800 }}
         >

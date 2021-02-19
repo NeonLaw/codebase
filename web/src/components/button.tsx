@@ -4,6 +4,7 @@
 import { Button as ChakraButton, useColorMode } from '@chakra-ui/react';
 import { Global, css, keyframes } from '@emotion/react';
 import React, { CSSProperties } from 'react';
+
 import { colors } from '../styles/neonLaw';
 import styled from '@emotion/styled';
 
@@ -100,10 +101,7 @@ export const Button = ({
   const shouldHaveTealStyles = !flash || buttonScheme === 'teal';
 
   return (
-    <WrapOrUnWrap
-      flash={flash}
-      containerStyles={containerStyles}
-    >
+    <WrapOrUnWrap flash={flash} containerStyles={containerStyles}>
       <ChakraButton
         as={props.as}
         onClick={flash ? handleClickFlash : onClick}
@@ -113,9 +111,10 @@ export const Button = ({
         background={
           shouldHaveTealStyles ? colors.primaryButtonBg[colorMode] : props.bg
         }
-        color={shouldHaveTealStyles ?
-          colors.primaryButtonColor[colorMode] :
-          'inherit'
+        color={
+          shouldHaveTealStyles
+            ? colors.primaryButtonColor[colorMode]
+            : 'inherit'
         }
         boxShadow={'none !important'}
         {...props}
@@ -136,17 +135,19 @@ export const Button = ({
             }
         }
       >
-        {flash ? (
-          <Global
-            styles={css`
-              .flash-btn {
-                animation: ${flashAnimation} 1.5s ease-in infinite;
-                outline: none !important;
-              }
-            `}
-          />
-        ) : null}
-        {children}
+        <>
+          {flash ? (
+            <Global
+              styles={css`
+                .flash-btn {
+                  animation: ${flashAnimation} 1.5s ease-in infinite;
+                  outline: none !important;
+                }
+              `}
+            />
+          ) : null}
+          {children}
+        </>
       </ChakraButton>
     </WrapOrUnWrap>
   );
