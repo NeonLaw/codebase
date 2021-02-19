@@ -12,7 +12,7 @@ export const addRelatedQuestionRelationship = async (
     const newRelatedQuestionRelationship = await session.run(
       'MATCH (a:Question {id: $firstQuestionId }),'+
       '(b:Question {id: $secondQuestionId }) ' +
-      'MERGE (a)<-[r:RELATED_QUESTION]->(b) ' +
+      'MERGE (a)-[r:RELATED_QUESTION]->(b) ' +
       'RETURN a,r,b',
       { firstQuestionId, secondQuestionId }
     );

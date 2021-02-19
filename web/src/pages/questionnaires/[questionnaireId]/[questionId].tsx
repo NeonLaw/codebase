@@ -1,4 +1,6 @@
-import { Box, Container } from '@chakra-ui/react';
+import { Box, Button } from '@chakra-ui/react';
+import { Container } from '../../../components/container';
+import Link from 'next/link';
 import { PublicLayout } from '../../../components/layouts/publicLayout';
 import {
   QuestionDetailView
@@ -7,13 +9,19 @@ import { useRouter } from 'next/router';
 
 const QuestionnaireDetailPage = () => {
   const router = useRouter();
-  const { questionnaireId } = router.query;
+  const { questionnaireId, questionId } = router.query;
 
   return (
     <PublicLayout>
       <Box height="10em" />
       <Container>
-        <QuestionDetailView id={questionnaireId} />
+        <QuestionDetailView id={questionId} questionnaireId={questionnaireId} />
+
+        <Link href={`${questionnaireId}/${questionId}`}>
+          <Button>
+            Next Question
+          </Button>
+        </Link>
       </Container>
     </PublicLayout>
   );

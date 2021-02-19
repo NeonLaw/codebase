@@ -1,6 +1,7 @@
 import { Box, Text, useColorMode } from '@chakra-ui/react';
 import React, { useRef, useState } from 'react';
 import { Button } from '../button';
+import Link from 'next/link';
 import ReactDiffViewer from 'react-diff-viewer';
 import { Skeleton } from '@chakra-ui/react';
 import { Textarea } from '../inputs';
@@ -9,7 +10,7 @@ import { gutters } from '../../styles/neonLaw';
 import { useForm } from 'react-hook-form';
 import { useQuestionByIdQuery } from '../../utils/api';
 
-export const QuestionDetailView = ({ id }) => {
+export const QuestionDetailView = ({ id, questionnaireId }) => {
   const [showAnswer, toggleShowAnswer] = useState(false);
   const [userAnswer, changeUserAnswer] = useState(null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -55,6 +56,9 @@ export const QuestionDetailView = ({ id }) => {
               <Text display={['inherit', 'inherit', 'none']}>
                 {answer}
               </Text>
+              <Text>
+                {JSON.stringify(userAnswer)}
+              </Text>
             </>
           )}
           <Button
@@ -98,22 +102,18 @@ export const QuestionDetailView = ({ id }) => {
             Show Answer
           </Button>
         </form>
-        <Button
-          data-testid="flashcard-form-submit"
-          flash={false}
-          type="submit"
-          containerStyles={{marginTop: gutters.xSmallOne}}
-        >
-            Show Slate JSON
-        </Button>
-        <Button
-          data-testid="flashcard-form-submit"
-          flash={false}
-          type="submit"
-          containerStyles={{marginTop: gutters.xSmallOne}}
-        >
-            Show Slate JSON
-        </Button>
+        <ul>
+          {data.questionById.relatedQuestions.map((question, i) => (
+            <Link
+              key={i}
+              href={`/questionnaires/${questionnaireId}/${question.id}`}
+            >
+              <li>
+                {question.id}
+              </li>
+            </Link>
+          ))}
+        </ul>
       </>
     );
   }

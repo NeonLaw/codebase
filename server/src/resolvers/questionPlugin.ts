@@ -31,7 +31,7 @@ export const questionPlugin = makeExtendSchemaPlugin(() => {
           ).session();
 
           const relatedQuestionsQuery = await session.run(
-            'MATCH (a:Question { id: $id })-[:RELATED_QUESTION]->(q:Question) '+
+            'MATCH (a:Question { id: $id })-[:RELATED_QUESTION]-(q:Question) '+
             'RETURN q',
             { id }
           );
