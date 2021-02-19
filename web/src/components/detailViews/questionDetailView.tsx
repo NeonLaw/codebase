@@ -72,31 +72,49 @@ export const QuestionDetailView = ({ id }) => {
     }
 
     return (
-      <form
-        onSubmit={handleSubmit(onSubmit as any)}
-        ref={formRef}
-      >
-        <Text fontSize="1.2em" marginBottom="1em">
-          {prompt}
-        </Text>
-        <Textarea
-          testId="flashcard-textarea"
-          control={control}
-          label={null}
-          name="answer"
-          placeholder="Type in the answer"
-          defaultValue={userAnswer}
-          errors={errors}
-        />
+      <>
+        <form
+          onSubmit={handleSubmit(onSubmit as any)}
+          ref={formRef}
+        >
+          <Text fontSize="1.2em" marginBottom="1em">
+            {prompt}
+          </Text>
+          <Textarea
+            testId="flashcard-textarea"
+            control={control}
+            label={null}
+            name="answer"
+            placeholder="Type in the answer"
+            defaultValue={userAnswer}
+            errors={errors}
+          />
+          <Button
+            data-testid="flashcard-form-submit"
+            flash={false}
+            type="submit"
+            containerStyles={{marginTop: gutters.xSmallOne}}
+          >
+            Show Answer
+          </Button>
+        </form>
         <Button
           data-testid="flashcard-form-submit"
           flash={false}
           type="submit"
           containerStyles={{marginTop: gutters.xSmallOne}}
         >
-            Show Answer
+            Show Slate JSON
         </Button>
-      </form>
+        <Button
+          data-testid="flashcard-form-submit"
+          flash={false}
+          type="submit"
+          containerStyles={{marginTop: gutters.xSmallOne}}
+        >
+            Show Slate JSON
+        </Button>
+      </>
     );
   }
 
