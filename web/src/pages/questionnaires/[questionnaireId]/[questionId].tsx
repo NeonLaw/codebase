@@ -1,6 +1,5 @@
-import { Box, Button } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { Container } from '../../../components/container';
-import Link from 'next/link';
 import { PublicLayout } from '../../../components/layouts/publicLayout';
 import {
   QuestionDetailView
@@ -13,16 +12,15 @@ const QuestionnaireDetailPage = () => {
 
   return (
     <PublicLayout>
-      <Box height="10em" />
+      <Box height="8em" />
       <Container>
-        <QuestionDetailView id={questionId} questionnaireId={questionnaireId} />
-
-        <Link href={`${questionnaireId}/${questionId}`}>
-          <Button>
-            Next Question
-          </Button>
-        </Link>
+        <QuestionDetailView
+          id={questionId}
+          questionnaireId={questionnaireId}
+          showQuestion={false}
+        />
       </Container>
+      <Box height="5em" />
     </PublicLayout>
   );
 };
