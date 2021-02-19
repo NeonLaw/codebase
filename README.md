@@ -169,7 +169,7 @@ tests. You can find these tests
 On pushes to the `development` branch and a successful test run, our [staging
 environment](https://www.neonlaw.net) is updated.
 
-On Monday through Thursday at 4:00 am PST, the [production
+Every dat Thursday at 2:00 am PST, the [production
 environment](https://www.neonlaw.com) is updated with the latest commit from
 `development`.
 
