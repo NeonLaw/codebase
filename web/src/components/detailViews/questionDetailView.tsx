@@ -109,7 +109,7 @@ export const QuestionDetailView = ({ id, questionnaireId }) => {
               href={`/questionnaires/${questionnaireId}/${question.id}`}
             >
               <li>
-                {question.id}
+                {question.prompt}
               </li>
             </Link>
           ))}
