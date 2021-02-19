@@ -44,6 +44,8 @@ export const QuestionDetailView = ({ id, questionnaireId, showQuestion }) => {
     const prompt  = data.questionById?.prompt;
 
     if (showAnswer) {
+      console.log(JSON.stringify(userAnswer));
+
       return (
         <>
           <Text fontSize="1.2em" marginBottom="1em">
@@ -65,9 +67,6 @@ export const QuestionDetailView = ({ id, questionnaireId, showQuestion }) => {
               </Box>
               <Text display={['inherit', 'inherit', 'none']}>
                 {answer}
-              </Text>
-              <Text>
-                {JSON.stringify(userAnswer)}
               </Text>
             </>
           )}
@@ -136,6 +135,29 @@ export const QuestionDetailView = ({ id, questionnaireId, showQuestion }) => {
             Show Answer
           </Button>
         </form>
+        <Box borderWidth="1px" padding="5px">
+          <Heading textAlign="center">
+            Related Questions
+          </Heading>
+          <List>
+            {data.questionById.relatedQuestions.map((question, i) => (
+              <ListItem
+                key={i}
+                cursor="pointer"
+                _hover={{ bg: 'teal.600', color: 'white' }}
+                onClick={() => {
+                  toggleShowAnswer(false);
+                  router.push(
+                    `/questionnaires/${questionnaireId}/${question.id}`
+                  );
+                }}
+              >
+                <ListIcon as={CheckIcon} />
+                {question.prompt}
+              </ListItem>
+            ))}
+          </List>
+        </Box>
       </>
     );
   }
