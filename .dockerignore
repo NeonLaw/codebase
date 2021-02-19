@@ -1,6 +1,5 @@
 .cache
 build
-public
 README.md
 neon_law.egg-info
 yarn-error.log
@@ -14,7 +13,6 @@ docker-compose.yml
 !docker/base.entrypoint.sh
 
 **/.cache
-**/public
 
 **/cypress
 **/cypress_cache
