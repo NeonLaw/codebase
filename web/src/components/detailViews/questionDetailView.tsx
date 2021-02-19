@@ -1,7 +1,15 @@
-import { Box, Text, useColorMode } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  List,
+  ListIcon,
+  ListItem,
+  Text,
+  useColorMode
+} from '@chakra-ui/react';
 import React, { useRef, useState } from 'react';
 import { Button } from '../button';
-import Link from 'next/link';
+import { CheckIcon } from '@chakra-ui/icons';
 import ReactDiffViewer from 'react-diff-viewer';
 import { Skeleton } from '@chakra-ui/react';
 import { Textarea } from '../inputs';
@@ -9,16 +17,18 @@ import { convertSlateToPlaintext } from '../../utils/slate';
 import { gutters } from '../../styles/neonLaw';
 import { useForm } from 'react-hook-form';
 import { useQuestionByIdQuery } from '../../utils/api';
+import { useRouter } from 'next/router';
 
-export const QuestionDetailView = ({ id, questionnaireId }) => {
+export const QuestionDetailView = ({ id, questionnaireId, showQuestion }) => {
   const [showAnswer, toggleShowAnswer] = useState(false);
-  const [userAnswer, changeUserAnswer] = useState(null);
+  const [userAnswer, changeUserAnswer] = useState(showQuestion);
   const formRef = useRef<HTMLFormElement>(null);
   const { control, handleSubmit, errors } = useForm();
   const { data, loading } = useQuestionByIdQuery(
     { variables: { id }}
   );
   const { colorMode } = useColorMode();
+  const router = useRouter();
 
   const onSubmit = async ({ answer }) => {
     changeUserAnswer(answer);
@@ -71,6 +81,30 @@ export const QuestionDetailView = ({ id, questionnaireId }) => {
           >
             Try Typing the Answer
           </Button>
+          <Box height="20px" />
+          <Box borderWidth="1px" padding="5px">
+            <Heading textAlign="center">
+              Related Questions
+            </Heading>
+            <List>
+              {data.questionById.relatedQuestions.map((question, i) => (
+                <ListItem
+                  key={i}
+                  cursor="pointer"
+                  _hover={{ bg: 'teal.600', color: 'white' }}
+                  onClick={() => {
+                    toggleShowAnswer(false);
+                    router.push(
+                      `/questionnaires/${questionnaireId}/${question.id}`
+                    );
+                  }}
+                >
+                  <ListIcon as={CheckIcon} />
+                  {question.prompt}
+                </ListItem>
+              ))}
+            </List>
+          </Box>
         </>
       );
     }
@@ -102,18 +136,6 @@ export const QuestionDetailView = ({ id, questionnaireId }) => {
             Show Answer
           </Button>
         </form>
-        <ul>
-          {data.questionById.relatedQuestions.map((question, i) => (
-            <Link
-              key={i}
-              href={`/questionnaires/${questionnaireId}/${question.id}`}
-            >
-              <li>
-                {question.prompt}
-              </li>
-            </Link>
-          ))}
-        </ul>
       </>
     );
   }
