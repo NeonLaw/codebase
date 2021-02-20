@@ -56,29 +56,31 @@ export const Textarea = ({
     <FormControl isInvalid={errors && errors[name]}>
       <FormLabel htmlFor="name">{label}</FormLabel>
 
-      <Controller
-        render={({ onChange, value, ref }) => {
-          return (
-            <Slate
-              editor={editor}
-              ref={ref}
-              value={value}
-              renderElement={renderElement}
-              onChange={onChange}
-              children={
-                <Box data-testid={testId}>
-                  <Editable editor={editor} />
-                </Box>
-              }
-            />
-          );
-        }}
-        name={name}
-        placeholder={placeholder}
-        label={label}
-        control={control}
-        defaultValue={defaultValue || placeholderSlateText}
-      />
+      <Box borderWidth="1px">
+        <Controller
+          render={({ onChange, value, ref }) => {
+            return (
+              <Slate
+                editor={editor}
+                ref={ref}
+                value={value}
+                renderElement={renderElement}
+                onChange={onChange}
+                children={
+                  <Box data-testid={testId}>
+                    <Editable editor={editor} />
+                  </Box>
+                }
+              />
+            );
+          }}
+          name={name}
+          placeholder={placeholder}
+          label={label}
+          control={control}
+          defaultValue={defaultValue || placeholderSlateText}
+        />
+      </Box>
 
       <FormErrorMessage>
         {errors && errors[name] && errors[name].message}

@@ -1,23 +1,14 @@
-import {
-  Box,
-  Heading,
-  List,
-  ListIcon,
-  ListItem,
-  Text,
-  useColorMode
-} from '@chakra-ui/react';
+import { Box, Text, useColorMode } from '@chakra-ui/react';
 import React, { useRef, useState } from 'react';
 import { Button } from '../button';
-import { CheckIcon } from '@chakra-ui/icons';
 import ReactDiffViewer from 'react-diff-viewer';
+import { RelatedQuestionsList } from '../lists/relatedQuestionsList';
 import { Skeleton } from '@chakra-ui/react';
 import { Textarea } from '../inputs';
 import { convertSlateToPlaintext } from '../../utils/slate';
 import { gutters } from '../../styles/neonLaw';
 import { useForm } from 'react-hook-form';
 import { useQuestionByIdQuery } from '../../utils/api';
-import { useRouter } from 'next/router';
 
 export const QuestionDetailView = ({ id, questionnaireId, showQuestion }) => {
   const [showAnswer, toggleShowAnswer] = useState(false);
@@ -28,7 +19,6 @@ export const QuestionDetailView = ({ id, questionnaireId, showQuestion }) => {
     { variables: { id }}
   );
   const { colorMode } = useColorMode();
-  const router = useRouter();
 
   const onSubmit = async ({ answer }) => {
     changeUserAnswer(answer);
@@ -81,42 +71,24 @@ export const QuestionDetailView = ({ id, questionnaireId, showQuestion }) => {
             Try Typing the Answer
           </Button>
           <Box height="20px" />
-          <Box borderWidth="1px" padding="5px">
-            <Heading textAlign="center">
-              Related Questions
-            </Heading>
-            <List>
-              {data.questionById.relatedQuestions.map((question, i) => (
-                <ListItem
-                  key={i}
-                  cursor="pointer"
-                  _hover={{ bg: 'teal.600', color: 'white' }}
-                  onClick={() => {
-                    toggleShowAnswer(false);
-                    router.push(
-                      `/questionnaires/${questionnaireId}/${question.id}`
-                    );
-                  }}
-                >
-                  <ListIcon as={CheckIcon} />
-                  {question.prompt}
-                </ListItem>
-              ))}
-            </List>
-          </Box>
+          <RelatedQuestionsList
+            relatedQuestions={data.questionById.relatedQuestions}
+            questionnaireId={questionnaireId}
+          />
         </>
       );
     }
 
     return (
       <>
+        <Text fontSize="1.2em" marginBottom="1em" fontWeight="700">
+          {prompt}
+        </Text>
+
         <form
           onSubmit={handleSubmit(onSubmit as any)}
           ref={formRef}
         >
-          <Text fontSize="1.2em" marginBottom="1em">
-            {prompt}
-          </Text>
           <Textarea
             testId="flashcard-textarea"
             control={control}
@@ -126,38 +98,22 @@ export const QuestionDetailView = ({ id, questionnaireId, showQuestion }) => {
             defaultValue={userAnswer}
             errors={errors}
           />
+          <Box height="1em" />
           <Button
             data-testid="flashcard-form-submit"
             flash={false}
+            width="100%"
             type="submit"
             containerStyles={{marginTop: gutters.xSmallOne}}
           >
             Show Answer
           </Button>
         </form>
-        <Box borderWidth="1px" padding="5px">
-          <Heading textAlign="center">
-            Related Questions
-          </Heading>
-          <List>
-            {data.questionById.relatedQuestions.map((question, i) => (
-              <ListItem
-                key={i}
-                cursor="pointer"
-                _hover={{ bg: 'teal.600', color: 'white' }}
-                onClick={() => {
-                  toggleShowAnswer(false);
-                  router.push(
-                    `/questionnaires/${questionnaireId}/${question.id}`
-                  );
-                }}
-              >
-                <ListIcon as={CheckIcon} />
-                {question.prompt}
-              </ListItem>
-            ))}
-          </List>
-        </Box>
+        <Box height="20px" />
+        <RelatedQuestionsList
+          relatedQuestions={data.questionById.relatedQuestions}
+          questionnaireId={questionnaireId}
+        />
       </>
     );
   }
