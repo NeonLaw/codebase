@@ -12,7 +12,7 @@ describe('INSERT INTO letter;', () => {
   const addresseeId = faker.random.uuid();
   const lobIdentifier = faker.lorem.sentence();
 
-  describe('as an anonymous user', () => {
+  describe('an anonymous user', () => {
     it('cannot create letters', () =>
       withRootDb(async (pgClient: any) => {
         await becomeAnonymousUser(pgClient);
@@ -29,7 +29,7 @@ describe('INSERT INTO letter;', () => {
     );
   });
 
-  describe('as an portal user', () => {
+  describe('a portal user', () => {
     it('cannot create letters', () =>
       withRootDb(async (pgClient: any) => {
         await becomePortalUser(pgClient);
@@ -46,7 +46,7 @@ describe('INSERT INTO letter;', () => {
     );
   });
 
-  describe('as an lawyer user', () => {
+  describe('a lawyer user', () => {
     it('cannot create letters', () =>
       withRootDb(async (pgClient: any) => {
         await becomeLawyerUser(pgClient);

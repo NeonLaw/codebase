@@ -11,7 +11,7 @@ import { describe, expect, it } from '@jest/globals';
 describe('INSERT INTO matter;', () => {
   const randomId = faker.random.uuid();
 
-  describe('as an anonymous user', () => {
+  describe('an anonymous user', () => {
     it('cannot create matters', () =>
       withRootDb(async (pgClient: any) => {
         await becomeAnonymousUser(pgClient);
@@ -27,7 +27,7 @@ describe('INSERT INTO matter;', () => {
     );
   });
 
-  describe('as an portal user', () => {
+  describe('a portal user', () => {
     it('cannot create matters', () =>
       withRootDb(async (pgClient: any) => {
         await becomePortalUser(pgClient);
@@ -43,7 +43,7 @@ describe('INSERT INTO matter;', () => {
     );
   });
 
-  describe('as a lawyer user', () => {
+  describe('a lawyer user', () => {
     it('can create matters', () =>
       withRootDb(async (pgClient: any) => {
         const { rows: matterTemplateRows } = await pgClient.query(
@@ -79,7 +79,7 @@ describe('INSERT INTO matter;', () => {
     );
   });
 
-  describe('as a admin user', () => {
+  describe('a admin user', () => {
     it('can create matters', () =>
       withRootDb(async (pgClient: any) => {
         const { rows: matterTemplateRows } = await pgClient.query(

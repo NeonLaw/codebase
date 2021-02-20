@@ -10,7 +10,7 @@ import {
 import { describe, expect, it } from '@jest/globals';
 
 describe('SELECT * FROM person;', () => {
-  describe('as an anonymous user', () => {
+  describe('an anonymous user', () => {
     it('cannot select users', () =>
       withRootDb(async (pgClient: any) => {
         await becomeAnonymousUser(pgClient);
@@ -22,7 +22,7 @@ describe('SELECT * FROM person;', () => {
     );
   });
 
-  describe('as a portal user', () => {
+  describe('a portal user', () => {
     it('only select users that are themself', () =>
       withRootDb(async (pgClient: any) => {
         await createUser(pgClient);
@@ -36,7 +36,7 @@ describe('SELECT * FROM person;', () => {
     );
   });
 
-  describe('as a lawyer user', () => {
+  describe('a lawyer user', () => {
     it('only select users that are themself', () =>
       withRootDb(async (pgClient: any) => {
         await createUser(pgClient);
@@ -51,7 +51,7 @@ describe('SELECT * FROM person;', () => {
     );
   });
 
-  describe('as an admin user', () => {
+  describe('a admin user', () => {
     it('selects all users', () =>
       withRootDb(async (pgClient: any) => {
         await createUser(pgClient);

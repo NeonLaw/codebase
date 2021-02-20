@@ -10,7 +10,7 @@ import {
 import { describe, expect, it } from '@jest/globals';
 
 describe('SELECT * FROM matter;', () => {
-  describe('as an anonymous user', () => {
+  describe('an anonymous user', () => {
     it('cannot select matters', () =>
       withRootDb(async (pgClient: any) => {
         await becomeAnonymousUser(pgClient);
@@ -22,7 +22,7 @@ describe('SELECT * FROM matter;', () => {
     );
   });
 
-  describe('as an portal user', () => {
+  describe('a portal user', () => {
     it('can only select matters where they are the primary contact', () =>
       withRootDb(async (pgClient: any) => {
         const { id: matterTemplateId } = await createMatterTemplate(pgClient);
@@ -50,7 +50,7 @@ describe('SELECT * FROM matter;', () => {
     );
   });
 
-  describe('as an admin user', () => {
+  describe('a admin user', () => {
     it('can select all matters', () =>
       withRootDb(async (pgClient: any) => {
         await pgClient.query('DELETE FROM matter;');

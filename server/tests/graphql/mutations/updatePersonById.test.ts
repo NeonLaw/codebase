@@ -21,7 +21,7 @@ describe('the updatePersonById mutation', () => {
       }
     }`;
 
-  describe('as an anonymous user', () => {
+  describe('an anonymous user', () => {
     it('returns a null updatePerson object', async () => {
       const personId = faker.random.uuid();
 
@@ -55,7 +55,7 @@ describe('the updatePersonById mutation', () => {
     });
   });
 
-  describe('as a portal user', () => {
+  describe('a portal user', () => {
     it('returns the updated user when updating themself', async () => {
       const personId = faker.random.uuid();
 
@@ -132,7 +132,7 @@ describe('the updatePersonById mutation', () => {
     });
   });
 
-  describe('as a lawyer user', () => {
+  describe('a lawyer user', () => {
     it('returns the updated user when updating themself', async () => {
       const personId = faker.random.uuid();
 
@@ -209,7 +209,7 @@ describe('the updatePersonById mutation', () => {
     });
   });
 
-  describe('as an admin user', () => {
+  describe('a admin user', () => {
     it('returns the updated user when updating themself', async () => {
       const personId = faker.random.uuid();
 
