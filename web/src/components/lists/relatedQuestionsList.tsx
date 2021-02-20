@@ -10,7 +10,7 @@ export const RelatedQuestionsList = ({
 
   return (
     <Box borderWidth="1px" padding="5px">
-      <Heading textAlign="center">
+      <Heading textAlign="center" padding="2px">
         Related Questions
       </Heading>
       <List spacing={3}>

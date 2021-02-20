@@ -38,7 +38,7 @@ export const QuestionDetailView = ({ id, questionnaireId, showQuestion }) => {
 
       return (
         <>
-          <Text fontSize="1.2em" marginBottom="1em">
+          <Text fontSize="1.2em" marginBottom="1em" fontWeight="700">
             {prompt}
           </Text>
           {answer === userAnswer ? (
