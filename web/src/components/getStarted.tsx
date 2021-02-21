@@ -1,8 +1,6 @@
 import { gutters, sizes } from '../styles/neonLaw';
 
 import { Box } from '@chakra-ui/react';
-import { Button } from './button';
-import { default as Link } from 'next/link';
 import { Section } from './section';
 import { useIntl } from 'react-intl';
 
