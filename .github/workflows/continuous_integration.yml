@@ -8,6 +8,7 @@ on:
   pull_request:
     branches:
       - development
+      - migrate-homepage-to-nextjs
 
 jobs:
   test_suite:
