@@ -1,11 +1,11 @@
 import * as faker from 'faker';
+import { describe, expect, it } from '@jest/globals';
 import {
   startAnonymousSession,
   startLawyerSession,
   startPortalSession,
   withRootDb
 } from '../../utils/dbHelpers';
-import { describe, expect, it } from '@jest/globals';
 
 describe('INSERT INTO letter;', () => {
   const addressorId = faker.random.uuid();

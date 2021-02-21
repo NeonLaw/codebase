@@ -1,4 +1,5 @@
 import * as faker from 'faker';
+import { describe, expect, it } from '@jest/globals';
 import {
   insertPersonFixture,
   startAdminSession,
@@ -7,7 +8,6 @@ import {
   startPortalSession,
   withRootDb
 } from '../../utils/dbHelpers';
-import { describe, expect, it } from '@jest/globals';
 
 describe('SELECT * FROM person;', () => {
   describe('an anonymous user', () => {

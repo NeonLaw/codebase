@@ -1,10 +1,10 @@
+import { describe, expect, it } from '@jest/globals';
 import {
   startAnonymousSession,
   startLawyerSession,
   startPortalSession,
   withRootDb
 } from '../../utils/dbHelpers';
-import { describe, expect, it } from '@jest/globals';
 
 describe('INSERT INTO matter_document_template;', () => {
   describe('an anonymous user', () => {

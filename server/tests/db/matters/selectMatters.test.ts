@@ -1,4 +1,5 @@
 import * as faker from 'faker';
+import { describe, expect, it } from '@jest/globals';
 import {
   insertMatterFixture,
   insertMatterTemplateFixture,
@@ -7,7 +8,6 @@ import {
   startPortalSession,
   withRootDb
 } from '../../utils/dbHelpers';
-import { describe, expect, it } from '@jest/globals';
 
 describe('SELECT * FROM matter;', () => {
   describe('an anonymous user', () => {
