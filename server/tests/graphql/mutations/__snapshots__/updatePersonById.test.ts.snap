@@ -1,6 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the updatePersonById mutation as a lawyer user returns an error when updating another user 1`] = `
+exports[`the updatePersonById mutation a admin user returns the updated user when updating another user 1`] = `
+Object {
+  "data": Object {
+    "updatePersonById": Object {
+      "person": Object {
+        "email": "[email-1]",
+        "id": "[id-1]",
+        "name": "yes",
+      },
+    },
+  },
+}
+`;
+
+exports[`the updatePersonById mutation a admin user returns the updated user when updating themself 1`] = `
+Object {
+  "data": Object {
+    "updatePersonById": Object {
+      "person": Object {
+        "email": "[email-1]",
+        "id": "[id-1]",
+        "name": "yes",
+      },
+    },
+  },
+}
+`;
+
+exports[`the updatePersonById mutation a lawyer user returns an error when updating another user 1`] = `
 Object {
   "data": Object {
     "updatePersonById": null,
@@ -22,7 +50,7 @@ Object {
 }
 `;
 
-exports[`the updatePersonById mutation as a lawyer user returns the updated user when updating themself 1`] = `
+exports[`the updatePersonById mutation a lawyer user returns the updated user when updating themself 1`] = `
 Object {
   "data": Object {
     "updatePersonById": Object {
@@ -36,7 +64,7 @@ Object {
 }
 `;
 
-exports[`the updatePersonById mutation as a portal user returns an error when updating another user 1`] = `
+exports[`the updatePersonById mutation a portal user returns an error when updating another user 1`] = `
 Object {
   "data": Object {
     "updatePersonById": null,
@@ -58,7 +86,7 @@ Object {
 }
 `;
 
-exports[`the updatePersonById mutation as a portal user returns the updated user when updating themself 1`] = `
+exports[`the updatePersonById mutation a portal user returns the updated user when updating themself 1`] = `
 Object {
   "data": Object {
     "updatePersonById": Object {
@@ -72,35 +100,7 @@ Object {
 }
 `;
 
-exports[`the updatePersonById mutation as an admin user returns the updated user when updating another user 1`] = `
-Object {
-  "data": Object {
-    "updatePersonById": Object {
-      "person": Object {
-        "email": "[email-1]",
-        "id": "[id-1]",
-        "name": "yes",
-      },
-    },
-  },
-}
-`;
-
-exports[`the updatePersonById mutation as an admin user returns the updated user when updating themself 1`] = `
-Object {
-  "data": Object {
-    "updatePersonById": Object {
-      "person": Object {
-        "email": "[email-1]",
-        "id": "[id-1]",
-        "name": "yes",
-      },
-    },
-  },
-}
-`;
-
-exports[`the updatePersonById mutation as an anonymous user returns a null updatePerson object 1`] = `
+exports[`the updatePersonById mutation an anonymous user returns a null updatePerson object 1`] = `
 Object {
   "data": Object {
     "updatePersonById": null,
