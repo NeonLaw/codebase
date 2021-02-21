@@ -3,7 +3,7 @@ import { describe, expect, it } from '@jest/globals';
 import { runGraphQLQuery } from '../../utils/graphqlHelpers';
 
 describe('the getCurrentUser query', () => {
-  describe('as an anonymous user', () => {
+  describe('an anonymous user', () => {
     it('returns a null current user object', async () => {
       await runGraphQLQuery({
         async databaseSetup() { return; },
@@ -21,7 +21,7 @@ describe('the getCurrentUser query', () => {
     });
   });
 
-  describe('as a portal user', () => {
+  describe('a portal user', () => {
     it('returns the current user object', async () => {
       const personId = faker.random.uuid();
 
@@ -51,7 +51,7 @@ describe('the getCurrentUser query', () => {
     });
   });
 
-  describe('as a lawyer user', () => {
+  describe('a lawyer user', () => {
     it('returns the current user object', async () => {
       const personId = faker.random.uuid();
 
@@ -81,7 +81,7 @@ describe('the getCurrentUser query', () => {
     });
   });
 
-  describe('as an admin user', () => {
+  describe('a admin user', () => {
     it('returns the current user object', async () => {
       const personId = faker.random.uuid();
 

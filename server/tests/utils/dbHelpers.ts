@@ -1,9 +1,10 @@
-import * as faker from 'faker';
 import { Pool } from 'pg';
 import { afterAll } from '@jest/globals';
 import { postgresUrl } from '../../src/postgresUrl';
 
-export { createMatter } from './db/createMatter';
+export { insertMatterFixture } from './db/insertMatterFixture';
+export { insertMatterTemplateFixture } from './db/insertMatterTemplateFixture';
+export { insertPersonFixture } from './db/insertPersonFixture';
 
 const pools: any = {};
 
@@ -50,11 +51,11 @@ const withDbFromUrl = async (url: string, fn: any) => {
 export const withRootDb = (fn: any) =>
   withDbFromUrl(postgresUrl, fn);
 
-export const becomeAnonymousUser = (client: any) => {
+export const startAnonymousSession = (client: any) => {
   client.query('select set_config(\'role\', \'anonymous\', true)');
 };
 
-export const becomePortalUser = async (
+export const startPortalSession = async (
   client: any,
   email = 'portal@sink.sendgrid.com'
 ) => {
@@ -74,7 +75,7 @@ export const becomePortalUser = async (
   return { email, id };
 };
 
-export const becomeLawyerUser = async (
+export const startLawyerSession = async (
   client: any,
   email = 'lawyer@sink.sendgrid.com'
 ) => {
@@ -94,7 +95,7 @@ export const becomeLawyerUser = async (
   return { email, id };
 };
 
-export const becomeAdminUser = async (
+export const startAdminSession = async (
   client: any,
   email = 'admin@sink.sendgrid.com'
 ) => {
@@ -112,30 +113,4 @@ export const becomeAdminUser = async (
   );
 
   return { email, id };
-};
-
-export const createUser = async (client: any) => {
-  const email = faker.internet.email();
-
-  const { rows } = await client.query(
-    'INSERT INTO person (email, sub) ' +
-    'VALUES ($1, $2) RETURNING (id, email, role)',
-    [email, 'test-email']
-  );
-
-  return rows[0];
-};
-
-export const createMatterTemplate = async (
-  client: any,
-) => {
-  const uuid = faker.random.uuid();
-
-  const { rows } = await client.query(
-    'INSERT INTO matter_template (name, javascript_module) '+
-    'VALUES ($1, $2) RETURNING (id)',
-    [`delete-your-data-${uuid}`, `deleteYourData-${uuid}`]
-  );
-
-  return rows[0];
 };
