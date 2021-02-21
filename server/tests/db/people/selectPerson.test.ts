@@ -1,10 +1,10 @@
 import * as faker from 'faker';
 import {
-  becomeAdminUser,
-  becomeAnonymousUser,
-  becomeLawyerUser,
-  becomePortalUser,
-  createUser,
+  insertPersonFixture,
+  startAdminSession,
+  startAnonymousSession,
+  startLawyerSession,
+  startPortalSession,
   withRootDb
 } from '../../utils/dbHelpers';
 import { describe, expect, it } from '@jest/globals';
@@ -13,7 +13,7 @@ describe('SELECT * FROM person;', () => {
   describe('an anonymous user', () => {
     it('cannot select users', () =>
       withRootDb(async (pgClient: any) => {
-        await becomeAnonymousUser(pgClient);
+        await startAnonymousSession(pgClient);
 
         await expect(pgClient.query('select * from person;')).rejects.toThrow(
           /permission denied for table person/
@@ -25,9 +25,9 @@ describe('SELECT * FROM person;', () => {
   describe('a portal user', () => {
     it('only select users that are themself', () =>
       withRootDb(async (pgClient: any) => {
-        await createUser(pgClient);
+        await insertPersonFixture(pgClient);
         const email = faker.internet.email();
-        await becomePortalUser(pgClient, email);
+        await startPortalSession(pgClient, email);
         const { rows } = await pgClient.query('select * from person;');
 
         expect(rows).toHaveLength(1);
@@ -39,9 +39,9 @@ describe('SELECT * FROM person;', () => {
   describe('a lawyer user', () => {
     it('only select users that are themself', () =>
       withRootDb(async (pgClient: any) => {
-        await createUser(pgClient);
+        await insertPersonFixture(pgClient);
         const email = faker.internet.email();
-        await becomeLawyerUser(pgClient, email);
+        await startLawyerSession(pgClient, email);
 
         const { rows } = await pgClient.query('select * from person;');
 
@@ -54,9 +54,9 @@ describe('SELECT * FROM person;', () => {
   describe('a admin user', () => {
     it('selects all users', () =>
       withRootDb(async (pgClient: any) => {
-        await createUser(pgClient);
+        await insertPersonFixture(pgClient);
         const email = faker.internet.email();
-        await becomeAdminUser(pgClient, email);
+        await startAdminSession(pgClient, email);
 
         const { rows } = await pgClient.query('select * from person;');
 

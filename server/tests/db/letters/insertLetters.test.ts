@@ -1,8 +1,8 @@
 import * as faker from 'faker';
 import {
-  becomeAnonymousUser,
-  becomeLawyerUser,
-  becomePortalUser,
+  startAnonymousSession,
+  startLawyerSession,
+  startPortalSession,
   withRootDb
 } from '../../utils/dbHelpers';
 import { describe, expect, it } from '@jest/globals';
@@ -15,7 +15,7 @@ describe('INSERT INTO letter;', () => {
   describe('an anonymous user', () => {
     it('cannot create letters', () =>
       withRootDb(async (pgClient: any) => {
-        await becomeAnonymousUser(pgClient);
+        await startAnonymousSession(pgClient);
 
         await expect(pgClient.query(
           'INSERT INTO letter (addressor_id, addressee_id, '+
@@ -32,7 +32,7 @@ describe('INSERT INTO letter;', () => {
   describe('a portal user', () => {
     it('cannot create letters', () =>
       withRootDb(async (pgClient: any) => {
-        await becomePortalUser(pgClient);
+        await startPortalSession(pgClient);
 
         await expect(pgClient.query(
           'INSERT INTO letter (addressor_id, addressee_id, '+
@@ -49,7 +49,7 @@ describe('INSERT INTO letter;', () => {
   describe('a lawyer user', () => {
     it('cannot create letters', () =>
       withRootDb(async (pgClient: any) => {
-        await becomeLawyerUser(pgClient);
+        await startLawyerSession(pgClient);
 
         await expect(pgClient.query(
           'INSERT INTO letter (addressor_id, addressee_id, '+

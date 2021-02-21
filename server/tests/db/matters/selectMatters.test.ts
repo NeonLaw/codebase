@@ -1,10 +1,10 @@
 import * as faker from 'faker';
 import {
-  becomeAdminUser,
-  becomeAnonymousUser,
-  becomePortalUser,
-  createMatter,
-  createMatterTemplate,
+  insertMatterFixture,
+  insertMatterTemplateFixture,
+  startAdminSession,
+  startAnonymousSession,
+  startPortalSession,
   withRootDb
 } from '../../utils/dbHelpers';
 import { describe, expect, it } from '@jest/globals';
@@ -13,7 +13,7 @@ describe('SELECT * FROM matter;', () => {
   describe('an anonymous user', () => {
     it('cannot select matters', () =>
       withRootDb(async (pgClient: any) => {
-        await becomeAnonymousUser(pgClient);
+        await startAnonymousSession(pgClient);
 
         await expect(pgClient.query('select * from matter;')).rejects.toThrow(
           /permission denied for table matter/
@@ -25,18 +25,20 @@ describe('SELECT * FROM matter;', () => {
   describe('a portal user', () => {
     it('can only select matters where they are the primary contact', () =>
       withRootDb(async (pgClient: any) => {
-        const { id: matterTemplateId } = await createMatterTemplate(pgClient);
-        await createMatter({
+        const {
+          id: matterTemplateId
+        } = await insertMatterTemplateFixture(pgClient);
+        await insertMatterFixture({
           client: pgClient,
           matterTemplateId,
         });
 
         const email = faker.internet.email();
-        const { id: primaryContactId } = await becomePortalUser(
+        const { id: primaryContactId } = await startPortalSession(
           pgClient,
           email
         );
-        const userMatterRow = await createMatter({
+        const userMatterRow = await insertMatterFixture({
           client: pgClient,
           matterTemplateId,
           primaryContactId,
@@ -54,17 +56,19 @@ describe('SELECT * FROM matter;', () => {
     it('can select all matters', () =>
       withRootDb(async (pgClient: any) => {
         await pgClient.query('DELETE FROM matter;');
-        const { id: matterTemplateId } = await createMatterTemplate(pgClient);
-        await createMatter({
+        const {
+          id: matterTemplateId
+        } = await insertMatterTemplateFixture(pgClient);
+        await insertMatterFixture({
           client: pgClient,
           matterTemplateId,
         });
-        await createMatter({
+        await insertMatterFixture({
           client: pgClient,
           matterTemplateId,
         });
 
-        await becomeAdminUser(pgClient);
+        await startAdminSession(pgClient);
 
         const { rows } = await pgClient.query('select * from matter;');
 
