@@ -10,11 +10,13 @@ import {
 import { ChevronUpIcon } from '@chakra-ui/icons';
 import React from 'react';
 import { colors } from '../styles/neonLaw';
+import { useIntl } from 'react-intl';
 
 export const LanguageDropdown = () => {
   const { colorMode } = useColorMode();
   const lighterBg = { dark: 'gray.700', light: 'gray.200' };
   const evenLighterBg = { dark: 'gray.600', light: 'gray.100' };
+  const intl = useIntl();
 
   return (
     <>
@@ -23,7 +25,7 @@ export const LanguageDropdown = () => {
           placement="top"
         >
           <MenuButton>
-            languages.language
+            {intl.formatMessage({ id: 'languages.language' })}
             <ChevronUpIcon />
           </MenuButton>
           <MenuList
@@ -34,13 +36,13 @@ export const LanguageDropdown = () => {
               _hover={{ backgroundColor: evenLighterBg[colorMode] }}
             >
               changeLocale to en
-              languages.english
+              {intl.formatMessage({ id: 'languages.english' })}
             </MenuItem>
             <MenuItem
               _hover={{ backgroundColor: evenLighterBg[colorMode] }}
             >
               changeLocale to es
-              languages.spanish
+              {intl.formatMessage({ id: 'languages.spanish' })}
             </MenuItem>
           </MenuList>
         </Menu>

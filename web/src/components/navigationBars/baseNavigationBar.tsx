@@ -24,6 +24,7 @@ import { default as NextLink } from 'next/link';
 import { Search } from './search';
 import { colors } from '../../styles/neonLaw';
 import styled from '@emotion/styled';
+import { useIntl } from 'react-intl';
 
 interface BaseNavigationBarProps {
   isRenderedOnDashboard?: boolean;
@@ -43,8 +44,8 @@ export const BaseNavigationBar = ({
   sideNavigationDrawer,
 }: BaseNavigationBarProps) => {
   const { isOpen, onToggle, onClose } = useDisclosure();
-
   const [loginButtonDisabled, disableLoginButton] = useState(false);
+  const intl = useIntl();
 
   return (
     <>
@@ -146,7 +147,7 @@ export const BaseNavigationBar = ({
                     disableLoginButton(true);
                   }}
                 >
-                  auth.login
+                  {intl.formatMessage({ id: 'auth.login' })}
                 </Button>
               </Flex>
               <IconButton
