@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the getCurrentUser query as a lawyer user returns the current user object 1`] = `
+exports[`the getCurrentUser query a admin user returns the current user object 1`] = `
 Object {
   "data": Object {
     "getCurrentUser": Object {
@@ -10,7 +10,7 @@ Object {
 }
 `;
 
-exports[`the getCurrentUser query as a portal user returns the current user object 1`] = `
+exports[`the getCurrentUser query a lawyer user returns the current user object 1`] = `
 Object {
   "data": Object {
     "getCurrentUser": Object {
@@ -20,7 +20,7 @@ Object {
 }
 `;
 
-exports[`the getCurrentUser query as an admin user returns the current user object 1`] = `
+exports[`the getCurrentUser query a portal user returns the current user object 1`] = `
 Object {
   "data": Object {
     "getCurrentUser": Object {
@@ -30,7 +30,7 @@ Object {
 }
 `;
 
-exports[`the getCurrentUser query as an anonymous user returns a null current user object 1`] = `
+exports[`the getCurrentUser query an anonymous user returns a null current user object 1`] = `
 Object {
   "data": Object {
     "getCurrentUser": null,

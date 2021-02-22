@@ -1,16 +1,16 @@
+import { describe, expect, it } from '@jest/globals';
 import {
-  becomeAnonymousUser,
-  becomeLawyerUser,
-  becomePortalUser,
+  startAnonymousSession,
+  startLawyerSession,
+  startPortalSession,
   withRootDb
 } from '../../utils/dbHelpers';
-import { describe, expect, it } from '@jest/globals';
 
 describe('INSERT INTO matter_template;', () => {
-  describe('as an anonymous user', () => {
+  describe('an anonymous user', () => {
     it('cannot create matter_templates', () =>
       withRootDb(async (pgClient: any) => {
-        await becomeAnonymousUser(pgClient);
+        await startAnonymousSession(pgClient);
 
         await expect(pgClient.query(
           'INSERT INTO matter_template (name, javascript_module) '+
@@ -23,10 +23,10 @@ describe('INSERT INTO matter_template;', () => {
     );
   });
 
-  describe('as an portal user', () => {
+  describe('a portal user', () => {
     it('cannot create matter_templates', () =>
       withRootDb(async (pgClient: any) => {
-        await becomePortalUser(pgClient);
+        await startPortalSession(pgClient);
 
         await expect(pgClient.query(
           'INSERT INTO matter_template (name, javascript_module) '+
@@ -39,10 +39,10 @@ describe('INSERT INTO matter_template;', () => {
     );
   });
 
-  describe('as an lawyer user', () => {
+  describe('a lawyer user', () => {
     it('cannot create matter_templates', () =>
       withRootDb(async (pgClient: any) => {
-        await becomeLawyerUser(pgClient);
+        await startLawyerSession(pgClient);
 
         await expect(pgClient.query(
           'INSERT INTO matter_template (name, javascript_module) '+

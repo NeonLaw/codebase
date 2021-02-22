@@ -1,20 +1,20 @@
 import * as faker from 'faker';
+import { describe, expect, it } from '@jest/globals';
 import {
-  becomeAdminUser,
-  becomeAnonymousUser,
-  becomeLawyerUser,
-  becomePortalUser,
+  startAdminSession,
+  startAnonymousSession,
+  startLawyerSession,
+  startPortalSession,
   withRootDb
 } from '../../utils/dbHelpers';
-import { describe, expect, it } from '@jest/globals';
 
 describe('INSERT INTO matter;', () => {
   const randomId = faker.random.uuid();
 
-  describe('as an anonymous user', () => {
+  describe('an anonymous user', () => {
     it('cannot create matters', () =>
       withRootDb(async (pgClient: any) => {
-        await becomeAnonymousUser(pgClient);
+        await startAnonymousSession(pgClient);
 
         await expect(pgClient.query(
           'INSERT INTO matter (name, primary_contact_id, '+
@@ -27,10 +27,10 @@ describe('INSERT INTO matter;', () => {
     );
   });
 
-  describe('as an portal user', () => {
+  describe('a portal user', () => {
     it('cannot create matters', () =>
       withRootDb(async (pgClient: any) => {
-        await becomePortalUser(pgClient);
+        await startPortalSession(pgClient);
 
         await expect(pgClient.query(
           'INSERT INTO matter (name, primary_contact_id, '+
@@ -43,7 +43,7 @@ describe('INSERT INTO matter;', () => {
     );
   });
 
-  describe('as a lawyer user', () => {
+  describe('a lawyer user', () => {
     it('can create matters', () =>
       withRootDb(async (pgClient: any) => {
         const { rows: matterTemplateRows } = await pgClient.query(
@@ -60,7 +60,7 @@ describe('INSERT INTO matter;', () => {
         );
         const primaryContactId = primaryContactRows[0].id;
 
-        await becomeLawyerUser(pgClient);
+        await startLawyerSession(pgClient);
 
         const { rows } = await pgClient.query(
           'INSERT INTO matter (name, primary_contact_id, ' +
@@ -79,7 +79,7 @@ describe('INSERT INTO matter;', () => {
     );
   });
 
-  describe('as a admin user', () => {
+  describe('a admin user', () => {
     it('can create matters', () =>
       withRootDb(async (pgClient: any) => {
         const { rows: matterTemplateRows } = await pgClient.query(
@@ -96,7 +96,7 @@ describe('INSERT INTO matter;', () => {
         );
         const primaryContactId = primaryContactRows[0].id;
 
-        await becomeAdminUser(pgClient);
+        await startAdminSession(pgClient);
 
         const { rows } = await pgClient.query(
           'INSERT INTO matter (name, primary_contact_id, '+

@@ -1,17 +1,17 @@
 
 import * as faker from 'faker';
 
-interface CreateMatterArgs {
+interface InsertMatterFixtureArgs {
   client: any;
   primaryContactId?: string;
   matterTemplateId?: string;
 }
 
-export const createMatter = async ({
+export const insertMatterFixture = async ({
   client,
   primaryContactId,
   matterTemplateId,
-}: CreateMatterArgs) => {
+}: InsertMatterFixtureArgs) => {
   const uuid = faker.random.uuid();
 
   let matterTemplateIdForInsertingMatter;
