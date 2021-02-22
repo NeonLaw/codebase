@@ -94,7 +94,7 @@
         "clipboard-copy": "^4.0.1",
         "jwt-decode": "^3.1.2",
         "next-compose-plugins": "^2.2.1",
-        "react-intl": "^5.12.3",
+        "react-intl": "^5.12.5",
         "react-player": "^2.9.0",
         "react-responsive-carousel": "^3.2.12",
         "slate": "^0.59.0",
