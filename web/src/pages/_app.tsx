@@ -40,4 +40,4 @@ const NeonLawApp = ({ Component, pageProps }) => {
 };
 
 /* eslint-disable-next-line */
-export default  withNextIntlSetup(nextIntlConfig)(NeonLawApp);
+export default withNextIntlSetup(nextIntlConfig)(NeonLawApp);
