@@ -9,6 +9,6 @@ describe('Spanish Locale Endpoint', () => {
       .send();
 
     expect(res.status).toEqual(200);
-    expect(res.body).toHaveProperty('auth');
+    expect(res.body).toHaveProperty(['auth.login']);
   });
 });
