@@ -63,10 +63,7 @@ export const BaseNavigationBar = ({
         <Container>
           <Flex boxSize="100%" align="center">
             <NextLink href="/" aria-label="Neon Law, Back to homepage">
-              {
-                // eslint-disable-next-line
-              }
-              <a>
+              <a href="/">
                 <StyledLogo src="/images/logo.svg" alt="Neon Law" />
               </a>
             </NextLink>
@@ -128,7 +125,7 @@ export const BaseNavigationBar = ({
                     <MenuList>
                       {menu.links.map((link, j) => (
                         <MenuItem key={j} as={NextLink} href={link.route}>
-                          <a>
+                          <a href={link.route}>
                             {link.label}
                           </a>
                         </MenuItem>

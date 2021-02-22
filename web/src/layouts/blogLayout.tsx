@@ -13,7 +13,9 @@ import { EditOnGithub } from '../components/editOnGithub';
 import { Image } from '../components/image';
 import { MDXComponents } from '../components/mdxComponents';
 import { MDXProvider } from '@mdx-js/react';
-import { PublicNavigationBar } from '../components/navigationBars/publicNavigationBar';
+import {
+  PublicNavigationBar
+} from '../components/navigationBars/publicNavigationBar';
 import { Seo } from '../components/seo';
 import { ShareButtons } from '../components/shareButtons';
 import { getApolloClient } from '../utils/getApolloClient';
