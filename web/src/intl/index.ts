@@ -8,9 +8,9 @@ import {
 export default {
   locales: [
     {
-      id: 'en',
+      id: 'en-US',
       loadMessages: async () => {
-        const module = await import('./en.json');
+        const module = await import('./messages/en-US.json');
 
         return module.default;
       },
@@ -20,6 +20,6 @@ export default {
   policies: [
     cookiePolicy(),
     acceptLanguagePolicy(),
-    defaultPolicy('en'),
+    defaultPolicy('en-US'),
   ],
 };
