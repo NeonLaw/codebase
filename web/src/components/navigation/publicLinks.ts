@@ -1,43 +1,24 @@
-// import { useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
 export const PublicLinks = () => {
-  // const intl = useIntl();
+  const intl = useIntl();
 
   return [
     {
-      label: 'Upward Mobility',
+      label: intl.formatMessage({ id: 'navigation_publicL.upward' }),
       route: '/upward-mobility'
     },
     {
-      label: 'Practice Areas',
+      label: intl.formatMessage({ id: 'navigation_publicL.practiceAreas' }),
       route: '/practice-areas'
     },
     {
-      label: 'Blog',
+      label: intl.formatMessage({ id: 'navigation_publicL.blog' }),
       route: '/blog'
     },
     {
-      label: 'Contact',
+      label: intl.formatMessage({ id: 'navigation_publicL.contact' }),
       route: '/contact'
     }
   ];
-
-  // return [
-  //   {
-  //     label: intl.formatMessage({ id: 'navigation_publicL.upward' }),
-  //     route: '/upward-mobility'
-  //   },
-  //   {
-  //     label: intl.formatMessage({ id: 'navigation_publicL.practiceAreas' }),
-  //     route: '/practice-areas'
-  //   },
-  //   {
-  //     label: intl.formatMessage({ id: 'navigation_publicL.blog' }),
-  //     route: '/blog'
-  //   },
-  //   {
-  //     label: intl.formatMessage({ id: 'navigation_publicL.contact' }),
-  //     route: '/contact'
-  //   }
-  // ];
 };

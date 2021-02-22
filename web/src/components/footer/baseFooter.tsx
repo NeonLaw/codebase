@@ -6,10 +6,10 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { colors, sizes } from '../../styles/neonLaw';
-
 import { FooterLinks } from './footerLinks';
 import React from 'react';
 import { Section } from '../section';
+import { useIntl } from 'react-intl';
 
 interface BaseFooterProps {
   isWhite?: boolean;
@@ -19,6 +19,7 @@ interface BaseFooterProps {
 export const BaseFooter = ({ isWhite, hideTheSection }: BaseFooterProps) => {
   const { colorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
+  const intl = useIntl();
 
   return (
     <Box
@@ -38,10 +39,10 @@ export const BaseFooter = ({ isWhite, hideTheSection }: BaseFooterProps) => {
               fontWeight="normal"
               color={colors.text[colorMode]}
             >
-              footer.neon_law.heading
+              {intl.formatMessage({ id: 'footer.neon_law.heading' })}
             </Heading>
             <Text>
-              footer.neon_law.text
+              {intl.formatMessage({ id: 'footer.neon_law.text' })}
             </Text>
           </Box>
         </Section>
