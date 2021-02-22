@@ -14,14 +14,16 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
+
 import { BlackLivesMatter } from './blackLivesMatter';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
-import { Link } from '../link';
+import Link from 'next/link';
 import { MdDehaze } from 'react-icons/md';
 import { default as NextLink } from 'next/link';
 import { Search } from './search';
 import { colors } from '../../styles/neonLaw';
+import styled from '@emotion/styled';
 
 interface BaseNavigationBarProps {
   isRenderedOnDashboard?: boolean;
@@ -29,6 +31,11 @@ interface BaseNavigationBarProps {
   menus?: any;
   sideNavigationDrawer?: any;
 }
+
+const StyledLogo = styled.img`
+  width: 48px;
+  margin-right: 1.25rem;
+`;
 
 export const BaseNavigationBar = ({
   links = [] as any[],
@@ -44,27 +51,22 @@ export const BaseNavigationBar = ({
       <BlackLivesMatter />
       <Box
         top="2em"
-        position='fixed'
+        position="fixed"
         zIndex={4}
-        bg='black'
-        color='white'
+        bg="black"
+        color="white"
         left="0"
         right="0"
         width="full"
-        height='4em'
+        height="4em"
       >
         <Container>
           <Flex boxSize="100%" align="center">
-            <Link
-              mr={5}
-              cursor="pointer"
-              display="block"
-              href="/"
-              aria-label="Neon Law, Back to homepage"
-              minWidth="3em"
-            >
-              <img src="/images/logo.svg" alt="Neon Law" />
-            </Link>
+            <NextLink href="/" aria-label="Neon Law, Back to homepage">
+              <a href="/">
+                <StyledLogo src="/images/logo.svg" alt="Neon Law" />
+              </a>
+            </NextLink>
 
             <Search
               version="desktop"
@@ -76,33 +78,41 @@ export const BaseNavigationBar = ({
               {links.map((link, i) => (
                 <Box className="nav-content-desktop" key={i} mr="0.5em">
                   <Link
-                    cursor="pointer"
-                    margin="0 10px"
-                    paddingBottom="0.5em"
                     href={link.route}
-                    position="relative"
-                    transition="all .2s"
-                    _after={{
-                      background: 'white',
-                      bottom: 0,
-                      content: '""',
-                      display: 'block',
-                      height: '1px',
-                      left: 0,
-                      position: 'absolute',
-                      right: '100%',
-                      transition: 'all 0.4s cubic-bezier(0, 0.5, 0, 1)',
-                    }}
-                    _hover={{
-                      '&:after': {
-                        background: colors.primaryColor400,
-                        right: 0,
-                      },
-                      color: colors.primaryColor400,
-                    } as any}
-                    activeClassName="nav-link--active"
+                    passHref
+                    // activeClassName="nav-link--active"
                   >
-                    {link.label}
+                    <Box
+                      as="a"
+                      display="block"
+                      cursor="pointer"
+                      margin="0 10px"
+                      paddingBottom="0.5em"
+                      position="relative"
+                      transition="all .2s"
+                      _after={{
+                        background: 'white',
+                        bottom: 0,
+                        content: '""',
+                        display: 'block',
+                        height: '1px',
+                        left: 0,
+                        position: 'absolute',
+                        right: '100%',
+                        transition: 'all 0.4s cubic-bezier(0, 0.5, 0, 1)',
+                      }}
+                      _hover={
+                        {
+                          '&:after': {
+                            background: colors.primaryColor400,
+                            right: 0,
+                          },
+                          color: colors.primaryColor400,
+                        } as any
+                      }
+                    >
+                      {link.label}
+                    </Box>
                   </Link>
                 </Box>
               ))}
@@ -115,7 +125,9 @@ export const BaseNavigationBar = ({
                     <MenuList>
                       {menu.links.map((link, j) => (
                         <MenuItem key={j} as={NextLink} href={link.route}>
-                          {link.label}
+                          <a href={link.route}>
+                            {link.label}
+                          </a>
                         </MenuItem>
                       ))}
                     </MenuList>
@@ -134,7 +146,7 @@ export const BaseNavigationBar = ({
                     disableLoginButton(true);
                   }}
                 >
-                      auth.login
+                  auth.login
                 </Button>
               </Flex>
               <IconButton

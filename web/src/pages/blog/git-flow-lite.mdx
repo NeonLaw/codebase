@@ -6,7 +6,7 @@ export const meta = {
   widescreen: "true",
   description: "Instead of having multiple branches, have one main `development` branch. Staging is deployed upon each commit, and production is deployed on a regular schedule + manually.",
 };
-import { BlogLayout } from '../../components/layouts/blogLayout';
+import { BlogLayout } from '../../layouts/blogLayout';
 export default ({ children }) => <BlogLayout meta={meta}>{children}</BlogLayout>
 
 [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/) is a

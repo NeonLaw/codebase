@@ -1,9 +1,10 @@
 import { Box, Heading, Text } from '@chakra-ui/react';
 import { gutters, sizes } from '../../styles/neonLaw';
+
 import {
   MatterTemplateQuestionnairesList
 } from '../../components/lists/matterTemplateQuestionnairesList';
-import { PublicLayout } from '../../components/layouts/publicLayout';
+import { PublicLayout } from '../../layouts/publicLayout';
 import { useIntl } from 'react-intl';
 
 const BarPrepQuestions = () => {

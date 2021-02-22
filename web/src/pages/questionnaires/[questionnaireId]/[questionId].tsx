@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import { Container } from '../../../components/container';
-import { PublicLayout } from '../../../components/layouts/publicLayout';
+import { PublicLayout } from '../../../layouts/publicLayout';
 import {
   QuestionDetailView
 } from '../../../components/detailViews/questionDetailView';
