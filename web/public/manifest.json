@@ -1,10 +1,8 @@
 {
-  "short_name": "nextchakra-starter",
-  "name": "Next.js App Template",
-  "lang": "en",
+  "short_name": "Neon Law",
+  "name": "Neon Law Website",
+  "lang": "en-US",
   "start_url": "/",
-  "background_color": "#FFFFFF",
-  "theme_color": "#FFFFFF",
   "dir": "ltr",
   "display": "standalone",
   "orientation": "portrait",
