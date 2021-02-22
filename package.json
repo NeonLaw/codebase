@@ -29,7 +29,7 @@
         "axe-core": "^4.1.2",
         "babel-jest": "^26.6.3",
         "babel-plugin-add-react-displayname": "^0.0.5",
-        "cypress-axe": "^0.12.1",
+        "cypress-axe": "^0.12.2",
         "cypress-plugin-tab": "^1.0.5",
         "eslint": "^7.20.0",
         "eslint-config-prettier": "^7.2.0",
