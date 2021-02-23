@@ -1,5 +1,6 @@
 import { Box, useColorMode } from '@chakra-ui/react';
 import { colors, gutters } from '../../styles/neonLaw';
+
 import React from 'react';
 import { Search } from '../navigationBars/search';
 import styled from '@emotion/styled';
@@ -117,6 +118,7 @@ export const SideNavContent = ({
             <Box
               mb="10"
               cursor="pointer"
+              className="link"
             >
               {intl.formatMessage({ id: 'auth.login' })}
             </Box>

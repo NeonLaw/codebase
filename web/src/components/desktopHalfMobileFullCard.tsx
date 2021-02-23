@@ -3,8 +3,17 @@
 /* eslint-enable */
 import { Box, useColorMode } from '@chakra-ui/react';
 import { colors, shadows } from '../styles/neonLaw';
-import { Link } from '../components/link';
+
+import Link from 'next/link';
 import React from 'react';
+import styled from '@emotion/styled';
+
+const ContentWrapper = styled.a`
+  img {
+    max-height: 350px;
+    object-fit: cover;
+  }
+`;
 
 export const DesktopHalfMobileFullCard = ({ children, to }) => {
   const { colorMode } = useColorMode();
@@ -13,21 +22,20 @@ export const DesktopHalfMobileFullCard = ({ children, to }) => {
     <Box
       flex={['0 0 100%', '0 0 100%', '0 0 100%', '0 48%']}
       maxWidth="600px"
-      cursor={to ? 'pointer' : null}
-      as={to ? Link : null}
-      to={to ? to : null}
+      display="inline-block"
+      cursor={'pointer'}
       className="outline-bordered"
       margin={['1em 0', '1em 0', '2em 0']}
+      background={colors.background[colorMode]}
+      borderColor={colors.borders[colorMode]}
+      boxShadow={shadows.light2}
     >
       <Box
-        borderWidth="1px"
-        overflow="hidden"
-        background={colors.background[colorMode]}
-        borderColor={colors.borders[colorMode]}
-        boxShadow={shadows.light2}
-        height="100%"
+        as={Link}
+        href={to}
+        passHref
       >
-        {children}
+        <ContentWrapper>{children}</ContentWrapper>
       </Box>
     </Box>
   );
