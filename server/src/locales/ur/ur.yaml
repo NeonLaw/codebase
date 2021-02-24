@@ -1,213 +1,212 @@
 ---
-    auth:
-      login: لاگ ان کریں
-      sign_up: آج قانونی مدد حاصل کریں
-    languages:
-      language: زبان
-      english: انگریزی
-      spanish: ہسپانوی
-    footer:
-      delete_your_data:
-        heading: اپنا ڈیٹا حذف کریں
-        text: |
-        آپ کا ڈیٹا حذف کریں نیین لا یا ایک وابستہ کے ذریعہ فراہم کردہ ایک خدمت ہے
-        اٹارنی آپ کی طرف سے ڈیٹا ڈیلیٹ کرنے تک محدود ہے۔ سب
-        یہاں پیش کردہ مواد صرف معلوماتی مقاصد کے لئے ہے۔ کچھ نہیں
-        قانونی مشورے کے طور پر سمجھا جانا چاہئے۔ اس کی ترسیل اور رسید
-        معلومات تخلیق کرنے کا ارادہ نہیں ہے اور تشکیل نہیں دیتا ہے ، ایک
-        اس پلیٹ فارم پر وکلاء کے ساتھ وکیل کا مؤکل تعلقات۔ وہاں نہیں ہے
-        اٹارنی کلائنٹ کی مراعات یا کسی بھی چیز کی رازداری کی توقع
-        آپ اس فورم میں ہم سے رابطہ کرسکتے ہیں۔ کسی پر عمل نہ کریں
-        پیشہ ورانہ مشورہ لینے کے بغیر پیش کی گئی معلومات۔
-      bar_prep: بار کی تیاری
-      blog: بلاگ
-      justice_for_rickie_slaughter:
-        heading: انصاف برائے رکی سلاٹر 
-        text: |
-        براہ کرم رکی کی چینج آر او پیٹیشن پر دستخط کریں ، اسے ایک مفت خط بھیجیں ، اور
-        اس کی غلط سزا کے بارے میں شعور بیدار کرنے کے لئے اس ویب سائٹ کا اشتراک کریں۔
-      neon_law:
-        heading: نیین لا
-        text: |
-        یہاں پیش کردہ تمام مواد صرف معلوماتی مقاصد کے لئے ہے۔
-        کسی بھی چیز کو قانونی مشورے کے طور پر نہیں سمجھا جانا چاہئے۔ ٹرانسمیشن اور رسید
-        اس معلومات کا مقصد تخلیق کرنے کا ارادہ نہیں ہے اور نہیں ہے ،
-        اس پلیٹ فارم پر وکلاء کے ساتھ وکلاء کلائنٹ کا رشتہ۔ وہاں ہے
-        اٹارنی کلائنٹ کے استحقاق یا رازداری کی کوئی توقع نہیں
-        اس فورم میں آپ ہم سے کچھ بھی بتاسکتے ہیں۔ کسی پر عمل نہ کریں
-        پیشہ ورانہ مشورہ لینے کے بغیر پیش کی گئی معلومات۔
-      about: ہمارے بارے میں
-      pro_bono: پرو بونو
-      support: مدد کریں
-      practice_areas: پریکٹس ایریاز
-      privacy_policy: رازداری کی پالیسی
-      terms: سروس کی شرائط
-      switch: 'سوئچ کریں'
-      mode: وضع
-      dark: 'سیاہ '
-      light: 'روشن '
-      modern_slavery_statement: غلامی کا جدید بیان
-      pgp_key: پی جی پی کی کلید
-      law_job_resources: قانون ملازمت کے وسائل
-      templates: غیر مشورے کے قانونی سانچے
-      upward_mobility: اوپر کی نقل و حرکت
-      careers: کیریئر
-    languageDropdown:
-      text: فی الحال آپ اس سائٹ کو انگریزی میں دیکھ رہے ہیں
-    loadingPage:
-      loading: لوڈ ہو رہا ہے
-    beginUpwardMQ:
-      heading: اضافہ متحرک سوالنامہ
-      text: |
-      نیین لاء میں اپنی دلچسپی ظاہر کرنے اور اس سے ہماری وابستگی کا شکریہ
-      اوپر کی نقل و حرکت۔ براہ کرم نوٹ کریں کہ یہ سوالنامہ لینے سے ایسا نہیں ہوتا ہے
-      ایک وکیل کلائنٹ تعلقات قائم. ایک وکیل کلائنٹ
-      تعلق صرف اس صورت میں موجود ہے جب آپ کے پاس ہماری فرم کے ساتھ دستخط شدہ برقرار رکھنے والا ہو۔
-      اگر آپ ہماری خدمات حاصل کرنے میں دلچسپی رکھتے ہیں تو براہ کرم ہم سے رابطہ کریں۔
-      beginButton: سوالنامہ شروع کریں
-    breadcrumbs:
-      home: ہوم
-    finishUpwardMQ:
-      heading:   اضافہ متحرک سوالنامہ کو لینے کے لئے آپ کا شکریہ
-      text: ':آپ نے سوالنامہ مکمل کرلیا ہے۔ آپ کے جوابات یہ ہیں'
-    upwardMQ:
-      missing_question: سوالیہ نشان سے ایک سوال غائب ہے۔ مدد سے رابطہ کریں
-    components_questions:
-      submit: جمع کرائیں
-    components_navbar:
-      auth_portal: پورٹل
-      auth_settings: ترتیبات
-      auth_logout: لاگ آوٹ
-      base_: ''
-    contactForm:
-      name:
-        label:  آپ کا نام
-        ph: اپنا نام درج کریں
-        required: نام کی ضرورت ہے۔
-      email:
-        label: آپ کا ای میل
-        ph: اپنا ای میل درج کریں
-        required: ای میل کی ضرورت ہے۔
-      message:
-        label: آپ کا پیغام
-        ph: اپنا پیغام درج کریں
-        required: Message is required.
-      send: Send Message
-    pages_admin:
-      heading: Admin Portal
-    pages_lawyers:
-      settings: Lawyer Firm Settings
-      heading: " Lawyer Portal"
-      text: Create a new Wills Packet
-    pages_portal:
-      heading: Your Legal Matters
-      text: You currently do not have any active matters with our firm or our network.
-        Contact us if you are interested in retaining our services.
-    pages_pb:
-      heading: Contact Rickie Slaughter
-      text1: 'You can send a letter to Rickie at Rickie Slaughter NV #85902 1250 E Arica
-        Road Eloy, AZ 85131'
-      text2: Or, if you fill out your info below, we will mail out a letter on your behalf.
-      form:
-        email: 'Your email:'
-        email_ph: Enter Email
-        message: 'Your message:'
-        message_ph: Enter Message
-        send: Send Information
-    pages_upward_mobility:
-      heading: Upward Mobility
-      text: Upward mobility refers to the come up, or improving your socio-economic situation
-        to a point where you can provide for others. No matter where you are today, we
-        can help you take care of those you love.
-      button_takeQ: Take Questionnaire
-    navigation_publicL:
-      upward: Upward Mobility
-      practiceAreas: Practice Areas
-      blog: Blog
-      contact: Contact
-    banner:
-      title: Lawyers Invested in Making Tomorrow Better than Today
-      text: |
-        Our goal is singular - your upward mobility. Join the thousands of people
-        who have entrusted us with providing legal solutions to make their lives
-        better.
-    why_neon_law:
-      heading: Why Neon Law?
-      sub_text: A justice-first approach to law and litigation.
-      good_people:
-        title: We only represent <strong>Good People</strong>
-        text: We do not represent shady people and have fired clients after discovering
-          they're racist, transphobic, sexist, or otherwise bad people.
-      good_causes:
-        title: We only represent <strong>Good Causes</strong>
-        text: We do not represent fossil fuel companies, predatory landlords or creditors,
-          or companies that maliciously use your personal data.
-      tech-to-make-affordable:
-        title: We use technology to make <strong>Legal Services<br /> Affordable</strong>
-        text: We leverage document automation, natural language processing, and our own
-          open-source software to deliver cost-effective legal services.
-      btn_text: Learn More
-    we_can_help_with:
-      title: How can we help?
-      injured: I've been <br />injured.
-      immigration: I have immigration issues.
-      debt: I'm in a lot of <br />debt.
-      afford: I can't afford a <br />lawyer.
-      business: I'm starting a business.
-      hacked: I've been<br /> hacked.
-      divorce: My partner and I want a divorce.
-      dead: What if I'm not here tomorrow?
-      buy-a-home: I want to buy a home.
-      rights: My rights have been violated.
-    worked_with:
-      title: We've worked with
-    testimonials:
-      title: What People say about us?
-      quote1:
-        author: Joe Tuan
-        text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ex adipisci
-          blanditiis quis quidem ducimus providen.
-    in_action:
-      title: NeonLaw in Action
-      sub_text: We have been reimaging legal work for the past 5 years.
-    experience:
-      client_engagements:
-        title: 1,000+
-        text: of client engagements.
-      years:
-        title: 20+ Years
-        text: of combined experience among our lawyers.
-      recommendation_percentage:
-        title: 99%
-        text: of clients say they would recommend Neon Law.
-    pro_bono:
-      title: Pro Bono
-      text: ''
-    get_started:
-      title: Ready to Get Started
-      sub_text: |
-        Please reach out if you need help or have any questions. We are happy to
-        help you out with our services with providing legal solutions to make
-        your life better.
-    pages:
-      bar_prep:
-        heading: Bar Prep
-        text: |
-          Answer our slapdown rules to help you write effective bar prep essays.
-          Click on a question set below to get started.
-      business:
-        heading: Business
-        text: Contact us for help with your business
-      data_deletion:
-        heading: Data Deletion
-        text: Contact us for help with data deletion
-      estate:
-        heading: Estate Planning
-        text: Contact us for help with estate planning
-      litigation:
-        heading: Litigation
-        text: Contact us for help with litigation matters
-      write_rickie:
-        heading: Write Rickie
-        text: Send Rickie Slaughter a letter
-    
+auth:
+  login: لاگ ان کریں
+  sign_up: آج قانونی مدد حاصل کریں
+languages:
+  language: زبان
+  english: انگریزی
+  spanish: ہسپانوی
+footer:
+  delete_your_data:
+    heading: اپنا ڈیٹا حذف کریں
+    text: |
+      آپ کا ڈیٹا حذف کریں نیین لا یا ایک وابستہ کے ذریعہ فراہم کردہ ایک خدمت ہے
+      اٹارنی آپ کی طرف سے ڈیٹا ڈیلیٹ کرنے تک محدود ہے۔ سب
+      یہاں پیش کردہ مواد صرف معلوماتی مقاصد کے لئے ہے۔ کچھ نہیں
+      قانونی مشورے کے طور پر سمجھا جانا چاہئے۔ اس کی ترسیل اور رسید
+      معلومات تخلیق کرنے کا ارادہ نہیں ہے اور تشکیل نہیں دیتا ہے ، ایک
+      اس پلیٹ فارم پر وکلاء کے ساتھ وکیل کا مؤکل تعلقات۔ وہاں نہیں ہے
+      اٹارنی کلائنٹ کی مراعات یا کسی بھی چیز کی رازداری کی توقع
+      آپ اس فورم میں ہم سے رابطہ کرسکتے ہیں۔ کسی پر عمل نہ کریں
+      پیشہ ورانہ مشورہ لینے کے بغیر پیش کی گئی معلومات۔
+  bar_prep: بار کی تیاری
+  blog: بلاگ
+  justice_for_rickie_slaughter:
+    heading: انصاف برائے رکی سلاٹر
+    text: |
+      براہ کرم رکی کی چینج آر او پیٹیشن پر دستخط کریں ، اسے ایک مفت خط بھیجیں ، اور
+      اس کی غلط سزا کے بارے میں شعور بیدار کرنے کے لئے اس ویب سائٹ کا اشتراک کریں۔
+  neon_law:
+    heading: نیین لا
+    text: |
+      یہاں پیش کردہ تمام مواد صرف معلوماتی مقاصد کے لئے ہے۔
+      کسی بھی چیز کو قانونی مشورے کے طور پر نہیں سمجھا جانا چاہئے۔ ٹرانسمیشن اور رسید
+      اس معلومات کا مقصد تخلیق کرنے کا ارادہ نہیں ہے اور نہیں ہے ،
+      اس پلیٹ فارم پر وکلاء کے ساتھ وکلاء کلائنٹ کا رشتہ۔ وہاں ہے
+      اٹارنی کلائنٹ کے استحقاق یا رازداری کی کوئی توقع نہیں
+      اس فورم میں آپ ہم سے کچھ بھی بتاسکتے ہیں۔ کسی پر عمل نہ کریں
+      پیشہ ورانہ مشورہ لینے کے بغیر پیش کی گئی معلومات۔
+  about: ہمارے بارے میں
+  pro_bono: پرو بونو
+  support: مدد کریں
+  practice_areas: پریکٹس ایریاز
+  privacy_policy: رازداری کی پالیسی
+  terms: سروس کی شرائط
+  switch: 'سوئچ کریں'
+  mode: وضع
+  dark: 'سیاہ '
+  light: 'روشن '
+  modern_slavery_statement: غلامی کا جدید بیان
+  pgp_key: پی جی پی کی کلید
+  law_job_resources: قانون ملازمت کے وسائل
+  templates: غیر مشورے کے قانونی سانچے
+  upward_mobility: اوپر کی نقل و حرکت
+  careers: کیریئر
+languageDropdown:
+  text: فی الحال آپ اس سائٹ کو انگریزی میں دیکھ رہے ہیں
+loadingPage:
+  loading: لوڈ ہو رہا ہے
+beginUpwardMQ:
+  heading: اضافہ متحرک سوالنامہ
+  text: |
+    نیین لاء میں اپنی دلچسپی ظاہر کرنے اور اس سے ہماری وابستگی کا شکریہ
+    اوپر کی نقل و حرکت۔ براہ کرم نوٹ کریں کہ یہ سوالنامہ لینے سے ایسا نہیں ہوتا ہے
+    ایک وکیل کلائنٹ تعلقات قائم. ایک وکیل کلائنٹ
+    تعلق صرف اس صورت میں موجود ہے جب آپ کے پاس ہماری فرم کے ساتھ دستخط شدہ برقرار رکھنے والا ہو۔
+    اگر آپ ہماری خدمات حاصل کرنے میں دلچسپی رکھتے ہیں تو براہ کرم ہم سے رابطہ کریں۔
+  beginButton: سوالنامہ شروع کریں
+breadcrumbs:
+  home: ہوم
+finishUpwardMQ:
+  heading:   اضافہ متحرک سوالنامہ کو لینے کے لئے آپ کا شکریہ
+  text: ':آپ نے سوالنامہ مکمل کرلیا ہے۔ آپ کے جوابات یہ ہیں'
+upwardMQ:
+  missing_question: سوالیہ نشان سے ایک سوال غائب ہے۔ مدد سے رابطہ کریں
+components_questions:
+  submit: جمع کرائیں
+components_navbar:
+  auth_portal: پورٹل
+  auth_settings: ترتیبات
+  auth_logout: لاگ آوٹ
+  base_: ''
+contactForm:
+  name:
+    label:  آپ کا نام
+    ph: اپنا نام درج کریں
+    required: نام کی ضرورت ہے۔
+  email:
+    label: آپ کا ای میل
+    ph: اپنا ای میل درج کریں
+    required: ای میل کی ضرورت ہے۔
+  message:
+    label: آپ کا پیغام
+    ph: اپنا پیغام درج کریں
+    required: Message is required.
+  send: Send Message
+pages_admin:
+  heading: Admin Portal
+pages_lawyers:
+  settings: Lawyer Firm Settings
+  heading: " Lawyer Portal"
+  text: Create a new Wills Packet
+pages_portal:
+  heading: Your Legal Matters
+  text: You currently do not have any active matters with our firm or our network.
+    Contact us if you are interested in retaining our services.
+pages_pb:
+  heading: Contact Rickie Slaughter
+  text1: 'You can send a letter to Rickie at Rickie Slaughter NV #85902 1250 E Arica
+    Road Eloy, AZ 85131'
+  text2: Or, if you fill out your info below, we will mail out a letter on your behalf.
+  form:
+    email: 'Your email:'
+    email_ph: Enter Email
+    message: 'Your message:'
+    message_ph: Enter Message
+    send: Send Information
+pages_upward_mobility:
+  heading: Upward Mobility
+  text: Upward mobility refers to the come up, or improving your socio-economic situation
+    to a point where you can provide for others. No matter where you are today, we
+    can help you take care of those you love.
+  button_takeQ: Take Questionnaire
+navigation_publicL:
+  upward: Upward Mobility
+  practiceAreas: Practice Areas
+  blog: Blog
+  contact: Contact
+banner:
+  title: Lawyers Invested in Making Tomorrow Better than Today
+  text: |
+    Our goal is singular - your upward mobility. Join the thousands of people
+    who have entrusted us with providing legal solutions to make their lives
+    better.
+why_neon_law:
+  heading: Why Neon Law?
+  sub_text: A justice-first approach to law and litigation.
+  good_people:
+    title: We only represent <strong>Good People</strong>
+    text: We do not represent shady people and have fired clients after discovering
+      they're racist, transphobic, sexist, or otherwise bad people.
+  good_causes:
+    title: We only represent <strong>Good Causes</strong>
+    text: We do not represent fossil fuel companies, predatory landlords or creditors,
+      or companies that maliciously use your personal data.
+  tech-to-make-affordable:
+    title: We use technology to make <strong>Legal Services<br /> Affordable</strong>
+    text: We leverage document automation, natural language processing, and our own
+      open-source software to deliver cost-effective legal services.
+  btn_text: Learn More
+we_can_help_with:
+  title: How can we help?
+  injured: I've been <br />injured.
+  immigration: I have immigration issues.
+  debt: I'm in a lot of <br />debt.
+  afford: I can't afford a <br />lawyer.
+  business: I'm starting a business.
+  hacked: I've been<br /> hacked.
+  divorce: My partner and I want a divorce.
+  dead: What if I'm not here tomorrow?
+  buy-a-home: I want to buy a home.
+  rights: My rights have been violated.
+worked_with:
+  title: We've worked with
+testimonials:
+  title: What People say about us?
+  quote1:
+    author: Joe Tuan
+    text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ex adipisci
+      blanditiis quis quidem ducimus providen.
+in_action:
+  title: NeonLaw in Action
+  sub_text: We have been reimaging legal work for the past 5 years.
+experience:
+  client_engagements:
+    title: 1,000+
+    text: of client engagements.
+  years:
+    title: 20+ Years
+    text: of combined experience among our lawyers.
+  recommendation_percentage:
+    title: 99%
+    text: of clients say they would recommend Neon Law.
+pro_bono:
+  title: Pro Bono
+  text: ''
+get_started:
+  title: Ready to Get Started
+  sub_text: |
+    Please reach out if you need help or have any questions. We are happy to
+    help you out with our services with providing legal solutions to make
+    your life better.
+pages:
+  bar_prep:
+    heading: Bar Prep
+    text: |
+      Answer our slapdown rules to help you write effective bar prep essays.
+      Click on a question set below to get started.
+  business:
+    heading: Business
+    text: Contact us for help with your business
+  data_deletion:
+    heading: Data Deletion
+    text: Contact us for help with data deletion
+  estate:
+    heading: Estate Planning
+    text: Contact us for help with estate planning
+  litigation:
+    heading: Litigation
+    text: Contact us for help with litigation matters
+  write_rickie:
+    heading: Write Rickie
+    text: Send Rickie Slaughter a letter
