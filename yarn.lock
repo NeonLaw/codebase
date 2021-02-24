@@ -2624,7 +2624,7 @@
     universal-cookie "^4.0.3"
     webpack-sources "^2.2.0"
 
-"@newrelic/aws-sdk@^3.0.0":
+"@newrelic/aws-sdk@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@newrelic/aws-sdk/-/aws-sdk-3.1.0.tgz#0f8dd504a37ad92be608c340e5f836d848abdefa"
   integrity sha512-SBFqCz1Hhn2HQvlFCEm2VwfHCGpemeokJ+NH7XphlfQ211OVVANQf49DOQCCS0uhnLHGbKMLmir8Layx57y48A==
@@ -10581,13 +10581,13 @@ neo4j-driver@^4.2.2:
     uri-js "^4.4.0"
 
 newrelic@latest:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/newrelic/-/newrelic-7.1.1.tgz#fd4db4c94a6c41fa33cdcaf56890664c5501090a"
-  integrity sha512-aESSdT4mOXsdLbUp/Mcn+LkEx5qkgRvI1Y7k7netnis6qjn2i1dAkS780Wjy+IsK8Wr/bqnJCbSAVZH1iVrryg==
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/newrelic/-/newrelic-7.1.2.tgz#1fa3273a5241ffa1ea7e19de6e8e517103c48980"
+  integrity sha512-kYfDtEi+4rOrGKmd+WKw6Lx+HQ8zuuOeoPaRbeZMNmDCCNQlfzSMayuvqAox3GUiKNk7aLZvIg+d720010KGEg==
   dependencies:
     "@grpc/grpc-js" "^1.2.5"
     "@grpc/proto-loader" "^0.5.5"
-    "@newrelic/aws-sdk" "^3.0.0"
+    "@newrelic/aws-sdk" "^3.1.0"
     "@newrelic/koa" "^5.0.0"
     "@newrelic/superagent" "^4.0.0"
     "@tyriar/fibonacci-heap" "^2.0.7"
