@@ -6,7 +6,7 @@ import { colors, gutters, sizes } from '../../styles/neonLaw';
 
 import { Button } from '../button';
 import { Container } from '../container';
-// import { default as Link } from 'next/link';
+import { default as Link } from 'next/link';
 import React from 'react';
 import { theme } from '@chakra-ui/react';
 
@@ -51,15 +51,15 @@ export const Hero = ({ title, text, buttonText }: HeroProps) => (
         >
           {text}
         </Text>
-        <Button
+        {/* <Button
           flash={true}
-          as={'a'}
+          as={Link}
           href="/contact"
           bg={colors.primaryColor900}
           _hover={{ bg: colors.primaryColor800 }}
         >
           {buttonText}
-        </Button>
+        </Button> */}
       </Box>
     </Container>
   </Box>
