@@ -10,7 +10,6 @@ import React from 'react';
 import { Seo } from '../components/seo';
 // import { SocialProofLogos } from '../components/homepage/social-proof-logos';
 // import { Testimonials } from '../components/homepage/testimonials';
-import { WhatWeCanHelpWith } from '../components/homepage/whatWeCanHelpWith';
 import { WhyNeonLaw } from '../components/homepage/whyNeonLaw';
 import { colors } from '../styles/neonLaw';
 import { useColorMode } from '@chakra-ui/react';
@@ -38,7 +37,6 @@ const Home = (): JSX.Element => {
         `}
       />
       <WhyNeonLaw />
-      <WhatWeCanHelpWith />
       {/* <SocialProofLogos />
         <Testimonials /> */}
       <InAction />

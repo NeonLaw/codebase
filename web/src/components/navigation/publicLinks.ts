@@ -5,19 +5,23 @@ export const PublicLinks = () => {
 
   return [
     {
-      label: intl.formatMessage({ id: 'navigation_publicL.upward' }),
-      route: '/upward-mobility'
+      label: intl.formatMessage({ id: 'navigation_public.ventures' }),
+      route: '/ventures'
     },
     {
-      label: intl.formatMessage({ id: 'navigation_publicL.practiceAreas' }),
-      route: '/practice-areas'
+      label: intl.formatMessage({ id: 'navigation_public.trusts' }),
+      route: '/trusts'
     },
     {
-      label: intl.formatMessage({ id: 'navigation_publicL.blog' }),
+      label: intl.formatMessage({ id: 'navigation_public.litigation' }),
+      route: '/litigation'
+    },
+    {
+      label: intl.formatMessage({ id: 'navigation_public.blog' }),
       route: '/blog'
     },
     {
-      label: intl.formatMessage({ id: 'navigation_publicL.contact' }),
+      label: intl.formatMessage({ id: 'navigation_public.contact' }),
       route: '/contact'
     }
   ];
