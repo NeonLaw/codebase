@@ -99,5 +99,9 @@ expressApp.get('/api/es.json', function (_, res) {
   res.json(fetchLocaleJson('es'));
 });
 
+expressApp.get('/api/ur.json', function (_, res) {
+  res.json(fetchLocaleJson('ur'));
+});
+
 
 export const app = expressApp;
