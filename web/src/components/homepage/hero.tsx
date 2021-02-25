@@ -4,9 +4,7 @@
 import { Box, Heading, Text } from '@chakra-ui/react';
 import { colors, gutters, sizes } from '../../styles/neonLaw';
 
-import { Button } from '../button';
 import { Container } from '../container';
-import { default as Link } from 'next/link';
 import React from 'react';
 import { theme } from '@chakra-ui/react';
 
@@ -16,7 +14,7 @@ interface HeroProps {
   buttonText: string;
 }
 
-export const Hero = ({ title, text, buttonText }: HeroProps) => (
+export const Hero = ({ title, text }: HeroProps) => (
   <Box
     as="section"
     display="flex"
