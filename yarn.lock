@@ -28,10 +28,10 @@
   dependencies:
     tslib "~2.0.1"
 
-"@auth0/nextjs-auth0@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@auth0/nextjs-auth0/-/nextjs-auth0-1.0.0.tgz#70b9dc93ea80fe3ac3ae2d1a9d0ab2de2700bd18"
-  integrity sha512-WYX/POWTFoIcLq/8DqJ6p0rpz2owspHbboV5TyB/CJZ+gkVxU3K9y+QIfr50elbJAZy0YWoe/F9g0MTg2a5CXA==
+"@auth0/nextjs-auth0@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@auth0/nextjs-auth0/-/nextjs-auth0-1.1.0.tgz#8db0231c67931ab899b20541efa0b7feab7ba344"
+  integrity sha512-QBOmaYrjLQWdUUX/1ImbqmYr4YrkBo/KvD3WSf3pgLYDamy8VHKQ3tJzZMpFKdmUNhX1d+f0pnJgxztkLr41ww==
   dependencies:
     "@hapi/joi" "^17.1.1"
     base64url "^3.0.1"
