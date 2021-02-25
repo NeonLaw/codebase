@@ -11,20 +11,11 @@ interface EditOnGithubInterface {
   path: string;
 }
 
-export const EditOnGithub = ({ app, path }: EditOnGithubInterface) => {
+export const EditOnGithub = ({ path }: EditOnGithubInterface) => {
   const contentPath = path === '/' ? '/index' : path;
-  let githubPath;
-  if (path.includes('/blog/')) {
-    githubPath =
-    'https://github.com/NeonLaw/codebase/blob' +
-    `/development/packages/${app}/src/blogPosts/${
-      contentPath.split('/')[2]
-    }.mdx`;
-  } else {
-    githubPath =
-    'https://github.com/NeonLaw/codebase/blob' +
-    `/development/packages/${app}/src/content${contentPath}.mdx`;
-  }
+  const githubPath = 'https://github.com/NeonLaw/codebase/blob' +
+    `/web/src/pages/${contentPath.split('/')[2]}.mdx`;
+
   return (
     <Flex
       alignItems="center"
