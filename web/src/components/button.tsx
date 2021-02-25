@@ -104,6 +104,7 @@ export const Button = ({
     <WrapOrUnWrap flash={flash} containerStyles={containerStyles}>
       <ChakraButton
         as={props.as}
+        href={props.href}
         onClick={flash ? handleClickFlash : onClick}
         onMouseDown={onMouseDown}
         onMouseOver={onMouseOver}
