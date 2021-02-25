@@ -82,7 +82,7 @@
         "test": "jest --forceExit --detectOpenHandles --coverage --coverageProvider=v8"
     },
     "dependencies": {
-        "@auth0/nextjs-auth0": "^1.0.0",
+        "@auth0/nextjs-auth0": "^1.1.0",
         "@chakra-ui/icons": "^1.0.5",
         "@chakra-ui/react": "^1.3.3",
         "@stripe/stripe-js": "^1.13.0",
