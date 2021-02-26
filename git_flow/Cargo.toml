@@ -6,6 +6,7 @@ edition = "2018"
 license = "Apache-2.0"
 repository = "https://github.com/neonlaw/codebase"
 documentation = "https://github.com/neonlaw/codebase/tree/development/git_flow/README.md"
+description = "An CLI for an opiniated git flow for monorepos on GitHub"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
