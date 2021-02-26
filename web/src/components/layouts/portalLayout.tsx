@@ -13,7 +13,7 @@ import {
   PortalSideNavigation
 } from '../sideNavigation/portalSideNavigation';
 import React from 'react';
-import { Redirect } from '@reach/router';
+// import { Redirect } from '@reach/router';
 import { getApolloClient } from '../../utils/getApolloClient';
 import { portalNavLinks } from '../navigationBars/portalNavLinks';
 import styled from '@emotion/styled';

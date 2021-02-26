@@ -16,8 +16,7 @@ import {
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { colors, gutters, theme } from '../../styles/neonLaw';
-
-import { AuthenticatedDropdown } from './authenticatedDropdown';
+// import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
 import { Link } from '../link';
@@ -25,7 +24,7 @@ import { MdDehaze } from 'react-icons/md';
 import { Search } from './search';
 import styled from '@emotion/styled';
 import { useIntl } from 'react-intl';
-import { useUser } from '@auth0/nextjs-auth0';
+// import { useUser } from '@auth0/nextjs-auth0';
 
 interface BaseNavigationBarProps {
   isRenderedOnDashboard?: boolean;
@@ -55,7 +54,7 @@ export const PortalNavigationBar = ({
   const intl = useIntl();
 
   const [loginButtonDisabled, disableLoginButton] = useState(false);
-  const { isLoading } = useUser();
+  // const { isLoading } = useUser();
 
   return (
     <StyledHead>
