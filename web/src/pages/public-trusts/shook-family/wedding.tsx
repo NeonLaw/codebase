@@ -13,7 +13,9 @@ import { Button } from '../../../components/button';
 import { Carousel } from 'react-responsive-carousel';
 import { Container } from '../../../components/container';
 import { Image } from '../../../components/image';
-import { PublicTrustLayout } from '../../../layouts/publicTrustLayout';
+import {
+  PublicTrustLayout
+} from '../../../components/layouts/publicTrustLayout';
 import { Seo } from '../../../components/seo';
 import { UsdInput } from '../../../components/inputs';
 import { colors } from '../../../styles/neonLaw';

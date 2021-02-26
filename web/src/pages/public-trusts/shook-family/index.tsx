@@ -1,6 +1,8 @@
 import { Box } from '@chakra-ui/react';
 import { Link } from '../../../components/link';
-import { PublicTrustLayout } from '../../../layouts/publicTrustLayout';
+import {
+  PublicTrustLayout
+} from '../../../components/layouts/publicTrustLayout';
 import React from 'react';
 import { Seo } from '../../../components/seo';
 

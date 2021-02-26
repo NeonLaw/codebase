@@ -4,7 +4,7 @@ import { gutters, sizes } from '../../styles/neonLaw';
 import {
   MatterTemplateQuestionnairesList
 } from '../../components/lists/matterTemplateQuestionnairesList';
-import { PublicLayout } from '../../layouts/publicLayout';
+import { PublicLayout } from '../../components/layouts/publicLayout';
 import { useIntl } from 'react-intl';
 
 const BarPrepQuestions = () => {
