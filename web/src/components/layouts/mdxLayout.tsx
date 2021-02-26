@@ -1,21 +1,21 @@
 import { Box, Divider, Flex, Heading, useColorMode } from '@chakra-ui/react';
 import React, { ReactChildren } from 'react';
-import { colors, gutters } from '../styles/neonLaw';
+import { colors, gutters } from '../../styles/neonLaw';
 
 import { ApolloProvider } from '@apollo/client';
-import { BaseFooter } from '../components/footer/baseFooter';
-import { Breadcrumbs } from '../components/breadcrumbs';
-import { Container } from '../components/container';
-import { EditOnGithub } from '../components/editOnGithub';
-import { Image } from '../components/image';
-import { MDXComponents } from '../components/mdxComponents';
+import { BaseFooter } from '../footer/baseFooter';
+import { Breadcrumbs } from '../breadcrumbs';
+import { Container } from '../container';
+import { EditOnGithub } from '../editOnGithub';
+import { Image } from '../image';
+import { MDXComponents } from '../mdxComponents';
 import { MDXProvider } from '@mdx-js/react';
 import {
   PublicNavigationBar
-} from '../components/navigationBars/publicNavigationBar';
-import { Seo } from '../components/seo';
-import { ShareButtons } from '../components/shareButtons';
-import { getApolloClient } from '../utils/getApolloClient';
+} from '../navigationBars/publicNavigationBar';
+import { Seo } from '../seo';
+import { ShareButtons } from '../shareButtons';
+import { getApolloClient } from '../../utils/getApolloClient';
 
 export const MdxLayout: React.FC<{
   chlidren: ReactChildren;

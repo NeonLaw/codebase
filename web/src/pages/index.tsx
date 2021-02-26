@@ -5,7 +5,7 @@ import { GetStarted } from '../components/getStarted';
 import { Hero } from '../components/homepage/hero';
 import { InAction } from '../components/homepage/in-action';
 import { ProBono } from '../components/homepage/pro-bono';
-import { PublicLayout } from '../layouts/publicLayout';
+import { PublicLayout } from '../components/layouts/publicLayout';
 import React from 'react';
 import { Seo } from '../components/seo';
 // import { SocialProofLogos } from '../components/homepage/social-proof-logos';
