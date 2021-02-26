@@ -11,7 +11,7 @@ import { VscLaw } from 'react-icons/vsc';
 const admins = [
   'nick@neonlaw.com',
   'admin@neonlaw.com'
-]
+];
 
 export const portalNavLinks = ({ email }) => {
   return [

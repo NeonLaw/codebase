@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { Button } from '../../components/button';
 import { Section } from '../section';
 import { gutters } from '../../styles/neonLaw';
-import { navigate } from 'gatsby';
 import { useIntl } from 'react-intl';
 
 interface SingleChoiceQuestionInterface {
@@ -65,7 +64,7 @@ export const SingleChoiceQuestion = ({
 
             updateAnswers(id, chosenChoice);
 
-            navigate(nextStepPath(chosenChoice));
+            console.log(nextStepPath(chosenChoice));
           }}
         >
           {intl.formatMessage({ id: 'components_questions.submit' })}

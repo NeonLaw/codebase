@@ -107,9 +107,9 @@ export const PortalLayout = ({ children }) => {
     return <LoadingPage />;
   }
 
-  if (false) {
-    return <Redirect noThrow={true} to="/" />;
-  }
+  // if (false) {
+  //   return <Redirect noThrow={true} to="/" />;
+  // }
 
   const links = portalNavLinks({ email: user.email });
 

@@ -23,7 +23,6 @@ import {
   TableRow,
 } from './styles';
 import { usePagination, useSortBy, useTable } from 'react-table';
-
 import { Card } from '../cards/base';
 import { CardFooter } from '../cards/cardFooter';
 import React from 'react';

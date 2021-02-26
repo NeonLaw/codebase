@@ -150,25 +150,25 @@ export const PortalNavigationBar = ({
                 </Box>
               ))}
 
-              {isLoading ? null : false ? (
+              {/* {isLoading ? null : false ? (
                 <AuthenticatedDropdown />
-              ) : (
-                <Flex>
-                  <Box width="6px" />
-                  <Button
-                    bg="transparent"
-                    border="1px"
-                    className="nav-content-desktop"
-                    disabled={loginButtonDisabled}
-                    onClick={() => {
-                      disableLoginButton(true);
-                      console.log();
-                    }}
-                  >
-                    {intl.formatMessage({ id: 'auth.login' })}
-                  </Button>
-                </Flex>
-              )}
+              ) : ( */}
+              <Flex>
+                <Box width="6px" />
+                <Button
+                  bg="transparent"
+                  border="1px"
+                  className="nav-content-desktop"
+                  disabled={loginButtonDisabled}
+                  onClick={() => {
+                    disableLoginButton(true);
+                    console.log();
+                  }}
+                >
+                  {intl.formatMessage({ id: 'auth.login' })}
+                </Button>
+              </Flex>
+              {/* )} */}
 
               <IconButton
                 aria-label="Navigation Menu"

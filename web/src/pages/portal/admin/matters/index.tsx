@@ -11,7 +11,6 @@ import {
 } from '../../../../components/tables/matterTable';
 import { PortalLayout } from '../../../../components/layouts/portalLayout';
 import { gutters } from '../../../../styles/neonLaw';
-import { navigate } from 'gatsby';
 
 const AdminMatters = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -51,7 +50,7 @@ const AdminMatters = () => {
 
         <MatterTable
           onRowClick={(row) => {
-            navigate(`/portal/admin/matters/${row.values.id}`);
+            console.log(`/portal/admin/matters/${row.values.id}`);
             return null;
           }}
         />

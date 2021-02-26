@@ -5,7 +5,6 @@ import { Button } from '../button';
 import DatePicker from 'react-datepicker';
 import { Section } from '../section';
 import { gutters } from '../../styles/neonLaw';
-import { navigate } from 'react-intl';
 import styled from '@emotion/styled';
 import { useIntl } from 'react-intl';
 
@@ -80,7 +79,7 @@ export const SingleDateQuestion = ({
         onClick={() => {
           updateAnswers(id, chosenDate);
 
-          navigate(nextStepPath());
+          console.log(nextStepPath());
         }}
       >
         {intl.formatMessage({ id: 'components_questions.submit' })}

@@ -1,5 +1,5 @@
 import { Button } from '../components/button';
-import { PublicLayout } from '../layouts/publicLayout';
+import { PublicLayout } from '../components/layouts/publicLayout';
 import React from 'react';
 import { Router } from '@reach/router';
 import { Section } from '../components/section';
@@ -8,7 +8,6 @@ import { Text } from '@chakra-ui/react';
 import {
   UpwardMobilityQuestionnaire
 } from '../components/upwardMobilityQuestionnaire';
-import { navigate } from 'react-intl';
 import { useIntl } from 'react-intl';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -29,7 +28,7 @@ const UpwardMobilityHome = (props) => {
           flash={true}
           buttonScheme="teal"
           onClick={() => {
-            navigate('/upward-mobility/begin');
+            console.log('/upward-mobility/begin');
           }}
         >
           {intl.formatMessage({ id: 'pages_upward_mobility.button_takeQ' })}
