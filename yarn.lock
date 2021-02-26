@@ -3892,10 +3892,10 @@
     exifr "^6.0.0"
     math-log2 "^1.0.1"
 
-"@uppy/transloadit@^1.6.20":
-  version "1.6.20"
-  resolved "https://registry.yarnpkg.com/@uppy/transloadit/-/transloadit-1.6.20.tgz#d1ad3a39bb5a04d04d049c37f3feba43bc8753ef"
-  integrity sha512-F5ftZKEuMMhWEoP5BG3+mvz1X1CRyQIILF0DTjKUkqqoNIp9N39FLbBVwe5NE9okaij3v6cdv4RppAeQHRbvsw==
+"@uppy/transloadit@^1.6.21":
+  version "1.6.21"
+  resolved "https://registry.yarnpkg.com/@uppy/transloadit/-/transloadit-1.6.21.tgz#0b48178437a545adcf36328e8502c1d6f6809ae0"
+  integrity sha512-bf7xCPk5Wem6QkKBsKvzU2cz+GHGuNei379U9I4zG93XvT+azsGCMk6z10UblEAXRt47pqeKf525Qd+EYHx7Cw==
   dependencies:
     "@uppy/companion-client" "^1.8.2"
     "@uppy/provider-views" "^1.11.1"
