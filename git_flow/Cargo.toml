@@ -1,8 +1,11 @@
 [package]
 name = "git_flow"
-version = "0.1.0"
+version = "0.0.1"
 authors = ["support@neonlaw.com <support@neonlaw.com>"]
 edition = "2018"
+license = "Apache-2.0"
+repository = "https://github.com/neonlaw/codebase"
+documentation = "https://github.com/neonlaw/codebase/tree/development/git_flow/README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
