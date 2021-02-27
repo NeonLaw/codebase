@@ -1,5 +1,7 @@
 # Git Flow
 
+![Crates Badge](https://img.shields.io/crates/v/git_flow)
+
 An opinionated CLI for doing git-flow with GitHub for Cargo and Yarn workspaces.
 
 ## Requirements
