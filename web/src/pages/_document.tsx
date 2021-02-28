@@ -1,4 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
+
 import { ColorModeScript } from '@chakra-ui/react';
 import { NextIntlScript } from '@moxy/next-intl';
 import { theme } from '../styles/neonLaw';
@@ -39,19 +40,23 @@ class MyDocument extends Document {
           />*/}
           <link rel="shortcut icon" href="/images/logo.png" />
           <link rel="manifest" href="/manifest.json" />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/earlyaccess/notonaskharabic.css"
+          />
         </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <NextIntlScript />
           <Main />
           <NextScript />
-          {process.env.environment !== 'development' &&
-          <script
-            id="ze-snippet"
-            key="zendesk"
-            src={`https://static.zdassets.com/ekr/snippet.js?key=${zendeskKey}`}
-          />
-          }
+          {process.env.environment !== 'development' && (
+            <script
+              id="ze-snippet"
+              key="zendesk"
+              src={`https://static.zdassets.com/ekr/snippet.js?key=${zendeskKey}`}
+            />
+          )}
           <script
             key="fathom"
             src="https://anglerfish.neonlaw.com/script.js"

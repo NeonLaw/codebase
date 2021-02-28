@@ -14,11 +14,19 @@ we_can_help_with:
 auth:
   login: Login
   sign_up: Ask a Lawyer
-languages:
-  language: Language
-  english: English
-  spanish: Spanish
+blm: 
+  text: Black Lives Matter
+search: 
+  message: Press "/" to Search
+languages: 
+  en: English
+  es: Spanish (Latin America)
+  ur: Urdu
 footer:
+  copyright: Copyright
+  crafted_by: this website was crafted by
+  nisar: Nisar
+  email_list: Sign up for our e-mail list, the Neon Law Monthly.
   delete_your_data:
     heading: Delete Your Data
     text: |
@@ -140,11 +148,16 @@ navigation_public:
   blog: Blog
   contact: Contact
 banner:
+  h1: Neon Law
   title: Accurate Affordable Attorneys
   text: |
     We are on a mission to improve access to justice with low-cost,
     top-quality legal representation and free legal resources available here.
     When <b>anyone</b> can afford access to justice, <b>everyone</b> wins.
+  client: Are you a current client?
+  view_matters: View your matters
+  logout: Logout
+  signin: Sign in to access your portal
 why_neon_law:
   heading: Why Neon Law?
   sub_text: We employ justice-based tech to deliver efficient, accurate results.
@@ -184,7 +197,15 @@ experience:
     text: of clients say they would recommend Neon Law.
 pro_bono:
   title: Pro Bono
-  text: ''
+  p1: Finally, and most importantly, we are proudest of our commitment to
+  l1: pro bono
+  p2: work and wish we could do it full time. If you require assistance and have attained a SOLA from either
+  l2: Nevada Legal Services
+  p3: or
+  l3: Legal Aid Center of Southern Nevada
+  p4: ', you may' 
+  l4: contact
+  p5: to us for a free consultation.
 get_started:
   title: Ready to Get Started
   sub_text: |

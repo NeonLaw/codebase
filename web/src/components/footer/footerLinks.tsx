@@ -7,6 +7,7 @@ import {
   theme,
   useBreakpointValue,
 } from '@chakra-ui/react';
+
 import { Container } from '../container';
 import { EmailListButton } from '../emailListButton';
 import { FooterLink } from './footerLink';
@@ -36,7 +37,7 @@ export const FooterLinks = () => {
               rel="noopener noreferrer"
               padding="7px 0"
             >
-              { intl.formatMessage({id: 'footer.support'}) }
+              {intl.formatMessage({ id: 'footer.support' })}
             </Box>
             <FooterLink
               i18nMessage="footer.pro_bono"
@@ -130,7 +131,9 @@ export const FooterLinks = () => {
               target="_blank"
               rel="noreferrer"
             >
-              Nisar
+              {
+                intl.formatMessage({ id: 'footer.nisar' })
+              }
             </a>
             &nbsp;- API by&nbsp;
             <a

@@ -1,12 +1,32 @@
 ---
+we_can_help_with:
+  title: ہم کس طرح مدد کر سکتے ہیں؟
+  injured: میں زخمی ہوگیا ہوں۔
+  immigration: مجھے امیگریشن امداد کی ضرورت ہے۔
+  debt: میں قرض سے آزاد ہونا چاہتا ہوں۔
+  afford: میں وکیل کا متحمل نہیں ہوسکتا۔
+  business: میرے کاروبار سے متعلق میرے پاس قانونی سوالات ہیں۔
+  hacked: مجھے ہیک کردیا گیا ہے۔
+  divorce: میں طلاق چاہتا ہوں
+  dead: میں مرنے کے بعد زندگی کے لئے منصوبہ بندی کرنا چاہتا ہوں۔
+  buy_a_home: میں رئیل اسٹیٹ خریدنا چاہتا ہوں۔
+  rights: میرے حقوق پامال ہوئے ہیں۔
 auth:
-  login: لاگ ان کریں
-  sign_up: آج قانونی مدد حاصل کریں
-languages:
-  language: زبان
-  english: انگریزی
-  spanish: ہسپانوی
+  login: لاگ ان
+  sign_up: کسی وکیل سے پوچھیں
+blm: 
+  text:  بلیک لائفز اہم ہیں
+search: 
+  message: تلاش کے ل "" / "دبائیں
+languages: 
+  en: انگریزی
+  es: ہسپانوی (لاطینی امریکہ)
+  ur: اردو
 footer:
+  copyright: کاپی رائٹ
+  crafted_by: تیار کردہ
+  nisar: نثار
+  email_list: نیون لاء ماہانہ ہماری ای میل لسٹ کے لئے سائن اپ کریں۔
   delete_your_data:
     heading: اپنا ڈیٹا حذف کریں
     text: |
@@ -91,122 +111,131 @@ contactForm:
   message:
     label: آپ کا پیغام
     ph: اپنا پیغام درج کریں
-    required: Message is required.
-  send: Send Message
+    required: پیغام ضروری ہے۔
+  send: پیغام بھیجیں
 pages_admin:
-  heading: Admin Portal
+  heading: ایڈمن پورٹل
 pages_lawyers:
-  settings: Lawyer Firm Settings
-  heading: " Lawyer Portal"
-  text: Create a new Wills Packet
+  settings: وکیل فرم کی ترتیبات
+  heading: " وکیل پورٹل"
+  text: نیا ولز پیکٹ بنائیں
 pages_portal:
-  heading: Your Legal Matters
-  text: You currently do not have any active matters with our firm or our network.
-    Contact us if you are interested in retaining our services.
-pages_pb:
-  heading: Contact Rickie Slaughter
-  text1: 'You can send a letter to Rickie at Rickie Slaughter NV #85902 1250 E Arica
-    Road Eloy, AZ 85131'
-  text2: Or, if you fill out your info below, we will mail out a letter on your behalf.
-  form:
-    email: 'Your email:'
-    email_ph: Enter Email
-    message: 'Your message:'
-    message_ph: Enter Message
-    send: Send Information
-pages_upward_mobility:
-  heading: Upward Mobility
-  text: Upward mobility refers to the come up, or improving your socio-economic situation
-    to a point where you can provide for others. No matter where you are today, we
-    can help you take care of those you love.
-  button_takeQ: Take Questionnaire
-navigation_public:
-  upward: Upward Mobility
-  practiceAreas: Practice Areas
-  blog: Blog
-  contact: Contact
-banner:
-  title: Lawyers Invested in Making Tomorrow Better than Today
+  heading: آپ کے قانونی معاملات
   text: |
-    Our goal is singular - your upward mobility. Join the thousands of people
-    who have entrusted us with providing legal solutions to make their lives
-    better.
+    فی الحال آپ کو ہماری فرم یا ہمارے نیٹ ورک کے ساتھ کوئی فعال معاملات نہیں ہیں۔
+    اگر آپ ہماری خدمات برقرار رکھنے میں دلچسپی رکھتے ہیں تو ہم سے رابطہ کریں۔
+
+pages_pb:
+  heading: رکی ذبح سے رابطہ کریں
+  text1: 'آپ رکی کو ایک خط رکی سلاٹر NV # 85902 1250 E Arica پر بھیج سکتے ہیں
+  روڈ ایلی ، AZ 85131'
+  text2: یا ، اگر آپ ذیل میں اپنی معلومات پُر کرتے ہیں تو ، ہم آپ کی طرف سے ایک خط بھیجیں گے۔
+  form:
+    email: 'آپ کا ای میل:'
+    email_ph: ای میل درج کریں
+    message: 'آپ کا پیغام:'
+    message_ph: پیغام درج کریں
+    send: معلومات بھیجیں
+pages_upward_mobility:
+  heading: اوپر کی نقل و حرکت
+  text: |
+    اوپر کی نقل و حرکت کا مطلب آنا ہے ، یا آپ کی معاشرتی و اقتصادی صورتحال کو بہتر کرنا ہے
+    ایک نقطہ کی طرف جہاں آپ دوسروں کے لئے فراہم کر سکتے ہیں۔ اس سے کوئی فرق نہیں پڑتا ہے کہ آپ آج کہاں ہیں ، ہم
+    آپ سے محبت کرنے والوں کا خیال رکھنے میں آپ کی مدد کرسکتا ہے۔
+  client: کیا آپ موجودہ موکل ہیں؟
+  button_takeQ: سوالنامہ لیں
+navigation_public:
+  ventures: وینچرز
+  trusts: امانت
+  litigation: قانونی چارہ جوئی
+  blog: بلاگ
+  contact: رابطہ کریں
+banner:
+  h1: نیین لا
+  title: درست سستی اٹارنی
+  text: |
+    ہم کم قیمت کے ساتھ انصاف تک رسائی کو بہتر بنانے کے مشن پر ہیں ،
+    اعلی درجے کی قانونی نمائندگی اور مفت قانونی وسائل یہاں دستیاب ہیں۔
+    جب <b> کوئی </ b> انصاف تک رسائی کا متحمل ہوسکتا ہے ، <b> ہر ایک </ b> جیت جاتا ہے۔
+  client: کیا آپ موجودہ موکل ہیں؟
+  view_matters: اپنے معاملات دیکھیں
+  logout: لاگ آوٹ
+  signin: اپنے پورٹل تک رسائی کیلئے سائن ان کریں
 why_neon_law:
-  heading: Why Neon Law?
-  sub_text: A justice-first approach to law and litigation.
+  heading: نیین لاء کیوں؟
+  sub_text: ہم موثر ، درست نتائج کی فراہمی کے لئے انصاف پر مبنی ٹیک استعمال کرتے ہیں۔
   good_people:
-    title: We only represent <strong>Good People</strong>
-    text: We do not represent shady people and have fired clients after discovering
-      they're racist, transphobic, sexist, or otherwise bad people.
+    title: <strong>اچھے لوگوں کی</strong> ہم صرف نمائندگی کرتے ہیں 
+    text: |
+      ہم مشکوک افراد کی نمائندگی نہیں کرتے اور دریافت کرنے کے بعد موکلین کو برطرف کردیا ہے
+      وہ نسل پرست ، ٹرانسفوبک ، سیکسٹیسٹ یا بصورت دیگر خراب لوگ ہیں۔
   good_causes:
-    title: We only represent <strong>Good Causes</strong>
-    text: We do not represent fossil fuel companies, predatory landlords or creditors,
-      or companies that maliciously use your personal data.
+    title: <strong>اچھی وجوہات کی</strong> ہم صرف نمائندگی کرتے ہیں 
+    text: |
+      ہم جیواشم ایندھن کمپنیوں ، شکاری زمینداروں یا قرض دہندگان کی نمائندگی نہیں کرتے ہیں ،
+      یا ایسی کمپنیاں جو آپ کے ذاتی ڈیٹا کو بدنیتی سے استعمال کرتی ہیں۔
   tech-to-make-affordable:
-    title: We use technology to make <strong>Legal Services<br /> Affordable</strong>
-    text: We leverage document automation, natural language processing, and our own
-      open-source software to deliver cost-effective legal services.
-  btn_text: Learn More
-we_can_help_with:
-  title: How can we help?
-  injured: I've been <br />injured.
-  immigration: I have immigration issues.
-  debt: I'm in a lot of <br />debt.
-  afford: I can't afford a <br />lawyer.
-  business: I'm starting a business.
-  hacked: I've been<br /> hacked.
-  divorce: My partner and I want a divorce.
-  dead: What if I'm not here tomorrow?
-  buy-a-home: I want to buy a home.
-  rights: My rights have been violated.
+    title: ہم <strong> قانونی خدمات <br /> سستی </ strong> بنانے کیلئے ٹکنالوجی کا استعمال کرتے ہیں
+    text: |
+      ہم دستاویز آٹومیشن ، قدرتی زبان پروسیسنگ ، اور خود اپنا فائدہ اٹھاتے ہیں
+      اوپن سورس سافٹ ویئر لاگت سے موثر قانونی خدمات کی فراہمی کے لئے۔
+  btn_text: اورجانیے
 worked_with:
-  title: We've worked with
+  title: ہم نے اس کے ساتھ کام کیا ہے
 testimonials:
-  title: What People say about us?
+  title: ہمارے مؤکل کیا کہتے ہیں۔
   quote1:
-    author: Joe Tuan
+    author: جو تون
     text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ex adipisci
       blanditiis quis quidem ducimus providen.
 in_action:
-  title: NeonLaw in Action
-  sub_text: We have been reimaging legal work for the past 5 years.
+  title: نیونلا ایکشن میں
+  sub_text: ہم پچھلے 5 سالوں سے قانونی کام کا اعادہ کر رہے ہیں۔
 experience:
   client_engagements:
     title: 1,000+
-    text: of client engagements.
+    text: مؤکل تعلقات۔
   years:
-    title: 20+ Years
-    text: of combined experience among our lawyers.
+    title: 20 سال سے زیادہ
+    text: ہمارے وکلاء کے مابین مشترکہ تجربہ
   recommendation_percentage:
-    title: 99%
-    text: of clients say they would recommend Neon Law.
+    title: 99٪ سے زیادہ
+    text: مؤکلوں کا کہنا ہے کہ وہ نیین قانون کی تجویز کریں گے۔
 pro_bono:
-  title: Pro Bono
-  text: ''
+  title: پرو بونو
+  p1: آخر میں ، اور سب سے اہم بات ، ہمیں اپنے عزم پر فخر ہے
+  l1: پرو بونو
+  p2: کام کریں اور کاش کہ ہم اسے پورا وقت انجام دے سکیں۔ اگر آپ کو مدد کی ضرورت ہے اور آپ نے دونوں میں سے SOLA حاصل کی ہے
+  l2: نیواڈا قانونی خدمات
+  p3: یا
+  l3: قانونی امداد کا مرکز جنوبی نیواڈا
+  p4: ', آپ کر سکتے ہیں' 
+  l4: رابطہ
+  p5: ایک مفت مشاورت کے لئے.
 get_started:
-  title: Ready to Get Started
+  title: شروع کرنے کے لئے تیار ہیں
   sub_text: |
-    Please reach out if you need help or have any questions. We are happy to
-    help you out with our services with providing legal solutions to make
-    your life better.
+      اگر آپ کو مدد کی ضرورت ہے یا کوئی سوال ہے تو براہ کرم رابطہ کریں۔ ہمیں خوشی ہے
+      قانونی خدمات فراہم کرنے میں ہماری خدمات میں آپ کی مدد کریں
+      آپ کی زندگی بہتر
 pages:
   bar_prep:
-    heading: Bar Prep
+    heading: بار تیار
     text: |
-      Answer our slapdown rules to help you write effective bar prep essays.
-      Click on a question set below to get started.
+      موثر بار پری مضامین لکھنے میں مدد کے لئے ہمارے طمانچہ اصولوں کا جواب دیں۔
+      شروع کرنے کے لئے نیچے دیئے گئے سوال پر کلک کریں۔
   business:
-    heading: Business
-    text: Contact us for help with your business
+    heading: کاروبار
+    text: اپنے کاروبار میں مدد کے لئے ہم سے رابطہ کریں
   data_deletion:
-    heading: Data Deletion
-    text: Contact us for help with data deletion
+    heading: ڈیٹا ڈیلیشن
+    text: ہم آپ کی طرف سے آپ کا ڈیٹا حذف کردیں گے۔ شروع کرنے کے لئے ہم سے رابطہ کریں۔
   estate:
-    heading: Estate Planning
-    text: Contact us for help with estate planning
+    heading: اسٹیٹ کی منصوبہ بندی
+    text: ہم آپ کو اپنی اسٹیٹ بنانے اور بنانے میں مدد کرسکتے ہیں۔ مثال کے طور پر ذیل میں اعداد و شمار.
   litigation:
-    heading: Litigation
-    text: Contact us for help with litigation matters
+    heading: قانونی چارہ جوئی
+    text: قانونی چارہ جوئی کے معاملات میں مدد کے لئے ہم سے رابطہ کریں
   write_rickie:
-    heading: Write Rickie
-    text: Send Rickie Slaughter a letter
+    heading: رکی کو لکھیں
+    text: رکی سلاٹر کو ایک خط ارسال کریں

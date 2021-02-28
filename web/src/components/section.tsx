@@ -1,6 +1,7 @@
 import { Box, useColorMode } from '@chakra-ui/react';
 import React, { CSSProperties } from 'react';
 import { colors, gutters } from '../styles/neonLaw';
+
 import { Container } from './container';
 import styled from '@emotion/styled';
 
@@ -48,7 +49,7 @@ export const Section = ({
             title ? <h2
               style={{
                 ...titleStyles,
-                textAlign: isTitleCentered ? 'center' : 'left',
+                // textAlign: isTitleCentered ? 'center' : 'left',
               }}
               className={`${
                 isTitleNotUnderlined

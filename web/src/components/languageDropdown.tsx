@@ -1,60 +1,38 @@
-import {
-  Box,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Text,
-  useColorMode
-} from '@chakra-ui/react';
+import { useNextIntl, withNextIntl } from '@moxy/next-intl';
+
 import { ChevronUpIcon } from '@chakra-ui/icons';
-import React from 'react';
-import { colors } from '../styles/neonLaw';
+import { Select } from '@chakra-ui/react';
+import { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 
-export const LanguageDropdown = () => {
-  const { colorMode } = useColorMode();
-  const lighterBg = { dark: 'gray.700', light: 'gray.200' };
-  const evenLighterBg = { dark: 'gray.600', light: 'gray.100' };
+const getLanguageId = (name) => {
+  if (name === 'English') {
+    return 'en';
+  } else if (name === 'Spanish (Latin America)') {
+    return 'es';
+  } else if (name === 'Urdu') {
+    return 'ur';
+  }
+};
+
+const Dropdown = () => {
+  const { locales, locale, changeLocale } = useNextIntl();
   const intl = useIntl();
 
+  const handleChange = useCallback(
+    (event) => changeLocale(event.target.value),
+    [changeLocale],
+  );
+
   return (
-    <>
-      <Box padding="7px 0">
-        <Menu
-          placement="top"
-        >
-          <MenuButton>
-            {intl.formatMessage({ id: 'languages.language' })}
-            <ChevronUpIcon />
-          </MenuButton>
-          <MenuList
-            bg={lighterBg[colorMode]}
-            color={colors.text[colorMode]}
-          >
-            <MenuItem
-              _hover={{ backgroundColor: evenLighterBg[colorMode] }}
-            >
-              changeLocale to en
-              {intl.formatMessage({ id: 'languages.english' })}
-            </MenuItem>
-            <MenuItem
-              _hover={{ backgroundColor: evenLighterBg[colorMode] }}
-            >
-              changeLocale to es
-              {intl.formatMessage({ id: 'languages.spanish' })}
-            </MenuItem>
-          </MenuList>
-        </Menu>
-      </Box>
-      <Box
-        cursor="pointer"
-        width="100%"
-        display={['block', 'block', 'none']}
-        padding="7px 0"
-      >
-        <Text>languageDropdown.text</Text>
-      </Box>
-    </>
+    <Select icon={<ChevronUpIcon />} value={locale.id} onChange={handleChange}>
+      {locales.map(({ id, name }) => (
+        <option key={id} value={id}>
+          {intl.formatMessage({id: `languages.${getLanguageId(name)}`})}
+        </option>
+      ))}
+    </Select>
   );
 };
+
+export const LanguageDropdown = withNextIntl(Dropdown);

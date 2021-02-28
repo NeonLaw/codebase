@@ -2,11 +2,13 @@ import { Box, Center } from '@chakra-ui/react';
 
 import { Button } from '../components/button';
 import React from 'react';
+import { useIntl } from 'react-intl';
 
 export const EmailListButton = () => {
   /* eslint-disable max-len */
   const newsletterSignupLink = 'https://cdn.forms-content.sg-form.com/f382e1e4-378e-11eb-a485-52be2b98b781';
   /* eslint-enable max-len */
+  const intl = useIntl();
 
   return (
     <Box marginBottom="10px">
@@ -30,7 +32,9 @@ export const EmailListButton = () => {
           rel="noopener noreferrer"
           display={['none', 'none', 'flex']}
         >
-          Sign up for our e-mail list, the Neon Law Monthly.
+          {
+            intl.formatMessage({ id: 'footer.email_list' })
+          }
         </Button>
       </Center>
     </Box>

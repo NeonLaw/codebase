@@ -1,5 +1,6 @@
 import { gutters, shadows, sizes } from '../../styles/neonLaw';
 
+import { GetLayoutDirection } from '../../../utils/getLayoutDirection';
 import React from 'react';
 import { ReadMoreButton } from '../readMoreButton';
 import styled from '@emotion/styled';
@@ -30,7 +31,8 @@ const StyledReason = styled.div`
     }
 
     @media (min-width: 1081px) {
-      margin-right: ${gutters.largeOne};
+      margin-right: ${(props) => props.dir === 'ltr' ? gutters.largeOne : 0 };
+      margin-left: ${(props) => props.dir === 'rtl' ? gutters.largeOne : 0 };
     }
   }
 
@@ -92,9 +94,10 @@ const StyledReason = styled.div`
 
 export const Reason = ({ title, text, image }: ReasonProps): JSX.Element => {
   const intl = useIntl();
+  const dir = GetLayoutDirection();
 
   return (
-    <StyledReason>
+    <StyledReason dir={dir}>
       <div className="text">
         <h3 dangerouslySetInnerHTML={{ __html: title }} />
         <p>{text}</p>

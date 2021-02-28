@@ -1,6 +1,9 @@
 import { Center, Heading, theme } from '@chakra-ui/react';
+
+import { GetLayoutDirection } from '../../../utils/getLayoutDirection';
 import React from 'react';
 import { useRouter } from 'next/router';
+
 export interface HelpWithProps {
   text: string;
   image: string;
@@ -9,6 +12,7 @@ export interface HelpWithProps {
 
 export const HelpWith = ({ image, text, path }: HelpWithProps) => {
   const router = useRouter();
+  const dir = GetLayoutDirection();
 
   return (
     <Center
@@ -30,16 +34,17 @@ export const HelpWith = ({ image, text, path }: HelpWithProps) => {
         content: '""',
         display: 'block',
         height: '100%',
-        left: 0,
+        left: dir === 'rtl' ? '100%' : 0,
         opacity: 0,
         position: 'absolute',
-        right: '100%',
+        right: dir === 'rtl' ? 0 : '100%',
         top: 0,
         transition: 'all .3s ease-in',
         width: '0%',
       }}
       _hover={{
         '&:after': {
+          left: '0',
           opacity: '.2',
           right: '0',
           width: '100%',

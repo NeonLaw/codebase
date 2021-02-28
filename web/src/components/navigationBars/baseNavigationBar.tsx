@@ -14,17 +14,19 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
+
 import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { BlackLivesMatter } from './blackLivesMatter';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
+import { GetLayoutDirection } from '../../../utils/getLayoutDirection';
 import Link from 'next/link';
 import { MdDehaze } from 'react-icons/md';
 import { default as NextLink } from 'next/link';
 import { Search } from './search';
 import { colors } from '../../styles/neonLaw';
-import styled from '@emotion/styled';
 import { useIntl } from 'react-intl';
+import { useNextIntl } from '@moxy/next-intl';
 import { useRouter } from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 
@@ -35,11 +37,6 @@ interface BaseNavigationBarProps {
   sideNavigationDrawer?: any;
 }
 
-const StyledLogo = styled.img`
-  width: 48px;
-  margin-right: 1.25rem;
-`;
-
 export const BaseNavigationBar = ({
   links = [] as any[],
   menus = [] as any[],
@@ -49,10 +46,9 @@ export const BaseNavigationBar = ({
   const [loginButtonDisabled, disableLoginButton] = useState(false);
   const intl = useIntl();
   const router = useRouter();
-  const {
-    isLoading,
-    user,
-  } = useUser();
+  const { isLoading, user } = useUser();
+  const { locale } = useNextIntl();
+  const dir = GetLayoutDirection();
 
   return (
     <>
@@ -72,7 +68,15 @@ export const BaseNavigationBar = ({
           <Flex boxSize="100%" align="center">
             <NextLink href="/" aria-label="Neon Law, Back to homepage">
               <a href="/">
-                <StyledLogo src="/images/logo.svg" alt="Neon Law" />
+                <img
+                  src="/images/logo.svg"
+                  style={{
+                    marginLeft: locale.name === 'Urdu' ? '1.25rem' : 0,
+                    marginRight: locale.name !== 'Urdu' ? '1.25rem' : 0,
+                    width: '48px',
+                  }}
+                  alt="Neon Law"
+                />
               </a>
             </NextLink>
 
@@ -104,16 +108,17 @@ export const BaseNavigationBar = ({
                         content: '""',
                         display: 'block',
                         height: '1px',
-                        left: 0,
+                        left: dir === 'rtl' ? '100%' : 0,
                         position: 'absolute',
-                        right: '100%',
+                        right: dir === 'rtl' ? 0 : '100%',
                         transition: 'all 0.4s cubic-bezier(0, 0.5, 0, 1)',
                       }}
                       _hover={
                         {
                           '&:after': {
                             background: colors.primaryColor400,
-                            right: 0,
+                            left: 0,
+                            right: 0 
                           },
                           color: colors.primaryColor400,
                         } as any
@@ -133,9 +138,7 @@ export const BaseNavigationBar = ({
                     <MenuList>
                       {menu.links.map((link, j) => (
                         <MenuItem key={j} as={NextLink} href={link.route}>
-                          <a href={link.route}>
-                            {link.label}
-                          </a>
+                          <a href={link.route}>{link.label}</a>
                         </MenuItem>
                       ))}
                     </MenuList>
@@ -143,24 +146,25 @@ export const BaseNavigationBar = ({
                 </Box>
               ))}
 
-              { isLoading ? null :
-                user ? <AuthenticatedDropdown /> :
-                  <Flex>
-                    <Box width="6px" />
-                    <Button
-                      bg="transparent"
-                      border="1px"
-                      className="nav-content-desktop"
-                      disabled={loginButtonDisabled}
-                      onClick={() => {
-                        disableLoginButton(true);
-                        router.push('/api/auth/login');
-                      }}
-                    >
-                      {intl.formatMessage({ id: 'auth.login' })}
-                    </Button>
-                  </Flex>
-              }
+              {isLoading ? null : user ? (
+                <AuthenticatedDropdown />
+              ) : (
+                <Flex>
+                  <Box width="6px" />
+                  <Button
+                    bg="transparent"
+                    border="1px"
+                    className="nav-content-desktop"
+                    disabled={loginButtonDisabled}
+                    onClick={() => {
+                      disableLoginButton(true);
+                      router.push('/api/auth/login');
+                    }}
+                  >
+                    {intl.formatMessage({ id: 'auth.login' })}
+                  </Button>
+                </Flex>
+              )}
               <IconButton
                 className="nav-content-mobile"
                 aria-label="Navigation Menu"

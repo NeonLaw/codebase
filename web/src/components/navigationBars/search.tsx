@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 
 import { colors } from '../../styles/neonLaw';
 import styled from '@emotion/styled';
+import { useIntl } from 'react-intl';
 
 const StyledInput = styled(Input)<{
   version: 'desktop' | 'mobile';
@@ -34,6 +35,7 @@ export const Search = ({
   borderColor
 }: SearchProps): JSX.Element => {
   const inputRef = useRef<any>();
+  const intl = useIntl();
 
   const handleSlashPress = (e) => {
     if (e.key === '/') {
@@ -56,7 +58,7 @@ export const Search = ({
     };
   }, []);
 
-  const message = 'Press "/" to Search';
+  const message = intl.formatMessage({ id: 'search.message' });
 
   const { colorMode } = useColorMode();
 
