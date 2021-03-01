@@ -1,6 +1,6 @@
 [package]
 name = "git_flow"
-version = "0.0.3"
+version = "0.0.4"
 authors = ["support@neonlaw.com <support@neonlaw.com>"]
 edition = "2018"
 license = "Apache-2.0"
