@@ -1,6 +1,8 @@
 # CHANGELOG
 
-## v0.0.3 (next)
+## v0.0.4 (next)
+
+## v0.0.3
 
 - Add the `validate-branch` command which validates a passed in argument to see
   if it begins with a proper prefix (#1776)
