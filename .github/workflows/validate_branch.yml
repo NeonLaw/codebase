@@ -14,5 +14,5 @@ jobs:
           toolchain: stable
       - name: Install Git Flow
         run: cargo install git_flow
-      - name: Validate Branch
+      - name: Validate source branch
         run: git_flow validate-branch ${GITHUB_HEAD_REF#refs/heads/}

@@ -4,6 +4,14 @@
 
 An opinionated CLI for doing git-flow with GitHub for Cargo and Yarn workspaces.
 
+## Installation
+
+```bash
+cargo install git_flow
+# validate branch
+git_flow validate-branch $BRANCH_NAME
+```
+
 ## Requirements
 
 - A top-level directory Cargo workspace
