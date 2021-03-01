@@ -1,0 +1,20 @@
+---
+name: continuous_integration
+
+on:
+  pull_request:
+
+jobs:
+  validate_branch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: Install Git Flow
+        run: cargo install git_flow
+      - name: Validate Branch
+        run: git_flow validate-branch $BRANCH_NAME
+        env:
+          BRANCH_NAME: github.ref
