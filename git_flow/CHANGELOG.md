@@ -2,6 +2,8 @@
 
 ## v0.0.4 (next)
 
+- Add more branch types to `validate-branch`, including from Dependabot. (#1782)
+
 ## v0.0.3
 
 - Add the `validate-branch` command which validates a passed in argument to see
