@@ -69,8 +69,8 @@ fn main() {
         SubCommand::ValidateBranch(t) => {
             let branch_name: String = t.branch_name;
             println!("Validating Branch {}", branch_name);
-            let re = Regex::new(r"^(feature|improvement)/.*$").unwrap();
-            assert!(re.is_match(&branch_name), "branch name must begin with feature, improvement, bugfix, hotfix, hotfix-base, release, or deployment, then have a forward slash in the name.");
+            let re = Regex::new(r"^(feature|improvement|bugfix|hotfix|hotfix-base|release|deployment|dependabot)/.*$").unwrap();
+            assert!(re.is_match(&branch_name), "branch name must begin with feature, improvement, bugfix, hotfix, hotfix-base, release, deployment, or dependabot and then have a forward slash in the name.");
         }
     }
 }
