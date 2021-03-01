@@ -15,4 +15,4 @@ jobs:
       - name: Install Git Flow
         run: cargo install git_flow
       - name: Validate Branch
-        run: git_flow validate-branch ${GITHUB_REF##*/}
+        run: git_flow validate-branch ${GITHUB_REF#refs/heads/}
