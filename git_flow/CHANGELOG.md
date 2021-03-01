@@ -1,6 +1,9 @@
 # CHANGELOG
 
-## v0.0.4 (next)
+## v0.0.5 (next)
+
+
+## v0.0.4
 
 - Add more branch types to `validate-branch`, including from Dependabot. (#1782)
 
