@@ -132,17 +132,19 @@ module "worker_deployment" {
 }
 
 module "interface_deployment" {
-  source      = "./modules/website_deployment"
-  app_name    = "interface"
-  environment = var.environment
-  image_url   = "${data.terraform_remote_state.gcp.outputs.container_registry}/interface:latest"
+  source               = "./modules/website_deployment"
+  app_name             = "interface"
+  environment          = var.environment
+  image_url            = "${data.terraform_remote_state.gcp.outputs.container_registry}/interface:latest"
+  next_js_auth0_secret = var.next_js_auth0_secret
 }
 
 module "law-job-resources_deployment" {
-  source      = "./modules/website_deployment"
-  app_name    = "law-job-resources"
-  environment = var.environment
-  image_url   = "${data.terraform_remote_state.gcp.outputs.container_registry}/law-job-resources:latest"
+  source               = "./modules/website_deployment"
+  app_name             = "law-job-resources"
+  environment          = var.environment
+  image_url            = "${data.terraform_remote_state.gcp.outputs.container_registry}/law-job-resources:latest"
+  next_js_auth0_secret = var.next_js_auth0_secret
 }
 
 module "ingress" {

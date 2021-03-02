@@ -1,8 +1,11 @@
-variable app_name {
+variable "app_name" {
 }
 
-variable image_url {
+variable "image_url" {
 }
 
-variable environment {
+variable "environment" {
+}
+
+variable "next_js_auth0_secret" {
 }

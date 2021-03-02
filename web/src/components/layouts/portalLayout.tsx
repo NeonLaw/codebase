@@ -13,11 +13,11 @@ import {
   PortalSideNavigation
 } from '../sideNavigation/portalSideNavigation';
 import React from 'react';
-// import { Redirect } from '@reach/router';
 import { getApolloClient } from '../../utils/getApolloClient';
 import { portalNavLinks } from '../navigationBars/portalNavLinks';
 import styled from '@emotion/styled';
 import { useColorMode } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 
 const StyledPortalLayout = styled.div`
@@ -102,48 +102,51 @@ export const PortalLayout = ({ children }) => {
     user,
   } = useUser();
   const apolloClient = getApolloClient();
+  const router = useRouter();
 
   if (isLoading) {
     return <LoadingPage />;
   }
 
-  // if (false) {
-  //   return <Redirect noThrow={true} to="/" />;
-  // }
-
   const links = portalNavLinks({ email: user.email });
 
-  return (
-    <ApolloProvider client={apolloClient}>
-      <StyledPortalLayout>
-        <div className="wrapper">
-          <Aside
-            style={{
-              background:
+  if (user) {
+    return (
+      <ApolloProvider client={apolloClient}>
+        <StyledPortalLayout>
+          <div className="wrapper">
+            <Aside
+              style={{
+                background:
                 colorMode === 'dark' ? '#000' : 'rgba(255, 255, 255, 0.8)',
-              color: colors.text[colorMode],
-              height: '100%',
-            }}
-          >
-            <PortalSideNavigation links={links} />
-          </Aside>
-          <PortalNavigationBar
-            isRenderedOnDashboard={true}
-            sideNavigationDrawer={<PortalSideNavContent links={links} />}
-          />
-          <Main
-            style={{
-              background: colorMode === 'dark' ? '#111' : theme.colors.white,
-              color: colors.text[colorMode],
-            }}
-          >
-            {children}
-          </Main>
-        </div>
-      </StyledPortalLayout>
-      <FooterWrapperMobile>
-        <BaseFooter hideTheSection={true} />
-      </FooterWrapperMobile>
-    </ApolloProvider>
-  );
+                color: colors.text[colorMode],
+                height: '100%',
+              }}
+            >
+              <PortalSideNavigation links={links} />
+            </Aside>
+            <PortalNavigationBar
+              isRenderedOnDashboard={true}
+              sideNavigationDrawer={<PortalSideNavContent links={links} />}
+            />
+            <Main
+              style={{
+                background: colorMode === 'dark' ? '#111' : theme.colors.white,
+                color: colors.text[colorMode],
+              }}
+            >
+              {children}
+            </Main>
+          </div>
+        </StyledPortalLayout>
+        <FooterWrapperMobile>
+          <BaseFooter hideTheSection={true} />
+        </FooterWrapperMobile>
+      </ApolloProvider>
+    );
+  }
+
+  router.push('/');
+
+  return <p>Redirecting</p>;
 };

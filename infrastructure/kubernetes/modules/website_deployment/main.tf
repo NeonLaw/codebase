@@ -26,6 +26,16 @@ resource "kubernetes_deployment" "interface" {
         container {
           image = var.image_url
           name  = var.app_name
+
+          env {
+            name  = "AUTH0_CLIENT_SECRET"
+            value = var.next_js_auth0_secret
+          }
+
+          env {
+            name  = "AUTH0_SECRET"
+            value = var.next_js_auth0_secret
+          }
         }
       }
     }

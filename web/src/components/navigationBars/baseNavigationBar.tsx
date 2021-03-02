@@ -14,7 +14,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
-
+import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { BlackLivesMatter } from './blackLivesMatter';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
@@ -25,6 +25,8 @@ import { Search } from './search';
 import { colors } from '../../styles/neonLaw';
 import styled from '@emotion/styled';
 import { useIntl } from 'react-intl';
+import { useRouter } from 'next/router';
+import { useUser } from '@auth0/nextjs-auth0';
 
 interface BaseNavigationBarProps {
   isRenderedOnDashboard?: boolean;
@@ -46,6 +48,11 @@ export const BaseNavigationBar = ({
   const { isOpen, onToggle, onClose } = useDisclosure();
   const [loginButtonDisabled, disableLoginButton] = useState(false);
   const intl = useIntl();
+  const router = useRouter();
+  const {
+    isLoading,
+    user,
+  } = useUser();
 
   return (
     <>
@@ -136,20 +143,24 @@ export const BaseNavigationBar = ({
                 </Box>
               ))}
 
-              <Flex>
-                <Box width="6px" />
-                <Button
-                  bg="transparent"
-                  border="1px"
-                  className="nav-content-desktop"
-                  disabled={loginButtonDisabled}
-                  onClick={() => {
-                    disableLoginButton(true);
-                  }}
-                >
-                  {intl.formatMessage({ id: 'auth.login' })}
-                </Button>
-              </Flex>
+              { isLoading ? null :
+                user ? <AuthenticatedDropdown /> :
+                  <Flex>
+                    <Box width="6px" />
+                    <Button
+                      bg="transparent"
+                      border="1px"
+                      className="nav-content-desktop"
+                      disabled={loginButtonDisabled}
+                      onClick={() => {
+                        disableLoginButton(true);
+                        router.push('/api/auth/login');
+                      }}
+                    >
+                      {intl.formatMessage({ id: 'auth.login' })}
+                    </Button>
+                  </Flex>
+              }
               <IconButton
                 className="nav-content-mobile"
                 aria-label="Navigation Menu"
