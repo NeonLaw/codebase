@@ -9,12 +9,16 @@ import {
 import { Link } from '../../components/link';
 import React from 'react';
 import { UserAvatar } from '../userAvatar';
+import { useIntl } from 'react-intl';
+import { useRouter } from 'next/router';
 
 export const AuthenticatedDropdown = () => {
   const { colorMode } = useColorMode();
   const lighterBg = { dark: 'gray.700', light: 'gray.200' };
   const evenLighterBg = { dark: 'gray.600', light: 'gray.100' };
   const color = { dark: 'white', light: 'black' };
+  const router = useRouter();
+  const intl = useIntl();
 
   return (
     <Box
@@ -30,22 +34,25 @@ export const AuthenticatedDropdown = () => {
           bg={lighterBg[colorMode]}>
           <MenuItem
             as={Link}
-            onClick={() => console.log('/portal')}
+            cursor="pointer"
+            onClick={() => router.push('/portal')}
             _hover={{ backgroundColor: evenLighterBg[colorMode] }}
           >
-            components_navbar.auth_portal
+            {intl.formatMessage({ id: 'components_navbar.auth_portal' })}
           </MenuItem>
           <MenuItem
             as={Link}
-            onClick={() => console.log('/portal/settings')}
+            cursor="pointer"
+            onClick={() => router.push('/portal/settings')}
             _hover={{ backgroundColor: evenLighterBg[colorMode] }}
           >
-            components_navbar.auth_settings
+            {intl.formatMessage({ id: 'components_navbar.auth_settings' })}
           </MenuItem>
           <MenuItem
+            cursor="pointer"
             _hover={{ backgroundColor: evenLighterBg[colorMode] }}
           >
-                components_navbar.auth_logout
+            {intl.formatMessage({ id: 'components_navbar.auth_logout' })}
           </MenuItem>
         </MenuList>
       </Menu>

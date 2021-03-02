@@ -42,3 +42,6 @@ variable "stripe_api_secret_key" {
 
 variable "environment" {
 }
+
+variable "next_js_auth0_secret" {
+}

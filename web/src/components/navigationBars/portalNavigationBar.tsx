@@ -16,7 +16,7 @@ import {
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { colors, gutters, theme } from '../../styles/neonLaw';
-// import { AuthenticatedDropdown } from './authenticatedDropdown';
+import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
 import { Link } from '../link';
@@ -149,25 +149,7 @@ export const PortalNavigationBar = ({
                 </Box>
               ))}
 
-              {/* {isLoading ? null : false ? (
-                <AuthenticatedDropdown />
-              ) : ( */}
-              <Flex>
-                <Box width="6px" />
-                <Button
-                  bg="transparent"
-                  border="1px"
-                  className="nav-content-desktop"
-                  disabled={loginButtonDisabled}
-                  onClick={() => {
-                    disableLoginButton(true);
-                    console.log();
-                  }}
-                >
-                  {intl.formatMessage({ id: 'auth.login' })}
-                </Button>
-              </Flex>
-              {/* )} */}
+              <AuthenticatedDropdown />
 
               <IconButton
                 aria-label="Navigation Menu"
