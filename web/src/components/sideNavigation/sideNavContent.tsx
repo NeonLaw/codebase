@@ -1,6 +1,6 @@
 import { Box, useColorMode } from '@chakra-ui/react';
 import { colors, gutters } from '../../styles/neonLaw';
-
+import Link from 'next/link';
 import React from 'react';
 import { Search } from '../navigationBars/search';
 import styled from '@emotion/styled';
@@ -100,11 +100,11 @@ export const SideNavContent = ({
           </Box>
           <div className="links">
             {links.map((link, i) => (
-              !link ? null : <Box key={i}>
+              <Link href={link.route} key={i}>
                 <Box
+                  cursor="pointer"
                   activeStyle={{ color: activeColor[colorMode] }}
                   activeClassName="active"
-                  to={link.route}
                   className="link"
                   data-testid={
                     `${link.label.toLowerCase()}-side-navigation-link`
@@ -113,7 +113,7 @@ export const SideNavContent = ({
                   {isRenderedOnDashboard ? link.icon : null}
                   {link.label}
                 </Box>
-              </Box>
+              </Link>
             ))}
             <Box
               mb="10"

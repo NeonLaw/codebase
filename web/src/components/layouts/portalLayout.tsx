@@ -1,5 +1,4 @@
 import { colors, gutters, theme } from '../../styles/neonLaw';
-
 import { ApolloProvider } from '@apollo/client';
 import { BaseFooter } from '../footer/baseFooter';
 import { LoadingPage } from '../loadingPage';
@@ -101,16 +100,16 @@ export const PortalLayout = ({ children }) => {
     isLoading,
     user,
   } = useUser();
-  const apolloClient = getApolloClient();
   const router = useRouter();
 
   if (isLoading) {
     return <LoadingPage />;
   }
 
-  const links = portalNavLinks({ email: user.email });
-
   if (user) {
+    const apolloClient = getApolloClient();
+    const links = portalNavLinks({ email: user.email });
+
     return (
       <ApolloProvider client={apolloClient}>
         <StyledPortalLayout>

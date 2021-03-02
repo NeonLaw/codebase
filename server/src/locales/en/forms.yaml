@@ -33,3 +33,6 @@ forms:
     label: Amount
     placeholder: Enter the amount
     required: The amount is required.
+  body:
+    label: Your text
+    placeholder: Enter your text here
