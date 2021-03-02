@@ -137,7 +137,7 @@ export const CreateModalFormBuilder = ({
           fontSize={theme.fontSizes['xl0']}
           color={colors.text[colorMode]}
         >
-            Create {titlecaseResourceName}
+          Create {titlecaseResourceName}
         </ModalHeader>
         <ModalCloseButton style={{ color: colors.text[colorMode] }} />
         <form

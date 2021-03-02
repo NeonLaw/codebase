@@ -36,7 +36,7 @@ export const SelectWithQuery = ({
     return (<h1>Loading</h1>);
   }
   if (error) {
-    return (<h1>{JSON.stringify(error)}</h1>);
+    return (<Box color="red">{JSON.stringify(error)}</Box>);
   }
   const nodes = data && data[queryName]?.nodes || [];
 

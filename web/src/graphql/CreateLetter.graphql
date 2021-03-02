@@ -1,0 +1,19 @@
+mutation CreateLetter($body: JSON!, $addressorId: UUID!, $addresseeId: UUID!) {
+  createLetter(
+    input: {
+      letter: {
+        body: $body
+        addressorId: $addressorId
+        addresseeId: $addresseeId
+      }
+    }
+  ) {
+    letter {
+      id
+      createdAt
+      body
+      addressorId
+      addresseeId
+    }
+  }
+}

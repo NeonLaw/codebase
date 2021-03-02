@@ -51,6 +51,8 @@ export const AuthenticatedDropdown = () => {
           <MenuItem
             cursor="pointer"
             _hover={{ backgroundColor: evenLighterBg[colorMode] }}
+            as="a"
+            href="/api/auth/logout"
           >
             {intl.formatMessage({ id: 'components_navbar.auth_logout' })}
           </MenuItem>
