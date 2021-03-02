@@ -5,7 +5,7 @@
         "web"
     ],
     "optionalDependencies": {
-        "cypress": "^6.5.0"
+        "cypress": "^6.6.0"
     },
     "devDependencies": {
         "@graphql-codegen/cli": "^1.21.1",
