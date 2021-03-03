@@ -1887,10 +1887,10 @@
     graphql-subscriptions "^1.1.0"
     tslib "^2.0.1"
 
-"@graphile/pro@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@graphile/pro/-/pro-1.0.1.tgz#c9fc3be4ffafea53a06e2f584ae395856cda8ad4"
-  integrity sha512-jJbI/CZtQgTXxPujcirYcWgy3FwU0tj+zCy1bdf1nVJxUlCmFFAJFu2LVhcCHQnWIEGfPeLVY4n4U3bfLPMi+w==
+"@graphile/pro@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@graphile/pro/-/pro-1.0.2.tgz#6258e9a4fe8b085c89a069dddc609a40313b2773"
+  integrity sha512-d3M+6cLFXCr37d0MpuPeALg5/hXMCG4OyHcc8TpeTV0IkcYrIUn/rTGTaf8QydyXTPWDQGhLaD5WQENBvZhBJg==
   dependencies:
     "@types/pg" "^7.4.14"
     graphql ">=0.9 <16"
