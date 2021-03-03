@@ -4,7 +4,6 @@ import Link from 'next/link';
 import React from 'react';
 import { Search } from '../navigationBars/search';
 import styled from '@emotion/styled';
-import { useIntl } from 'react-intl';
 
 const StyledSideNavContent = styled.div<{ isRenderedOnDashboard?: boolean }>`
   height: 100%;
@@ -65,7 +64,6 @@ export const SideNavContent = ({
   const activeColor = { dark: 'cyan.500', light: 'cyan.800' };
   const bg = { dark: 'black', light: 'gray.200' };
   const { colorMode } = useColorMode();
-  const intl = useIntl();
 
   return (
     <StyledSideNavContent
@@ -115,13 +113,6 @@ export const SideNavContent = ({
                 </Box>
               </Link>
             ))}
-            <Box
-              mb="10"
-              cursor="pointer"
-              className="link"
-            >
-              {intl.formatMessage({ id: 'auth.login' })}
-            </Box>
           </div>
         </Box>
       </Box>
