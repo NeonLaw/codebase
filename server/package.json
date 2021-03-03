@@ -33,7 +33,7 @@
     "js-yaml": "^4.0.0",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.12.3",
-    "neo4j-driver": "^4.2.2",
+    "neo4j-driver": "^4.2.3",
     "newrelic": "latest",
     "pg": "^8.5.1",
     "postgraphile": "^4.11.0",
