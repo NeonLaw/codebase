@@ -188,10 +188,10 @@ pages:
     text: Contact us for help with your business
   data_deletion:
     heading: Data Deletion
-    text: Contact us for help with data deletion
+    text: We will delete your data on your behalf. Contact us to get started.
   estate:
     heading: Estate Planning
-    text: Contact us for help with estate planning
+    text: We can create and help you manage your estate. Example data below.
   litigation:
     heading: Litigation
     text: Contact us for help with litigation matters

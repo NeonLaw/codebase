@@ -21,14 +21,9 @@ export const portalNavLinks = ({ email }) => {
       route: '/portal',
     },
     {
-      icon: <BiPen />,
-      label: 'Write Rickie',
-      route: '/portal/write-rickie',
-    },
-    {
-      icon: <TiDeleteOutline />,
-      label: 'Data Deletion',
-      route: '/portal/data-deletion',
+      icon: <AiOutlineShop />,
+      label: 'Businesses',
+      route: '/portal/businesses',
     },
     {
       icon: <MdGavel />,
@@ -41,9 +36,14 @@ export const portalNavLinks = ({ email }) => {
       route: '/portal/estate',
     },
     {
-      icon: <AiOutlineShop />,
-      label: 'Businesses',
-      route: '/portal/businesses',
+      icon: <TiDeleteOutline />,
+      label: 'Data Deletion',
+      route: '/portal/data-deletion',
+    },
+    {
+      icon: <BiPen />,
+      label: 'Write Rickie',
+      route: '/portal/write-rickie',
     },
     {
       icon: <BiBook />,
