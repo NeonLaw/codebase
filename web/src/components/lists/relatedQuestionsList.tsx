@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 export const RelatedQuestionsList = ({
   relatedQuestions,
   questionnaireId,
+  basePath
 }) => {
   const router = useRouter();
 
@@ -22,7 +23,7 @@ export const RelatedQuestionsList = ({
             _hover={{ bg: 'teal.600', color: 'white' }}
             onClick={() => {
               router.push(
-                `/questionnaires/${questionnaireId}/${question.id}`
+                `${basePath}/${questionnaireId}/${question.id}`
               );
             }}
           >

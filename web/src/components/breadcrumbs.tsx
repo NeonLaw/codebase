@@ -4,7 +4,7 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
 import { Link } from '../components/link';
 import { Location } from '@reach/router';
-import React from 'react';
+import { useIntl } from 'react-intl';
 
 const getRouteFromPath = (
   path: string,
@@ -23,6 +23,8 @@ interface BreadCrumbProps {
 }
 
 export const Breadcrumbs = ({ showHome = true }: BreadCrumbProps) => {
+  const intl = useIntl();
+
   return (
     <Location>
       {({ location }) => {
@@ -65,7 +67,7 @@ export const Breadcrumbs = ({ showHome = true }: BreadCrumbProps) => {
                 as={Link}
                 to="/"
               >
-                breadcrumbs.home
+                {intl.formatMessage({ id: 'breadcrumbs.home' })}
               </BreadcrumbLink>
             </BreadcrumbItem>}
             {paths.map((path, i) => {

@@ -5,6 +5,7 @@ import React from 'react';
 import { gutters } from '../../../styles/neonLaw';
 import styled from '@emotion/styled';
 import { useIntl } from 'react-intl';
+import { useRouter } from 'next/router';
 
 const StyledAdminPortalOptions = styled.div`
   display: grid;
@@ -25,6 +26,7 @@ interface AdminPortalOption {
 
 const AdminDashboard = () => {
   const intl = useIntl();
+  const router = useRouter();
 
   const adminPortalOptions: AdminPortalOption[] = [
     {
@@ -71,7 +73,7 @@ const AdminDashboard = () => {
               flash={false}
               colorScheme="gray"
               onClick={() => {
-                console.log(`/portal/admin/${path}`);
+                router.push(`/portal/admin/${path}`);
               }}
               data-testid={dataTestId}
               key={i+path}

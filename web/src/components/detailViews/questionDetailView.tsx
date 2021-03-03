@@ -10,7 +10,12 @@ import { gutters } from '../../styles/neonLaw';
 import { useForm } from 'react-hook-form';
 import { useQuestionByIdQuery } from '../../utils/api';
 
-export const QuestionDetailView = ({ id, questionnaireId, showQuestion }) => {
+export const QuestionDetailView = ({
+  id,
+  questionnaireId,
+  showQuestion,
+  basePath = '/questionnaires'
+}) => {
   const [showAnswer, toggleShowAnswer] = useState(false);
   const [userAnswer, changeUserAnswer] = useState(showQuestion);
   const formRef = useRef<HTMLFormElement>(null);
@@ -74,6 +79,7 @@ export const QuestionDetailView = ({ id, questionnaireId, showQuestion }) => {
           <RelatedQuestionsList
             relatedQuestions={data.questionById.relatedQuestions}
             questionnaireId={questionnaireId}
+            basePath={basePath}
           />
         </>
       );
@@ -113,6 +119,7 @@ export const QuestionDetailView = ({ id, questionnaireId, showQuestion }) => {
         <RelatedQuestionsList
           relatedQuestions={data.questionById.relatedQuestions}
           questionnaireId={questionnaireId}
+          basePath={basePath}
         />
       </>
     );
