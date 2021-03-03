@@ -1,19 +1,23 @@
-import { Breadcrumbs } from '../../../components/breadcrumbs';
+import { Box, Container } from '@chakra-ui/react';
 import { PortalLayout } from '../../../components/layouts/portalLayout';
 import {
   QuestionnaireDetailView
 } from '../../../components/detailViews/questionnaireDetailView';
-import React from 'react';
+import { useRouter } from 'next/router';
 
-/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-const BarMobilityQuestionnaire = ({ params: { questionnaireId }}) => {
+const QuestionnaireDetailPage = () => {
+  const router = useRouter();
+  const { questionnaireId } = router.query;
+
   return (
     <PortalLayout>
-      <Breadcrumbs showHome={false} />
-      <QuestionnaireDetailView id={questionnaireId} />
+      <Box height="10em" />
+      <Container>
+        <QuestionnaireDetailView id={questionnaireId} />
+      </Container>
     </PortalLayout>
   );
 };
 
-/* eslint-disable-next-line import/no-default-export */
-export default BarMobilityQuestionnaire;
+/* eslint-disable-next-line */
+export default QuestionnaireDetailPage;
