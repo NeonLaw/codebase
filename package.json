@@ -97,7 +97,7 @@
         "next-compose-plugins": "^2.2.1",
         "react-intl": "^5.13.2",
         "react-player": "^2.9.0",
-        "react-responsive-carousel": "^3.2.12",
+        "react-responsive-carousel": "^3.2.13",
         "slate": "^0.59.0",
         "slate-history": "^0.59.0",
         "slate-hyperscript": "^0.59.0",
