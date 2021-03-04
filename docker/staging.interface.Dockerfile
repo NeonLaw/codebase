@@ -14,11 +14,9 @@ COPY package.json .
 COPY yarn.lock .
 RUN yarn install --silent --ignore-optional --no-cache --frozen-lockfile
 
-COPY ./web ./web
+COPY ./ ./
 
 WORKDIR /app/web
-
-RUN yarn --no-cache
 
 RUN mv ./.env.staging ./.env.production
 RUN yarn build

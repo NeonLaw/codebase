@@ -15,7 +15,6 @@ import cors from 'cors';
 import { createCheckoutSession } from './resolvers/createCheckoutSession';
 import { createPerson } from './createPerson';
 import express from 'express';
-import { fetchLocaleJson } from './fetchLocaleJson';
 import { postgraphile } from 'postgraphile';
 import { postgraphileOptions } from './postgraphileOptions';
 import { postgresUrl } from './postgresUrl';
@@ -90,18 +89,5 @@ const limiter = rateLimit({
 });
 
 expressApp.use(limiter);
-
-expressApp.get('/api/en.json', function (_, res) {
-  res.json(fetchLocaleJson('en'));
-});
-
-expressApp.get('/api/es.json', function (_, res) {
-  res.json(fetchLocaleJson('es'));
-});
-
-expressApp.get('/api/ur.json', function (_, res) {
-  res.json(fetchLocaleJson('ur'));
-});
-
 
 export const app = expressApp;
