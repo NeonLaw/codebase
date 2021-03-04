@@ -18,8 +18,6 @@ COPY ./web ./web
 
 WORKDIR /app/web
 
-RUN yarn
-
 RUN yarn build
 EXPOSE 3000
 CMD ["yarn", "start"]

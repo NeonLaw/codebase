@@ -9,7 +9,6 @@ describe('Locales files', () => {
         `${__dirname}/../src/locales/${locale}.json`,
         { encoding: 'utf-8' }
       );
-
       const localeJson = createFlattenedJson(locale);
 
       expect(json).toEqual(localeJson);

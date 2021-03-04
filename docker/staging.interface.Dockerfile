@@ -18,8 +18,6 @@ COPY ./web ./web
 
 WORKDIR /app/web
 
-RUN yarn
-
 RUN mv ./.env.staging ./.env.production
 RUN yarn build
 
