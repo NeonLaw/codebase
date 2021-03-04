@@ -1,0 +1,15 @@
+{
+  "name": "@neonlaw/i18n",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "author": "@neonlaw",
+  "description": "i18n files for Neon Law",
+  "main": "src/index.ts",
+  "dependencies": {
+    "js-yaml": "^4.0.0",
+    "ts-node": "^9.1.1"
+  },
+  "scripts": {
+    "create:translations": "ts-node -e 'require(\"./src/index.ts\").createLocales()'"
+  }
+}

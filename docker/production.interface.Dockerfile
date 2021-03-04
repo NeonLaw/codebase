@@ -18,7 +18,7 @@ COPY ./web ./web
 
 WORKDIR /app/web
 
-RUN yarn --no-cache
+RUN yarn
 
 RUN yarn build
 EXPOSE 3000

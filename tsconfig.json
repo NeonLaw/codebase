@@ -9,6 +9,7 @@
     "jsx": "react",
     "lib": ["es2020", "dom", "esnext", "es6", "es2015.promise"],
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "noImplicitAny": false,
     "outDir": "./build",
     "rootDir": "./",

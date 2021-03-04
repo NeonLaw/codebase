@@ -20,6 +20,7 @@ git_flow validate-branch $BRANCH_NAME
 ## GitHub Environment variables
 
 - CRATES_API_KEY. An API token to publish to crates.io
+- NPM_TOKEN. An API token to publish to crates.com
 
 ## Branches
 

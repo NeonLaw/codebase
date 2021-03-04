@@ -18,7 +18,7 @@ COPY ./web ./web
 
 WORKDIR /app/web
 
-RUN yarn --no-cache
+RUN yarn
 
 RUN mv ./.env.staging ./.env.production
 RUN yarn build
