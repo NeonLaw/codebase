@@ -15,6 +15,7 @@ COPY yarn.lock .
 RUN yarn install --silent --ignore-optional --no-cache --frozen-lockfile
 
 COPY ./web ./web
+COPY ./i18n ./i18n
 
 WORKDIR /app/web
 
