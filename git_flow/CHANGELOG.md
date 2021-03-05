@@ -2,6 +2,8 @@
 
 ## v0.0.5 (next)
 
+- Create the first nested command, `git_flow validate-branch` is now
+  `git_flow validate branch` (#1807)
 
 ## v0.0.4
 
