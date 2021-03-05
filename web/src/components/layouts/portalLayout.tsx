@@ -24,7 +24,7 @@ const StyledPortalLayout = styled.div`
   justify-content: center;
   align-items: center;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
-    url(/images/dashboard-pg.jpg);
+    url(/images/dashboard-bg.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
