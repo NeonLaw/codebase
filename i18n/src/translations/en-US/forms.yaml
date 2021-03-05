@@ -36,3 +36,7 @@ forms:
   body:
     label: Your text
     placeholder: Enter your text here
+  addressee_id:
+    label: Addressee
+  addressor_id:
+    label: Addressor
