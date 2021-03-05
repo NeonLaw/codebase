@@ -10,6 +10,6 @@
     "ts-node": "^9.1.1"
   },
   "scripts": {
-    "create:translations": "ts-node -e 'require(\"./src/index.ts\").createLocales()'"
+    "translations:create": "ts-node -e 'require(\"./src/index.ts\").createLocales()'"
   }
 }

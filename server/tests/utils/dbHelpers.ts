@@ -5,6 +5,7 @@ import { postgresUrl } from '../../src/postgresUrl';
 export { insertMatterFixture } from './db/insertMatterFixture';
 export { insertMatterTemplateFixture } from './db/insertMatterTemplateFixture';
 export { insertPersonFixture } from './db/insertPersonFixture';
+export { insertLetterFixture } from './db/insertLetterFixture';
 
 const pools: any = {};
 

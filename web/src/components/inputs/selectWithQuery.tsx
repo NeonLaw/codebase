@@ -33,7 +33,7 @@ export const SelectWithQuery = ({
   } = require('../../utils/api')[`use${capitalize(queryName)}Query`]();
 
   if (loading) {
-    return (<h1>Loading</h1>);
+    return (<h3>Loading</h3>);
   }
   if (error) {
     return (<Box color="red">{JSON.stringify(error)}</Box>);
