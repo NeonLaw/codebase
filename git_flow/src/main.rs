@@ -22,7 +22,7 @@ struct Opts {
 
 #[derive(Clap)]
 enum SubCommand {
-    ValidateBranch(ValidateBranch),
+    Validate(Validate),
     Test(Test),
 }
 
@@ -36,9 +36,21 @@ struct Test {
 
 /// Validate a branch name
 #[derive(Clap)]
-struct ValidateBranch {
+struct Branch {
     /// Branch
     branch_name: String,
+}
+
+/// Validate a pull request or issue
+#[derive(Clap)]
+struct Validate {
+    #[clap(subcommand)]
+    subcmd: ValidationSubcommands,
+}
+
+#[derive(Clap)]
+enum ValidationSubcommands {
+    Branch(Branch),
 }
 
 fn main() {
@@ -66,11 +78,16 @@ fn main() {
                 println!("Printing normally...");
             }
         }
-        SubCommand::ValidateBranch(t) => {
-            let branch_name: String = t.branch_name;
-            println!("Validating Branch {}", branch_name);
-            let re = Regex::new(r"^(feature|improvement|bugfix|hotfix|hotfix-base|release|deployment|dependabot)/.*$").unwrap();
-            assert!(re.is_match(&branch_name), "branch name must begin with feature, improvement, bugfix, hotfix, hotfix-base, release, deployment, or dependabot and then have a forward slash in the name.");
+        SubCommand::Validate(_) => {
+            let validation_opts: Validate = Validate::parse();
+            match validation_opts.subcmd {
+                ValidationSubcommands::Branch(t) => {
+                    let branch_name: String = t.branch_name;
+                    println!("Validating Branch {}", branch_name);
+                    let re = Regex::new(r"^(feature|improvement|bugfix|hotfix|hotfix-base|release|deployment|dependabot)/.*$").unwrap();
+                    assert!(re.is_match(&branch_name), "branch name must begin with feature, improvement, bugfix, hotfix, hotfix-base, release, deployment, or dependabot and then have a forward slash in the name.");
+                }
+            }
         }
     }
 }
