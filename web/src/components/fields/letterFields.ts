@@ -9,13 +9,13 @@ export const letterFields: Field[] = [
   {
     labelColumn: 'name',
     name: 'addresseeId',
-    queryName: 'allAddresses',
+    queryName: 'allPeople',
     type: 'selectWithQuery'
   },
   {
     labelColumn: 'name',
     name: 'addressorId',
-    queryName: 'allAddresses',
+    queryName: 'allPeople',
     type: 'selectWithQuery'
   }
 ];
