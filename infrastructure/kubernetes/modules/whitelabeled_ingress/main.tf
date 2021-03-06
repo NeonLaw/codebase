@@ -1,6 +1,6 @@
 resource "kubernetes_ingress" "primary" {
   metadata {
-    name = "ingress"
+    name = "whitelabeled-ingress"
 
     annotations = {
       "kubernetes.io/ingress.global-static-ip-name" = "neon-law"
