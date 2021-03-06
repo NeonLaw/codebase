@@ -148,7 +148,13 @@ module "law-job-resources_deployment" {
 }
 
 module "ingress" {
-  source      = "../modules/kubernetes_ingress"
+  source      = "./modules/kubernetes_ingress"
+  environment = var.environment
+}
+
+module "whitelabeled_ingress" {
+  count       = var.environment == "production" ? 1 : 0
+  source      = "./modules/whitelabeled_ingress"
   environment = var.environment
 }
 
