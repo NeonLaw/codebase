@@ -32,5 +32,53 @@ resource "kubernetes_ingress" "primary" {
         }
       }
     }
+
+    rule {
+      host = var.environment == "production" ? "www.deleteyourdata.com" : "deleteyourdata.neonlaw.net"
+      http {
+        path {
+          backend {
+            service_name = "production-interface"
+            service_port = 80
+          }
+        }
+      }
+    }
+
+    rule {
+      host = var.environment == "production" ? "www.deletetheirdata.com" : "deletetheirdata.neonlaw.net"
+      http {
+        path {
+          backend {
+            service_name = "production-interface"
+            service_port = 80
+          }
+        }
+      }
+    }
+
+    rule {
+      host = var.environment == "production" ? "www.justiceforrickieslaughter.com" : "justiceforrickieslaughter.neonlaw.net"
+      http {
+        path {
+          backend {
+            service_name = "production-interface"
+            service_port = 80
+          }
+        }
+      }
+    }
+
+    rule {
+      host = var.environment == "production" ? "www.shook.family" : "shookfamily.neonlaw.net"
+      http {
+        path {
+          backend {
+            service_name = "production-interface"
+            service_port = 80
+          }
+        }
+      }
+    }
   }
 }
