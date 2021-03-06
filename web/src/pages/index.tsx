@@ -1,51 +1,46 @@
-import { Global, css } from '@emotion/react';
+import {
+  DeleteTheirDataIndexPage
+} from '../components/indexPages/deleteTheirDataIndexPage';
+import {
+  DeleteYourDataIndexPage
+} from '../components/indexPages/deleteYourDataIndexPage';
+import {
+  JusticeForRickieSlaughterIndexPage
+} from '../components/indexPages/justiceForRickieSlaughterIndexPage';
+import { NeonLawIndexPage } from '../components/indexPages/neonLawIndexPage';
+import {
+  ShookFamilyIndexPage
+} from '../components/indexPages/shookFamilyIndexPage';
 
-import { Experience } from '../components/homepage/experience';
-import { GetStarted } from '../components/getStarted';
-import { Hero } from '../components/homepage/hero';
-import { InAction } from '../components/homepage/in-action';
-import { ProBono } from '../components/homepage/pro-bono';
-import { PublicLayout } from '../components/layouts/publicLayout';
-import React from 'react';
-import { Seo } from '../components/seo';
-// import { SocialProofLogos } from '../components/homepage/social-proof-logos';
-// import { Testimonials } from '../components/homepage/testimonials';
-import { WhyNeonLaw } from '../components/homepage/whyNeonLaw';
-import { colors } from '../styles/neonLaw';
-import { useColorMode } from '@chakra-ui/react';
-import { useIntl } from 'react-intl';
+const Home = ({ host }): JSX.Element => {
+  if (host == 'www.justiceforrickieslaughter.com') {
+    return <JusticeForRickieSlaughterIndexPage />;
+  }
+  if (host == 'www.deleteyourdata.com') {
+    return <DeleteYourDataIndexPage />;
+  }
+  if (host == 'www.deletetheirdata.com') {
+    return <DeleteTheirDataIndexPage />;
+  }
+  if (host == 'www.shook.family') {
+    return <ShookFamilyIndexPage />;
+  }
 
-const Home = (): JSX.Element => {
-  const { colorMode } = useColorMode();
-  const intl = useIntl();
-
-  return (
-    <PublicLayout isFooterWhite={true}>
-      <Seo title="Homepage" />
-      <Hero
-        title={intl.formatMessage({ id: 'banner.title' })}
-        text={intl.formatMessage({ id: 'banner.text' })}
-        buttonText={intl.formatMessage({ id: 'auth.sign_up' })}
-      />
-      <Global
-        styles={css`
-          section {
-            &:nth-of-type(2n + 2) {
-              background: ${colors.lighterBg[colorMode]};
-            }
-          }
-        `}
-      />
-      <WhyNeonLaw />
-      {/* <SocialProofLogos />
-        <Testimonials /> */}
-      <InAction />
-      <Experience />
-      <ProBono />
-      <GetStarted />
-    </PublicLayout>
-  );
+  return <NeonLawIndexPage />;
 };
 
 /* eslint-disable-next-line import/no-default-export */
 export default Home;
+
+export const getServerSideProps = async ({ req, res }) => {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=1, stale-while-revalidate=59'
+  );
+
+  return {
+    props: {
+      host: req.headers.host
+    }
+  };
+};
