@@ -152,12 +152,6 @@ module "ingress" {
   environment = var.environment
 }
 
-module "whitelabeled_ingress" {
-  count       = var.environment == "production" ? 1 : 0
-  source      = "./modules/whitelabeled_ingress"
-  environment = var.environment
-}
-
 module "new_relic" {
   source                = "./modules/new_relic_helm"
   environment           = var.environment
