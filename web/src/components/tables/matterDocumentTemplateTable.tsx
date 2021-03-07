@@ -28,7 +28,7 @@ export const MatterDocumentTemplateTable = (
       accessor: 'name',
     },
   ];
-  const nodes = data?.allMatterDocumentTemplates?.nodes || [];
+  const nodes = data?.matterDocumentTemplates?.nodes || [];
 
   return (
     <Table

@@ -1,5 +1,5 @@
 query AllQuestions {
-  allQuestions(orderBy: PROMPT_ASC) {
+  questions(orderBy: PROMPT_ASC) {
     nodes {
       id
       options

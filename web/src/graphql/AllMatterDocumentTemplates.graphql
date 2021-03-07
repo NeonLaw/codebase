@@ -1,5 +1,5 @@
 query AllMatterDocumentTemplates {
-  allMatterDocumentTemplates(orderBy: NAME_ASC) {
+  matterDocumentTemplates(orderBy: NAME_ASC) {
     nodes {
       id
       name

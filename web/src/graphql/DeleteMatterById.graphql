@@ -1,5 +1,5 @@
 mutation DeleteMatterById($id: UUID!) {
-  deleteMatterById(input: { id: $id }) {
+  deleteMatter(input: { id: $id }) {
     matter {
       id
     }

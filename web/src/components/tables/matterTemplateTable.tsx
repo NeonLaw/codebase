@@ -34,7 +34,7 @@ export const MatterTemplateTable = (props: MatterTemplateTableProps) => {
       accessor: 'category',
     },
   ];
-  const nodes = data?.allMatterTemplates?.nodes || [];
+  const nodes = data?.matterTemplates?.nodes || [];
 
   return (
     <Table

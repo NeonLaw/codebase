@@ -35,8 +35,8 @@ export const QuestionDetailView = ({
   }
 
   if (data) {
-    const answer = convertSlateToPlaintext(data.questionById?.helpText);
-    const prompt  = data.questionById?.prompt;
+    const answer = convertSlateToPlaintext(data.question?.helpText);
+    const prompt  = data.question?.prompt;
 
     if (showAnswer) {
       console.log(JSON.stringify(userAnswer));
@@ -77,7 +77,7 @@ export const QuestionDetailView = ({
           </Button>
           <Box height="20px" />
           <RelatedQuestionsList
-            relatedQuestions={data.questionById.relatedQuestions}
+            relatedQuestions={data.question.relatedQuestions}
             questionnaireId={questionnaireId}
             basePath={basePath}
           />
@@ -117,7 +117,7 @@ export const QuestionDetailView = ({
         </form>
         <Box height="20px" />
         <RelatedQuestionsList
-          relatedQuestions={data.questionById.relatedQuestions}
+          relatedQuestions={data.question.relatedQuestions}
           questionnaireId={questionnaireId}
           basePath={basePath}
         />

@@ -30,7 +30,7 @@ export const MatterTable = ({ onRowClick }: MatterTableProps) => {
       accessor: 'personByPrimaryContactId.name',
     },
   ];
-  const nodes = data?.allMatters?.nodes || [];
+  const nodes = data?.matters?.nodes || [];
 
   return (
     <Table

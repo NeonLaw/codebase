@@ -1,12 +1,12 @@
 query MatterById($id: UUID!) {
-  matterById(id: $id) {
+  matter(id: $id) {
     id
     name
-    personByPrimaryContactId {
+    primaryContact {
       id
       name
     }
-    matterTemplateByMatterTemplateId {
+    matterTemplate {
       id
       name
       category

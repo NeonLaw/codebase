@@ -4,9 +4,9 @@ mutation UpdateMatterTemplateById(
   $javascriptModule: String
   $category: String
 ) {
-  updateMatterTemplateById(
+  updateMatterTemplate(
     input: {
-      matterTemplatePatch: {
+      patch: {
         name: $name
         javascriptModule: $javascriptModule
         category: $category

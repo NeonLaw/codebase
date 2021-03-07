@@ -1,5 +1,5 @@
 query QuestionnaireById($id: UUID!) {
-  questionnaireById(id: $id) {
+  questionnaire(id: $id) {
     id
     name
     questionTree

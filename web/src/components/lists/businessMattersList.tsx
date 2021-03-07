@@ -10,7 +10,7 @@ export const BusinessMattersList = () => {
   }
 
   if (data) {
-    const matters = data?.allCurrentUserMatters?.nodes || [];
+    const matters = data?.currentUserMatters?.nodes || [];
 
     return (
       <>
