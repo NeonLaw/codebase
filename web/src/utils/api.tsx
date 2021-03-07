@@ -3882,12 +3882,12 @@ export type CurrentUserQuery = (
   )> }
 );
 
-export type DeleteMatterMutationVariables = Exact<{
+export type DeleteMatterByIdMutationVariables = Exact<{
   id: Scalars['UUID'];
 }>;
 
 
-export type DeleteMatterMutation = (
+export type DeleteMatterByIdMutation = (
   { __typename?: 'Mutation' }
   & { deleteMatter?: Maybe<(
     { __typename?: 'DeleteMatterPayload' }
@@ -4807,8 +4807,8 @@ export function useCurrentUserLazyQuery(baseOptions?: Apollo.LazyQueryHookOption
 export type CurrentUserQueryHookResult = ReturnType<typeof useCurrentUserQuery>;
 export type CurrentUserLazyQueryHookResult = ReturnType<typeof useCurrentUserLazyQuery>;
 export type CurrentUserQueryResult = Apollo.QueryResult<CurrentUserQuery, CurrentUserQueryVariables>;
-export const DeleteMatterDocument = gql`
-    mutation DeleteMatter($id: UUID!) {
+export const DeleteMatterByIdDocument = gql`
+    mutation DeleteMatterById($id: UUID!) {
   deleteMatter(input: {id: $id}) {
     matter {
       id
@@ -4816,31 +4816,31 @@ export const DeleteMatterDocument = gql`
   }
 }
     `;
-export type DeleteMatterMutationFn = Apollo.MutationFunction<DeleteMatterMutation, DeleteMatterMutationVariables>;
+export type DeleteMatterByIdMutationFn = Apollo.MutationFunction<DeleteMatterByIdMutation, DeleteMatterByIdMutationVariables>;
 
 /**
- * __useDeleteMatterMutation__
+ * __useDeleteMatterByIdMutation__
  *
- * To run a mutation, you first call `useDeleteMatterMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useDeleteMatterMutation` returns a tuple that includes:
+ * To run a mutation, you first call `useDeleteMatterByIdMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteMatterByIdMutation` returns a tuple that includes:
  * - A mutate function that you can call at any time to execute the mutation
  * - An object with fields that represent the current status of the mutation's execution
  *
  * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
  *
  * @example
- * const [deleteMatterMutation, { data, loading, error }] = useDeleteMatterMutation({
+ * const [deleteMatterByIdMutation, { data, loading, error }] = useDeleteMatterByIdMutation({
  *   variables: {
  *      id: // value for 'id'
  *   },
  * });
  */
-export function useDeleteMatterMutation(baseOptions?: Apollo.MutationHookOptions<DeleteMatterMutation, DeleteMatterMutationVariables>) {
-        return Apollo.useMutation<DeleteMatterMutation, DeleteMatterMutationVariables>(DeleteMatterDocument, baseOptions);
+export function useDeleteMatterByIdMutation(baseOptions?: Apollo.MutationHookOptions<DeleteMatterByIdMutation, DeleteMatterByIdMutationVariables>) {
+        return Apollo.useMutation<DeleteMatterByIdMutation, DeleteMatterByIdMutationVariables>(DeleteMatterByIdDocument, baseOptions);
       }
-export type DeleteMatterMutationHookResult = ReturnType<typeof useDeleteMatterMutation>;
-export type DeleteMatterMutationResult = Apollo.MutationResult<DeleteMatterMutation>;
-export type DeleteMatterMutationOptions = Apollo.BaseMutationOptions<DeleteMatterMutation, DeleteMatterMutationVariables>;
+export type DeleteMatterByIdMutationHookResult = ReturnType<typeof useDeleteMatterByIdMutation>;
+export type DeleteMatterByIdMutationResult = Apollo.MutationResult<DeleteMatterByIdMutation>;
+export type DeleteMatterByIdMutationOptions = Apollo.BaseMutationOptions<DeleteMatterByIdMutation, DeleteMatterByIdMutationVariables>;
 export const DeleteMatterDocumentTemplateByIdDocument = gql`
     mutation DeleteMatterDocumentTemplateById($id: UUID!) {
   deleteMatterDocumentTemplate(input: {id: $id}) {

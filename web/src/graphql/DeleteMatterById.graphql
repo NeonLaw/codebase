@@ -1,4 +1,4 @@
-mutation DeleteMatter($id: UUID!) {
+mutation DeleteMatterById($id: UUID!) {
   deleteMatter(input: { id: $id }) {
     matter {
       id
