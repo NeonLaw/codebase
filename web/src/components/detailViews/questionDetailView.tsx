@@ -77,7 +77,7 @@ export const QuestionDetailView = ({
           </Button>
           <Box height="20px" />
           <RelatedQuestionsList
-            relatedQuestions={data.questionById.relatedQuestions}
+            relatedQuestions={data.question.relatedQuestions}
             questionnaireId={questionnaireId}
             basePath={basePath}
           />
@@ -117,7 +117,7 @@ export const QuestionDetailView = ({
         </form>
         <Box height="20px" />
         <RelatedQuestionsList
-          relatedQuestions={data.questionById.relatedQuestions}
+          relatedQuestions={data.question.relatedQuestions}
           questionnaireId={questionnaireId}
           basePath={basePath}
         />
