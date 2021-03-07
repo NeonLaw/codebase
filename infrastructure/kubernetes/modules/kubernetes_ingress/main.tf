@@ -4,7 +4,7 @@ resource "kubernetes_ingress" "primary" {
 
     annotations = {
       "kubernetes.io/ingress.global-static-ip-name" = "neon-law"
-      "ingress.gcp.kubernetes.io/pre-shared-cert"   = "neon-law,neon-law-api"
+      "ingress.gcp.kubernetes.io/pre-shared-cert"   = var.environment == "production" ? "neon-law,neon-law-api,delete-your-data,delete-their-data,justice-for-rickie-slaughter,shook-family" : "neon-law,neon-law-api"
     }
   }
 
