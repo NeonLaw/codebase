@@ -14,7 +14,7 @@ export const UpdateQuestionModal = ({ isOpen, onClose, questionId }) => {
   }
 
   if (data) {
-    const currentValues = data.questionById;
+    const currentValues = data.question;
 
     return (
       <UpdateModalFormBuilder
