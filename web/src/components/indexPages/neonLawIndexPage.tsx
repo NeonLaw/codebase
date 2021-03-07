@@ -1,5 +1,4 @@
 import { Global, css } from '@emotion/react';
-
 import { Experience } from '../homepage/experience';
 import { GetStarted } from '../getStarted';
 import { Hero } from '../homepage/hero';
@@ -13,20 +12,14 @@ import { Seo } from '../seo';
 import { WhyNeonLaw } from '../homepage/whyNeonLaw';
 import { colors } from '../../styles/neonLaw';
 import { useColorMode } from '@chakra-ui/react';
-import { useIntl } from 'react-intl';
 
 export const NeonLawIndexPage = (): JSX.Element => {
   const { colorMode } = useColorMode();
-  const intl = useIntl();
 
   return (
     <PublicLayout isFooterWhite={true}>
       <Seo title="Homepage" />
-      <Hero
-        title={intl.formatMessage({ id: 'banner.title' })}
-        text={intl.formatMessage({ id: 'banner.text' })}
-        buttonText={intl.formatMessage({ id: 'auth.sign_up' })}
-      />
+      <Hero />
       <Global
         styles={css`
           section {
