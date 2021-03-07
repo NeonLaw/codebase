@@ -1,5 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
 import {
+  insertAddressFixture,
   insertLetterFixture,
   insertPersonFixture,
   startAdminSession,
@@ -50,8 +51,15 @@ describe('SELECT * FROM matter;', () => {
     it('can select all letter', () =>
       withRootDb(async (pgClient: any) => {
         await pgClient.query('DELETE FROM letter;');
-        const { id: addresseeId } = await insertPersonFixture(pgClient);
-        const { id: addressorId } = await insertPersonFixture(pgClient);
+        const { id: personId } = await insertPersonFixture(pgClient);
+        const { id: addresseeId } = await insertAddressFixture({
+          client: pgClient,
+          personId
+        });
+        const { id: addressorId } = await insertAddressFixture({
+          client: pgClient,
+          personId
+        });
 
         await insertLetterFixture({
           addresseeId,
