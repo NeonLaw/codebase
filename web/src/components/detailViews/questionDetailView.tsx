@@ -35,8 +35,8 @@ export const QuestionDetailView = ({
   }
 
   if (data) {
-    const answer = convertSlateToPlaintext(data.questionById?.helpText);
-    const prompt  = data.questionById?.prompt;
+    const answer = convertSlateToPlaintext(data.question?.helpText);
+    const prompt  = data.question?.prompt;
 
     if (showAnswer) {
       console.log(JSON.stringify(userAnswer));
