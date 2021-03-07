@@ -1,13 +1,13 @@
 query AllMatters {
-  allMatters(orderBy: UPDATED_AT_ASC) {
+  matters(orderBy: UPDATED_AT_ASC) {
     nodes {
       id
-      personByPrimaryContactId {
+      primaryContact {
         id
         name
         email
       }
-      matterTemplateByMatterTemplateId {
+      matterTemplate {
         id
         name
         category

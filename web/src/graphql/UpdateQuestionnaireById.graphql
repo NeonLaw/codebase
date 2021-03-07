@@ -1,7 +1,5 @@
 mutation UpdateQuestionnaireById($id: UUID!, $name: String) {
-  updateQuestionnaireById(
-    input: { questionnairePatch: { name: $name }, id: $id }
-  ) {
+  updateQuestionnaire(input: { patch: { name: $name }, id: $id }) {
     questionnaire {
       id
       name

@@ -1,5 +1,5 @@
 query AllAddresses {
-  allAddresses {
+  addresses {
     nodes {
       id
       name

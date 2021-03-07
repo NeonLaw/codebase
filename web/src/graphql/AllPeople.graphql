@@ -1,5 +1,5 @@
 query AllPeople {
-  allPeople(orderBy: EMAIL_ASC) {
+  people(orderBy: EMAIL_ASC) {
     nodes {
       id
       name

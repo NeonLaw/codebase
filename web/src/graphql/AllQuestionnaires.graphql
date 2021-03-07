@@ -1,8 +1,8 @@
 query AllQuestionnaires {
-  allQuestionnaires(orderBy: UPDATED_AT_ASC) {
+  questionnaires(orderBy: UPDATED_AT_ASC) {
     nodes {
       id
-      matterTemplateByMatterTemplateId {
+      matterTemplate {
         id
         name
         category

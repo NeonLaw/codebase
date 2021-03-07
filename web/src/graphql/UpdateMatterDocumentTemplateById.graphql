@@ -3,11 +3,8 @@ mutation UpdateMatterDocumentTemplateById(
   $name: String
   $description: String
 ) {
-  updateMatterDocumentTemplateById(
-    input: {
-      matterDocumentTemplatePatch: { name: $name, description: $description }
-      id: $id
-    }
+  updateMatterDocumentTemplate(
+    input: { patch: { name: $name, description: $description }, id: $id }
   ) {
     matterDocumentTemplate {
       id

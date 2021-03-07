@@ -5,9 +5,9 @@ mutation UpdateQuestionById(
   $prompt: String
   $helpText: JSON
 ) {
-  updateQuestionById(
+  updateQuestion(
     input: {
-      questionPatch: {
+      patch: {
         options: $options
         questionType: $questionType
         prompt: $prompt

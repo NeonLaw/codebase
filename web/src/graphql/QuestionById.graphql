@@ -1,5 +1,5 @@
 query QuestionById($id: UUID!) {
-  questionById(id: $id) {
+  question(id: $id) {
     id
     prompt
     helpText

@@ -1,5 +1,5 @@
 mutation UpdateMatterById($id: UUID!, $name: String!) {
-  updateMatterById(input: { id: $id, matterPatch: { name: $name } }) {
+  updateMatter(input: { id: $id, patch: { name: $name } }) {
     matter {
       id
       name

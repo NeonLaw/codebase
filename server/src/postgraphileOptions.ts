@@ -1,6 +1,7 @@
 import { PostGraphileOptions, makePluginHook } from 'postgraphile';
 import GraphilePro from '@graphile/pro';
 import PgPubsub from '@graphile/pg-pubsub';
+import PgSimplifyInflectorPlugin from '@graphile-contrib/pg-simplify-inflector';
 import { fileUploadsPlugin } from './resolvers/fileUploads';
 import { questionPlugin } from './resolvers/questionPlugin';
 import { slatePlugin } from './slateTypes';
@@ -23,7 +24,12 @@ export const postgraphileOptions: PostGraphileOptions = {
     return {};
   },
   allowExplain: process.env.SHOW_GRAPHIQL === 'true' ? true : false,
-  appendPlugins: [fileUploadsPlugin, questionPlugin, slatePlugin],
+  appendPlugins: [
+    PgSimplifyInflectorPlugin,
+    fileUploadsPlugin,
+    questionPlugin,
+    slatePlugin
+  ],
   defaultPaginationCap:
     parseInt(process.env.GRAPHQL_PAGINATION_CAP || '', 10) || 50,
   disableQueryLog: false,

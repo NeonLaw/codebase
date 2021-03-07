@@ -1,5 +1,5 @@
 mutation DeleteQuestionById($id: UUID!) {
-  deleteQuestionById(input: { id: $id }) {
+  deleteQuestion(input: { id: $id }) {
     question {
       id
     }

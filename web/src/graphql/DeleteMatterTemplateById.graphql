@@ -1,5 +1,5 @@
 mutation DeleteMatterTemplateById($id: UUID!) {
-  deleteMatterTemplateById(input: { id: $id }) {
+  deleteMatterTemplate(input: { id: $id }) {
     matterTemplate {
       id
     }

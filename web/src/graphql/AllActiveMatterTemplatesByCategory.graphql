@@ -1,5 +1,5 @@
 query AllActiveMatterTemplatesByCategory($category: String!) {
-  allMatterTemplates(
+  matterTemplates(
     condition: { category: $category, active: true }
     orderBy: NAME_ASC
   ) {
@@ -8,7 +8,7 @@ query AllActiveMatterTemplatesByCategory($category: String!) {
       name
       javascriptModule
       category
-      questionnairesByMatterTemplateId {
+      questionnaires {
         nodes {
           id
           name

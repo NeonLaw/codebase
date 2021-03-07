@@ -1,5 +1,5 @@
 query AllCurrentUserMatters {
-  allCurrentUserMatters {
+  currentUserMatters {
     nodes {
       id
       primaryContactId
