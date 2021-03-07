@@ -223,10 +223,6 @@ export type CreateLetterPayload = {
   letter?: Maybe<Letter>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Person` that is related to this `Letter`. */
-  personByAddressorId?: Maybe<Person>;
-  /** Reads a single `Person` that is related to this `Letter`. */
-  personByAddresseeId?: Maybe<Person>;
   /** An edge for our `Letter`. May be used by Relay 1. */
   letterEdge?: Maybe<LettersEdge>;
 };
@@ -478,43 +474,6 @@ export type CreateQuestionnairePayloadQuestionnaireEdgeArgs = {
   orderBy?: Maybe<Array<QuestionnairesOrderBy>>;
 };
 
-/** All input for the create `QuestionnaireResponse` mutation. */
-export type CreateQuestionnaireResponseInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `QuestionnaireResponse` to be created by this mutation. */
-  questionnaireResponse: QuestionnaireResponseInput;
-};
-
-/** The output of our create `QuestionnaireResponse` mutation. */
-export type CreateQuestionnaireResponsePayload = {
-  __typename?: 'CreateQuestionnaireResponsePayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `QuestionnaireResponse` that was created by this mutation. */
-  questionnaireResponse?: Maybe<QuestionnaireResponse>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `Person` that is related to this `QuestionnaireResponse`. */
-  personByPersonId?: Maybe<Person>;
-  /** Reads a single `Questionnaire` that is related to this `QuestionnaireResponse`. */
-  questionnaireByQuestionnaireId?: Maybe<Questionnaire>;
-  /** An edge for our `QuestionnaireResponse`. May be used by Relay 1. */
-  questionnaireResponseEdge?: Maybe<QuestionnaireResponsesEdge>;
-};
-
-
-/** The output of our create `QuestionnaireResponse` mutation. */
-export type CreateQuestionnaireResponsePayloadQuestionnaireResponseEdgeArgs = {
-  orderBy?: Maybe<Array<QuestionnaireResponsesOrderBy>>;
-};
-
 /** The output of our create `Question` mutation. */
 export type CreateQuestionPayload = {
   __typename?: 'CreateQuestionPayload';
@@ -587,8 +546,6 @@ export type CreateResponsePayload = {
   response?: Maybe<Response>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `QuestionnaireResponse` that is related to this `Response`. */
-  questionnaireResponseByQuestionnaireResponseId?: Maybe<QuestionnaireResponse>;
   /** Reads a single `Question` that is related to this `Response`. */
   questionByQuestionId?: Maybe<Question>;
   /** An edge for our `Response`. May be used by Relay 1. */
@@ -788,10 +745,6 @@ export type DeleteLetterPayload = {
   deletedLetterId?: Maybe<Scalars['ID']>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Person` that is related to this `Letter`. */
-  personByAddressorId?: Maybe<Person>;
-  /** Reads a single `Person` that is related to this `Letter`. */
-  personByAddresseeId?: Maybe<Person>;
   /** An edge for our `Letter`. May be used by Relay 1. */
   letterEdge?: Maybe<LettersEdge>;
 };
@@ -1141,54 +1094,6 @@ export type DeleteQuestionnairePayloadQuestionnaireEdgeArgs = {
   orderBy?: Maybe<Array<QuestionnairesOrderBy>>;
 };
 
-/** All input for the `deleteQuestionnaireResponseById` mutation. */
-export type DeleteQuestionnaireResponseByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  id: Scalars['UUID'];
-};
-
-/** All input for the `deleteQuestionnaireResponse` mutation. */
-export type DeleteQuestionnaireResponseInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The globally unique `ID` which will identify a single `QuestionnaireResponse` to be deleted. */
-  nodeId: Scalars['ID'];
-};
-
-/** The output of our delete `QuestionnaireResponse` mutation. */
-export type DeleteQuestionnaireResponsePayload = {
-  __typename?: 'DeleteQuestionnaireResponsePayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `QuestionnaireResponse` that was deleted by this mutation. */
-  questionnaireResponse?: Maybe<QuestionnaireResponse>;
-  deletedQuestionnaireResponseId?: Maybe<Scalars['ID']>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `Person` that is related to this `QuestionnaireResponse`. */
-  personByPersonId?: Maybe<Person>;
-  /** Reads a single `Questionnaire` that is related to this `QuestionnaireResponse`. */
-  questionnaireByQuestionnaireId?: Maybe<Questionnaire>;
-  /** An edge for our `QuestionnaireResponse`. May be used by Relay 1. */
-  questionnaireResponseEdge?: Maybe<QuestionnaireResponsesEdge>;
-};
-
-
-/** The output of our delete `QuestionnaireResponse` mutation. */
-export type DeleteQuestionnaireResponsePayloadQuestionnaireResponseEdgeArgs = {
-  orderBy?: Maybe<Array<QuestionnaireResponsesOrderBy>>;
-};
-
 /** The output of our delete `Question` mutation. */
 export type DeleteQuestionPayload = {
   __typename?: 'DeleteQuestionPayload';
@@ -1292,8 +1197,6 @@ export type DeleteResponsePayload = {
   deletedResponseId?: Maybe<Scalars['ID']>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `QuestionnaireResponse` that is related to this `Response`. */
-  questionnaireResponseByQuestionnaireResponseId?: Maybe<QuestionnaireResponse>;
   /** Reads a single `Question` that is related to this `Response`. */
   questionByQuestionId?: Maybe<Question>;
   /** An edge for our `Response`. May be used by Relay 1. */
@@ -1375,25 +1278,17 @@ export type Letter = Node & {
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID'];
   id: Scalars['UUID'];
-  addressorId: Scalars['UUID'];
-  addresseeId: Scalars['UUID'];
   lobIdentifier?: Maybe<Scalars['String']>;
   body: Scalars['JSON'];
   createdAt?: Maybe<Scalars['Datetime']>;
-  /** Reads a single `Person` that is related to this `Letter`. */
-  personByAddressorId?: Maybe<Person>;
-  /** Reads a single `Person` that is related to this `Letter`. */
-  personByAddresseeId?: Maybe<Person>;
+  addresseeId: Scalars['UUID'];
+  addressorId: Scalars['UUID'];
 };
 
 /** A condition to be used against `Letter` object types. All fields are tested for equality and combined with a logical ‘and.’ */
 export type LetterCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars['UUID']>;
-  /** Checks for equality with the object’s `addressorId` field. */
-  addressorId?: Maybe<Scalars['UUID']>;
-  /** Checks for equality with the object’s `addresseeId` field. */
-  addresseeId?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `lobIdentifier` field. */
   lobIdentifier?: Maybe<Scalars['String']>;
 };
@@ -1401,21 +1296,21 @@ export type LetterCondition = {
 /** An input for mutations affecting `Letter` */
 export type LetterInput = {
   id?: Maybe<Scalars['UUID']>;
-  addressorId: Scalars['UUID'];
-  addresseeId: Scalars['UUID'];
   lobIdentifier?: Maybe<Scalars['String']>;
   body: Scalars['JSON'];
   createdAt?: Maybe<Scalars['Datetime']>;
+  addresseeId: Scalars['UUID'];
+  addressorId: Scalars['UUID'];
 };
 
 /** Represents an update to a `Letter`. Fields that are set will be updated. */
 export type LetterPatch = {
   id?: Maybe<Scalars['UUID']>;
-  addressorId?: Maybe<Scalars['UUID']>;
-  addresseeId?: Maybe<Scalars['UUID']>;
   lobIdentifier?: Maybe<Scalars['String']>;
   body?: Maybe<Scalars['JSON']>;
   createdAt?: Maybe<Scalars['Datetime']>;
+  addresseeId?: Maybe<Scalars['UUID']>;
+  addressorId?: Maybe<Scalars['UUID']>;
 };
 
 /** A connection to a list of `Letter` values. */
@@ -1445,10 +1340,6 @@ export enum LettersOrderBy {
   Natural = 'NATURAL',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
-  AddressorIdAsc = 'ADDRESSOR_ID_ASC',
-  AddressorIdDesc = 'ADDRESSOR_ID_DESC',
-  AddresseeIdAsc = 'ADDRESSEE_ID_ASC',
-  AddresseeIdDesc = 'ADDRESSEE_ID_DESC',
   LobIdentifierAsc = 'LOB_IDENTIFIER_ASC',
   LobIdentifierDesc = 'LOB_IDENTIFIER_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
@@ -1889,8 +1780,6 @@ export type Mutation = {
   createQuestion?: Maybe<CreateQuestionPayload>;
   /** Creates a single `Questionnaire`. */
   createQuestionnaire?: Maybe<CreateQuestionnairePayload>;
-  /** Creates a single `QuestionnaireResponse`. */
-  createQuestionnaireResponse?: Maybe<CreateQuestionnaireResponsePayload>;
   /** Creates a single `Response`. */
   createResponse?: Maybe<CreateResponsePayload>;
   /** Updates a single `Address` using its globally unique id and a patch. */
@@ -1929,10 +1818,6 @@ export type Mutation = {
   updateQuestionnaire?: Maybe<UpdateQuestionnairePayload>;
   /** Updates a single `Questionnaire` using a unique key and a patch. */
   updateQuestionnaireById?: Maybe<UpdateQuestionnairePayload>;
-  /** Updates a single `QuestionnaireResponse` using its globally unique id and a patch. */
-  updateQuestionnaireResponse?: Maybe<UpdateQuestionnaireResponsePayload>;
-  /** Updates a single `QuestionnaireResponse` using a unique key and a patch. */
-  updateQuestionnaireResponseById?: Maybe<UpdateQuestionnaireResponsePayload>;
   /** Updates a single `Response` using its globally unique id and a patch. */
   updateResponse?: Maybe<UpdateResponsePayload>;
   /** Updates a single `Response` using a unique key and a patch. */
@@ -1981,10 +1866,6 @@ export type Mutation = {
   deleteQuestionnaire?: Maybe<DeleteQuestionnairePayload>;
   /** Deletes a single `Questionnaire` using a unique key. */
   deleteQuestionnaireById?: Maybe<DeleteQuestionnairePayload>;
-  /** Deletes a single `QuestionnaireResponse` using its globally unique id. */
-  deleteQuestionnaireResponse?: Maybe<DeleteQuestionnaireResponsePayload>;
-  /** Deletes a single `QuestionnaireResponse` using a unique key. */
-  deleteQuestionnaireResponseById?: Maybe<DeleteQuestionnaireResponsePayload>;
   /** Deletes a single `Response` using its globally unique id. */
   deleteResponse?: Maybe<DeleteResponsePayload>;
   /** Deletes a single `Response` using a unique key. */
@@ -2049,12 +1930,6 @@ export type MutationCreateQuestionArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateQuestionnaireArgs = {
   input: CreateQuestionnaireInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateQuestionnaireResponseArgs = {
-  input: CreateQuestionnaireResponseInput;
 };
 
 
@@ -2169,18 +2044,6 @@ export type MutationUpdateQuestionnaireArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateQuestionnaireByIdArgs = {
   input: UpdateQuestionnaireByIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateQuestionnaireResponseArgs = {
-  input: UpdateQuestionnaireResponseInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateQuestionnaireResponseByIdArgs = {
-  input: UpdateQuestionnaireResponseByIdInput;
 };
 
 
@@ -2329,18 +2192,6 @@ export type MutationDeleteQuestionnaireByIdArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteQuestionnaireResponseArgs = {
-  input: DeleteQuestionnaireResponseInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteQuestionnaireResponseByIdArgs = {
-  input: DeleteQuestionnaireResponseByIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteResponseArgs = {
   input: DeleteResponseInput;
 };
@@ -2473,29 +2324,12 @@ export type Person = Node & {
   picture?: Maybe<Scalars['String']>;
   sub?: Maybe<Scalars['String']>;
   flags: Scalars['String'];
-  /** Reads and enables pagination through a set of `QuestionnaireResponse`. */
-  questionnaireResponsesByPersonId: QuestionnaireResponsesConnection;
   /** Reads and enables pagination through a set of `Matter`. */
   mattersByPrimaryContactId: MattersConnection;
-  /** Reads and enables pagination through a set of `Letter`. */
-  lettersByAddressorId: LettersConnection;
-  /** Reads and enables pagination through a set of `Letter`. */
-  lettersByAddresseeId: LettersConnection;
   /** Reads and enables pagination through a set of `Address`. */
   addressesByPersonId: AddressesConnection;
   /** Reads and enables pagination through a set of `MatterDocument`. */
   matterDocumentsByAuthorId: MatterDocumentsConnection;
-};
-
-
-export type PersonQuestionnaireResponsesByPersonIdArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<QuestionnaireResponsesOrderBy>>;
-  condition?: Maybe<QuestionnaireResponseCondition>;
 };
 
 
@@ -2507,28 +2341,6 @@ export type PersonMattersByPrimaryContactIdArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<MattersOrderBy>>;
   condition?: Maybe<MatterCondition>;
-};
-
-
-export type PersonLettersByAddressorIdArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<LettersOrderBy>>;
-  condition?: Maybe<LetterCondition>;
-};
-
-
-export type PersonLettersByAddresseeIdArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<LettersOrderBy>>;
-  condition?: Maybe<LetterCondition>;
 };
 
 
@@ -2603,8 +2415,6 @@ export type Query = Node & {
   allQuestions?: Maybe<QuestionsConnection>;
   /** Reads and enables pagination through a set of `Questionnaire`. */
   allQuestionnaires?: Maybe<QuestionnairesConnection>;
-  /** Reads and enables pagination through a set of `QuestionnaireResponse`. */
-  allQuestionnaireResponses?: Maybe<QuestionnaireResponsesConnection>;
   /** Reads and enables pagination through a set of `Response`. */
   allResponses?: Maybe<ResponsesConnection>;
   addressById?: Maybe<Address>;
@@ -2618,7 +2428,6 @@ export type Query = Node & {
   personById?: Maybe<Person>;
   questionById?: Maybe<Question>;
   questionnaireById?: Maybe<Questionnaire>;
-  questionnaireResponseById?: Maybe<QuestionnaireResponse>;
   responseById?: Maybe<Response>;
   responseDocumentById?: Maybe<ResponseDocument>;
   getCurrentUser?: Maybe<Person>;
@@ -2645,8 +2454,6 @@ export type Query = Node & {
   question?: Maybe<Question>;
   /** Reads a single `Questionnaire` using its globally unique `ID`. */
   questionnaire?: Maybe<Questionnaire>;
-  /** Reads a single `QuestionnaireResponse` using its globally unique `ID`. */
-  questionnaireResponse?: Maybe<QuestionnaireResponse>;
   /** Reads a single `Response` using its globally unique `ID`. */
   response?: Maybe<Response>;
   /** Reads a single `ResponseDocument` using its globally unique `ID`. */
@@ -2780,18 +2587,6 @@ export type QueryAllQuestionnairesArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryAllQuestionnaireResponsesArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<QuestionnaireResponsesOrderBy>>;
-  condition?: Maybe<QuestionnaireResponseCondition>;
-};
-
-
-/** The root query type which gives access points into the data universe. */
 export type QueryAllResponsesArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
@@ -2865,12 +2660,6 @@ export type QueryQuestionByIdArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QueryQuestionnaireByIdArgs = {
-  id: Scalars['UUID'];
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryQuestionnaireResponseByIdArgs = {
   id: Scalars['UUID'];
 };
 
@@ -2961,12 +2750,6 @@ export type QueryQuestionnaireArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryQuestionnaireResponseArgs = {
-  nodeId: Scalars['ID'];
-};
-
-
-/** The root query type which gives access points into the data universe. */
 export type QueryResponseArgs = {
   nodeId: Scalars['ID'];
 };
@@ -3045,19 +2828,6 @@ export type Questionnaire = Node & {
   questionTree: Scalars['JSON'];
   /** Reads a single `MatterTemplate` that is related to this `Questionnaire`. */
   matterTemplateByMatterTemplateId?: Maybe<MatterTemplate>;
-  /** Reads and enables pagination through a set of `QuestionnaireResponse`. */
-  questionnaireResponsesByQuestionnaireId: QuestionnaireResponsesConnection;
-};
-
-
-export type QuestionnaireQuestionnaireResponsesByQuestionnaireIdArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<QuestionnaireResponsesOrderBy>>;
-  condition?: Maybe<QuestionnaireResponseCondition>;
 };
 
 /**
@@ -3097,99 +2867,6 @@ export type QuestionnairePatch = {
   matterTemplateId?: Maybe<Scalars['UUID']>;
   questionTree?: Maybe<Scalars['JSON']>;
 };
-
-export type QuestionnaireResponse = Node & {
-  __typename?: 'QuestionnaireResponse';
-  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-  nodeId: Scalars['ID'];
-  id: Scalars['UUID'];
-  personId: Scalars['UUID'];
-  questionnaireId: Scalars['UUID'];
-  createdAt: Scalars['Datetime'];
-  updatedAt: Scalars['Datetime'];
-  /** Reads a single `Person` that is related to this `QuestionnaireResponse`. */
-  personByPersonId?: Maybe<Person>;
-  /** Reads a single `Questionnaire` that is related to this `QuestionnaireResponse`. */
-  questionnaireByQuestionnaireId?: Maybe<Questionnaire>;
-  /** Reads and enables pagination through a set of `Response`. */
-  responsesByQuestionnaireResponseId: ResponsesConnection;
-};
-
-
-export type QuestionnaireResponseResponsesByQuestionnaireResponseIdArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<ResponsesOrderBy>>;
-  condition?: Maybe<ResponseCondition>;
-};
-
-/**
- * A condition to be used against `QuestionnaireResponse` object types. All fields
- * are tested for equality and combined with a logical ‘and.’
- */
-export type QuestionnaireResponseCondition = {
-  /** Checks for equality with the object’s `id` field. */
-  id?: Maybe<Scalars['UUID']>;
-  /** Checks for equality with the object’s `personId` field. */
-  personId?: Maybe<Scalars['UUID']>;
-  /** Checks for equality with the object’s `questionnaireId` field. */
-  questionnaireId?: Maybe<Scalars['UUID']>;
-};
-
-/** An input for mutations affecting `QuestionnaireResponse` */
-export type QuestionnaireResponseInput = {
-  personId: Scalars['UUID'];
-  questionnaireId: Scalars['UUID'];
-  createdAt?: Maybe<Scalars['Datetime']>;
-  updatedAt?: Maybe<Scalars['Datetime']>;
-};
-
-/** Represents an update to a `QuestionnaireResponse`. Fields that are set will be updated. */
-export type QuestionnaireResponsePatch = {
-  id?: Maybe<Scalars['UUID']>;
-  personId?: Maybe<Scalars['UUID']>;
-  questionnaireId?: Maybe<Scalars['UUID']>;
-  createdAt?: Maybe<Scalars['Datetime']>;
-  updatedAt?: Maybe<Scalars['Datetime']>;
-};
-
-/** A connection to a list of `QuestionnaireResponse` values. */
-export type QuestionnaireResponsesConnection = {
-  __typename?: 'QuestionnaireResponsesConnection';
-  /** A list of `QuestionnaireResponse` objects. */
-  nodes: Array<QuestionnaireResponse>;
-  /** A list of edges which contains the `QuestionnaireResponse` and cursor to aid in pagination. */
-  edges: Array<QuestionnaireResponsesEdge>;
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo;
-  /** The count of *all* `QuestionnaireResponse` you could get from the connection. */
-  totalCount: Scalars['Int'];
-};
-
-/** A `QuestionnaireResponse` edge in the connection. */
-export type QuestionnaireResponsesEdge = {
-  __typename?: 'QuestionnaireResponsesEdge';
-  /** A cursor for use in pagination. */
-  cursor?: Maybe<Scalars['Cursor']>;
-  /** The `QuestionnaireResponse` at the end of the edge. */
-  node: QuestionnaireResponse;
-};
-
-/** Methods to use when ordering `QuestionnaireResponse`. */
-export enum QuestionnaireResponsesOrderBy {
-  Natural = 'NATURAL',
-  IdAsc = 'ID_ASC',
-  IdDesc = 'ID_DESC',
-  PersonIdAsc = 'PERSON_ID_ASC',
-  PersonIdDesc = 'PERSON_ID_DESC',
-  QuestionnaireIdAsc = 'QUESTIONNAIRE_ID_ASC',
-  QuestionnaireIdDesc = 'QUESTIONNAIRE_ID_DESC',
-  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
-  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
-}
 
 /** A connection to a list of `Questionnaire` values. */
 export type QuestionnairesConnection = {
@@ -3282,13 +2959,11 @@ export type Response = Node & {
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID'];
   id: Scalars['UUID'];
-  questionnaireResponseId: Scalars['UUID'];
   questionId: Scalars['UUID'];
   answer: Scalars['JSON'];
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
-  /** Reads a single `QuestionnaireResponse` that is related to this `Response`. */
-  questionnaireResponseByQuestionnaireResponseId?: Maybe<QuestionnaireResponse>;
+  personId: Scalars['UUID'];
   /** Reads a single `Question` that is related to this `Response`. */
   questionByQuestionId?: Maybe<Question>;
 };
@@ -3300,8 +2975,6 @@ export type Response = Node & {
 export type ResponseCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars['UUID']>;
-  /** Checks for equality with the object’s `questionnaireResponseId` field. */
-  questionnaireResponseId?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `questionId` field. */
   questionId?: Maybe<Scalars['UUID']>;
 };
@@ -3363,21 +3036,21 @@ export enum ResponseDocumentsOrderBy {
 
 /** An input for mutations affecting `Response` */
 export type ResponseInput = {
-  questionnaireResponseId: Scalars['UUID'];
   questionId: Scalars['UUID'];
   answer: Scalars['JSON'];
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
+  personId: Scalars['UUID'];
 };
 
 /** Represents an update to a `Response`. Fields that are set will be updated. */
 export type ResponsePatch = {
   id?: Maybe<Scalars['UUID']>;
-  questionnaireResponseId?: Maybe<Scalars['UUID']>;
   questionId?: Maybe<Scalars['UUID']>;
   answer?: Maybe<Scalars['JSON']>;
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
+  personId?: Maybe<Scalars['UUID']>;
 };
 
 /** A connection to a list of `Response` values. */
@@ -3407,8 +3080,6 @@ export enum ResponsesOrderBy {
   Natural = 'NATURAL',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
-  QuestionnaireResponseIdAsc = 'QUESTIONNAIRE_RESPONSE_ID_ASC',
-  QuestionnaireResponseIdDesc = 'QUESTIONNAIRE_RESPONSE_ID_DESC',
   QuestionIdAsc = 'QUESTION_ID_ASC',
   QuestionIdDesc = 'QUESTION_ID_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
@@ -3501,10 +3172,6 @@ export type UpdateLetterPayload = {
   letter?: Maybe<Letter>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Person` that is related to this `Letter`. */
-  personByAddressorId?: Maybe<Person>;
-  /** Reads a single `Person` that is related to this `Letter`. */
-  personByAddresseeId?: Maybe<Person>;
   /** An edge for our `Letter`. May be used by Relay 1. */
   letterEdge?: Maybe<LettersEdge>;
 };
@@ -3861,57 +3528,6 @@ export type UpdateQuestionnairePayloadQuestionnaireEdgeArgs = {
   orderBy?: Maybe<Array<QuestionnairesOrderBy>>;
 };
 
-/** All input for the `updateQuestionnaireResponseById` mutation. */
-export type UpdateQuestionnaireResponseByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** An object where the defined keys will be set on the `QuestionnaireResponse` being updated. */
-  questionnaireResponsePatch: QuestionnaireResponsePatch;
-  id: Scalars['UUID'];
-};
-
-/** All input for the `updateQuestionnaireResponse` mutation. */
-export type UpdateQuestionnaireResponseInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The globally unique `ID` which will identify a single `QuestionnaireResponse` to be updated. */
-  nodeId: Scalars['ID'];
-  /** An object where the defined keys will be set on the `QuestionnaireResponse` being updated. */
-  questionnaireResponsePatch: QuestionnaireResponsePatch;
-};
-
-/** The output of our update `QuestionnaireResponse` mutation. */
-export type UpdateQuestionnaireResponsePayload = {
-  __typename?: 'UpdateQuestionnaireResponsePayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `QuestionnaireResponse` that was updated by this mutation. */
-  questionnaireResponse?: Maybe<QuestionnaireResponse>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `Person` that is related to this `QuestionnaireResponse`. */
-  personByPersonId?: Maybe<Person>;
-  /** Reads a single `Questionnaire` that is related to this `QuestionnaireResponse`. */
-  questionnaireByQuestionnaireId?: Maybe<Questionnaire>;
-  /** An edge for our `QuestionnaireResponse`. May be used by Relay 1. */
-  questionnaireResponseEdge?: Maybe<QuestionnaireResponsesEdge>;
-};
-
-
-/** The output of our update `QuestionnaireResponse` mutation. */
-export type UpdateQuestionnaireResponsePayloadQuestionnaireResponseEdgeArgs = {
-  orderBy?: Maybe<Array<QuestionnaireResponsesOrderBy>>;
-};
-
 /** The output of our update `Question` mutation. */
 export type UpdateQuestionPayload = {
   __typename?: 'UpdateQuestionPayload';
@@ -3971,8 +3587,6 @@ export type UpdateResponsePayload = {
   response?: Maybe<Response>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `QuestionnaireResponse` that is related to this `Response`. */
-  questionnaireResponseByQuestionnaireResponseId?: Maybe<QuestionnaireResponse>;
   /** Reads a single `Question` that is related to this `Response`. */
   questionByQuestionId?: Maybe<Question>;
   /** An edge for our `Response`. May be used by Relay 1. */
