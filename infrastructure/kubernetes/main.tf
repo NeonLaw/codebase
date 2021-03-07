@@ -151,9 +151,3 @@ module "ingress" {
   source      = "./modules/kubernetes_ingress"
   environment = var.environment
 }
-
-module "new_relic" {
-  source                = "./modules/new_relic_helm"
-  environment           = var.environment
-  new_relic_license_key = var.new_relic_license_key
-}
