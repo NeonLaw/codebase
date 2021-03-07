@@ -2,6 +2,7 @@ import { Pool } from 'pg';
 import { afterAll } from '@jest/globals';
 import { postgresUrl } from '../../src/postgresUrl';
 
+export { insertAddressFixture } from './db/insertAddressFixture';
 export { insertMatterFixture } from './db/insertMatterFixture';
 export { insertMatterTemplateFixture } from './db/insertMatterTemplateFixture';
 export { insertPersonFixture } from './db/insertPersonFixture';
