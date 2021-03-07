@@ -13,20 +13,18 @@ import {
 } from '../components/indexPages/shookFamilyIndexPage';
 
 const Home = ({ host }): JSX.Element => {
-  if (host == 'www.justiceforrickieslaughter.com') {
-    return <JusticeForRickieSlaughterIndexPage />;
+  switch(host) {
+    case 'www.justiceforrickieslaughter.com':
+      return <JusticeForRickieSlaughterIndexPage />;
+    case 'www.deleteyourdata.com':
+      return <DeleteYourDataIndexPage />;
+    case 'www.deletetheirdata.com':
+      return <DeleteTheirDataIndexPage />;
+    case 'www.shook.family':
+      return <ShookFamilyIndexPage />;
+    default:
+      return <NeonLawIndexPage />;
   }
-  if (host == 'www.deleteyourdata.com') {
-    return <DeleteYourDataIndexPage />;
-  }
-  if (host == 'www.deletetheirdata.com') {
-    return <DeleteTheirDataIndexPage />;
-  }
-  if (host == 'www.shook.family') {
-    return <ShookFamilyIndexPage />;
-  }
-
-  return <NeonLawIndexPage />;
 };
 
 /* eslint-disable-next-line import/no-default-export */

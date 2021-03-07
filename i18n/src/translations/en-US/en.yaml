@@ -127,10 +127,11 @@ navigation_public:
   blog: Blog
   contact: Contact
 banner:
-  title: Ventures, Trusts, and Litigation
+  title: Efficient Attorney Advocates
   text: |
-    Run a business. Share your wealth. Protect your rights. We are a law firm
-    who excels at helping you with all three.
+    We are on a mission to improve access to justice with top-quality legal
+    representation backed with world-class software. When anyone can afford
+    access to justice, everyone wins.
 why_neon_law:
   heading: Why Neon Law?
   sub_text: We employ justice-based tech to deliver efficient, accurate results.
