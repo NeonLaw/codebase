@@ -5,10 +5,10 @@ import { runGraphQLQuery } from '../../utils/graphqlHelpers';
 describe('the updatePersonById mutation', () => {
   const updatePersonByIdMutation =
     `mutation UpdatePersonById($id: UUID!, $name: String!) {
-      updatePersonById(
+      updatePerson(
         input: {
           id: $id
-          personPatch: {
+          patch: {
             name: $name
           }
         }
@@ -41,7 +41,7 @@ describe('the updatePersonById mutation', () => {
         },
         expectations(response) {
           expect(response.errors).toBeTruthy();
-          expect(response.data.updatePersonById).toBeNull();
+          expect(response.data.updatePerson).toBeNull();
           expect(response.errors[0].message).toEqual(
             'permission denied for table person'
           );
@@ -75,8 +75,8 @@ describe('the updatePersonById mutation', () => {
         },
         expectations(response) {
           expect(response.errors).toBeFalsy();
-          expect(response.data.updatePersonById.person.id).toEqual(personId);
-          expect(response.data.updatePersonById.person.name).toEqual('yes');
+          expect(response.data.updatePerson.person.id).toEqual(personId);
+          expect(response.data.updatePerson.person.name).toEqual('yes');
         },
         personId,
         query: updatePersonByIdMutation,
@@ -119,7 +119,7 @@ describe('the updatePersonById mutation', () => {
           expect(response.errors).toBeTruthy();
           expect(response.errors[0].message)
             .toMatch(/because no values you can update/);
-          expect(response.data.updatePersonById).toBeNull();
+          expect(response.data.updatePerson).toBeNull();
         },
         personId,
         query: updatePersonByIdMutation,
@@ -152,8 +152,8 @@ describe('the updatePersonById mutation', () => {
         },
         expectations(response) {
           expect(response.errors).toBeFalsy();
-          expect(response.data.updatePersonById.person.id).toEqual(personId);
-          expect(response.data.updatePersonById.person.name).toEqual('yes');
+          expect(response.data.updatePerson.person.id).toEqual(personId);
+          expect(response.data.updatePerson.person.name).toEqual('yes');
         },
         personId,
         query: updatePersonByIdMutation,
@@ -196,7 +196,7 @@ describe('the updatePersonById mutation', () => {
           expect(response.errors).toBeTruthy();
           expect(response.errors[0].message)
             .toMatch(/because no values you can update/);
-          expect(response.data.updatePersonById).toBeNull();
+          expect(response.data.updatePerson).toBeNull();
         },
         personId,
         query: updatePersonByIdMutation,
@@ -229,8 +229,8 @@ describe('the updatePersonById mutation', () => {
         },
         expectations(response) {
           expect(response.errors).toBeFalsy();
-          expect(response.data.updatePersonById.person.id).toEqual(personId);
-          expect(response.data.updatePersonById.person.name).toEqual('yes');
+          expect(response.data.updatePerson.person.id).toEqual(personId);
+          expect(response.data.updatePerson.person.name).toEqual('yes');
         },
         personId,
         query: updatePersonByIdMutation,
@@ -272,9 +272,9 @@ describe('the updatePersonById mutation', () => {
         expectations(response) {
           expect(response.errors).toBeFalsy();
           expect(
-            response.data.updatePersonById.person.id
+            response.data.updatePerson.person.id
           ).toEqual(otherPersonId);
-          expect(response.data.updatePersonById.person.name).toEqual('yes');
+          expect(response.data.updatePerson.person.name).toEqual('yes');
         },
         personId,
         query: updatePersonByIdMutation,
