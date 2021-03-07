@@ -26,7 +26,7 @@ export const PeopleTable = () => {
       accessor: 'email',
     },
   ];
-  const nodes = data?.allPeople?.nodes || [];
+  const nodes = data?.people?.nodes || [];
 
   return (
     <Table

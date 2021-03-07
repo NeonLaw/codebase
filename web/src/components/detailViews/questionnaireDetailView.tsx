@@ -11,11 +11,11 @@ export const QuestionnaireDetailView = ({ id }) => {
   }
 
   if (data) {
-    const questionId = data.questionnaireById?.questionTree.begin;
+    const questionId = data.questionnaire?.questionTree.begin;
 
     return (
       <>
-        <h1>{data?.questionnaireById?.name}</h1>
+        <h1>{data?.questionnaire?.name}</h1>
 
         <Link href={`${id}/${questionId}`}>
           <Button>

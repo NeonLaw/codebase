@@ -18,9 +18,9 @@ export const MatterTemplateQuestionnairesList = ({ basePath, category }) => {
   }
 
   if (data) {
-    const matterTemplates = data?.allMatterTemplates?.nodes || [];
+    const matterTemplates = data?.matterTemplates?.nodes || [];
     const questionnaires = matterTemplates.flatMap((matterTemplate) => {
-      return matterTemplate.questionnairesByMatterTemplateId.nodes;
+      return matterTemplate.questionnaires.nodes;
     });
 
     return (

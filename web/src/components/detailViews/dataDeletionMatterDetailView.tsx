@@ -10,7 +10,7 @@ export const DataDeletionDetailView = ({ id }) => {
   }
 
   if (data) {
-    const matter = data?.matterById;
+    const matter = data?.matter;
 
     return (
       <h1>Matter&nbsp;{matter?.id}</h1>

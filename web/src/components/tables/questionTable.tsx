@@ -30,7 +30,7 @@ export const QuestionTable = (props: QuestionTableProps) => {
       accessor: 'questionType',
     },
   ];
-  const nodes = data?.allQuestions?.nodes || [];
+  const nodes = data?.questions?.nodes || [];
 
   return (
     <Table

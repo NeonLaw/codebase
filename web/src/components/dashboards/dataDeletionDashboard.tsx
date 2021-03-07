@@ -13,7 +13,7 @@ export const DataDeletionDashborard = () => {
   }
 
   if (data) {
-    const matters = data?.allCurrentUserMatters?.nodes || [];
+    const matters = data?.currentUserMatters?.nodes || [];
 
     return (
       <>

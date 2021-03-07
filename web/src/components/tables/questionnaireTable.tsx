@@ -30,7 +30,7 @@ export const QuestionnaireTable = (props: QuestionnaireTableProps) => {
       accessor: 'matterTemplateByMatterTemplateId.name',
     },
   ];
-  const nodes = data?.allQuestionnaires?.nodes || [];
+  const nodes = data?.questionnaires?.nodes || [];
 
   return (
     <Table
