@@ -14,13 +14,13 @@ import {
 
 const Home = ({ host }): JSX.Element => {
   switch(host) {
-    case 'www.justiceforrickieslaughter.com':
+    case process.env.NEXT_PUBLIC_JUSTICE_FOR_RICKIE_SLAUGHTER_URL:
       return <JusticeForRickieSlaughterIndexPage />;
-    case 'www.deleteyourdata.com':
+    case process.env.NEXT_PUBLIC_DELETE_YOUR_DATA_URL:
       return <DeleteYourDataIndexPage />;
-    case 'www.deletetheirdata.com':
+    case process.env.NEXT_PUBLIC_DELETE_THEIR_DATA_URL:
       return <DeleteTheirDataIndexPage />;
-    case 'www.shook.family':
+    case process.env.NEXT_PUBLIC_SHOOK_FAMILY_URL:
       return <ShookFamilyIndexPage />;
     default:
       return <NeonLawIndexPage />;
