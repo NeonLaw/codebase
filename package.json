@@ -24,7 +24,7 @@
         "@types/faker": "^5.1.7",
         "@types/jest": "^26.0.20",
         "@types/jsonwebtoken": "^8.5.0",
-        "@types/node": "^14.14.31",
+        "@types/node": "^14.14.32",
         "@types/yup": "^0.29.11",
         "@typescript-eslint/eslint-plugin": "^4.16.1",
         "axe-core": "^4.1.3",
