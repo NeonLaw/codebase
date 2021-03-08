@@ -4,13 +4,12 @@
 import 'dotenv/config';
 import {
   addTraceHeaders,
-  beginNewRelicTransaction,
   checkJwt,
   currentUser,
   developmentLogger,
-  endNewRelicTransaction,
   logger,
 } from './middleware';
+import { Pool } from 'pg';
 import cors from 'cors';
 import { createCheckoutSession } from './resolvers/createCheckoutSession';
 import { createPerson } from './createPerson';
@@ -40,20 +39,43 @@ expressApp.get('/api', function (_, res) {
 expressApp.use('/api/graphql', checkJwt(false));
 expressApp.use('/api/graphql', currentUser);
 expressApp.use('/api/graphql', addTraceHeaders);
-expressApp.use('/api/graphql', beginNewRelicTransaction);
 
-expressApp.use(postgraphile(postgresUrl, 'public', postgraphileOptions));
+const pool = new Pool({ connectionString: postgresUrl });
+const $$pgClientOrigQuery = Symbol();
+pool.on('error', (er) => { console.log(er); });
+pool.on('connect', (pgClient) => {
+  if (!pgClient[$$pgClientOrigQuery]) {
+    // Set the original query method to a key on our client. If that key is
+    // already set, use that.
+    pgClient[$$pgClientOrigQuery] = pgClient.query;
+    pgClient.query = function (...args: Array<any>): any {
+      // const [a, b] = args;
+      // const query = a && a.text ? a.text : a;
+      // const values = a && a.text ? a.values : b;
+      // console.log(query);
+      // console.log(values);
+      // add query opentelemetry logging here
+      return pgClient[$$pgClientOrigQuery].apply(this, args);
+    };
+  }
+});
+
+expressApp.use(
+  postgraphile(
+    pool,
+    ['public', 'accounting'],
+    postgraphileOptions
+  )
+);
 
 expressApp.get('/api/process-transloadit-notifications', function (req, res) {
   console.log(req);
   res.send('logged Transloadit notification');
 });
 
-expressApp.use('/api/graphql', endNewRelicTransaction);
 
 expressApp.use(express.json());
 
-expressApp.use('/api/auth0-create-person', beginNewRelicTransaction);
 expressApp.use('/api/auth0-create-person', (request, response, next) => {
   const authorizationHeader = request.headers?.authorization;
   if (authorizationHeader != `basic ${process.env.AUTH0_CLIENT_SECRET}`) {
@@ -77,11 +99,8 @@ expressApp.post('/api/auth0-create-person', async (request, response) => {
   }
 });
 
-expressApp.use('/api/auth0-create-person', endNewRelicTransaction);
 
-expressApp.use('/api/create-checkout-session', beginNewRelicTransaction);
 expressApp.use('/api/create-checkout-session', createCheckoutSession);
-expressApp.use('/api/create-checkout-session', endNewRelicTransaction);
 
 const limiter = rateLimit({
   max: 180,

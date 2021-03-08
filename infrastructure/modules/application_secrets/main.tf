@@ -13,7 +13,6 @@ resource "kubernetes_secret" "application_secrets" {
     "LOB_API_KEY"                   = var.lob_api_key
     "LOB_API_SECRET"                = var.lob_api_secret
     "NEO4J_URL"                     = var.neo4j_url
-    "NEW_RELIC_LICENSE_KEY"         = var.new_relic_license_key
     "REDIS_URL"                     = var.redis_url
     "SENDGRID_API_KEY"              = var.sendgrid_api_key
     "STRIPE_API_PUBLISHABLE_KEY"    = var.stripe_api_publishable_key

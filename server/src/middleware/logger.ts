@@ -9,7 +9,6 @@ export const logger = expressWinston.logger({
   expressFormat: true,
   format: winston.format.combine(
     winston.format.json(),
-    require('@newrelic/winston-enricher')()
   ),
   ignoreRoute(request) {
     const ignoredRoutes = [
