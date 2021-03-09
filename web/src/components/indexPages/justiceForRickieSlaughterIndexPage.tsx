@@ -10,6 +10,10 @@ export const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
          Listen to Rickie's Poem
       </a>
 
+      <a href="/audio/20210309-a-black-womans-magic.m4a">
+         Listen to Rickie's Black Woman Magic Poem
+      </a>
+
       <p>
 Rickie Lamont Slaughter is an innocent man who is serving a prison sentence
 for a crime he did not commit.
