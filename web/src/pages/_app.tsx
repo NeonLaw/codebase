@@ -12,7 +12,6 @@ import { useEffect } from 'react';
 import { withNextIntlSetup } from '@moxy/next-intl';
 
 const NeonLawApp = ({ Component, pageProps }) => {
-
   useEffect(() => {
     window.addEventListener('keydown', handleFirstTab);
 
@@ -39,5 +38,5 @@ const NeonLawApp = ({ Component, pageProps }) => {
   );
 };
 
-/* eslint-disable-next-line */
+/* eslint-disable-next-line import/no-default-export */
 export default withNextIntlSetup(nextIntlConfig)(NeonLawApp);
