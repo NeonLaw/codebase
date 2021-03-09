@@ -3,7 +3,6 @@ name = "git_flow"
 version = "0.0.4"
 authors = ["support@neonlaw.com <support@neonlaw.com>"]
 edition = "2018"
-license = "Apache-2.0"
 repository = "https://github.com/neonlaw/codebase"
 documentation = "https://github.com/neonlaw/codebase/tree/development/git_flow/README.md"
 description = "A CLI for an opiniated git flow for monorepos on GitHub"

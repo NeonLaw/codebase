@@ -1,7 +1,7 @@
 {
   "name": "@neonlaw/server",
   "version": "0.0.1",
-  "license": "PolyForm-Noncommercial-1.0.0",
+  "private": true,
   "author": "@neonlaw",
   "scripts": {
     "start": "ts-node --transpile-only src/server.ts",
