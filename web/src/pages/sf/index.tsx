@@ -1,10 +1,10 @@
 import { Box } from '@chakra-ui/react';
-import { Link } from '../../../components/link';
+import { Link } from '../../components/link';
 import {
   PublicTrustLayout
-} from '../../../components/layouts/publicTrustLayout';
+} from '../../components/layouts/publicTrustLayout';
 import React from 'react';
-import { Seo } from '../../../components/seo';
+import { Seo } from '../../components/seo';
 
 const ShookFamilyIndexPage = () => {
   const title = 'Shook Family Trust';
