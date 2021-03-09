@@ -6,12 +6,12 @@ on:
     workflows:
       - continuous_integration
     branches:
-      - development
+      - main
     types:
       - completed
   pull_request:
     branches:
-      - development
+      - main
   workflow_dispatch:
 
 jobs:
@@ -33,12 +33,12 @@ jobs:
           registry: docker.pkg.github.com
           username: ${{ secrets.GPR_USERNAME }}
           password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
-        if: github.ref == 'refs/heads/development'
+        if: github.ref == 'refs/heads/main'
 
       - name: Push Image to GitHub Package Registry
         run: docker push docker.pkg.github.com/neonlaw/codebase/base:latest
-        if: github.ref == 'refs/heads/development'
+        if: github.ref == 'refs/heads/main'
 
       # - name: Push newest image if the version has been updated.
-      #   run: ./development/scripts/update-docker.sh
-      #   if: github.ref == 'refs/heads/development'
+      #   run: ./main/scripts/update-docker.sh
+      #   if: github.ref == 'refs/heads/main'
