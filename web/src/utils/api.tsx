@@ -25,6 +25,63 @@ export type Scalars = {
   JSON: { [key: string]: any };
 };
 
+export type AccountingBill = Node & {
+  __typename?: 'AccountingBill';
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID'];
+  id: Scalars['UUID'];
+};
+
+/**
+ * A condition to be used against `AccountingBill` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type AccountingBillCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+};
+
+/** An input for mutations affecting `AccountingBill` */
+export type AccountingBillInput = {
+  id?: Maybe<Scalars['UUID']>;
+};
+
+/** Represents an update to a `AccountingBill`. Fields that are set will be updated. */
+export type AccountingBillPatch = {
+  id?: Maybe<Scalars['UUID']>;
+};
+
+/** A connection to a list of `AccountingBill` values. */
+export type AccountingBillsConnection = {
+  __typename?: 'AccountingBillsConnection';
+  /** A list of `AccountingBill` objects. */
+  nodes: Array<AccountingBill>;
+  /** A list of edges which contains the `AccountingBill` and cursor to aid in pagination. */
+  edges: Array<AccountingBillsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `AccountingBill` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `AccountingBill` edge in the connection. */
+export type AccountingBillsEdge = {
+  __typename?: 'AccountingBillsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `AccountingBill` at the end of the edge. */
+  node: AccountingBill;
+};
+
+/** Methods to use when ordering `AccountingBill`. */
+export enum AccountingBillsOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
+
 /** All input for the `addQuestionToEndOfQuestionnaire` mutation. */
 export type AddQuestionToEndOfQuestionnaireInput = {
   /**
@@ -164,6 +221,39 @@ export type AddressPatch = {
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
   name?: Maybe<Scalars['String']>;
+};
+
+/** All input for the create `AccountingBill` mutation. */
+export type CreateAccountingBillInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `AccountingBill` to be created by this mutation. */
+  accountingBill: AccountingBillInput;
+};
+
+/** The output of our create `AccountingBill` mutation. */
+export type CreateAccountingBillPayload = {
+  __typename?: 'CreateAccountingBillPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `AccountingBill` that was created by this mutation. */
+  accountingBill?: Maybe<AccountingBill>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `AccountingBill`. May be used by Relay 1. */
+  accountingBillEdge?: Maybe<AccountingBillsEdge>;
+};
+
+
+/** The output of our create `AccountingBill` mutation. */
+export type CreateAccountingBillPayloadAccountingBillEdgeArgs = {
+  orderBy?: Maybe<Array<AccountingBillsOrderBy>>;
 };
 
 /** All input for the create `Address` mutation. */
@@ -621,6 +711,50 @@ export enum CurrentUserMattersOrderBy {
 }
 
 
+
+/** All input for the `deleteAccountingBillByNodeId` mutation. */
+export type DeleteAccountingBillByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `AccountingBill` to be deleted. */
+  nodeId: Scalars['ID'];
+};
+
+/** All input for the `deleteAccountingBill` mutation. */
+export type DeleteAccountingBillInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** The output of our delete `AccountingBill` mutation. */
+export type DeleteAccountingBillPayload = {
+  __typename?: 'DeleteAccountingBillPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `AccountingBill` that was deleted by this mutation. */
+  accountingBill?: Maybe<AccountingBill>;
+  deletedBillNodeId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `AccountingBill`. May be used by Relay 1. */
+  accountingBillEdge?: Maybe<AccountingBillsEdge>;
+};
+
+
+/** The output of our delete `AccountingBill` mutation. */
+export type DeleteAccountingBillPayloadAccountingBillEdgeArgs = {
+  orderBy?: Maybe<Array<AccountingBillsOrderBy>>;
+};
 
 /** All input for the `deleteAddressByNodeId` mutation. */
 export type DeleteAddressByNodeIdInput = {
@@ -1783,6 +1917,8 @@ export type Mutation = {
   createQuestionnaire?: Maybe<CreateQuestionnairePayload>;
   /** Creates a single `Response`. */
   createResponse?: Maybe<CreateResponsePayload>;
+  /** Creates a single `AccountingBill`. */
+  createAccountingBill?: Maybe<CreateAccountingBillPayload>;
   /** Updates a single `Address` using its globally unique id and a patch. */
   updateAddressByNodeId?: Maybe<UpdateAddressPayload>;
   /** Updates a single `Address` using a unique key and a patch. */
@@ -1823,6 +1959,10 @@ export type Mutation = {
   updateResponseByNodeId?: Maybe<UpdateResponsePayload>;
   /** Updates a single `Response` using a unique key and a patch. */
   updateResponse?: Maybe<UpdateResponsePayload>;
+  /** Updates a single `AccountingBill` using its globally unique id and a patch. */
+  updateAccountingBillByNodeId?: Maybe<UpdateAccountingBillPayload>;
+  /** Updates a single `AccountingBill` using a unique key and a patch. */
+  updateAccountingBill?: Maybe<UpdateAccountingBillPayload>;
   /** Deletes a single `Address` using its globally unique id. */
   deleteAddressByNodeId?: Maybe<DeleteAddressPayload>;
   /** Deletes a single `Address` using a unique key. */
@@ -1875,6 +2015,10 @@ export type Mutation = {
   deleteResponseDocumentByNodeId?: Maybe<DeleteResponseDocumentPayload>;
   /** Deletes a single `ResponseDocument` using a unique key. */
   deleteResponseDocument?: Maybe<DeleteResponseDocumentPayload>;
+  /** Deletes a single `AccountingBill` using its globally unique id. */
+  deleteAccountingBillByNodeId?: Maybe<DeleteAccountingBillPayload>;
+  /** Deletes a single `AccountingBill` using a unique key. */
+  deleteAccountingBill?: Maybe<DeleteAccountingBillPayload>;
   addQuestionToEndOfQuestionnaire?: Maybe<AddQuestionToEndOfQuestionnairePayload>;
   addRelatedQuestionRelationship?: Maybe<AddRelatedQuestionRelationshipPayload>;
   createMatterDocumentFromUploadUrl?: Maybe<CreateMatterDocumentFromUploadUrlPayload>;
@@ -1937,6 +2081,12 @@ export type MutationCreateQuestionnaireArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateResponseArgs = {
   input: CreateResponseInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateAccountingBillArgs = {
+  input: CreateAccountingBillInput;
 };
 
 
@@ -2057,6 +2207,18 @@ export type MutationUpdateResponseByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateResponseArgs = {
   input: UpdateResponseInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateAccountingBillByNodeIdArgs = {
+  input: UpdateAccountingBillByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateAccountingBillArgs = {
+  input: UpdateAccountingBillInput;
 };
 
 
@@ -2213,6 +2375,18 @@ export type MutationDeleteResponseDocumentByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteResponseDocumentArgs = {
   input: DeleteResponseDocumentInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteAccountingBillByNodeIdArgs = {
+  input: DeleteAccountingBillByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteAccountingBillArgs = {
+  input: DeleteAccountingBillInput;
 };
 
 
@@ -2418,6 +2592,8 @@ export type Query = Node & {
   questionnaires?: Maybe<QuestionnairesConnection>;
   /** Reads and enables pagination through a set of `Response`. */
   responses?: Maybe<ResponsesConnection>;
+  /** Reads and enables pagination through a set of `AccountingBill`. */
+  accountingBills?: Maybe<AccountingBillsConnection>;
   address?: Maybe<Address>;
   document?: Maybe<Document>;
   letter?: Maybe<Letter>;
@@ -2431,6 +2607,7 @@ export type Query = Node & {
   questionnaire?: Maybe<Questionnaire>;
   response?: Maybe<Response>;
   responseDocument?: Maybe<ResponseDocument>;
+  accountingBill?: Maybe<AccountingBill>;
   getCurrentUser?: Maybe<Person>;
   responsePersonMatch?: Maybe<Scalars['Boolean']>;
   /** Reads a single `Address` using its globally unique `ID`. */
@@ -2459,6 +2636,8 @@ export type Query = Node & {
   responseByNodeId?: Maybe<Response>;
   /** Reads a single `ResponseDocument` using its globally unique `ID`. */
   responseDocumentByNodeId?: Maybe<ResponseDocument>;
+  /** Reads a single `AccountingBill` using its globally unique `ID`. */
+  accountingBillByNodeId?: Maybe<AccountingBill>;
 };
 
 
@@ -2600,6 +2779,18 @@ export type QueryResponsesArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryAccountingBillsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<AccountingBillsOrderBy>>;
+  condition?: Maybe<AccountingBillCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryAddressArgs = {
   id: Scalars['UUID'];
 };
@@ -2673,6 +2864,12 @@ export type QueryResponseArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QueryResponseDocumentArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAccountingBillArgs = {
   id: Scalars['UUID'];
 };
 
@@ -2758,6 +2955,12 @@ export type QueryResponseByNodeIdArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QueryResponseDocumentByNodeIdArgs = {
+  nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAccountingBillByNodeIdArgs = {
   nodeId: Scalars['ID'];
 };
 
@@ -3086,6 +3289,53 @@ export enum ResponsesOrderBy {
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
+
+/** All input for the `updateAccountingBillByNodeId` mutation. */
+export type UpdateAccountingBillByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `AccountingBill` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `AccountingBill` being updated. */
+  patch: AccountingBillPatch;
+};
+
+/** All input for the `updateAccountingBill` mutation. */
+export type UpdateAccountingBillInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `AccountingBill` being updated. */
+  patch: AccountingBillPatch;
+  id: Scalars['UUID'];
+};
+
+/** The output of our update `AccountingBill` mutation. */
+export type UpdateAccountingBillPayload = {
+  __typename?: 'UpdateAccountingBillPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `AccountingBill` that was updated by this mutation. */
+  accountingBill?: Maybe<AccountingBill>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `AccountingBill`. May be used by Relay 1. */
+  accountingBillEdge?: Maybe<AccountingBillsEdge>;
+};
+
+
+/** The output of our update `AccountingBill` mutation. */
+export type UpdateAccountingBillPayloadAccountingBillEdgeArgs = {
+  orderBy?: Maybe<Array<AccountingBillsOrderBy>>;
+};
 
 /** All input for the `updateAddressByNodeId` mutation. */
 export type UpdateAddressByNodeIdInput = {
