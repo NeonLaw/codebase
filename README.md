@@ -223,6 +223,8 @@ gcloud container clusters get-credentials neon-law-staging
 
 ## Legal
 
-Copyright 2020 Neon Law. Licensed under the [Polyform Noncommercial License
-1.0.0](LICENSE.md). Please contact us if you have any questions at
-support@neonlaw.com.
+Copyright 2020 Neon Law. Licensed under the [Neon License](LICENSE.md). The Neon
+License is the same as the Apache License Version 2 with the additional
+disclaimer that nothing provided herein is legal advice.
+
+Please contact us if you have any questions at support@neonlaw.com.
