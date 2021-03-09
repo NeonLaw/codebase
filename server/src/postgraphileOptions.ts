@@ -92,10 +92,6 @@ export const postgraphileOptions: PostGraphileOptions = {
       settings['application_name'] = traceId;
     }
 
-    if (process.env.NODE_ENV === 'production') {
-      require('newrelic').setTransactionName(settings['application_name']);
-    }
-
     return settings;
   },
   pluginHook,
