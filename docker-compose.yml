@@ -10,7 +10,6 @@ x-environment-variables: &environment-variables
   GATSBY_WEBPACK_PUBLICPATH: /
   GOOGLE_APPLICATION_CREDENTIALS: /app/credentials.json
   NEO4J_URL: bolt://neo4j:7687
-  NEW_RELIC_NO_CONFIG_FILE: 'true'
   NODE_ENV: development
   ROOT_DATABASE_URL: postgres://postgres:password@postgres:5432/postgres
   SHADOW_DATABASE_URL: postgres://postgres:password@postgres:5432/neon_law_shadow

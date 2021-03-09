@@ -47,16 +47,6 @@ resource "kubernetes_deployment" "server" {
           }
 
           env {
-            name  = "NEW_RELIC_NO_CONFIG_FILE"
-            value = "true"
-          }
-
-          env {
-            name  = "NEW_RELIC_DISTRIBUTED_TRACING_ENABLED"
-            value = "true"
-          }
-
-          env {
             name  = "PROCESS_NAME"
             value = var.process_name
           }
@@ -67,80 +57,60 @@ resource "kubernetes_deployment" "server" {
           }
 
           env {
-            name  = "ENVIRONMENT"
+            name = "ENVIRONMENT"
             value_from {
               secret_key_ref {
-                key = "ENVIRONMENT"
+                key  = "ENVIRONMENT"
                 name = "application-secrets"
               }
             }
           }
 
           env {
-            name  = "NEW_RELIC_LICENSE_KEY"
+            name = "API_URL"
             value_from {
               secret_key_ref {
-                key = "NEW_RELIC_LICENSE_KEY"
+                key  = "API_URL"
                 name = "application-secrets"
               }
             }
           }
 
           env {
-            name  = "NEW_RELIC_APP_NAME"
+            name = "TRANSLOADIT_KEY"
             value_from {
               secret_key_ref {
-                key = "ENVIRONMENT"
+                key  = "TRANSLOADIT_KEY"
                 name = "application-secrets"
               }
             }
           }
 
           env {
-            name  = "API_URL"
+            name = "TRANSLOADIT_SECRET"
             value_from {
               secret_key_ref {
-                key = "API_URL"
+                key  = "TRANSLOADIT_SECRET"
                 name = "application-secrets"
               }
             }
           }
 
           env {
-            name  = "TRANSLOADIT_KEY"
+            name = "TRANSLOADIT_PDF_TEMPLATE_ID"
             value_from {
               secret_key_ref {
-                key = "TRANSLOADIT_KEY"
+                key  = "TRANSLOADIT_PDF_TEMPLATE_ID"
                 name = "application-secrets"
               }
             }
           }
 
           env {
-            name  = "TRANSLOADIT_SECRET"
+            name = "TRANSLOADIT_IMAGE_TEMPLATE_ID"
             value_from {
               secret_key_ref {
-                key = "TRANSLOADIT_SECRET"
-                name = "application-secrets"
-              }
-            }
-          }
-
-          env {
-            name  = "TRANSLOADIT_PDF_TEMPLATE_ID"
-            value_from {
-              secret_key_ref {
-                key = "TRANSLOADIT_PDF_TEMPLATE_ID"
-                name = "application-secrets"
-              }
-            }
-          }
-
-          env {
-            name  = "TRANSLOADIT_IMAGE_TEMPLATE_ID"
-            value_from {
-              secret_key_ref {
-                key = "TRANSLOADIT_IMAGE_TEMPLATE_ID"
+                key  = "TRANSLOADIT_IMAGE_TEMPLATE_ID"
                 name = "application-secrets"
               }
             }
@@ -150,7 +120,7 @@ resource "kubernetes_deployment" "server" {
             name = "AUTH0_CLIENT_ID"
             value_from {
               secret_key_ref {
-                key = "AUTH0_CLIENT_ID"
+                key  = "AUTH0_CLIENT_ID"
                 name = "application-secrets"
               }
             }
@@ -160,7 +130,7 @@ resource "kubernetes_deployment" "server" {
             name = "AUTH0_CLIENT_SECRET"
             value_from {
               secret_key_ref {
-                key = "AUTH0_CLIENT_SECRET"
+                key  = "AUTH0_CLIENT_SECRET"
                 name = "application-secrets"
               }
             }
@@ -170,7 +140,7 @@ resource "kubernetes_deployment" "server" {
             name = "AUTH0_TENANT"
             value_from {
               secret_key_ref {
-                key = "AUTH0_TENANT"
+                key  = "AUTH0_TENANT"
                 name = "application-secrets"
               }
             }
@@ -180,7 +150,7 @@ resource "kubernetes_deployment" "server" {
             name = "SENDGRID_API_KEY"
             value_from {
               secret_key_ref {
-                key = "SENDGRID_API_KEY"
+                key  = "SENDGRID_API_KEY"
                 name = "application-secrets"
               }
             }
@@ -190,7 +160,7 @@ resource "kubernetes_deployment" "server" {
             name = "LOB_API_KEY"
             value_from {
               secret_key_ref {
-                key = "LOB_API_KEY"
+                key  = "LOB_API_KEY"
                 name = "application-secrets"
               }
             }
@@ -200,7 +170,7 @@ resource "kubernetes_deployment" "server" {
             name = "STRIPE_API_PUBLISHABLE_KEY"
             value_from {
               secret_key_ref {
-                key = "STRIPE_API_PUBLISHABLE_KEY"
+                key  = "STRIPE_API_PUBLISHABLE_KEY"
                 name = "application-secrets"
               }
             }
@@ -210,7 +180,7 @@ resource "kubernetes_deployment" "server" {
             name = "STRIPE_API_SECRET_KEY"
             value_from {
               secret_key_ref {
-                key = "STRIPE_API_SECRET_KEY"
+                key  = "STRIPE_API_SECRET_KEY"
                 name = "application-secrets"
               }
             }
@@ -220,7 +190,7 @@ resource "kubernetes_deployment" "server" {
             name = "REDIS_URL"
             value_from {
               secret_key_ref {
-                key = "REDIS_URL"
+                key  = "REDIS_URL"
                 name = "application-secrets"
               }
             }
@@ -230,7 +200,7 @@ resource "kubernetes_deployment" "server" {
             name = "NEO4J_URL"
             value_from {
               secret_key_ref {
-                key = "NEO4J_URL"
+                key  = "NEO4J_URL"
                 name = "application-secrets"
               }
             }
