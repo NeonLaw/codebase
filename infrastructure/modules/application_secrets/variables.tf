@@ -7,9 +7,6 @@ variable "auth0_client_secret" {
 variable "auth0_tenant" {
 }
 
-variable "new_relic_license_key" {
-}
-
 variable "api_url" {
 }
 
