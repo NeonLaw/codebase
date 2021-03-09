@@ -6,6 +6,10 @@ export const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
     <RickieLayout>
       <h1>Justice For Rickie</h1>
 
+      <a href="/audio/20210309-bullet-poem.m4a">
+         The Magic Bullet
+      </a>
+
       <a href="/audio/20201106-poem.m4a">
          Listen to Rickie's Poem
       </a>
