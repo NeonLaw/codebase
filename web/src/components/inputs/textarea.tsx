@@ -3,7 +3,6 @@ import {
   Code,
   FormControl,
   FormErrorMessage,
-  FormLabel,
 } from '@chakra-ui/react';
 import React, { useCallback, useMemo } from 'react';
 import { Slate, withReact } from 'slate-react';
@@ -54,8 +53,6 @@ export const Textarea = ({
 
   return (
     <FormControl isInvalid={errors && errors[name]}>
-      <FormLabel htmlFor="name">{label}</FormLabel>
-
       <Box borderWidth="1px">
         <Controller
           render={({ onChange, value, ref }) => {

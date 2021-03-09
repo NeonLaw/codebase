@@ -1,9 +1,10 @@
 import { Box, Flex, useColorMode } from '@chakra-ui/react';
-
 import { ApolloProvider } from '@apollo/client';
 import { BaseFooter } from '../footer/baseFooter';
-import { Breadcrumbs } from '../breadcrumbs';
-import React from 'react';
+import { Container } from '../container';
+import {
+  RickieNavigationBar
+} from '../navigationBars/rickieNavigationBar';
 import { colors } from '../../styles/neonLaw';
 import { getApolloClient } from '../../utils/getApolloClient';
 
@@ -21,25 +22,32 @@ export const RickieLayout = ({
   const apolloClient = getApolloClient();
 
   return (
-    <Box
-      bg={colors.background[colorMode]}
-      color={colors.text[colorMode]}
-    >
-      <Flex
-        minHeight="100vh"
-        direction="column"
-        background={isBgLighter ? colors.lighterBg[colorMode] : 'inherit'}
+    <ApolloProvider client={apolloClient}>
+      <Box
+        bg={colors.background[colorMode]}
+        color={colors.text[colorMode]}
       >
-        <ApolloProvider client={apolloClient}>
+        <Flex
+          minHeight="100vh"
+          direction="column"
+          background={isBgLighter ? colors.lighterBg[colorMode] : 'inherit'}
+        >
           <>
-            <Box flex={1}>
-              <Breadcrumbs />
-              <main role="main">{children}</main>
-            </Box>
+            <RickieNavigationBar />
+            <Box height="7em" />
+            <Container>
+              <Box flex={1}>
+                <main role="main">{children}</main>
+              </Box>
+            </Container>
           </>
-        </ApolloProvider>
-        <BaseFooter isWhite={isFooterWhite} />
-      </Flex>
-    </Box>
+          <BaseFooter
+            isWhite={isFooterWhite}
+            footerHeader='footer.justice_for_rickie_slaughter.heading'
+            footerText='footer.justice_for_rickie_slaughter.text'
+          />
+        </Flex>
+      </Box>
+    </ApolloProvider>
   );
 };

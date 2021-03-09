@@ -6,6 +6,10 @@ export const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
     <RickieLayout>
       <h1>Justice For Rickie</h1>
 
+      <a href="/audio/20201106-poem.m4a">
+         Listen to Rickie's Poem
+      </a>
+
       <p>
 Rickie Lamont Slaughter is an innocent man who is serving a prison sentence
 for a crime he did not commit.

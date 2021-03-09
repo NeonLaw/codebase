@@ -5,7 +5,7 @@ import { RickieLayout } from '../../components/layouts/rickieLayout';
 export const WriteLetter = () => {
   return (
     <RickieLayout>
-      <h1>Write a Letter</h1>
+      <h1>Write Rickie a letter.</h1>
       <Box>
         <CreateLetterForm />
       </Box>

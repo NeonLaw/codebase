@@ -14,12 +14,22 @@ import { useIntl } from 'react-intl';
 interface BaseFooterProps {
   isWhite?: boolean;
   hideTheSection?: boolean;
+  footerHeader?: string;
+  footerText?: string;
 }
 
-export const BaseFooter = ({ isWhite, hideTheSection }: BaseFooterProps) => {
+export const BaseFooter = ({
+  isWhite,
+  hideTheSection,
+  footerHeader,
+  footerText,
+}: BaseFooterProps) => {
   const { colorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
   const intl = useIntl();
+
+  const intlFooterHeader = footerHeader || 'footer.neon_law.heading';
+  const intlFooterText = footerText || 'footer.neon_law.text';
 
   return (
     <Box
@@ -39,10 +49,10 @@ export const BaseFooter = ({ isWhite, hideTheSection }: BaseFooterProps) => {
               fontWeight="normal"
               color={colors.text[colorMode]}
             >
-              {intl.formatMessage({ id: 'footer.neon_law.heading' })}
+              {intl.formatMessage({ id: intlFooterHeader })}
             </Heading>
             <Text>
-              {intl.formatMessage({ id: 'footer.neon_law.text' })}
+              {intl.formatMessage({ id: intlFooterText })}
             </Text>
           </Box>
         </Section>
