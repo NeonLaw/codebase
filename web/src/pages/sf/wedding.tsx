@@ -9,16 +9,16 @@ import {
 } from '@chakra-ui/react';
 import React, { useRef } from 'react';
 import { AiFillGift } from 'react-icons/ai';
-import { Button } from '../../../components/button';
+import { Button } from '../../components/button';
 import { Carousel } from 'react-responsive-carousel';
-import { Container } from '../../../components/container';
-import { Image } from '../../../components/image';
+import { Container } from '../../components/container';
+import { Image } from '../../components/image';
 import {
   PublicTrustLayout
-} from '../../../components/layouts/publicTrustLayout';
-import { Seo } from '../../../components/seo';
-import { UsdInput } from '../../../components/inputs';
-import { colors } from '../../../styles/neonLaw';
+} from '../../components/layouts/publicTrustLayout';
+import { Seo } from '../../components/seo';
+import { UsdInput } from '../../components/inputs';
+import { colors } from '../../styles/neonLaw';
 import { loadStripe } from '@stripe/stripe-js';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
