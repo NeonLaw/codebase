@@ -3,14 +3,41 @@ import GraphilePro from '@graphile/pro';
 import PgPubsub from '@graphile/pg-pubsub';
 import PgSimplifyInflectorPlugin from '@graphile-contrib/pg-simplify-inflector';
 import { fileUploadsPlugin } from './resolvers/fileUploads';
+import { makeAddInflectorsPlugin } from 'graphile-utils';
 import { questionPlugin } from './resolvers/questionPlugin';
 import { slatePlugin } from './slateTypes';
 
+const tracingPlugin = {
+  withPostGraphileContext: (originalContext) => {
+    return (options, callback) => {
+      // add tracing callback here
+      // context.pgClient gets reference
+      return originalContext(options, callback);
+    };
+  }
+};
+
 const pluginHook = makePluginHook([
   PgPubsub,
-
   ...(process.env.GRAPHILE_LICENSE ? [GraphilePro] : []),
+  tracingPlugin,
 ]);
+
+const schemaInflectorsPlugin = makeAddInflectorsPlugin(inflectors => {
+  const { _tableName: oldTableName } = inflectors;
+
+  return {
+    _tableName(table) {
+      if (table.namespaceName !== 'public') {
+        return this.coerceToGraphQLName(
+          `${table.namespaceName}-` +
+          `${table.tags.name || table.type.tags.name || table.name}`
+        );
+      }
+      return oldTableName.call(this, table);
+    },
+  };
+}, true);
 
 export const postgraphileOptions: PostGraphileOptions = {
   async additionalGraphQLContextFromRequest(request) {
@@ -26,6 +53,7 @@ export const postgraphileOptions: PostGraphileOptions = {
   allowExplain: process.env.SHOW_GRAPHIQL === 'true' ? true : false,
   appendPlugins: [
     PgSimplifyInflectorPlugin,
+    schemaInflectorsPlugin,
     fileUploadsPlugin,
     questionPlugin,
     slatePlugin
