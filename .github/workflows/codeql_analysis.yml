@@ -4,10 +4,10 @@ name: codeql_analysis
 on:
   push:
     branches:
-      - development
+      - main
   pull_request:
     branches:
-      - development
+      - main
   schedule:
     - cron: "0 18 * * 2"
 

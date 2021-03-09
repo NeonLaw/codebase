@@ -4,10 +4,10 @@ name: continuous_integration
 on:
   push:
     branches:
-      - development
+      - main
   pull_request:
     branches:
-      - development
+      - main
 
 jobs:
   test_suite:
@@ -64,7 +64,7 @@ jobs:
           DATABASE_URL: postgres://postgres:password@127.0.0.1:5432/postgres
         with:
           project: neonlaw/codebase
-      - name: Check api.tsx file against development server
+      - name: Check api.tsx file against main server
         run: |
           docker exec shell yarn graphql-codegen
           git diff -G. --exit-code ./web/src/utils/api.tsx
