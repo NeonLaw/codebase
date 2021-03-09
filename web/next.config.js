@@ -6,7 +6,8 @@ const {
   NEXT_PUBLIC_JUSTICE_FOR_RICKIE_SLAUGHTER_URL,
   NEXT_PUBLIC_DELETE_YOUR_DATA_URL,
   NEXT_PUBLIC_DELETE_THEIR_DATA_URL,
-  NEXT_PUBLIC_SHOOK_FAMILY_URL
+  NEXT_PUBLIC_SHOOK_FAMILY_URL,
+  NEXT_PUBLIC_NEON_LAW_URL
 } = process.env;
 
 module.exports = withPlugins([
@@ -25,25 +26,12 @@ module.exports = withPlugins([
     return [
       {
         destination:
-        `https://${NEXT_PUBLIC_JUSTICE_FOR_RICKIE_SLAUGHTER_URL}/jfrs`,
-        source: '/jfrs',
-      },
-      {
-        destination:
           `https://${NEXT_PUBLIC_JUSTICE_FOR_RICKIE_SLAUGHTER_URL}/jfrs/:path*`,
         source: '/jfrs/:path*',
       },
       {
-        destination: `https://${NEXT_PUBLIC_SHOOK_FAMILY_URL}/sf`,
-        source: '/sf',
-      },
-      {
         destination: `https://${NEXT_PUBLIC_SHOOK_FAMILY_URL}/sf/:path*`,
         source: '/sf/:path*',
-      },
-      {
-        destination: `https://${NEXT_PUBLIC_DELETE_YOUR_DATA_URL}/delete-your`,
-        source: '/delete-your',
       },
       {
         destination:
@@ -52,13 +40,24 @@ module.exports = withPlugins([
       },
       {
         destination:
-        `https://${NEXT_PUBLIC_DELETE_THEIR_DATA_URL}/delete-their`,
-        source: '/delete-their',
-      },
-      {
-        destination:
         `https://${NEXT_PUBLIC_DELETE_THEIR_DATA_URL}/delete-their/:path*`,
         source: '/delete-their/:path*',
+      },
+      {
+        destination: `https://${NEXT_PUBLIC_NEON_LAW_URL}/blog/:path*`,
+        source: '/blog/:path*',
+      },
+      {
+        destination: `https://${NEXT_PUBLIC_NEON_LAW_URL}/portal/:path*`,
+        source: '/portal/:path*',
+      },
+      {
+        destination: `https://${NEXT_PUBLIC_NEON_LAW_URL}/templates/:path*`,
+        source: '/templates/:path*',
+      },
+      {
+        destination: `https://${NEXT_PUBLIC_NEON_LAW_URL}/:path*`,
+        source: '/:path*',
       },
     ];
   },
