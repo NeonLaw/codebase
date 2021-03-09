@@ -1,10 +1,10 @@
 import { RickieLayout } from '../layouts/rickieLayout';
 
+/* eslint-disable */
 export const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
   return (
     <RickieLayout>
       <h1>Justice For Rickie</h1>
-
 
       <p>
 Rickie Lamont Slaughter is an innocent man who is serving a prison sentence

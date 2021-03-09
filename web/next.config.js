@@ -1,5 +1,4 @@
 const withPlugins = require('next-compose-plugins');
-const withPWA = require('next-pwa');
 const withNextIntl = require('@moxy/next-intl/plugin');
 const withMDX = require('@next/mdx');
 
