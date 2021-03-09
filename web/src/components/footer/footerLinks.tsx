@@ -72,11 +72,11 @@ export const FooterLinks = () => {
           <Flex direction="column">
             <FooterLink
               i18nMessage="footer.delete_your_data.heading"
-              path="/delete-your-data"
+              path="https://www.deleteyourdata.com"
             />
             <FooterLink
               i18nMessage="footer.justice_for_rickie_slaughter.heading"
-              path="/pro-bono/justice-for-rickie-slaughter"
+              path="https://www.justiceforrickieslaughter.com"
             />
             <FooterLink i18nMessage="footer.blog" path="/blog" />
             <FooterLink i18nMessage="footer.careers" path="/careers" />
