@@ -1,4 +1,4 @@
 node_modules/
 LICENSE.md
-packages/interface/src/content/index.mdx
-packages/interface/src/content/about-us.mdx
+packages/web/src/content/index.mdx
+packages/web/src/content/about-us.mdx
