@@ -23,6 +23,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Lint JavaScript files.
-        run: docker exec shell yarn lint
+        run: yarn lint
       - name: Type-check TypeScript Files.
-        run: docker exec shell yarn check-types
+        run: yarn check-types
