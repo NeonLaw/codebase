@@ -1,4 +1,16 @@
 ---
+we_can_help_with:
+  title: How can we help?
+  injured: I've been injured.
+  immigration: I need immigration assistance.
+  debt: I want to get out of debt.
+  afford: I can't afford an attorney.
+  business: I have legal questions about my business.
+  hacked: I've been hacked.
+  divorce: I am looking for a divorce.
+  dead: I want to plan for life after death.
+  buy_a_home: I want to buy real estate.
+  rights: My rights have been violated.
 auth:
   login: Login
   sign_up: Ask a Lawyer Now
@@ -132,7 +144,7 @@ banner:
   text: |
     We are on a mission to improve access to justice with low-cost,
     top-quality legal representation backed with world-class software. When
-    anyone can afford access to justice, everyone wins.
+    <b>anyone</b> can afford access to justice, <b>everyone</b> wins.
 why_neon_law:
   heading: Why Neon Law?
   sub_text: We employ justice-based tech to deliver efficient, accurate results.

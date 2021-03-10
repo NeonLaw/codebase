@@ -3,6 +3,7 @@ import {
   Center,
   Flex,
   Heading,
+  IconButton,
   Spacer,
   Text,
   VStack,
@@ -10,18 +11,27 @@ import {
 import { colors, gutters, sizes } from '../../styles/neonLaw';
 import { BaseFooter } from '../footer/baseFooter';
 import { Button } from '../button';
+import { ChevronDownIcon } from '@chakra-ui/icons';
+import { Experience } from '../homepage/experience';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Seo } from '../seo';
 import { StringInput } from '../inputs';
+import { WhatWeCanHelpWith } from '../homepage/whatWeCanHelpWith';
+import { WhyNeonLaw } from '../homepage/whyNeonLaw';
 import { useColorMode } from '@chakra-ui/react';
 import { useCreateQuestionMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
+import { useRef } from 'react';
+import { useUser } from '@auth0/nextjs-auth0';
 
 export const NeonLawIndexPage = (): JSX.Element => {
   const { colorMode } = useColorMode();
   const intl = useIntl();
   const { handleSubmit, errors, register, reset } = useForm();
+  const { user } = useUser();
+  const nextSectionRef = useRef(null);
 
   const [createQuestion, { loading }] = useCreateQuestionMutation();
 
@@ -76,37 +86,80 @@ export const NeonLawIndexPage = (): JSX.Element => {
               onSubmit={handleSubmit(onSubmit as any)}
               style={{ color: colors.text[colorMode] }}
             >
-              <StringInput
-                testId="index-page-search"
-                name="prompt"
-                aria-label="prompt"
-                errors={errors}
-                placeholder={intl.formatMessage({
-                  id: 'forms.legal_question.placeholder',
-                })}
-                register={register()}
-              />
-              <Button
-                marginTop="1em"
-                flash={true}
-                width="100%"
-                type="submit"
-                aria-label="submit-prompt"
-                disabled={loading}
-              >
-                {intl.formatMessage({ id: 'auth.sign_up' })}
-              </Button>
+              <Flex>
+                <StringInput
+                  testId="index-page-search"
+                  name="prompt"
+                  aria-label="prompt"
+                  errors={errors}
+                  placeholder={intl.formatMessage({
+                    id: 'forms.legal_question.placeholder',
+                  })}
+                  register={register()}
+                />
+                <Button
+                  flash={true}
+                  bg="cyan.500"
+                  borderRadius="5px"
+                  color="white"
+                  _hover={{ bg: 'cyan.400'}}
+                  type="submit"
+                  aria-label="submit-prompt"
+                  disabled={loading}
+                >
+                  {intl.formatMessage({ id: 'auth.sign_up' })}
+                </Button>
+              </Flex>
             </form>
             <Text
               margin={`${gutters.xSmall} 0 ${gutters.small}`}
               color={colors.text[colorMode]}
               display={['none', 'none', 'inherit']}
-            >
-              {intl.formatMessage({ id: 'banner.text' })}
+              dangerouslySetInnerHTML={{
+                __html: intl.formatMessage({ id: 'banner.text' })
+              }}
+            />
+            <Text>
+              Are you a current client?&nbsp;
+              {user ? (
+                <Link href="/portal">
+                  <a
+                    href="/portal"
+                    style={{ textDecoration: 'underline' }}
+                  >
+                    View your matters in our portal
+                  </a>
+                </Link>
+              ) : (
+                <Link href="/api/auth/login">
+                  <a
+                    href="/api/auth/login"
+                    style={{ textDecoration: 'underline' }}
+                  >
+                    Sign in to access your portal
+                  </a>
+                </Link>
+              )}.
             </Text>
+            <Box width="100%" height="100px" />
           </Box>
         </VStack>
       </Center>
+      <Flex marginTop="-3em" width="100%">
+        <IconButton
+          aria-label="Learn More"
+          margin="0 auto"
+          icon={<ChevronDownIcon />}
+          onClick={() => {
+            nextSectionRef.current.scrollIntoView({ behavior: 'smooth'});
+          }}
+        />
+      </Flex>
+      <Box ref={nextSectionRef} marginTop="3em">
+        <WhatWeCanHelpWith />
+        <WhyNeonLaw />
+        <Experience />
+      </Box>
       <BaseFooter />
     </>
   );

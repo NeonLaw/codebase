@@ -64,11 +64,13 @@ export const WhatWeCanHelpWith = () => {
         id: 'we_can_help_with.dead',
       }),
     },
-    // {
-    //   text: intl.formatMessage({
-    //     id: 'we_can_help_with.buy_a_home',
-    //   }),
-    // },
+    {
+      image: '/images/real-estate.jpg',
+      path: '/practice-areas/real-estate',
+      text: intl.formatMessage({
+        id: 'we_can_help_with.buy_a_home',
+      }),
+    },
     {
       image: '/images/what-we-can-help-with/rights-violated.jpg',
       path: '/practice-areas/constitutional-rights',

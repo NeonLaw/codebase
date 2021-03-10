@@ -14,7 +14,10 @@ const StyledTestimonials = styled.div`
 export const Testimonials = () => {
   const intl = useIntl();
 
-  const testimonails: TestimonialProps[] = [];
+  const testimonails: TestimonialProps[] = [{
+    author: 'Joe T',
+    quote: 'Been good'
+  }];
 
   return (
     <Section

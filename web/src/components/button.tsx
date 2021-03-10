@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /* eslint-enable */
-import { Button as ChakraButton, useColorMode } from '@chakra-ui/react';
+import { Box, Button as ChakraButton, useColorMode } from '@chakra-ui/react';
 import { Global, css, keyframes } from '@emotion/react';
 import React, { CSSProperties } from 'react';
 
@@ -37,7 +37,7 @@ export const flashAnimation = keyframes`
  }
 `;
 
-const StyledFlashButtonWrapper = styled.div`
+const StyledFlashButtonWrapper = styled(Box)`
   display: inline-block;
   outline: var(--outline-transparent);
   outline-offset: 0.3rem;
@@ -58,9 +58,10 @@ const WrapOrUnWrap = ({
   flash,
   children,
   containerStyles,
+  ...props
 }: WrapOrUnWrapProps) => {
   return flash ? (
-    <StyledFlashButtonWrapper style={{ ...containerStyles }}>
+    <StyledFlashButtonWrapper style={{ ...containerStyles }} {...props}>
       {children}
     </StyledFlashButtonWrapper>
   ) : (
@@ -101,7 +102,7 @@ export const Button = ({
   const shouldHaveTealStyles = !flash || buttonScheme === 'teal';
 
   return (
-    <WrapOrUnWrap flash={flash} containerStyles={containerStyles}>
+    <WrapOrUnWrap flash={flash} containerStyles={containerStyles} {...props}>
       <ChakraButton
         as={props.as}
         href={props.href}
