@@ -1,4 +1,4 @@
-import { default as Head } from 'next/head';
+import Head from 'next/head';
 import React from 'react';
 
 interface SeoProps {

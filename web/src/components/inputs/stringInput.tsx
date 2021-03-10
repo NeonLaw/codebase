@@ -9,7 +9,7 @@ import React from 'react';
 
 export const StringInput = ({
   errors,
-  label,
+  label = '',
   register,
   name,
   onBlur = () => {
@@ -25,7 +25,7 @@ export const StringInput = ({
 }) => {
   return (
     <FormControl isInvalid={errors[name]}>
-      <FormLabel htmlFor={name}>{label}</FormLabel>
+      {label && (<FormLabel htmlFor={name}>{label}</FormLabel>)}
       <Input
         data-testid={testId}
         ref={register}

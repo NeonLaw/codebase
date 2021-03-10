@@ -1,6 +1,4 @@
 import { Box, Flex, useColorMode } from '@chakra-ui/react';
-
-import { ApolloProvider } from '@apollo/client';
 import { BaseFooter } from '../footer/baseFooter';
 import { Breadcrumbs } from '../breadcrumbs';
 import {
@@ -8,7 +6,6 @@ import {
 } from '../navigationBars/publicNavigationBar';
 import React from 'react';
 import { colors } from '../../styles/neonLaw';
-import { getApolloClient } from '../../utils/getApolloClient';
 
 export const PublicLayout = ({
   children,
@@ -21,7 +18,6 @@ export const PublicLayout = ({
   isFooterWhite?: boolean;
 }) => {
   const { colorMode } = useColorMode();
-  const apolloClient = getApolloClient();
 
   return (
     <Box
@@ -33,15 +29,13 @@ export const PublicLayout = ({
         direction="column"
         background={isBgLighter ? colors.lighterBg[colorMode] : 'inherit'}
       >
-        <ApolloProvider client={apolloClient}>
-          <>
-            <PublicNavigationBar />
-            <Box flex={1}>
-              <Breadcrumbs />
-              <main role="main">{children}</main>
-            </Box>
-          </>
-        </ApolloProvider>
+        <>
+          <PublicNavigationBar />
+          <Box flex={1}>
+            <Breadcrumbs />
+            <main role="main">{children}</main>
+          </Box>
+        </>
         <BaseFooter isWhite={isFooterWhite} />
       </Flex>
     </Box>

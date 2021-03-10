@@ -7,10 +7,9 @@ import { theme as chakraTheme } from '@chakra-ui/react';
 
 export const theme = Object.assign(chakraTheme, {
   fontSizes: {
-    md: '1.125rem',
-    xl: '3.25rem',
     xl0: '2.50rem',
     xl1: '2.25rem',
+    xxl: '3.50rem',
   },
   fonts: {
     body: '"HK Grotesk", sans-serif',

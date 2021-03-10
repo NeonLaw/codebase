@@ -23,9 +23,6 @@ export const Hero = () => {
       minHeight="600px"
       height="100vh"
       color={colors.text.dark}
-      background={`linear-gradient(
-      to right, rgba(0,0,0, .6), rgba(0,0,0, .9)),
-      url('/images/banner.jpg')`}
       backgroundSize="cover"
       backgroundPosition="left"
       backgroundAttachment="fixed"
