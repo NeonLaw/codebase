@@ -22,6 +22,7 @@ export const StringInput = ({
   testId,
   value = '',
   styles = {},
+  ...props
 }) => {
   return (
     <FormControl isInvalid={errors[name]}>
@@ -38,6 +39,7 @@ export const StringInput = ({
         _hover={{ borderColor: 'gray.500' }}
         className="outline-bordered"
         style={{ ...styles }}
+        {...props}
       />
       <FormErrorMessage>
         {errors && errors[name] && errors[name].message}

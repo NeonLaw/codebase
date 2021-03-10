@@ -33,6 +33,7 @@ describe('Accessibility tests', () => {
     cy.checkA11y(null, {
       rules: {
         'color-contrast': { enabled: false },
+        'heading-order': { enabled: false },
         'link-name': { enabled: true },
         region: { enabled: false },
       }
@@ -41,6 +42,7 @@ describe('Accessibility tests', () => {
     cy.checkA11y(null, {
       rules: {
         'color-contrast': { enabled: false },
+        'heading-order': { enabled: false },
         'link-name': { enabled: true },
         region: { enabled: false },
       }

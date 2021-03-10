@@ -38,7 +38,7 @@ export const NeonLawIndexPage = (): JSX.Element => {
       <Seo title="Homepage" />
       <Center
         background={colors.background[colorMode]}
-        as="section"
+        as="main"
         display="flex"
         alignItems="center"
         height="100vh"
@@ -79,6 +79,7 @@ export const NeonLawIndexPage = (): JSX.Element => {
               <StringInput
                 testId="index-page-search"
                 name="prompt"
+                aria-label="prompt"
                 errors={errors}
                 placeholder={intl.formatMessage({
                   id: 'forms.legal_question.placeholder',
@@ -90,6 +91,7 @@ export const NeonLawIndexPage = (): JSX.Element => {
                 flash={true}
                 width="100%"
                 type="submit"
+                aria-label="submit-prompt"
                 disabled={loading}
               >
                 {intl.formatMessage({ id: 'auth.sign_up' })}
