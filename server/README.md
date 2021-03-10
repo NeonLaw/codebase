@@ -1,10 +1,24 @@
-# Neon Law API
+# Neon Law Server
 
-This folder contains a GraphQL API powered by Postgraphile.
+This folder contains a GraphQL API powered by Postgraphile and background jobs
+handled by Graphile Migrate.
+
+## Seeding the database
+
+To begin working on the application, it may be helpful to have seeded data which
+is a reflection of our production data. To obtain seeded data, you can run:
+
+```bash
+yarn db:seed
+```
+
+from the root of this codebase.
 
 ## Accessing the shell
 
-You are encouraged to work on this application via `docker-compose` which is detailed at the top-level `README` in this repository. Then, you can access the shell via:
+You are encouraged to work on this application via `docker-compose` which is
+detailed at the top-level `README` in this repository. Then, you can access
+the shell via:
 
 ```
 docker exec -it shell /bin/bash
@@ -15,20 +29,10 @@ container.
 
 ## Creating a migration
 
-After accessing the shell and seeing a linux command prompt, `cd` into the
-api folder with:
-
-```bash
-cd ./packages/api
-```
-
-From there, you can run `yarn run graphile-migrate watch` and make changes to
-the `migrations/current.sql` file. At first, it may seem unusual to have a
-the `watch` process look for changes. However, it is the library's intent to
-have you write idempotent migrations, so the code should be the same upon
-every iteration. Once you are satisfied with your changes, you can then
-terminated the `yarn run graphile-migrate watch` process and run
-`yarn run graphile-migrate commit`, which will commit the migration.
+To create a migration, you will need to edit the `migrations/current.sql` file.
+Then after `cd`ing into the shell as described above, you can run
+`yarn migrate:watch` to run your migration on every file change. When you are
+satisfied with the changes, you can run `yarn migrate:commit`.
 
 ## Restarting the API
 
