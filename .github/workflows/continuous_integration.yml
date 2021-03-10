@@ -43,12 +43,6 @@ jobs:
           docker exec shell yarn install --frozen-lockfile --no-cache
           sudo chown -R $USER .
           yarn install --frozen-lockfile
-      - name: Lint Markdown files.
-        run: docker exec shell yarn markdown-lint
-      - name: Lint JavaScript files.
-        run: docker exec shell yarn lint
-      - name: Type-check TypeScript Files.
-        run: docker exec shell yarn check-types
       - name: Build Next.JS website
         run: docker exec shell yarn workspace @neonlaw/web build
       - name: Run Jest tests and publish coverage to Code Climate.

@@ -1,0 +1,28 @@
+---
+name: typescript
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**/*.ts'
+      - '**/*.tsx'
+
+jobs:
+  test_suite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Lint JavaScript files.
+        run: docker exec shell yarn lint
+      - name: Type-check TypeScript Files.
+        run: docker exec shell yarn check-types
