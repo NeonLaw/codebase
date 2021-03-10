@@ -7,7 +7,6 @@ import {
   theme,
   useBreakpointValue,
 } from '@chakra-ui/react';
-
 import { Container } from '../container';
 import { EmailListButton } from '../emailListButton';
 import { FooterLink } from './footerLink';
@@ -39,32 +38,46 @@ export const FooterLinks = () => {
             >
               { intl.formatMessage({id: 'footer.support'}) }
             </Box>
-            <FooterLink i18nMessage="footer.pro_bono" path="/pro-bono" />
+            <FooterLink
+              i18nMessage="footer.pro_bono"
+              path="https://www.neonlaw.com/pro-bono"
+            />
             <FooterLink
               i18nMessage="footer.upward_mobility"
-              path="/upward-mobility"
+              path="https://www.neonlaw.com/upward-mobility"
             />
           </Flex>
           <Spacer />
           <Flex direction="column">
-            <FooterLink i18nMessage="footer.about" path="/about-us" />
+            <FooterLink
+              i18nMessage="footer.about"
+              path="https://www.neonlaw.com/about-us"
+            />
             <FooterLink
               i18nMessage="footer.practice_areas"
-              path="/practice-areas"
+              path="https://www.neonlaw.com/practice-areas"
             />
-            <FooterLink i18nMessage="footer.bar_prep" path="/bar-prep" />
-            <FooterLink i18nMessage="footer.templates" path="/templates" />
+            <FooterLink
+              i18nMessage="footer.bar_prep"
+              path="https://www.neonlaw.com/bar-prep"
+            />
+            <FooterLink
+              i18nMessage="footer.templates"
+              path="https://www.neonlaw.com/templates"
+            />
           </Flex>
           <Spacer />
           <Flex direction="column">
             <FooterLink
               i18nMessage="footer.privacy_policy"
-              path="/privacy-policy"
+              path="https://www.neonlaw.com/privacy-policy"
             />
-            <FooterLink i18nMessage="footer.terms" path="/terms-of-service" />
+            <FooterLink
+              i18nMessage="footer.terms"
+              path="https://www.neonlaw.com/terms-of-service" />
             <FooterLink
               i18nMessage="footer.modern_slavery_statement"
-              path="/modern-slavery-statement"
+              path="https://www.neonlaw.com/modern-slavery-statement"
             />
             <FooterLink i18nMessage="footer.pgp_key" path="/pgp" />
           </Flex>
@@ -101,8 +114,7 @@ export const FooterLinks = () => {
             >
               Nisar
             </a>
-            &nbsp;
-            logic by&nbsp;
+            &nbsp;- powered by&nbsp;
             <a
               style={{ cursor: 'pointer', textDecoration: 'underline' }}
               href="https://www.graphile.org/postgraphile/"
