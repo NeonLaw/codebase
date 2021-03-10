@@ -40,3 +40,5 @@ forms:
     label: Addressee
   addressor_id:
     label: Addressor
+  legal_question:
+    placeholder: What legal question do you have?

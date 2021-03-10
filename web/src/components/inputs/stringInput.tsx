@@ -9,7 +9,7 @@ import React from 'react';
 
 export const StringInput = ({
   errors,
-  label,
+  label = '',
   register,
   name,
   onBlur = () => {
@@ -22,10 +22,11 @@ export const StringInput = ({
   testId,
   value = '',
   styles = {},
+  ...props
 }) => {
   return (
     <FormControl isInvalid={errors[name]}>
-      <FormLabel htmlFor={name}>{label}</FormLabel>
+      {label && (<FormLabel htmlFor={name}>{label}</FormLabel>)}
       <Input
         data-testid={testId}
         ref={register}
@@ -38,6 +39,7 @@ export const StringInput = ({
         _hover={{ borderColor: 'gray.500' }}
         className="outline-bordered"
         style={{ ...styles }}
+        {...props}
       />
       <FormErrorMessage>
         {errors && errors[name] && errors[name].message}

@@ -1,10 +1,11 @@
 import '../styles/globals.css';
-
+import { ApolloProvider } from '@apollo/client';
 import { BaseStyles } from '../styles/baseStyles';
 import { ChakraProvider } from '@chakra-ui/react';
 import Head from 'next/head';
 import { ShortcutsModal } from '../components/shortcuts-modal';
 import { UserProvider } from '@auth0/nextjs-auth0';
+import { getApolloClient } from '../utils/getApolloClient';
 import { handleFirstTab } from '../utils/accessibility';
 import nextIntlConfig from '../intl';
 import { theme } from '../styles/neonLaw';
@@ -19,20 +20,23 @@ const NeonLawApp = ({ Component, pageProps }) => {
       window.removeEventListener('keydown', handleFirstTab);
     };
   }, []);
+  const apolloClient = getApolloClient();
 
   return (
     <UserProvider>
       <ChakraProvider theme={theme}>
-        <>
-          <Head>
-            <meta
-              name="viewport"
-            />
-          </Head>
-          <BaseStyles />
-          <ShortcutsModal />
-          <Component {...pageProps} />
-        </>
+        <ApolloProvider client={apolloClient}>
+          <>
+            <Head>
+              <meta
+                name="viewport"
+              />
+            </Head>
+            <BaseStyles />
+            <ShortcutsModal />
+            <Component {...pageProps} />
+          </>
+        </ApolloProvider>
       </ChakraProvider>
     </UserProvider>
   );

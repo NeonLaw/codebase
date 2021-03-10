@@ -92,7 +92,7 @@ export const FooterLinks = () => {
           </Text>
           <Divider margin="1.5em auto" width="240px" />
           <Text textAlign="center">
-            this website was crafted by&nbsp;
+            ui by&nbsp;
             <a
               style={{ cursor: 'pointer', textDecoration: 'underline' }}
               href="https://nisar.dev"
@@ -100,6 +100,16 @@ export const FooterLinks = () => {
               rel="noreferrer"
             >
               Nisar
+            </a>
+            &nbsp;
+            logic by&nbsp;
+            <a
+              style={{ cursor: 'pointer', textDecoration: 'underline' }}
+              href="https://www.graphile.org/postgraphile/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Postgraphile
             </a>
           </Text>
         </Box>

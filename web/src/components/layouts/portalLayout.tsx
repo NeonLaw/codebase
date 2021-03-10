@@ -1,5 +1,4 @@
 import { colors, gutters, theme } from '../../styles/neonLaw';
-import { ApolloProvider } from '@apollo/client';
 import { BaseFooter } from '../footer/baseFooter';
 import { LoadingPage } from '../loadingPage';
 import {
@@ -12,7 +11,6 @@ import {
   PortalSideNavigation
 } from '../sideNavigation/portalSideNavigation';
 import React from 'react';
-import { getApolloClient } from '../../utils/getApolloClient';
 import { portalNavLinks } from '../navigationBars/portalNavLinks';
 import styled from '@emotion/styled';
 import { useColorMode } from '@chakra-ui/react';
@@ -107,11 +105,10 @@ export const PortalLayout = ({ children }) => {
   }
 
   if (user) {
-    const apolloClient = getApolloClient();
     const links = portalNavLinks({ email: user.email });
 
     return (
-      <ApolloProvider client={apolloClient}>
+      <>
         <StyledPortalLayout>
           <div className="wrapper">
             <Aside
@@ -141,7 +138,7 @@ export const PortalLayout = ({ children }) => {
         <FooterWrapperMobile>
           <BaseFooter hideTheSection={true} />
         </FooterWrapperMobile>
-      </ApolloProvider>
+      </>
     );
   }
 

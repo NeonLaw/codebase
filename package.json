@@ -69,7 +69,7 @@
         "develop:shell": "docker exec -it shell /bin/bash",
         "docker-remove-containers": "docker container kill $(docker ps -q)",
         "docker-prune": "docker system prune -a -f --volumes",
-        "e2e": "cypress run --headless --project",
+        "e2e": "cypress run --headless --project ./web",
         "lint": "eslint './**/*.{js,jsx,ts,tsx}'",
         "markdown-lint": "remark -i -e mdx,md --frail .remarkignore .",
         "migrate:commit": "yarn workspace @neonlaw/server graphile-migrate commit",

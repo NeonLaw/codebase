@@ -1,7 +1,7 @@
 ---
 auth:
   login: Login
-  sign_up: Get Legal Help Today
+  sign_up: Ask a Lawyer Now
 languages:
   language: Language
   english: English
