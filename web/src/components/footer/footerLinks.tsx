@@ -101,11 +101,19 @@ export const FooterLinks = () => {
           <SocialMediaIcons />
           <EmailListButton />
           <Text textAlign="center">
-            Copyright &copy; {new Date().getFullYear()} Shook Law PLLC
+            Copyright &copy; {new Date().getFullYear()} Shook Law PLLC under
+            the&nbsp;
+            <a
+              href="https://github.com/NeonLaw/codebase/blob/main/LICENSE.md"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Neon License
+            </a>.
           </Text>
           <Divider margin="1.5em auto" width="240px" />
           <Text textAlign="center">
-            ui by&nbsp;
+            UI by&nbsp;
             <a
               style={{ cursor: 'pointer', textDecoration: 'underline' }}
               href="https://nisar.dev"
@@ -114,7 +122,7 @@ export const FooterLinks = () => {
             >
               Nisar
             </a>
-            &nbsp;- powered by&nbsp;
+            &nbsp;- API by&nbsp;
             <a
               style={{ cursor: 'pointer', textDecoration: 'underline' }}
               href="https://www.graphile.org/postgraphile/"
