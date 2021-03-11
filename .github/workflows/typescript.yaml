@@ -8,9 +8,6 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - '**/*.ts'
-      - '**/*.tsx'
 
 jobs:
   typescript_tests:
