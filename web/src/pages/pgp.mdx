@@ -1,20 +1,20 @@
----
-title: PGP Key
-slug: /pgp
-updatedAt: '2020-07-31'
-tags: legal,privacy
----
+export const meta = {
+  title: 'PGP Key',
+  slug: '/pgp',
+  updatedAt: '2020-03-17',
+  tags: 'legal,privacy',
+};
+import { MdxLayout } from '../components/layouts/mdxLayout';
+export default ({ children }) => <MdxLayout meta={meta}>{children}</MdxLayout>;
 
-// import { PGPKey } from '../components/pgpKey';
-// import { sizes } from '../styles/neonLaw';
+import { sizes } from '../styles/neonLaw';
 
 If you have something you'd like to send us via PGP encryption, please
 encrypt your message with this following public key. You can then email us at
 support@neonlaw.com with the message, or contact us.
 
-```
+```bash
 -----BEGIN PGP PUBLIC KEY BLOCK-----
-
 mQINBF8cxNABEADPolYynEHX7Gp96PqV7KvLr44b3Lb/en6yVXix8XwUCIEek4au
 AavH55xvzWq/HLUsdj0t5J/0DdoWUvi2iImHthKMd7U1g7YXf0W/8fG8R2Ha6Om0
 nYcT9dY9BuqEyurFFQCjNcJ42HIP3dZYH0UjBhF093NC2ndgoHXt+pzaiLNAobJe

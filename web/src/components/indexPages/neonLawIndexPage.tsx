@@ -122,14 +122,25 @@ export const NeonLawIndexPage = (): JSX.Element => {
             <Text>
               Are you a current client?&nbsp;
               {user ? (
-                <Link href="/portal">
-                  <a
-                    href="/portal"
-                    style={{ textDecoration: 'underline' }}
-                  >
-                    View your matters in our portal
-                  </a>
-                </Link>
+                <>
+                  <Link href="/portal" passHref={true}>
+                    <a
+                      href="/portal"
+                      style={{ textDecoration: 'underline' }}>
+                    View your matters
+                    </a>
+                  </Link>
+                  <span>
+                  &nbsp;or&nbsp;
+                  </span>
+                  <Link href="/api/auth/logout" passHref={true}>
+                    <a
+                      href="/api/auth/logout"
+                      style={{ textDecoration: 'underline' }}>
+                    log out
+                    </a>
+                  </Link>
+                </>
               ) : (
                 <Link href="/api/auth/login">
                   <a
