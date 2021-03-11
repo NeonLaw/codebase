@@ -92,7 +92,7 @@
         "@uppy/core": "^1.16.1",
         "@uppy/react": "^1.11.4",
         "@uppy/transloadit": "^1.6.21",
-        "@uppy/tus": "^1.8.5",
+        "@uppy/tus": "^1.8.6",
         "clipboard-copy": "^4.0.1",
         "jwt-decode": "^3.1.2",
         "next-compose-plugins": "^2.2.1",
