@@ -90,7 +90,7 @@
         "@stripe/stripe-js": "^1.13.1",
         "@typescript-eslint/parser": "^4.17.0",
         "@uppy/core": "^1.16.2",
-        "@uppy/react": "^1.11.4",
+        "@uppy/react": "^1.11.5",
         "@uppy/transloadit": "^1.6.22",
         "@uppy/tus": "^1.8.5",
         "clipboard-copy": "^4.0.1",
