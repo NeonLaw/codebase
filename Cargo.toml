@@ -1,5 +1,6 @@
 [workspace]
 
 members = [
-  "git_flow"
+  "git_flow",
+  "neon_nlp"
 ]
