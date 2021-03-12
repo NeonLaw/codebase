@@ -69,12 +69,12 @@ export const postgraphileOptions: PostGraphileOptions = {
     (parseInt(process.env.HIDE_QUERY_COST || '', 10) || 0) < 1,
   extendedErrors: ['errcode'],
   graphiql: process.env.SHOW_GRAPHIQL === 'true' ? true : false,
-  graphiqlRoute: '/api/graphiql',
+  graphiqlRoute: '/graphiql',
   graphqlCostLimit:
     parseInt(process.env.GRAPHQL_COST_LIMIT || '', 10) || 30000,
   graphqlDepthLimit:
     parseInt(process.env.GRAPHQL_DEPTH_LIMIT || '', 10) || 12,
-  graphqlRoute: '/api/graphql',
+  graphqlRoute: '/graphql',
   ignoreIndexes: false,
   ignoreRBAC: false,
   legacyRelations: 'omit' as const,

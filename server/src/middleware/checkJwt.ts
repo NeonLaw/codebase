@@ -4,7 +4,7 @@ import jwt from 'express-jwt';
 export const checkJwt = (credentialsRequired: boolean) => {
   return jwt({
     algorithms: ['RS256'],
-    audience: 'https://www.neonlaw.com/api',
+    audience: 'https://api.neonlaw.com',
     credentialsRequired,
     issuer: `https://${process.env.AUTH0_TENANT}/`,
     secret: expressJwtSecret({

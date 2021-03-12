@@ -6,7 +6,6 @@ import {
   addTraceHeaders,
   checkJwt,
   currentUser,
-  developmentLogger,
   logger,
 } from './middleware';
 import { Pool } from 'pg';
@@ -22,11 +21,7 @@ import rateLimit from 'express-rate-limit';
 const expressApp = express();
 expressApp.use(cors());
 
-if (process.env.NODE_ENV === 'production') {
-  expressApp.use(logger);
-} else {
-  expressApp.use(developmentLogger);
-}
+expressApp.use(logger);
 
 expressApp.get('/', function (_, res) {
   res.send('Neon Law API');
@@ -36,9 +31,9 @@ expressApp.get('/api', function (_, res) {
   res.send('Neon Law API');
 });
 
-expressApp.use('/api/graphql', checkJwt(false));
-expressApp.use('/api/graphql', currentUser);
-expressApp.use('/api/graphql', addTraceHeaders);
+expressApp.use('/graphql', checkJwt(false));
+expressApp.use('/graphql', currentUser);
+expressApp.use('/graphql', addTraceHeaders);
 
 const pool = new Pool({ connectionString: postgresUrl });
 const $$pgClientOrigQuery = Symbol();
