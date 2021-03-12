@@ -74,12 +74,16 @@ export const FooterLinks = () => {
             />
             <FooterLink
               i18nMessage="footer.terms"
-              path="https://www.neonlaw.com/terms-of-service" />
+              path="https://www.neonlaw.com/terms-of-service"
+            />
             <FooterLink
               i18nMessage="footer.modern_slavery_statement"
               path="https://www.neonlaw.com/modern-slavery-statement"
             />
-            <FooterLink i18nMessage="footer.pgp_key" path="/pgp" />
+            <FooterLink
+              i18nMessage="footer.pgp_key"
+              path="https://www.neonlaw.com/pgp"
+            />
           </Flex>
           <Spacer />
           <Flex direction="column">
@@ -91,8 +95,14 @@ export const FooterLinks = () => {
               i18nMessage="footer.justice_for_rickie_slaughter.heading"
               path="https://www.justiceforrickieslaughter.com"
             />
-            <FooterLink i18nMessage="footer.blog" path="/blog" />
-            <FooterLink i18nMessage="footer.careers" path="/careers" />
+            <FooterLink
+              i18nMessage="footer.blog"
+              path="https://www.neonlaw.com/blog"
+            />
+            <FooterLink
+              i18nMessage="footer.careers"
+              path="https://www.neonlaw.com/careers"
+            />
           </Flex>
           <Box display={['none', 'none', 'flex']} />
         </Flex>

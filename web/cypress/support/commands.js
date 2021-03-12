@@ -1,28 +1,33 @@
 /// <reference types="cypress" />
 /* eslint-disable no-undef */
 
-Cypress.Commands.add('loginAsAdminUser', () => {
-  cy.log('Logging in as admin@sink.sendgrid.com');
-  const clientId = Cypress.env('AUTH0_CLIENT_ID');
+Cypress.Commands.add('login', ({ username, password }) => {
+  cy.log(`Logging in as ${useranme}`);
+
+  const client_id = Cypress.env('AUTH0_CLIENT_ID');
+  const client_secret = Cypress.env('AUTH0_CLIENT_SECRET');
   const audience = 'https://api.neonlaw.com';
   const scope = 'openid profile email';
+  const grant_type = 'http://auth0.com/oauth/grant-type/password-realm';
+  const realm = 'Username-Password-Authentication';
+  const url = 'https://neon-law-testing.auth0.com/oauth/token';
 
   const options = {
     body: {
-      audience: audience,
-      client_id: clientId,
-      client_secret: Cypress.env('AUTH0_CLIENT_SECRET'),
-      grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
-      password: Cypress.env('ADMIN_USER_PASSWORD'),
-      realm: 'Username-Password-Authentication',
+      audience,
+      client_id,
+      client_secret,
+      grant_type,
+      password,
+      realm,
       scope,
-      username: 'admin@sink.sendgrid.com',
+      username,
     },
     headers: {
       'Content-Type': 'application/json',
     },
     method: 'POST',
-    url: 'https://neon-law-testing.auth0.com/oauth/token'
+    url
   };
 
   cy.request(options).then(({ body }) => {
