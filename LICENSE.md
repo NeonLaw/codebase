@@ -4,10 +4,10 @@
 
 This license is identical to the Apache License, Version 2.0 with one extra
 provision, Section 10 below. In short, as a law firm we must disclaim that if
-you use our software in one of your projects, you agree that we are **not**
-giving you legal advice.
+you use our copyright in your work, you agree that we, or anyone else who
+licenses work under this license, are **not** giving you legal advice.
 
-TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+## TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
 1. Definitions.
 
