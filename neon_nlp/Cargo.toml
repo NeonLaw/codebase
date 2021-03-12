@@ -1,0 +1,12 @@
+[package]
+name = "neon_nlp"
+version = "0.1.0"
+authors = ["support@neonlaw.com <support@neonlaw.com>"]
+edition = "2018"
+repository = "https://github.com/neonlaw/codebase"
+documentation = "https://github.com/neonlaw/codebase/tree/development/neon_nlp/README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "3"
