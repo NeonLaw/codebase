@@ -141,6 +141,8 @@ const ShookFamilyWeddingPage = () => {
                 <Image
                   src="/images/polynesia.png"
                   alt="polynesia"
+                  height="100px"
+                  width="100px"
                 />
               </Box>
               <Box
