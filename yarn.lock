@@ -9770,10 +9770,10 @@ jose@^2.0.4:
   dependencies:
     "@panva/asn1.js" "^1.0.0"
 
-jose@^3.7.0:
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/jose/-/jose-3.7.0.tgz#647c2d7df4564eaf5aa31aa203a3b3c1b38eeb86"
-  integrity sha512-9vAWSk4zmWH60zbubOZ5Rju3bO6rr5eOUjxuU8snB17Fl2fc7ytFQ6AjtDk8vLzHvecNMj2F4yFkAyurJTpuww==
+jose@^3.7.1:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/jose/-/jose-3.7.1.tgz#962607174114c86f2689a2dbedf2c80c90505d38"
+  integrity sha512-ud3l1YVuWXskZAKDaU6J9pS8fYAN1VPfO98H69SLAAKPstXNZvAr9BpG13vnC9C5sWh3wxvoWMOcFVSTj/wKLg==
 
 js-base64@^2.6.1:
   version "2.6.4"
