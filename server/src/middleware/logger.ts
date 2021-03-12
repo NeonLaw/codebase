@@ -27,27 +27,3 @@ export const logger = expressWinston.logger({
     new winston.transports.Console()
   ],
 });
-
-export const developmentLogger = expressWinston.logger({
-  colorize: false,
-  expressFormat: true,
-  format: winston.format.combine(
-    winston.format.json()
-  ),
-  ignoreRoute(request) {
-    const ignoredRoutes = [
-      '/',
-      '/api',
-      '/api/',
-      '/favicon.ico'
-    ];
-
-    return ignoredRoutes.indexOf(request.url) > -1;
-  },
-  level: 'info',
-  meta: true,
-  msg: 'HTTP {{req.method}} {{req.url}}',
-  transports: [
-    new winston.transports.Console()
-  ],
-});

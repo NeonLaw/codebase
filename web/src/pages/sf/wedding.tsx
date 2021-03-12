@@ -12,7 +12,7 @@ import { AiFillGift } from 'react-icons/ai';
 import { Button } from '../../components/button';
 import { Carousel } from 'react-responsive-carousel';
 import { Container } from '../../components/container';
-import { Image } from '../../components/image';
+import Image from 'next/image';
 import {
   PublicTrustLayout
 } from '../../components/layouts/publicTrustLayout';
@@ -141,7 +141,6 @@ const ShookFamilyWeddingPage = () => {
                 <Image
                   src="/images/polynesia.png"
                   alt="polynesia"
-                  aspectRatio={16/9}
                 />
               </Box>
               <Box
