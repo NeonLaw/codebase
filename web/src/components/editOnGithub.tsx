@@ -6,15 +6,13 @@ import { Box, Flex } from '@chakra-ui/react';
 import { FaPencilAlt } from 'react-icons/fa';
 import React from 'react';
 
-interface EditOnGithubInterface {
-  app: string;
-  path: string;
+interface EditOnGithubProps {
+  filename: string;
 }
 
-export const EditOnGithub = ({ path }: EditOnGithubInterface) => {
-  const contentPath = path === '/' ? '/index' : path;
+export const EditOnGithub = ({ filename }: EditOnGithubProps) => {
   const githubPath = 'https://github.com/NeonLaw/codebase/blob' +
-    `/web/src/pages/${contentPath.split('/')[2]}.mdx`;
+    `/web/src/pages/${filename}.mdx`;
 
   return (
     <Flex

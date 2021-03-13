@@ -18,7 +18,7 @@ export const MdxLayout: React.FC<{
   chlidren: ReactChildren;
   meta: any;
 }> = ({ children, meta }) => {
-  const { title, slug, featuredImage, description } = meta;
+  const { title, slug, filename, featuredImage, description } = meta;
   const { colorMode } = useColorMode();
   const widescreen = 'false';
 
@@ -62,7 +62,7 @@ export const MdxLayout: React.FC<{
               <Divider margin="1em 0" />
               <Flex width="100%" justifyContent="space-between">
                 <ShareButtons slug={slug} siteUrl="https://www.neonlaw.com" />
-                <EditOnGithub app="interface" path={slug} />
+                <EditOnGithub filename={filename} />
               </Flex>
             </Container>
           </Box>

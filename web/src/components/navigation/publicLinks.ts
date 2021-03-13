@@ -5,16 +5,12 @@ export const PublicLinks = () => {
 
   return [
     {
-      label: intl.formatMessage({ id: 'navigation_public.ventures' }),
-      route: '/ventures'
+      label: intl.formatMessage({ id: 'navigation_public.services' }),
+      route: '/services'
     },
     {
-      label: intl.formatMessage({ id: 'navigation_public.trusts' }),
-      route: '/trusts'
-    },
-    {
-      label: intl.formatMessage({ id: 'navigation_public.litigation' }),
-      route: '/litigation'
+      label: intl.formatMessage({ id: 'navigation_public.tempates' }),
+      route: '/tempates'
     },
     {
       label: intl.formatMessage({ id: 'navigation_public.blog' }),

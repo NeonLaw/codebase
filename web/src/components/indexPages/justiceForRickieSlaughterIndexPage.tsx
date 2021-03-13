@@ -1,22 +1,35 @@
+import { Alert, AlertIcon, Stack } from '@chakra-ui/react';
 import { RickieLayout } from '../layouts/rickieLayout';
 
-/* eslint-disable */
+/*eslint-disable */
 export const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
   return (
     <RickieLayout>
       <h1>Justice For Rickie</h1>
 
-      <a href="/audio/20210309-bullet-poem.m4a">
-         The Magic Bullet
-      </a>
+      <h2>Rickie&apos;s latest poetry</h2>
+      <Stack spacing={3}>
+        <a href="/audio/20210309-bullet-poem.m4a" target="_blank">
+          <Alert status="info">
+            <AlertIcon />
+            The Magic Bullet
+          </Alert>
+        </a>
 
-      <a href="/audio/20201106-poem.m4a">
-         Listen to Rickie's Poem
-      </a>
+        <a href="/audio/20210309-a-black-womans-magic.m4a">
+          <Alert status="info">
+            <AlertIcon />
+         Black Woman Magic Poem
+          </Alert>
+        </a>
 
-      <a href="/audio/20210309-a-black-womans-magic.m4a">
-         Listen to Rickie's Black Woman Magic Poem
-      </a>
+        <a href="/audio/20201106-stars-and-stripes.m4a">
+          <Alert status="info">
+            <AlertIcon />
+         Stars and Stripes
+          </Alert>
+        </a>
+      </Stack>
 
       <p>
 Rickie Lamont Slaughter is an innocent man who is serving a prison sentence
@@ -33,7 +46,7 @@ and items of clothing.
 
       <p>
 Based on an unfair and faulty photo line-up, Rickie (who does not have a
-Jamaican accent and is 5'8") was misidentified. Additionally, witnesses
+Jamaican accent and is 5&apos;8") was misidentified. Additionally, witnesses
 described the perpetrators' vehicle as being a Pontiac Grand Am, a different
 kind of car than the one Rickie possessed, a Ford Taurus. Furthermore, there
 was no physical evidence of the cash, credit cards, or clothing, to link him
@@ -42,9 +55,9 @@ wrongfully convicted at trial due to the photo misidentifications.
       </p>
 
       <p>
-Now, new evidence in a federal proceeding regarding Rickie's conviction has
+Now, new evidence in a federal proceeding regarding Rickie&apos;s conviction has
 brought to light that the prosecutor knowingly withheld evidence that could
-have proved Rickie's innocence. There was a second, more fair photo line-up
+have proved Rickie&apos;s innocence. There was a second, more fair photo line-up
 from which Rickie was not identified as a perpetrator by the victims and
 witnesses and a 911 dispatch report revealing what time the perpetrators left
 which was at 7:11pm. At that time, Rickie was picking up his girlfriend from
@@ -55,7 +68,7 @@ impossible for him to have committed the crime.
 
       <p>
 Below, follow along and click on the hyperlinks to read documents and
-evidence in Rickie's case. Also, sign the petition to help correct the grave
+evidence in Rickie&apos;s case. Also, sign the petition to help correct the grave
 injustice that was done to Rickie.
       </p>
 
@@ -70,7 +83,7 @@ facts against him were unjust for several reasons:
 During the police investigation, an unfair photo line-up was presented to,
 the victims and witnesses that caused them to misidentify Rickie.
 
-Specifically, the photo line-up was made in a way that caused Rickie's photo
+Specifically, the photo line-up was made in a way that caused Rickie&apos;s photo
 to stand out from the rest of the photos. The color and background was
 uniquely different from the other 5 photos in the line-up, which
 psychological made his picture stand out to the viewers. Psychologists and
@@ -92,7 +105,7 @@ testified for the first time ever that a second more fair line-up was shown
 to the witnesses in 2004. In that instance **no one picked Rickie out of this
 more fair line-up**.
 
-However, this information was not adequately provided to Rickie's attorney
+However, this information was not adequately provided to Rickie&apos;s attorney
 before trial, and the jury did not hear about this second more fair photo
 line-up. Police did not promptly preserve this photo line up as evidence.
 Hearing about this second more fair photo line-up, would have undermined the

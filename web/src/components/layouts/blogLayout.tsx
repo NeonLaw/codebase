@@ -54,7 +54,14 @@ const StyledPostTemplate = styled.div`
 `;
 
 export const BlogLayout = ({ children, meta }) => {
-  const { title, slug, featuredImage, description, widescreen } = meta;
+  const {
+    title,
+    slug,
+    filename,
+    featuredImage,
+    description,
+    widescreen
+  } = meta;
   const { colorMode } = useColorMode();
 
   return (
@@ -100,7 +107,7 @@ export const BlogLayout = ({ children, meta }) => {
                 <Divider margin="1em 0" />
                 <div className="links">
                   <ShareButtons slug={slug} siteUrl="https://neonlaw.com" />
-                  <EditOnGithub app="interface" path={slug} />
+                  <EditOnGithub filename={filename} />
                 </div>
               </Box>
             </Container>
