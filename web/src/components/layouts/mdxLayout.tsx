@@ -18,7 +18,7 @@ export const MdxLayout: React.FC<{
   chlidren: ReactChildren;
   meta: any;
 }> = ({ children, meta }) => {
-  const { title, filename, featuredImage, description } = meta;
+  const { title, slug, filename, featuredImage, description } = meta;
   const { colorMode } = useColorMode();
   const widescreen = 'false';
 
