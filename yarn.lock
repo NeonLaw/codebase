@@ -9999,10 +9999,10 @@ jwa@^2.0.0:
     ecdsa-sig-formatter "1.0.11"
     safe-buffer "^5.0.1"
 
-jwks-rsa@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/jwks-rsa/-/jwks-rsa-2.0.0.tgz#3161bf4aec04c234f03217e786973d01024140fd"
-  integrity sha512-OJmDBWfG0FVSFpKxrtfK4/rrKM8n/ALv0TFYpa92qhPV6/sLJDlxE5OBoVjRYXdGkQHvi08t1s5uagzTdctCKA==
+jwks-rsa@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/jwks-rsa/-/jwks-rsa-2.0.1.tgz#f00407fe77396db6c6fd0942d60df698a909934a"
+  integrity sha512-ueT2sQm6eB9D0N3GTE9GU7Mt8UsMWDsNSpEFfqE/NxT+euRDHhaJHql5AddieiHNzSqZxeDREK1yHb8IiwrGGw==
   dependencies:
     "@types/express-jwt" "0.0.42"
     debug "^4.1.0"
