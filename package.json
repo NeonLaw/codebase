@@ -32,7 +32,7 @@
         "babel-plugin-add-react-displayname": "^0.0.5",
         "cypress-axe": "^0.12.2",
         "cypress-plugin-tab": "^1.0.5",
-        "eslint": "^7.21.0",
+        "eslint": "^7.22.0",
         "eslint-config-prettier": "^8.1.0",
         "eslint-plugin-import": "^2.22.1",
         "eslint-plugin-jest": "^24.3.1",
