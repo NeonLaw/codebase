@@ -9,7 +9,7 @@
         "cypress": "^6.6.0"
     },
     "devDependencies": {
-        "@graphql-codegen/cli": "^1.21.2",
+        "@graphql-codegen/cli": "^1.21.3",
         "@graphql-codegen/typescript-operations": "^1.17.15",
         "@graphql-codegen/typescript-react-apollo": "^2.2.2",
         "@testing-library/cypress": "^7.0.4",
