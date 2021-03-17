@@ -40,7 +40,7 @@
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.15.4",
     "react-icons": "^4.2.0",
-    "react-intl": "^5.13.3",
+    "react-intl": "^5.13.4",
     "react-responsive": "^8.2.0",
     "react-select": "^4.2.1",
     "react-spring": "^8.0.27",
