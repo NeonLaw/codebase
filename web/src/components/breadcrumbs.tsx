@@ -3,8 +3,8 @@
 /* eslint-enable */
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
 import { Link } from '../components/link';
-import { Location } from '@reach/router';
 import { useIntl } from 'react-intl';
+import { useRouter } from 'next/router';
 
 const getRouteFromPath = (
   path: string,
@@ -24,76 +24,68 @@ interface BreadCrumbProps {
 
 export const Breadcrumbs = ({ showHome = true }: BreadCrumbProps) => {
   const intl = useIntl();
+  const router = useRouter();
+  const pathname = router.pathname;
 
-  return (
-    <Location>
-      {({ location }) => {
-        if (location.pathname == '/') {
-          return null;
-        }
+  // Slice the first element since it is an empty string
+  const paths = pathname.split('/');
 
-        // Slice the first element since it is an empty string
-        const paths = location.pathname.split('/');
+  if (paths[0] === '') {
+    paths.shift();
+  }
 
-        if (paths[0] === '') {
-          paths.shift();
-        }
+  if (paths[paths.length - 1] === '') {
+    paths.pop();
+  }
 
-        if (paths[paths.length - 1] === '') {
-          paths.pop();
-        }
+  const currentPath = paths.pop();
 
-        const currentPath = paths.pop();
+  const firstPath = paths[0]?.toLowerCase();
 
-        const firstPath = paths[0]?.toLowerCase();
+  if (firstPath === 'en' || firstPath === 'es') {
+    paths.shift();
+  }
 
-        if (firstPath === 'en' || firstPath === 'es') {
-          paths.shift();
-        }
-
-        if (
-          !firstPath ||
+  if (
+    !firstPath ||
           firstPath === 'callback' ||
           firstPath === 'upward-mobility'
-        ) {
-          return null;
-        }
+  ) {
+    return null;
+  }
+
+  return (
+    <Breadcrumb mb="2em">
+      {showHome && <BreadcrumbItem cursor="pointer">
+        <BreadcrumbLink
+          className="breadcrumb outline-bordered"
+          as={Link}
+          to="/"
+        >
+          {intl.formatMessage({ id: 'breadcrumbs.home' })}
+        </BreadcrumbLink>
+      </BreadcrumbItem>}
+      {paths.map((path, i) => {
+        const route = getRouteFromPath(path, paths, i);
 
         return (
-          <Breadcrumb mb="2em">
-            {showHome && <BreadcrumbItem cursor="pointer">
-              <BreadcrumbLink
-                className="breadcrumb outline-bordered"
-                as={Link}
-                to="/"
-              >
-                {intl.formatMessage({ id: 'breadcrumbs.home' })}
-              </BreadcrumbLink>
-            </BreadcrumbItem>}
-            {paths.map((path, i) => {
-              const route = getRouteFromPath(path, paths, i);
-
-              return (
-                <BreadcrumbItem key={i} cursor="pointer">
-                  <BreadcrumbLink
-                    className="breadcrumb outline-bordered"
-                    as={Link}
-                    to={route}
-                    textTransform="capitalize"
-                  >
-                    {path.replace(/-/g, ' ')}
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-              );
-            })}
-            <BreadcrumbItem isCurrentPage={true} textTransform="capitalize">
-              <BreadcrumbLink className="breadcrumb outline-bordered">
-                {currentPath.replace(/-/g, ' ')}
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-          </Breadcrumb>
+          <BreadcrumbItem key={i} cursor="pointer">
+            <BreadcrumbLink
+              className="breadcrumb outline-bordered"
+              as={Link}
+              to={route}
+              textTransform="capitalize"
+            >
+              {path.replace(/-/g, ' ')}
+            </BreadcrumbLink>
+          </BreadcrumbItem>
         );
-      }}
-    </Location>
+      })}
+      <BreadcrumbItem isCurrentPage={true} textTransform="capitalize">
+        <BreadcrumbLink className="breadcrumb outline-bordered">
+          {currentPath.replace(/-/g, ' ')}
+        </BreadcrumbLink>
+      </BreadcrumbItem>
+    </Breadcrumb>
   );
 };
