@@ -12,7 +12,6 @@ import {
 } from '../../../../components/lists/businessMattersList';
 import { PortalLayout } from '../../../../components/layouts/portalLayout';
 import React from 'react';
-import { Router } from '@reach/router';
 import { useIntl } from 'react-intl';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -37,10 +36,8 @@ const BusinessMatterListView = (props) => {
 const PortalBusinessesPage = () => {
   return (
     <PortalLayout>
-      <Router basepath="/portal/businesses">
-        <BusinessMatterDetailView path=":matterId" />
-        <BusinessMatterListView path="/" />
-      </Router>
+      <BusinessMatterDetailView path=":matterId" />
+      <BusinessMatterListView path="/" />
     </PortalLayout>
   );
 };
