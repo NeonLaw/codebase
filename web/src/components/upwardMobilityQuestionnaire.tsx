@@ -17,12 +17,13 @@ import {
 } from '../components/questions/singleDateQuestion';
 import { gutters } from '../styles/neonLaw';
 import { useIntl } from 'react-intl';
-import { useParams } from '@reach/router';
+import { useRouter } from 'next/router';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export const UpwardMobilityQuestionnaire = (props: any) => {
   /* eslint-enable @typescript-eslint/no-unused-vars */
   const intl = useIntl();
+  const router = useRouter();
 
   const updateAnswers = (questionId, answer) => {
     const answers = JSON.parse(
@@ -34,7 +35,7 @@ export const UpwardMobilityQuestionnaire = (props: any) => {
 
   const basePath = '/upward-mobility';
 
-  const { questionId } = useParams();
+  const questionId = router.pathname.split('/')[-1];
 
   if (questionId.toLowerCase() === 'begin') {
     return <BeginUpwardMobilityQuestionnaire />;
