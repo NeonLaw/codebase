@@ -1740,14 +1740,6 @@
   dependencies:
     tslib "^2.1.0"
 
-"@formatjs/intl-datetimeformat@3.2.13":
-  version "3.2.13"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-datetimeformat/-/intl-datetimeformat-3.2.13.tgz#20a25fe07d0d1a9e4c05318714c5ff5043f09fea"
-  integrity sha512-9v9XO1lRfgDct+hpqC3ISZK+2atVUe6W9xQKV4skMK8BvZpJyC9nsoHtRhp4P4lx7RRZedwObcrEn0blmeOEnw==
-  dependencies:
-    "@formatjs/ecma402-abstract" "1.6.3"
-    tslib "^2.1.0"
-
 "@formatjs/intl-displaynames@4.0.11", "@formatjs/intl-displaynames@^4.0.4":
   version "4.0.11"
   resolved "https://registry.yarnpkg.com/@formatjs/intl-displaynames/-/intl-displaynames-4.0.11.tgz#7872625234c15f6e9ab91473a6de1ab26def1fda"
@@ -1764,10 +1756,10 @@
     cldr-core "38"
     tslib "^2.0.1"
 
-"@formatjs/intl-listformat@5.0.11":
-  version "5.0.11"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-listformat/-/intl-listformat-5.0.11.tgz#2c522b1f736f1aec82b0bc7c45608ca57b1a7ba5"
-  integrity sha512-ulPL8YCg+cGGA1wQSjQ83O4kJj2Dr97gzOp8nK8Xrah51uBqCkFHSCsEYPtSul1II9oKP4lcHEcMBjtigua7eA==
+"@formatjs/intl-listformat@5.0.12":
+  version "5.0.12"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-listformat/-/intl-listformat-5.0.12.tgz#da0daa1988bc753be915e5361b7c237a3bca314e"
+  integrity sha512-xWAndG73lqJ1+ar6SljCpM9nUsi2YoZfKi45F2YZRSxtUx4JbWYkhpbroOwxjCQ8ppZFoPc2mlLZjhPZiTyG7g==
   dependencies:
     "@formatjs/ecma402-abstract" "1.6.3"
     tslib "^2.1.0"
@@ -1790,7 +1782,7 @@
     "@formatjs/ecma402-abstract" "1.5.2"
     tslib "^2.0.1"
 
-"@formatjs/intl-relativetimeformat@8.1.3", "@formatjs/intl-relativetimeformat@^8.0.3":
+"@formatjs/intl-relativetimeformat@^8.0.3":
   version "8.1.3"
   resolved "https://registry.yarnpkg.com/@formatjs/intl-relativetimeformat/-/intl-relativetimeformat-8.1.3.tgz#e0b6a9abd1a8e2c848d14d5fbb97c534e0a1d7d2"
   integrity sha512-uUbtr4NRKgHK66bxO98RQlXypfRA5cto6nsFpgwe5wf1SWLBqxcNoo+zdAIftdvHnxPC4QH6oykMf2aYLm+pbA==
@@ -1798,16 +1790,14 @@
     "@formatjs/ecma402-abstract" "1.6.3"
     tslib "^2.1.0"
 
-"@formatjs/intl@1.8.3":
-  version "1.8.3"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl/-/intl-1.8.3.tgz#ce48644f1c1cda573508042b79b2664079d3133d"
-  integrity sha512-iAdXiES26XPXLtn5S/QwydS3ARSiaso1GWvSuk+/62lrwNmzhxFhOFnGrmzi+/nfD/O6YO//dX5qOr4oAPWdDw==
+"@formatjs/intl@1.8.4":
+  version "1.8.4"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl/-/intl-1.8.4.tgz#66418092611777f050ab99ba5fe66b89dbcbd846"
+  integrity sha512-m0/5ZRQZZfzXmeDieoG8kxu3QRvJazv2VbXhROs5khJKfUKu1rz6xfuUrh3gkmydWYtHuwJDIoC9oGR0ik4+/g==
   dependencies:
     "@formatjs/ecma402-abstract" "1.6.3"
-    "@formatjs/intl-datetimeformat" "3.2.13"
     "@formatjs/intl-displaynames" "4.0.11"
-    "@formatjs/intl-listformat" "5.0.11"
-    "@formatjs/intl-relativetimeformat" "8.1.3"
+    "@formatjs/intl-listformat" "5.0.12"
     fast-memoize "^2.5.2"
     intl-messageformat "9.5.3"
     intl-messageformat-parser "6.4.3"
@@ -1984,15 +1974,15 @@
     auto-bind "~4.0.0"
     tslib "~2.1.0"
 
-"@graphql-codegen/typescript-react-apollo@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-react-apollo/-/typescript-react-apollo-2.2.2.tgz#8146232784704a39c6d834038be5078a5d845aec"
-  integrity sha512-d0zmFjluJQV0KWbemGKEcNy11EXECX9fD6dlUvNRJs6dWzvFWD1DTcfPwGYC1MQNeXjdGpWwi+0wT/5h7riVbQ==
+"@graphql-codegen/typescript-react-apollo@^2.2.3":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-react-apollo/-/typescript-react-apollo-2.2.3.tgz#d5f54e81235d29bb57daeeda4dd58500c4f9d1e4"
+  integrity sha512-6OjDJQfVwMDEqQkgoQ3Uixq3KRb0H+lSwcWWFmdWErYhe5k2F8niBUJ32FEwu0KIqqx3PhzdwmLcXpBTC5gtyg==
   dependencies:
-    "@graphql-codegen/plugin-helpers" "^1.18.3"
-    "@graphql-codegen/visitor-plugin-common" "^1.19.0"
+    "@graphql-codegen/plugin-helpers" "^1.18.4"
+    "@graphql-codegen/visitor-plugin-common" "^1.19.1"
     auto-bind "~4.0.0"
-    change-case-all "^1.0.12"
+    change-case-all "1.0.12"
     tslib "~2.1.0"
 
 "@graphql-codegen/typescript@^1.21.1":
@@ -2005,17 +1995,17 @@
     auto-bind "~4.0.0"
     tslib "~2.1.0"
 
-"@graphql-codegen/visitor-plugin-common@^1.19.0":
-  version "1.19.0"
-  resolved "https://registry.yarnpkg.com/@graphql-codegen/visitor-plugin-common/-/visitor-plugin-common-1.19.0.tgz#e302dd1ba55cf220079c40fa840a355dcf81526d"
-  integrity sha512-Vsh9FwB90SBLnSr4KTFY8cuwjC//JBVyqn4k4usBZHFLWLkPwWzdkUKABFg6ET2gnL2L1rSU/gM30eEBrLRXFA==
+"@graphql-codegen/visitor-plugin-common@^1.19.0", "@graphql-codegen/visitor-plugin-common@^1.19.1":
+  version "1.19.1"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/visitor-plugin-common/-/visitor-plugin-common-1.19.1.tgz#2584588351a343a2ad8cd76dde62eb2ec25abe18"
+  integrity sha512-MJZXe5vXxV6PLOgHhQoz93gnjzJtbnVQXQKqVEcbyB9W8ImoKuTHsEf/eJ6yCL79f7X/2dnOOM84d5Osh1eaKg==
   dependencies:
-    "@graphql-codegen/plugin-helpers" "^1.18.3"
+    "@graphql-codegen/plugin-helpers" "^1.18.4"
     "@graphql-tools/optimize" "^1.0.1"
     "@graphql-tools/relay-operation-optimizer" "^6"
     array.prototype.flatmap "^1.2.4"
     auto-bind "~4.0.0"
-    change-case-all "^1.0.12"
+    change-case-all "1.0.12"
     dependency-graph "^0.11.0"
     graphql-tag "^2.11.0"
     parse-filepath "^1.0.2"
@@ -2895,16 +2885,6 @@
     "@reach/visually-hidden" "0.13.0"
     prop-types "^15.7.2"
     tslib "^2.0.0"
-
-"@reach/router@^1.3.4":
-  version "1.3.4"
-  resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.3.4.tgz#d2574b19370a70c80480ed91f3da840136d10f8c"
-  integrity sha512-+mtn9wjlB9NN2CNnnC/BRYtwdKBfSyyasPYraNAyvaV1occr/5NnB4CVzjEZipNHwYebQwcndGUmpFzxAUoqSA==
-  dependencies:
-    create-react-context "0.3.0"
-    invariant "^2.2.3"
-    prop-types "^15.6.1"
-    react-lifecycles-compat "^3.0.4"
 
 "@reach/utils@0.13.0":
   version "0.13.0"
@@ -5373,7 +5353,7 @@ chalk@^4.0.0, chalk@^4.1.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-change-case-all@1.0.12, change-case-all@^1.0.12:
+change-case-all@1.0.12:
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/change-case-all/-/change-case-all-1.0.12.tgz#ae3e0faf5e610e8e25c5d5eaa4a6d5c2f1d68797"
   integrity sha512-zdQus7R0lkprF99lrWUC5bFj6Nog4Xt4YCEjQ/vM4vbc6b5JHFBQMxRPAjfx+HJH8WxMzH0E+lQ8yQJLgmPCBg==
@@ -6005,14 +5985,6 @@ create-hmac@^1.1.0, create-hmac@^1.1.4, create-hmac@^1.1.7:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-context@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/create-react-context/-/create-react-context-0.3.0.tgz#546dede9dc422def0d3fc2fe03afe0bc0f4f7d8c"
-  integrity sha512-dNldIoSuNSvlTJ7slIKC/ZFGKexBMBrrcc+TTe1NdmROnaASuLPvqpwj9v4XS4uXZ8+YPu0sNmShX2rXI5LNsw==
-  dependencies:
-    gud "^1.0.0"
-    warning "^4.0.3"
-
 create-require@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
@@ -6158,10 +6130,10 @@ cypress-plugin-tab@^1.0.5:
   dependencies:
     ally.js "^1.4.1"
 
-cypress@^6.6.0:
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/cypress/-/cypress-6.6.0.tgz#659c64cdb06e51b6be18fdac39d8f192deb54fa0"
-  integrity sha512-+Xx3Zn653LJHUsCb9h1Keql2jlazbr1ROmbY6DFJMmXKLgXP4ez9cE403W93JNGRbZK0Tng3R/oP8mvd9XAPVg==
+cypress@^6.7.1:
+  version "6.7.1"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-6.7.1.tgz#6b8e1ba9badbded284ddc8575873b64211250ea6"
+  integrity sha512-MC9yt1GqpL4WVDQ0STI89K+PdLeC3T3NuAb2N61d6vYGR9pJy8w3Fqe0OWZwaRTJtg9eAyHXPGmFsyKeNQ3tmg==
   dependencies:
     "@cypress/listr-verbose-renderer" "^0.4.1"
     "@cypress/request" "^2.88.5"
@@ -6963,10 +6935,10 @@ eslint-plugin-import@^2.22.1:
     resolve "^1.17.0"
     tsconfig-paths "^3.9.0"
 
-eslint-plugin-jest@^24.3.1:
-  version "24.3.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-24.3.1.tgz#c8df037847b83397940bef7fbc2cc168ab466bcc"
-  integrity sha512-RQt59rfMSHyvedImT72iaf8JcvCcR4P7Uq499dALtjY8mrCjbwWrFi1UceG4sid2wVIeDi+0tjxXZ8CZEVO7Zw==
+eslint-plugin-jest@^24.3.2:
+  version "24.3.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-24.3.2.tgz#30a8b2dea6278d0da1d6fb9d6cd530aaf58050a1"
+  integrity sha512-cicWDr+RvTAOKS3Q/k03+Z3odt3VCiWamNUHWd6QWbVQWcYJyYgUTu8x0mx9GfeDEimawU5kQC+nQ3MFxIM6bw==
   dependencies:
     "@typescript-eslint/experimental-utils" "^4.0.1"
 
@@ -8847,7 +8819,7 @@ intl-messageformat@9.5.3:
     intl-messageformat-parser "6.4.3"
     tslib "^2.1.0"
 
-invariant@^2.2.3, invariant@^2.2.4:
+invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -9777,10 +9749,10 @@ jose@^2.0.2, jose@^2.0.4:
   dependencies:
     "@panva/asn1.js" "^1.0.0"
 
-jose@^3.8.0:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/jose/-/jose-3.8.0.tgz#5c2b54baeee7106be86731ac5d3eae6cb00b2dc6"
-  integrity sha512-Oqs6pu+vXt/YA1CdaXA9BPLfBrKH8uTCKa8Cei/GWT7IvC26OVAUqySSdlDozUfpoLpyIfiuFAACVwvBWYBcgw==
+jose@^3.9.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/jose/-/jose-3.9.0.tgz#4aafbfa5a53298377600ca9b219419fa898d05eb"
+  integrity sha512-4ntSay2SGWz9B+Hgzor9fuFHefY2/rNTwpxGk829oOOGEBsV5lPKhqBMfsVjyai5/0DoW/nztE+Nt8nGI7Bs1w==
 
 js-base64@^2.6.1:
   version "2.6.4"
@@ -12469,18 +12441,16 @@ react-input-autosize@^3.0.0:
   dependencies:
     prop-types "^15.5.8"
 
-react-intl@^5.13.3:
-  version "5.13.3"
-  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-5.13.3.tgz#8a2683d39dcea58d6fff6283a2238bc6c7c29fe4"
-  integrity sha512-+t5bCycrq2TpAac7Nwcw314fOBJgcSPm3zv4NWuuMuWj5roItGuycOXct9WnqOzRbAqFR40YlTg9Ze4svSfagQ==
+react-intl@^5.13.4:
+  version "5.13.4"
+  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-5.13.4.tgz#fa42c78669cffbea3a97607b36840d36160c21c1"
+  integrity sha512-D5sqhzLF3EERkMWjdZbi5jjchjRmpIM9lterjcGmJHvJ4sU4THmXkCkj9cIcamZPzuq/CygvSPOxhZ63ZduCdw==
   dependencies:
     "@formatjs/ecma402-abstract" "1.6.3"
-    "@formatjs/intl" "1.8.3"
+    "@formatjs/intl" "1.8.4"
     "@formatjs/intl-displaynames" "4.0.11"
-    "@formatjs/intl-listformat" "5.0.11"
-    "@formatjs/intl-relativetimeformat" "8.1.3"
+    "@formatjs/intl-listformat" "5.0.12"
     "@types/hoist-non-react-statics" "^3.3.1"
-    fast-memoize "^2.5.2"
     hoist-non-react-statics "^3.3.2"
     intl-messageformat "9.5.3"
     intl-messageformat-parser "6.4.3"
@@ -12508,7 +12478,7 @@ react-leaflet@^3.1.0:
   dependencies:
     "@react-leaflet/core" "^1.0.2"
 
-react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
+react-lifecycles-compat@^3.0.2:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
@@ -15993,10 +15963,10 @@ webpack-sources@^2.1.1, webpack-sources@^2.2.0:
     source-list-map "^2.0.1"
     source-map "^0.6.1"
 
-webpack@^5.26.0:
-  version "5.26.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.26.0.tgz#269841ed7b5c6522221aa27f7efceda04c8916d7"
-  integrity sha512-9kQATUOGQBkqzNKFmFON4KXZDsXnE7xk58tBxca8aCi+6/QhAbmWIvtGqBL66XIsBFpomFH0/0KyCaySo0ta2g==
+webpack@^5.26.3:
+  version "5.26.3"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.26.3.tgz#bafd439abac08fbb82657ec855d038743b725ab8"
+  integrity sha512-z/F2lt2N1fZqaud1B4SzjL3OW03eULThbBXQ2OX4LSrZX4N9k1A5d0Rje3zS2g887DTWyAV0KGqEf64ois2dhg==
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.46"

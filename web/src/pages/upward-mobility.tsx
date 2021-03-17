@@ -1,7 +1,6 @@
 import { Button } from '../components/button';
 import { PublicLayout } from '../components/layouts/publicLayout';
 import React from 'react';
-import { Router } from '@reach/router';
 import { Section } from '../components/section';
 import { Seo } from '../components/seo';
 import { Text } from '@chakra-ui/react';
@@ -41,10 +40,8 @@ const UpwardMobilityHome = (props) => {
 const UpwardMobilityRouter = () => {
   return (
     <PublicLayout>
-      <Router basepath="/upward-mobility">
-        <UpwardMobilityQuestionnaire path=":questionId" />
-        <UpwardMobilityHome path="/" />
-      </Router>
+      <UpwardMobilityQuestionnaire path=":questionId" />
+      <UpwardMobilityHome path="/" />
     </PublicLayout>
   );
 };
