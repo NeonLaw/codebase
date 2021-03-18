@@ -113,9 +113,9 @@ export const NeonLawIndexPage = (): JSX.Element => {
               }}
             />
             <Text>
-              <Text>
+              <span>
                 {intl.formatMessage({ id: 'banner.client' })}
-              </Text>
+              </span>
               &nbsp;
               {user ? (
                 <>
