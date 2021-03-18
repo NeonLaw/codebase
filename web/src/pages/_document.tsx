@@ -54,7 +54,9 @@ class MyDocument extends Document {
             <script
               id="ze-snippet"
               key="zendesk"
-              src={`https://static.zdassets.com/ekr/snippet.js?key=${zendeskKey}`}
+              src={
+                `https://static.zdassets.com/ekr/snippet.js?key=${zendeskKey}`
+              }
             />
           )}
           <script
