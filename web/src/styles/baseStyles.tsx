@@ -5,7 +5,11 @@ import { colors as DydColors } from './deleteYourData';
 import React from 'react';
 import { theme } from '@chakra-ui/react';
 
-export const BaseStyles = (): JSX.Element => (
+interface BaseStylesProps {
+  dir?: 'ltr' | 'rtl';
+}
+
+export const BaseStyles = ({ dir }: BaseStylesProps): JSX.Element => (
   <Global
     styles={css`
       /* ---------------------------------- */
@@ -21,10 +25,13 @@ export const BaseStyles = (): JSX.Element => (
 
       html {
         overflow-x: hidden;
+        direction: ${dir === 'rtl' ? 'rtl' : ''};
       }
 
       body {
         font-size: ${theme.fontSizes.md};
+        font-family: ${dir === 'rtl' ? 'Noto Naskh Arabic' : 'Hk Grotesk'},
+          sans-serif;
       }
 
       .row {
@@ -57,7 +64,8 @@ export const BaseStyles = (): JSX.Element => (
       h2,
       h3,
       h4 {
-        font-family: 'Jost', sans-serif;
+        font-family: ${dir === 'rtl' ? 'Noto Naskh Arabic' : 'Jost'},
+          sans-serif ${dir.length && '!important'};
         font-weight: 400;
         line-height: 1.35 !important;
       }

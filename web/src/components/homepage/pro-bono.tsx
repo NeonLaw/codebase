@@ -11,20 +11,23 @@ export const ProBono = () => {
   return (
     <Section title={intl.formatMessage({ id: 'pro_bono.title' })}>
       <Box as="p" maxWidth={sizes.textContainerSmall}>
-        Finally, and most importantly, we are proudest of&nbsp; our commitment
-        to&nbsp;
-        <UnderlineLink href="/pro-bono/">pro bono</UnderlineLink> work&nbsp; and
-        wish we could do it full time.&nbsp; If you require assistance and have
-        attained a&nbsp; SOLA from either{' '}
-        <UnderlineLink target="_blank" href="https://nlslaw.net">
-          Nevada Legal Services
+        {intl.formatMessage({ id: 'pro_bono.p1' })}{' '}
+        <UnderlineLink href="/pro-bono/">
+          {intl.formatMessage({ id: 'pro_bono.l1' })}
         </UnderlineLink>{' '}
-        or{' '}
+        {intl.formatMessage({ id: 'pro_bono.p2' })}{' '}
+        <UnderlineLink target="_blank" href="https://nlslaw.net">
+          {intl.formatMessage({ id: 'pro_bono.l2' })}
+        </UnderlineLink>{' '}
+        {intl.formatMessage({ id: 'pro_bono.p3' })}{' '}
         <UnderlineLink target="_blank" href="https://www.lacsn.org/">
-          Legal Aid Center of Southern Nevada
+          {intl.formatMessage({ id: 'pro_bono.l3' })}
         </UnderlineLink>
-        , you may <UnderlineLink href="/contact/">contact</UnderlineLink> to us
-        for a free consultation.
+        {intl.formatMessage({ id: 'pro_bono.p4' })}{' '}
+        <UnderlineLink href="/contact/">
+          {intl.formatMessage({ id: 'pro_bono.l4' })}
+        </UnderlineLink>{' '}
+        {intl.formatMessage({ id: 'pro_bono.p5' })}
       </Box>
     </Section>
   );

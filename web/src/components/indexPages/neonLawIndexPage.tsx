@@ -9,6 +9,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { colors, gutters, sizes } from '../../styles/neonLaw';
+
 import { BaseFooter } from '../footer/baseFooter';
 import { Button } from '../button';
 import { ChevronDownIcon } from '@chakra-ui/icons';
@@ -65,18 +66,10 @@ export const NeonLawIndexPage = (): JSX.Element => {
                 height={200}
               />
               <Box>
-                <Heading
-                  as="h1"
-                  fontWeight="400"
-                  justifyItems="center"
-                >
-                Neon Law
+                <Heading as="h1" fontWeight="400" justifyItems="center">
+                  {intl.formatMessage({ id: 'banner.h1' })}
                 </Heading>
-                <Heading
-                  as="h5"
-                  fontWeight="400"
-                  justifyItems="center"
-                >
+                <Heading as="h5" fontWeight="400" justifyItems="center">
                   {intl.formatMessage({ id: 'banner.title' })}
                 </Heading>
               </Box>
@@ -102,7 +95,7 @@ export const NeonLawIndexPage = (): JSX.Element => {
                   bg="cyan.500"
                   borderRadius="5px"
                   color="white"
-                  _hover={{ bg: 'cyan.400'}}
+                  _hover={{ bg: 'cyan.400' }}
                   type="submit"
                   aria-label="submit-prompt"
                   disabled={loading}
@@ -116,28 +109,28 @@ export const NeonLawIndexPage = (): JSX.Element => {
               color={colors.text[colorMode]}
               display={['none', 'none', 'inherit']}
               dangerouslySetInnerHTML={{
-                __html: intl.formatMessage({ id: 'banner.text' })
+                __html: intl.formatMessage({ id: 'banner.text' }),
               }}
             />
             <Text>
-              Are you a current client?&nbsp;
+              <Text>
+                {intl.formatMessage({ id: 'banner.client' })}
+              </Text>
+              &nbsp;
               {user ? (
                 <>
                   <Link href="/portal" passHref={true}>
-                    <a
-                      href="/portal"
-                      style={{ textDecoration: 'underline' }}>
-                    View your matters
+                    <a href="/portal" style={{ textDecoration: 'underline' }}>
+                      {intl.formatMessage({ id: 'banner.view_matters' })}
                     </a>
                   </Link>
-                  <span>
-                  &nbsp;or&nbsp;
-                  </span>
+                  <span>&nbsp;or&nbsp;</span>
                   <Link href="/api/auth/logout" passHref={true}>
                     <a
                       href="/api/auth/logout"
-                      style={{ textDecoration: 'underline' }}>
-                    log out
+                      style={{ textDecoration: 'underline' }}
+                    >
+                      {intl.formatMessage({ id: 'banner.logout' })}
                     </a>
                   </Link>
                 </>
@@ -147,10 +140,11 @@ export const NeonLawIndexPage = (): JSX.Element => {
                     href="/api/auth/login"
                     style={{ textDecoration: 'underline' }}
                   >
-                    Sign in to access your portal
+                    {intl.formatMessage({ id: 'banner.signin' })}
                   </a>
                 </Link>
-              )}.
+              )}
+              .
             </Text>
             <Box width="100%" height="100px" />
           </Box>
@@ -162,7 +156,7 @@ export const NeonLawIndexPage = (): JSX.Element => {
           margin="0 auto"
           icon={<ChevronDownIcon />}
           onClick={() => {
-            nextSectionRef.current.scrollIntoView({ behavior: 'smooth'});
+            nextSectionRef.current.scrollIntoView({ behavior: 'smooth' });
           }}
         />
       </Flex>

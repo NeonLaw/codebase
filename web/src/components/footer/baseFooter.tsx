@@ -6,7 +6,9 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { colors, sizes } from '../../styles/neonLaw';
+
 import { FooterLinks } from './footerLinks';
+import { GetLayoutDirection } from '../../../utils/getLayoutDirection';
 import React from 'react';
 import { Section } from '../section';
 import { useIntl } from 'react-intl';
@@ -27,6 +29,7 @@ export const BaseFooter = ({
   const { colorMode } = useColorMode();
   const color = { dark: 'white', light: 'black' };
   const intl = useIntl();
+  const dir = GetLayoutDirection();
 
   const intlFooterHeader = footerHeader || 'footer.neon_law.heading';
   const intlFooterText = footerText || 'footer.neon_law.text';
@@ -37,7 +40,7 @@ export const BaseFooter = ({
       bg={!isWhite ? colors.lighterBg[colorMode] : colors.background[colorMode]}
       borderTop={`1px solid ${useColorModeValue(colors.borders.light, '#222')}`}
       width="100%"
-      textAlign="left"
+      textAlign={ dir !== 'rtl' ? 'left' : 'right' }
       as="footer"
     >
       {hideTheSection ? null : (

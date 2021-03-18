@@ -1,10 +1,13 @@
 import { Box, useColorMode } from '@chakra-ui/react';
 import { colors, gutters, shadows } from '../styles/neonLaw';
+
+import { GetLayoutDirection } from '../../utils/getLayoutDirection';
 import { default as Link } from 'next/link';
 import React from 'react';
 
 export const ReadMoreButton = ({ children, ...props }: any) => {
   const { colorMode } = useColorMode();
+  const dir = GetLayoutDirection();
 
   return (
     <Box
@@ -21,9 +24,9 @@ export const ReadMoreButton = ({ children, ...props }: any) => {
         content: '""',
         display: 'block',
         height: '100%',
-        left: 0,
+        left: dir === 'rtl' ? '100%' : 0,
         position: 'absolute',
-        right: '100%',
+        right: dir === 'rtl' ? 0 : '100%',
         top: 0,
         transition: 'all .2s',
         zIndex: -1,
@@ -31,6 +34,7 @@ export const ReadMoreButton = ({ children, ...props }: any) => {
       _hover={{
         '&::after': {
           background: colors.primaryButtonBg.dark,
+          left: 0,
           right: 0,
         },
         boxShadow: shadows.light1,
@@ -38,7 +42,12 @@ export const ReadMoreButton = ({ children, ...props }: any) => {
       }}
     >
       {children ? children : 'Read More'}{' '}
-      <Box as="span" fontFamily="sans-serif">
+      <Box
+        display="inline-block"
+        as="span"
+        fontFamily="sans-serif"
+        transform={dir === 'rtl' ? 'rotate(180deg) translateY(-3px)' : null}
+      >
         &nbsp;&rarr;
       </Box>
     </Box>

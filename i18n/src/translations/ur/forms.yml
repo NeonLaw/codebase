@@ -1,0 +1,44 @@
+forms:
+  category:
+    label: قسم
+  accessibleButtons:
+    label: قابل رسائی بٹن
+  answer:
+    label: جواب
+    placeholder: جواب درج کریں
+    required: جواب ضروری ہے۔
+  name:
+    label: نام
+    placeholder: نام درج کریں
+    required: نام کی ضرورت ہے۔
+  question_type:
+    label: سوال کی قسم
+    placeholder: سوال کی قسم درج کریں
+    required: سوال کی قسم درکار ہے۔
+  prompt:
+    label: پرامپٹ
+    placeholder: پرامپٹ پُر کریں
+    required: پرامپٹ کو پُر کریں
+  javascript_module:
+    label: جاوا اسکرپٹ ماڈیول
+    placeholder: جاوا اسکرپٹ ماڈیول ہمارے کوڈ بیس میں متعین کریں
+  matter_template_id:
+    label: معاملہ سانچہ
+  primary_contact_id:
+    label: بنیادی رابطہ
+  help_text:
+    label: ہیلپ ٹیکسٹ
+    placeholder: سوال کے لئے ہیلپ ٹیکسٹ درج کریں۔
+  amount:
+    label: رقم
+    placeholder: رقم درج کریں
+    required: رقم کی ضرورت ہے۔
+  body:
+    label: آپ کی تحریر
+    placeholder: اپنا متن یہاں داخل کریں
+  addressee_id:
+    label: ایڈریسسی
+  addressor_id:
+    label: ایڈریسر
+  legal_question:
+    placeholder: آپ کے پاس کیا قانونی سوال ہے؟

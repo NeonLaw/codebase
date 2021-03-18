@@ -1,7 +1,9 @@
 import '../styles/globals.css';
+
 import { ApolloProvider } from '@apollo/client';
 import { BaseStyles } from '../styles/baseStyles';
 import { ChakraProvider } from '@chakra-ui/react';
+import { GetLayoutDirection } from '../../utils/getLayoutDirection';
 import Head from 'next/head';
 import { ShortcutsModal } from '../components/shortcuts-modal';
 import { UserProvider } from '@auth0/nextjs-auth0';
@@ -26,16 +28,12 @@ const NeonLawApp = ({ Component, pageProps }) => {
     <UserProvider>
       <ChakraProvider theme={theme}>
         <ApolloProvider client={apolloClient}>
-          <>
-            <Head>
-              <meta
-                name="viewport"
-              />
-            </Head>
-            <BaseStyles />
-            <ShortcutsModal />
-            <Component {...pageProps} />
-          </>
+          <Head>
+            <meta name="viewport" />
+          </Head>
+          <BaseStyles dir={GetLayoutDirection()} />
+          <ShortcutsModal />
+          <Component {...pageProps} />
         </ApolloProvider>
       </ChakraProvider>
     </UserProvider>
