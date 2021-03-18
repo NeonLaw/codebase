@@ -113,7 +113,10 @@ export const NeonLawIndexPage = (): JSX.Element => {
               }}
             />
             <Text>
-              {intl.formatMessage({ id: 'banner.client' })} &nbsp;
+              <Text>
+                {intl.formatMessage({ id: 'banner.client' })}
+              </Text>
+              &nbsp;
               {user ? (
                 <>
                   <Link href="/portal" passHref={true}>
