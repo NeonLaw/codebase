@@ -14,11 +14,11 @@ we_can_help_with:
 auth:
   login: Login
   sign_up: Ask a Lawyer
-blm: 
+blm:
   text: Black Lives Matter
-search: 
+search:
   message: Press "/" to Search
-languages: 
+languages:
   en: English
   es: Spanish (Latin America)
   ur: Urdu
@@ -153,7 +153,7 @@ banner:
   text: |
     We are on a mission to improve access to justice with low-cost,
     top-quality legal representation and free legal resources available here.
-    When <b>anyone</b> can afford access to justice, <b>everyone</b> wins.
+    When <b>anyone</b> can afford to use the law, <b>everyone</b> wins.
   client: Are you a current client?
   view_matters: View your matters
   logout: Logout
@@ -203,7 +203,7 @@ pro_bono:
   l2: Nevada Legal Services
   p3: or
   l3: Legal Aid Center of Southern Nevada
-  p4: ', you may' 
+  p4: ', you may'
   l4: contact
   p5: to us for a free consultation.
 get_started:
