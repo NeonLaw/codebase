@@ -14,7 +14,7 @@
     "e2e-test": "start-server-and-test dev http://127.0.0.1:3000 'cypress open'"
   },
   "optionalDependencies": {
-    "cypress": "^6.7.1"
+    "cypress": "^6.8.0"
   },
   "dependencies": {
     "@apollo/client": "^3.3.12",
