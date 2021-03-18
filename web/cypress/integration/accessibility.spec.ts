@@ -36,6 +36,7 @@ describe('Accessibility tests', () => {
         'heading-order': { enabled: false },
         'link-name': { enabled: true },
         region: { enabled: false },
+        'select-name': { enabled: false },
       }
     }, terminalLog);
     cy.get('[test-id="theme-toggle"]').focus();
@@ -45,6 +46,7 @@ describe('Accessibility tests', () => {
         'heading-order': { enabled: false },
         'link-name': { enabled: true },
         region: { enabled: false },
+        'select-name': { enabled: false },
       }
     }, terminalLog);
   });
