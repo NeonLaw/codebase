@@ -83,7 +83,7 @@ jobs:
       - name: Publish @neonlaw/web
         run: npm publish --access public
         working-directory: ./web
-      - name: Vercel Action
+      - name: Update www.neonlaw.com
         uses: amondnet/vercel-action@v20.0.0
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
