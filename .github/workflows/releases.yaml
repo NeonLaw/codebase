@@ -38,7 +38,7 @@ jobs:
       - name: Install Doppler CLI
         uses: dopplerhq/cli-action@v1
       - name: Login to NPM
-        run: doppler run -- npm config set //registry.npmjs.org/:_authToken $(doppler secrets get NPM_AUTH_TOKEN --plain)
+        run: doppler run -- cargo login $(doppler secrets get CRATE_API_KEY --plain)
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
       - name: Publish @neonlaw/i18n
@@ -57,7 +57,7 @@ jobs:
         uses: dopplerhq/cli-action@v1
 
       - name: Login to Crates
-        run: doppler run -- cargo login $CRATES_API_KEY
+        run: doppler run -- cargo login $(doppler secrets get CRATE_API_KEY --plain)
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
         if: startsWith(github.ref, 'refs/tags/neon_nlp@')
