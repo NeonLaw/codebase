@@ -1,5 +1,8 @@
 # CHANGELOG
 
-## v0.0.1 (next)
+## v0.0.2 (next)
 
-Initial commit
+
+## v0.0.1
+
+Initial translations
