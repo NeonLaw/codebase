@@ -41,7 +41,7 @@ GraphQL server. To spin up a web server, enter the following commands.
 
 ```bash
 yarn
-doppler setup # staging
+doppler setup # development
 doppler run -- yarn workspace @neonlaw/web dev
 ```
 
