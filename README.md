@@ -8,7 +8,7 @@ This is a monorepo containing the following packages, some of which are
 deployed to our staging and production environment.
 
 |Package|Latest Version|Staging|Production|
-|---|---|---|
+|-------|--------------|-----------|-------|
 |[Web](./web)|0.1.0|[latest](https://www.neonlaw.net)|[latest](https://www.neonlaw.com)|
 |[Server](./server)|0.1.0|[latest](https://api.neonlaw.net)|[latest](https://api.neonlaw.com)|
 |[i18n](./i18n)|0.1.0|n/a|n/a|
