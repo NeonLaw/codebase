@@ -1,0 +1,27 @@
+---
+name: web
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  web_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build Next.JS website
+        run: doppler run - yarn workspace @neonlaw/web build
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_STAGING }}

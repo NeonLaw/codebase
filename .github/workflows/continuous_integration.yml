@@ -40,8 +40,6 @@ jobs:
           docker exec shell yarn install --frozen-lockfile --no-cache
           sudo chown -R $USER .
           yarn install --frozen-lockfile
-      - name: Build Next.JS website
-        run: docker exec shell yarn workspace @neonlaw/web build
       - name: Run Jest tests and publish coverage to Code Climate.
         uses: paambaati/codeclimate-action@v2.6.0
         env:
