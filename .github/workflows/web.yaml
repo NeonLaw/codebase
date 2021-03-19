@@ -22,6 +22,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Build Next.JS website
-        run: doppler run - yarn workspace @neonlaw/web build
+        run: doppler run -- yarn workspace @neonlaw/web build
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_STAGING }}

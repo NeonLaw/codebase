@@ -19,6 +19,6 @@ jobs:
       - name: Install Git Flow
         run: cargo install git_flow
       - name: Validate source branch
-        run: doppler run - git_flow validate branch ${GITHUB_HEAD_REF#refs/heads/}
+        run: doppler run -- git_flow validate-branch ${GITHUB_HEAD_REF#refs/heads/}
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_STAGING }}
