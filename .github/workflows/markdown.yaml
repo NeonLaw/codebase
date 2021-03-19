@@ -14,10 +14,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2.2.1
+        id: filter
+        with:
+          filters: |
+            markdown:
+              - './**/*.mdx'
+              - './**/*.md'
+              - './**.mdx'
+              - './**.md'
       - uses: actions/setup-node@v1
+        if: ${{ steps.filter.outputs.markdown == 'true' }}
         with:
           node-version: '14'
       - name: Install dependencies
+        if: ${{ steps.filter.outputs.markdown == 'true' }}
         run: yarn install --frozen-lockfile
-      - name: Lint Markdown files.
+      - name: Lint Markdown files
+        if: ${{ steps.filter.outputs.markdown == 'true' }}
         run: yarn markdown-lint

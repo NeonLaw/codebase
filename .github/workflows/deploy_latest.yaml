@@ -1,0 +1,80 @@
+---
+name: deploy_latest
+
+on:
+  workflow_run:
+    workflows:
+      - system_tests
+    branches:
+      - main
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  deploy_staging_server:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v1
+      - uses: dorny/paths-filter@v2.2.1
+        id: filter
+        with:
+          filters: |
+            server:
+              - './server/**/*'
+              - './server/*'
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        if: ${{ steps.filter.outputs.server == 'true' }}
+        with:
+          registry: docker.pkg.github.com
+          username: ${{ secrets.GPR_USERNAME }}
+          password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
+
+      - name: Build the Docker image
+        if: ${{ steps.filter.outputs.server == 'true' }}
+        run: |-
+          docker build \
+            --tag "us.gcr.io/neon-law-staging/server:$GITHUB_SHA" \
+            --tag "us.gcr.io/neon-law-staging/server:latest" \
+            -f ./server/Dockerfile \
+            .
+
+      - uses: google-github-actions/setup-gcloud@master
+        if: ${{ steps.filter.outputs.server == 'true' }} && github.ref == 'refs/heads/main'
+        with:
+          project_id: neon-law-staging
+          service_account_email: github-actions@neon-law-staging.iam.gserviceaccount.com
+          service_account_key: ${{ secrets.STAGING_GCP_CREDENTIALS }}
+          export_default_credentials: true
+
+      - name: |-
+          Configure Docker to use the gcloud command-line tool as a credential
+          helper for authentication
+        run: |-
+          gcloud --quiet auth configure-docker
+        if: ${{ steps.filter.outputs.server == 'true' }} && github.ref == 'refs/heads/main'
+
+      - name: Push the Docker image to Google Container Registry
+        run: |-
+          docker push "us.gcr.io/neon-law-staging/server:$GITHUB_SHA"
+          docker push "us.gcr.io/neon-law-staging/server:latest"
+        if: ${{ steps.filter.outputs.server == 'true' }} && github.ref == 'refs/heads/main'
+
+      - name: Get the GKE credentials so we can deploy to the cluster
+        run: |-
+          gcloud container clusters get-credentials neon-law-staging --region us-west4
+        if: ${{ steps.filter.outputs.server == 'true' }} && github.ref == 'refs/heads/main'
+
+      - name: Deploy latest container with kubectl
+        run: |-
+          kubectl set image deployment staging-api \
+             api=us.gcr.io/neon-law-staging/server:$GITHUB_SHA
+
+          kubectl set image deployment staging-workers \
+             workers=us.gcr.io/neon-law-staging/server:$GITHUB_SHA
+        if: ${{ steps.filter.outputs.server == 'true' }} && github.ref == 'refs/heads/main'
