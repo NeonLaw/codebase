@@ -29,7 +29,7 @@
     "@next/mdx": "^10.0.9",
     "@nivo/bar": "^0.67.0",
     "@nivo/core": "^0.67.0",
-    "framer-motion": "^3.10.5",
+    "framer-motion": "^4.0.0",
     "next": "^10.0.9",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.0.6",
