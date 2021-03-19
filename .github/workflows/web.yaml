@@ -19,26 +19,27 @@ jobs:
               - './web/**/*'
               - './web/*'
       - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
         if: ${{ steps.filter.outputs.web == 'true' }}
+        uses: dopplerhq/cli-action@v1
       - uses: actions/setup-node@v1
+        if: ${{ steps.filter.outputs.web == 'true' }}
         with:
           node-version: '14'
-        if: ${{ steps.filter.outputs.web == 'true' }}
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
         if: ${{ steps.filter.outputs.web == 'true' }}
+        run: yarn install --frozen-lockfile
       - name: Build Next.JS website for staging
+        if: ${{ steps.filter.outputs.web == 'true' }}
         run: doppler run -- yarn workspace @neonlaw/web build
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_STAGING }}
-        if: ${{ steps.filter.outputs.web == 'true' }}
       - name: Build Next.JS website for production
+        if: ${{ steps.filter.outputs.web == 'true' }}
         run: doppler run -- yarn workspace @neonlaw/web build
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
-        if: ${{ steps.filter.outputs.web == 'true' }}
       - name: Run Cypress tests for @neonlaw/web
+        if: ${{ steps.filter.outputs.web == 'true' }}
         uses: cypress-io/github-action@v2
         with:
           record: true
