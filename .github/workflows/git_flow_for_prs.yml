@@ -1,8 +1,10 @@
 ---
-name: validate_branch
+name: git_flow_for_prs
 
 on:
   pull_request:
+    branches:
+      - main
 
 jobs:
   validate_branch:
@@ -12,7 +14,11 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v1
       - name: Install Git Flow
         run: cargo install git_flow
       - name: Validate source branch
-        run: git_flow validate-branch ${GITHUB_HEAD_REF#refs/heads/}
+        run: doppler run -- git_flow validate-branch ${GITHUB_HEAD_REF#refs/heads/}
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_STAGING }}
