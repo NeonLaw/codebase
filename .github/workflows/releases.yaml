@@ -86,3 +86,16 @@ jobs:
           vercel-org-id: ${{ secrets.ORG_ID}}
           vercel-project-id: ${{ secrets.PROJECT_ID}}
           working-directory: ./web
+
+  update_server_package:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/web@')
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - name: Publish @neonlaw/server
+        run: doppler run -- npm publish --access public
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+        working-directory: ./server
