@@ -24,6 +24,30 @@ We use [Doppler](https://www.doppler.com/) for storing and sharing configuration
 secrets like API keys. If you wish to work on the application, please email us
 at support@neonlaw.com to request test credentials.
 
+## Git Flow
+
+Our opinionated [git flow](./git_flow) is an essential part of working with this
+repo. A series of continuous integration and deployment scripts will run
+based on how you name your branches and your subsequent pull request to the
+`main` branch.
+
+|Branch Name|CI/CD Effect|
+|--|--|
+|feature/|Tests will run, Changelog diff is required|
+|release/|Tests will run, Changelog diff (add the next verion), release github action is ran|
+|bugfix/|Tests will run, Changelog diff (add the next verion), release github action is ran, patch version required|
+
+## Web Development
+
+For developing the website you can do so locally and speak to our staging
+GraphQL server. To spin up a web server, enter the following commands.
+
+```bash
+yarn
+doppler setup # staging
+doppler run -- yarn workspace @neonlaw/web dev
+```
+
 ### Dockerized Setup (recommended for full-stack development)
 
 We recommend developing with a containerized setup that best mimic our staging
@@ -33,6 +57,7 @@ your machine, you can follow these two steps to start developing.
 1. Start Docker Compose
 
 ```bash
+doppler setup # development
 doppler run -- docker-compose up
 ```
 
@@ -121,19 +146,6 @@ software:
 - Vercel
 - Xero
 - Zendesk Suite
-
-## Git Flow
-
-Our opinionated [git flow](./git_flow) is an essential part of working with this
-repo. A series of continuous integration and deployment scripts will run
-based on how you name your branches and your subsequent pull request to the
-`main` branch.
-
-|Branch Name|CI/CD Effect|
-|--|--|
-|feature/|Tests will run, Changelog diff is required|
-|release/|Tests will run, Changelog diff (add the next verion), release github action is ran|
-|bugfix/|Tests will run, Changelog diff (add the next verion), release github action is ran, patch version required|
 
 ## Graphql Codegen
 
