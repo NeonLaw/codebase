@@ -14,13 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NPM_CONFIG_USER: root
-      CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
-      CYPRESS_AUTH_URL: ${{ secrets.CYPRESS_AUTH_URL }}
-      CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
-      CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
-      CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
     steps:
       - uses: actions/checkout@v2
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v1
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
@@ -43,8 +40,6 @@ jobs:
           docker exec shell yarn install --frozen-lockfile --no-cache
           sudo chown -R $USER .
           yarn install --frozen-lockfile
-      - name: Build Next.JS website
-        run: docker exec shell yarn workspace @neonlaw/web build
       - name: Run Jest tests and publish coverage to Code Climate.
         uses: paambaati/codeclimate-action@v2.6.0
         env:

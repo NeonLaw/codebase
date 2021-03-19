@@ -12,17 +12,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v1
 
       - name: Login to Crates
-        run: cargo login $CRATES_API_KEY
+        run: doppler run -- cargo login $CRATES_API_KEY
         env:
-          CRATES_API_KEY: ${{ secrets.CRATES_API_KEY }}
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
         if: startsWith(github.ref, 'refs/tags/git_flow@')
 
       - name: Publish Git Flow
-        run: cd ./git_flow && cargo publish
+        run: cargo publish
         if: startsWith(github.ref, 'refs/tags/git_flow@')
+        working-directory: ./git_flow
 
   update_i18n_package:
     runs-on: ubuntu-latest
@@ -30,25 +35,56 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v1
       - name: Publish @neonlaw/i18n
-        run: cd ./i18n && npm publish --access public
+        run: doppler run -- npm publish --access public
         if: startsWith(github.ref, 'refs/tags/i18n@')
+        working-directory: ./i18n
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
 
   update_neon_nlp_package:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v1
 
       - name: Login to Crates
-        run: cargo login $CRATES_API_KEY
+        run: doppler run -- cargo login $CRATES_API_KEY
         env:
-          CRATES_API_KEY: ${{ secrets.CRATES_API_KEY }}
-        if: startsWith(github.ref, 'refs/tags/neon_nlp@')
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+        if: startsWith(github.ref, 'refs/tags/git_flow@')
 
       - name: Publish Neon NLP
-        run: cd ./neon_nlp && cargo publish
+        run: cargo publish
         if: startsWith(github.ref, 'refs/tags/neon_nlp@')
+        working-directory: ./neon_nlp
+
+  update_web_package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - name: Publish @neonlaw/web
+        run: doppler run -- npm publish --access public
+        if: startsWith(github.ref, 'refs/tags/web@')
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+        working-directory: ./web
+      - name: Vercel Action
+        uses: amondnet/vercel-action@v20.0.0
+        if: startsWith(github.ref, 'refs/tags/web@')
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-args: '--prod'
+          vercel-org-id: ${{ secrets.ORG_ID}}
+          vercel-project-id: ${{ secrets.PROJECT_ID}}
+          working-directory: ./web
