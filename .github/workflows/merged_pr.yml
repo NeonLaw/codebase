@@ -1,0 +1,17 @@
+---
+name: git_flow_for_prs
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: Print branch name
+        run: echo "${GITHUB_HEAD_REF} ${GITHUB_BASE_REF"
