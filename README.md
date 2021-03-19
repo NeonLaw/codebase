@@ -63,7 +63,7 @@ doppler run -- docker-compose up
 
 This starts the following containers:
 
-- A shell container that you can use via `docker exec -it shell /bin/bash`
+- A shell container (see step 2 for more)
 - Database Servers for:
   - Postgres
   - Neo4j
@@ -81,23 +81,15 @@ You can start a subset of services with Docker Compose if you do not need to
 run all of the applications. For instance, if you just wanted to start the
 API server and the shell container it depends on, you could run:
 
-```
-docker-compose up postgres api
-```
+2. `exec /bin/bash` in the shell container.
 
-if you just wanted a shell environment, you could run:
+You are encouraged to do work from the shell container, which contains all of
+the third party dependencies and libraries to run all of the code defined
+herein. You can access a shell with:
 
 ```
 docker-compose exec -it shell /bin/bash
 ```
-
-and if you just wanted a just the interface environment, you could run:
-
-```
-docker-compose up interface
-```
-
-This will start the `shell`, `postgres`, `api`, and `interface` containers.
 
 3. VSCode settings (optional)
 
@@ -105,7 +97,7 @@ If you don't already have a favorite editor, we recommend [VSCode by
 Microsoft](https://code.visualstudio.com/). Using VSCode with Docker Compose
 as outlined in the previous step, you can edit files directly in the `shell`
 container. By doing so, you don't need to install _anything_ on your host
-machine except for Docker, as Node, Python, Postgres, and anything else we
+machine except for Docker. Node, Python, Postgres, and anything else we
 may add in the future will all run within Docker containers managed by Docker
 Compose.
 
@@ -128,9 +120,9 @@ software:
 - Casetext
 - Code Climate
 - Doppler
+- G Suite
 - GitHub
 - Google Cloud Platform (GKE and Managed PostgreSQL)
-- Google Workplace
 - Grammarly
 - Lexis Nexis
 - Logflare
@@ -147,11 +139,6 @@ software:
 - Xero
 - Zendesk Suite
 
-## Graphql Codegen
-
-You can run `yarn graphql-codegen` to auto-generate server I/O methods in
-JavaScript.
-
 ## Cloud SQL Proxy
 
 If you need to access either the staging or production database on your local
@@ -162,8 +149,10 @@ turned off).
 Then, you can connect to `staging` and `production` with these respective
 commands:
 
-```
+```bash
+doppler setup # staging
 doppler run -- yarn run sql-proxy-staging
+doppler setup # production
 doppler run -- yarn run sql-proxy-production
 ```
 
@@ -177,23 +166,16 @@ If you need to access either the staging or production neo4j on your local
 machine, you can connect to it via GKE Service Port forwarding. You can
 connect to `staging` and `production` with these respective commands:
 
-```
-yarn run neo4j-proxy-staging
-yarn run neo4j-proxy-production
+```bash
+doppler setup # staging
+doppler run -- yarn run neo4j-proxy-staging
+doppler setup # production
+doppler run -- yarn run neo4j-proxy-production
 ```
 
 With either command (both cannot be ran at the same time), you'll have a
 local Neo4j instance at `127.0.0.1:7474`, which you can then connect to with
 the GCP SQL credentials for staging and production.
-
-### Getting KubeConfig on your machine
-
-```bash
-gcloud container clusters get-credentials neon-law-production
-
-# or for staging
-gcloud container clusters get-credentials neon-law-staging
-```
 
 ## Legal
 
