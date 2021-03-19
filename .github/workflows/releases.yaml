@@ -59,7 +59,7 @@ jobs:
         run: doppler run -- cargo login $CRATES_API_KEY
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
-        if: startsWith(github.ref, 'refs/tags/git_flow@')
+        if: startsWith(github.ref, 'refs/tags/neon_nlp@')
 
       - name: Publish Neon NLP
         run: cargo publish
