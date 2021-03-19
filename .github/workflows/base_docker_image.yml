@@ -1,10 +1,10 @@
 ---
-name: public_docker_images
+name: base_docker_image
 
 on:
   workflow_run:
     workflows:
-      - continuous_integration
+      - system_tests
     branches:
       - main
     types:
@@ -38,7 +38,3 @@ jobs:
       - name: Push Image to GitHub Package Registry
         run: docker push docker.pkg.github.com/neonlaw/codebase/base:latest
         if: github.ref == 'refs/heads/main'
-
-      # - name: Push newest image if the version has been updated.
-      #   run: ./main/scripts/update-docker.sh
-      #   if: github.ref == 'refs/heads/main'
