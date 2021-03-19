@@ -69,7 +69,7 @@ module "neo4j" {
 }
 
 module "application_secrets" {
-  source                        = "../modules/application_secrets"
+  source                        = "./modules/application_secrets"
   api_url                       = var.api_url
   auth0_client_id               = var.auth0_client_id
   auth0_client_secret           = var.auth0_client_secret
@@ -89,7 +89,7 @@ module "application_secrets" {
 }
 
 module "gcp_credentials_kubernetes_secret" {
-  source       = "../modules/kubernetes_secret"
+  source       = "./modules/kubernetes_secret"
   secret_name  = "gcp-credentials"
   secret_value = base64decode(data.terraform_remote_state.gcp.outputs.application_user_account_key)
 }
@@ -128,22 +128,6 @@ module "worker_deployment" {
     "yarn",
     "start:workers",
   ]
-}
-
-module "interface_deployment" {
-  source               = "./modules/website_deployment"
-  app_name             = "interface"
-  environment          = var.environment
-  image_url            = "${data.terraform_remote_state.gcp.outputs.container_registry}/interface:latest"
-  next_js_auth0_secret = var.next_js_auth0_secret
-}
-
-module "law-job-resources_deployment" {
-  source               = "./modules/website_deployment"
-  app_name             = "law-job-resources"
-  environment          = var.environment
-  image_url            = "${data.terraform_remote_state.gcp.outputs.container_registry}/law-job-resources:latest"
-  next_js_auth0_secret = var.next_js_auth0_secret
 }
 
 module "ingress" {
