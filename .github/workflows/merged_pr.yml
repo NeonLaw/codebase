@@ -1,5 +1,5 @@
 ---
-name: git_flow_for_prs
+name: merged_pull_requests
 
 on:
   pull_request:
@@ -14,4 +14,4 @@ jobs:
     if: github.event.pull_request.merged == true
     steps:
       - name: Print branch name
-        run: echo "${GITHUB_HEAD_REF} ${GITHUB_BASE_REF"
+        run: echo "${GITHUB_HEAD_REF} ${GITHUB_BASE_REF}"
