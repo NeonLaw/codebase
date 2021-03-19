@@ -1,6 +1,6 @@
 [package]
 name = "neon_nlp"
-version = "0.1.0"
+version = "0.0.1"
 authors = ["support@neonlaw.com <support@neonlaw.com>"]
 edition = "2018"
 repository = "https://github.com/neonlaw/codebase"
