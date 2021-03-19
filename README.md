@@ -9,9 +9,9 @@ deployed to our staging and production environment.
 
 |Package|Latest Version|Staging|Production|
 |-------|--------------|-----------|-------|
-|[Web](./web)|0.1.0|[latest](https://www.neonlaw.net)|[latest](https://www.neonlaw.com)|
-|[Server](./server)|0.1.0|[latest](https://api.neonlaw.net)|[latest](https://api.neonlaw.com)|
-|[i18n](./i18n)|0.1.0|n/a|n/a|
+|[Web](./web)|0.1.0|[next](https://www.neonlaw.net)|v0.1.0 [link](https://www.neonlaw.com)|
+|[Server](./server)|0.1.0|[next](https://api.neonlaw.net)|v0.1.0 [link](https://api.neonlaw.com)|
+|[i18n](./i18n)|![NPM](https://img.shields.io/npm/v/@neonlaw/i18n)|n/a|n/a|
 |[Neon NLP](./neon_nlp)|![Crates.io](https://img.shields.io/crates/v/neon_nlp)|n/a|n/a|
 |[Git Flow](./git_flow)|![Crates.io](https://img.shields.io/crates/v/git_flow)|n/a|n/a|
 
@@ -20,24 +20,21 @@ SaaS resources with Terraform.
 
 ## Developer Setup
 
-We use [Doppler](https://www.doppler.com/) for storing and sharing configuration
-secrets like API keys. If you wish to work on the application, please email us
-at support@neonlaw.com to request test credentials.
-
-## Git Flow
+### Git Flow
 
 Our opinionated [git flow](./git_flow) is an essential part of working with this
 repo. A series of continuous integration and deployment scripts will run
 based on how you name your branches and your subsequent pull request to the
-`main` branch.
+`main` branch. Please refer to the package or the `git_flow` CLI available from
+crates.io for more information.
 
-|Branch Name|CI/CD Effect|
-|--|--|
-|feature/|Tests will run, Changelog diff is required|
-|release/|Tests will run, Changelog diff (add the next verion), release github action is ran|
-|bugfix/|Tests will run, Changelog diff (add the next verion), release github action is ran, patch version required|
+### Configuration
 
-## Web Development
+We use [Doppler](https://www.doppler.com/) for storing and sharing configuration
+secrets like API keys. If you wish to work on the application, please email us
+at support@neonlaw.com to request test credentials.
+
+### Web Development
 
 For developing the website you can do so locally and speak to our staging
 GraphQL server. To spin up a web server, enter the following commands.
@@ -48,7 +45,7 @@ doppler setup # staging
 doppler run -- yarn workspace @neonlaw/web dev
 ```
 
-### Dockerized Setup (recommended for full-stack development)
+### Server Development
 
 We recommend developing with a containerized setup that best mimic our staging
 and production process. If you have docker and docker-compose installed on
@@ -111,6 +108,45 @@ developing this way is establishing parity between your machine and our
 staging and production environments - we want to eliminate the "works on my
 machine" excuse from our organization.
 
+### Cloud SQL Proxy
+
+If you need to access either the staging or production database on your local
+machine, you can connect to it via Google Cloud SQL Proxy. Before connecting,
+please ensure the Public IP is turned on for these instances (by default they're
+turned off).
+
+Then, you can connect to `staging` and `production` with these respective
+commands:
+
+```bash
+doppler setup # staging
+doppler run -- yarn run sql-proxy-staging
+doppler setup # production
+doppler run -- yarn run sql-proxy-production
+```
+
+With either command (both cannot be ran at the same time), you'll have a
+PostgreSQL database running at `127.0.0.1:5432`, which you can then connect to
+with the GCP SQL credentials for staging and production.
+
+### Neo4j Proxy
+
+If you need to access either the staging or production neo4j on your local
+machine, you can connect to it via GKE Service Port forwarding. You can
+connect to `staging` and `production` with these respective commands:
+
+```bash
+doppler setup # staging
+doppler run -- yarn run neo4j-proxy-staging
+doppler setup # production
+doppler run -- yarn run neo4j-proxy-production
+```
+
+With either command (both cannot be ran at the same time), you'll have a
+local Neo4j instance at `127.0.0.1:7474`, which you can then connect to with
+the GCP SQL credentials for staging and production.
+
+
 ## Third-Party SaaS Services
 
 To help us write into this repository and run our business, we use these
@@ -138,44 +174,6 @@ software:
 - Vercel
 - Xero
 - Zendesk Suite
-
-## Cloud SQL Proxy
-
-If you need to access either the staging or production database on your local
-machine, you can connect to it via Google Cloud SQL Proxy. Before connecting,
-please ensure the Public IP is turned on for these instances (by default they're
-turned off).
-
-Then, you can connect to `staging` and `production` with these respective
-commands:
-
-```bash
-doppler setup # staging
-doppler run -- yarn run sql-proxy-staging
-doppler setup # production
-doppler run -- yarn run sql-proxy-production
-```
-
-With either command (both cannot be ran at the same time), you'll have a
-PostgreSQL database running at `127.0.0.1:5432`, which you can then connect to
-with the GCP SQL credentials for staging and production.
-
-## Neo4j Proxy
-
-If you need to access either the staging or production neo4j on your local
-machine, you can connect to it via GKE Service Port forwarding. You can
-connect to `staging` and `production` with these respective commands:
-
-```bash
-doppler setup # staging
-doppler run -- yarn run neo4j-proxy-staging
-doppler setup # production
-doppler run -- yarn run neo4j-proxy-production
-```
-
-With either command (both cannot be ran at the same time), you'll have a
-local Neo4j instance at `127.0.0.1:7474`, which you can then connect to with
-the GCP SQL credentials for staging and production.
 
 ## Legal
 
