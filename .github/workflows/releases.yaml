@@ -37,11 +37,13 @@ jobs:
       - uses: actions/setup-node@v1
       - name: Install Doppler CLI
         uses: dopplerhq/cli-action@v1
-      - name: Publish @neonlaw/i18n
-        run: doppler run -- npm publish --access public
-        working-directory: ./i18n
+      - name: Login to NPM
+        run: doppler run -- cargo login $(doppler secrets get CRATE_API_KEY --plain)
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+      - name: Publish @neonlaw/i18n
+        run: npm publish --access public
+        working-directory: ./i18n
 
   update_neon_nlp_package:
     runs-on: ubuntu-latest
@@ -55,7 +57,7 @@ jobs:
         uses: dopplerhq/cli-action@v1
 
       - name: Login to Crates
-        run: doppler run -- cargo login $CRATES_API_KEY
+        run: doppler run -- cargo login $(doppler secrets get CRATE_API_KEY --plain)
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
         if: startsWith(github.ref, 'refs/tags/neon_nlp@')
@@ -72,10 +74,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - name: Publish @neonlaw/web
-        run: doppler run -- npm publish --access public
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v1
+      - name: Login to NPM
+        run: doppler run -- npm config set //registry.npmjs.org/:_authToken $(doppler secrets get NPM_AUTH_TOKEN --plain)
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+      - name: Publish @neonlaw/web
+        run: npm publish --access public
         working-directory: ./web
       - name: Update www.neonlaw.com
         uses: amondnet/vercel-action@v20.0.0
@@ -94,8 +100,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - name: Publish @neonlaw/server
-        run: doppler run -- npm publish --access public
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v1
+      - name: Login to NPM
+        run: doppler run -- npm config set //registry.npmjs.org/:_authToken $(doppler secrets get NPM_AUTH_TOKEN --plain)
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
-        working-directory: ./server

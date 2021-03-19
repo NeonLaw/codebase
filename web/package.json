@@ -38,7 +38,7 @@
     "react-datepicker": "^3.6.0",
     "react-diff-viewer": "^3.1.1",
     "react-dom": "^17.0.1",
-    "react-hook-form": "^6.15.4",
+    "react-hook-form": "^6.15.5",
     "react-icons": "^4.2.0",
     "react-intl": "^5.13.4",
     "react-responsive": "^8.2.0",
