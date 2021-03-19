@@ -4,45 +4,25 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/6e1cdb1d024d0f092903/maintainability)](https://codeclimate.com/github/NeonLaw/codebase/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6e1cdb1d024d0f092903/test_coverage)](https://codeclimate.com/github/NeonLaw/codebase/test_coverage)
 
-This is a monorepo containing the following packages deployed to our staging and
-production environment,
+This is a monorepo containing the following packages, some of which are
+deployed to our staging and production environment.
 
-|---|---|---|
-|Package|Staging|Production|
-|---|---|---|
-|[Web](./web)|[latest](https://www.neonlaw.net)|[latest](https://www.neonlaw.com)|
-|[Server](./server)|[latest](https://api.neonlaw.net)|[latest](https://api.neonlaw.com)|
-|---|---|---|
+|Package|Latest Version|Staging|Production|
+|-------|--------------|-----------|-------|
+|[Web](./web)|0.1.0|[latest](https://www.neonlaw.net)|[latest](https://www.neonlaw.com)|
+|[Server](./server)|0.1.0|[latest](https://api.neonlaw.net)|[latest](https://api.neonlaw.com)|
+|[i18n](./i18n)|0.1.0|n/a|n/a|
+|[Neon NLP](./neon_nlp)|![Crates.io](https://img.shields.io/crates/v/neon_nlp)|n/a|n/a|
+|[Git Flow](./git_flow)|![Crates.io](https://img.shields.io/crates/v/git_flow)|n/a|n/a|
 
-and it contains the following packages
+This repo also contains an `infrastructure` folder for managing cloud and
+SaaS resources with Terraform.
 
-|---|---|
-|Package|Latest Version|
+## Developer Setup
 
-
-This is repo contains:
-
-- An interface written in Next.JS at `./web`
-- A server written with a Postgraphile GraphQL API and Graphile Workers at
-  `./server`
-- A collection of Terraform modules located in the `./infrastructure` folder,
-  for building out our cloud computing on Kubernetes on GCP.
-- A collection of `Dockerfile`s and entrypoint scripts modules located in the
-  `./docker` folder, for building containers which run on GCP.
-
-## Running Locally
-### Native Setup
-
-If you are planning on working on just front-end code, you can spin up a Next.JS
-development server on your machine and point that to our staging server with the
-following command. This assumes you already have node, yarn, and python
-installed on your machine.
-
-```bash
-yarn
-cd ./web
-yarn dev
-```
+We use [Doppler](https://www.doppler.com/) for storing and sharing configuration
+secrets like API keys. If you wish to work on the application, please email us
+at support@neonlaw.com to request test credentials.
 
 ### Dockerized Setup (recommended for full-stack development)
 
@@ -50,45 +30,27 @@ We recommend developing with a containerized setup that best mimic our staging
 and production process. If you have docker and docker-compose installed on
 your machine, you can follow these two steps to start developing.
 
-1. Ensure that you have the proper environment variables and GCP Credential.
-
-You should have some, if not all of these environment variables on your machine:
-
-- `AUTH0_CLIENT_ID`
-- `AUTH0_CLIENT_SECRET`
-- `AUTH0_TENANT`
-- `CYPRESS_ADMIN_USER_PASSWORD`
-- `CYPRESS_AUTH0_CLIENT_ID`
-- `CYPRESS_AUTH0_CLIENT_SECRET`
-- `CYPRESS_AUTH_URL`
-- `CYPRESS_LAWYER_USER_PASSWORD`
-- `CYPRESS_PORTAL_USER_PASSWORD`
-- `TRANSLOADIT_KEY`
-- `TRANSLOADIT_SECRET`
-- `TRANSLOADIT_PDF_TEMPLATE_ID`
-- `TRANSLOADIT_IMAGE_TEMPLATE_ID`
-- `SENDGRID_API_KEY`
-- `STRIPE_API_KEY`
-- `GOOGLE_APPLICATION_CREDENTIALS`
-
-You will need to have values for these environment variables sourced in the same
-bash shell as when you run the next step. Additionally, you should have the
-file `credentials.json` at the root of this repo if you're doing work that
-talks to our staging GCP environment. This file is excluded from `.git` in
-the `.gitignore` file so you'll need to get this from support@neonlaw.com.
-
-2. Start Docker Compose
+1. Start Docker Compose
 
 ```bash
-docker-compose up
+doppler run -- docker-compose up
 ```
 
 This starts the following containers:
 
 - A shell container that you can use via `docker exec -it shell /bin/bash`
+- Database Servers for:
+  - Postgres
+  - Neo4j
+  - Elasticsearch
+  - Kafka
 - Web Servers for:
-  - NeonLaw.com (http://127.0.0.1:8000)
-  - The NeonLaw API (http://127.0.0.1:3000)
+  - our website (http://127.0.0.1:8000)
+  - our API (http://127.0.0.1:3000/graphiql)
+- Processing Servers for Kafka messages:
+  - Document Formatting
+  - Grammar Formatting
+  - Filings
 
 You can start a subset of services with Docker Compose if you do not need to
 run all of the applications. For instance, if you just wanted to start the
@@ -132,21 +94,6 @@ developing this way is establishing parity between your machine and our
 staging and production environments - we want to eliminate the "works on my
 machine" excuse from our organization.
 
-## Authentication
-
-This application uses Auth0 with two tenants, one for staging/development, and
-one for our production account. The staging account has the following
-accounts, please contact us at support@neonlaw.com should you need these
-passwords to develop the authenticated portions of our application.
-
-- portal@neonlaw.com, a user with portal permissions
-- lawyer@neonlaw.com, a user with lawyer permissions
-- admin@neonlaw.com, a user with admin permissions
-
-Read our blog post about
-[Authorization](https://www.neonlaw.com/blog/authorization) to learn more about
-these roles.
-
 ## Third-Party SaaS Services
 
 To help us write into this repository and run our business, we use these
@@ -155,35 +102,38 @@ software:
 - Auth0
 - Casetext
 - Code Climate
-- Google Workplace
+- Doppler
 - GitHub
 - Google Cloud Platform (GKE and Managed PostgreSQL)
+- Google Workplace
 - Grammarly
-- LanguageTool
 - Lexis Nexis
+- Logflare
 - Mercury Bank
 - PGRita
 - Postgraphile
 - Segment
 - SendGrid
+- Sentry
 - Slack
 - Terraform Cloud
 - Transloadit
+- Vercel
 - Xero
 - Zendesk Suite
 
-## Continuous Integration and Deployment
+## Git Flow
 
-Our app uses a series of GitHub Actions Workflows to run a suite of automated
-tests. You can find these tests
-[here](https://github.com/neonlaw/codebase/actions).
+Our opinionated [git flow](./git_flow) is an essential part of working with this
+repo. A series of continuous integration and deployment scripts will run
+based on how you name your branches and your subsequent pull request to the
+`main` branch.
 
-On pushes to the `development` branch and a successful test run, our [staging
-environment](https://www.neonlaw.net) is updated.
-
-Every dat Thursday at 2:00 am PST, the [production
-environment](https://www.neonlaw.com) is updated with the latest commit from
-`development`.
+|Branch Name|CI/CD Effect|
+|--|--|
+|feature/|Tests will run, Changelog diff is required|
+|release/|Tests will run, Changelog diff (add the next verion), release github action is ran|
+|bugfix/|Tests will run, Changelog diff (add the next verion), release github action is ran, patch version required|
 
 ## Graphql Codegen
 
@@ -201,8 +151,8 @@ Then, you can connect to `staging` and `production` with these respective
 commands:
 
 ```
-yarn run sql-proxy-staging
-yarn run sql-proxy-production
+doppler run -- yarn run sql-proxy-staging
+doppler run -- yarn run sql-proxy-production
 ```
 
 With either command (both cannot be ran at the same time), you'll have a
@@ -235,7 +185,7 @@ gcloud container clusters get-credentials neon-law-staging
 
 ## Legal
 
-Copyright 2020 Neon Law. Licensed under the [Neon License](LICENSE.md). The Neon
+Copyright 2021 Neon Law. Licensed under the [Neon License](LICENSE.md). The Neon
 License is the same as the Apache License Version 2 with the additional
 disclaimer that nothing provided herein is legal advice.
 
