@@ -3,9 +3,22 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 [![Maintainability](https://api.codeclimate.com/v1/badges/6e1cdb1d024d0f092903/maintainability)](https://codeclimate.com/github/NeonLaw/codebase/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6e1cdb1d024d0f092903/test_coverage)](https://codeclimate.com/github/NeonLaw/codebase/test_coverage)
-[![Continuous Integration](https://github.com/NeonLaw/interface/workflows/continuous_integration/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Acontinuous_integration)
-[![Staging](https://github.com/neonlaw/interface/workflows/staging/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Astaging)
-[![Production](https://github.com/neonlaw/interface/workflows/production/badge.svg)](https://github.com/NeonLaw/interface/actions?query=workflow%3Aproduction)
+
+This is a monorepo containing the following packages deployed to our staging and
+production environment,
+
+|---|---|---|
+|Package|Staging|Production|
+|---|---|---|
+|[Web](./web)|[latest](https://www.neonlaw.net)|[latest](https://www.neonlaw.com)|
+|[Server](./server)|[latest](https://api.neonlaw.net)|[latest](https://api.neonlaw.com)|
+|---|---|---|
+
+and it contains the following packages
+
+|---|---|
+|Package|Latest Version|
+
 
 This is repo contains:
 
@@ -18,7 +31,6 @@ This is repo contains:
   `./docker` folder, for building containers which run on GCP.
 
 ## Running Locally
-
 ### Native Setup
 
 If you are planning on working on just front-end code, you can spin up a Next.JS
