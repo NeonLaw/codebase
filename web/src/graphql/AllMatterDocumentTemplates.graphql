@@ -1,9 +1,0 @@
-query AllMatterDocumentTemplates {
-  matterDocumentTemplates(orderBy: NAME_ASC) {
-    nodes {
-      id
-      name
-      description
-    }
-  }
-}

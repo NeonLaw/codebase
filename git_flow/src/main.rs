@@ -23,6 +23,7 @@ struct Opts {
 #[derive(Clap)]
 enum SubCommand {
     Validate(Validate),
+    Merged(Merged),
     Test(Test),
 }
 
@@ -32,6 +33,14 @@ struct Test {
     /// Print debug info
     #[clap(short)]
     debug: bool,
+}
+
+/// A subcommand for publishing releases
+#[derive(Clap)]
+struct Merged {
+    /// The branch that was merged into main
+    #[clap(short)]
+    head_ref: String,
 }
 
 /// Validate a branch name

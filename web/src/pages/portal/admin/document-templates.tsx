@@ -4,15 +4,15 @@ import React, { useState } from 'react';
 import { Breadcrumbs } from '../../../components/breadcrumbs';
 import { Button } from '../../../components/button';
 import {
-  CreateMatterDocumentTemplateModal
-} from '../../../components/modals/createMatterDocumentTemplateModal';
+  CreateDocumentTemplateModal
+} from '../../../components/modals/createDocumentTemplateModal';
 import {
-  MatterDocumentTemplateTable
-} from '../../../components/tables/matterDocumentTemplateTable';
+  DocumentTemplateTable
+} from '../../../components/tables/documentTemplateTable';
 import { PortalLayout } from '../../../components/layouts/portalLayout';
 import {
-  UpdateMatterDocumentTemplateModal
-} from '../../../components/modals/updateMatterDocumentTemplateModal';
+  UpdateDocumentTemplateModal
+} from '../../../components/modals/updateDocumentTemplateModal';
 import { gutters } from '../../../styles/neonLaw';
 
 const AdminMatterDocumentTemplates = () => {
@@ -41,7 +41,7 @@ const AdminMatterDocumentTemplates = () => {
           </Kbd>
         </Button>
 
-        <CreateMatterDocumentTemplateModal
+        <CreateDocumentTemplateModal
           isOpen={isOpen && showCreateModal}
           onClose={() => {
             changeShowCreateModal(true);
@@ -49,7 +49,7 @@ const AdminMatterDocumentTemplates = () => {
           }}
         />
 
-        <UpdateMatterDocumentTemplateModal
+        <UpdateDocumentTemplateModal
           isOpen={isOpen && !showCreateModal}
           currentValues={(currentRow as any)?.values}
           onClose={() => {
@@ -58,7 +58,7 @@ const AdminMatterDocumentTemplates = () => {
           }}
         />
 
-        <MatterDocumentTemplateTable
+        <DocumentTemplateTable
           onRowClick={(row) => {
             changeShowCreateModal(false);
             setCurrentRow(row);

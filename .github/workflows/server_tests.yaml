@@ -1,0 +1,71 @@
+---
+name: server_tests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  server_tests:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_HOST: postgres
+          POSTGRES_PORT: 5432
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Create postgres databases
+        run: |
+          sudo echo "127.0.0.1 postgres" | sudo tee -a /etc/hosts
+          sudo echo "127.0.0.1 api" | sudo tee -a /etc/hosts
+
+          psql -d postgres://postgres:password@postgres:5432/postgres \
+            -c "\set AUTOCOMMIT true"
+          psql -d postgres://postgres:password@postgres:5432/postgres \
+            -c "CREATE DATABASE neon_law;"
+          psql -d postgres://postgres:password@postgres:5432/postgres \
+            -c "CREATE DATABASE neon_law_shadow;"
+          psql -d postgres://postgres:password@postgres:5432/postgres \
+            -c "\set AUTOCOMMIT false"
+      - uses: actions/checkout@v2
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Commit migrations
+        run: doppler run -- yarn workspace @neonlaw/server migrate
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
+      - name: Seed the database
+        run: doppler run -- yarn db:seed
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
+      - name: Check api.tsx file against main server
+        run: |
+          doppler run -- yarn workspace @neonlaw/server start &
+          sleep 30
+          yarn graphql-codegen
+          git diff -G. --exit-code ./web/src/utils/api.tsx
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
+      - name: Run PGRita checks
+        uses: pgrita/action@main
+        env:
+          PGRITA_TOKEN: ${{ secrets.PGRITA_TOKEN }}
+          DATABASE_URL: postgres://postgres:password@127.0.0.1:5432/postgres
+        with:
+          project: neonlaw/codebase

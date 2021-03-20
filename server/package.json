@@ -9,7 +9,8 @@
     "start:workers": "ts-node --transpile-only src/workers.ts",
     "commit": "graphile-migrate commit",
     "migrate": "graphile-migrate migrate",
-    "watch": "graphile-migrate watch"
+    "watch": "graphile-migrate watch",
+    "test": "jest --forceExit --detectOpenHandles --coverage --coverageProvider=v8"
   },
   "dependencies": {
     "@google-cloud/storage": "^5.8.1",
