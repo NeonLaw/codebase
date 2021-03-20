@@ -4,14 +4,14 @@ import {
   matterDocumentTemplateFields
 } from '../fields/matterDocumentTemplateFields';
 
-export const UpdateMatterDocumentTemplateModal = ({
+export const UpdateDocumentTemplateModal = ({
   isOpen,
   onClose,
   currentValues,
 }) => {
   return (
     <UpdateModalFormBuilder
-      resourceName="matterDocumentTemplate"
+      resourceName="documentTemplate"
       currentValues={currentValues}
       isOpen={isOpen}
       onClose={onClose}

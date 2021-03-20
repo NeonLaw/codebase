@@ -9,8 +9,8 @@ deployed to our staging and production environment.
 
 |Package|Latest Version|Staging|Production|
 |-------|--------------|-----------|-------|
-|[Web](./web)|0.1.0|[next](https://www.neonlaw.net)|v0.1.0 [link](https://www.neonlaw.com)|
-|[Server](./server)|0.1.0|[next](https://api.neonlaw.net)|v0.1.0 [link](https://api.neonlaw.com)|
+|[Web](./web)|![NPM](https://img.shields.io/npm/v/@neonlaw/web)|deployed on pull requests|latest `main` branch commit [link](https://www.neonlaw.com)|
+|[Server](./server)|![NPM](https://img.shields.io/npm/v/@neonlaw/server)|[link](https://api.neonlaw.net)|[link](https://api.neonlaw.com)|
 |[i18n](./i18n)|![NPM](https://img.shields.io/npm/v/@neonlaw/i18n)|n/a|n/a|
 |[Neon NLP](./neon_nlp)|![Crates.io](https://img.shields.io/crates/v/neon_nlp)|n/a|n/a|
 |[Git Flow](./git_flow)|![Crates.io](https://img.shields.io/crates/v/git_flow)|n/a|n/a|
@@ -41,7 +41,7 @@ GraphQL server. To spin up a web server, enter the following commands.
 
 ```bash
 yarn
-doppler setup # development
+doppler setup # staging
 doppler run -- yarn workspace @neonlaw/web dev
 ```
 

@@ -14,13 +14,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: dorny/paths-filter@v2.2.1
-        id: filter
-        with:
-          filters: |
-            server:
-              - './server/**/*'
-              - './server/*'
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
@@ -30,7 +23,6 @@ jobs:
           password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
 
       - name: Build the Docker image
-        if: ${{ steps.filter.outputs.server == 'true' }}
         run: |-
           docker build \
             --tag "us.gcr.io/neon-law-production/server:$GITHUB_SHA" \
@@ -44,7 +36,7 @@ jobs:
           service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
           service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
           export_default_credentials: true
-        if: ${{ steps.filter.outputs.server == 'true' }} && github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main'
 
       - name: |-
           Configure Docker to use the gcloud command-line tool as a credential

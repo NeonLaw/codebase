@@ -4,10 +4,10 @@ import {
   matterDocumentTemplateFields
 } from '../fields/matterDocumentTemplateFields';
 
-export const CreateMatterDocumentTemplateModal = ({ isOpen, onClose }) => {
+export const CreateDocumentTemplateModal = ({ isOpen, onClose }) => {
   return (
     <CreateModalFormBuilder
-      resourceName="matterDocumentTemplate"
+      resourceName="documentTemplate"
       isOpen={isOpen}
       onClose={onClose}
       fields={matterDocumentTemplateFields}

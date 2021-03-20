@@ -1,5 +1,5 @@
 ---
-name: web
+name: web_tests
 
 on:
   pull_request:
@@ -11,40 +11,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: dorny/paths-filter@v2.2.1
-        id: filter
-        with:
-          filters: |
-            web:
-              - './web/**/*'
-              - './web/*'
       - name: Install Doppler CLI
-        if: ${{ steps.filter.outputs.web == 'true' }}
         uses: dopplerhq/cli-action@v1
       - uses: actions/setup-node@v1
-        if: ${{ steps.filter.outputs.web == 'true' }}
         with:
           node-version: '14'
       - name: Install dependencies
-        if: ${{ steps.filter.outputs.web == 'true' }}
         run: yarn install --frozen-lockfile
       - name: Build Next.JS website for staging
-        if: ${{ steps.filter.outputs.web == 'true' }}
         run: doppler run -- yarn workspace @neonlaw/web build
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_STAGING }}
       - name: Build Next.JS website for production
-        if: ${{ steps.filter.outputs.web == 'true' }}
         run: doppler run -- yarn workspace @neonlaw/web build
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
-      - name: Run Cypress tests for @neonlaw/web
-        if: ${{ steps.filter.outputs.web == 'true' }}
+      - name: Run Cypress tests for @neonlaw/web against staging server
         uses: cypress-io/github-action@v2
         with:
           record: true
-          command: doppler run -- yarn workpsace @neonlaw/web dev
-          wait-on-timeout: 300
+          start: doppler run -- yarn dev
           wait-on: 'http://127.0.0.1:3000'
           working-directory: ./web
         env:

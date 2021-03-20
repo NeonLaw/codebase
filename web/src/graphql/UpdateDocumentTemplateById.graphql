@@ -1,12 +1,12 @@
-mutation UpdateMatterDocumentTemplateById(
+mutation UpdateDocumentTemplateById(
   $id: UUID!
   $name: String
   $description: String
 ) {
-  updateMatterDocumentTemplate(
+  updateDocumentTemplate(
     input: { patch: { name: $name, description: $description }, id: $id }
   ) {
-    matterDocumentTemplate {
+    documentTemplate {
       id
       name
       description
