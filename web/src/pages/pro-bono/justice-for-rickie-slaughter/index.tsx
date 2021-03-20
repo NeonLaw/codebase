@@ -1,5 +1,5 @@
 import { Alert, AlertIcon, Stack } from '@chakra-ui/react';
-import { RickieLayout } from '../layouts/rickieLayout';
+import { RickieLayout } from '../../../components/layouts/rickieLayout';
 
 /*eslint-disable */
 export const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
