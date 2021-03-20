@@ -11,18 +11,17 @@ import {
 import { colors, gutters, sizes } from '../../styles/neonLaw';
 
 import { BaseFooter } from '../footer/baseFooter';
-import { Button } from '../button';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Experience } from '../homepage/experience';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Seo } from '../seo';
-import { StringInput } from '../inputs';
+import { TypeAhead } from '../type-ahead-dropdown';
 import { WhatWeCanHelpWith } from '../homepage/whatWeCanHelpWith';
 import { WhyNeonLaw } from '../homepage/whyNeonLaw';
 import { useColorMode } from '@chakra-ui/react';
-import { useCreateQuestionMutation } from '../../utils/api';
-import { useForm } from 'react-hook-form';
+// import { useCreateQuestionMutation } from '../../utils/api';
+// import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 import { useRef } from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
@@ -30,19 +29,19 @@ import { useUser } from '@auth0/nextjs-auth0';
 export const NeonLawIndexPage = (): JSX.Element => {
   const { colorMode } = useColorMode();
   const intl = useIntl();
-  const { handleSubmit, errors, register, reset } = useForm();
+  // const { handleSubmit, errors, register, reset } = useForm();
   const { user } = useUser();
   const nextSectionRef = useRef(null);
 
-  const [createQuestion, { loading }] = useCreateQuestionMutation();
+  // const [createQuestion, { loading }] = useCreateQuestionMutation();
 
-  const onSubmit = async ({ prompt }) => {
-    const questionType = 'userQuery';
+  // const onSubmit = async ({ prompt }) => {
+  //   const questionType = 'userQuery';
 
-    await createQuestion({ variables: { prompt, questionType } });
+  //   await createQuestion({ variables: { prompt, questionType } });
 
-    await reset();
-  };
+  //   await reset();
+  // };
 
   return (
     <>
@@ -75,7 +74,7 @@ export const NeonLawIndexPage = (): JSX.Element => {
               </Box>
               <Spacer />
             </Flex>
-            <form
+            {/* <form
               onSubmit={handleSubmit(onSubmit as any)}
               style={{ color: colors.text[colorMode] }}
             >
@@ -103,7 +102,8 @@ export const NeonLawIndexPage = (): JSX.Element => {
                   {intl.formatMessage({ id: 'auth.sign_up' })}
                 </Button>
               </Flex>
-            </form>
+            </form> */}
+            <TypeAhead />
             <Text
               margin={`${gutters.xSmall} 0 ${gutters.small}`}
               color={colors.text[colorMode]}
@@ -113,9 +113,7 @@ export const NeonLawIndexPage = (): JSX.Element => {
               }}
             />
             <Text>
-              <span>
-                {intl.formatMessage({ id: 'banner.client' })}
-              </span>
+              <span>{intl.formatMessage({ id: 'banner.client' })}</span>
               &nbsp;
               {user ? (
                 <>
