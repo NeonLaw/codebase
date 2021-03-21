@@ -21,3 +21,6 @@ This feature affects
 ## For the Assignee
 
 - [ ] Create a branch prefixed `feature/` that solves the issue above.
+- [ ] Add this issue to a CHANGELOG file
+- [ ] Verify this is deployed on Staging.
+- [ ] Verify this is deployed on Production.
