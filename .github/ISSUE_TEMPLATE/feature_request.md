@@ -22,7 +22,10 @@ This feature affects
 
 ## For the Assignee
 
-- [ ] Create a branch prefixed `feature/` that solves the issue above.
-- [ ] Add this issue to a CHANGELOG file
-- [ ] Verify this is deployed on Staging.
-- [ ] Verify this is deployed on Production.
+- [ ] Create a branch or branches prefixed `feature/` that solves the issue
+  above.
+- [ ] Add this issue to one or more CHANGELOG files
+- [ ] Verify this is fully deployed on Staging and comment on this issue with
+  the commit or PR.
+- [ ] Verify this is fully deployed on Prodcution and comment on this issue with
+  the commit or PR.
