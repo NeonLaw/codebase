@@ -1,8 +1,8 @@
 import { Alert, AlertIcon, Stack } from '@chakra-ui/react';
-import { RickieLayout } from '../layouts/rickieLayout';
+import { RickieLayout } from '../../../components/layouts/rickieLayout';
 
 /*eslint-disable */
-export const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
+const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
   return (
     <RickieLayout>
       <h1>Justice For Rickie</h1>
@@ -168,3 +168,5 @@ did not commit.
     </RickieLayout>
   );
 };
+
+export default JusticeForRickieSlaughterIndexPage;

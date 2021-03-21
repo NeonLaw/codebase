@@ -30,79 +30,70 @@ export const FooterLinks = () => {
         >
           <Flex direction="column">
             <LanguageDropdown />
-            <Box
-              as="a"
-              href="https://neonlaw.zendesk.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              padding="7px 0"
-            >
-              {intl.formatMessage({ id: 'footer.support' })}
-            </Box>
             <FooterLink
               i18nMessage="footer.pro_bono"
-              path="https://www.neonlaw.com/pro-bono"
+              path="pro-bono"
             />
             <FooterLink
               i18nMessage="footer.upward_mobility"
-              path="https://www.neonlaw.com/upward-mobility"
+              path="/upward-mobility"
             />
           </Flex>
           <Spacer />
           <Flex direction="column">
             <FooterLink
               i18nMessage="footer.about"
-              path="https://www.neonlaw.com/about-us"
+              path="/about-us"
             />
             <FooterLink
               i18nMessage="footer.practice_areas"
-              path="https://www.neonlaw.com/practice-areas"
+              path="/practice-areas"
             />
             <FooterLink
               i18nMessage="footer.bar_prep"
-              path="https://www.neonlaw.com/bar-prep"
+              path="/bar-prep"
             />
             <FooterLink
               i18nMessage="footer.templates"
-              path="https://www.neonlaw.com/templates"
+              path="/templates"
             />
           </Flex>
           <Spacer />
           <Flex direction="column">
             <FooterLink
               i18nMessage="footer.privacy_policy"
-              path="https://www.neonlaw.com/privacy-policy"
+              path="/privacy-policy"
             />
             <FooterLink
               i18nMessage="footer.terms"
-              path="https://www.neonlaw.com/terms-of-service"
+              path="/terms-of-service"
             />
             <FooterLink
               i18nMessage="footer.modern_slavery_statement"
-              path="https://www.neonlaw.com/modern-slavery-statement"
+              path="/modern-slavery-statement"
             />
             <FooterLink
               i18nMessage="footer.pgp_key"
-              path="https://www.neonlaw.com/pgp"
+              path="/pgp"
             />
           </Flex>
           <Spacer />
           <Flex direction="column">
             <FooterLink
               i18nMessage="footer.delete_your_data.heading"
-              path="https://www.deleteyourdata.com"
+              path="/delete-your-data"
             />
             <FooterLink
               i18nMessage="footer.justice_for_rickie_slaughter.heading"
-              path="https://www.justiceforrickieslaughter.com"
+              path="/pro-bono/justice-for-rickie-slaughter"
             />
             <FooterLink
               i18nMessage="footer.blog"
-              path="https://www.neonlaw.com/blog"
+              path="/blog"
             />
             <FooterLink
               i18nMessage="footer.careers"
-              path="https://www.neonlaw.com/careers"
+              path="/careers"
             />
           </Flex>
           <Box display={['none', 'none', 'flex']} />
