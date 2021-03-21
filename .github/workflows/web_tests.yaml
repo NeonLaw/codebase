@@ -18,14 +18,6 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Build Next.JS website for staging
-        run: doppler run -- yarn workspace @neonlaw/web build
-        env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_STAGING }}
-      - name: Build Next.JS website for production
-        run: doppler run -- yarn workspace @neonlaw/web build
-        env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
       - name: Run Cypress tests for @neonlaw/web against staging server
         uses: cypress-io/github-action@v2
         with:
