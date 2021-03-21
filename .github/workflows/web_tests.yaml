@@ -21,7 +21,6 @@ jobs:
       - name: Run Cypress tests for @neonlaw/web against staging server
         uses: cypress-io/github-action@v2
         with:
-          record: true
           start: doppler run -- yarn dev
           wait-on: 'http://127.0.0.1:3000'
           working-directory: ./web
