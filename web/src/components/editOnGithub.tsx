@@ -11,7 +11,7 @@ interface EditOnGithubProps {
 }
 
 export const EditOnGithub = ({ filename }: EditOnGithubProps) => {
-  const githubPath = 'https://github.com/NeonLaw/codebase/blob/main' +
+  const githubPath = 'https://github.com/NeonLaw/codebase/tree/main' +
     `/web/src/pages/${filename}.mdx`;
 
   return (
