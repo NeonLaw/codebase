@@ -14,11 +14,11 @@ assignees: ''
 
 This feature affects
 
-- [ ] Web
-- [ ] Server
-- [ ] Infrastructure
-- [ ] Git Flow
-- [ ] Neon NLP
+- Web
+- Server
+- Infrastructure
+- Git Flow
+- Neon NLP
 
 ## For the Assignee
 
