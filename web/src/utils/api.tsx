@@ -1409,6 +1409,8 @@ export type DocumentTemplate = Node & {
   id: Scalars['UUID'];
   name: Scalars['String'];
   description: Scalars['String'];
+  createdAt: Scalars['Datetime'];
+  updatedAt: Scalars['Datetime'];
 };
 
 /**
@@ -1425,6 +1427,8 @@ export type DocumentTemplateInput = {
   id?: Maybe<Scalars['UUID']>;
   name: Scalars['String'];
   description: Scalars['String'];
+  createdAt?: Maybe<Scalars['Datetime']>;
+  updatedAt?: Maybe<Scalars['Datetime']>;
 };
 
 /** Represents an update to a `DocumentTemplate`. Fields that are set will be updated. */
@@ -1432,6 +1436,8 @@ export type DocumentTemplatePatch = {
   id?: Maybe<Scalars['UUID']>;
   name?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Datetime']>;
+  updatedAt?: Maybe<Scalars['Datetime']>;
 };
 
 /** A connection to a list of `DocumentTemplate` values. */
@@ -1556,6 +1562,7 @@ export type Matter = Node & {
   updatedAt: Scalars['Datetime'];
   primaryContactId?: Maybe<Scalars['UUID']>;
   matterTemplateId: Scalars['UUID'];
+  description: Scalars['JSON'];
   /** Reads a single `Person` that is related to this `Matter`. */
   primaryContact?: Maybe<Person>;
   /** Reads a single `MatterTemplate` that is related to this `Matter`. */
@@ -1658,7 +1665,6 @@ export type MatterDocument = Node & {
   documentId: Scalars['UUID'];
   authorId: Scalars['UUID'];
   matterId: Scalars['UUID'];
-  matterDocumentTemplateId: Scalars['UUID'];
   /** Reads a single `Document` that is related to this `MatterDocument`. */
   document?: Maybe<Document>;
   /** Reads a single `Person` that is related to this `MatterDocument`. */
@@ -1721,6 +1727,7 @@ export type MatterInput = {
   updatedAt?: Maybe<Scalars['Datetime']>;
   primaryContactId?: Maybe<Scalars['UUID']>;
   matterTemplateId: Scalars['UUID'];
+  description?: Maybe<Scalars['JSON']>;
 };
 
 /** Represents an update to a `Matter`. Fields that are set will be updated. */
@@ -1731,6 +1738,7 @@ export type MatterPatch = {
   updatedAt?: Maybe<Scalars['Datetime']>;
   primaryContactId?: Maybe<Scalars['UUID']>;
   matterTemplateId?: Maybe<Scalars['UUID']>;
+  description?: Maybe<Scalars['JSON']>;
 };
 
 /** A connection to a list of `Matter` values. */
