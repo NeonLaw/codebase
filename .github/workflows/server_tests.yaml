@@ -46,12 +46,20 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Commit Graphile Migrate migrations
+        run: doppler run -- yarn graphile-worker --schema-only
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Commit migrations
         run: doppler run -- yarn workspace @neonlaw/server migrate
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Seed the database
         run: doppler run -- yarn db:seed
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
+      - name: Run tests
+        run: doppler run -- yarn test ./server
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Check api.tsx file against main server
