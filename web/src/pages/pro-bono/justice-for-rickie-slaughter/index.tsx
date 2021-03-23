@@ -9,6 +9,13 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
 
       <h2>Rickie&apos;s latest poetry</h2>
       <Stack spacing={3}>
+        <a href="/audio/2021-03-23-stop-the-hate.m4a" target="_blank">
+          <Alert status="info">
+            <AlertIcon />
+            Stop the Hate
+          </Alert>
+        </a>
+
         <a href="/audio/20210309-bullet-poem.m4a" target="_blank">
           <Alert status="info">
             <AlertIcon />
@@ -19,14 +26,28 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
         <a href="/audio/20210309-a-black-womans-magic.m4a">
           <Alert status="info">
             <AlertIcon />
-         Black Woman Magic Poem
+            Black Woman Magic
           </Alert>
         </a>
 
         <a href="/audio/20201106-stars-and-stripes.m4a">
           <Alert status="info">
             <AlertIcon />
-         Stars and Stripes
+            Stars and Stripes
+          </Alert>
+        </a>
+
+        <a href="/audio/20201116-wrongly-convicted-poem.m4a">
+          <Alert status="info">
+            <AlertIcon />
+            Wrongfully Convicted
+          </Alert>
+        </a>
+
+        <a href="/audio/20201015-rickie-slaughter-poem.m4a">
+          <Alert status="info">
+            <AlertIcon />
+            Teargas
           </Alert>
         </a>
       </Stack>
