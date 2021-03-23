@@ -5,6 +5,7 @@ export {
   addRelatedQuestionRelationship
 } from './addRelatedQuestionRelationship';
 export { createNeo4jRelationship } from './createNeo4jRelationship';
+export { downloadLobLetters } from './downloadLobLetters';
 export { saveDocumentInLongTermStorage } from './saveDocumentInLongTermStorage';
 export { sendWelcomeEmail } from './sendWelcomeEmail';
 export { updateQuestionnaireFromNeo4j } from './updateQuestionnaireFromNeo4j';
