@@ -167,6 +167,16 @@ resource "kubernetes_deployment" "server" {
           }
 
           env {
+            name = "LOB_API_SECRET"
+            value_from {
+              secret_key_ref {
+                key  = "LOB_API_SECRET"
+                name = "application-secrets"
+              }
+            }
+          }
+
+          env {
             name = "STRIPE_API_PUBLISHABLE_KEY"
             value_from {
               secret_key_ref {

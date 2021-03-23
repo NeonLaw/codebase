@@ -3,6 +3,7 @@ import {
   addQuestionToEndOfQuestionnaire,
   addRelatedQuestionRelationship,
   createNeo4jRelationship,
+  downloadLobLetters,
   saveDocumentInLongTermStorage,
   sendWelcomeEmail,
   updateQuestionnaireFromNeo4j,
@@ -51,6 +52,7 @@ async function workers() {
   await run({
     concurrency: 5,
     connectionString: postgresUrl,
+    crontab: '0 0 * * * downloadLobLetters',
     forbiddenFlags: rateLimiter.getForbiddenFlags,
     noHandleSignals: false,
     pollInterval: 1000,
@@ -58,6 +60,7 @@ async function workers() {
       addQuestionToEndOfQuestionnaire,
       addRelatedQuestionRelationship,
       createNeo4jRelationship,
+      downloadLobLetters,
       saveDocumentInLongTermStorage,
       sendWelcomeEmail: rateLimiter.wrapTask(sendWelcomeEmail),
       updateQuestionnaireFromNeo4j,
