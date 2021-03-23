@@ -9,6 +9,13 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
 
       <h2>Rickie&apos;s latest poetry</h2>
       <Stack spacing={3}>
+        <a href="/audio/2021-03-23-stop-the-hate.m4a" target="_blank">
+          <Alert status="info">
+            <AlertIcon />
+            Stop the Hate
+          </Alert>
+        </a>
+
         <a href="/audio/20210309-bullet-poem.m4a" target="_blank">
           <Alert status="info">
             <AlertIcon />
