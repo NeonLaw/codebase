@@ -14,7 +14,7 @@ export const getServerSideProps = async ({ req }) => {
     return {
       redirect: {
         destination:
-          '/https://www.neonlaw.compro-bono/justice-for-rickie-slaughter',
+          'https://www.neonlaw.com/pro-bono/justice-for-rickie-slaughter',
         permanent: true,
       }
     };
