@@ -2,16 +2,17 @@ import { NeonLawIndexPage } from '../components/indexPages/neonLawIndexPage';
 import { useRouter } from 'next/router';
 
 const Home = ({ host }) => {
+  console.log(host);
   const router = useRouter();
 
   if (host === 'www.justiceforrickieslaughter.com') {
     router.push('/pro-bono/justice-for-rickie-slaughter');
-    return;
+    return null;
   }
 
   if (host === 'www.deleteyourdata.com') {
     router.push('/delete-your-data');
-    return;
+    return null;
   }
 
   return <NeonLawIndexPage />;
