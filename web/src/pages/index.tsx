@@ -6,10 +6,12 @@ const Home = ({ host }) => {
 
   if (host === 'www.justiceforrickieslaughter.com') {
     router.push('/pro-bono/justice-for-rickie-slaughter');
+    return;
   }
 
   if (host === 'www.deleteyourdata.com') {
     router.push('/delete-your-data');
+    return;
   }
 
   return <NeonLawIndexPage />;
