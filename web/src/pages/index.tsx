@@ -1,16 +1,16 @@
 import { NeonLawIndexPage } from '../components/indexPages/neonLawIndexPage';
+import Router from 'next/router';
 
 const Home = ({ host }) => {
-
   if (host === 'www.justiceforrickieslaughter.com') {
-    window.location.replace(
+    Router.push(
       'https://www.neonlaw.com/pro-bono/justice-for-rickie-slaughter'
     );
     return null;
   }
 
   if (host === 'www.deleteyourdata.com') {
-    window.location.replace('https://www.neonlaw.com/delete-your-data');
+    Router.push('https://www.neonlaw.com/delete-your-data');
     return null;
   }
 
