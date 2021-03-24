@@ -43,7 +43,7 @@
     "react-intl": "^5.13.5",
     "react-responsive": "^8.2.0",
     "react-select": "^4.3.0",
-    "react-spring": "^8.0.27",
+    "react-spring": "^9.0.0",
     "react-table": "^7.6.3",
     "sharp": "^0.27.2",
     "styled-system": "^5.1.5",
