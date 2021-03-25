@@ -17,7 +17,7 @@
     "cypress": "^6.8.0"
   },
   "dependencies": {
-    "@apollo/client": "^3.3.12",
+    "@apollo/client": "^3.3.13",
     "@auth0/nextjs-auth0": "^1.2.0",
     "@chakra-ui/react": "^1.4.1",
     "@emotion/react": "^11.1.5",
