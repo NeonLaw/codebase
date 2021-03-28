@@ -1,6 +1,0 @@
-mutation GetTransloaditToken {
-  getTransloaditToken {
-    expires
-    signature
-  }
-}

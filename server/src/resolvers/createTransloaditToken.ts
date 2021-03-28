@@ -1,12 +1,12 @@
 import * as crypto from 'crypto';
 
-interface GetTransloaditTokenPayload {
+interface CreateTransloaditTokenPayload {
   expires: string;
   signature: string;
 }
 
 export const createTransloaditToken =
-async (): Promise<GetTransloaditTokenPayload> => {
+async (): Promise<CreateTransloaditTokenPayload> => {
   const utcDateString = (ms) => {
     return new Date(ms)
       .toISOString()

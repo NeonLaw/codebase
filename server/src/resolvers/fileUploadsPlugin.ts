@@ -10,7 +10,7 @@ export const fileUploadsPlugin = makeExtendSchemaPlugin(() => {
     },
     typeDefs: gql`
       extend type Mutation {
-        createTransloaditToken: createTransloaditTokenPayload
+        createTransloaditToken: CreateTransloaditTokenPayload
       }
 
       type CreateTransloaditTokenPayload {

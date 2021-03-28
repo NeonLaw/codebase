@@ -671,6 +671,12 @@ export type CreateRoleIfNotExistsPayload = {
   query?: Maybe<Query>;
 };
 
+export type CreateTransloaditTokenPayload = {
+  __typename?: 'CreateTransloaditTokenPayload';
+  expires?: Maybe<Scalars['String']>;
+  signature?: Maybe<Scalars['String']>;
+};
+
 export type CurrentUserMatter = {
   __typename?: 'CurrentUserMatter';
   id?: Maybe<Scalars['UUID']>;
@@ -1471,12 +1477,6 @@ export enum DocumentTemplatesOrderBy {
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
 
-export type GetTransloaditTokenPayload = {
-  __typename?: 'GetTransloaditTokenPayload';
-  expires?: Maybe<Scalars['String']>;
-  signature?: Maybe<Scalars['String']>;
-};
-
 
 export type Letter = Node & {
   __typename?: 'Letter';
@@ -2025,7 +2025,7 @@ export type Mutation = {
   createRelationship?: Maybe<CreateRelationshipPayload>;
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
   updateQuestionnaireFromNeo4J?: Maybe<UpdateQuestionnaireFromNeo4JPayload>;
-  getTransloaditToken?: Maybe<GetTransloaditTokenPayload>;
+  createTransloaditToken?: Maybe<CreateTransloaditTokenPayload>;
 };
 
 
@@ -4121,6 +4121,17 @@ export type CreateQuestionnaireMutation = (
   )> }
 );
 
+export type CreateTransloaditTokenMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CreateTransloaditTokenMutation = (
+  { __typename?: 'Mutation' }
+  & { createTransloaditToken?: Maybe<(
+    { __typename?: 'CreateTransloaditTokenPayload' }
+    & Pick<CreateTransloaditTokenPayload, 'expires' | 'signature'>
+  )> }
+);
+
 export type CurrentUserQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4209,17 +4220,6 @@ export type DeleteQuestionnaireByIdMutation = (
       { __typename?: 'Questionnaire' }
       & Pick<Questionnaire, 'id'>
     )> }
-  )> }
-);
-
-export type GetTransloaditTokenMutationVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetTransloaditTokenMutation = (
-  { __typename?: 'Mutation' }
-  & { getTransloaditToken?: Maybe<(
-    { __typename?: 'GetTransloaditTokenPayload' }
-    & Pick<GetTransloaditTokenPayload, 'expires' | 'signature'>
   )> }
 );
 
@@ -5045,6 +5045,39 @@ export function useCreateQuestionnaireMutation(baseOptions?: Apollo.MutationHook
 export type CreateQuestionnaireMutationHookResult = ReturnType<typeof useCreateQuestionnaireMutation>;
 export type CreateQuestionnaireMutationResult = Apollo.MutationResult<CreateQuestionnaireMutation>;
 export type CreateQuestionnaireMutationOptions = Apollo.BaseMutationOptions<CreateQuestionnaireMutation, CreateQuestionnaireMutationVariables>;
+export const CreateTransloaditTokenDocument = gql`
+    mutation CreateTransloaditToken {
+  createTransloaditToken {
+    expires
+    signature
+  }
+}
+    `;
+export type CreateTransloaditTokenMutationFn = Apollo.MutationFunction<CreateTransloaditTokenMutation, CreateTransloaditTokenMutationVariables>;
+
+/**
+ * __useCreateTransloaditTokenMutation__
+ *
+ * To run a mutation, you first call `useCreateTransloaditTokenMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateTransloaditTokenMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createTransloaditTokenMutation, { data, loading, error }] = useCreateTransloaditTokenMutation({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useCreateTransloaditTokenMutation(baseOptions?: Apollo.MutationHookOptions<CreateTransloaditTokenMutation, CreateTransloaditTokenMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateTransloaditTokenMutation, CreateTransloaditTokenMutationVariables>(CreateTransloaditTokenDocument, options);
+      }
+export type CreateTransloaditTokenMutationHookResult = ReturnType<typeof useCreateTransloaditTokenMutation>;
+export type CreateTransloaditTokenMutationResult = Apollo.MutationResult<CreateTransloaditTokenMutation>;
+export type CreateTransloaditTokenMutationOptions = Apollo.BaseMutationOptions<CreateTransloaditTokenMutation, CreateTransloaditTokenMutationVariables>;
 export const CurrentUserDocument = gql`
     query CurrentUser {
   getCurrentUser {
@@ -5259,39 +5292,6 @@ export function useDeleteQuestionnaireByIdMutation(baseOptions?: Apollo.Mutation
 export type DeleteQuestionnaireByIdMutationHookResult = ReturnType<typeof useDeleteQuestionnaireByIdMutation>;
 export type DeleteQuestionnaireByIdMutationResult = Apollo.MutationResult<DeleteQuestionnaireByIdMutation>;
 export type DeleteQuestionnaireByIdMutationOptions = Apollo.BaseMutationOptions<DeleteQuestionnaireByIdMutation, DeleteQuestionnaireByIdMutationVariables>;
-export const GetTransloaditTokenDocument = gql`
-    mutation GetTransloaditToken {
-  getTransloaditToken {
-    expires
-    signature
-  }
-}
-    `;
-export type GetTransloaditTokenMutationFn = Apollo.MutationFunction<GetTransloaditTokenMutation, GetTransloaditTokenMutationVariables>;
-
-/**
- * __useGetTransloaditTokenMutation__
- *
- * To run a mutation, you first call `useGetTransloaditTokenMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useGetTransloaditTokenMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [getTransloaditTokenMutation, { data, loading, error }] = useGetTransloaditTokenMutation({
- *   variables: {
- *   },
- * });
- */
-export function useGetTransloaditTokenMutation(baseOptions?: Apollo.MutationHookOptions<GetTransloaditTokenMutation, GetTransloaditTokenMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<GetTransloaditTokenMutation, GetTransloaditTokenMutationVariables>(GetTransloaditTokenDocument, options);
-      }
-export type GetTransloaditTokenMutationHookResult = ReturnType<typeof useGetTransloaditTokenMutation>;
-export type GetTransloaditTokenMutationResult = Apollo.MutationResult<GetTransloaditTokenMutation>;
-export type GetTransloaditTokenMutationOptions = Apollo.BaseMutationOptions<GetTransloaditTokenMutation, GetTransloaditTokenMutationVariables>;
 export const MatterByIdDocument = gql`
     query MatterById($id: UUID!) {
   matter(id: $id) {
