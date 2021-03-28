@@ -10,11 +10,11 @@ import { VscLaw } from 'react-icons/vsc';
 
 const admins = [
   'nick@neonlaw.com',
-  'admin@neonlaw.com'
+  'admin@sink.sendgrid.com'
 ];
 
 export const portalNavLinks = ({ email }) => {
-  return [
+  const baseLinks = [
     {
       icon: <BiHomeHeart />,
       label: 'Dashboard',
@@ -50,20 +50,20 @@ export const portalNavLinks = ({ email }) => {
       label: 'Bar Prep',
       route: '/portal/bar-prep',
     },
-    { icon: <CgProfile />, label: 'Settings', route: '/portal/settings' },
-    admins.includes(email)
-      ? {
-        icon: <VscLaw />,
-        label: 'Lawyers',
-        route: '/portal/lawyers',
-      }
-      : null,
-    admins.includes(email)
-      ? {
-        icon: <RiAdminLine />,
-        label: 'Admin',
-        route: '/portal/admin',
-      }
-      : null,
+    { icon: <CgProfile />, label: 'Settings', route: '/portal/settings' }
   ];
+
+  if (admins.includes(email)) {
+    baseLinks.push({
+      icon: <VscLaw />,
+      label: 'Lawyers',
+      route: '/portal/lawyers',
+    });
+    baseLinks.push({
+      icon: <RiAdminLine />,
+      label: 'Admin',
+      route: '/portal/admin',
+    });
+  }
+  return baseLinks;
 };

@@ -108,20 +108,10 @@ resource "kubernetes_deployment" "server" {
           }
 
           env {
-            name = "TRANSLOADIT_PDF_TEMPLATE_ID"
+            name = "TRANSLOADIT_TEMPLATE_ID"
             value_from {
               secret_key_ref {
-                key  = "TRANSLOADIT_PDF_TEMPLATE_ID"
-                name = "application-secrets"
-              }
-            }
-          }
-
-          env {
-            name = "TRANSLOADIT_IMAGE_TEMPLATE_ID"
-            value_from {
-              secret_key_ref {
-                key  = "TRANSLOADIT_IMAGE_TEMPLATE_ID"
+                key  = "TRANSLOADIT_TEMPLATE_ID"
                 name = "application-secrets"
               }
             }
