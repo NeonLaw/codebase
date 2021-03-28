@@ -29,25 +29,25 @@ export const RickieNavigationBar = () => {
       label: intl.formatMessage({
         id: 'navigation.justice_for_rickie_slaughter.home'
       }),
-      route: '/'
+      route: '/pro-bono/justice-for-rickie-slaughter'
     },
     {
       label: intl.formatMessage({
         id: 'navigation.justice_for_rickie_slaughter.coronavirus'
       }),
-      route: '/jfrs/coronavirus-in-prison'
+      route: '/pro-bono/justice-for-rickie-slaughter/coronavirus-in-prison'
     },
     {
       label: intl.formatMessage({
         id: 'navigation.justice_for_rickie_slaughter.patrick_wayne_harper'
       }),
-      route: '/jfrs/patrick-wayne-harper'
+      route: '/pro-bono/justice-for-rickie-slaughter/patrick-wayne-harper'
     },
     {
       label: intl.formatMessage({
         id: 'navigation.justice_for_rickie_slaughter.write_rickie'
       }),
-      route: '/jfrs/write-rickie'
+      route: '/pro-bono/justice-for-rickie-slaughter/write-rickie'
     }
   ];
   const { isOpen, onToggle, onClose } = useDisclosure();
