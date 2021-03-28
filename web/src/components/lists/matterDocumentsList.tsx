@@ -4,11 +4,10 @@ export const MatterDocumentsList = ({ matterDocuments }) => {
   return (
     <UnorderedList spacing={3}>
       {matterDocuments.map((matterDocument, index) => {
-        const { filename } = matterDocument.document;
-
         return (
           <ListItem key={index}>
-            {filename}
+            {matterDocument.document.filename} by {matterDocument.author.name}
+            &nbsp;which is a {matterDocument.document.documentTemplate.name}
           </ListItem>
         );}
       )}

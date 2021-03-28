@@ -1,12 +1,10 @@
 import React from 'react';
 import { Table } from './base';
 import { useAllMattersQuery } from '../../utils/api';
+import { useRouter } from 'next/router';
 
-interface MatterTableProps {
-  onRowClick(row: any): void;
-}
-
-export const MatterTable = ({ onRowClick }: MatterTableProps) => {
+export const MatterTable = () => {
+  const router = useRouter();
   const { loading, data, error } = useAllMattersQuery();
 
   if (loading) {
@@ -27,7 +25,7 @@ export const MatterTable = ({ onRowClick }: MatterTableProps) => {
     },
     {
       Header: 'Primary Contact',
-      accessor: 'personByPrimaryContactId.name',
+      accessor: 'primaryContact.name',
     },
   ];
   const nodes = data?.matters?.nodes || [];
@@ -37,7 +35,10 @@ export const MatterTable = ({ onRowClick }: MatterTableProps) => {
       columns={columns}
       data={nodes}
       testId="matters-table"
-      onRowClick={onRowClick}
+      onRowClick={(row) => {
+        router.push(`/portal/admin/matters/${row.values.id}`);
+        return null;
+      }}
     />
   );
 };
