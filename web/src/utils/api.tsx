@@ -667,6 +667,8 @@ export type CreateUnprocessedMatterDocumentPayload = {
   document?: Maybe<Document>;
   /** Reads a single `Person` that is related to this `MatterDocument`. */
   author?: Maybe<Person>;
+  /** Reads a single `Matter` that is related to this `MatterDocument`. */
+  matter?: Maybe<Matter>;
   /** An edge for our `MatterDocument`. May be used by Relay 1. */
   matterDocumentEdge?: Maybe<MatterDocumentsEdge>;
 };
@@ -1033,6 +1035,8 @@ export type DeleteMatterDocumentPayload = {
   document?: Maybe<Document>;
   /** Reads a single `Person` that is related to this `MatterDocument`. */
   author?: Maybe<Person>;
+  /** Reads a single `Matter` that is related to this `MatterDocument`. */
+  matter?: Maybe<Matter>;
   /** An edge for our `MatterDocument`. May be used by Relay 1. */
   matterDocumentEdge?: Maybe<MatterDocumentsEdge>;
 };
@@ -1563,10 +1567,25 @@ export type Matter = Node & {
   primaryContactId?: Maybe<Scalars['UUID']>;
   matterTemplateId: Scalars['UUID'];
   description: Scalars['JSON'];
+  active: Scalars['Boolean'];
   /** Reads a single `Person` that is related to this `Matter`. */
   primaryContact?: Maybe<Person>;
   /** Reads a single `MatterTemplate` that is related to this `Matter`. */
   matterTemplate?: Maybe<MatterTemplate>;
+  /** Reads and enables pagination through a set of `MatterDocument`. */
+  matterDocuments: MatterDocumentsConnection;
+};
+
+
+/** A legal matter, managed by Neon Law admin. */
+export type MatterMatterDocumentsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<MatterDocumentsOrderBy>>;
+  condition?: Maybe<MatterDocumentCondition>;
 };
 
 /** A condition to be used against `Matter` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -1669,6 +1688,8 @@ export type MatterDocument = Node & {
   document?: Maybe<Document>;
   /** Reads a single `Person` that is related to this `MatterDocument`. */
   author?: Maybe<Person>;
+  /** Reads a single `Matter` that is related to this `MatterDocument`. */
+  matter?: Maybe<Matter>;
 };
 
 /**
@@ -1682,6 +1703,8 @@ export type MatterDocumentCondition = {
   documentId?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `authorId` field. */
   authorId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `matterId` field. */
+  matterId?: Maybe<Scalars['UUID']>;
 };
 
 /** A connection to a list of `MatterDocument` values. */
@@ -1715,6 +1738,8 @@ export enum MatterDocumentsOrderBy {
   DocumentIdDesc = 'DOCUMENT_ID_DESC',
   AuthorIdAsc = 'AUTHOR_ID_ASC',
   AuthorIdDesc = 'AUTHOR_ID_DESC',
+  MatterIdAsc = 'MATTER_ID_ASC',
+  MatterIdDesc = 'MATTER_ID_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -1728,6 +1753,7 @@ export type MatterInput = {
   primaryContactId?: Maybe<Scalars['UUID']>;
   matterTemplateId: Scalars['UUID'];
   description?: Maybe<Scalars['JSON']>;
+  active?: Maybe<Scalars['Boolean']>;
 };
 
 /** Represents an update to a `Matter`. Fields that are set will be updated. */
@@ -1739,6 +1765,7 @@ export type MatterPatch = {
   primaryContactId?: Maybe<Scalars['UUID']>;
   matterTemplateId?: Maybe<Scalars['UUID']>;
   description?: Maybe<Scalars['JSON']>;
+  active?: Maybe<Scalars['Boolean']>;
 };
 
 /** A connection to a list of `Matter` values. */
@@ -4240,7 +4267,20 @@ export type MatterByIdQuery = (
     )>, matterTemplate?: Maybe<(
       { __typename?: 'MatterTemplate' }
       & Pick<MatterTemplate, 'id' | 'name' | 'category'>
-    )> }
+    )>, matterDocuments: (
+      { __typename?: 'MatterDocumentsConnection' }
+      & { nodes: Array<(
+        { __typename?: 'MatterDocument' }
+        & Pick<MatterDocument, 'id'>
+        & { author?: Maybe<(
+          { __typename?: 'Person' }
+          & Pick<Person, 'id' | 'name' | 'email'>
+        )>, document?: Maybe<(
+          { __typename?: 'Document' }
+          & Pick<Document, 'id' | 'filename'>
+        )> }
+      )> }
+    ) }
   )> }
 );
 
@@ -5310,6 +5350,20 @@ export const MatterByIdDocument = gql`
       id
       name
       category
+    }
+    matterDocuments {
+      nodes {
+        id
+        author {
+          id
+          name
+          email
+        }
+        document {
+          id
+          filename
+        }
+      }
     }
   }
 }

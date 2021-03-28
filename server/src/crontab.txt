@@ -1,2 +1,2 @@
 0 0 * * * downloadLobLetters
-0 * * * * slackReminders
+0 13-23 * * * slackReminders

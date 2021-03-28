@@ -38,9 +38,6 @@ variable "stripe_api_secret_key" {
 variable "environment" {
 }
 
-variable "redis_url" {
-}
-
 variable "neo4j_url" {
 }
 
