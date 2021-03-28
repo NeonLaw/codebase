@@ -2,8 +2,8 @@ import { Box, useDisclosure } from '@chakra-ui/react';
 import { Breadcrumbs } from '../../../../components/breadcrumbs';
 import { Button } from '../../../../components/button';
 import {
-  CreateMatterDocumentModal
-} from '../../../../components/modals/createMatterDocumentModal';
+  CreateUnprocessedMatterDocumentModal
+} from '../../../../components/modals/createUnprocessedMatterDocumentModal';
 import {
   DeleteMatterButton
 } from '../../../../components/deleteButtons/deleteMatterButton';
@@ -16,8 +16,11 @@ import {
 import { PortalLayout } from '../../../../components/layouts/portalLayout';
 import React from 'react';
 import { gutters } from '../../../../styles/neonLaw';
+import { useRouter } from 'next/router';
 
-const AdminMattersDetail = ({ params: { id }}) => {
+const AdminMattersDetail = () => {
+  const router = useRouter();
+  const { id } = router.query;
   const { isOpen, onClose, onOpen } = useDisclosure();
 
   return (
@@ -36,7 +39,7 @@ const AdminMattersDetail = ({ params: { id }}) => {
 
         <DeleteMatterButton id={id} />
 
-        <CreateMatterDocumentModal
+        <CreateUnprocessedMatterDocumentModal
           isOpen={isOpen}
           matterId={id}
           onClose={() => {

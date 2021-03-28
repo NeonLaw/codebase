@@ -12,15 +12,30 @@ import {
 } from '@chakra-ui/react';
 import React, { useRef, useState } from 'react';
 import { CreateButton } from '../buttons/createButton';
+import { InputBuilder } from '../forms/inputBuilder';
 import Transloadit from '@uppy/transloadit';
 import Uppy from '@uppy/core';
 import { colors } from '../../styles/neonLaw';
-import { useCreateMatterDocumentFromUploadUrlMutation } from '../../utils/api';
+import {
+  unprocessedMatterDocumentFields
+} from '../fields/unprocessedMatterDocumentFields';
+import { useCreateUnprocessedMatterDocumentMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 
-export const CreateMatterDocumentModal = ({ isOpen, onClose, matterId }) => {
+export const CreateUnprocessedMatterDocumentModal = ({
+  isOpen,
+  onClose,
+  matterId
+}) => {
   const { colorMode } = useColorMode();
-  const { handleSubmit, register, reset, setValue } = useForm();
+  const {
+    handleSubmit,
+    register,
+    reset,
+    setValue,
+    errors,
+    control
+  } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
@@ -36,12 +51,12 @@ export const CreateMatterDocumentModal = ({ isOpen, onClose, matterId }) => {
     });
 
     uppy.use(Transloadit, {
-      params: JSON.stringify({
+      params: {
         auth: {
-          key: process.env.TRANSLOADIT_KEY,
+          key: process.env.NEXT_PUBLIC_TRANSLOADIT_KEY,
         },
-        template_id: process.env.TRANSLOADIT_TEMPLATE_ID
-      }),
+        template_id: process.env.NEXT_PUBLIC_TRANSLOADIT_TEMPLATE_ID
+      },
       waitForEncoding: true
     });
 
@@ -61,7 +76,7 @@ export const CreateMatterDocumentModal = ({ isOpen, onClose, matterId }) => {
   const [
     createMutation,
     { loading },
-  ] = useCreateMatterDocumentFromUploadUrlMutation();
+  ] = useCreateUnprocessedMatterDocumentMutation();
 
   const onSubmit = async (variables) => {
     console.log(variables);
@@ -92,7 +107,7 @@ export const CreateMatterDocumentModal = ({ isOpen, onClose, matterId }) => {
           fontSize={theme.fontSizes['xl0']}
           color={colors.text[colorMode]}
         >
-            Create Matter Document
+          Create Matter Document
         </ModalHeader>
         <ModalCloseButton style={{ color: colors.text[colorMode] }} />
         <form
@@ -102,6 +117,14 @@ export const CreateMatterDocumentModal = ({ isOpen, onClose, matterId }) => {
         >
           <ModalBody>
             <>{formError}</>
+            <InputBuilder
+              resourceName="unprocessedMatterDocument"
+              fields={unprocessedMatterDocumentFields}
+              control={control}
+              errors={errors}
+              register={register}
+              currentValues={{}}
+            />
             <input
               name='matterId'
               type="hidden"

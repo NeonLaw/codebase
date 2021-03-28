@@ -390,43 +390,6 @@ export type CreateMatterContactPayloadMatterContactEdgeArgs = {
   orderBy?: Maybe<Array<MatterContactsOrderBy>>;
 };
 
-/** All input for the `createMatterDocumentFromUploadUrl` mutation. */
-export type CreateMatterDocumentFromUploadUrlInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  matterId?: Maybe<Scalars['UUID']>;
-  matterDocumentTemplateId?: Maybe<Scalars['UUID']>;
-  uploadDocumentUrl?: Maybe<Scalars['String']>;
-};
-
-/** The output of our `createMatterDocumentFromUploadUrl` mutation. */
-export type CreateMatterDocumentFromUploadUrlPayload = {
-  __typename?: 'CreateMatterDocumentFromUploadUrlPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  matterDocument?: Maybe<MatterDocument>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `Document` that is related to this `MatterDocument`. */
-  document?: Maybe<Document>;
-  /** Reads a single `Person` that is related to this `MatterDocument`. */
-  author?: Maybe<Person>;
-  /** An edge for our `MatterDocument`. May be used by Relay 1. */
-  matterDocumentEdge?: Maybe<MatterDocumentsEdge>;
-};
-
-
-/** The output of our `createMatterDocumentFromUploadUrl` mutation. */
-export type CreateMatterDocumentFromUploadUrlPayloadMatterDocumentEdgeArgs = {
-  orderBy?: Maybe<Array<MatterDocumentsOrderBy>>;
-};
-
 /** All input for the create `Matter` mutation. */
 export type CreateMatterInput = {
   /**
@@ -675,6 +638,43 @@ export type CreateTransloaditTokenPayload = {
   __typename?: 'CreateTransloaditTokenPayload';
   expires?: Maybe<Scalars['String']>;
   signature?: Maybe<Scalars['String']>;
+};
+
+/** All input for the `createUnprocessedMatterDocument` mutation. */
+export type CreateUnprocessedMatterDocumentInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  matterId?: Maybe<Scalars['UUID']>;
+  documentTemplateId?: Maybe<Scalars['UUID']>;
+  uploadDocumentUrl?: Maybe<Scalars['String']>;
+};
+
+/** The output of our `createUnprocessedMatterDocument` mutation. */
+export type CreateUnprocessedMatterDocumentPayload = {
+  __typename?: 'CreateUnprocessedMatterDocumentPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  matterDocument?: Maybe<MatterDocument>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Document` that is related to this `MatterDocument`. */
+  document?: Maybe<Document>;
+  /** Reads a single `Person` that is related to this `MatterDocument`. */
+  author?: Maybe<Person>;
+  /** An edge for our `MatterDocument`. May be used by Relay 1. */
+  matterDocumentEdge?: Maybe<MatterDocumentsEdge>;
+};
+
+
+/** The output of our `createUnprocessedMatterDocument` mutation. */
+export type CreateUnprocessedMatterDocumentPayloadMatterDocumentEdgeArgs = {
+  orderBy?: Maybe<Array<MatterDocumentsOrderBy>>;
 };
 
 export type CurrentUserMatter = {
@@ -2020,10 +2020,10 @@ export type Mutation = {
   deleteAccountingBill?: Maybe<DeleteAccountingBillPayload>;
   addQuestionToEndOfQuestionnaire?: Maybe<AddQuestionToEndOfQuestionnairePayload>;
   addRelatedQuestionRelationship?: Maybe<AddRelatedQuestionRelationshipPayload>;
-  createMatterDocumentFromUploadUrl?: Maybe<CreateMatterDocumentFromUploadUrlPayload>;
   createPrimaryKeyIdIfNotExists?: Maybe<CreatePrimaryKeyIdIfNotExistsPayload>;
   createRelationship?: Maybe<CreateRelationshipPayload>;
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
+  createUnprocessedMatterDocument?: Maybe<CreateUnprocessedMatterDocumentPayload>;
   updateQuestionnaireFromNeo4J?: Maybe<UpdateQuestionnaireFromNeo4JPayload>;
   createTransloaditToken?: Maybe<CreateTransloaditTokenPayload>;
 };
@@ -2402,12 +2402,6 @@ export type MutationAddRelatedQuestionRelationshipArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateMatterDocumentFromUploadUrlArgs = {
-  input: CreateMatterDocumentFromUploadUrlInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreatePrimaryKeyIdIfNotExistsArgs = {
   input: CreatePrimaryKeyIdIfNotExistsInput;
 };
@@ -2422,6 +2416,12 @@ export type MutationCreateRelationshipArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateRoleIfNotExistsArgs = {
   input: CreateRoleIfNotExistsInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateUnprocessedMatterDocumentArgs = {
+  input: CreateUnprocessedMatterDocumentInput;
 };
 
 
@@ -4033,6 +4033,7 @@ export type CreateLetterMutation = (
 
 export type CreateMatterMutationVariables = Exact<{
   name: Scalars['String'];
+  description: Scalars['JSON'];
   matterTemplateId: Scalars['UUID'];
   primaryContactId: Scalars['UUID'];
 }>;
@@ -4044,25 +4045,7 @@ export type CreateMatterMutation = (
     { __typename?: 'CreateMatterPayload' }
     & { matter?: Maybe<(
       { __typename?: 'Matter' }
-      & Pick<Matter, 'id' | 'createdAt' | 'updatedAt'>
-    )> }
-  )> }
-);
-
-export type CreateMatterDocumentFromUploadUrlMutationVariables = Exact<{
-  matterDocumentTemplateId: Scalars['UUID'];
-  matterId: Scalars['UUID'];
-  uploadDocumentUrl: Scalars['String'];
-}>;
-
-
-export type CreateMatterDocumentFromUploadUrlMutation = (
-  { __typename?: 'Mutation' }
-  & { createMatterDocumentFromUploadUrl?: Maybe<(
-    { __typename?: 'CreateMatterDocumentFromUploadUrlPayload' }
-    & { matterDocument?: Maybe<(
-      { __typename?: 'MatterDocument' }
-      & Pick<MatterDocument, 'id'>
+      & Pick<Matter, 'id' | 'description' | 'createdAt' | 'updatedAt'>
     )> }
   )> }
 );
@@ -4129,6 +4112,24 @@ export type CreateTransloaditTokenMutation = (
   & { createTransloaditToken?: Maybe<(
     { __typename?: 'CreateTransloaditTokenPayload' }
     & Pick<CreateTransloaditTokenPayload, 'expires' | 'signature'>
+  )> }
+);
+
+export type CreateUnprocessedMatterDocumentMutationVariables = Exact<{
+  matterId: Scalars['UUID'];
+  uploadDocumentUrl: Scalars['String'];
+  documentTemplateId: Scalars['UUID'];
+}>;
+
+
+export type CreateUnprocessedMatterDocumentMutation = (
+  { __typename?: 'Mutation' }
+  & { createUnprocessedMatterDocument?: Maybe<(
+    { __typename?: 'CreateUnprocessedMatterDocumentPayload' }
+    & { matterDocument?: Maybe<(
+      { __typename?: 'MatterDocument' }
+      & Pick<MatterDocument, 'id'>
+    )> }
   )> }
 );
 
@@ -4232,7 +4233,7 @@ export type MatterByIdQuery = (
   { __typename?: 'Query' }
   & { matter?: Maybe<(
     { __typename?: 'Matter' }
-    & Pick<Matter, 'id' | 'name'>
+    & Pick<Matter, 'id' | 'name' | 'description'>
     & { primaryContact?: Maybe<(
       { __typename?: 'Person' }
       & Pick<Person, 'id' | 'name'>
@@ -4293,7 +4294,8 @@ export type UpdateDocumentTemplateByIdMutation = (
 
 export type UpdateMatterByIdMutationVariables = Exact<{
   id: Scalars['UUID'];
-  name: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['JSON']>;
 }>;
 
 
@@ -4850,10 +4852,11 @@ export type CreateLetterMutationHookResult = ReturnType<typeof useCreateLetterMu
 export type CreateLetterMutationResult = Apollo.MutationResult<CreateLetterMutation>;
 export type CreateLetterMutationOptions = Apollo.BaseMutationOptions<CreateLetterMutation, CreateLetterMutationVariables>;
 export const CreateMatterDocument = gql`
-    mutation CreateMatter($name: String!, $matterTemplateId: UUID!, $primaryContactId: UUID!) {
-  createMatter(input: {matter: {name: $name, matterTemplateId: $matterTemplateId, primaryContactId: $primaryContactId}}) {
+    mutation CreateMatter($name: String!, $description: JSON!, $matterTemplateId: UUID!, $primaryContactId: UUID!) {
+  createMatter(input: {matter: {name: $name, description: $description, matterTemplateId: $matterTemplateId, primaryContactId: $primaryContactId}}) {
     matter {
       id
+      description
       createdAt
       updatedAt
     }
@@ -4876,6 +4879,7 @@ export type CreateMatterMutationFn = Apollo.MutationFunction<CreateMatterMutatio
  * const [createMatterMutation, { data, loading, error }] = useCreateMatterMutation({
  *   variables: {
  *      name: // value for 'name'
+ *      description: // value for 'description'
  *      matterTemplateId: // value for 'matterTemplateId'
  *      primaryContactId: // value for 'primaryContactId'
  *   },
@@ -4888,43 +4892,6 @@ export function useCreateMatterMutation(baseOptions?: Apollo.MutationHookOptions
 export type CreateMatterMutationHookResult = ReturnType<typeof useCreateMatterMutation>;
 export type CreateMatterMutationResult = Apollo.MutationResult<CreateMatterMutation>;
 export type CreateMatterMutationOptions = Apollo.BaseMutationOptions<CreateMatterMutation, CreateMatterMutationVariables>;
-export const CreateMatterDocumentFromUploadUrlDocument = gql`
-    mutation CreateMatterDocumentFromUploadUrl($matterDocumentTemplateId: UUID!, $matterId: UUID!, $uploadDocumentUrl: String!) {
-  createMatterDocumentFromUploadUrl(input: {matterDocumentTemplateId: $matterDocumentTemplateId, matterId: $matterId, uploadDocumentUrl: $uploadDocumentUrl}) {
-    matterDocument {
-      id
-    }
-  }
-}
-    `;
-export type CreateMatterDocumentFromUploadUrlMutationFn = Apollo.MutationFunction<CreateMatterDocumentFromUploadUrlMutation, CreateMatterDocumentFromUploadUrlMutationVariables>;
-
-/**
- * __useCreateMatterDocumentFromUploadUrlMutation__
- *
- * To run a mutation, you first call `useCreateMatterDocumentFromUploadUrlMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useCreateMatterDocumentFromUploadUrlMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [createMatterDocumentFromUploadUrlMutation, { data, loading, error }] = useCreateMatterDocumentFromUploadUrlMutation({
- *   variables: {
- *      matterDocumentTemplateId: // value for 'matterDocumentTemplateId'
- *      matterId: // value for 'matterId'
- *      uploadDocumentUrl: // value for 'uploadDocumentUrl'
- *   },
- * });
- */
-export function useCreateMatterDocumentFromUploadUrlMutation(baseOptions?: Apollo.MutationHookOptions<CreateMatterDocumentFromUploadUrlMutation, CreateMatterDocumentFromUploadUrlMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<CreateMatterDocumentFromUploadUrlMutation, CreateMatterDocumentFromUploadUrlMutationVariables>(CreateMatterDocumentFromUploadUrlDocument, options);
-      }
-export type CreateMatterDocumentFromUploadUrlMutationHookResult = ReturnType<typeof useCreateMatterDocumentFromUploadUrlMutation>;
-export type CreateMatterDocumentFromUploadUrlMutationResult = Apollo.MutationResult<CreateMatterDocumentFromUploadUrlMutation>;
-export type CreateMatterDocumentFromUploadUrlMutationOptions = Apollo.BaseMutationOptions<CreateMatterDocumentFromUploadUrlMutation, CreateMatterDocumentFromUploadUrlMutationVariables>;
 export const CreateMatterTemplateDocument = gql`
     mutation CreateMatterTemplate($name: String!, $javascriptModule: String!, $category: String!) {
   createMatterTemplate(input: {matterTemplate: {name: $name, javascriptModule: $javascriptModule, category: $category}}) {
@@ -5078,6 +5045,43 @@ export function useCreateTransloaditTokenMutation(baseOptions?: Apollo.MutationH
 export type CreateTransloaditTokenMutationHookResult = ReturnType<typeof useCreateTransloaditTokenMutation>;
 export type CreateTransloaditTokenMutationResult = Apollo.MutationResult<CreateTransloaditTokenMutation>;
 export type CreateTransloaditTokenMutationOptions = Apollo.BaseMutationOptions<CreateTransloaditTokenMutation, CreateTransloaditTokenMutationVariables>;
+export const CreateUnprocessedMatterDocumentDocument = gql`
+    mutation CreateUnprocessedMatterDocument($matterId: UUID!, $uploadDocumentUrl: String!, $documentTemplateId: UUID!) {
+  createUnprocessedMatterDocument(input: {matterId: $matterId, uploadDocumentUrl: $uploadDocumentUrl}) {
+    matterDocument {
+      id
+    }
+  }
+}
+    `;
+export type CreateUnprocessedMatterDocumentMutationFn = Apollo.MutationFunction<CreateUnprocessedMatterDocumentMutation, CreateUnprocessedMatterDocumentMutationVariables>;
+
+/**
+ * __useCreateUnprocessedMatterDocumentMutation__
+ *
+ * To run a mutation, you first call `useCreateUnprocessedMatterDocumentMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateUnprocessedMatterDocumentMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createUnprocessedMatterDocumentMutation, { data, loading, error }] = useCreateUnprocessedMatterDocumentMutation({
+ *   variables: {
+ *      matterId: // value for 'matterId'
+ *      uploadDocumentUrl: // value for 'uploadDocumentUrl'
+ *      documentTemplateId: // value for 'documentTemplateId'
+ *   },
+ * });
+ */
+export function useCreateUnprocessedMatterDocumentMutation(baseOptions?: Apollo.MutationHookOptions<CreateUnprocessedMatterDocumentMutation, CreateUnprocessedMatterDocumentMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateUnprocessedMatterDocumentMutation, CreateUnprocessedMatterDocumentMutationVariables>(CreateUnprocessedMatterDocumentDocument, options);
+      }
+export type CreateUnprocessedMatterDocumentMutationHookResult = ReturnType<typeof useCreateUnprocessedMatterDocumentMutation>;
+export type CreateUnprocessedMatterDocumentMutationResult = Apollo.MutationResult<CreateUnprocessedMatterDocumentMutation>;
+export type CreateUnprocessedMatterDocumentMutationOptions = Apollo.BaseMutationOptions<CreateUnprocessedMatterDocumentMutation, CreateUnprocessedMatterDocumentMutationVariables>;
 export const CurrentUserDocument = gql`
     query CurrentUser {
   getCurrentUser {
@@ -5297,6 +5301,7 @@ export const MatterByIdDocument = gql`
   matter(id: $id) {
     id
     name
+    description
     primaryContact {
       id
       name
@@ -5456,8 +5461,8 @@ export type UpdateDocumentTemplateByIdMutationHookResult = ReturnType<typeof use
 export type UpdateDocumentTemplateByIdMutationResult = Apollo.MutationResult<UpdateDocumentTemplateByIdMutation>;
 export type UpdateDocumentTemplateByIdMutationOptions = Apollo.BaseMutationOptions<UpdateDocumentTemplateByIdMutation, UpdateDocumentTemplateByIdMutationVariables>;
 export const UpdateMatterByIdDocument = gql`
-    mutation UpdateMatterById($id: UUID!, $name: String!) {
-  updateMatter(input: {id: $id, patch: {name: $name}}) {
+    mutation UpdateMatterById($id: UUID!, $name: String, $description: JSON) {
+  updateMatter(input: {id: $id, patch: {name: $name, description: $description}}) {
     matter {
       id
       name
@@ -5483,6 +5488,7 @@ export type UpdateMatterByIdMutationFn = Apollo.MutationFunction<UpdateMatterByI
  *   variables: {
  *      id: // value for 'id'
  *      name: // value for 'name'
+ *      description: // value for 'description'
  *   },
  * });
  */

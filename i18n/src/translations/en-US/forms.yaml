@@ -42,3 +42,5 @@ forms:
     label: Addressor
   legal_question:
     placeholder: What legal question do you have?
+  document_template:
+    label: Document Template

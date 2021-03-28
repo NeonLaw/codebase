@@ -2,8 +2,11 @@ import { Node, Text } from 'slate';
 import escapeHtml from 'escape-html';
 import { jsx } from 'slate-hyperscript';
 
-export const  convertSlateToPlaintext = (slateJson: any) => {
-  return slateJson.map(n => Node.string(n)).join('\n');
+export const  convertSlateToPlaintext = (slateJson: any): string => {
+  if (Array.isArray(slateJson)) {
+    return slateJson.map(n => Node.string(n)).join('\n');
+  }
+  return '';
 };
 
 export const  convertSlateToHtml = (slateJson: any) => {
