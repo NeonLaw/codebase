@@ -1,5 +1,6 @@
 mutation CreateMatter(
   $name: String!
+  $description: JSON!
   $matterTemplateId: UUID!
   $primaryContactId: UUID!
 ) {
@@ -7,6 +8,7 @@ mutation CreateMatter(
     input: {
       matter: {
         name: $name
+        description: $description
         matterTemplateId: $matterTemplateId
         primaryContactId: $primaryContactId
       }
@@ -14,6 +16,7 @@ mutation CreateMatter(
   ) {
     matter {
       id
+      description
       createdAt
       updatedAt
     }

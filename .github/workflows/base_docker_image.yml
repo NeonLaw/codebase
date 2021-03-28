@@ -24,7 +24,7 @@ jobs:
         run: |-
           docker build \
             --tag "docker.pkg.github.com/neonlaw/codebase/base:latest" \
-            -f ./docker/base.Dockerfile \
+            -f ./development/base.Dockerfile \
             .
 
       - name: Login to GitHub Container Registry

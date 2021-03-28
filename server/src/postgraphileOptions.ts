@@ -82,7 +82,7 @@ export const postgraphileOptions: PostGraphileOptions = {
     const settings: any = {};
     const traceId = request['X-Trace-Id'];
 
-    if (request.user) {
+    if (request.authenticatedPerson) {
       const { role, id } = request.authenticatedPerson;
       settings['role'] = role;
       settings['person.id'] = id;

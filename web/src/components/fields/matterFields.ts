@@ -17,5 +17,10 @@ export const matterFields: Field[] = [
     name: 'primaryContactId',
     queryName: 'allPeople',
     type: 'selectWithQuery'
-  }
+  },
+  {
+    name: 'description',
+    required: true,
+    type: 'textarea',
+  },
 ];

@@ -2,6 +2,7 @@ query MatterById($id: UUID!) {
   matter(id: $id) {
     id
     name
+    description
     primaryContact {
       id
       name

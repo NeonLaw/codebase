@@ -1,5 +1,7 @@
-mutation UpdateMatterById($id: UUID!, $name: String!) {
-  updateMatter(input: { id: $id, patch: { name: $name } }) {
+mutation UpdateMatterById($id: UUID!, $name: String, $description: JSON) {
+  updateMatter(
+    input: { id: $id, patch: { name: $name, description: $description } }
+  ) {
     matter {
       id
       name

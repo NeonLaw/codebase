@@ -101,8 +101,6 @@ export const SideNavContent = ({
               <Link href={link.route} key={i}>
                 <Box
                   cursor="pointer"
-                  activeStyle={{ color: activeColor[colorMode] }}
-                  activeClassName="active"
                   className="link"
                   data-testid={
                     `${link.label.toLowerCase()}-side-navigation-link`

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Skeleton } from '@chakra-ui/react';
+import { Box, Heading, Skeleton, Text } from '@chakra-ui/react';
+import { convertSlateToPlaintext } from '../../utils/slate';
 import { useMatterByIdQuery } from '../../utils/api';
 
 export const MatterDetailView = ({ id }) => {
@@ -11,7 +11,13 @@ export const MatterDetailView = ({ id }) => {
 
   if (data) {
     return (
-      <h1>Matter &nbsp;{JSON.stringify(data)}</h1>
+      <Box>
+        <Heading>{data.matter.name}</Heading>
+        <Text>
+          {data.matter.description &&
+          convertSlateToPlaintext(data.matter.description)}
+        </Text>
+      </Box>
     );
   }
 

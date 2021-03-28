@@ -11,6 +11,7 @@ import {
 } from '../../../../components/tables/matterTable';
 import { PortalLayout } from '../../../../components/layouts/portalLayout';
 import { gutters } from '../../../../styles/neonLaw';
+import { useRouter } from 'next/router';
 
 const AdminMatters = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -18,6 +19,7 @@ const AdminMatters = () => {
     showCreateMatterModal,
     changeShowCreateMatterModal
   ] = useState(true);
+  const router = useRouter();
 
   return (
     <PortalLayout>
@@ -50,7 +52,7 @@ const AdminMatters = () => {
 
         <MatterTable
           onRowClick={(row) => {
-            console.log(`/portal/admin/matters/${row.values.id}`);
+            router.push(`/portal/admin/matters/${row.values.id}`);
             return null;
           }}
         />

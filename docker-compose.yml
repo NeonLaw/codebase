@@ -5,7 +5,7 @@ x-environment-variables: &environment-variables
   API_URL: http://127.0.0.1:3000
   AUTH0_CLIENT_ID: $AUTH0_CLIENT_ID
   AUTH0_CLIENT_SECRET: $AUTH0_CLIENT_SECRET
-  AUTH0_TENANT: neon-law-testing.auth0.com
+  AUTH0_TENANT: $AUTH0_TENANT
   DATABASE_URL: postgres://postgres:password@postgres:5432/neon_law
   GATSBY_WEBPACK_PUBLICPATH: /
   GOOGLE_APPLICATION_CREDENTIALS: /app/credentials.json
@@ -18,8 +18,8 @@ x-environment-variables: &environment-variables
   SHADOW_DATABASE_URL: postgres://postgres:password@postgres:5432/neon_law_shadow
   STRIPE_API_SECRET_KEY: $STRIPE_API_SECRET_KEY
   TRANSLOADIT_KEY: $TRANSLOADIT_KEY
-  TRANSLOADIT_TEMPLATE_ID: $TRANSLOADIT_TEMPLATE_ID
   TRANSLOADIT_SECRET: $TRANSLOADIT_SECRET
+  TRANSLOADIT_TEMPLATE_ID: $TRANSLOADIT_TEMPLATE_ID
 
 x-node-volumes: &node-volumes
   - ./:/app
