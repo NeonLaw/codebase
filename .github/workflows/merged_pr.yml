@@ -22,6 +22,6 @@ jobs:
       - name: Install Git Flow
         run: cargo install git_flow
       - name: Print branch name
-        run: doppler run -- git_flow hooks merged ${GITHUB_HEAD_REF}
+        run: doppler run -- git_flow merged-pull-request-hook ${GITHUB_HEAD_REF#refs/heads/} ${GITHUB_BASE_REF#refs/heads/}
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_STAGING }}

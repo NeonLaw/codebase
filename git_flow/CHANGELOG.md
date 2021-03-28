@@ -1,7 +1,11 @@
 # CHANGELOG
 
-## v0.0.5 (next)
+## v0.0.6 (next)
 
+## v0.0.5
+
+- Refactor to two commands, `git_flow validate-pull-request` and
+  `git_flow merged-pull-request-hook` (#2010). Also, add a release here.
 - Create the first nested command, `git_flow validate-branch` is now
   `git_flow validate branch` (#1807)
 

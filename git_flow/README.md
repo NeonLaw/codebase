@@ -54,11 +54,18 @@ previously tagged commit.
 
 ### release/
 
-A release branch updates the version of one of our packages. A release branch
-can only contain the version bump and the corresponding changelog bump.
+A release branch updates the Cargo, NPM, or Docker version of one of
+our packages.
+
+### version-bump/
+
+After a release branch is merged onto `main`, a `version-bump` branch *MUST*
+be merged. A version bump bumps the package to the next version and updates
+the Changelog.
 
 ### deployment/
 
 A deployment branch updates our infrastructure to run a new version of a
 package on our managed servers. A deployment branch can only contain the
-necessary changes to deploy a new version of a package.
+necessary changes to deploy a new version of a package and must update the
+global [README](../README.md) file of this repository.
