@@ -12,7 +12,7 @@ assignees: ''
 
 ## Packages
 
-This feature affects
+This feature affects (delete the unaffected packages below)
 
 - Web
 - Server
@@ -25,7 +25,3 @@ This feature affects
 - [ ] Create a branch or branches prefixed `feature/` that solves the issue
   above.
 - [ ] Add this issue to one or more CHANGELOG files
-- [ ] Verify this is fully deployed on Staging and comment on this issue with
-  the commit or PR.
-- [ ] Verify this is fully deployed on Prodcution and comment on this issue with
-  the commit or PR.
