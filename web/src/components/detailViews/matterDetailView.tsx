@@ -21,7 +21,9 @@ export const MatterDetailView = ({ id }) => {
           convertSlateToPlaintext(data.matter.description)}
         </Text>
         <Heading as="h3">Documents</Heading>
-        <MatterDocumentsList matterDocuments={data.matter.matterDocuments} />
+        <MatterDocumentsList
+          matterDocuments={data.matter.matterDocuments.nodes}
+        />
       </Box>
     );
   }
