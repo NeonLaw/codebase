@@ -12,6 +12,7 @@ x-environment-variables: &environment-variables
   LOB_API_KEY: $LOB_API_KEY
   LOB_API_SECRET: $LOB_API_SECRET
   NEO4J_URL: bolt://neo4j:7687
+  NEON_BOT_SLACK_TOKEN: $NEON_BOT_SLACK_TOKEN
   NODE_ENV: development
   ROOT_DATABASE_URL: postgres://postgres:password@postgres:5432/postgres
   SENDGRID_API_KEY: $SENDGRID_API_KEY

@@ -39,3 +39,6 @@ variable "environment" {
 
 variable "next_js_auth0_secret" {
 }
+
+variable "neon_bot_slack_token" {
+}
