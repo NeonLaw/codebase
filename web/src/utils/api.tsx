@@ -640,43 +640,37 @@ export type CreateTransloaditTokenPayload = {
   signature?: Maybe<Scalars['String']>;
 };
 
-/** All input for the `createUnprocessedMatterDocument` mutation. */
-export type CreateUnprocessedMatterDocumentInput = {
+/** All input for the create `UnprocessedDocument` mutation. */
+export type CreateUnprocessedDocumentInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars['String']>;
-  matterId?: Maybe<Scalars['UUID']>;
-  documentTemplateId?: Maybe<Scalars['UUID']>;
-  uploadDocumentUrl?: Maybe<Scalars['String']>;
+  /** The `UnprocessedDocument` to be created by this mutation. */
+  unprocessedDocument: UnprocessedDocumentInput;
 };
 
-/** The output of our `createUnprocessedMatterDocument` mutation. */
-export type CreateUnprocessedMatterDocumentPayload = {
-  __typename?: 'CreateUnprocessedMatterDocumentPayload';
+/** The output of our create `UnprocessedDocument` mutation. */
+export type CreateUnprocessedDocumentPayload = {
+  __typename?: 'CreateUnprocessedDocumentPayload';
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars['String']>;
-  matterDocument?: Maybe<MatterDocument>;
+  /** The `UnprocessedDocument` that was created by this mutation. */
+  unprocessedDocument?: Maybe<UnprocessedDocument>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Document` that is related to this `MatterDocument`. */
-  document?: Maybe<Document>;
-  /** Reads a single `Person` that is related to this `MatterDocument`. */
-  author?: Maybe<Person>;
-  /** Reads a single `Matter` that is related to this `MatterDocument`. */
-  matter?: Maybe<Matter>;
-  /** An edge for our `MatterDocument`. May be used by Relay 1. */
-  matterDocumentEdge?: Maybe<MatterDocumentsEdge>;
+  /** An edge for our `UnprocessedDocument`. May be used by Relay 1. */
+  unprocessedDocumentEdge?: Maybe<UnprocessedDocumentsEdge>;
 };
 
 
-/** The output of our `createUnprocessedMatterDocument` mutation. */
-export type CreateUnprocessedMatterDocumentPayloadMatterDocumentEdgeArgs = {
-  orderBy?: Maybe<Array<MatterDocumentsOrderBy>>;
+/** The output of our create `UnprocessedDocument` mutation. */
+export type CreateUnprocessedDocumentPayloadUnprocessedDocumentEdgeArgs = {
+  orderBy?: Maybe<Array<UnprocessedDocumentsOrderBy>>;
 };
 
 export type CurrentUserMatter = {
@@ -844,6 +838,8 @@ export type DeleteDocumentPayload = {
   deletedDocumentNodeId?: Maybe<Scalars['ID']>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `DocumentTemplate` that is related to this `Document`. */
+  documentTemplate?: Maybe<DocumentTemplate>;
   /** An edge for our `Document`. May be used by Relay 1. */
   documentEdge?: Maybe<DocumentsEdge>;
 };
@@ -1354,6 +1350,50 @@ export type DeleteResponsePayloadResponseEdgeArgs = {
   orderBy?: Maybe<Array<ResponsesOrderBy>>;
 };
 
+/** All input for the `deleteUnprocessedDocumentByNodeId` mutation. */
+export type DeleteUnprocessedDocumentByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `UnprocessedDocument` to be deleted. */
+  nodeId: Scalars['ID'];
+};
+
+/** All input for the `deleteUnprocessedDocument` mutation. */
+export type DeleteUnprocessedDocumentInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** The output of our delete `UnprocessedDocument` mutation. */
+export type DeleteUnprocessedDocumentPayload = {
+  __typename?: 'DeleteUnprocessedDocumentPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `UnprocessedDocument` that was deleted by this mutation. */
+  unprocessedDocument?: Maybe<UnprocessedDocument>;
+  deletedUnprocessedDocumentNodeId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `UnprocessedDocument`. May be used by Relay 1. */
+  unprocessedDocumentEdge?: Maybe<UnprocessedDocumentsEdge>;
+};
+
+
+/** The output of our delete `UnprocessedDocument` mutation. */
+export type DeleteUnprocessedDocumentPayloadUnprocessedDocumentEdgeArgs = {
+  orderBy?: Maybe<Array<UnprocessedDocumentsOrderBy>>;
+};
+
 export type Document = Node & {
   __typename?: 'Document';
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -1364,6 +1404,8 @@ export type Document = Node & {
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
   documentTemplateId?: Maybe<Scalars['UUID']>;
+  /** Reads a single `DocumentTemplate` that is related to this `Document`. */
+  documentTemplate?: Maybe<DocumentTemplate>;
   /** Reads and enables pagination through a set of `MatterDocument`. */
   matterDocuments: MatterDocumentsConnection;
   /** Reads and enables pagination through a set of `ResponseDocument`. */
@@ -1392,6 +1434,32 @@ export type DocumentResponseDocumentsArgs = {
   condition?: Maybe<ResponseDocumentCondition>;
 };
 
+/**
+ * A condition to be used against `Document` object types. All fields are tested
+ * for equality and combined with a logical ‘and.’
+ */
+export type DocumentCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `documentableTableName` field. */
+  documentableTableName?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `documentTemplateId` field. */
+  documentTemplateId?: Maybe<Scalars['UUID']>;
+};
+
+/** A connection to a list of `Document` values. */
+export type DocumentsConnection = {
+  __typename?: 'DocumentsConnection';
+  /** A list of `Document` objects. */
+  nodes: Array<Document>;
+  /** A list of edges which contains the `Document` and cursor to aid in pagination. */
+  edges: Array<DocumentsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `Document` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
 /** A `Document` edge in the connection. */
 export type DocumentsEdge = {
   __typename?: 'DocumentsEdge';
@@ -1408,6 +1476,8 @@ export enum DocumentsOrderBy {
   IdDesc = 'ID_DESC',
   DocumentableTableNameAsc = 'DOCUMENTABLE_TABLE_NAME_ASC',
   DocumentableTableNameDesc = 'DOCUMENTABLE_TABLE_NAME_DESC',
+  DocumentTemplateIdAsc = 'DOCUMENT_TEMPLATE_ID_ASC',
+  DocumentTemplateIdDesc = 'DOCUMENT_TEMPLATE_ID_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -1421,6 +1491,19 @@ export type DocumentTemplate = Node & {
   description: Scalars['String'];
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
+  /** Reads and enables pagination through a set of `Document`. */
+  documents: DocumentsConnection;
+};
+
+
+export type DocumentTemplateDocumentsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<DocumentsOrderBy>>;
+  condition?: Maybe<DocumentCondition>;
 };
 
 /**
@@ -1943,6 +2026,8 @@ export type Mutation = {
   createQuestionnaire?: Maybe<CreateQuestionnairePayload>;
   /** Creates a single `Response`. */
   createResponse?: Maybe<CreateResponsePayload>;
+  /** Creates a single `UnprocessedDocument`. */
+  createUnprocessedDocument?: Maybe<CreateUnprocessedDocumentPayload>;
   /** Creates a single `AccountingBill`. */
   createAccountingBill?: Maybe<CreateAccountingBillPayload>;
   /** Updates a single `Address` using its globally unique id and a patch. */
@@ -1985,6 +2070,10 @@ export type Mutation = {
   updateResponseByNodeId?: Maybe<UpdateResponsePayload>;
   /** Updates a single `Response` using a unique key and a patch. */
   updateResponse?: Maybe<UpdateResponsePayload>;
+  /** Updates a single `UnprocessedDocument` using its globally unique id and a patch. */
+  updateUnprocessedDocumentByNodeId?: Maybe<UpdateUnprocessedDocumentPayload>;
+  /** Updates a single `UnprocessedDocument` using a unique key and a patch. */
+  updateUnprocessedDocument?: Maybe<UpdateUnprocessedDocumentPayload>;
   /** Updates a single `AccountingBill` using its globally unique id and a patch. */
   updateAccountingBillByNodeId?: Maybe<UpdateAccountingBillPayload>;
   /** Updates a single `AccountingBill` using a unique key and a patch. */
@@ -2041,6 +2130,10 @@ export type Mutation = {
   deleteResponseDocumentByNodeId?: Maybe<DeleteResponseDocumentPayload>;
   /** Deletes a single `ResponseDocument` using a unique key. */
   deleteResponseDocument?: Maybe<DeleteResponseDocumentPayload>;
+  /** Deletes a single `UnprocessedDocument` using its globally unique id. */
+  deleteUnprocessedDocumentByNodeId?: Maybe<DeleteUnprocessedDocumentPayload>;
+  /** Deletes a single `UnprocessedDocument` using a unique key. */
+  deleteUnprocessedDocument?: Maybe<DeleteUnprocessedDocumentPayload>;
   /** Deletes a single `AccountingBill` using its globally unique id. */
   deleteAccountingBillByNodeId?: Maybe<DeleteAccountingBillPayload>;
   /** Deletes a single `AccountingBill` using a unique key. */
@@ -2050,7 +2143,6 @@ export type Mutation = {
   createPrimaryKeyIdIfNotExists?: Maybe<CreatePrimaryKeyIdIfNotExistsPayload>;
   createRelationship?: Maybe<CreateRelationshipPayload>;
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
-  createUnprocessedMatterDocument?: Maybe<CreateUnprocessedMatterDocumentPayload>;
   updateQuestionnaireFromNeo4J?: Maybe<UpdateQuestionnaireFromNeo4JPayload>;
   createTransloaditToken?: Maybe<CreateTransloaditTokenPayload>;
 };
@@ -2107,6 +2199,12 @@ export type MutationCreateQuestionnaireArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateResponseArgs = {
   input: CreateResponseInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateUnprocessedDocumentArgs = {
+  input: CreateUnprocessedDocumentInput;
 };
 
 
@@ -2233,6 +2331,18 @@ export type MutationUpdateResponseByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateResponseArgs = {
   input: UpdateResponseInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateUnprocessedDocumentByNodeIdArgs = {
+  input: UpdateUnprocessedDocumentByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateUnprocessedDocumentArgs = {
+  input: UpdateUnprocessedDocumentInput;
 };
 
 
@@ -2405,6 +2515,18 @@ export type MutationDeleteResponseDocumentArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteUnprocessedDocumentByNodeIdArgs = {
+  input: DeleteUnprocessedDocumentByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteUnprocessedDocumentArgs = {
+  input: DeleteUnprocessedDocumentInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteAccountingBillByNodeIdArgs = {
   input: DeleteAccountingBillByNodeIdInput;
 };
@@ -2443,12 +2565,6 @@ export type MutationCreateRelationshipArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateRoleIfNotExistsArgs = {
   input: CreateRoleIfNotExistsInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateUnprocessedMatterDocumentArgs = {
-  input: CreateUnprocessedMatterDocumentInput;
 };
 
 
@@ -2618,6 +2734,8 @@ export type Query = Node & {
   questionnaires?: Maybe<QuestionnairesConnection>;
   /** Reads and enables pagination through a set of `Response`. */
   responses?: Maybe<ResponsesConnection>;
+  /** Reads and enables pagination through a set of `UnprocessedDocument`. */
+  unprocessedDocuments?: Maybe<UnprocessedDocumentsConnection>;
   /** Reads and enables pagination through a set of `AccountingBill`. */
   accountingBills?: Maybe<AccountingBillsConnection>;
   address?: Maybe<Address>;
@@ -2633,6 +2751,7 @@ export type Query = Node & {
   questionnaire?: Maybe<Questionnaire>;
   response?: Maybe<Response>;
   responseDocument?: Maybe<ResponseDocument>;
+  unprocessedDocument?: Maybe<UnprocessedDocument>;
   accountingBill?: Maybe<AccountingBill>;
   getCurrentUser?: Maybe<Person>;
   responsePersonMatch?: Maybe<Scalars['Boolean']>;
@@ -2662,6 +2781,8 @@ export type Query = Node & {
   responseByNodeId?: Maybe<Response>;
   /** Reads a single `ResponseDocument` using its globally unique `ID`. */
   responseDocumentByNodeId?: Maybe<ResponseDocument>;
+  /** Reads a single `UnprocessedDocument` using its globally unique `ID`. */
+  unprocessedDocumentByNodeId?: Maybe<UnprocessedDocument>;
   /** Reads a single `AccountingBill` using its globally unique `ID`. */
   accountingBillByNodeId?: Maybe<AccountingBill>;
 };
@@ -2805,6 +2926,18 @@ export type QueryResponsesArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryUnprocessedDocumentsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<UnprocessedDocumentsOrderBy>>;
+  condition?: Maybe<UnprocessedDocumentCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryAccountingBillsArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
@@ -2890,6 +3023,12 @@ export type QueryResponseArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QueryResponseDocumentArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryUnprocessedDocumentArgs = {
   id: Scalars['UUID'];
 };
 
@@ -2981,6 +3120,12 @@ export type QueryResponseByNodeIdArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QueryResponseDocumentByNodeIdArgs = {
+  nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryUnprocessedDocumentByNodeIdArgs = {
   nodeId: Scalars['ID'];
 };
 
@@ -3312,6 +3457,78 @@ export enum ResponsesOrderBy {
   IdDesc = 'ID_DESC',
   QuestionIdAsc = 'QUESTION_ID_ASC',
   QuestionIdDesc = 'QUESTION_ID_DESC',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
+
+export type UnprocessedDocument = Node & {
+  __typename?: 'UnprocessedDocument';
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID'];
+  id: Scalars['UUID'];
+  filename: Scalars['String'];
+  documentableType: Scalars['String'];
+  documentableId: Scalars['UUID'];
+  documentTemplateId: Scalars['UUID'];
+  processedDocumentId?: Maybe<Scalars['UUID']>;
+};
+
+/**
+ * A condition to be used against `UnprocessedDocument` object types. All fields
+ * are tested for equality and combined with a logical ‘and.’
+ */
+export type UnprocessedDocumentCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+};
+
+/** An input for mutations affecting `UnprocessedDocument` */
+export type UnprocessedDocumentInput = {
+  id?: Maybe<Scalars['UUID']>;
+  filename: Scalars['String'];
+  documentableType: Scalars['String'];
+  documentableId: Scalars['UUID'];
+  documentTemplateId: Scalars['UUID'];
+  processedDocumentId?: Maybe<Scalars['UUID']>;
+};
+
+/** Represents an update to a `UnprocessedDocument`. Fields that are set will be updated. */
+export type UnprocessedDocumentPatch = {
+  id?: Maybe<Scalars['UUID']>;
+  filename?: Maybe<Scalars['String']>;
+  documentableType?: Maybe<Scalars['String']>;
+  documentableId?: Maybe<Scalars['UUID']>;
+  documentTemplateId?: Maybe<Scalars['UUID']>;
+  processedDocumentId?: Maybe<Scalars['UUID']>;
+};
+
+/** A connection to a list of `UnprocessedDocument` values. */
+export type UnprocessedDocumentsConnection = {
+  __typename?: 'UnprocessedDocumentsConnection';
+  /** A list of `UnprocessedDocument` objects. */
+  nodes: Array<UnprocessedDocument>;
+  /** A list of edges which contains the `UnprocessedDocument` and cursor to aid in pagination. */
+  edges: Array<UnprocessedDocumentsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `UnprocessedDocument` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `UnprocessedDocument` edge in the connection. */
+export type UnprocessedDocumentsEdge = {
+  __typename?: 'UnprocessedDocumentsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `UnprocessedDocument` at the end of the edge. */
+  node: UnprocessedDocument;
+};
+
+/** Methods to use when ordering `UnprocessedDocument`. */
+export enum UnprocessedDocumentsOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -3876,6 +4093,53 @@ export type UpdateResponsePayloadResponseEdgeArgs = {
   orderBy?: Maybe<Array<ResponsesOrderBy>>;
 };
 
+/** All input for the `updateUnprocessedDocumentByNodeId` mutation. */
+export type UpdateUnprocessedDocumentByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `UnprocessedDocument` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `UnprocessedDocument` being updated. */
+  patch: UnprocessedDocumentPatch;
+};
+
+/** All input for the `updateUnprocessedDocument` mutation. */
+export type UpdateUnprocessedDocumentInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `UnprocessedDocument` being updated. */
+  patch: UnprocessedDocumentPatch;
+  id: Scalars['UUID'];
+};
+
+/** The output of our update `UnprocessedDocument` mutation. */
+export type UpdateUnprocessedDocumentPayload = {
+  __typename?: 'UpdateUnprocessedDocumentPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `UnprocessedDocument` that was updated by this mutation. */
+  unprocessedDocument?: Maybe<UnprocessedDocument>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `UnprocessedDocument`. May be used by Relay 1. */
+  unprocessedDocumentEdge?: Maybe<UnprocessedDocumentsEdge>;
+};
+
+
+/** The output of our update `UnprocessedDocument` mutation. */
+export type UpdateUnprocessedDocumentPayloadUnprocessedDocumentEdgeArgs = {
+  orderBy?: Maybe<Array<UnprocessedDocumentsOrderBy>>;
+};
+
 
 export type AllActiveMatterTemplatesByCategoryQueryVariables = Exact<{
   category: Scalars['String'];
@@ -4142,24 +4406,6 @@ export type CreateTransloaditTokenMutation = (
   )> }
 );
 
-export type CreateUnprocessedMatterDocumentMutationVariables = Exact<{
-  matterId: Scalars['UUID'];
-  uploadDocumentUrl: Scalars['String'];
-  documentTemplateId: Scalars['UUID'];
-}>;
-
-
-export type CreateUnprocessedMatterDocumentMutation = (
-  { __typename?: 'Mutation' }
-  & { createUnprocessedMatterDocument?: Maybe<(
-    { __typename?: 'CreateUnprocessedMatterDocumentPayload' }
-    & { matterDocument?: Maybe<(
-      { __typename?: 'MatterDocument' }
-      & Pick<MatterDocument, 'id'>
-    )> }
-  )> }
-);
-
 export type CurrentUserQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4278,6 +4524,10 @@ export type MatterByIdQuery = (
         )>, document?: Maybe<(
           { __typename?: 'Document' }
           & Pick<Document, 'id' | 'filename'>
+          & { documentTemplate?: Maybe<(
+            { __typename?: 'DocumentTemplate' }
+            & Pick<DocumentTemplate, 'name'>
+          )> }
         )> }
       )> }
     ) }
@@ -5085,43 +5335,6 @@ export function useCreateTransloaditTokenMutation(baseOptions?: Apollo.MutationH
 export type CreateTransloaditTokenMutationHookResult = ReturnType<typeof useCreateTransloaditTokenMutation>;
 export type CreateTransloaditTokenMutationResult = Apollo.MutationResult<CreateTransloaditTokenMutation>;
 export type CreateTransloaditTokenMutationOptions = Apollo.BaseMutationOptions<CreateTransloaditTokenMutation, CreateTransloaditTokenMutationVariables>;
-export const CreateUnprocessedMatterDocumentDocument = gql`
-    mutation CreateUnprocessedMatterDocument($matterId: UUID!, $uploadDocumentUrl: String!, $documentTemplateId: UUID!) {
-  createUnprocessedMatterDocument(input: {matterId: $matterId, uploadDocumentUrl: $uploadDocumentUrl}) {
-    matterDocument {
-      id
-    }
-  }
-}
-    `;
-export type CreateUnprocessedMatterDocumentMutationFn = Apollo.MutationFunction<CreateUnprocessedMatterDocumentMutation, CreateUnprocessedMatterDocumentMutationVariables>;
-
-/**
- * __useCreateUnprocessedMatterDocumentMutation__
- *
- * To run a mutation, you first call `useCreateUnprocessedMatterDocumentMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useCreateUnprocessedMatterDocumentMutation` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [createUnprocessedMatterDocumentMutation, { data, loading, error }] = useCreateUnprocessedMatterDocumentMutation({
- *   variables: {
- *      matterId: // value for 'matterId'
- *      uploadDocumentUrl: // value for 'uploadDocumentUrl'
- *      documentTemplateId: // value for 'documentTemplateId'
- *   },
- * });
- */
-export function useCreateUnprocessedMatterDocumentMutation(baseOptions?: Apollo.MutationHookOptions<CreateUnprocessedMatterDocumentMutation, CreateUnprocessedMatterDocumentMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<CreateUnprocessedMatterDocumentMutation, CreateUnprocessedMatterDocumentMutationVariables>(CreateUnprocessedMatterDocumentDocument, options);
-      }
-export type CreateUnprocessedMatterDocumentMutationHookResult = ReturnType<typeof useCreateUnprocessedMatterDocumentMutation>;
-export type CreateUnprocessedMatterDocumentMutationResult = Apollo.MutationResult<CreateUnprocessedMatterDocumentMutation>;
-export type CreateUnprocessedMatterDocumentMutationOptions = Apollo.BaseMutationOptions<CreateUnprocessedMatterDocumentMutation, CreateUnprocessedMatterDocumentMutationVariables>;
 export const CurrentUserDocument = gql`
     query CurrentUser {
   getCurrentUser {
@@ -5362,6 +5575,9 @@ export const MatterByIdDocument = gql`
         document {
           id
           filename
+          documentTemplate {
+            name
+          }
         }
       }
     }

@@ -23,6 +23,9 @@ query MatterById($id: UUID!) {
         document {
           id
           filename
+          documentTemplate {
+            name
+          }
         }
       }
     }

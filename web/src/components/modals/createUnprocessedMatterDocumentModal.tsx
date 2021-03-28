@@ -19,7 +19,6 @@ import { colors } from '../../styles/neonLaw';
 import {
   unprocessedMatterDocumentFields
 } from '../fields/unprocessedMatterDocumentFields';
-import { useCreateUnprocessedMatterDocumentMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 
 export const CreateUnprocessedMatterDocumentModal = ({
@@ -76,7 +75,7 @@ export const CreateUnprocessedMatterDocumentModal = ({
   const [
     createMutation,
     { loading },
-  ] = useCreateUnprocessedMatterDocumentMutation();
+  ] = [async (_) => { console.log(_); return; }, { loading: true }];
 
   const onSubmit = async (variables) => {
     console.log(variables);
