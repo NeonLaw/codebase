@@ -5,7 +5,7 @@ interface GetTransloaditTokenPayload {
   signature: string;
 }
 
-export const getTransloaditToken =
+export const createTransloaditToken =
 async (): Promise<GetTransloaditTokenPayload> => {
   const utcDateString = (ms) => {
     return new Date(ms)
@@ -19,7 +19,7 @@ async (): Promise<GetTransloaditTokenPayload> => {
   const expires    = utcDateString((+new Date()) + 1 * 60 * 60 * 1000);
   const authKey    = process.env.TRANSLOADIT_KEY as string;
   const authSecret = process.env.TRANSLOADIT_SECRET as string;
-  const templateId = process.env.TRANSLOADIT_PDF_TEMPLATE_ID as string;
+  const templateId = process.env.TRANSLOADIT_TEMPLATE_ID as string;
 
   const transloaditTokenParams = JSON.stringify({
     auth: {

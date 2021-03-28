@@ -69,23 +69,22 @@ module "neo4j" {
 }
 
 module "application_secrets" {
-  source                        = "./modules/application_secrets"
-  api_url                       = var.api_url
-  auth0_client_id               = var.auth0_client_id
-  auth0_client_secret           = var.auth0_client_secret
-  auth0_tenant                  = var.auth0_tenant
-  environment                   = var.environment
-  lob_api_key                   = var.lob_api_key
-  lob_api_secret                = var.lob_api_secret
-  redis_url                     = "redis://${var.environment}-redis-headless:6379"
-  neo4j_url                     = "bolt://${var.environment}-neo4j-neo4j:7687"
-  sendgrid_api_key              = var.sendgrid_api_key
-  stripe_api_publishable_key    = var.stripe_api_publishable_key
-  stripe_api_secret_key         = var.stripe_api_secret_key
-  transloadit_image_template_id = var.transloadit_image_template_id
-  transloadit_key               = var.transloadit_key
-  transloadit_pdf_template_id   = var.transloadit_pdf_template_id
-  transloadit_secret            = var.transloadit_secret
+  source                     = "./modules/application_secrets"
+  api_url                    = var.api_url
+  auth0_client_id            = var.auth0_client_id
+  auth0_client_secret        = var.auth0_client_secret
+  auth0_tenant               = var.auth0_tenant
+  environment                = var.environment
+  lob_api_key                = var.lob_api_key
+  lob_api_secret             = var.lob_api_secret
+  redis_url                  = "redis://${var.environment}-redis-headless:6379"
+  neo4j_url                  = "bolt://${var.environment}-neo4j-neo4j:7687"
+  sendgrid_api_key           = var.sendgrid_api_key
+  stripe_api_publishable_key = var.stripe_api_publishable_key
+  stripe_api_secret_key      = var.stripe_api_secret_key
+  transloadit_key            = var.transloadit_key
+  transloadit_template_id    = var.transloadit_template_id
+  transloadit_secret         = var.transloadit_secret
 }
 
 module "gcp_credentials_kubernetes_secret" {
