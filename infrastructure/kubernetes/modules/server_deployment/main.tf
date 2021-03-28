@@ -167,6 +167,16 @@ resource "kubernetes_deployment" "server" {
           }
 
           env {
+            name = "NEON_BOT_SLACK_TOKEN"
+            value_from {
+              secret_key_ref {
+                key  = "NEON_BOT_SLACK_TOKEN"
+                name = "application-secrets"
+              }
+            }
+          }
+
+          env {
             name = "STRIPE_API_PUBLISHABLE_KEY"
             value_from {
               secret_key_ref {
