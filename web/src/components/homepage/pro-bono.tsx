@@ -12,7 +12,7 @@ export const ProBono = () => {
     <Section title={intl.formatMessage({ id: 'pro_bono.title' })}>
       <Box as="p" maxWidth={sizes.textContainerSmall}>
         {intl.formatMessage({ id: 'pro_bono.p1' })}{' '}
-        <UnderlineLink href="/pro-bono/">
+        <UnderlineLink href="/pro-bono">
           {intl.formatMessage({ id: 'pro_bono.l1' })}
         </UnderlineLink>{' '}
         {intl.formatMessage({ id: 'pro_bono.p2' })}{' '}

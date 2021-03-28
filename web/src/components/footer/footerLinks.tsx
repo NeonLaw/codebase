@@ -32,7 +32,7 @@ export const FooterLinks = () => {
             <LanguageDropdown />
             <FooterLink
               i18nMessage="footer.pro_bono"
-              path="pro-bono"
+              path="/pro-bono"
             />
             <FooterLink
               i18nMessage="footer.upward_mobility"
