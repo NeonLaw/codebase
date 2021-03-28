@@ -4,7 +4,7 @@ export const slackReminders = async (_, helpers) => {
   helpers.logger.info('Sending Slack Reminders');
 
   const apiCredential = process.env.NEON_BOT_SLACK_TOKEN as string;
-  const environment = process.env.NODE_ENV as string;
+  const environment = process.env.ENVIRONMENT as string;
   const web = new WebClient(apiCredential);
 
   const adminChannel = 'C01SN886GHZ';
