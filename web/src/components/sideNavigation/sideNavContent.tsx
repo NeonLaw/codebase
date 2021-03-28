@@ -61,7 +61,6 @@ export const SideNavContent = ({
   isRenderedOnDashboard?: boolean;
 }): JSX.Element => {
   const color = { dark: 'white', light: 'black' };
-  const activeColor = { dark: 'cyan.500', light: 'cyan.800' };
   const bg = { dark: 'black', light: 'gray.200' };
   const { colorMode } = useColorMode();
 
