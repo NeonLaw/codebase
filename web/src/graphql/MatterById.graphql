@@ -12,5 +12,19 @@ query MatterById($id: UUID!) {
       name
       category
     }
+    matterDocuments {
+      nodes {
+        id
+        author {
+          id
+          name
+          email
+        }
+        document {
+          id
+          filename
+        }
+      }
+    }
   }
 }

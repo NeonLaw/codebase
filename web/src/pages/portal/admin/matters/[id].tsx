@@ -10,9 +10,6 @@ import {
 import {
   MatterDetailView
 } from '../../../../components/detailViews/matterDetailView';
-import {
-  MatterDocumentsList
-} from '../../../../components/lists/matterDocumentsList';
 import { PortalLayout } from '../../../../components/layouts/portalLayout';
 import React from 'react';
 import { gutters } from '../../../../styles/neonLaw';
@@ -48,7 +45,6 @@ const AdminMattersDetail = () => {
         />
 
         <MatterDetailView id={id} />
-        <MatterDocumentsList matterId={id} />
       </Box>
     </PortalLayout>
   );

@@ -58,11 +58,6 @@ provider "kubernetes-alpha" {
   cluster_ca_certificate = base64decode(data.terraform_remote_state.gcp.outputs.gke_cluster_ca_certificate)
 }
 
-module "redis" {
-  source      = "./modules/redis_helm"
-  environment = var.environment
-}
-
 module "neo4j" {
   source      = "./modules/neo4j_helm"
   environment = var.environment
@@ -77,7 +72,6 @@ module "application_secrets" {
   environment                = var.environment
   lob_api_key                = var.lob_api_key
   lob_api_secret             = var.lob_api_secret
-  redis_url                  = "redis://${var.environment}-redis-headless:6379"
   neo4j_url                  = "bolt://${var.environment}-neo4j-neo4j:7687"
   neon_bot_slack_token       = var.neon_bot_slack_token
   sendgrid_api_key           = var.sendgrid_api_key

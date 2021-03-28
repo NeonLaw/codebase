@@ -1,25 +1,17 @@
-import { Box, Heading, Skeleton, Text } from '@chakra-ui/react';
-import { convertSlateToPlaintext } from '../../utils/slate';
-import { useMatterByIdQuery } from '../../utils/api';
+import { ListItem, UnorderedList } from '@chakra-ui/react';
 
-export const MatterDocumentsList = ({ matterId }) => {
-  const { data, loading } = useMatterByIdQuery({ variables: { id: matterId }});
+export const MatterDocumentsList = ({ matterDocuments }) => {
+  return (
+    <UnorderedList spacing={3}>
+      {matterDocuments.map((matterDocument, index) => {
+        const { filename } = matterDocument.document;
 
-  if (loading)  {
-    return <Skeleton height="20px" />;
-  }
-
-  if (data) {
-    return (
-      <Box>
-        <Heading as="h3">Documents</Heading>
-        <Text>
-          {data.matter.description &&
-          convertSlateToPlaintext(data.matter.description)}
-        </Text>
-      </Box>
-    );
-  }
-
-  return null;
+        return (
+          <ListItem key={index}>
+            {filename}
+          </ListItem>
+        );}
+      )}
+    </UnorderedList>
+  );
 };
