@@ -6,11 +6,11 @@ export const PublicLinks = () => {
   return [
     {
       label: intl.formatMessage({ id: 'navigation_public.services' }),
-      route: '/services'
+      route: '/practice-areas'
     },
     {
-      label: intl.formatMessage({ id: 'navigation_public.tempates' }),
-      route: '/tempates'
+      label: intl.formatMessage({ id: 'navigation_public.templates' }),
+      route: '/templates'
     },
     {
       label: intl.formatMessage({ id: 'navigation_public.blog' }),
