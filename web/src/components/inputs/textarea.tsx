@@ -32,7 +32,9 @@ export const Textarea = ({
   control,
   defaultValue
 }) => {
-  const editor = useMemo(() => withHistory(withReact(createEditor())), []);
+  const editor = useMemo(
+    () => withHistory(withReact(createEditor())), []
+  );
 
   // Define a rendering function based on the element passed to `props`. We use
   // `useCallback` here to memoize the function for subsequent renders.
