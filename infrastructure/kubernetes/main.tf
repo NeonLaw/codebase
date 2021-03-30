@@ -63,6 +63,11 @@ module "neo4j" {
   environment = var.environment
 }
 
+module "fluentbit" {
+  source      = "./modules/fluentbit_helm"
+  environment = var.environment
+}
+
 module "application_secrets" {
   source                     = "./modules/application_secrets"
   api_url                    = var.api_url
