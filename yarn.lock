@@ -2843,7 +2843,7 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
-"@opentelemetry/api-metrics@^0.18.0", "@opentelemetry/api-metrics@^0.18.1":
+"@opentelemetry/api-metrics@^0.18.1":
   version "0.18.1"
   resolved "https://registry.yarnpkg.com/@opentelemetry/api-metrics/-/api-metrics-0.18.1.tgz#aa5e0c1e1d68abfb0a82f4840bec34f0dbe1cdce"
   integrity sha512-zuGLE9lwMzq+F0RG+W8A1EixBWpBpftD6f53M6T9XOwqcEtgsMcrfiLBd7qz7CgmjrEM1D8zZKwuft610N+FOw==
@@ -2907,13 +2907,13 @@
     "@opentelemetry/api" "^0.18.0"
     "@opentelemetry/instrumentation" "^0.18.0"
 
-"@opentelemetry/instrumentation@^0.18.0":
-  version "0.18.0"
-  resolved "https://registry.yarnpkg.com/@opentelemetry/instrumentation/-/instrumentation-0.18.0.tgz#b960e83558225ebcbf039c7077e8b46b66a9f31b"
-  integrity sha512-YFrCnSWS9jJLChg5I8g7EuvpWqPZGa2EXyO8KwRJApuLPCqJSBkcymYieedWNupS0FAXntocpIb/b0SEVaZbEg==
+"@opentelemetry/instrumentation@^0.18.0", "@opentelemetry/instrumentation@^0.18.1":
+  version "0.18.1"
+  resolved "https://registry.yarnpkg.com/@opentelemetry/instrumentation/-/instrumentation-0.18.1.tgz#a90c1b07d9100b4d747274ae390d03fa07bef8a5"
+  integrity sha512-zIHjsgDTSH/JE5F/uY6oFn8PKXwfyzH8l/4YZE9PcV4evZR2FXm0JoQMTnLIQoEojb5/XYnB8TdX9oYC0F2hOg==
   dependencies:
-    "@opentelemetry/api" "^0.18.0"
-    "@opentelemetry/api-metrics" "^0.18.0"
+    "@opentelemetry/api" "^1.0.0-rc.0"
+    "@opentelemetry/api-metrics" "^0.18.1"
     require-in-the-middle "^5.0.3"
     semver "^7.3.2"
     shimmer "^1.2.1"
