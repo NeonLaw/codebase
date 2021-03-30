@@ -1,6 +1,3 @@
-/* eslint-disable */
-// @ts-nocheck
-/* eslint-enable */
 import * as expressWinston from 'express-winston';
 import * as winston from 'winston';
 
