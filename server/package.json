@@ -20,7 +20,7 @@
     "@opentelemetry/exporter-collector": "^0.18.2",
     "@opentelemetry/instrumentation": "^0.18.1",
     "@opentelemetry/instrumentation-graphql": "^0.14.0",
-    "@opentelemetry/node": "^0.18.1",
+    "@opentelemetry/node": "^0.18.2",
     "@opentelemetry/tracing": "^0.18.0",
     "@sendgrid/mail": "^7.4.2",
     "@slack/web-api": "^6.1.0",
