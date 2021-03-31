@@ -3439,10 +3439,10 @@
   dependencies:
     defer-to-connect "^2.0.0"
 
-"@testing-library/cypress@^7.0.4":
-  version "7.0.4"
-  resolved "https://registry.yarnpkg.com/@testing-library/cypress/-/cypress-7.0.4.tgz#38a55880712f222ddb9671bc899fe80f8c41bfc0"
-  integrity sha512-5I1amLVB2ExIRWuHlvG35dVFVC2KiNBZ0U1ASJUJZASFPQ0BhqJG4s0B8B8wNAE7TrR8KWlrzcNutkgxXL6VOg==
+"@testing-library/cypress@^7.0.5":
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/@testing-library/cypress/-/cypress-7.0.5.tgz#0d0d111ba8b0538ddf8565ccaaa43f8658da154b"
+  integrity sha512-bV7CSj5Yeh/mI28sVYNWhNxYQm8eji+FiHHHbP4R0VCijulGScaw/M/zCQJm4X9GLZ5JNRp+lY5XQw3KwCfL8Q==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^7.28.1"
@@ -14548,10 +14548,10 @@ slash@^3.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
 
-slate-history@^0.61.0:
-  version "0.61.0"
-  resolved "https://registry.yarnpkg.com/slate-history/-/slate-history-0.61.0.tgz#6d61833f5d1375e5bde0e6995fda430670cb2dee"
-  integrity sha512-1xSUhtBEwTLYGlCZ9AeWBMkXbTs509TrRo3X9uTZMh8KaBm1UiKKLwbdUBu+8D331sjPcF1xesSXRvq2IoYBCg==
+slate-history@^0.61.3:
+  version "0.61.3"
+  resolved "https://registry.yarnpkg.com/slate-history/-/slate-history-0.61.3.tgz#f250efee20b833b31af8e531e62cc3f8b08cf7da"
+  integrity sha512-pXTQhCXdR+cxQXGJotaadtANC6yZAOJIaCXEX8Cv6E+WSjs0v0PneufKxL/BqkCQZvy6e6kEa6svhHDlqQ5RmQ==
   dependencies:
     immer "^7.0.0"
     is-plain-object "^3.0.0"
