@@ -30,7 +30,7 @@
     "@nivo/bar": "^0.67.0",
     "@nivo/core": "^0.67.0",
     "framer-motion": "^4.0.3",
-    "next": "^10.0.9",
+    "next": "^10.1.2",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.0.6",
     "prism-react-renderer": "^1.2.0",
