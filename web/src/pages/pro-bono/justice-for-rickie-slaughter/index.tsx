@@ -1,4 +1,5 @@
 import { Alert, AlertIcon, Stack } from '@chakra-ui/react';
+import Image from 'next/image';
 import { RickieLayout } from '../../../components/layouts/rickieLayout';
 
 /*eslint-disable */
@@ -7,49 +8,54 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
     <RickieLayout>
       <h1>Justice For Rickie</h1>
 
+      <Image
+        src="/images/rickie.jpg"
+        alt="Rickie Slaughter"
+        width={800}
+        height={400}
+      />
+
       <h2>Rickie&apos;s latest poetry</h2>
       <Stack spacing={3}>
-        <a href="/audio/2021-03-23-stop-the-hate.m4a" target="_blank">
-          <Alert status="info">
-            <AlertIcon />
-            Stop the Hate
-          </Alert>
-        </a>
+        <Alert status="info">
+          <AlertIcon />
+          Stop the Hate&nbsp;
+          <audio controls>
+            <source src="/audio/2021-03-23-stop-the-hate.mp3" />
+          </audio>
+        </Alert>
 
-        <a href="/audio/20210309-bullet-poem.m4a" target="_blank">
-          <Alert status="info">
-            <AlertIcon />
-            The Magic Bullet
-          </Alert>
-        </a>
+        <Alert status="info">
+          <AlertIcon />
+          The Magic Bullet&nbsp;
+          <audio controls>
+            <source src="/audio/20210309-bullet-poem.mp3" />
+          </audio>
+        </Alert>
 
-        <a href="/audio/20210309-a-black-womans-magic.m4a">
-          <Alert status="info">
-            <AlertIcon />
-            Black Woman Magic
-          </Alert>
-        </a>
+        <Alert status="info">
+          <AlertIcon />
+          Black Woman Magic&nbsp;
+          <audio controls>
+            <source src="/audio/20210309-a-black-womans-magic.mp3" />
+          </audio>
+        </Alert>
 
-        <a href="/audio/20201106-stars-and-stripes.m4a">
-          <Alert status="info">
-            <AlertIcon />
-            Stars and Stripes
-          </Alert>
-        </a>
+        <Alert status="info">
+          <AlertIcon />
+          Wrongfully Convicted&nbsp;
+          <audio controls>
+            <source src="/audio/20201116-wrongly-convicted.mp3" />
+          </audio>
+        </Alert>
 
-        <a href="/audio/20201116-wrongly-convicted-poem.m4a">
-          <Alert status="info">
-            <AlertIcon />
-            Wrongfully Convicted
-          </Alert>
-        </a>
-
-        <a href="/audio/20201015-rickie-slaughter-poem.m4a">
-          <Alert status="info">
-            <AlertIcon />
-            Teargas
-          </Alert>
-        </a>
+        <Alert status="info">
+          <AlertIcon />
+          Teargas&nbsp;
+          <audio controls>
+            <source src="/audio/20201015-rickie-slaughter-poem.mp3" />
+          </audio>
+        </Alert>
       </Stack>
 
       <p>
@@ -76,26 +82,27 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
       </p>
 
       <p>
-        Now, new evidence in a federal proceeding regarding Rickie&apos;s conviction has
-        brought to light that the prosecutor knowingly withheld evidence that could
-        have proved Rickie&apos;s innocence. There was a second, more fair photo line-up
-        from which Rickie was not identified as a perpetrator by the victims and
-        witnesses and a 911 dispatch report revealing what time the perpetrators left
-        which was at 7:11pm. At that time, Rickie was picking up his girlfriend from
-        work on the opposite side of town
-        at the same time the crime was ending nearly 9 miles away proving that it was
-        impossible for him to have committed the crime.
+        Now, new evidence in a federal proceeding regarding Rickie&apos;s
+        conviction has brought to light that the prosecutor knowingly
+        withheld evidence that could have proved Rickie&apos;s innocence.
+        There was a second, more fair photo line-up from which Rickie was not
+        identified as a perpetrator by the victims and witnesses and a 911
+        dispatch report revealing what time the perpetrators left which was
+        at 7:11pm. At that time, Rickie was picking up his girlfriend from
+        work on the opposite side of town at the same time the crime was
+        ending nearly 9 miles away proving that it was impossible for him to
+        have committed the crime.
       </p>
 
       <p>
         Below, follow along and click on the hyperlinks to read documents and
-        evidence in Rickie&apos;s case. Also, sign the petition to help correct the grave
-        injustice that was done to Rickie.
+        evidence in Rickie&apos;s case. Also, sign the petition to help
+        correct the grave injustice that was done to Rickie.
       </p>
 
       <p>
-        In his [federal habeas appeal](/pdfs/rickie-2AP.pdf), Rickie detailed how the
-        facts against him were unjust for several reasons:
+        In his [federal habeas appeal](/pdfs/rickie-2AP.pdf), Rickie detailed
+        how the facts against him were unjust for several reasons:
       </p>
 
       <p>
