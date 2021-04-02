@@ -1,4 +1,4 @@
-import { Alert, AlertIcon, Box, Stack } from '@chakra-ui/react';
+import { Alert, AlertIcon, Stack } from '@chakra-ui/react';
 import Image from 'next/image';
 import { RickieLayout } from '../../../components/layouts/rickieLayout';
 
@@ -17,42 +17,42 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
 
       <h2>Rickie&apos;s latest poetry</h2>
       <Stack spacing={3}>
-        <a href="/audio/2021-03-23-stop-the-hate.m4a" target="_blank">
+        <a href="/audio/2021-03-23-stop-the-hate.mp3" target="_blank">
           <Alert status="info">
             <AlertIcon />
             Stop the Hate
           </Alert>
         </a>
 
-        <a href="/audio/20210309-bullet-poem.m4a" target="_blank">
+        <a href="/audio/20210309-bullet-poem.mp3" target="_blank">
           <Alert status="info">
             <AlertIcon />
             The Magic Bullet
           </Alert>
         </a>
 
-        <a href="/audio/20210309-a-black-womans-magic.m4a">
+        <a href="/audio/20210309-a-black-womans-magic.mp3" target="_blank">
           <Alert status="info">
             <AlertIcon />
             Black Woman Magic
           </Alert>
         </a>
 
-        <a href="/audio/20201106-stars-and-stripes.m4a">
+        <a href="/audio/20201106-stars-and-stripes.mp3" target="_blank">
           <Alert status="info">
             <AlertIcon />
             Stars and Stripes
           </Alert>
         </a>
 
-        <a href="/audio/20201116-wrongly-convicted-poem.m4a">
+        <a href="/audio/20201116-wrongly-convicted-poem.mp3" target="_blank">
           <Alert status="info">
             <AlertIcon />
             Wrongfully Convicted
           </Alert>
         </a>
 
-        <a href="/audio/20201015-rickie-slaughter-poem.m4a">
+        <a href="/audio/20201015-rickie-slaughter-poem.mp3" target="_blank">
           <Alert status="info">
             <AlertIcon />
             Teargas

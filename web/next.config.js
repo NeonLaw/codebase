@@ -12,7 +12,7 @@ module.exports = withPlugins([
   pageExtensions: ['mdx', 'jsx', 'js', 'ts', 'tsx'],
   webpack(config) {
     config.module.rules.push({
-      test: /\.m4a$/,
+      test: /\.mp3$/,
       use: {
         loader: 'file-loader',
         options: {
