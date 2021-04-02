@@ -25,7 +25,6 @@ const DefaultElement = props => {
 
 export const Textarea = ({
   errors,
-  label,
   name,
   testId,
   placeholder = '',
