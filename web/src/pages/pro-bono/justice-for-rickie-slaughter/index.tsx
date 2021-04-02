@@ -43,14 +43,6 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
 
         <Alert status="info">
           <AlertIcon />
-          Stars and Stripes
-          <audio controls>
-            <source src="/audio/20201106-stars-and-stripes.mp3" />
-          </audio>
-        </Alert>
-
-        <Alert status="info">
-          <AlertIcon />
           Wrongfully Convicted
           <audio controls>
             <source src="/audio/20201116-wrongly-convicted.mp3" />
