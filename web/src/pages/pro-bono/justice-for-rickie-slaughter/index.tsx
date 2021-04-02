@@ -19,7 +19,7 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
       <Stack spacing={3}>
         <Alert status="info">
           <AlertIcon />
-          Stop the Hate
+          Stop the Hate&nbsp;
           <audio controls>
             <source src="/audio/2021-03-23-stop-the-hate.mp3" />
           </audio>
@@ -27,7 +27,7 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
 
         <Alert status="info">
           <AlertIcon />
-          The Magic Bullet
+          The Magic Bullet&nbsp;
           <audio controls>
             <source src="/audio/20210309-bullet-poem.mp3" />
           </audio>
@@ -35,7 +35,7 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
 
         <Alert status="info">
           <AlertIcon />
-          Black Woman Magic
+          Black Woman Magic&nbsp;
           <audio controls>
             <source src="/audio/20210309-a-black-womans-magic.mp3" />
           </audio>
@@ -43,7 +43,7 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
 
         <Alert status="info">
           <AlertIcon />
-          Wrongfully Convicted
+          Wrongfully Convicted&nbsp;
           <audio controls>
             <source src="/audio/20201116-wrongly-convicted.mp3" />
           </audio>
@@ -51,7 +51,7 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
 
         <Alert status="info">
           <AlertIcon />
-          Teargas
+          Teargas&nbsp;
           <audio controls>
             <source src="/audio/20201015-rickie-slaughter-poem.mp3" />
           </audio>
