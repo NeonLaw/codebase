@@ -1,4 +1,5 @@
-import { Alert, AlertIcon, Stack } from '@chakra-ui/react';
+import { Alert, AlertIcon, Box, Stack } from '@chakra-ui/react';
+import Image from 'next/image';
 import { RickieLayout } from '../../../components/layouts/rickieLayout';
 
 /*eslint-disable */
@@ -6,6 +7,13 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
   return (
     <RickieLayout>
       <h1>Justice For Rickie</h1>
+
+      <Image
+        src="/images/rickie.jpg"
+        alt="Rickie Slaughter"
+        width={800}
+        height={400}
+      />
 
       <h2>Rickie&apos;s latest poetry</h2>
       <Stack spacing={3}>
@@ -76,26 +84,27 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
       </p>
 
       <p>
-        Now, new evidence in a federal proceeding regarding Rickie&apos;s conviction has
-        brought to light that the prosecutor knowingly withheld evidence that could
-        have proved Rickie&apos;s innocence. There was a second, more fair photo line-up
-        from which Rickie was not identified as a perpetrator by the victims and
-        witnesses and a 911 dispatch report revealing what time the perpetrators left
-        which was at 7:11pm. At that time, Rickie was picking up his girlfriend from
-        work on the opposite side of town
-        at the same time the crime was ending nearly 9 miles away proving that it was
-        impossible for him to have committed the crime.
+        Now, new evidence in a federal proceeding regarding Rickie&apos;s
+        conviction has brought to light that the prosecutor knowingly
+        withheld evidence that could have proved Rickie&apos;s innocence.
+        There was a second, more fair photo line-up from which Rickie was not
+        identified as a perpetrator by the victims and witnesses and a 911
+        dispatch report revealing what time the perpetrators left which was
+        at 7:11pm. At that time, Rickie was picking up his girlfriend from
+        work on the opposite side of town at the same time the crime was
+        ending nearly 9 miles away proving that it was impossible for him to
+        have committed the crime.
       </p>
 
       <p>
         Below, follow along and click on the hyperlinks to read documents and
-        evidence in Rickie&apos;s case. Also, sign the petition to help correct the grave
-        injustice that was done to Rickie.
+        evidence in Rickie&apos;s case. Also, sign the petition to help
+        correct the grave injustice that was done to Rickie.
       </p>
 
       <p>
-        In his [federal habeas appeal](/pdfs/rickie-2AP.pdf), Rickie detailed how the
-        facts against him were unjust for several reasons:
+        In his [federal habeas appeal](/pdfs/rickie-2AP.pdf), Rickie detailed
+        how the facts against him were unjust for several reasons:
       </p>
 
       <p>
