@@ -14,12 +14,7 @@ module.exports = withPlugins([
     config.module.rules.push({
       test: /\.mp3$/,
       use: {
-        loader: 'file-loader',
-        options: {
-          esModule: false,
-          name: '[name].[ext]',
-          outputPath: 'public/audio/'
-        }
+        loader: 'file-loader'
       },
     });
     return config;
