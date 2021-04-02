@@ -98,7 +98,6 @@ export const QuestionDetailView = ({
           <Textarea
             testId="flashcard-textarea"
             control={control}
-            label={null}
             name="answer"
             placeholder="Type in the answer"
             defaultValue={userAnswer}
