@@ -17,47 +17,53 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
 
       <h2>Rickie&apos;s latest poetry</h2>
       <Stack spacing={3}>
-        <a href="/audio/2021-03-23-stop-the-hate.mp3">
-          <Alert status="info">
-            <AlertIcon />
-            Stop the Hate
-          </Alert>
-        </a>
+        <Alert status="info">
+          <AlertIcon />
+          Stop the Hate
+          <audio controls>
+            <source src="/audio/2021-03-23-stop-the-hate.mp3" />
+          </audio>
+        </Alert>
 
-        <a href="/audio/20210309-bullet-poem.mp3">
-          <Alert status="info">
-            <AlertIcon />
-            The Magic Bullet
-          </Alert>
-        </a>
+        <Alert status="info">
+          <AlertIcon />
+          The Magic Bullet
+          <audio controls>
+            <source src="/audio/20210309-bullet-poem.mp3" />
+          </audio>
+        </Alert>
 
-        <a href="/audio/20210309-a-black-womans-magic.mp3">
-          <Alert status="info">
-            <AlertIcon />
-            Black Woman Magic
-          </Alert>
-        </a>
+        <Alert status="info">
+          <AlertIcon />
+          Black Woman Magic
+          <audio controls>
+            <source src="/audio/20210309-a-black-womans-magic.mp3" />
+          </audio>
+        </Alert>
 
-        <a href="/audio/20201106-stars-and-stripes.mp3">
-          <Alert status="info">
-            <AlertIcon />
-            Stars and Stripes
-          </Alert>
-        </a>
+        <Alert status="info">
+          <AlertIcon />
+          Stars and Stripes
+          <audio controls>
+            <source src="/audio/20201106-stars-and-stripes.mp3" />
+          </audio>
+        </Alert>
 
-        <a href="/audio/20201116-wrongly-convicted-poem.mp3">
-          <Alert status="info">
-            <AlertIcon />
-            Wrongfully Convicted
-          </Alert>
-        </a>
+        <Alert status="info">
+          <AlertIcon />
+          Wrongfully Convicted
+          <audio controls>
+            <source src="/audio/20201116-wrongly-convicted-poem.mp3" />
+          </audio>
+        </Alert>
 
-        <a href="/audio/20201015-rickie-slaughter-poem.mp3">
-          <Alert status="info">
-            <AlertIcon />
-            Teargas
-          </Alert>
-        </a>
+        <Alert status="info">
+          <AlertIcon />
+          Teargas
+          <audio controls>
+            <source src="/audio/20201015-rickie-slaughter-poem.mp3" />
+          </audio>
+        </Alert>
       </Stack>
 
       <p>
