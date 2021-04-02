@@ -20,16 +20,18 @@ export const StringInput = ({
   },
   placeholder,
   testId,
+  required = undefined,
   value = '',
   styles = {},
   ...props
 }) => {
+  const registerValdations = required ? { required } : {};
   return (
     <FormControl isInvalid={errors[name]}>
       {label && (<FormLabel htmlFor={name}>{label}</FormLabel>)}
       <Input
         data-testid={testId}
-        ref={register}
+        {...register(name, registerValdations)}
         name={name}
         placeholder={placeholder}
         onBlur={onBlur}

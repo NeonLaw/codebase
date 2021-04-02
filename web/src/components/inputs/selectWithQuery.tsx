@@ -54,7 +54,7 @@ export const SelectWithQuery = ({
       </FormLabel>
       <Box color={colors.text.light} data-testid={testId}>
         <Controller
-          render={({ onChange }) => (
+          render={({ field: { onChange }}) => (
             <ReactSelect
               options={options}
               classNamePrefix={`react-select-${kebabCase(name)}`}

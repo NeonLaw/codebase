@@ -28,7 +28,7 @@ const stripePromise = loadStripe(process.env.STRIPE_CLIENT_KEY as string);
 const ShookFamilyWeddingPage = () => {
   const title = 'Shook Family Wedding';
   const description = 'The Shook Family Wedding February 1, 2021';
-  const { errors, handleSubmit, register } = useForm({
+  const { formState: { errors }, handleSubmit, register } = useForm({
     defaultValues: { amount: 100 }
   });
   const intl = useIntl();
@@ -164,10 +164,9 @@ const ShookFamilyWeddingPage = () => {
                     placeholder={intl.formatMessage({
                       id: 'forms.amount.placeholder'
                     })}
-                    register={register({
-                      required: intl.formatMessage({
-                        id: 'forms.amount.required'
-                      }),
+                    register={register}
+                    required={intl.formatMessage({
+                      id: 'forms.amount.required'
                     })}
                   />
                   <Box width="100%" padding="1em 0">

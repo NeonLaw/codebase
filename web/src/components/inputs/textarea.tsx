@@ -55,7 +55,7 @@ export const Textarea = ({
     <FormControl isInvalid={errors && errors[name]}>
       <Box borderWidth="1px">
         <Controller
-          render={({ onChange, value, ref }) => {
+          render={({ field: { onChange, value, ref }}) => {
             return (
               <Slate
                 editor={editor}
@@ -72,8 +72,6 @@ export const Textarea = ({
             );
           }}
           name={name}
-          placeholder={placeholder}
-          label={label}
           control={control}
           defaultValue={defaultValue || placeholderSlateText}
         />
