@@ -32,7 +32,7 @@ export const CreateUnprocessedMatterDocumentModal = ({
     register,
     reset,
     setValue,
-    errors,
+    formState: { errors },
     control
   } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -128,12 +128,12 @@ export const CreateUnprocessedMatterDocumentModal = ({
               name='matterId'
               type="hidden"
               value={matterId}
-              ref={register}
+              {...register('matterId')}
             />
             <input
               name='uploadDocumentUrl'
               type="hidden"
-              ref={register}
+              {...register('uploadDocumentUrl')}
             />
             <Dashboard uppy={uppy} />
           </ModalBody>

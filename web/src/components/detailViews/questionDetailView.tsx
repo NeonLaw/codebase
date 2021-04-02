@@ -19,7 +19,7 @@ export const QuestionDetailView = ({
   const [showAnswer, toggleShowAnswer] = useState(false);
   const [userAnswer, changeUserAnswer] = useState(showQuestion);
   const formRef = useRef<HTMLFormElement>(null);
-  const { control, handleSubmit, errors } = useForm();
+  const { control, handleSubmit, formState: { errors } } = useForm();
   const { data, loading } = useQuestionByIdQuery(
     { variables: { id }}
   );
@@ -98,7 +98,6 @@ export const QuestionDetailView = ({
           <Textarea
             testId="flashcard-textarea"
             control={control}
-            label={null}
             name="answer"
             placeholder="Type in the answer"
             defaultValue={userAnswer}

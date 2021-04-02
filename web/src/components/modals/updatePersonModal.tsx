@@ -24,7 +24,12 @@ export const UpdatePersonModal = ({ isOpen, onClose }) => {
 
   const [updatePersonById, { loading }] = useUpdatePersonByIdMutation();
 
-  const { handleSubmit, errors, register, reset } = useForm();
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { errors },
+  } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async ({ accessibleButtons, name }) => {
@@ -67,9 +72,8 @@ export const UpdatePersonModal = ({ isOpen, onClose }) => {
                 placeholder={intl.formatMessage({
                   id: 'forms.name.placeholder',
                 })}
-                register={register({
-                  required: intl.formatMessage({ id: 'forms.name.required' }),
-                })}
+                register={register}
+                required={intl.formatMessage({ id: 'forms.name.required' })}
               />
               <Switch
                 name="accessibleButtons"
@@ -78,7 +82,7 @@ export const UpdatePersonModal = ({ isOpen, onClose }) => {
                   intl.formatMessage({ id: 'forms.accessibleButtons.label' })
                 }
                 errors={errors}
-                register={register()}
+                register={register}
               />
               <Button
                 flash={true}

@@ -9,16 +9,16 @@ import {
 } from '@chakra-ui/react';
 import React, { useRef } from 'react';
 import { AiFillGift } from 'react-icons/ai';
-import { Button } from '../../components/button';
+import { Button } from '../../../components/button';
 import { Carousel } from 'react-responsive-carousel';
-import { Container } from '../../components/container';
+import { Container } from '../../../components/container';
 import Image from 'next/image';
 import {
   PublicTrustLayout
-} from '../../components/layouts/publicTrustLayout';
-import { Seo } from '../../components/seo';
-import { UsdInput } from '../../components/inputs';
-import { colors } from '../../styles/neonLaw';
+} from '../../../components/layouts/publicTrustLayout';
+import { Seo } from '../../../components/seo';
+import { UsdInput } from '../../../components/inputs';
+import { colors } from '../../../styles/neonLaw';
 import { loadStripe } from '@stripe/stripe-js';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
@@ -28,7 +28,7 @@ const stripePromise = loadStripe(process.env.STRIPE_CLIENT_KEY as string);
 const ShookFamilyWeddingPage = () => {
   const title = 'Shook Family Wedding';
   const description = 'The Shook Family Wedding February 1, 2021';
-  const { errors, handleSubmit, register } = useForm({
+  const { formState: { errors }, handleSubmit, register } = useForm({
     defaultValues: { amount: 100 }
   });
   const intl = useIntl();
@@ -164,10 +164,9 @@ const ShookFamilyWeddingPage = () => {
                     placeholder={intl.formatMessage({
                       id: 'forms.amount.placeholder'
                     })}
-                    register={register({
-                      required: intl.formatMessage({
-                        id: 'forms.amount.required'
-                      }),
+                    register={register}
+                    required={intl.formatMessage({
+                      id: 'forms.amount.required'
                     })}
                   />
                   <Box width="100%" padding="1em 0">

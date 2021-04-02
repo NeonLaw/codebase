@@ -55,7 +55,13 @@ export const UpdateModalFormBuilder = ({
   const pascalCaseName = capitalize(resourceName);
 
   const { colorMode } = useColorMode();
-  const { control, handleSubmit, errors, register, reset } = useForm();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+    register,
+    reset
+  } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
   const OS = useOperatingSystem();

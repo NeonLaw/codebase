@@ -30,7 +30,12 @@ import { useUser } from '@auth0/nextjs-auth0';
 export const NeonLawIndexPage = (): JSX.Element => {
   const { colorMode } = useColorMode();
   const intl = useIntl();
-  const { handleSubmit, errors, register, reset } = useForm();
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+    reset
+  } = useForm();
   const { user } = useUser();
   const nextSectionRef = useRef(null);
 
@@ -88,7 +93,7 @@ export const NeonLawIndexPage = (): JSX.Element => {
                   placeholder={intl.formatMessage({
                     id: 'forms.legal_question.placeholder',
                   })}
-                  register={register()}
+                  register={register}
                 />
                 <Button
                   flash={true}
