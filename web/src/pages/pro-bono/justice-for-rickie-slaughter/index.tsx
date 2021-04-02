@@ -53,7 +53,7 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
           <AlertIcon />
           Wrongfully Convicted
           <audio controls>
-            <source src="/audio/20201116-wrongly-convicted-poem.mp3" />
+            <source src="/audio/20201116-wrongly-convicted.mp3" />
           </audio>
         </Alert>
 
