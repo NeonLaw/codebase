@@ -8,6 +8,8 @@ import { gutters, sizes } from '../../styles/neonLaw';
 import { PortalLayout } from '../../components/layouts/portalLayout';
 import React from 'react';
 import { useIntl } from 'react-intl';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
+
 
 const PortalPage = () => {
   const intl = useIntl();
@@ -26,4 +28,4 @@ const PortalPage = () => {
 };
 
 /* eslint-disable-next-line import/no-default-export */
-export default PortalPage;
+export default withPageAuthRequired(PortalPage);

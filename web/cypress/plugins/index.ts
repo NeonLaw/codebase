@@ -1,7 +1,9 @@
 /// <reference types="cypress" />
+import { encrypt } from './encrypt';
 
 module.exports = (on) => {
   on('task', {
+    encrypt,
     log(message) {
       console.log(message);
 
