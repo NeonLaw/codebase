@@ -1,14 +1,4 @@
-// import faker from 'faker';
-
 describe('Visiting /portal', () => {
-  describe('as an anonymous user', () => {
-    it('redirects the user back to the home screen', () => {
-      cy.visit('/');
-      // cy.visit('/portal');
-      // cy.url().should('not.include', '/portal');
-    });
-  });
-
   // context('logged in as a portal user', () => {
   //   it('renders the /portal pages and the user can change ther name', () => {
   //     const name = faker.name.findName();

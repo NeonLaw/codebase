@@ -26,7 +26,6 @@ const PortalSettingsPage = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const { user } = useUser();
 
-
   return (
     <PortalLayout>
       <StyledPortalPersonPage>

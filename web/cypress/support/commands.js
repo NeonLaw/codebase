@@ -8,7 +8,7 @@ Cypress.Commands.add('login', ({ username, password }) => {
   const client_secret = Cypress.env('AUTH0_CLIENT_SECRET');
   const audience = 'https://api.neonlaw.com';
   const scope = 'openid profile email offline_access';
-  const grant_type = 'http://auth0.com/oauth/grant-type/password-realm';
+  const grant_type = 'password';
   const realm = 'Username-Password-Authentication';
   const url = 'https://neon-law-testing.auth0.com/oauth/token';
 
