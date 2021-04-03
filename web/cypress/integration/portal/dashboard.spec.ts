@@ -41,7 +41,6 @@ describe('Visiting /portal', () => {
         cy.visit('/portal');
         cy.url().should('include', '/portal');
         cy.contains('Settings').click();
-        cy.url().should('include', '/portal/settings');
       });
     });
   });
