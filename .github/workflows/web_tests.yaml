@@ -22,7 +22,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           start: doppler run -- yarn dev
-          wait-on: 'http://127.0.0.1:3000'
+          wait-on: 'http://localhost:3000'
           working-directory: ./web
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_STAGING }}

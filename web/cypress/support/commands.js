@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 
 Cypress.Commands.add('login', ({ username, password }) => {
-  cy.log(`Logging in as ${useranme}`);
+  cy.log(`Logging in as ${username}`);
 
   const client_id = Cypress.env('AUTH0_CLIENT_ID');
   const client_secret = Cypress.env('AUTH0_CLIENT_SECRET');
@@ -31,7 +31,10 @@ Cypress.Commands.add('login', ({ username, password }) => {
   };
 
   cy.request(options).then(({ body }) => {
-    cy.task('encrypt', body).then((encryptedSession) => {
+    const secret = Cypress.env('AUTH0_SECRET');
+    const sessionToEncrypt = { secret, ...body };
+
+    cy.task('encrypt', sessionToEncrypt).then((encryptedSession) => {
       cy.setCookie('appSession', encryptedSession);
     });
   });

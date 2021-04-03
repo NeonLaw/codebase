@@ -43,17 +43,15 @@ describe('Visiting /portal', () => {
   // });
 
   context('logged in as an admin user', () => {
-    it('renders the /portal pages and the admin portal', () => {
+    it('renders the /portal', () => {
       cy.login({
-        password: process.env.CYPRESS_ADMIN_USER_PASSWORD,
+        password: Cypress.env('ADMIN_USER_PASSWORD'),
         username: 'admin@sink.sendgrid.com',
       }).then(() => {
         cy.visit('/portal');
-        cy.wait(1000);
         cy.url().should('include', '/portal');
-
-        cy.get('[data-testid="admin-side-navigation-link"]').click();
-        cy.url().should('include', '/portal/admin');
+        cy.contains('Settings').click();
+        cy.url().should('include', '/portal/settings');
       });
     });
   });
