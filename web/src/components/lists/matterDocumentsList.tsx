@@ -8,7 +8,7 @@ export const MatterDocumentsList = ({ matterDocuments }) => {
           <Box
             key={index}
             as="a"
-            href={matterDocument.downloadUrl}
+            href={matterDocument.document.downloadUrl}
             target="_blank"
             rel="noreferrer">
             <ListItem>
