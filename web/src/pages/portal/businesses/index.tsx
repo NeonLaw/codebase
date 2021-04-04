@@ -16,7 +16,7 @@ const PortalBusinessesPage = () => {
         </Heading>
         <Text>{intl.formatMessage({ id: 'pages.business.text' })}</Text>
       </Box>
-      <MattersList category="business" />
+      <MattersList category="business" basePath="/portal/business" />
     </PortalLayout>
   );
 };
