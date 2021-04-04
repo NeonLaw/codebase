@@ -4101,7 +4101,7 @@ export type AllCurrentUserMattersQuery = (
     { __typename?: 'CurrentUserMattersConnection' }
     & { nodes: Array<(
       { __typename?: 'CurrentUserMatter' }
-      & Pick<CurrentUserMatter, 'id' | 'primaryContactId' | 'matterTemplateId' | 'matterTemplateName' | 'matterTemplateCategory'>
+      & Pick<CurrentUserMatter, 'id' | 'name' | 'primaryContactId' | 'matterTemplateId' | 'matterTemplateName' | 'matterTemplateCategory'>
     )> }
   )> }
 );
@@ -4693,6 +4693,7 @@ export const AllCurrentUserMattersDocument = gql`
   currentUserMatters {
     nodes {
       id
+      name
       primaryContactId
       matterTemplateId
       matterTemplateName

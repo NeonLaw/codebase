@@ -1,8 +1,8 @@
-import React from 'react';
-import { Skeleton } from '@chakra-ui/react';
+import { Box, Skeleton } from '@chakra-ui/react';
+import Link from 'next/link';
 import { useAllCurrentUserMattersQuery } from '../../utils/api';
 
-export const MattersList = ({ category }) => {
+export const MattersList = ({ category, basePath }) => {
   const { data, loading } = useAllCurrentUserMattersQuery();
 
   if (loading) {
@@ -16,7 +16,13 @@ export const MattersList = ({ category }) => {
       <>
         {matters.map((matter, key) => {
           if (matter.matterTemplateCategory === category) {
-            return <h1 key={key}>{matter.id}</h1>;
+            return (
+              <Box key={key} as="a" href={`${basePath}/${matter.id}`}>
+                <Link href={`${basePath}/${matter.id}`}>
+                  {matter.name}
+                </Link>
+              </Box>
+            );
           }
           return null;
         })}
