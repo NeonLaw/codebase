@@ -640,39 +640,6 @@ export type CreateTransloaditTokenPayload = {
   signature?: Maybe<Scalars['String']>;
 };
 
-/** All input for the create `UnprocessedDocument` mutation. */
-export type CreateUnprocessedDocumentInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `UnprocessedDocument` to be created by this mutation. */
-  unprocessedDocument: UnprocessedDocumentInput;
-};
-
-/** The output of our create `UnprocessedDocument` mutation. */
-export type CreateUnprocessedDocumentPayload = {
-  __typename?: 'CreateUnprocessedDocumentPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `UnprocessedDocument` that was created by this mutation. */
-  unprocessedDocument?: Maybe<UnprocessedDocument>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** An edge for our `UnprocessedDocument`. May be used by Relay 1. */
-  unprocessedDocumentEdge?: Maybe<UnprocessedDocumentsEdge>;
-};
-
-
-/** The output of our create `UnprocessedDocument` mutation. */
-export type CreateUnprocessedDocumentPayloadUnprocessedDocumentEdgeArgs = {
-  orderBy?: Maybe<Array<UnprocessedDocumentsOrderBy>>;
-};
-
 export type CurrentUserMatter = {
   __typename?: 'CurrentUserMatter';
   id?: Maybe<Scalars['UUID']>;
@@ -1410,6 +1377,7 @@ export type Document = Node & {
   matterDocuments: MatterDocumentsConnection;
   /** Reads and enables pagination through a set of `ResponseDocument`. */
   responseDocuments: ResponseDocumentsConnection;
+  downloadUrl?: Maybe<Scalars['String']>;
 };
 
 
@@ -2026,8 +1994,6 @@ export type Mutation = {
   createQuestionnaire?: Maybe<CreateQuestionnairePayload>;
   /** Creates a single `Response`. */
   createResponse?: Maybe<CreateResponsePayload>;
-  /** Creates a single `UnprocessedDocument`. */
-  createUnprocessedDocument?: Maybe<CreateUnprocessedDocumentPayload>;
   /** Creates a single `AccountingBill`. */
   createAccountingBill?: Maybe<CreateAccountingBillPayload>;
   /** Updates a single `Address` using its globally unique id and a patch. */
@@ -2199,12 +2165,6 @@ export type MutationCreateQuestionnaireArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateResponseArgs = {
   input: CreateResponseInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateUnprocessedDocumentArgs = {
-  input: CreateUnprocessedDocumentInput;
 };
 
 
@@ -2734,8 +2694,6 @@ export type Query = Node & {
   questionnaires?: Maybe<QuestionnairesConnection>;
   /** Reads and enables pagination through a set of `Response`. */
   responses?: Maybe<ResponsesConnection>;
-  /** Reads and enables pagination through a set of `UnprocessedDocument`. */
-  unprocessedDocuments?: Maybe<UnprocessedDocumentsConnection>;
   /** Reads and enables pagination through a set of `AccountingBill`. */
   accountingBills?: Maybe<AccountingBillsConnection>;
   address?: Maybe<Address>;
@@ -2922,18 +2880,6 @@ export type QueryResponsesArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<ResponsesOrderBy>>;
   condition?: Maybe<ResponseCondition>;
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryUnprocessedDocumentsArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<UnprocessedDocumentsOrderBy>>;
-  condition?: Maybe<UnprocessedDocumentCondition>;
 };
 
 
@@ -3473,25 +3419,6 @@ export type UnprocessedDocument = Node & {
   processedDocumentId?: Maybe<Scalars['UUID']>;
 };
 
-/**
- * A condition to be used against `UnprocessedDocument` object types. All fields
- * are tested for equality and combined with a logical ‘and.’
- */
-export type UnprocessedDocumentCondition = {
-  /** Checks for equality with the object’s `id` field. */
-  id?: Maybe<Scalars['UUID']>;
-};
-
-/** An input for mutations affecting `UnprocessedDocument` */
-export type UnprocessedDocumentInput = {
-  id?: Maybe<Scalars['UUID']>;
-  filename: Scalars['String'];
-  documentableType: Scalars['String'];
-  documentableId: Scalars['UUID'];
-  documentTemplateId: Scalars['UUID'];
-  processedDocumentId?: Maybe<Scalars['UUID']>;
-};
-
 /** Represents an update to a `UnprocessedDocument`. Fields that are set will be updated. */
 export type UnprocessedDocumentPatch = {
   id?: Maybe<Scalars['UUID']>;
@@ -3500,19 +3427,6 @@ export type UnprocessedDocumentPatch = {
   documentableId?: Maybe<Scalars['UUID']>;
   documentTemplateId?: Maybe<Scalars['UUID']>;
   processedDocumentId?: Maybe<Scalars['UUID']>;
-};
-
-/** A connection to a list of `UnprocessedDocument` values. */
-export type UnprocessedDocumentsConnection = {
-  __typename?: 'UnprocessedDocumentsConnection';
-  /** A list of `UnprocessedDocument` objects. */
-  nodes: Array<UnprocessedDocument>;
-  /** A list of edges which contains the `UnprocessedDocument` and cursor to aid in pagination. */
-  edges: Array<UnprocessedDocumentsEdge>;
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo;
-  /** The count of *all* `UnprocessedDocument` you could get from the connection. */
-  totalCount: Scalars['Int'];
 };
 
 /** A `UnprocessedDocument` edge in the connection. */
@@ -4523,7 +4437,7 @@ export type MatterByIdQuery = (
           & Pick<Person, 'id' | 'name' | 'email'>
         )>, document?: Maybe<(
           { __typename?: 'Document' }
-          & Pick<Document, 'id' | 'filename'>
+          & Pick<Document, 'id' | 'filename' | 'downloadUrl'>
           & { documentTemplate?: Maybe<(
             { __typename?: 'DocumentTemplate' }
             & Pick<DocumentTemplate, 'name'>
@@ -5575,6 +5489,7 @@ export const MatterByIdDocument = gql`
         document {
           id
           filename
+          downloadUrl
           documentTemplate {
             name
           }

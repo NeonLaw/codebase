@@ -2,6 +2,7 @@ import { PostGraphileOptions, makePluginHook } from 'postgraphile';
 import GraphilePro from '@graphile/pro';
 import PgPubsub from '@graphile/pg-pubsub';
 import PgSimplifyInflectorPlugin from '@graphile-contrib/pg-simplify-inflector';
+import { documentPlugin } from './resolvers/documentPlugin';
 import { fileUploadsPlugin } from './resolvers/fileUploadsPlugin';
 import { makeAddInflectorsPlugin } from 'graphile-utils';
 import { questionPlugin } from './resolvers/questionPlugin';
@@ -54,6 +55,7 @@ export const postgraphileOptions: PostGraphileOptions = {
   appendPlugins: [
     PgSimplifyInflectorPlugin,
     schemaInflectorsPlugin,
+    documentPlugin,
     fileUploadsPlugin,
     questionPlugin,
     slatePlugin

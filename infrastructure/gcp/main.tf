@@ -62,14 +62,6 @@ module "user_bucket" {
   ]
 }
 
-module "download_bucket" {
-  source      = "./modules/private_bucket"
-  bucket_name = "${var.project_id}-downloads"
-  allowed_origins = [
-    var.neon_law_url
-  ]
-}
-
 module "application_user" {
   source = "./modules/application_user"
 }
