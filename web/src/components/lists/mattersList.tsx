@@ -2,7 +2,7 @@ import React from 'react';
 import { Skeleton } from '@chakra-ui/react';
 import { useAllCurrentUserMattersQuery } from '../../utils/api';
 
-export const BusinessMattersList = () => {
+export const MattersList = ({ category }) => {
   const { data, loading } = useAllCurrentUserMattersQuery();
 
   if (loading) {
@@ -15,7 +15,7 @@ export const BusinessMattersList = () => {
     return (
       <>
         {matters.map((matter, key) => {
-          if (matter.matterTemplateCategory === 'business') {
+          if (matter.matterTemplateCategory === category) {
             return <h1 key={key}>{matter.id}</h1>;
           }
           return null;

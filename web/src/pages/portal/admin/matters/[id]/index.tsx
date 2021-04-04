@@ -1,18 +1,18 @@
 import { Box, useDisclosure } from '@chakra-ui/react';
-import { Breadcrumbs } from '../../../../components/breadcrumbs';
-import { Button } from '../../../../components/button';
+import { Breadcrumbs } from '../../../../../components/breadcrumbs';
+import { Button } from '../../../../../components/button';
 import {
   CreateUnprocessedMatterDocumentModal
-} from '../../../../components/modals/createUnprocessedMatterDocumentModal';
+} from '../../../../../components/modals/createUnprocessedMatterDocumentModal';
 import {
   DeleteMatterButton
-} from '../../../../components/deleteButtons/deleteMatterButton';
+} from '../../../../../components/deleteButtons/deleteMatterButton';
 import {
   MatterDetailView
-} from '../../../../components/detailViews/matterDetailView';
-import { PortalLayout } from '../../../../components/layouts/portalLayout';
+} from '../../../../../components/detailViews/matterDetailView';
+import { PortalLayout } from '../../../../../components/layouts/portalLayout';
 import React from 'react';
-import { gutters } from '../../../../styles/neonLaw';
+import { gutters } from '../../../../../styles/neonLaw';
 import { useRouter } from 'next/router';
 
 const AdminMattersDetail = () => {

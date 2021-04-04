@@ -1,6 +1,5 @@
 import { Global, css } from '@emotion/react';
 import { gutters, theme } from './deleteYourData';
-import React from 'react';
 
 export const DeleteYourDataStyles = () => (
   <Global
