@@ -1,16 +1,13 @@
-import {
-  Box,
-  Heading,
-  Text,
-} from '@chakra-ui/react';
-import { gutters, sizes } from '../../styles/neonLaw';
-
-import { PortalLayout } from '../../components/layouts/portalLayout';
+import { Box, Heading, Text } from '@chakra-ui/react';
+import { gutters, sizes } from '../../../styles/neonLaw';
+import { MattersList } from '../../../components/lists/mattersList';
+import { PortalLayout } from '../../../components/layouts/portalLayout';
 import React from 'react';
 import { useIntl } from 'react-intl';
 
-const LitigationPage = () => {
+const LitigationIndexPage = () => {
   const intl = useIntl();
+
   return (
     <PortalLayout>
       <Box maxWidth={sizes.textContainerXSmall}>
@@ -21,9 +18,10 @@ const LitigationPage = () => {
           {intl.formatMessage({ id: 'pages.litigation.text' })}
         </Text>
       </Box>
+      <MattersList category="litigation" />
     </PortalLayout>
   );
 };
 
 /* eslint-disable-next-line import/no-default-export */
-export default LitigationPage;
+export default LitigationIndexPage;

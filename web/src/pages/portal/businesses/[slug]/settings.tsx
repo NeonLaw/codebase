@@ -7,9 +7,7 @@ import { gutters, sizes } from '../../../../styles/neonLaw';
 import {
   BusinessMatterDetailView
 } from '../../../../components/detailViews/businessMatterDetailView';
-import {
-  BusinessMattersList
-} from '../../../../components/lists/businessMattersList';
+import { MattersList } from '../../../../components/lists/mattersList';
 import { PortalLayout } from '../../../../components/layouts/portalLayout';
 import React from 'react';
 import { useIntl } from 'react-intl';
@@ -28,7 +26,7 @@ const BusinessMatterListView = (props) => {
           {intl.formatMessage({ id: 'pages.business.text' })}
         </Text>
       </Box>
-      <BusinessMattersList />
+      <MattersList category="business" />
     </>
   );
 };
