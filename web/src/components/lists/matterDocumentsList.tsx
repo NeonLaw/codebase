@@ -12,8 +12,10 @@ export const MatterDocumentsList = ({ matterDocuments }) => {
             target="_blank"
             rel="noreferrer">
             <ListItem>
-              {matterDocument.document.filename} by {matterDocument.author.name}
-              &nbsp;which is a {matterDocument.document.documentTemplate.name}
+              {matterDocument.document.filename} by
+                &nbsp;{matterDocument.author.name}
+                &nbsp;which is a
+                &nbsp;{matterDocument.document.documentTemplate.name}.
             </ListItem>
           </Box>
         );}

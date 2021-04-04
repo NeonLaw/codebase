@@ -1,4 +1,4 @@
-import { Box, Skeleton } from '@chakra-ui/react';
+import { Box, ListItem, Skeleton, UnorderedList } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useAllCurrentUserMattersQuery } from '../../utils/api';
 
@@ -13,20 +13,22 @@ export const MattersList = ({ category, basePath }) => {
     const matters = data?.currentUserMatters?.nodes || [];
 
     return (
-      <>
+      <UnorderedList spacing={3}>
         {matters.map((matter, key) => {
           if (matter.matterTemplateCategory === category) {
             return (
               <Box key={key} as="a" href={`${basePath}/${matter.id}`}>
                 <Link href={`${basePath}/${matter.id}`}>
-                  {matter.name}
+                  <ListItem>
+                    {matter.name}
+                  </ListItem>
                 </Link>
               </Box>
             );
           }
           return null;
         })}
-      </>
+      </UnorderedList>
     );
   }
 
