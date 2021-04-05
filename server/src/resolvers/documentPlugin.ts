@@ -11,6 +11,10 @@ export const documentPlugin = makeExtendSchemaPlugin(() => {
         downloadUrl: async (document) => {
           const { gcpUrl } = document;
 
+          if (!gcpUrl) {
+            return null;
+          }
+
           const options = {
             action: 'read',
             expires: Date.now() + 15 * 60 * 1000,
@@ -35,7 +39,7 @@ export const documentPlugin = makeExtendSchemaPlugin(() => {
     },
     typeDefs: gql`
       extend type Document {
-        downloadUrl: String
+        downloadUrl: String @requires(columns: ["gcp_url"])
       }
     `,
   };
