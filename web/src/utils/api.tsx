@@ -1372,8 +1372,8 @@ export type Document = Node & {
   documentableTableName: Scalars['String'];
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
-  documentTemplateId?: Maybe<Scalars['UUID']>;
-  gcpUrl?: Maybe<Scalars['GcpUrl']>;
+  documentTemplateId: Scalars['UUID'];
+  gcpUrl: Scalars['GcpUrl'];
   /** Reads a single `DocumentTemplate` that is related to this `Document`. */
   documentTemplate?: Maybe<DocumentTemplate>;
   /** Reads and enables pagination through a set of `MatterDocument`. */
@@ -1412,10 +1412,10 @@ export type DocumentResponseDocumentsArgs = {
 export type DocumentCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars['UUID']>;
-  /** Checks for equality with the object’s `documentableTableName` field. */
-  documentableTableName?: Maybe<Scalars['String']>;
   /** Checks for equality with the object’s `documentTemplateId` field. */
   documentTemplateId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `gcpUrl` field. */
+  gcpUrl?: Maybe<Scalars['GcpUrl']>;
 };
 
 /** A connection to a list of `Document` values. */
@@ -1445,10 +1445,10 @@ export enum DocumentsOrderBy {
   Natural = 'NATURAL',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
-  DocumentableTableNameAsc = 'DOCUMENTABLE_TABLE_NAME_ASC',
-  DocumentableTableNameDesc = 'DOCUMENTABLE_TABLE_NAME_DESC',
   DocumentTemplateIdAsc = 'DOCUMENT_TEMPLATE_ID_ASC',
   DocumentTemplateIdDesc = 'DOCUMENT_TEMPLATE_ID_DESC',
+  GcpUrlAsc = 'GCP_URL_ASC',
+  GcpUrlDesc = 'GCP_URL_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
