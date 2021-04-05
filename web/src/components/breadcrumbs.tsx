@@ -1,6 +1,3 @@
-/* eslint-disable */
-// @ts-nocheck
-/* eslint-enable */
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
 import { Link } from '../components/link';
 import { useIntl } from 'react-intl';
@@ -73,7 +70,7 @@ export const Breadcrumbs = ({ showHome = true }: BreadCrumbProps) => {
             <BreadcrumbLink
               className="breadcrumb outline-bordered"
               as={Link}
-              to={route}
+              href={route}
               textTransform="capitalize"
             >
               {path.replace(/-/g, ' ')}

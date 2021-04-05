@@ -9,7 +9,7 @@ export const documentPlugin = makeExtendSchemaPlugin(() => {
     resolvers: {
       Document: {
         downloadUrl: async (document) => {
-          const { filename } = document;
+          const { gcpUrl } = document;
 
           const options = {
             action: 'read',
@@ -17,12 +17,12 @@ export const documentPlugin = makeExtendSchemaPlugin(() => {
             version: 'v4',
           };
 
-          let bucketName;
-          if (process.env.ENVIRONMENT === 'production') {
-            bucketName = 'neon-law-production-private-assets';
-          } else {
-            bucketName = 'neon-law-staging-private-assets';
-          }
+          const bucketName = gcpUrl.match(
+            /^https:\/\/(.*).storage.googleapis.com/
+          )[1];
+          const filename = gcpUrl.match(
+            /^https:\/\/.*.storage.googleapis.com\/(.*)$/
+          )[1];
 
           const [url] = await storage
             .bucket(bucketName)
