@@ -23,6 +23,8 @@ export type Scalars = {
   Datetime: string;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: { [key: string]: any };
+  /** the GCP Storage URL of the private file. */
+  GcpUrl: any;
 };
 
 export type AccountingBill = Node & {
@@ -1371,6 +1373,7 @@ export type Document = Node & {
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
   documentTemplateId?: Maybe<Scalars['UUID']>;
+  gcpUrl?: Maybe<Scalars['GcpUrl']>;
   /** Reads a single `DocumentTemplate` that is related to this `Document`. */
   documentTemplate?: Maybe<DocumentTemplate>;
   /** Reads and enables pagination through a set of `MatterDocument`. */
@@ -1531,6 +1534,7 @@ export enum DocumentTemplatesOrderBy {
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
+
 
 
 export type Letter = Node & {
