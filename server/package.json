@@ -54,7 +54,7 @@
     "graphql": "^14.0.1"
   },
   "devDependencies": {
-    "@types/supertest": "^2.0.10",
+    "@types/supertest": "^2.0.11",
     "supertest": "^6.1.3"
   }
 }
