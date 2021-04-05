@@ -4441,7 +4441,7 @@ export type MatterByIdQuery = (
           & Pick<Person, 'id' | 'name' | 'email'>
         )>, document?: Maybe<(
           { __typename?: 'Document' }
-          & Pick<Document, 'id' | 'filename' | 'downloadUrl'>
+          & Pick<Document, 'id' | 'filename' | 'gcpUrl' | 'downloadUrl'>
           & { documentTemplate?: Maybe<(
             { __typename?: 'DocumentTemplate' }
             & Pick<DocumentTemplate, 'name'>
@@ -5494,6 +5494,7 @@ export const MatterByIdDocument = gql`
         document {
           id
           filename
+          gcpUrl
           downloadUrl
           documentTemplate {
             name
