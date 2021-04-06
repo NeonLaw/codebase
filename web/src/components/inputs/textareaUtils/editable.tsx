@@ -89,11 +89,11 @@ export const Editable = ({ editor }) => {
                 event.preventDefault();
 
                 const match = Editor.nodes(editor, {
-                  match: n => n.type === 'code',
+                  match: n => (n as any).type === 'code',
                 });
                 Transforms.setNodes(
                   editor,
-                  { type: match ? 'paragraph' : 'code' },
+                  { type: match ? 'paragraph' : 'code' } as any,
                   { match: n => Editor.isBlock(editor, n) }
                 );
                 break;
@@ -103,12 +103,12 @@ export const Editable = ({ editor }) => {
                 event.preventDefault();
 
                 const match = Editor.nodes(editor, {
-                  match: n => n.bold === true,
+                  match: n => (n as any).bold === true,
                   universal: true,
                 });
                 Transforms.setNodes(
                   editor,
-                  { bold: match ? null : true },
+                  { bold: match ? null : true } as any,
                   { match: n => Text.isText(n), split: true }
                 );
                 break;

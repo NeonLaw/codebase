@@ -99,7 +99,7 @@
         "react-intl": "^5.13.5",
         "react-player": "^2.9.0",
         "react-responsive-carousel": "^3.2.18",
-        "slate": "^0.59.0",
+        "slate": "^0.62.0",
         "slate-history": "^0.62.0",
         "slate-hyperscript": "^0.62.0",
         "slate-react": "^0.59.0",

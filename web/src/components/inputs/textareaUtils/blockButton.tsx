@@ -11,7 +11,7 @@ export const BlockButton = ({ format, icon }) => {
 
   const isBlockActive = (editor, format) => {
     const match = Editor.nodes(editor, {
-      match: n => n.type === format,
+      match: n => (n as any).type === format,
     });
 
     return !!match;
@@ -22,13 +22,13 @@ export const BlockButton = ({ format, icon }) => {
     const isList = LIST_TYPES.includes(format);
 
     Transforms.unwrapNodes(editor, {
-      match: n => LIST_TYPES.includes(n.type as string),
+      match: n => LIST_TYPES.includes((n as any).type as string),
       split: true,
     });
 
     Transforms.setNodes(editor, {
       type: isActive ? 'paragraph' : isList ? 'list-item' : format,
-    });
+    } as any);
 
     if (!isActive && isList) {
       const block = { children: [], type: format };
