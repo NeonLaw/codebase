@@ -2920,10 +2920,10 @@
     "@opentelemetry/resources" "^0.18.2"
     "@opentelemetry/tracing" "^0.18.2"
 
-"@opentelemetry/instrumentation-graphql@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@opentelemetry/instrumentation-graphql/-/instrumentation-graphql-0.14.0.tgz#f13205b05b04b3fe51c7014e5c1da41694ddaaa3"
-  integrity sha512-V7/IdeA8sEAw9e2EHBGitpYYaNtsYwViNgoSTFOjMkH6QBttAbwuVM21AIsxgggqiOW1kSM7n1z3LuypIMAlfA==
+"@opentelemetry/instrumentation-graphql@^0.15.0":
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/@opentelemetry/instrumentation-graphql/-/instrumentation-graphql-0.15.0.tgz#a5c980f3edb09799c2574c31195b7612b59a81fe"
+  integrity sha512-idP1IMoqhQTTArjqyo5bna5V4IDvf/8dkdD3IdxcQS2CQLYFcEqgxhLsyldHTBLcYYhwyUWS7EgQXkehoBD6ng==
   dependencies:
     "@opentelemetry/api" "^0.18.0"
     "@opentelemetry/instrumentation" "^0.18.0"
