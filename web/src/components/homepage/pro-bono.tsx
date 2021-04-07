@@ -16,11 +16,11 @@ export const ProBono = () => {
           {intl.formatMessage({ id: 'pro_bono.l1' })}
         </UnderlineLink>{' '}
         {intl.formatMessage({ id: 'pro_bono.p2' })}{' '}
-        <UnderlineLink target="_blank" href="https://nlslaw.net">
+        <UnderlineLink href="https://nlslaw.net">
           {intl.formatMessage({ id: 'pro_bono.l2' })}
         </UnderlineLink>{' '}
         {intl.formatMessage({ id: 'pro_bono.p3' })}{' '}
-        <UnderlineLink target="_blank" href="https://www.lacsn.org/">
+        <UnderlineLink href="https://www.lacsn.org/">
           {intl.formatMessage({ id: 'pro_bono.l3' })}
         </UnderlineLink>
         {intl.formatMessage({ id: 'pro_bono.p4' })}{' '}
