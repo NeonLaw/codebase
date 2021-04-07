@@ -50,7 +50,7 @@ const TData = (props) => (
   />
 );
 
-export const UnderlineLink = ({ href, ...props }) => {
+export const UnderlineLink = ({ href, children }) => {
   const { colorMode } = useColorMode();
 
   return (
@@ -58,13 +58,15 @@ export const UnderlineLink = ({ href, ...props }) => {
       as={Link}
       color={colors.link[colorMode]}
       cursor="pointer"
-      textDecoration="underline"
       outline="none"
       _hover={{ opacity: 0.8 }}
       _focus={{ boxShadow: 'outline' }}
       href={href}
-      {...props}
-    />
+    >
+      <a href={href} style={{textDecoration: 'underline'}}>
+        {children}
+      </a>
+    </Box>
   );
 };
 
