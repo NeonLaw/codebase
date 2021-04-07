@@ -50,11 +50,11 @@ export const FooterLinks = () => {
             />
             <FooterLink
               i18nMessage="footer.ventures"
-              path="/ventures"
+              path="/practice-areas/business"
             />
             <FooterLink
               i18nMessage="footer.trusts"
-              path="/trusts"
+              path="/practice-areas/estate-planning"
             />
             <FooterLink
               i18nMessage="footer.upward_mobility"
