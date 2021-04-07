@@ -109,7 +109,7 @@ export const MDXComponents = {
       return <a href={href}>{props.children}</a>;
     }
     return (
-      <UnderlineLink href={href} {...props} />
+      <UnderlineLink href={href} children={props.children} />
     );
   },
   blockquote: (props) => (
