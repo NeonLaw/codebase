@@ -4281,14 +4281,14 @@
     qs-stringify "^1.1.0"
     url-parse "^1.4.7"
 
-"@uppy/core@^1.16.2":
-  version "1.16.2"
-  resolved "https://registry.yarnpkg.com/@uppy/core/-/core-1.16.2.tgz#f946792932f376845947f9931bfe9f0a9535dc15"
-  integrity sha512-JWK03gXiMMZ+lSVj+v9FIFEOUbKyvRX4v2kaYhf0NqD1MssCwMQe4mvL2MNzjOaYFBwMRacDJh8Mvz2gbu2Vqw==
+"@uppy/core@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@uppy/core/-/core-1.17.0.tgz#5b394372ee3431d5a1bf09623522c0dd794dfe7b"
+  integrity sha512-UV84/5yMbplAUCmtOhiJFwtHzmajHr5sqS121MLC4nYfNd0iMRyoXo1E3WHUfxBjOxOwicyNRfxOZ92w3nACUQ==
   dependencies:
     "@transloadit/prettier-bytes" "0.0.7"
-    "@uppy/store-default" "^1.2.5"
-    "@uppy/utils" "^3.4.2"
+    "@uppy/store-default" "^1.2.6"
+    "@uppy/utils" "^3.5.0"
     cuid "^2.1.1"
     lodash.throttle "^4.1.1"
     mime-match "^1.0.2"
@@ -4380,10 +4380,10 @@
     lodash.throttle "^4.1.1"
     preact "8.2.9"
 
-"@uppy/store-default@^1.2.5":
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/@uppy/store-default/-/store-default-1.2.5.tgz#52936331d6ac4911197d256d13974d5bae93b3a6"
-  integrity sha512-jnf0U8cfb8Bhgt6yh86YRJO9EEnCyG9BgXZ8dPWWLybgC9Expw3Ah/s3T21tcdChgv4zzdhSACd0JKxCQowyYg==
+"@uppy/store-default@^1.2.6":
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/@uppy/store-default/-/store-default-1.2.6.tgz#97b85d16b1ade12070459cab8532ec22352b2023"
+  integrity sha512-YnWSq06iPli5LMkmC1XgNiYvaefPKiBQPD4sQ+SxR95DLymBBv5Q5cFhtxywnfB9Fs8YlVcFg/mJ4OzBbXd6nA==
 
 "@uppy/thumbnail-generator@^1.7.8":
   version "1.7.8"
@@ -4416,7 +4416,7 @@
     "@uppy/utils" "^3.5.0"
     tus-js-client "^2.1.1"
 
-"@uppy/utils@^3.4.2", "@uppy/utils@^3.5.0":
+"@uppy/utils@^3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@uppy/utils/-/utils-3.5.0.tgz#0822f68e8a4c7e833a7ca9ddf387adbd3ea0535c"
   integrity sha512-Hhe8e/ArclSascuRjpwWtiEqAcykh9Qb/tZrA6cw+L4QjoYhxaxnOZOQoPG8LOz+zZS/DgQyF7IjWp+oiHDzag==
@@ -6711,10 +6711,10 @@ cypress-plugin-tab@^1.0.5:
   dependencies:
     ally.js "^1.4.1"
 
-cypress@^6.8.0:
-  version "6.8.0"
-  resolved "https://registry.yarnpkg.com/cypress/-/cypress-6.8.0.tgz#8338f39212a8f71e91ff8c017a1b6e22d823d8c1"
-  integrity sha512-W2e9Oqi7DmF48QtOD0LfsOLVq6ef2hcXZvJXI/E3PgFNmZXEVwBefhAxVCW9yTPortjYA2XkM20KyC4HRkOm9w==
+cypress@^6.9.1:
+  version "6.9.1"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-6.9.1.tgz#ce1106bfdc47f8d76381dba63f943447883f864c"
+  integrity sha512-/RVx6sOhsyTR9sd9v0BHI4tnDZAhsH9rNat7CIKCUEr5VPWxyfGH0EzK4IHhAqAH8vjFcD4U14tPiJXshoUrmQ==
   dependencies:
     "@cypress/listr-verbose-renderer" "^0.4.1"
     "@cypress/request" "^2.88.5"
@@ -12314,10 +12314,10 @@ no-cliches@^0.3.0:
   resolved "https://registry.yarnpkg.com/no-cliches/-/no-cliches-0.3.0.tgz#c15f6fe6bff747a34d0475d7efe22c6754fba264"
   integrity sha512-F5RA5GyDsJ9dYx2nFwzzy371BbFTBInQ/gO6arT+ngrI+1sDP5cSZxkWsVLgRoLMln4rs3xXBLjD2sLa7TnV1g==
 
-node-abi@^2.7.0:
-  version "2.19.3"
-  resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-2.19.3.tgz#252f5dcab12dad1b5503b2d27eddd4733930282d"
-  integrity sha512-9xZrlyfvKhWme2EXFKQhZRp1yNWT/uI1luYPr3sFl+H4keYY4xR+1jO7mvTTijIsHf1M+QDe9uWuKeEpLInIlg==
+node-abi@^2.21.0:
+  version "2.21.0"
+  resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-2.21.0.tgz#c2dc9ebad6f4f53d6ea9b531e7b8faad81041d48"
+  integrity sha512-smhrivuPqEM3H5LmnY3KU6HfYv0u4QklgAxfFyRNujKUzbUcYZ+Jc2EhukB9SRcD2VpqhxM7n/MIcp1Ua1/JMg==
   dependencies:
     semver "^5.4.1"
 
@@ -13405,10 +13405,10 @@ preact@8.2.9:
   resolved "https://registry.yarnpkg.com/preact/-/preact-8.2.9.tgz#813ba9dd45e5d97c5ea0d6c86d375b3be711cc40"
   integrity sha512-ThuGXBmJS3VsT+jIP+eQufD3L8pRw/PY3FoCys6O9Pu6aF12Pn9zAJDX99TfwRAFOCEKm/P0lwiPTbqKMJp0fA==
 
-prebuild-install@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-6.0.1.tgz#5902172f7a40eb67305b96c2a695db32636ee26d"
-  integrity sha512-7GOJrLuow8yeiyv75rmvZyeMGzl8mdEX5gY69d6a6bHWmiPevwqFw+tQavhK0EYMaSg3/KD24cWqeQv1EWsqDQ==
+prebuild-install@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-6.1.1.tgz#6754fa6c0d55eced7f9e14408ff9e4cba6f097b4"
+  integrity sha512-M+cKwofFlHa5VpTWub7GLg5RLcunYIcLqtY5pKcls/u7xaAb8FrXZ520qY8rkpYy5xw90tYCyMO0MP5ggzR3Sw==
   dependencies:
     detect-libc "^1.0.3"
     expand-template "^2.0.3"
@@ -13416,7 +13416,7 @@ prebuild-install@^6.0.1:
     minimist "^1.2.3"
     mkdirp-classic "^0.5.3"
     napi-build-utils "^1.0.1"
-    node-abi "^2.7.0"
+    node-abi "^2.21.0"
     noop-logger "^0.1.1"
     npmlog "^4.0.1"
     pump "^3.0.0"
@@ -13424,7 +13424,6 @@ prebuild-install@^6.0.1:
     simple-get "^3.0.3"
     tar-fs "^2.0.0"
     tunnel-agent "^0.6.0"
-    which-pm-runs "^1.0.0"
 
 prelude-ls@^1.2.1:
   version "1.2.1"
@@ -13793,10 +13792,10 @@ react-focus-lock@2.5.0:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
-react-hook-form@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.0.0.tgz#7a7b0b51cc26f1448ab2a113bcff8b49e0f78864"
-  integrity sha512-cXoKnNnQe5IxieesTu+enDS7Jfh8lyX8mSMwzNvC4L0k6R6yQ2F8rIhvBbzlFOGSoeEnsR64dvMZ1izWRCAw6A==
+react-hook-form@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.0.3.tgz#b26ddbcafcd7973e25ebdf26beaa34df57776025"
+  integrity sha512-NTxs6i4mvvd0MBuAX7rWfyM+DteDwvVGWjhbZk00gfoINHip0SZrLDrnOxT0inFXQZAWbL7veIxGEE46Fps4zg==
 
 react-icons@^4.2.0:
   version "4.2.0"
@@ -15579,15 +15578,15 @@ shallow-equal@^1.1.0:
   resolved "https://registry.yarnpkg.com/shallow-equal/-/shallow-equal-1.2.1.tgz#4c16abfa56043aa20d050324efa68940b0da79da"
   integrity sha512-S4vJDjHHMBaiZuT9NPb616CSmLf618jawtv3sufLl6ivK8WocjAo58cXwbRV1cgqxH0Qbv+iUt6m05eqEa2IRA==
 
-sharp@^0.28.0:
-  version "0.28.0"
-  resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.28.0.tgz#93297cec530b3709e11677cf41565d9a654075a0"
-  integrity sha512-kGTaWLNMCkLYxkH2Pv7s+5LQBnWQ4mRKXs1XD19AWOxShWvU8b78qaWqTR/4ryNcPORO+qBoBnFF/Lzda5HgkQ==
+sharp@^0.28.1:
+  version "0.28.1"
+  resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.28.1.tgz#9d7bbce1ca95b2c27482243cd4839c62ef40b0b7"
+  integrity sha512-4mCGMEN4ntaVuFGwHx7FvkJQkIgbI+S+F9a3bI7ugdvKjPr4sF7/ibvlRKhJyzhoQi+ODM+XYY1de8xs7MHbfA==
   dependencies:
     color "^3.1.3"
     detect-libc "^1.0.3"
     node-addon-api "^3.1.0"
-    prebuild-install "^6.0.1"
+    prebuild-install "^6.1.1"
     semver "^7.3.5"
     simple-get "^3.1.0"
     tar-fs "^2.1.1"
@@ -17838,11 +17837,6 @@ which-module@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/which-module/-/which-module-2.0.0.tgz#d9ef07dce77b9902b8a3a8fa4b31c3e3f7e6e87a"
   integrity sha1-2e8H3Od7mQK4o6j6SzHD4/fm6Ho=
-
-which-pm-runs@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/which-pm-runs/-/which-pm-runs-1.0.0.tgz#670b3afbc552e0b55df6b7780ca74615f23ad1cb"
-  integrity sha1-Zws6+8VS4LVd9rd4DKdGFfI60cs=
 
 which-typed-array@^1.1.2:
   version "1.1.4"
