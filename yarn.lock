@@ -12233,10 +12233,10 @@ next-compose-plugins@^2.2.1:
   resolved "https://registry.yarnpkg.com/next-compose-plugins/-/next-compose-plugins-2.2.1.tgz#020fc53f275a7e719d62521bef4300fbb6fde5ab"
   integrity sha512-OjJ+fV15FXO2uQXQagLD4C0abYErBjyjE0I0FHpOEIB8upw0hg1ldFP6cqHTJBH1cZqy96OeR3u1dJ+Ez2D4Bg==
 
-next-pwa@^5.2.1:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/next-pwa/-/next-pwa-5.2.1.tgz#c29c70cd79e40fc464fbed59ed5444cd899a12f1"
-  integrity sha512-aLDHX62hd6nT0kBqkrOmfPFJ4uDJ8FKbmuf+xbHuJwnYLRa9N3NNoiy3qMYYohpmHbAc/XJd7p+ZQQvGXPNjYw==
+next-pwa@^5.2.3:
+  version "5.2.3"
+  resolved "https://registry.yarnpkg.com/next-pwa/-/next-pwa-5.2.3.tgz#ec3b61eb4689859252357e33a1495abaeee09fe9"
+  integrity sha512-CVht4cT3KxOe9Yc/kyJleJY5653646D4j3rxpsqVHoH71cDEDu0pOfHr9FPp9IBpTHFSS3ZTXO7+uyxtbABycg==
   dependencies:
     babel-loader "^8.2.2"
     clean-webpack-plugin "^3.0.0"
@@ -17049,10 +17049,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^4.2.3:
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.3.tgz#39062d8019912d43726298f09493d598048c1ce3"
-  integrity sha512-qOcYwxaByStAWrBf4x0fibwZvMRG+r4cQoTjbPtUlrWjBHbmCAww1i448U0GJ+3cNNEtebDteo/cHOR3xJ4wEw==
+typescript@^4.2.4:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.4.tgz#8610b59747de028fda898a8aef0e103f156d0961"
+  integrity sha512-V+evlYHZnQkaz8TRBuxTA92yZBPotr5H+WhQ7bD3hZUndx5tGOa1fuCgeSjxAzM1RiN5IzvadIXTVefuuwZCRg==
 
 ua-parser-js@^0.7.18:
   version "0.7.24"
