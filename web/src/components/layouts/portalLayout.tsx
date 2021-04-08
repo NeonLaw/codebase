@@ -1,4 +1,5 @@
 import { colors, gutters, theme } from '../../styles/neonLaw';
+
 import { BaseFooter } from '../footer/baseFooter';
 import { LoadingPage } from '../loadingPage';
 import {
@@ -18,14 +19,6 @@ import { useRouter } from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 
 const StyledPortalLayout = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
-    url(/images/dashboard-bg.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   min-height: 100vh;
 
   .wrapper {
@@ -34,21 +27,14 @@ const StyledPortalLayout = styled.div`
     grid-template-columns: 216px 2fr;
     grid-template-areas: 'head head' 'aside main';
     width: 100%;
-    margin: 3vw;
     overflow: hidden;
 
     @media (max-width: 800px) {
       grid-template-columns: 1fr;
-      margin: 0;
-    }
-
-    @media (max-width: 640px) {
-      width: 100vh;
     }
 
     @media (min-height: 1100px) {
-      grid-template-rows: auto minmax(90vh, auto);
-      margin: 3vh 3vw;
+      grid-template-rows: auto minmax(100vh, auto);
     }
   }
 
