@@ -5,8 +5,8 @@ import request from 'supertest';
 
 describe('Create a person from Auth0 with authentication token', () => {
   it('returns the created user or the current user', async () => {
-    const email = `${faker.random.uuid()}@sink.sendgrid.com`;
-    const sub = faker.random.uuid();
+    const email = `${faker.datatype.uuid()}@sink.sendgrid.com`;
+    const sub = faker.datatype.uuid();
     const authenticationToken = process.env.AUTH0_CLIENT_SECRET;
 
     const res = await request(app)
