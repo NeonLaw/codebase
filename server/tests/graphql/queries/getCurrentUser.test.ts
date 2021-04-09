@@ -23,7 +23,7 @@ describe('the getCurrentUser query', () => {
 
   describe('a portal user', () => {
     it('returns the current user object', async () => {
-      const personId = faker.random.uuid();
+      const personId = faker.datatype.uuid();
 
       await runGraphQLQuery({
         async databaseSetup(client) {
@@ -53,7 +53,7 @@ describe('the getCurrentUser query', () => {
 
   describe('a lawyer user', () => {
     it('returns the current user object', async () => {
-      const personId = faker.random.uuid();
+      const personId = faker.datatype.uuid();
 
       await runGraphQLQuery({
         async databaseSetup(client) {
@@ -83,7 +83,7 @@ describe('the getCurrentUser query', () => {
 
   describe('a admin user', () => {
     it('returns the current user object', async () => {
-      const personId = faker.random.uuid();
+      const personId = faker.datatype.uuid();
 
       await runGraphQLQuery({
         async databaseSetup(client) {

@@ -9,7 +9,7 @@ import {
 } from '../../utils/dbHelpers';
 
 describe('INSERT INTO matter;', () => {
-  const randomId = faker.random.uuid();
+  const randomId = faker.datatype.uuid();
 
   describe('an anonymous user', () => {
     it('cannot create matters', () =>

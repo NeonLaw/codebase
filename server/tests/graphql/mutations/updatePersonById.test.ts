@@ -23,7 +23,7 @@ describe('the updatePersonById mutation', () => {
 
   describe('an anonymous user', () => {
     it('returns a null updatePerson object', async () => {
-      const personId = faker.random.uuid();
+      const personId = faker.datatype.uuid();
 
       await runGraphQLQuery({
         async databaseSetup(client) {
@@ -57,7 +57,7 @@ describe('the updatePersonById mutation', () => {
 
   describe('a portal user', () => {
     it('returns the updated user when updating themself', async () => {
-      const personId = faker.random.uuid();
+      const personId = faker.datatype.uuid();
 
       await runGraphQLQuery({
         async databaseSetup(client) {
@@ -89,8 +89,8 @@ describe('the updatePersonById mutation', () => {
     });
 
     it('returns an error when updating another user', async () => {
-      const personId = faker.random.uuid();
-      const otherPersonId = faker.random.uuid();
+      const personId = faker.datatype.uuid();
+      const otherPersonId = faker.datatype.uuid();
 
       await runGraphQLQuery({
         async databaseSetup(client) {
@@ -134,7 +134,7 @@ describe('the updatePersonById mutation', () => {
 
   describe('a lawyer user', () => {
     it('returns the updated user when updating themself', async () => {
-      const personId = faker.random.uuid();
+      const personId = faker.datatype.uuid();
 
       await runGraphQLQuery({
         async databaseSetup(client) {
@@ -166,8 +166,8 @@ describe('the updatePersonById mutation', () => {
     });
 
     it('returns an error when updating another user', async () => {
-      const personId = faker.random.uuid();
-      const otherPersonId = faker.random.uuid();
+      const personId = faker.datatype.uuid();
+      const otherPersonId = faker.datatype.uuid();
 
       await runGraphQLQuery({
         async databaseSetup(client) {
@@ -211,7 +211,7 @@ describe('the updatePersonById mutation', () => {
 
   describe('a admin user', () => {
     it('returns the updated user when updating themself', async () => {
-      const personId = faker.random.uuid();
+      const personId = faker.datatype.uuid();
 
       await runGraphQLQuery({
         async databaseSetup(client) {
@@ -243,8 +243,8 @@ describe('the updatePersonById mutation', () => {
     });
 
     it('returns the updated user when updating another user', async () => {
-      const personId = faker.random.uuid();
-      const otherPersonId = faker.random.uuid();
+      const personId = faker.datatype.uuid();
+      const otherPersonId = faker.datatype.uuid();
 
       await runGraphQLQuery({
         async databaseSetup(client) {
