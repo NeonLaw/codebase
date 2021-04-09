@@ -16,12 +16,12 @@ export const searchQueriesPlugin = makeExtendSchemaPlugin(() => {
     },
     typeDefs: gql`
       extend type Query {
-        publicQueries: PublicQueryPayload[]
+        publicQueries: [PublicQueryPayload]
       }
 
-      type PublicQuery {
-        id: String
-        body: String
+      type PublicQueryPayload {
+        id: String!
+        body: String!
       }
     `,
   };
