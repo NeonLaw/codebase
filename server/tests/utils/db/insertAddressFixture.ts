@@ -9,7 +9,7 @@ export const insertAddressFixture = async ({
   client,
   personId,
 }: InsertAddressFixtureArgs) => {
-  const lobIdentifier = faker.random.uuid();
+  const lobIdentifier = faker.datatype.uuid();
   const { rows } = await client.query(
     'INSERT INTO address (person_id, lob_identifier) '+
     'VALUES ($1, $2) '+

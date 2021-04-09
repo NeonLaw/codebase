@@ -8,8 +8,8 @@ import {
 } from '../../utils/dbHelpers';
 
 describe('INSERT INTO letter;', () => {
-  const addressorId = faker.random.uuid();
-  const addresseeId = faker.random.uuid();
+  const addressorId = faker.datatype.uuid();
+  const addresseeId = faker.datatype.uuid();
   const lobIdentifier = faker.lorem.sentence();
 
   describe('an anonymous user', () => {
