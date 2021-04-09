@@ -6,6 +6,7 @@ import { documentPlugin } from './resolvers/documentPlugin';
 import { fileUploadsPlugin } from './resolvers/fileUploadsPlugin';
 import { makeAddInflectorsPlugin } from 'graphile-utils';
 import { questionPlugin } from './resolvers/questionPlugin';
+import { searchQueriesPlugin } from './resolvers/searchQueriesPlugin';
 import { slatePlugin } from './slateTypes';
 
 const tracingPlugin = {
@@ -58,6 +59,7 @@ export const postgraphileOptions: PostGraphileOptions = {
     documentPlugin,
     fileUploadsPlugin,
     questionPlugin,
+    searchQueriesPlugin,
     slatePlugin
   ],
   defaultPaginationCap:

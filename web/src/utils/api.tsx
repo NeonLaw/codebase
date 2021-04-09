@@ -2664,6 +2664,12 @@ export type PersonPatch = {
   flags?: Maybe<Scalars['String']>;
 };
 
+export type PublicQueryPayload = {
+  __typename?: 'PublicQueryPayload';
+  id: Scalars['String'];
+  body: Scalars['String'];
+};
+
 /** The root query type which gives access points into the data universe. */
 export type Query = Node & {
   __typename?: 'Query';
@@ -2747,6 +2753,7 @@ export type Query = Node & {
   unprocessedDocumentByNodeId?: Maybe<UnprocessedDocument>;
   /** Reads a single `AccountingBill` using its globally unique `ID`. */
   accountingBillByNodeId?: Maybe<AccountingBill>;
+  publicQueries?: Maybe<Array<Maybe<PublicQueryPayload>>>;
 };
 
 
