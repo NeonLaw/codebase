@@ -12,7 +12,7 @@ import {
 
 describe('SELECT * FROM matter;', () => {
   describe('an anonymous user', () => {
-    it('cannot select matters', () =>
+    it('cannot select letters', () =>
       withRootDb(async (pgClient: any) => {
         await startAnonymousSession(pgClient);
 
