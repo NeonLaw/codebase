@@ -12,7 +12,7 @@ export const insertMatterFixture = async ({
   primaryContactId,
   matterTemplateId,
 }: InsertMatterFixtureArgs) => {
-  const uuid = faker.random.uuid();
+  const uuid = faker.datatype.uuid();
 
   let matterTemplateIdForInsertingMatter;
 
