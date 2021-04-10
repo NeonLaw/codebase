@@ -1,6 +1,6 @@
 import * as faker from 'faker';
 
-export const insertPersonFixture = async (client: any) => {
+export const insertPersonFixture = async ({ client }) => {
   const email = faker.internet.email();
   const sub = faker.datatype.uuid();
 

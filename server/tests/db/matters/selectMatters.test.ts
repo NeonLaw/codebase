@@ -12,10 +12,10 @@ import {
 describe('SELECT * FROM matter;', () => {
   describe('an anonymous user', () => {
     it('cannot select matters', () =>
-      withRootDb(async (pgClient: any) => {
-        await startAnonymousSession(pgClient);
+      withRootDb(async (client: any) => {
+        await startAnonymousSession(client);
 
-        await expect(pgClient.query('select * from matter;')).rejects.toThrow(
+        await expect(client.query('select * from matter;')).rejects.toThrow(
           /permission denied for table matter/
         );
       })
@@ -24,53 +24,53 @@ describe('SELECT * FROM matter;', () => {
 
   describe('a portal user', () => {
     it('can only select matters where they are the primary contact', () =>
-      withRootDb(async (pgClient: any) => {
+      withRootDb(async (client: any) => {
         const {
           id: matterTemplateId
-        } = await insertMatterTemplateFixture(pgClient);
+        } = await insertMatterTemplateFixture({ client });
         await insertMatterFixture({
-          client: pgClient,
+          client,
           matterTemplateId,
         });
 
         const email = faker.internet.email();
         const { id: primaryContactId } = await startPortalSession(
-          pgClient,
+          client,
           email
         );
         const userMatterRow = await insertMatterFixture({
-          client: pgClient,
+          client,
           matterTemplateId,
           primaryContactId,
         });
 
-        const { rows } = await pgClient.query('select * from matter;');
+        const { rows } = await client.query('select * from matter;');
 
         expect(rows).toHaveLength(1);
-        expect(userMatterRow).toMatch(rows[0].id);
+        expect(userMatterRow.id).toEqual(rows[0].id);
       })
     );
   });
 
   describe('a admin user', () => {
     it('can select all matters', () =>
-      withRootDb(async (pgClient: any) => {
-        await pgClient.query('DELETE FROM matter;');
+      withRootDb(async (client: any) => {
+        await client.query('DELETE FROM matter;');
         const {
           id: matterTemplateId
-        } = await insertMatterTemplateFixture(pgClient);
+        } = await insertMatterTemplateFixture({ client });
         await insertMatterFixture({
-          client: pgClient,
+          client,
           matterTemplateId,
         });
         await insertMatterFixture({
-          client: pgClient,
+          client,
           matterTemplateId,
         });
 
-        await startAdminSession(pgClient);
+        await startAdminSession(client);
 
-        const { rows } = await pgClient.query('select * from matter;');
+        const { rows } = await client.query('select * from matter;');
 
         expect(rows).toHaveLength(2);
       })

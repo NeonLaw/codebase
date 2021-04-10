@@ -150,6 +150,32 @@ export type Address = Node & {
   name?: Maybe<Scalars['String']>;
   /** Reads a single `Person` that is related to this `Address`. */
   person?: Maybe<Person>;
+  /** Reads and enables pagination through a set of `Letter`. */
+  lettersByAddresseeId: LettersConnection;
+  /** Reads and enables pagination through a set of `Letter`. */
+  lettersByAddressorId: LettersConnection;
+};
+
+
+export type AddressLettersByAddresseeIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<LettersOrderBy>>;
+  condition?: Maybe<LetterCondition>;
+};
+
+
+export type AddressLettersByAddressorIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<LettersOrderBy>>;
+  condition?: Maybe<LetterCondition>;
 };
 
 /** A condition to be used against `Address` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -349,6 +375,10 @@ export type CreateLetterPayload = {
   letter?: Maybe<Letter>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Address` that is related to this `Letter`. */
+  addressee?: Maybe<Address>;
+  /** Reads a single `Address` that is related to this `Letter`. */
+  addressor?: Maybe<Address>;
   /** An edge for our `Letter`. May be used by Relay 1. */
   letterEdge?: Maybe<LettersEdge>;
 };
@@ -382,6 +412,10 @@ export type CreateMatterContactPayload = {
   matterContact?: Maybe<MatterContact>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Person` that is related to this `MatterContact`. */
+  contact?: Maybe<Person>;
+  /** Reads a single `Matter` that is related to this `MatterContact`. */
+  matter?: Maybe<Matter>;
   /** An edge for our `MatterContact`. May be used by Relay 1. */
   matterContactEdge?: Maybe<MatterContactsEdge>;
 };
@@ -604,6 +638,8 @@ export type CreateResponsePayload = {
   query?: Maybe<Query>;
   /** Reads a single `Question` that is related to this `Response`. */
   question?: Maybe<Question>;
+  /** Reads a single `Person` that is related to this `Response`. */
+  person?: Maybe<Person>;
   /** An edge for our `Response`. May be used by Relay 1. */
   responseEdge?: Maybe<ResponsesEdge>;
 };
@@ -641,6 +677,38 @@ export type CreateTransloaditTokenPayload = {
   expires?: Maybe<Scalars['String']>;
   signature?: Maybe<Scalars['String']>;
 };
+
+export type CurrentUserDocument = {
+  __typename?: 'CurrentUserDocument';
+  id?: Maybe<Scalars['UUID']>;
+};
+
+/** A connection to a list of `CurrentUserDocument` values. */
+export type CurrentUserDocumentsConnection = {
+  __typename?: 'CurrentUserDocumentsConnection';
+  /** A list of `CurrentUserDocument` objects. */
+  nodes: Array<CurrentUserDocument>;
+  /** A list of edges which contains the `CurrentUserDocument` and cursor to aid in pagination. */
+  edges: Array<CurrentUserDocumentsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `CurrentUserDocument` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `CurrentUserDocument` edge in the connection. */
+export type CurrentUserDocumentsEdge = {
+  __typename?: 'CurrentUserDocumentsEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `CurrentUserDocument` at the end of the edge. */
+  node: CurrentUserDocument;
+};
+
+/** Methods to use when ordering `CurrentUserDocument`. */
+export enum CurrentUserDocumentsOrderBy {
+  Natural = 'NATURAL'
+}
 
 export type CurrentUserMatter = {
   __typename?: 'CurrentUserMatter';
@@ -897,6 +965,10 @@ export type DeleteLetterPayload = {
   deletedLetterNodeId?: Maybe<Scalars['ID']>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Address` that is related to this `Letter`. */
+  addressee?: Maybe<Address>;
+  /** Reads a single `Address` that is related to this `Letter`. */
+  addressor?: Maybe<Address>;
   /** An edge for our `Letter`. May be used by Relay 1. */
   letterEdge?: Maybe<LettersEdge>;
 };
@@ -952,6 +1024,10 @@ export type DeleteMatterContactPayload = {
   deletedMatterContactNodeId?: Maybe<Scalars['ID']>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Person` that is related to this `MatterContact`. */
+  contact?: Maybe<Person>;
+  /** Reads a single `Matter` that is related to this `MatterContact`. */
+  matter?: Maybe<Matter>;
   /** An edge for our `MatterContact`. May be used by Relay 1. */
   matterContactEdge?: Maybe<MatterContactsEdge>;
 };
@@ -1274,6 +1350,8 @@ export type DeleteResponseDocumentPayload = {
   query?: Maybe<Query>;
   /** Reads a single `Document` that is related to this `ResponseDocument`. */
   document?: Maybe<Document>;
+  /** Reads a single `Response` that is related to this `ResponseDocument`. */
+  response?: Maybe<Response>;
   /** An edge for our `ResponseDocument`. May be used by Relay 1. */
   responseDocumentEdge?: Maybe<ResponseDocumentsEdge>;
 };
@@ -1309,6 +1387,8 @@ export type DeleteResponsePayload = {
   query?: Maybe<Query>;
   /** Reads a single `Question` that is related to this `Response`. */
   question?: Maybe<Question>;
+  /** Reads a single `Person` that is related to this `Response`. */
+  person?: Maybe<Person>;
   /** An edge for our `Response`. May be used by Relay 1. */
   responseEdge?: Maybe<ResponsesEdge>;
 };
@@ -1353,6 +1433,10 @@ export type DeleteUnprocessedDocumentPayload = {
   deletedUnprocessedDocumentNodeId?: Maybe<Scalars['ID']>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `DocumentTemplate` that is related to this `UnprocessedDocument`. */
+  documentTemplate?: Maybe<DocumentTemplate>;
+  /** Reads a single `Document` that is related to this `UnprocessedDocument`. */
+  processedDocument?: Maybe<Document>;
   /** An edge for our `UnprocessedDocument`. May be used by Relay 1. */
   unprocessedDocumentEdge?: Maybe<UnprocessedDocumentsEdge>;
 };
@@ -1380,6 +1464,8 @@ export type Document = Node & {
   matterDocuments: MatterDocumentsConnection;
   /** Reads and enables pagination through a set of `ResponseDocument`. */
   responseDocuments: ResponseDocumentsConnection;
+  /** Reads and enables pagination through a set of `UnprocessedDocument`. */
+  unprocessedDocumentsByProcessedDocumentId: UnprocessedDocumentsConnection;
   downloadUrl?: Maybe<Scalars['String']>;
 };
 
@@ -1403,6 +1489,17 @@ export type DocumentResponseDocumentsArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<ResponseDocumentsOrderBy>>;
   condition?: Maybe<ResponseDocumentCondition>;
+};
+
+
+export type DocumentUnprocessedDocumentsByProcessedDocumentIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<UnprocessedDocumentsOrderBy>>;
+  condition?: Maybe<UnprocessedDocumentCondition>;
 };
 
 /**
@@ -1464,6 +1561,8 @@ export type DocumentTemplate = Node & {
   updatedAt: Scalars['Datetime'];
   /** Reads and enables pagination through a set of `Document`. */
   documents: DocumentsConnection;
+  /** Reads and enables pagination through a set of `UnprocessedDocument`. */
+  unprocessedDocuments: UnprocessedDocumentsConnection;
 };
 
 
@@ -1475,6 +1574,17 @@ export type DocumentTemplateDocumentsArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<DocumentsOrderBy>>;
   condition?: Maybe<DocumentCondition>;
+};
+
+
+export type DocumentTemplateUnprocessedDocumentsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<UnprocessedDocumentsOrderBy>>;
+  condition?: Maybe<UnprocessedDocumentCondition>;
 };
 
 /**
@@ -1547,6 +1657,10 @@ export type Letter = Node & {
   createdAt?: Maybe<Scalars['Datetime']>;
   addresseeId: Scalars['UUID'];
   addressorId: Scalars['UUID'];
+  /** Reads a single `Address` that is related to this `Letter`. */
+  addressee?: Maybe<Address>;
+  /** Reads a single `Address` that is related to this `Letter`. */
+  addressor?: Maybe<Address>;
 };
 
 /** A condition to be used against `Letter` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -1555,6 +1669,10 @@ export type LetterCondition = {
   id?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `lobIdentifier` field. */
   lobIdentifier?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `addresseeId` field. */
+  addresseeId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `addressorId` field. */
+  addressorId?: Maybe<Scalars['UUID']>;
 };
 
 /** An input for mutations affecting `Letter` */
@@ -1606,6 +1724,10 @@ export enum LettersOrderBy {
   IdDesc = 'ID_DESC',
   LobIdentifierAsc = 'LOB_IDENTIFIER_ASC',
   LobIdentifierDesc = 'LOB_IDENTIFIER_DESC',
+  AddresseeIdAsc = 'ADDRESSEE_ID_ASC',
+  AddresseeIdDesc = 'ADDRESSEE_ID_DESC',
+  AddressorIdAsc = 'ADDRESSOR_ID_ASC',
+  AddressorIdDesc = 'ADDRESSOR_ID_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -1629,6 +1751,8 @@ export type Matter = Node & {
   matterTemplate?: Maybe<MatterTemplate>;
   /** Reads and enables pagination through a set of `MatterDocument`. */
   matterDocuments: MatterDocumentsConnection;
+  /** Reads and enables pagination through a set of `MatterContact`. */
+  matterContacts: MatterContactsConnection;
 };
 
 
@@ -1641,6 +1765,18 @@ export type MatterMatterDocumentsArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<MatterDocumentsOrderBy>>;
   condition?: Maybe<MatterDocumentCondition>;
+};
+
+
+/** A legal matter, managed by Neon Law admin. */
+export type MatterMatterContactsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<MatterContactsOrderBy>>;
+  condition?: Maybe<MatterContactCondition>;
 };
 
 /** A condition to be used against `Matter` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -1669,6 +1805,10 @@ export type MatterContact = Node & {
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
   role: Scalars['String'];
+  /** Reads a single `Person` that is related to this `MatterContact`. */
+  contact?: Maybe<Person>;
+  /** Reads a single `Matter` that is related to this `MatterContact`. */
+  matter?: Maybe<Matter>;
 };
 
 /**
@@ -1678,6 +1818,10 @@ export type MatterContact = Node & {
 export type MatterContactCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `contactId` field. */
+  contactId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `matterId` field. */
+  matterId?: Maybe<Scalars['UUID']>;
 };
 
 /** An input for mutations affecting `MatterContact` */
@@ -1727,6 +1871,10 @@ export enum MatterContactsOrderBy {
   Natural = 'NATURAL',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  ContactIdAsc = 'CONTACT_ID_ASC',
+  ContactIdDesc = 'CONTACT_ID_DESC',
+  MatterIdAsc = 'MATTER_ID_ASC',
+  MatterIdDesc = 'MATTER_ID_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -2605,12 +2753,27 @@ export type Person = Node & {
   picture?: Maybe<Scalars['String']>;
   sub?: Maybe<Scalars['String']>;
   flags: Scalars['String'];
+  /** Reads and enables pagination through a set of `Response`. */
+  responses: ResponsesConnection;
   /** Reads and enables pagination through a set of `Matter`. */
   mattersByPrimaryContactId: MattersConnection;
   /** Reads and enables pagination through a set of `Address`. */
   addresses: AddressesConnection;
   /** Reads and enables pagination through a set of `MatterDocument`. */
   authoredMatterDocuments: MatterDocumentsConnection;
+  /** Reads and enables pagination through a set of `MatterContact`. */
+  matterContactsByContactId: MatterContactsConnection;
+};
+
+
+export type PersonResponsesArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<ResponsesOrderBy>>;
+  condition?: Maybe<ResponseCondition>;
 };
 
 
@@ -2644,6 +2807,17 @@ export type PersonAuthoredMatterDocumentsArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<MatterDocumentsOrderBy>>;
   condition?: Maybe<MatterDocumentCondition>;
+};
+
+
+export type PersonMatterContactsByContactIdArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<MatterContactsOrderBy>>;
+  condition?: Maybe<MatterContactCondition>;
 };
 
 /** A condition to be used against `Person` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -2684,6 +2858,8 @@ export type Query = Node & {
   node?: Maybe<Node>;
   /** Reads and enables pagination through a set of `Address`. */
   addresses?: Maybe<AddressesConnection>;
+  /** Reads and enables pagination through a set of `CurrentUserDocument`. */
+  currentUserDocuments?: Maybe<CurrentUserDocumentsConnection>;
   /** Reads and enables pagination through a set of `CurrentUserMatter`. */
   currentUserMatters?: Maybe<CurrentUserMattersConnection>;
   /** Reads and enables pagination through a set of `DocumentTemplate`. */
@@ -2772,6 +2948,17 @@ export type QueryAddressesArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<AddressesOrderBy>>;
   condition?: Maybe<AddressCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryCurrentUserDocumentsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<CurrentUserDocumentsOrderBy>>;
 };
 
 
@@ -3298,6 +3485,21 @@ export type Response = Node & {
   personId: Scalars['UUID'];
   /** Reads a single `Question` that is related to this `Response`. */
   question?: Maybe<Question>;
+  /** Reads a single `Person` that is related to this `Response`. */
+  person?: Maybe<Person>;
+  /** Reads and enables pagination through a set of `ResponseDocument`. */
+  responseDocuments: ResponseDocumentsConnection;
+};
+
+
+export type ResponseResponseDocumentsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<ResponseDocumentsOrderBy>>;
+  condition?: Maybe<ResponseDocumentCondition>;
 };
 
 /**
@@ -3309,6 +3511,8 @@ export type ResponseCondition = {
   id?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `questionId` field. */
   questionId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `personId` field. */
+  personId?: Maybe<Scalars['UUID']>;
 };
 
 export type ResponseDocument = Node & {
@@ -3320,6 +3524,8 @@ export type ResponseDocument = Node & {
   responseId: Scalars['UUID'];
   /** Reads a single `Document` that is related to this `ResponseDocument`. */
   document?: Maybe<Document>;
+  /** Reads a single `Response` that is related to this `ResponseDocument`. */
+  response?: Maybe<Response>;
 };
 
 /**
@@ -3331,6 +3537,8 @@ export type ResponseDocumentCondition = {
   id?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `documentId` field. */
   documentId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `responseId` field. */
+  responseId?: Maybe<Scalars['UUID']>;
 };
 
 /** A connection to a list of `ResponseDocument` values. */
@@ -3362,6 +3570,8 @@ export enum ResponseDocumentsOrderBy {
   IdDesc = 'ID_DESC',
   DocumentIdAsc = 'DOCUMENT_ID_ASC',
   DocumentIdDesc = 'DOCUMENT_ID_DESC',
+  ResponseIdAsc = 'RESPONSE_ID_ASC',
+  ResponseIdDesc = 'RESPONSE_ID_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -3414,6 +3624,8 @@ export enum ResponsesOrderBy {
   IdDesc = 'ID_DESC',
   QuestionIdAsc = 'QUESTION_ID_ASC',
   QuestionIdDesc = 'QUESTION_ID_DESC',
+  PersonIdAsc = 'PERSON_ID_ASC',
+  PersonIdDesc = 'PERSON_ID_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -3428,6 +3640,23 @@ export type UnprocessedDocument = Node & {
   documentableId: Scalars['UUID'];
   documentTemplateId: Scalars['UUID'];
   processedDocumentId?: Maybe<Scalars['UUID']>;
+  /** Reads a single `DocumentTemplate` that is related to this `UnprocessedDocument`. */
+  documentTemplate?: Maybe<DocumentTemplate>;
+  /** Reads a single `Document` that is related to this `UnprocessedDocument`. */
+  processedDocument?: Maybe<Document>;
+};
+
+/**
+ * A condition to be used against `UnprocessedDocument` object types. All fields
+ * are tested for equality and combined with a logical ‘and.’
+ */
+export type UnprocessedDocumentCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `documentTemplateId` field. */
+  documentTemplateId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `processedDocumentId` field. */
+  processedDocumentId?: Maybe<Scalars['UUID']>;
 };
 
 /** Represents an update to a `UnprocessedDocument`. Fields that are set will be updated. */
@@ -3438,6 +3667,19 @@ export type UnprocessedDocumentPatch = {
   documentableId?: Maybe<Scalars['UUID']>;
   documentTemplateId?: Maybe<Scalars['UUID']>;
   processedDocumentId?: Maybe<Scalars['UUID']>;
+};
+
+/** A connection to a list of `UnprocessedDocument` values. */
+export type UnprocessedDocumentsConnection = {
+  __typename?: 'UnprocessedDocumentsConnection';
+  /** A list of `UnprocessedDocument` objects. */
+  nodes: Array<UnprocessedDocument>;
+  /** A list of edges which contains the `UnprocessedDocument` and cursor to aid in pagination. */
+  edges: Array<UnprocessedDocumentsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `UnprocessedDocument` you could get from the connection. */
+  totalCount: Scalars['Int'];
 };
 
 /** A `UnprocessedDocument` edge in the connection. */
@@ -3454,6 +3696,10 @@ export enum UnprocessedDocumentsOrderBy {
   Natural = 'NATURAL',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  DocumentTemplateIdAsc = 'DOCUMENT_TEMPLATE_ID_ASC',
+  DocumentTemplateIdDesc = 'DOCUMENT_TEMPLATE_ID_DESC',
+  ProcessedDocumentIdAsc = 'PROCESSED_DOCUMENT_ID_ASC',
+  ProcessedDocumentIdDesc = 'PROCESSED_DOCUMENT_ID_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -3638,6 +3884,10 @@ export type UpdateLetterPayload = {
   letter?: Maybe<Letter>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Address` that is related to this `Letter`. */
+  addressee?: Maybe<Address>;
+  /** Reads a single `Address` that is related to this `Letter`. */
+  addressor?: Maybe<Address>;
   /** An edge for our `Letter`. May be used by Relay 1. */
   letterEdge?: Maybe<LettersEdge>;
 };
@@ -3698,6 +3948,10 @@ export type UpdateMatterContactPayload = {
   matterContact?: Maybe<MatterContact>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Person` that is related to this `MatterContact`. */
+  contact?: Maybe<Person>;
+  /** Reads a single `Matter` that is related to this `MatterContact`. */
+  matter?: Maybe<Matter>;
   /** An edge for our `MatterContact`. May be used by Relay 1. */
   matterContactEdge?: Maybe<MatterContactsEdge>;
 };
@@ -4008,6 +4262,8 @@ export type UpdateResponsePayload = {
   query?: Maybe<Query>;
   /** Reads a single `Question` that is related to this `Response`. */
   question?: Maybe<Question>;
+  /** Reads a single `Person` that is related to this `Response`. */
+  person?: Maybe<Person>;
   /** An edge for our `Response`. May be used by Relay 1. */
   responseEdge?: Maybe<ResponsesEdge>;
 };
@@ -4055,6 +4311,10 @@ export type UpdateUnprocessedDocumentPayload = {
   unprocessedDocument?: Maybe<UnprocessedDocument>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `DocumentTemplate` that is related to this `UnprocessedDocument`. */
+  documentTemplate?: Maybe<DocumentTemplate>;
+  /** Reads a single `Document` that is related to this `UnprocessedDocument`. */
+  processedDocument?: Maybe<Document>;
   /** An edge for our `UnprocessedDocument`. May be used by Relay 1. */
   unprocessedDocumentEdge?: Maybe<UnprocessedDocumentsEdge>;
 };

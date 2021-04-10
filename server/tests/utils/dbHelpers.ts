@@ -3,10 +3,16 @@ import { afterAll } from '@jest/globals';
 import { postgresUrl } from '../../src/postgresUrl';
 
 export { insertAddressFixture } from './db/insertAddressFixture';
+export { insertMatterDocumentFixture } from './db/insertMatterDocumentFixture';
+export {
+  insertDocumentTemplateFixture
+} from './db/insertDocumentTemplateFixture';
+export { insertDocumentFixture } from './db/insertDocumentFixture';
 export { insertMatterFixture } from './db/insertMatterFixture';
 export { insertMatterTemplateFixture } from './db/insertMatterTemplateFixture';
 export { insertPersonFixture } from './db/insertPersonFixture';
 export { insertLetterFixture } from './db/insertLetterFixture';
+export { selectPortalPerson } from './db/selectPortalPerson';
 
 const pools: any = {};
 
