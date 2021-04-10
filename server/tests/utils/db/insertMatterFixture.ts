@@ -51,5 +51,9 @@ export const insertMatterFixture = async ({
     ]
   );
 
-  return rows[0].row;
+  const { row } = rows[0];
+
+  const id = row.split(',')[0].replace(/\(/, '');
+
+  return { id };
 };

@@ -1,8 +1,12 @@
 import * as faker from 'faker';
 
-export const insertMatterTemplateFixture = async (
-  client: any,
-) => {
+interface InsertMatterTemplateFixtureArgs {
+  client: any;
+}
+
+export const insertMatterTemplateFixture = async ({
+  client
+}: InsertMatterTemplateFixtureArgs) => {
   const uuid = faker.datatype.uuid();
 
   const { rows } = await client.query(
