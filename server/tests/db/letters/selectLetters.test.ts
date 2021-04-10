@@ -49,27 +49,27 @@ describe('SELECT * FROM matter;', () => {
 
   describe('a admin user', () => {
     it('can select all letter', () =>
-      withRootDb(async (pgClient: any) => {
-        await pgClient.query('DELETE FROM letter;');
-        const { id: personId } = await insertPersonFixture(pgClient);
+      withRootDb(async (client: any) => {
+        await client.query('DELETE FROM letter;');
+        const { id: personId } = await insertPersonFixture({ client });
         const { id: addresseeId } = await insertAddressFixture({
-          client: pgClient,
+          client: client,
           personId
         });
         const { id: addressorId } = await insertAddressFixture({
-          client: pgClient,
+          client: client,
           personId
         });
 
         await insertLetterFixture({
           addresseeId,
           addressorId,
-          client: pgClient,
+          client: client,
         });
 
-        await startAdminSession(pgClient);
+        await startAdminSession(client);
 
-        const { rows } = await pgClient.query('select * from letter;');
+        const { rows } = await client.query('select * from letter;');
 
         expect(rows).toHaveLength(1);
       })
