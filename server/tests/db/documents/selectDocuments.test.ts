@@ -51,8 +51,7 @@ describe('SELECT * FROM document;', () => {
           matterTemplateId,
           primaryContactId
         });
-        console.log('rar');
-        const { id: ownMatterDocumentId } = await insertMatterDocumentFixture({
+        await insertMatterDocumentFixture({
           authorId: primaryContactId,
           client,
           documentId: ownDocumentId,
@@ -68,23 +67,20 @@ describe('SELECT * FROM document;', () => {
           client,
           primaryContactId: otherPersonId
         });
-        const {
-          id: otherMatterDocumentId
-        } = await insertMatterDocumentFixture({
-          authorId: primaryContactId,
+        await insertMatterDocumentFixture({
+          authorId: otherPersonId,
           client,
           documentId: otherDocumentId,
           matterId: otherMatterId,
         });
 
         await startPortalSession(client);
+
         const { rows } = await client.query('select * from document;');
 
-        console.log(rows);
-
         expect(rows).toHaveLength(1);
-        expect(rows[0]).toMatch(ownMatterDocumentId);
-        expect(rows[0]).not.toMatch(otherMatterDocumentId);
+        expect(rows[0].id).toEqual(ownDocumentId);
+        expect(JSON.stringify(rows[0])).not.toMatch(otherDocumentId);
       })
     );
   });
