@@ -686,6 +686,9 @@ export type CurrentUserMatter = {
   updatedAt?: Maybe<Scalars['Datetime']>;
   primaryContactId?: Maybe<Scalars['UUID']>;
   matterTemplateId?: Maybe<Scalars['UUID']>;
+  description?: Maybe<Scalars['JSON']>;
+  active?: Maybe<Scalars['Boolean']>;
+  matterId?: Maybe<Scalars['UUID']>;
   matterTemplateName?: Maybe<Scalars['String']>;
   matterTemplateCategory?: Maybe<Scalars['String']>;
 };
