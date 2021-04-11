@@ -13,7 +13,7 @@ export const MatterDocumentsList = ({ matterDocuments }) => {
             rel="noreferrer">
             <ListItem>
               {matterDocument.document.filename} which is a
-              {matterDocument.document.documentTemplate.name}.
+              &nbsp;{matterDocument.document.documentTemplate.name}.
             </ListItem>
           </Box>
         );}
