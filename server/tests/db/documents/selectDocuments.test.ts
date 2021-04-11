@@ -53,7 +53,7 @@ describe('SELECT * FROM document;', () => {
           matterTemplateId,
           primaryContactId
         });
-        const { id: ownMatterDocumentId } = await insertMatterDocumentFixture({
+        await insertMatterDocumentFixture({
           authorId: primaryContactId,
           client,
           documentId: ownDocumentId,
@@ -69,9 +69,7 @@ describe('SELECT * FROM document;', () => {
           client,
           primaryContactId: otherPersonId
         });
-        const {
-          id: otherMatterDocumentId
-        } = await insertMatterDocumentFixture({
+        await insertMatterDocumentFixture({
           authorId: primaryContactId,
           client,
           documentId: otherDocumentId,
@@ -82,8 +80,8 @@ describe('SELECT * FROM document;', () => {
         const { rows } = await client.query('select * from document;');
 
         expect(rows).toHaveLength(1);
-        expect(JSON.stringify(rows[0])).toMatch(ownMatterDocumentId);
-        expect(JSON.stringify(rows[0])).not.toMatch(otherMatterDocumentId);
+        expect(JSON.stringify(rows)).toMatch(ownDocumentId);
+        expect(JSON.stringify(rows)).not.toMatch(otherDocumentId);
       })
     );
   });
@@ -125,7 +123,7 @@ describe('SELECT * FROM document;', () => {
           matterTemplateId,
           primaryContactId
         });
-        const { id: ownMatterDocumentId } = await insertMatterDocumentFixture({
+        await insertMatterDocumentFixture({
           authorId: primaryContactId,
           client,
           documentId: ownDocumentId,
@@ -141,9 +139,7 @@ describe('SELECT * FROM document;', () => {
           client,
           primaryContactId: otherPersonId
         });
-        const {
-          id: otherMatterDocumentId
-        } = await insertMatterDocumentFixture({
+        await insertMatterDocumentFixture({
           authorId: primaryContactId,
           client,
           documentId: otherDocumentId,
@@ -154,8 +150,8 @@ describe('SELECT * FROM document;', () => {
         const { rows } = await client.query('select * from document;');
 
         expect(rows).toHaveLength(2);
-        expect(JSON.stringify(rows[0])).toMatch(ownMatterDocumentId);
-        expect(JSON.stringify(rows[0])).toMatch(otherMatterDocumentId);
+        expect(JSON.stringify(rows)).toMatch(ownDocumentId);
+        expect(JSON.stringify(rows)).toMatch(otherDocumentId);
       })
     );
   });
