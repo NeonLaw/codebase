@@ -82,8 +82,8 @@ describe('SELECT * FROM document;', () => {
         const { rows } = await client.query('select * from document;');
 
         expect(rows).toHaveLength(1);
-        expect(rows[0]).toMatch(ownMatterDocumentId);
-        expect(rows[0]).not.toMatch(otherMatterDocumentId);
+        expect(JSON.stringify(rows[0])).toMatch(ownMatterDocumentId);
+        expect(JSON.stringify(rows[0])).not.toMatch(otherMatterDocumentId);
       })
     );
   });
@@ -154,8 +154,8 @@ describe('SELECT * FROM document;', () => {
         const { rows } = await client.query('select * from document;');
 
         expect(rows).toHaveLength(2);
-        expect(rows[0]).toMatch(ownMatterDocumentId);
-        expect(rows[1]).toMatch(otherMatterDocumentId);
+        expect(JSON.stringify(rows[0])).toMatch(ownMatterDocumentId);
+        expect(JSON.stringify(rows[0])).toMatch(otherMatterDocumentId);
       })
     );
   });
