@@ -22,10 +22,10 @@ export const documentPlugin = makeExtendSchemaPlugin(() => {
           };
 
           const bucketName = gcpUrl.match(
-            /^https:\/\/(.*)\.storage.googleapis.com/
+            /^https:\/\/(.*)\.storage\.googleapis\.com/
           )[1];
           const filename = gcpUrl.match(
-            /^https:\/\/.*\.storage.googleapis.com\/(.*)$/
+            /^https:\/\/.*\.storage\.googleapis\.com\/(.*)$/
           )[1];
 
           const [url] = await storage
