@@ -10,20 +10,19 @@ import {
   selectPortalPerson,
   startAdminSession,
   startAnonymousSession,
+  startLawyerSession,
   startPortalSession,
   withRootDb
 } from '../../utils/dbHelpers';
 
-describe('SELECT * FROM matter_document;', () => {
+describe('SELECT * FROM document;', () => {
   describe('an anonymous user', () => {
     it('cannot select document', () =>
       withRootDb(async (pgClient: any) => {
         await startAnonymousSession(pgClient);
 
-        await expect(
-          pgClient.query('select * from matter_document;')
-        ).rejects.toThrow(
-          /permission denied for table matter_document/
+        await expect(pgClient.query('select * from document;')).rejects.toThrow(
+          /permission denied for table document/
         );
       })
     );
@@ -54,7 +53,7 @@ describe('SELECT * FROM matter_document;', () => {
           matterTemplateId,
           primaryContactId
         });
-        const {id: ownMatterDocumentId } = await insertMatterDocumentFixture({
+        await insertMatterDocumentFixture({
           authorId: primaryContactId,
           client,
           documentId: ownDocumentId,
@@ -70,7 +69,7 @@ describe('SELECT * FROM matter_document;', () => {
           client,
           primaryContactId: otherPersonId
         });
-        const {id: otherMatterDocumentId } = await insertMatterDocumentFixture({
+        await insertMatterDocumentFixture({
           authorId: primaryContactId,
           client,
           documentId: otherDocumentId,
@@ -78,11 +77,23 @@ describe('SELECT * FROM matter_document;', () => {
         });
 
         await startPortalSession(client);
-        const { rows } = await client.query('select * from matter_document;');
+        const { rows } = await client.query('select * from document;');
 
         expect(rows).toHaveLength(1);
-        expect(JSON.stringify(rows)).toMatch(ownMatterDocumentId);
-        expect(JSON.stringify(rows)).not.toMatch(otherMatterDocumentId);
+        expect(JSON.stringify(rows)).toMatch(ownDocumentId);
+        expect(JSON.stringify(rows)).not.toMatch(otherDocumentId);
+      })
+    );
+  });
+
+  describe('a lawyer user', () => {
+    it('can only select documents from matters they belong to', () =>
+      withRootDb(async (pgClient: any) => {
+        await startLawyerSession(pgClient);
+
+        expect(pgClient.query('select * from document;')).rejects.toThrow(
+          /permission denied for table document/
+        );
       })
     );
   });
@@ -112,7 +123,7 @@ describe('SELECT * FROM matter_document;', () => {
           matterTemplateId,
           primaryContactId
         });
-        const {id: ownMatterDocumentId } = await insertMatterDocumentFixture({
+        await insertMatterDocumentFixture({
           authorId: primaryContactId,
           client,
           documentId: ownDocumentId,
@@ -128,7 +139,7 @@ describe('SELECT * FROM matter_document;', () => {
           client,
           primaryContactId: otherPersonId
         });
-        const {id: otherMatterDocumentId } = await insertMatterDocumentFixture({
+        await insertMatterDocumentFixture({
           authorId: primaryContactId,
           client,
           documentId: otherDocumentId,
@@ -136,11 +147,11 @@ describe('SELECT * FROM matter_document;', () => {
         });
 
         await startAdminSession(client);
-        const { rows } = await client.query('select * from matter_document;');
+        const { rows } = await client.query('select * from document;');
 
         expect(rows).toHaveLength(2);
-        expect(JSON.stringify(rows)).toMatch(ownMatterDocumentId);
-        expect(JSON.stringify(rows)).toMatch(otherMatterDocumentId);
+        expect(JSON.stringify(rows)).toMatch(ownDocumentId);
+        expect(JSON.stringify(rows)).toMatch(otherDocumentId);
       })
     );
   });
