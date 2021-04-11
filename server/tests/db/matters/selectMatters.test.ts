@@ -1,8 +1,8 @@
-import * as faker from 'faker';
 import { describe, expect, it } from '@jest/globals';
 import {
   insertMatterFixture,
   insertMatterTemplateFixture,
+  selectPortalPerson,
   startAdminSession,
   startAnonymousSession,
   startPortalSession,
@@ -28,26 +28,23 @@ describe('SELECT * FROM matter;', () => {
         const {
           id: matterTemplateId
         } = await insertMatterTemplateFixture({ client });
-        await insertMatterFixture({
+        const { id: otherMatterId } = await insertMatterFixture({
           client,
           matterTemplateId,
         });
 
-        const email = faker.internet.email();
-        const { id: primaryContactId } = await startPortalSession(
-          client,
-          email
-        );
-        const userMatterRow = await insertMatterFixture({
+        const { id: primaryContactId } = await selectPortalPerson({ client });
+        const { id: userMatterId } = await insertMatterFixture({
           client,
           matterTemplateId,
           primaryContactId,
         });
 
+        await startPortalSession(client);
         const { rows } = await client.query('select * from matter;');
 
-        expect(rows).toHaveLength(1);
-        expect(userMatterRow.id).toEqual(rows[0].id);
+        expect(JSON.stringify(rows)).toMatch(userMatterId);
+        expect(JSON.stringify(rows)).not.toMatch(otherMatterId);
       })
     );
   });
