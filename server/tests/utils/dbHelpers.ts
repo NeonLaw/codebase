@@ -12,6 +12,7 @@ export { insertMatterFixture } from './db/insertMatterFixture';
 export { insertMatterTemplateFixture } from './db/insertMatterTemplateFixture';
 export { insertPersonFixture } from './db/insertPersonFixture';
 export { insertLetterFixture } from './db/insertLetterFixture';
+export { selectAdminPerson } from './db/selectAdminPerson';
 export { selectPortalPerson } from './db/selectPortalPerson';
 
 const pools: any = {};
