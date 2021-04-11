@@ -8,6 +8,7 @@ import {
   insertPersonFixture,
   selectAdminPerson,
   selectPortalPerson,
+  startAdminSession,
   startAnonymousSession,
   startLawyerSession,
   startPortalSession,
@@ -149,7 +150,7 @@ describe('SELECT * FROM document;', () => {
           matterId: otherMatterId,
         });
 
-        await startPortalSession(client);
+        await startAdminSession(client);
         const { rows } = await client.query('select * from document;');
 
         expect(rows).toHaveLength(2);
