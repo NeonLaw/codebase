@@ -678,38 +678,6 @@ export type CreateTransloaditTokenPayload = {
   signature?: Maybe<Scalars['String']>;
 };
 
-export type CurrentUserDocument = {
-  __typename?: 'CurrentUserDocument';
-  id?: Maybe<Scalars['UUID']>;
-};
-
-/** A connection to a list of `CurrentUserDocument` values. */
-export type CurrentUserDocumentsConnection = {
-  __typename?: 'CurrentUserDocumentsConnection';
-  /** A list of `CurrentUserDocument` objects. */
-  nodes: Array<CurrentUserDocument>;
-  /** A list of edges which contains the `CurrentUserDocument` and cursor to aid in pagination. */
-  edges: Array<CurrentUserDocumentsEdge>;
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo;
-  /** The count of *all* `CurrentUserDocument` you could get from the connection. */
-  totalCount: Scalars['Int'];
-};
-
-/** A `CurrentUserDocument` edge in the connection. */
-export type CurrentUserDocumentsEdge = {
-  __typename?: 'CurrentUserDocumentsEdge';
-  /** A cursor for use in pagination. */
-  cursor?: Maybe<Scalars['Cursor']>;
-  /** The `CurrentUserDocument` at the end of the edge. */
-  node: CurrentUserDocument;
-};
-
-/** Methods to use when ordering `CurrentUserDocument`. */
-export enum CurrentUserDocumentsOrderBy {
-  Natural = 'NATURAL'
-}
-
 export type CurrentUserMatter = {
   __typename?: 'CurrentUserMatter';
   id?: Maybe<Scalars['UUID']>;
@@ -2858,8 +2826,6 @@ export type Query = Node & {
   node?: Maybe<Node>;
   /** Reads and enables pagination through a set of `Address`. */
   addresses?: Maybe<AddressesConnection>;
-  /** Reads and enables pagination through a set of `CurrentUserDocument`. */
-  currentUserDocuments?: Maybe<CurrentUserDocumentsConnection>;
   /** Reads and enables pagination through a set of `CurrentUserMatter`. */
   currentUserMatters?: Maybe<CurrentUserMattersConnection>;
   /** Reads and enables pagination through a set of `DocumentTemplate`. */
@@ -2948,17 +2914,6 @@ export type QueryAddressesArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<AddressesOrderBy>>;
   condition?: Maybe<AddressCondition>;
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryCurrentUserDocumentsArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<CurrentUserDocumentsOrderBy>>;
 };
 
 
