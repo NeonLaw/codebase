@@ -3,10 +3,6 @@ query MatterById($id: UUID!) {
     id
     name
     description
-    primaryContact {
-      id
-      name
-    }
     matterTemplate {
       id
       name

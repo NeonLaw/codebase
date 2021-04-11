@@ -4647,10 +4647,7 @@ export type MatterByIdQuery = (
   & { matter?: Maybe<(
     { __typename?: 'Matter' }
     & Pick<Matter, 'id' | 'name' | 'description'>
-    & { primaryContact?: Maybe<(
-      { __typename?: 'Person' }
-      & Pick<Person, 'id' | 'name'>
-    )>, matterTemplate?: Maybe<(
+    & { matterTemplate?: Maybe<(
       { __typename?: 'MatterTemplate' }
       & Pick<MatterTemplate, 'id' | 'name' | 'category'>
     )>, matterDocuments: (
@@ -5696,10 +5693,6 @@ export const MatterByIdDocument = gql`
     id
     name
     description
-    primaryContact {
-      id
-      name
-    }
     matterTemplate {
       id
       name
