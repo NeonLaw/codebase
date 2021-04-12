@@ -9,9 +9,6 @@ module.exports = withPlugins([
   env: {
     environment: process.env.NODE_ENV
   },
-  future: {
-    webpack5: true
-  },
   pageExtensions: ['mdx', 'jsx', 'js', 'ts', 'tsx'],
   webpack(config) {
     config.module.rules.push({
