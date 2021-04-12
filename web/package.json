@@ -51,7 +51,7 @@
     "react-table": "^7.6.3",
     "sharp": "^0.28.1",
     "styled-system": "^5.1.5",
-    "webpack": "^5.31.0"
+    "webpack": "^5.31.2"
   },
   "devDependencies": {
     "@types/node": "^14.14.37",
