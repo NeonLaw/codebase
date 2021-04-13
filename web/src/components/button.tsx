@@ -99,7 +99,7 @@ export const Button = ({
     }, 1500);
   };
 
-  const shouldHaveTealStyles = !flash || buttonScheme === 'teal';
+  const shouldHaveCyanStyles = !flash || buttonScheme === 'cyan';
 
   return (
     <WrapOrUnWrap flash={flash} containerStyles={containerStyles} {...props}>
@@ -111,22 +111,22 @@ export const Button = ({
         onMouseOver={onMouseOver}
         style={styles}
         background={
-          shouldHaveTealStyles ? colors.primaryButtonBg[colorMode] : props.bg
+          shouldHaveCyanStyles ? colors.primaryButtonBg[colorMode] : props.bg
         }
         color={
-          shouldHaveTealStyles
+          shouldHaveCyanStyles
             ? colors.primaryButtonColor[colorMode]
             : 'inherit'
         }
         boxShadow={'none !important'}
         {...props}
         _hover={
-          shouldHaveTealStyles
+          shouldHaveCyanStyles
             ? { background: colors.primaryButtonBgOnHover[colorMode] }
             : { background: props._hover && props._hover.bg }
         }
         _focus={
-          shouldHaveTealStyles
+          shouldHaveCyanStyles
             ? {
               backgroundColor: colors.primaryButtonBg.lightBlue,
               color: colors.primaryButtonColor.light,

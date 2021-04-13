@@ -27,7 +27,7 @@ const AdminMatterDocumentTemplates = () => {
 
         <Button
           flash={true}
-          buttonScheme="teal"
+          buttonScheme="cyan"
           marginBottom={gutters.xSmall}
           onClick={onOpen}
         >

@@ -37,6 +37,26 @@ On Terraform Cloud, we have the following workspaces:
 
 ## Non-Terraform
 
+### Elastic Cloud
+
 In each Kubernetes cluster, we have deployed the Elastic Cloud on Kubernetes
 custom manifests -
 https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-quickstart.html
+
+After installing the operator, we can then install Elasticsearh resources like:
+
+```bash
+cat <<EOF | kubectl apply -f -
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: quickstart
+spec:
+  version: 7.12.0
+  nodeSets:
+  - name: default
+    count: 1
+    config:
+      node.store.allow_mmap: false
+EOF
+```

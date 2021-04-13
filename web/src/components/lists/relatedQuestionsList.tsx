@@ -20,7 +20,7 @@ export const RelatedQuestionsList = ({
             key={i}
             padding={1}
             cursor="pointer"
-            _hover={{ bg: 'teal.600', color: 'white' }}
+            _hover={{ bg: 'cyan.600', color: 'white' }}
             onClick={() => {
               router.push(
                 `${basePath}/${questionnaireId}/${question.id}`

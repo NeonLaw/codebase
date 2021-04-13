@@ -32,7 +32,7 @@ export const UpdateButton = ({
         width: '100%',
       }}
       styles={{ width: '100%' }}
-      colorScheme="teal"
+      colorScheme="cyan"
     >
       Update {titlecaseResourceName}&nbsp;
       <SubmitForm />

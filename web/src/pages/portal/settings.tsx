@@ -38,7 +38,7 @@ const PortalSettingsPage = () => {
         <Button
           flash={true}
           data-testid="open-update-profile-modal"
-          buttonScheme="teal"
+          buttonScheme="cyan"
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
         >

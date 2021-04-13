@@ -57,7 +57,7 @@ export const SingleChoiceQuestion = ({
         </RadioGroup>
         <Button
           flash={true}
-          buttonScheme="teal"
+          buttonScheme="cyan"
           containerStyles={{margin: `${gutters.xSmallOne} 0`}}
           onClick={() => {
             const chosenChoice = choices[value];

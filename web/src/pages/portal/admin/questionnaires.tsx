@@ -30,7 +30,7 @@ const AdminQuestionnaires = () => {
 
         <Button
           flash={false}
-          buttonScheme="teal"
+          buttonScheme="cyan"
           marginBottom={gutters.xSmall}
           marginRight={gutters.xSmall}
           onClick={onOpen}

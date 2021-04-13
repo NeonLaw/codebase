@@ -25,7 +25,7 @@ export const SyncQuestionnaireButton = ({ id }) => {
     <Button
       marginBottom={gutters.xSmall}
       flash={false}
-      buttonScheme="teal"
+      buttonScheme="cyan"
       onClick={async () => {
         await mutation({ variables: { id }});
       }}
