@@ -21,7 +21,6 @@ import { StringInput } from '../inputs';
 import { WhatWeCanHelpWith } from '../homepage/whatWeCanHelpWith';
 import { WhyNeonLaw } from '../homepage/whyNeonLaw';
 import { useColorMode } from '@chakra-ui/react';
-import { useCreateQuestionMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 import { useRef } from 'react';
@@ -34,19 +33,12 @@ export const NeonLawIndexPage = (): JSX.Element => {
     handleSubmit,
     formState: { errors },
     register,
-    reset
   } = useForm();
   const { user } = useUser();
   const nextSectionRef = useRef(null);
 
-  const [createQuestion, { loading }] = useCreateQuestionMutation();
-
   const onSubmit = async ({ prompt }) => {
-    const questionType = 'userQuery';
-
-    await createQuestion({ variables: { prompt, questionType } });
-
-    await reset();
+    console.log(prompt);
   };
 
   return (
@@ -96,14 +88,11 @@ export const NeonLawIndexPage = (): JSX.Element => {
                   register={register}
                 />
                 <Button
-                  flash={true}
-                  bg="cyan.500"
+                  flash={false}
                   borderRadius="5px"
                   color="white"
-                  _hover={{ bg: 'cyan.400' }}
                   type="submit"
                   aria-label="submit-prompt"
-                  disabled={loading}
                 >
                   {intl.formatMessage({ id: 'auth.sign_up' })}
                 </Button>

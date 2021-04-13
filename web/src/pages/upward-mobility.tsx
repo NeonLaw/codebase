@@ -25,7 +25,7 @@ const UpwardMobilityHome = (props) => {
         </Text>
         <Button
           flash={true}
-          buttonScheme="teal"
+          buttonScheme="cyan"
           onClick={() => {
             console.log('/upward-mobility/begin');
           }}

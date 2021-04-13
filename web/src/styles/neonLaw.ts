@@ -36,7 +36,7 @@ export const colors = {
   link: { dark: theme.colors.cyan[400], light: theme.colors.cyan[800] },
   primaryButtonBg: {
     dark: theme.colors.cyan[400],
-    light: theme.colors.cyan[900],
+    light: theme.colors.cyan[600],
     lightBlue: '#1AA6E4',
   },
   primaryButtonBgOnHover: {

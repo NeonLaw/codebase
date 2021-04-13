@@ -74,7 +74,7 @@ export const SingleDateQuestion = ({
       <br />
       <Button
         flash={true}
-        buttonScheme="teal"
+        buttonScheme="cyan"
         containerStyles={{margin: `${gutters.xSmallOne} 0`}}
         onClick={() => {
           updateAnswers(id, chosenDate);

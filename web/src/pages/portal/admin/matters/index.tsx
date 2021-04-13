@@ -26,7 +26,7 @@ const AdminMatters = () => {
 
         <Button
           flash={false}
-          buttonScheme="teal"
+          buttonScheme="cyan"
           marginBottom={gutters.xSmall}
           onClick={onOpen}
         >

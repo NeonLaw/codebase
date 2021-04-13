@@ -37,7 +37,7 @@ at support@neonlaw.com to request test credentials.
 ### Web Development
 
 For developing the website you can do so locally and speak to our staging
-GraphQL server. To spin up a web server, enter the following commands.
+GraphQL server. To spin up a Next.JS server, enter the following commands.
 
 ```bash
 yarn
@@ -65,18 +65,10 @@ This starts the following containers:
   - Postgres
   - Neo4j
   - Elasticsearch
-  - Kafka
 - Web Servers for:
   - our website (http://127.0.0.1:8000)
   - our API (http://127.0.0.1:3000/graphiql)
-- Processing Servers for Kafka messages:
-  - Document Formatting
-  - Grammar Formatting
-  - Filings
-
-You can start a subset of services with Docker Compose if you do not need to
-run all of the applications. For instance, if you just wanted to start the
-API server and the shell container it depends on, you could run:
+- A background server for running jobs with Graphile Migrate
 
 2. `exec /bin/bash` in the shell container.
 
@@ -85,7 +77,7 @@ the third party dependencies and libraries to run all of the code defined
 herein. You can access a shell with:
 
 ```
-docker-compose exec -it shell /bin/bash
+docker exec -it shell /bin/bash
 ```
 
 3. VSCode settings (optional)
@@ -103,10 +95,7 @@ tutorial](https://code.visualstudio.com/docs/remote/containers), which
 assumes that you have the `Remote - Containers` extension installed. Then
 after starting `docker-compose up`, you can attach to the `shell` container,
 which already has node, psql, and python, with our third-party libraries, and
-required environment variables, ready for you. The biggest advantage of
-developing this way is establishing parity between your machine and our
-staging and production environments - we want to eliminate the "works on my
-machine" excuse from our organization.
+required environment variables, ready for you.
 
 ### Cloud SQL Proxy
 
@@ -145,7 +134,6 @@ doppler run -- yarn run neo4j-proxy-production
 With either command (both cannot be ran at the same time), you'll have a
 local Neo4j instance at `127.0.0.1:7474`, which you can then connect to with
 the GCP SQL credentials for staging and production.
-
 
 ## Third-Party SaaS Services
 

@@ -20,7 +20,7 @@ export const BeginUpwardMobilityQuestionnaire = () => {
 
         <Button
           flash={true}
-          buttonScheme="teal"
+          buttonScheme="cyan"
           onClick={() => {
             console.log(`/${basePath}/${decisionTree['begin']}`);
           }}

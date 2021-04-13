@@ -177,7 +177,7 @@ const EstatePage = () => {
         <ListItem
           padding={1}
           cursor="pointer"
-          _hover={{ bg: 'teal.600', color: 'white' }}
+          _hover={{ bg: 'cyan.600', color: 'white' }}
         >
           <ListIcon as={GiReceiveMoney} />
           $500 to Sister Sally on March 15, 2021
@@ -185,7 +185,7 @@ const EstatePage = () => {
         <ListItem
           padding={1}
           cursor="pointer"
-          _hover={{ bg: 'teal.600', color: 'white' }}
+          _hover={{ bg: 'cyan.600', color: 'white' }}
         >
           <ListIcon as={GiReceiveMoney} />
           $500 to Brother Bob on March 15, 2021
@@ -193,7 +193,7 @@ const EstatePage = () => {
         <ListItem
           padding={1}
           cursor="pointer"
-          _hover={{ bg: 'teal.600', color: 'white' }}
+          _hover={{ bg: 'cyan.600', color: 'white' }}
         >
           <ListIcon as={GiReceiveMoney} />
           $100 to Alumni Alma Mater on March 15, 2021
