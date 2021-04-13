@@ -2809,6 +2809,11 @@ export type PersonPatch = {
   flags?: Maybe<Scalars['String']>;
 };
 
+export type PublicQueryNodes = {
+  __typename?: 'PublicQueryNodes';
+  nodes?: Maybe<Array<Maybe<PublicQueryPayload>>>;
+};
+
 export type PublicQueryPayload = {
   __typename?: 'PublicQueryPayload';
   id: Scalars['String'];
@@ -2898,7 +2903,7 @@ export type Query = Node & {
   unprocessedDocumentByNodeId?: Maybe<UnprocessedDocument>;
   /** Reads a single `AccountingBill` using its globally unique `ID`. */
   accountingBillByNodeId?: Maybe<AccountingBill>;
-  publicQueries?: Maybe<Array<Maybe<PublicQueryPayload>>>;
+  publicQueries?: Maybe<PublicQueryNodes>;
 };
 
 
