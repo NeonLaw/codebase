@@ -1,5 +1,5 @@
 ---
-version: "3.8"
+version: '3.8'
 
 x-environment-variables: &environment-variables
   API_URL: http://127.0.0.1:3000
@@ -31,6 +31,25 @@ x-node-volumes: &node-volumes
   - /app/packages/interface/node_modules/
 
 services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch
+    container_name: elasticsearch
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    cap_add:
+      - IPC_LOCK
+    ports:
+      - 9200:9200
+    restart: unless-stopped
+
   postgres:
     image: postgres:13
     container_name: postgres
@@ -43,7 +62,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./docker/pg-init-scripts:/docker-entrypoint-initdb.d
-    command: ["postgres", "-c", "shared_preload_libraries=pg_stat_statements"]
+    command: ['postgres', '-c', 'shared_preload_libraries=pg_stat_statements']
     logging:
       driver: none
 

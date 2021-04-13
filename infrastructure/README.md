@@ -1,5 +1,4 @@
 # Infrastructure
-
 ## Terraform
 
 This folder contains a series of Terraform modules to deploy our
@@ -35,3 +34,9 @@ On Terraform Cloud, we have the following workspaces:
 * Production GCP, for creating a managed storage and GKE
 * Production Kubernetes, for running our server workloads on Kubernetes
 * Data GCP, for creating and managing a BigQuery cluster and its ingestions
+
+## Non-Terraform
+
+In each Kubernetes cluster, we have deployed the Elastic Cloud on Kubernetes
+custom manifests -
+https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-quickstart.html
