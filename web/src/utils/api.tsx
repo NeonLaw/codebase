@@ -3242,6 +3242,12 @@ export type QueryAccountingBillByNodeIdArgs = {
   nodeId: Scalars['ID'];
 };
 
+
+/** The root query type which gives access points into the data universe. */
+export type QueryPublicQueriesArgs = {
+  query: Scalars['String'];
+};
+
 export type Question = Node & {
   __typename?: 'Question';
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
