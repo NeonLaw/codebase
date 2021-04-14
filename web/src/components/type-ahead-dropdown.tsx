@@ -1,41 +1,59 @@
 import React, { useState } from 'react';
 
-import { questions } from '../../contents';
 import styled from '@emotion/styled';
+
+const QUERY = `
+  query Questions {
+    questions {
+      nodes {
+        nodeId
+        prompt
+      }
+    }
+  }
+`;
+
+const API_URL = 'http://api.neonlaw.com/graphiql';
+
+const opts = {
+  body: JSON.stringify({ QUERY }),
+  method: 'POST',
+};
 
 const Styled = styled.div``;
 
 export const TypeAhead = () => {
-  const [suggestions, setSuggestions] = useState([]);
+  const [questions, setQuestions] = useState([]);
   const [text, setText] = useState('');
 
+  const fetchQuestions = async () => {
+    fetch(API_URL, opts).then((res) => console.log(res));
+  };
+
   const onTextChange = (e) => {
-    const items = questions;
-    let suggestions = [];
+    // const items = [];
+    // let questions = [];
     const value = e.target.value;
 
     if (value.length > 0) {
-      suggestions = items.filter((i) => i.includes(value));
-      //   const regex = new RegExp(`^${value}`, 'i');
-      //   console.log(items.sort());
-      //   suggestions = items.sort().filter((v) => regex.test(v));
+      fetchQuestions();
     }
 
-    setSuggestions(suggestions.slice(0, 10));
+    setQuestions(questions.slice(0, 10));
     setText(value);
   };
 
-  const renderQuestions = () => {
-    const questions = suggestions;
+  // const renderQuestions = () => {
+  //   const questions = questions;
 
-    return questions.length ? (
-      <ul>
-        {questions.map((q) => (
-          <li key={q}>{q}</li>
-        ))}
-      </ul>
-    ) : null;
-  };
+  //   return questions.length ? (
+  //     <ul>
+  //       {questions.map((q) => (
+  //         <li key={q}>{q}</li>
+  //       ))}
+  //     </ul>
+  //   ) : null;
+  // };
 
   return (
     <Styled>
@@ -45,7 +63,7 @@ export const TypeAhead = () => {
         placeholder="What legal question do you have ?"
         onChange={onTextChange}
       />
-      {renderQuestions()}
+      {/* {renderQuestions()} */}
     </Styled>
   );
 };
