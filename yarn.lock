@@ -10829,6 +10829,11 @@ jose@^2.0.2, jose@^2.0.4:
   dependencies:
     "@panva/asn1.js" "^1.0.0"
 
+jose@^3.11.5:
+  version "3.11.5"
+  resolved "https://registry.yarnpkg.com/jose/-/jose-3.11.5.tgz#f06b8ea0b44250c637af96ff284de6fd1b7c50ba"
+  integrity sha512-TYYycnGIXovMOj4QUPYJExmQ8lGyuz4bkO4ZdpCj88uro0FADFLGOpfk0pjTiZn93MYwCBsObf23QguWSs4FCw==
+
 js-base64@^2.6.1:
   version "2.6.4"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.6.4.tgz#f4e686c5de1ea1f867dbcad3d46d969428df98c4"
