@@ -37,7 +37,7 @@
     "graphile-worker": "^0.9.0",
     "graphile-worker-rate-limiter": "^0.0.1",
     "ioredis": "^4.26.0",
-    "js-yaml": "^4.0.0",
+    "js-yaml": "^4.1.0",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^2.0.2",
     "lob": "^6.1.1",
