@@ -14,8 +14,8 @@ import { BaseFooter } from '../footer/baseFooter';
 import { Button } from '../button';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Experience } from '../homepage/experience';
-import Image from 'next/image';
 import Link from 'next/link';
+import { ReactSVG } from 'react-svg';
 import { Seo } from '../seo';
 import { StringInput } from '../inputs';
 import { WhatWeCanHelpWith } from '../homepage/whatWeCanHelpWith';
@@ -54,19 +54,14 @@ export const NeonLawIndexPage = (): JSX.Element => {
       >
         <VStack maxWidth={['400px', '500px', sizes.textContainerSmall]}>
           <Box width="100%">
-            <Flex alignItems="center">
+            <Flex alignItems="center" height="250px">
               <Spacer />
-              <Image
-                src="/images/logo.svg"
-                alt="Neon Law"
-                width={200}
-                height={200}
-              />
+              <ReactSVG src="/images/logo.svg" />
               <Box>
                 <Heading as="h1" fontWeight="400" justifyItems="center">
                   {intl.formatMessage({ id: 'banner.h1' })}
                 </Heading>
-                <Heading as="h5" fontWeight="400" justifyItems="center">
+                <Heading as="h4" fontWeight="400" justifyItems="center">
                   {intl.formatMessage({ id: 'banner.title' })}
                 </Heading>
               </Box>
