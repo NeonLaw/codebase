@@ -84,7 +84,7 @@ export const FooterLinks = () => {
           <Flex direction="column">
             <FooterLink
               i18nMessage="footer.justice_for_rickie_slaughter.heading"
-              path="/pro-bono/justice-for-rickie-slaughter"
+              path="/justice-for-rickie-slaughter"
             />
             <FooterLink
               i18nMessage="footer.about"
