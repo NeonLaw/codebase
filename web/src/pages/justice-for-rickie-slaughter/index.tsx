@@ -1,6 +1,6 @@
 import { Alert, AlertIcon, Stack } from '@chakra-ui/react';
 import Image from 'next/image';
-import { RickieLayout } from '../../../components/layouts/rickieLayout';
+import { RickieLayout } from '../../components/layouts/rickieLayout';
 
 /*eslint-disable */
 const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
@@ -59,16 +59,16 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
       </Stack>
 
       <p>
-        Rickie Lamont Slaughter is an innocent man who is serving a prison sentence
-        for a crime he did not commit.
+        Rickie Lamont Slaughter is an innocent man who is serving a prison
+        sentence for a crime he did not commit.
       </p>
 
       <p>
-        In 2004, a man along with some of his friends and family was robbed at,
-        gunpoint, and unfortunately, that man was shot in the face. The victim said
-        two men black men, with Jamaican accents, one 5 foot 6 inches, and one 5,
-        foot 10 perpetrated the crime and took \$1500 in cash, various credit cards,
-        and items of clothing.
+        In 2004, a man along with some of his friends and family was robbed
+        at, gunpoint, and unfortunately, that man was shot in the face. The
+        victim said two men black men, with Jamaican accents, one 5 foot 6
+        inches, and one 5, foot 10 perpetrated the crime and took \$1500 in
+        cash, various credit cards, and items of clothing.
       </p>
 
       <p>
