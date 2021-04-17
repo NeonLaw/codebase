@@ -13,7 +13,6 @@ import { BlackLivesMatter } from './blackLivesMatter';
 import { Container } from '../container';
 import Link from 'next/link';
 import { MdDehaze } from 'react-icons/md';
-import { SideNavContainer } from '../sideNavigation/sideNavContainer';
 import { SideNavContent } from '../sideNavigation/sideNavContent';
 import { colors } from '../../styles/neonLaw';
 import { useIntl } from 'react-intl';
