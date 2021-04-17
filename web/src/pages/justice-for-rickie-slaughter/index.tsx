@@ -16,7 +16,7 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
       />
 
       <Image
-        src="/images/stars-and-stripes.jpg"
+        src="/images/stars-and-stripes.png"
         alt="Stars and Stripes"
         width={800}
         height={400}
@@ -68,7 +68,7 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
         <Alert status="info">
           Stars and Stripes&nbsp;
           <audio controls>
-            <source src="/audio/20201106-stars-and-stripes.m4a" />
+            <source src="/audio/20201106-stars-and-stripes.mp3" />
           </audio>
         </Alert>
 
@@ -80,7 +80,7 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
         </Alert>
       </Stack>
 
-      <h2>Rickie&abpos;s Story of His Wrongful Conviction</h2>
+      <h2>Rickie&apos;s Story of His Wrongful Conviction</h2>
 
       <p>
         Rickie Lamont Slaughter is an innocent man who is serving a prison
