@@ -83,9 +83,9 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
 
       <p>
         Based on an unfair and faulty photo line-up, Rickie (who does not
-        have a Jamaican accent and is 5&apos;8") was misidentified.
-        Additionally, witnesses described the perpetrators' vehicle as being
-        a Pontiac Grand Am, a different kind of car than the one Rickie
+        have a Jamaican accent and is 5&apos;8&quot;) was misidentified.
+        Additionally, witnesses described the perpetrators&apos; vehicle as
+        being a Pontiac Grand Am, a different kind of car than the one Rickie
         possessed, a Ford Taurus. Furthermore, there was no physical evidence
         of the cash, credit cards, or clothing, to link him to the crime.
         Despite obvious flaws in the case, Rickie was still eventually
@@ -182,8 +182,9 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
         because Rickie&apos;s girlfriend testified that Rickie picked her up at
         7:15 pm, 9 miles away from the crime scene. Additionally, an
         investigator drove the fastest route possible between the crime scene
-        and where Rickie&apos;s girlfriend worked to determine the fastest time it
-        would take to drive that route. The fastest route was 20 minutes.
+        and where Rickie&apos;s girlfriend worked to determine the fastest
+        time it would take to drive that route. The fastest route was 20
+        minutes.
       </p>
 
       <p>
