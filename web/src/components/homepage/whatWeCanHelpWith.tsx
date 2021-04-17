@@ -30,13 +30,6 @@ export const WhatWeCanHelpWith = () => {
       }),
     },
     {
-      image: '/images/what-we-can-help-with/cant-afford.jpg',
-      path: '/pro-bono',
-      text: intl.formatMessage({
-        id: 'we_can_help_with.afford',
-      }),
-    },
-    {
       image: '/images/what-we-can-help-with/bussiness.jpg',
       path: '/practice-areas/business',
       text: intl.formatMessage({

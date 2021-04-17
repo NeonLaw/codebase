@@ -1,4 +1,4 @@
-import { BiBook, BiHomeHeart, BiPen } from 'react-icons/bi';
+import { BiBook, BiHomeHeart } from 'react-icons/bi';
 import { AiOutlineShop } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
 import { FaHands } from 'react-icons/fa';
@@ -39,11 +39,6 @@ export const portalNavLinks = ({ email }) => {
       icon: <TiDeleteOutline />,
       label: 'Data Deletion',
       route: '/portal/data-deletion',
-    },
-    {
-      icon: <BiPen />,
-      label: 'Write Rickie',
-      route: '/portal/write-rickie',
     },
     {
       icon: <BiBook />,
