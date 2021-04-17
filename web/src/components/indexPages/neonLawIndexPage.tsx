@@ -13,13 +13,10 @@ import { colors, gutters, sizes } from '../../styles/neonLaw';
 import { BaseFooter } from '../footer/baseFooter';
 import { Button } from '../button';
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import { Experience } from '../homepage/experience';
 import Link from 'next/link';
 import { ReactSVG } from 'react-svg';
 import { Seo } from '../seo';
 import { StringInput } from '../inputs';
-import { WhatWeCanHelpWith } from '../homepage/whatWeCanHelpWith';
-import { WhyNeonLaw } from '../homepage/whyNeonLaw';
 import { useColorMode } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
@@ -150,11 +147,8 @@ export const NeonLawIndexPage = (): JSX.Element => {
         />
       </Flex>
       <Box ref={nextSectionRef} marginTop="3em">
-        <WhatWeCanHelpWith />
-        <WhyNeonLaw />
-        <Experience />
+        <BaseFooter />
       </Box>
-      <BaseFooter />
     </>
   );
 };
