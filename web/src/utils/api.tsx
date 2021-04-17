@@ -678,6 +678,43 @@ export type CreateTransloaditTokenPayload = {
   signature?: Maybe<Scalars['String']>;
 };
 
+/** All input for the create `UnprocessedDocument` mutation. */
+export type CreateUnprocessedDocumentInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `UnprocessedDocument` to be created by this mutation. */
+  unprocessedDocument: UnprocessedDocumentInput;
+};
+
+/** The output of our create `UnprocessedDocument` mutation. */
+export type CreateUnprocessedDocumentPayload = {
+  __typename?: 'CreateUnprocessedDocumentPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `UnprocessedDocument` that was created by this mutation. */
+  unprocessedDocument?: Maybe<UnprocessedDocument>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `DocumentTemplate` that is related to this `UnprocessedDocument`. */
+  documentTemplate?: Maybe<DocumentTemplate>;
+  /** Reads a single `Document` that is related to this `UnprocessedDocument`. */
+  processedDocument?: Maybe<Document>;
+  /** An edge for our `UnprocessedDocument`. May be used by Relay 1. */
+  unprocessedDocumentEdge?: Maybe<UnprocessedDocumentsEdge>;
+};
+
+
+/** The output of our create `UnprocessedDocument` mutation. */
+export type CreateUnprocessedDocumentPayloadUnprocessedDocumentEdgeArgs = {
+  orderBy?: Maybe<Array<UnprocessedDocumentsOrderBy>>;
+};
+
 export type CurrentUserMatter = {
   __typename?: 'CurrentUserMatter';
   id?: Maybe<Scalars['UUID']>;
@@ -1368,54 +1405,6 @@ export type DeleteResponsePayload = {
 /** The output of our delete `Response` mutation. */
 export type DeleteResponsePayloadResponseEdgeArgs = {
   orderBy?: Maybe<Array<ResponsesOrderBy>>;
-};
-
-/** All input for the `deleteUnprocessedDocumentByNodeId` mutation. */
-export type DeleteUnprocessedDocumentByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The globally unique `ID` which will identify a single `UnprocessedDocument` to be deleted. */
-  nodeId: Scalars['ID'];
-};
-
-/** All input for the `deleteUnprocessedDocument` mutation. */
-export type DeleteUnprocessedDocumentInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  id: Scalars['UUID'];
-};
-
-/** The output of our delete `UnprocessedDocument` mutation. */
-export type DeleteUnprocessedDocumentPayload = {
-  __typename?: 'DeleteUnprocessedDocumentPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `UnprocessedDocument` that was deleted by this mutation. */
-  unprocessedDocument?: Maybe<UnprocessedDocument>;
-  deletedUnprocessedDocumentNodeId?: Maybe<Scalars['ID']>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `DocumentTemplate` that is related to this `UnprocessedDocument`. */
-  documentTemplate?: Maybe<DocumentTemplate>;
-  /** Reads a single `Document` that is related to this `UnprocessedDocument`. */
-  processedDocument?: Maybe<Document>;
-  /** An edge for our `UnprocessedDocument`. May be used by Relay 1. */
-  unprocessedDocumentEdge?: Maybe<UnprocessedDocumentsEdge>;
-};
-
-
-/** The output of our delete `UnprocessedDocument` mutation. */
-export type DeleteUnprocessedDocumentPayloadUnprocessedDocumentEdgeArgs = {
-  orderBy?: Maybe<Array<UnprocessedDocumentsOrderBy>>;
 };
 
 export type Document = Node & {
@@ -2117,6 +2106,8 @@ export type Mutation = {
   createQuestionnaire?: Maybe<CreateQuestionnairePayload>;
   /** Creates a single `Response`. */
   createResponse?: Maybe<CreateResponsePayload>;
+  /** Creates a single `UnprocessedDocument`. */
+  createUnprocessedDocument?: Maybe<CreateUnprocessedDocumentPayload>;
   /** Creates a single `AccountingBill`. */
   createAccountingBill?: Maybe<CreateAccountingBillPayload>;
   /** Updates a single `Address` using its globally unique id and a patch. */
@@ -2159,10 +2150,6 @@ export type Mutation = {
   updateResponseByNodeId?: Maybe<UpdateResponsePayload>;
   /** Updates a single `Response` using a unique key and a patch. */
   updateResponse?: Maybe<UpdateResponsePayload>;
-  /** Updates a single `UnprocessedDocument` using its globally unique id and a patch. */
-  updateUnprocessedDocumentByNodeId?: Maybe<UpdateUnprocessedDocumentPayload>;
-  /** Updates a single `UnprocessedDocument` using a unique key and a patch. */
-  updateUnprocessedDocument?: Maybe<UpdateUnprocessedDocumentPayload>;
   /** Updates a single `AccountingBill` using its globally unique id and a patch. */
   updateAccountingBillByNodeId?: Maybe<UpdateAccountingBillPayload>;
   /** Updates a single `AccountingBill` using a unique key and a patch. */
@@ -2219,10 +2206,6 @@ export type Mutation = {
   deleteResponseDocumentByNodeId?: Maybe<DeleteResponseDocumentPayload>;
   /** Deletes a single `ResponseDocument` using a unique key. */
   deleteResponseDocument?: Maybe<DeleteResponseDocumentPayload>;
-  /** Deletes a single `UnprocessedDocument` using its globally unique id. */
-  deleteUnprocessedDocumentByNodeId?: Maybe<DeleteUnprocessedDocumentPayload>;
-  /** Deletes a single `UnprocessedDocument` using a unique key. */
-  deleteUnprocessedDocument?: Maybe<DeleteUnprocessedDocumentPayload>;
   /** Deletes a single `AccountingBill` using its globally unique id. */
   deleteAccountingBillByNodeId?: Maybe<DeleteAccountingBillPayload>;
   /** Deletes a single `AccountingBill` using a unique key. */
@@ -2288,6 +2271,12 @@ export type MutationCreateQuestionnaireArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateResponseArgs = {
   input: CreateResponseInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateUnprocessedDocumentArgs = {
+  input: CreateUnprocessedDocumentInput;
 };
 
 
@@ -2414,18 +2403,6 @@ export type MutationUpdateResponseByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateResponseArgs = {
   input: UpdateResponseInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateUnprocessedDocumentByNodeIdArgs = {
-  input: UpdateUnprocessedDocumentByNodeIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateUnprocessedDocumentArgs = {
-  input: UpdateUnprocessedDocumentInput;
 };
 
 
@@ -2594,18 +2571,6 @@ export type MutationDeleteResponseDocumentByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteResponseDocumentArgs = {
   input: DeleteResponseDocumentInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteUnprocessedDocumentByNodeIdArgs = {
-  input: DeleteUnprocessedDocumentByNodeIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteUnprocessedDocumentArgs = {
-  input: DeleteUnprocessedDocumentInput;
 };
 
 
@@ -3609,6 +3574,7 @@ export type UnprocessedDocument = Node & {
   documentableId: Scalars['UUID'];
   documentTemplateId: Scalars['UUID'];
   processedDocumentId?: Maybe<Scalars['UUID']>;
+  personId: Scalars['UUID'];
   /** Reads a single `DocumentTemplate` that is related to this `UnprocessedDocument`. */
   documentTemplate?: Maybe<DocumentTemplate>;
   /** Reads a single `Document` that is related to this `UnprocessedDocument`. */
@@ -3628,14 +3594,15 @@ export type UnprocessedDocumentCondition = {
   processedDocumentId?: Maybe<Scalars['UUID']>;
 };
 
-/** Represents an update to a `UnprocessedDocument`. Fields that are set will be updated. */
-export type UnprocessedDocumentPatch = {
+/** An input for mutations affecting `UnprocessedDocument` */
+export type UnprocessedDocumentInput = {
   id?: Maybe<Scalars['UUID']>;
-  filename?: Maybe<Scalars['String']>;
-  documentableType?: Maybe<Scalars['String']>;
-  documentableId?: Maybe<Scalars['UUID']>;
-  documentTemplateId?: Maybe<Scalars['UUID']>;
+  filename: Scalars['String'];
+  documentableType: Scalars['String'];
+  documentableId: Scalars['UUID'];
+  documentTemplateId: Scalars['UUID'];
   processedDocumentId?: Maybe<Scalars['UUID']>;
+  personId: Scalars['UUID'];
 };
 
 /** A connection to a list of `UnprocessedDocument` values. */
@@ -4241,57 +4208,6 @@ export type UpdateResponsePayload = {
 /** The output of our update `Response` mutation. */
 export type UpdateResponsePayloadResponseEdgeArgs = {
   orderBy?: Maybe<Array<ResponsesOrderBy>>;
-};
-
-/** All input for the `updateUnprocessedDocumentByNodeId` mutation. */
-export type UpdateUnprocessedDocumentByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The globally unique `ID` which will identify a single `UnprocessedDocument` to be updated. */
-  nodeId: Scalars['ID'];
-  /** An object where the defined keys will be set on the `UnprocessedDocument` being updated. */
-  patch: UnprocessedDocumentPatch;
-};
-
-/** All input for the `updateUnprocessedDocument` mutation. */
-export type UpdateUnprocessedDocumentInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** An object where the defined keys will be set on the `UnprocessedDocument` being updated. */
-  patch: UnprocessedDocumentPatch;
-  id: Scalars['UUID'];
-};
-
-/** The output of our update `UnprocessedDocument` mutation. */
-export type UpdateUnprocessedDocumentPayload = {
-  __typename?: 'UpdateUnprocessedDocumentPayload';
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars['String']>;
-  /** The `UnprocessedDocument` that was updated by this mutation. */
-  unprocessedDocument?: Maybe<UnprocessedDocument>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `DocumentTemplate` that is related to this `UnprocessedDocument`. */
-  documentTemplate?: Maybe<DocumentTemplate>;
-  /** Reads a single `Document` that is related to this `UnprocessedDocument`. */
-  processedDocument?: Maybe<Document>;
-  /** An edge for our `UnprocessedDocument`. May be used by Relay 1. */
-  unprocessedDocumentEdge?: Maybe<UnprocessedDocumentsEdge>;
-};
-
-
-/** The output of our update `UnprocessedDocument` mutation. */
-export type UpdateUnprocessedDocumentPayloadUnprocessedDocumentEdgeArgs = {
-  orderBy?: Maybe<Array<UnprocessedDocumentsOrderBy>>;
 };
 
 
