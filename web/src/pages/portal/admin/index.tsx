@@ -40,8 +40,8 @@ const AdminDashboard = () => {
     },
     {
       dataTestId: '',
-      path: 'matter-document-templates',
-      text: 'Matter Document Templates',
+      path: 'document-templates',
+      text: 'Document Templates',
     },
     {
       dataTestId: '',

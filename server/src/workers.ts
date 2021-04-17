@@ -3,36 +3,18 @@ import {
   addQuestionToEndOfQuestionnaire,
   addRelatedQuestionRelationship,
   createNeo4jRelationship,
+  downloadLobLetters,
   saveDocumentInLongTermStorage,
   sendWelcomeEmail,
+  slackReminders,
   updateQuestionnaireFromNeo4j,
   upsertQuestionToNeo4j,
   upsertQuestionnaireToNeo4j,
 } from './tasks';
-import Redis from 'ioredis';
-import { getLeakyBucketRateLimiter } from 'graphile-worker-rate-limiter';
 import { default as neo4j } from 'neo4j-driver';
 import { postgresUrl } from './postgresUrl';
-import { redisUrl } from './redisUrl';
 import { run } from 'graphile-worker';
 import { default as sgMail } from '@sendgrid/mail';
-
-const redis = new Redis(redisUrl);
-const rateLimiter = getLeakyBucketRateLimiter({
-  bucketTypes: {
-    sendLobMail: {
-      capacity: 100,
-      drainCount: 500,
-      drainInterval: 15 * 1000,
-    },
-    sendWelcomeEmail: {
-      capacity: 1000,
-      drainCount: 1500,
-      drainInterval: 30 * 1000,
-    },
-  },
-  redis,
-});
 
 /**
  * This function starts graphile-worker
@@ -51,15 +33,17 @@ async function workers() {
   await run({
     concurrency: 5,
     connectionString: postgresUrl,
-    forbiddenFlags: rateLimiter.getForbiddenFlags,
+    crontabFile: `${__dirname}/crontab.txt`,
     noHandleSignals: false,
     pollInterval: 1000,
     taskList: {
       addQuestionToEndOfQuestionnaire,
       addRelatedQuestionRelationship,
       createNeo4jRelationship,
+      downloadLobLetters,
       saveDocumentInLongTermStorage,
-      sendWelcomeEmail: rateLimiter.wrapTask(sendWelcomeEmail),
+      sendWelcomeEmail,
+      slackReminders,
       updateQuestionnaireFromNeo4j,
       upsertQuestionToNeo4j,
       upsertQuestionnaireToNeo4j,

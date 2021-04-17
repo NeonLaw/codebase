@@ -2,6 +2,7 @@ query AllCurrentUserMatters {
   currentUserMatters {
     nodes {
       id
+      name
       primaryContactId
       matterTemplateId
       matterTemplateName

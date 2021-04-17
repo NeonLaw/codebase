@@ -59,13 +59,6 @@ class MyDocument extends Document {
               }
             />
           )}
-          <script
-            key="fathom"
-            src="https://anglerfish.neonlaw.com/script.js"
-            data-site="DUBLGHDJ"
-            excluded-domains="127.0.0.1,neonlaw.net,interface"
-            defer
-          />
         </body>
       </Html>
     );

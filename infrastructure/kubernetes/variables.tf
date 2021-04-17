@@ -16,10 +16,7 @@ variable "transloadit_key" {
 variable "transloadit_secret" {
 }
 
-variable "transloadit_pdf_template_id" {
-}
-
-variable "transloadit_image_template_id" {
+variable "transloadit_template_id" {
 }
 
 variable "sendgrid_api_key" {
@@ -41,4 +38,7 @@ variable "environment" {
 }
 
 variable "next_js_auth0_secret" {
+}
+
+variable "neon_bot_slack_token" {
 }

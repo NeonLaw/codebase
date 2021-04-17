@@ -108,7 +108,6 @@ export const InputBuilder = ({
                 key={i}
                 name={name}
                 testId={testId}
-                label={label}
                 errors={errors}
                 placeholder={intl.formatMessage({
                   id: `forms.${underscoreFieldName}.placeholder`,

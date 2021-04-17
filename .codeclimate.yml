@@ -7,5 +7,5 @@ exclude_patterns:
   - "**/*.pdf"
   - "**/*.png"
   - "web/src/utils/api.tsx"
-  - "packages/interface/**/*"
-  - "packages/web/cypress/**/*"
+  - "web/cypress/**/*"
+  - "server/tests/utils/**/*"

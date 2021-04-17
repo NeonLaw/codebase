@@ -2,9 +2,11 @@ import { PostGraphileOptions, makePluginHook } from 'postgraphile';
 import GraphilePro from '@graphile/pro';
 import PgPubsub from '@graphile/pg-pubsub';
 import PgSimplifyInflectorPlugin from '@graphile-contrib/pg-simplify-inflector';
-import { fileUploadsPlugin } from './resolvers/fileUploads';
+import { documentPlugin } from './resolvers/documentPlugin';
+import { fileUploadsPlugin } from './resolvers/fileUploadsPlugin';
 import { makeAddInflectorsPlugin } from 'graphile-utils';
 import { questionPlugin } from './resolvers/questionPlugin';
+import { searchQueriesPlugin } from './resolvers/searchQueriesPlugin';
 import { slatePlugin } from './slateTypes';
 
 const tracingPlugin = {
@@ -54,8 +56,10 @@ export const postgraphileOptions: PostGraphileOptions = {
   appendPlugins: [
     PgSimplifyInflectorPlugin,
     schemaInflectorsPlugin,
+    documentPlugin,
     fileUploadsPlugin,
     questionPlugin,
+    searchQueriesPlugin,
     slatePlugin
   ],
   defaultPaginationCap:
@@ -64,11 +68,11 @@ export const postgraphileOptions: PostGraphileOptions = {
   dynamicJson: true,
   enableCors: true,
   enableQueryBatching: true,
-  enhanceGraphiql: process.env.SHOW_GRAPHIQL === 'true' ? true : false,
+  enhanceGraphiql: true,
   exposeGraphQLCost:
     (parseInt(process.env.HIDE_QUERY_COST || '', 10) || 0) < 1,
   extendedErrors: ['errcode'],
-  graphiql: process.env.SHOW_GRAPHIQL === 'true' ? true : false,
+  graphiql: true,
   graphiqlRoute: '/graphiql',
   graphqlCostLimit:
     parseInt(process.env.GRAPHQL_COST_LIMIT || '', 10) || 30000,
@@ -82,7 +86,7 @@ export const postgraphileOptions: PostGraphileOptions = {
     const settings: any = {};
     const traceId = request['X-Trace-Id'];
 
-    if (request.user) {
+    if (request.authenticatedPerson) {
       const { role, id } = request.authenticatedPerson;
       settings['role'] = role;
       settings['person.id'] = id;

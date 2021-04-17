@@ -1,7 +1,7 @@
 # Neon Law Server
 
 This folder contains a GraphQL API powered by Postgraphile and background jobs
-handled by Graphile Migrate.
+handled by Graphile Worker. Migrations are committed with graphile migrate.
 
 ## Seeding the database
 

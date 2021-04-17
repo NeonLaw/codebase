@@ -1,0 +1,9 @@
+query AllDocumentTemplates {
+  documentTemplates {
+    nodes {
+      id
+      name
+      description
+    }
+  }
+}

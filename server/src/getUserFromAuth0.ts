@@ -5,9 +5,7 @@ import { lawyers } from './lawyers';
 export const getUserFromAuth0 = async (sub: string) => {
   const apiUrl = `https://${process.env.AUTH0_TENANT}/api/v2/users`;
   const apiTokenUrl = `https://${process.env.AUTH0_TENANT}/oauth/token`;
-  const audience = process.env.ENVIRONMENT === 'production' ?
-    'https://neon-law.auth0.com/api/v2/' :
-    `https://${process.env.AUTH0_TENANT}/api/v2/`;
+  const audience = `https://${process.env.AUTH0_TENANT}/api/v2/`;
 
   const bodyParams = {
     audience,
@@ -20,7 +18,7 @@ export const getUserFromAuth0 = async (sub: string) => {
     then(({ data }) => {
       return data['access_token'];
     }).catch((error) => {
-      throw new Error(`There was an error: ${error}`);
+      throw new Error(`${error}`);
     });
 
   return await axios.get(`${apiUrl}/${sub}`, {

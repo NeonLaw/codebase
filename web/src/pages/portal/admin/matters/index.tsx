@@ -26,7 +26,7 @@ const AdminMatters = () => {
 
         <Button
           flash={false}
-          buttonScheme="teal"
+          buttonScheme="cyan"
           marginBottom={gutters.xSmall}
           onClick={onOpen}
         >
@@ -48,12 +48,7 @@ const AdminMatters = () => {
           }}
         />
 
-        <MatterTable
-          onRowClick={(row) => {
-            console.log(`/portal/admin/matters/${row.values.id}`);
-            return null;
-          }}
-        />
+        <MatterTable />
       </Box>
     </PortalLayout>
   );

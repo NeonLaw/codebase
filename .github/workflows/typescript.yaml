@@ -14,25 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: dorny/paths-filter@v2.2.1
-        id: filter
-        with:
-          filters: |
-            typescript:
-              - './**/*.tsx'
-              - './**/*.ts'
-              - './**.tsx'
-              - './**.ts'
       - uses: actions/setup-node@v1
-        if: ${{ steps.filter.outputs.typescript == 'true' }}
         with:
           node-version: '14'
       - name: Install dependencies
-        if: ${{ steps.filter.outputs.typescript == 'true' }}
         run: yarn install --frozen-lockfile
       - name: Lint JavaScript files.
-        if: ${{ steps.filter.outputs.typescript == 'true' }}
         run: yarn lint
       - name: Type-check TypeScript Files.
-        if: ${{ steps.filter.outputs.typescript == 'true' }}
         run: yarn check-types

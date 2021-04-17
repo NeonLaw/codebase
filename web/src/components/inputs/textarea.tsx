@@ -1,31 +1,19 @@
-import {
-  Box,
-  Code,
-  FormControl,
-  FormErrorMessage,
-} from '@chakra-ui/react';
-import React, { useCallback, useMemo } from 'react';
-import { Slate, withReact } from 'slate-react';
+import { BaseEditor, createEditor } from 'slate';
+import { Box, FormControl, FormErrorMessage } from '@chakra-ui/react';
+import { HistoryEditor, withHistory } from 'slate-history';
+import { ReactEditor, Slate, withReact } from 'slate-react';
 import { Controller } from 'react-hook-form';
 import { Editable } from './textareaUtils/editable';
-import { createEditor } from 'slate';
-import { withHistory } from 'slate-history';
+import { useMemo } from 'react';
 
-const CodeElement = props => {
-  return (
-    <pre {...props.attributes}>
-      <Code>{props.children}</Code>
-    </pre>
-  );
-};
-
-const DefaultElement = props => {
-  return <Box {...props.attributes}>{props.children}</Box>;
-};
+declare module 'slate' {
+    interface CustomTypes {
+        Editor: BaseEditor & ReactEditor & HistoryEditor
+    }
+}
 
 export const Textarea = ({
   errors,
-  label,
   name,
   testId,
   placeholder = '',
@@ -34,16 +22,6 @@ export const Textarea = ({
 }) => {
   const editor = useMemo(() => withHistory(withReact(createEditor())), []);
 
-  // Define a rendering function based on the element passed to `props`. We use
-  // `useCallback` here to memoize the function for subsequent renders.
-  const renderElement = useCallback(props => {
-    switch (props.element.type) {
-      case 'code':
-        return <CodeElement {...props} />;
-      default:
-        return <DefaultElement {...props} />;
-    }
-  }, []);
   const placeholderSlateText = [
     {
       children: [{ text: placeholder }],
@@ -55,13 +33,11 @@ export const Textarea = ({
     <FormControl isInvalid={errors && errors[name]}>
       <Box borderWidth="1px">
         <Controller
-          render={({ onChange, value, ref }) => {
+          render={({ field: { onChange, value }}) => {
             return (
               <Slate
                 editor={editor}
-                ref={ref}
                 value={value}
-                renderElement={renderElement}
                 onChange={onChange}
                 children={
                   <Box data-testid={testId}>
@@ -72,8 +48,6 @@ export const Textarea = ({
             );
           }}
           name={name}
-          placeholder={placeholder}
-          label={label}
           control={control}
           defaultValue={defaultValue || placeholderSlateText}
         />

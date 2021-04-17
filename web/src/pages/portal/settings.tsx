@@ -12,6 +12,7 @@ import {
   UpdatePersonModal
 } from '../../components/modals/updatePersonModal';
 import styled from '@emotion/styled';
+import { useUser } from '@auth0/nextjs-auth0';
 
 const StyledPortalPersonPage = styled.div`
   max-width: ${sizes.textContainerSmall};
@@ -23,6 +24,7 @@ const StyledPortalPersonPage = styled.div`
 
 const PortalSettingsPage = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
+  const { user } = useUser();
 
   return (
     <PortalLayout>
@@ -30,13 +32,13 @@ const PortalSettingsPage = () => {
         <Heading
           fontWeight="normal"
         >
-          Settings
+          Settings for {user.email}
         </Heading>
         <PortalProfileCard />
         <Button
           flash={true}
           data-testid="open-update-profile-modal"
-          buttonScheme="teal"
+          buttonScheme="cyan"
           containerStyles={{margin: `0 0 ${gutters.xSmallOne}`}}
           onClick={onOpen}
         >

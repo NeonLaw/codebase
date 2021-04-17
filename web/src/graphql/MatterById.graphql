@@ -2,14 +2,30 @@ query MatterById($id: UUID!) {
   matter(id: $id) {
     id
     name
-    primaryContact {
-      id
-      name
-    }
+    description
     matterTemplate {
       id
       name
       category
+    }
+    matterDocuments {
+      nodes {
+        id
+        author {
+          id
+          name
+          email
+        }
+        document {
+          id
+          filename
+          gcpUrl
+          downloadUrl
+          documentTemplate {
+            name
+          }
+        }
+      }
     }
   }
 }

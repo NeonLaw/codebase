@@ -77,6 +77,27 @@ resource "kubernetes_deployment" "server" {
           }
 
           env {
+            name = "NEON_BOT_SLACK_TOKEN"
+            value_from {
+              secret_key_ref {
+                key  = "NEON_BOT_SLACK_TOKEN"
+                name = "application-secrets"
+              }
+            }
+          }
+
+          env {
+            name = "LOB_API_SECRET"
+            value_from {
+              secret_key_ref {
+                key  = "LOB_API_SECRET"
+                name = "application-secrets"
+              }
+            }
+          }
+
+
+          env {
             name = "TRANSLOADIT_KEY"
             value_from {
               secret_key_ref {
@@ -97,20 +118,10 @@ resource "kubernetes_deployment" "server" {
           }
 
           env {
-            name = "TRANSLOADIT_PDF_TEMPLATE_ID"
+            name = "TRANSLOADIT_TEMPLATE_ID"
             value_from {
               secret_key_ref {
-                key  = "TRANSLOADIT_PDF_TEMPLATE_ID"
-                name = "application-secrets"
-              }
-            }
-          }
-
-          env {
-            name = "TRANSLOADIT_IMAGE_TEMPLATE_ID"
-            value_from {
-              secret_key_ref {
-                key  = "TRANSLOADIT_IMAGE_TEMPLATE_ID"
+                key  = "TRANSLOADIT_TEMPLATE_ID"
                 name = "application-secrets"
               }
             }
@@ -181,16 +192,6 @@ resource "kubernetes_deployment" "server" {
             value_from {
               secret_key_ref {
                 key  = "STRIPE_API_SECRET_KEY"
-                name = "application-secrets"
-              }
-            }
-          }
-
-          env {
-            name = "REDIS_URL"
-            value_from {
-              secret_key_ref {
-                key  = "REDIS_URL"
                 name = "application-secrets"
               }
             }

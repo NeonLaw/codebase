@@ -1,8 +1,6 @@
 import { Box, Heading, Text } from '@chakra-ui/react';
 import { gutters, sizes } from '../../../styles/neonLaw';
-import {
-  BusinessMattersList
-} from '../../../components/lists/businessMattersList';
+import { MattersList } from '../../../components/lists/mattersList';
 import { PortalLayout } from '../../../components/layouts/portalLayout';
 import React from 'react';
 import { useIntl } from 'react-intl';
@@ -18,7 +16,7 @@ const PortalBusinessesPage = () => {
         </Heading>
         <Text>{intl.formatMessage({ id: 'pages.business.text' })}</Text>
       </Box>
-      <BusinessMattersList />
+      <MattersList category="business" basePath="/portal/businesses" />
     </PortalLayout>
   );
 };

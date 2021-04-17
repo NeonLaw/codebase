@@ -1,14 +1,4 @@
-// import faker from 'faker';
-
 describe('Visiting /portal', () => {
-  describe('as an anonymous user', () => {
-    it('redirects the user back to the home screen', () => {
-      cy.visit('/');
-      // cy.visit('/portal');
-      // cy.url().should('not.include', '/portal');
-    });
-  });
-
   // context('logged in as a portal user', () => {
   //   it('renders the /portal pages and the user can change ther name', () => {
   //     const name = faker.name.findName();
@@ -42,16 +32,16 @@ describe('Visiting /portal', () => {
   //   });
   // });
 
-  // context('logged in as an admin user', () => {
-  //   it('renders the /portal pages and the admin portal', () => {
-  //     cy.loginAsAdminUser().then(() => {
-  //       cy.visit('/portal');
-  //       cy.wait(1000);
-  //       cy.url().should('include', '/portal');
-
-  //       cy.get('[data-testid="admin-side-navigation-link"]').click();
-  //       cy.url().should('include', '/portal/admin');
-  //     });
-  //   });
-  // });
+  context('logged in as an admin user', () => {
+    it('renders the /portal', () => {
+      cy.login({
+        password: Cypress.env('ADMIN_USER_PASSWORD'),
+        username: 'admin@sink.sendgrid.com',
+      }).then(() => {
+        cy.visit('/portal');
+        cy.url().should('include', '/portal');
+        cy.contains('Settings').click();
+      });
+    });
+  });
 });

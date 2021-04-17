@@ -12,16 +12,11 @@ import { colors, gutters, sizes } from '../../styles/neonLaw';
 
 import { BaseFooter } from '../footer/baseFooter';
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import { Experience } from '../homepage/experience';
-import Image from 'next/image';
 import Link from 'next/link';
+import { ReactSVG } from 'react-svg';
 import { Seo } from '../seo';
 import { TypeAhead } from '../type-ahead-dropdown';
-import { WhatWeCanHelpWith } from '../homepage/whatWeCanHelpWith';
-import { WhyNeonLaw } from '../homepage/whyNeonLaw';
 import { useColorMode } from '@chakra-ui/react';
-// import { useCreateQuestionMutation } from '../../utils/api';
-// import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 import { useRef } from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
@@ -29,19 +24,9 @@ import { useUser } from '@auth0/nextjs-auth0';
 export const NeonLawIndexPage = (): JSX.Element => {
   const { colorMode } = useColorMode();
   const intl = useIntl();
-  // const { handleSubmit, errors, register, reset } = useForm();
+
   const { user } = useUser();
   const nextSectionRef = useRef(null);
-
-  // const [createQuestion, { loading }] = useCreateQuestionMutation();
-
-  // const onSubmit = async ({ prompt }) => {
-  //   const questionType = 'userQuery';
-
-  //   await createQuestion({ variables: { prompt, questionType } });
-
-  //   await reset();
-  // };
 
   return (
     <>
@@ -56,19 +41,14 @@ export const NeonLawIndexPage = (): JSX.Element => {
       >
         <VStack maxWidth={['400px', '500px', sizes.textContainerSmall]}>
           <Box width="100%">
-            <Flex alignItems="center">
+            <Flex alignItems="center" height="250px">
               <Spacer />
-              <Image
-                src="/images/logo.svg"
-                alt="Neon Law"
-                width={200}
-                height={200}
-              />
+              <ReactSVG src="/images/logo.svg" />
               <Box>
                 <Heading as="h1" fontWeight="400" justifyItems="center">
                   {intl.formatMessage({ id: 'banner.h1' })}
                 </Heading>
-                <Heading as="h5" fontWeight="400" justifyItems="center">
+                <Heading as="h4" fontWeight="400" justifyItems="center">
                   {intl.formatMessage({ id: 'banner.title' })}
                 </Heading>
               </Box>
@@ -87,17 +67,14 @@ export const NeonLawIndexPage = (): JSX.Element => {
                   placeholder={intl.formatMessage({
                     id: 'forms.legal_question.placeholder',
                   })}
-                  register={register()}
+                  register={register}
                 />
                 <Button
-                  flash={true}
-                  bg="cyan.500"
+                  flash={false}
                   borderRadius="5px"
                   color="white"
-                  _hover={{ bg: 'cyan.400' }}
                   type="submit"
                   aria-label="submit-prompt"
-                  disabled={loading}
                 >
                   {intl.formatMessage({ id: 'auth.sign_up' })}
                 </Button>
@@ -159,11 +136,8 @@ export const NeonLawIndexPage = (): JSX.Element => {
         />
       </Flex>
       <Box ref={nextSectionRef} marginTop="3em">
-        <WhatWeCanHelpWith />
-        <WhyNeonLaw />
-        <Experience />
+        <BaseFooter />
       </Box>
-      <BaseFooter />
     </>
   );
 };

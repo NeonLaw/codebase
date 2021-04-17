@@ -28,7 +28,7 @@ export const Switch = ({
       <ChakraSwitch
         id={name}
         data-testid={testId}
-        ref={register}
+        {...register(name)}
         name={name}
         onBlur={onBlur}
         onFocus={onFocus}

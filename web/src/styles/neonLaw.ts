@@ -2,6 +2,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import '@uppy/core/dist/style.css';
 import '@uppy/dashboard/dist/style.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import '@react-pdf-viewer/core/lib/styles/index.css';
+import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
 import { theme as chakraTheme } from '@chakra-ui/react';
 
@@ -34,7 +36,7 @@ export const colors = {
   link: { dark: theme.colors.cyan[400], light: theme.colors.cyan[800] },
   primaryButtonBg: {
     dark: theme.colors.cyan[400],
-    light: theme.colors.cyan[900],
+    light: theme.colors.cyan[600],
     lightBlue: '#1AA6E4',
   },
   primaryButtonBgOnHover: {

@@ -2,13 +2,13 @@
 /* eslint-disable no-undef */
 
 Cypress.Commands.add('login', ({ username, password }) => {
-  cy.log(`Logging in as ${useranme}`);
+  cy.log(`Logging in as ${username}`);
 
   const client_id = Cypress.env('AUTH0_CLIENT_ID');
   const client_secret = Cypress.env('AUTH0_CLIENT_SECRET');
   const audience = 'https://api.neonlaw.com';
-  const scope = 'openid profile email';
-  const grant_type = 'http://auth0.com/oauth/grant-type/password-realm';
+  const scope = 'openid profile email offline_access';
+  const grant_type = 'password';
   const realm = 'Username-Password-Authentication';
   const url = 'https://neon-law-testing.auth0.com/oauth/token';
 
@@ -31,18 +31,12 @@ Cypress.Commands.add('login', ({ username, password }) => {
   };
 
   cy.request(options).then(({ body }) => {
-    const { access_token } = body;
+    const secret = Cypress.env('AUTH0_SECRET');
+    const sessionToEncrypt = { secret, ...body };
 
-    // const cookieStore = new CookieStore({
-    //   secret: '92057A30-82D3-47D8-809F-C3805F9CE250'
-    // });
-
-    // const encryptedCookie = cookieStore.encrypt(access_token);
-
-    // cy.setCookie('appSession', encryptedCookie);
-
-    // This code is wrong because it does not encrypt the cookie
-    cy.setCookie('appSession', access_token);
+    cy.task('encrypt', sessionToEncrypt).then((encryptedSession) => {
+      cy.setCookie('appSession', encryptedSession);
+    });
   });
 });
 

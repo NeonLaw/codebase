@@ -22,7 +22,7 @@ export const GetStarted = () => {
         as={Link}
         to="/contact"
         flash={true}
-        buttonScheme="teal"
+        buttonScheme="cyan"
       >
         {intl.formatMessage({ id: 'auth.sign_up' })}
       </Button> */}

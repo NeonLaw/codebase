@@ -27,7 +27,7 @@ export const CreateButton = ({
         margin: `${gutters.xSmallOne} 0`,
       }}
       isFullWidth={true}
-      colorScheme="teal"
+      colorScheme="cyan"
     >
       Create {titlecaseResourceName}&nbsp;
       <SubmitForm />

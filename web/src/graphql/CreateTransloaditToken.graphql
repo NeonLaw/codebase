@@ -1,0 +1,6 @@
+mutation CreateTransloaditToken {
+  createTransloaditToken {
+    expires
+    signature
+  }
+}

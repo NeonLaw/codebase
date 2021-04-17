@@ -13,7 +13,6 @@ import { BlackLivesMatter } from './blackLivesMatter';
 import { Container } from '../container';
 import Link from 'next/link';
 import { MdDehaze } from 'react-icons/md';
-import { SideNavContainer } from '../sideNavigation/sideNavContainer';
 import { SideNavContent } from '../sideNavigation/sideNavContent';
 import { colors } from '../../styles/neonLaw';
 import { useIntl } from 'react-intl';
@@ -29,25 +28,25 @@ export const RickieNavigationBar = () => {
       label: intl.formatMessage({
         id: 'navigation.justice_for_rickie_slaughter.home'
       }),
-      route: '/'
+      route: '/justice-for-rickie-slaughter'
     },
     {
       label: intl.formatMessage({
         id: 'navigation.justice_for_rickie_slaughter.coronavirus'
       }),
-      route: '/jfrs/coronavirus-in-prison'
+      route: '/justice-for-rickie-slaughter/coronavirus-in-prison'
     },
     {
       label: intl.formatMessage({
         id: 'navigation.justice_for_rickie_slaughter.patrick_wayne_harper'
       }),
-      route: '/jfrs/patrick-wayne-harper'
+      route: '/justice-for-rickie-slaughter/patrick-wayne-harper'
     },
     {
       label: intl.formatMessage({
         id: 'navigation.justice_for_rickie_slaughter.write_rickie'
       }),
-      route: '/jfrs/write-rickie'
+      route: '/justice-for-rickie-slaughter/write-rickie'
     }
   ];
   const { isOpen, onToggle, onClose } = useDisclosure();
@@ -73,7 +72,6 @@ export const RickieNavigationBar = () => {
                 <Link
                   href={link.route}
                   passHref
-                  // activeClassName="nav-link--active"
                 >
                   <Box
                     as="a"
@@ -150,9 +148,7 @@ export const RickieNavigationBar = () => {
         <DrawerOverlay />
         <DrawerContent zIndex="5">
           <DrawerBody padding="0">
-            <SideNavContainer>
-              <SideNavContent links={links} />
-            </SideNavContainer>
+            <SideNavContent links={links} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>

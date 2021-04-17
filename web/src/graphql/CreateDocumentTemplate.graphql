@@ -1,0 +1,11 @@
+mutation CreateDocumentTemplate($name: String!, $description: String!) {
+  createDocumentTemplate(
+    input: { documentTemplate: { name: $name, description: $description } }
+  ) {
+    documentTemplate {
+      id
+      name
+      description
+    }
+  }
+}

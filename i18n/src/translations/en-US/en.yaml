@@ -23,6 +23,8 @@ languages:
   es: Spanish (Latin America)
   ur: Urdu
 footer:
+  ventures: Ventures
+  trusts: Trusts
   copyright: Copyright
   crafted_by: this website was crafted by
   nisar: Nisar
@@ -39,10 +41,11 @@ footer:
       expectation of attorney-client privilege or confidentiality of anything
       you may communicate to us in this forum. Do not act upon any
       information presented without seeking professional counsel.
-  bar_prep: Bar Prep
+  bar_prep: Studying for the bar? <u>Check out our free bar prep guide</u>.
   blog: Blog
+  estates: Trusts
   justice_for_rickie_slaughter:
-    heading: Justice For Rickie Slaughter
+    heading: Justice For Rickie
     text: |
       Please sign Rickie's Change.org petition, send him a free letter, and
       share this website to raise awareness about his wrongful conviction. We at
@@ -70,11 +73,12 @@ footer:
   modern_slavery_statement: Modern Slavery Statement
   pgp_key: PGP Key
   law_job_resources: Law Job Resources
-  templates: Non-Advice Legal Templates
+  templates: Templates
   upward_mobility: Upward Mobility
   careers: Careers
 languageDropdown:
   text: Currently viewing this site in English
+loading: Loading
 loadingPage:
   loading: Loading
 beginUpwardMQ:
