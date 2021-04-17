@@ -15,6 +15,13 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
         height={400}
       />
 
+      <Image
+        src="/images/stars-and-stripes.jpg"
+        alt="Stars and Stripes"
+        width={800}
+        height={400}
+      />
+
       <h2>Rickie&apos;s Latest Poetry</h2>
 
       <Stack spacing={3}>
