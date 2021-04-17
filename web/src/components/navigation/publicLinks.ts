@@ -19,6 +19,10 @@ export const PublicLinks = () => {
     {
       label: intl.formatMessage({ id: 'navigation_public.contact' }),
       route: '/contact'
+    },
+    {
+      label: 'Portal',
+      route: '/portal'
     }
   ];
 };

@@ -15,18 +15,29 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
         height={400}
       />
 
-      <h2>Rickie&apos;s latest poetry</h2>
+      <h2>Rickie&apos;s Latest Poetry</h2>
+
       <Stack spacing={3}>
         <Alert status="info">
-          <AlertIcon />
+          Use Spotify? Listen to Rickie&apos;s poetry&nbsp;
+          <a
+          href="https://open.spotify.com/show/30Q6Hu4WXe3MIqktx9MOse"
+          target="_blank"
+          rel="noreferrer"
+          style={{ textDecoration: 'underline' }}
+          >
+            here
+          </a>.
+        </Alert>
+
+        <Alert status="info">
           Stop the Hate&nbsp;
           <audio controls>
-            <source src="/audio/2021-03-23-stop-the-hate.mp3" />
+            <source src="/audio/20210323-stop-the-hate.mp3" />
           </audio>
         </Alert>
 
         <Alert status="info">
-          <AlertIcon />
           The Magic Bullet&nbsp;
           <audio controls>
             <source src="/audio/20210309-bullet-poem.mp3" />
@@ -34,7 +45,6 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
         </Alert>
 
         <Alert status="info">
-          <AlertIcon />
           Black Woman Magic&nbsp;
           <audio controls>
             <source src="/audio/20210309-a-black-womans-magic.mp3" />
@@ -42,7 +52,6 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
         </Alert>
 
         <Alert status="info">
-          <AlertIcon />
           Wrongfully Convicted&nbsp;
           <audio controls>
             <source src="/audio/20201116-wrongly-convicted.mp3" />
@@ -50,13 +59,14 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
         </Alert>
 
         <Alert status="info">
-          <AlertIcon />
           Teargas&nbsp;
           <audio controls>
-            <source src="/audio/20201015-rickie-slaughter-poem.mp3" />
+            <source src="/audio/20201018-teargas-poem.mp3" />
           </audio>
         </Alert>
       </Stack>
+
+      <h2>Rickie's Story of His Wrongful Conviction</h2>
 
       <p>
         Rickie Lamont Slaughter is an innocent man who is serving a prison
@@ -72,12 +82,13 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
       </p>
 
       <p>
-        Based on an unfair and faulty photo line-up, Rickie (who does not have a
-        Jamaican accent and is 5&apos;8") was misidentified. Additionally, witnesses
-        described the perpetrators' vehicle as being a Pontiac Grand Am, a different
-        kind of car than the one Rickie possessed, a Ford Taurus. Furthermore, there
-        was no physical evidence of the cash, credit cards, or clothing, to link him
-        to the crime. Despite obvious flaws in the case, Rickie was still eventually
+        Based on an unfair and faulty photo line-up, Rickie (who does not
+        have a Jamaican accent and is 5&apos;8") was misidentified.
+        Additionally, witnesses described the perpetrators' vehicle as being
+        a Pontiac Grand Am, a different kind of car than the one Rickie
+        possessed, a Ford Taurus. Furthermore, there was no physical evidence
+        of the cash, credit cards, or clothing, to link him to the crime.
+        Despite obvious flaws in the case, Rickie was still eventually
         wrongfully convicted at trial due to the photo misidentifications.
       </p>
 
@@ -105,25 +116,35 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
         how the facts against him were unjust for several reasons:
       </p>
 
+      <h3>
+        The unfair photo line-up
+      </h3>
+
       <p>
-        ### The unfair photo line-up
+        During the police investigation, an unfair photo line-up was
+        presented to, the victims and witnesses that caused them to
+        misidentify Rickie.
+      </p>
 
-        During the police investigation, an unfair photo line-up was presented to,
-        the victims and witnesses that caused them to misidentify Rickie.
+      <p>
+        Specifically, the photo line-up was made in a way that caused
+        Rickie&apos;s photo to stand out from the rest of the photos. The
+        color and background was uniquely different from the other 5 photos
+        in the line-up, which psychological made his picture stand out to the
+        viewers. Psychologists and police protocols have long-warned about
+        making one photo stand out from the rest because it can lead to
+        misidentification. The investigation deliberately did not follow the
+        proper protocols.
+      </p>
 
-        Specifically, the photo line-up was made in a way that caused Rickie&apos;s photo
-        to stand out from the rest of the photos. The color and background was
-        uniquely different from the other 5 photos in the line-up, which
-        psychological made his picture stand out to the viewers. Psychologists and
-        police protocols have long-warned about making one photo stand out from the
-        rest because it can lead to misidentification. The investigation deliberately
-        did not follow the proper protocols.
-
+      <p>
         [The Innocence Project has an in-depth study of misidentification, which
         details how bias has been used to convict innocent people of crimes they did
         not
         commit.](https://www.innocenceproject.org/eyewitness-identification-reform/)
+      </p>
 
+      <p>
         ### New evidence of a second more fair photo line-up
 
         At a recent hearing, ordered by a federal judge, the now-retired lead
@@ -190,8 +211,6 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
 
         - Slaughter v. Charles Daniels A-20-812949-W 8th Judicial District Court
         - Slaughter v. Renee Baker - A-18-784824-W
-
-        [Write Rickie](/pro-bono/justice-for-rickie-slaughter/write-rickie)
       </p>
     </RickieLayout>
   );

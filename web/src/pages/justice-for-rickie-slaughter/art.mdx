@@ -1,0 +1,18 @@
+export const meta = {
+  title: 'Rickies Art',
+  filename: 'justice-for-rickie-slaughter/coronavirus-in-prison',
+  updatedAt: '2020-07-01',
+  tags: 'pro-bono,black-lives-matter,criminal-justice',
+  description: 'Art by Rickie Slaughter.',
+};
+import { RickieLayout } from '../../components/layouts/rickieLayout';
+import { MDXComponents } from '../../components/mdxComponents';
+import { MDXProvider } from '@mdx-js/react';
+
+export default ({ children }) => (
+  <RickieLayout meta={meta}>
+    <MDXProvider components={MDXComponents}>
+      {children}
+    </MDXProvider>
+  </RickieLayout>
+);
