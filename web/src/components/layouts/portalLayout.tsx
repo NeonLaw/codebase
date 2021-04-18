@@ -1,6 +1,6 @@
 import { colors, gutters, theme } from '../../styles/neonLaw';
-
 import { BaseFooter } from '../footer/baseFooter';
+import { Breadcrumbs } from '../breadcrumbs';
 import { LoadingPage } from '../loadingPage';
 import {
   PortalNavigationBar
@@ -11,7 +11,6 @@ import {
 import {
   PortalSideNavigation
 } from '../sideNavigation/portalSideNavigation';
-import React from 'react';
 import { portalNavLinks } from '../navigationBars/portalNavLinks';
 import styled from '@emotion/styled';
 import { useColorMode } from '@chakra-ui/react';
@@ -117,6 +116,7 @@ export const PortalLayout = ({ children }) => {
                 color: colors.text[colorMode],
               }}
             >
+              <Breadcrumbs showHome={false} />
               {children}
             </Main>
           </div>

@@ -1,5 +1,3 @@
-import { Box } from '@chakra-ui/react';
-import { Breadcrumbs } from '../breadcrumbs';
 import {
   MatterDetailView
 } from '../detailViews/matterDetailView';
@@ -13,11 +11,7 @@ export const MatterDetailScreen = () => {
 
   return (
     <PortalLayout>
-      <Box>
-        <Breadcrumbs showHome={false} />
-
-        <MatterDetailView id={id} />
-      </Box>
+      <MatterDetailView id={id} />
     </PortalLayout>
   );
 };

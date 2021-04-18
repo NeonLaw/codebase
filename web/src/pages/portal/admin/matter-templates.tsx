@@ -1,7 +1,4 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/react';
-import React, { useState } from 'react';
-
-import { Breadcrumbs } from '../../../components/breadcrumbs';
 import { Button } from '../../../components/button';
 import {
   CreateMatterTemplateModal
@@ -14,6 +11,7 @@ import {
   UpdateMatterTemplateModal
 } from '../../../components/modals/updateMatterTemplateModal';
 import { gutters } from '../../../styles/neonLaw';
+import { useState } from 'react';
 
 const AdminMatterTemplates = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -25,8 +23,6 @@ const AdminMatterTemplates = () => {
   return (
     <PortalLayout>
       <Box textAlign="left">
-        <Breadcrumbs />
-
         <Button
           flash={false}
           buttonScheme="cyan"

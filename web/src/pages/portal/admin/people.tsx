@@ -1,5 +1,4 @@
 import { Box } from '@chakra-ui/react';
-import { Breadcrumbs } from '../../../components/breadcrumbs';
 import {
   PeopleTable
 } from '../../../components/tables/peopleTable';
@@ -10,8 +9,6 @@ const AdminPeople = () => {
   return (
     <PortalLayout>
       <Box textAlign="left">
-        <Breadcrumbs />
-
         <PeopleTable />
       </Box>
     </PortalLayout>

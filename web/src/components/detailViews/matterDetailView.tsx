@@ -1,12 +1,23 @@
-import { Box, Heading, Skeleton, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Heading,
+  Kbd,
+  Skeleton,
+  Text,
+  useDisclosure
+} from '@chakra-ui/react';
+import { CreateMatterContactModal } from '../modals/createMatterContactModal';
 import {
   MatterDocumentsList
 } from '../../components/lists/matterDocumentsList';
 import { convertSlateToPlaintext } from '../../utils/slate';
+import { gutters } from '../../styles/neonLaw';
 import { useMatterByIdQuery } from '../../utils/api';
 
 export const MatterDetailView = ({ id }) => {
   const { data, loading } = useMatterByIdQuery({ variables: { id }});
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   if (loading)  {
     return <Skeleton height="20px" />;
@@ -23,6 +34,24 @@ export const MatterDetailView = ({ id }) => {
         <Heading as="h3">Documents</Heading>
         <MatterDocumentsList
           matterDocuments={data.matter.matterDocuments.nodes}
+        />
+        <Button
+          flash={true}
+          marginBottom={gutters.xSmall}
+          onClick={onOpen}
+        >
+          Create Matter Contact&nbsp;
+          <Kbd
+            background="inherit"
+            border="1px solid #bbb"
+            transition="all .2s"
+          >
+            C
+          </Kbd>
+        </Button>
+        <CreateMatterContactModal
+          isOpen={isOpen}
+          onClose={() => { onClose(); }}
         />
       </Box>
     );
