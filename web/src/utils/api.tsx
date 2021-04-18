@@ -4411,6 +4411,31 @@ export type CreateMatterMutation = (
   )> }
 );
 
+export type CreateMatterContactMutationVariables = Exact<{
+  role: Scalars['String'];
+  contactId: Scalars['UUID'];
+  matterId: Scalars['UUID'];
+}>;
+
+
+export type CreateMatterContactMutation = (
+  { __typename?: 'Mutation' }
+  & { createMatterContact?: Maybe<(
+    { __typename?: 'CreateMatterContactPayload' }
+    & { matterContact?: Maybe<(
+      { __typename?: 'MatterContact' }
+      & Pick<MatterContact, 'id' | 'role' | 'createdAt' | 'updatedAt'>
+      & { contact?: Maybe<(
+        { __typename?: 'Person' }
+        & Pick<Person, 'id' | 'name'>
+      )>, matter?: Maybe<(
+        { __typename?: 'Matter' }
+        & Pick<Matter, 'id' | 'name'>
+      )> }
+    )> }
+  )> }
+);
+
 export type CreateMatterTemplateMutationVariables = Exact<{
   name: Scalars['String'];
   javascriptModule: Scalars['String'];
@@ -5250,6 +5275,54 @@ export function useCreateMatterMutation(baseOptions?: Apollo.MutationHookOptions
 export type CreateMatterMutationHookResult = ReturnType<typeof useCreateMatterMutation>;
 export type CreateMatterMutationResult = Apollo.MutationResult<CreateMatterMutation>;
 export type CreateMatterMutationOptions = Apollo.BaseMutationOptions<CreateMatterMutation, CreateMatterMutationVariables>;
+export const CreateMatterContactDocument = gql`
+    mutation CreateMatterContact($role: String!, $contactId: UUID!, $matterId: UUID!) {
+  createMatterContact(input: {matterContact: {role: $role, contactId: $contactId, matterId: $matterId}}) {
+    matterContact {
+      id
+      contact {
+        id
+        name
+      }
+      matter {
+        id
+        name
+      }
+      role
+      createdAt
+      updatedAt
+    }
+  }
+}
+    `;
+export type CreateMatterContactMutationFn = Apollo.MutationFunction<CreateMatterContactMutation, CreateMatterContactMutationVariables>;
+
+/**
+ * __useCreateMatterContactMutation__
+ *
+ * To run a mutation, you first call `useCreateMatterContactMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateMatterContactMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createMatterContactMutation, { data, loading, error }] = useCreateMatterContactMutation({
+ *   variables: {
+ *      role: // value for 'role'
+ *      contactId: // value for 'contactId'
+ *      matterId: // value for 'matterId'
+ *   },
+ * });
+ */
+export function useCreateMatterContactMutation(baseOptions?: Apollo.MutationHookOptions<CreateMatterContactMutation, CreateMatterContactMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateMatterContactMutation, CreateMatterContactMutationVariables>(CreateMatterContactDocument, options);
+      }
+export type CreateMatterContactMutationHookResult = ReturnType<typeof useCreateMatterContactMutation>;
+export type CreateMatterContactMutationResult = Apollo.MutationResult<CreateMatterContactMutation>;
+export type CreateMatterContactMutationOptions = Apollo.BaseMutationOptions<CreateMatterContactMutation, CreateMatterContactMutationVariables>;
 export const CreateMatterTemplateDocument = gql`
     mutation CreateMatterTemplate($name: String!, $javascriptModule: String!, $category: String!) {
   createMatterTemplate(input: {matterTemplate: {name: $name, javascriptModule: $javascriptModule, category: $category}}) {

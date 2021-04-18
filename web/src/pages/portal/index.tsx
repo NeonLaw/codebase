@@ -1,12 +1,10 @@
 import {
   Box,
   Heading,
-  Text,
 } from '@chakra-ui/react';
 import { gutters, sizes } from '../../styles/neonLaw';
-
+import { MattersList } from '../../components/lists/mattersList';
 import { PortalLayout } from '../../components/layouts/portalLayout';
-import React from 'react';
 import { useIntl } from 'react-intl';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 
@@ -19,10 +17,8 @@ const PortalPage = () => {
         <Heading fontWeight="normal" marginBottom={gutters.xSmallOne}>
           {intl.formatMessage({ id: 'pages_portal.heading' })}
         </Heading>
-        <Text>
-          {intl.formatMessage({ id: 'pages_portal.text' })}
-        </Text>
       </Box>
+      <MattersList category="all" />
     </PortalLayout>
   );
 };
