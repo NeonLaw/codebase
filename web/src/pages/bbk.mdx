@@ -1,0 +1,25 @@
+export const meta = {
+  title: 'BBK',
+  filename: 'bbk',
+  updatedAt: '2020-12-31',
+  tags: 'bbk',
+  description: 'Bbo Bbo',
+};
+import { MdxLayout } from '../components/layouts/mdxLayout';
+export default ({ children }) => <MdxLayout meta={meta}>{children}</MdxLayout>;
+
+
+import { BackgroundImage } from '../components/background-image';
+
+<DesktopHalfMobileFullCard to='/bbk'>
+<BackgroundImage src="bbk.jpg" alt="BBK" aspectRatio={16/9} />
+<Box p="6">
+
+## BBK
+
+BBK or Bbo Bbo (which means kiss in Korean) is our cute dog that reminds us
+what's really important - love. Thanks for checking out Neon Law and we hope
+we can serve you someday.
+
+</Box>
+</DesktopHalfMobileFullCard>
