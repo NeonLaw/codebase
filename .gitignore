@@ -93,3 +93,5 @@ dist/
 /packages/shook-family/src/intl/*.json
 
 target
+
+.vscode/
