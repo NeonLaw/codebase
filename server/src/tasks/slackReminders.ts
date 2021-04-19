@@ -18,7 +18,7 @@ export const slackReminders = async (_, helpers) => {
   });
 
   const { rows: matters } = await helpers.query(
-    'SELECT (name, description) FROM matter;'
+    'SELECT (name, description) FROM matter WHERE active = true;'
   );
 
   helpers.logger.info(JSON.stringify(matters.rows));

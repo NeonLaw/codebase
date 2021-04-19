@@ -44,3 +44,11 @@ forms:
     placeholder: What legal question do you have?
   document_template:
     label: Document Template
+  role:
+    required: The Role is required
+    label: Role
+    placeholder: e.g. lawyer
+  matter_id:
+    label: Matter
+  contact_id:
+    label: Contact

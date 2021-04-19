@@ -148,6 +148,7 @@ export type Address = Node & {
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
   name?: Maybe<Scalars['String']>;
+  public: Scalars['Boolean'];
   /** Reads a single `Person` that is related to this `Address`. */
   person?: Maybe<Person>;
   /** Reads and enables pagination through a set of `Letter`. */
@@ -233,6 +234,7 @@ export type AddressInput = {
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
   name?: Maybe<Scalars['String']>;
+  public?: Maybe<Scalars['Boolean']>;
 };
 
 /** Represents an update to a `Address`. Fields that are set will be updated. */
@@ -249,6 +251,7 @@ export type AddressPatch = {
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
   name?: Maybe<Scalars['String']>;
+  public?: Maybe<Scalars['Boolean']>;
 };
 
 /** All input for the create `AccountingBill` mutation. */

@@ -27,8 +27,8 @@ interface SelectInput extends BasicInput {
 
 interface SelectWithQueryInput extends BasicInput {
   type: 'selectWithQuery';
-  queryName?: string;
-  labelColumn?: string;
+  collection: string;
+  labelColumn: string;
 }
 
 interface TextareaInput extends BasicInput {
