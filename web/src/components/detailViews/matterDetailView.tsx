@@ -7,7 +7,9 @@ import {
   Text,
   useDisclosure
 } from '@chakra-ui/react';
+import { AdminOnly } from '../adminOnly';
 import { CreateMatterContactModal } from '../modals/createMatterContactModal';
+import { MatterContactsList } from '../../components/lists/matterContactsList';
 import {
   MatterDocumentsList
 } from '../../components/lists/matterDocumentsList';
@@ -35,24 +37,30 @@ export const MatterDetailView = ({ id }) => {
         <MatterDocumentsList
           matterDocuments={data.matter.matterDocuments.nodes}
         />
-        <Button
-          flash={true}
-          marginBottom={gutters.xSmall}
-          onClick={onOpen}
-        >
-          Create Matter Contact&nbsp;
-          <Kbd
-            background="inherit"
-            border="1px solid #bbb"
-            transition="all .2s"
-          >
-            C
-          </Kbd>
-        </Button>
-        <CreateMatterContactModal
-          isOpen={isOpen}
-          onClose={() => { onClose(); }}
+        <Heading as="h3">Contacts</Heading>
+        <MatterContactsList
+          matterContacts={data.matter.matterContacts.nodes}
         />
+        <AdminOnly>
+          <Button
+            flash={true}
+            marginBottom={gutters.xSmall}
+            onClick={onOpen}
+          >
+              Create Matter Contact&nbsp;
+            <Kbd
+              background="inherit"
+              border="1px solid #bbb"
+              transition="all .2s"
+            >
+               C
+            </Kbd>
+          </Button>
+          <CreateMatterContactModal
+            isOpen={isOpen}
+            onClose={() => { onClose(); }}
+          />
+        </AdminOnly>
       </Box>
     );
   }

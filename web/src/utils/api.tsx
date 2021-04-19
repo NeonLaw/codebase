@@ -4608,7 +4608,17 @@ export type MatterByIdQuery = (
     & { matterTemplate?: Maybe<(
       { __typename?: 'MatterTemplate' }
       & Pick<MatterTemplate, 'id' | 'name' | 'category'>
-    )>, matterDocuments: (
+    )>, matterContacts: (
+      { __typename?: 'MatterContactsConnection' }
+      & { nodes: Array<(
+        { __typename?: 'MatterContact' }
+        & Pick<MatterContact, 'id' | 'role'>
+        & { contact?: Maybe<(
+          { __typename?: 'Person' }
+          & Pick<Person, 'id' | 'name'>
+        )> }
+      )> }
+    ), matterDocuments: (
       { __typename?: 'MatterDocumentsConnection' }
       & { nodes: Array<(
         { __typename?: 'MatterDocument' }
@@ -5703,6 +5713,16 @@ export const MatterByIdDocument = gql`
       id
       name
       category
+    }
+    matterContacts {
+      nodes {
+        id
+        role
+        contact {
+          id
+          name
+        }
+      }
     }
     matterDocuments {
       nodes {

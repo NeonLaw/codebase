@@ -8,6 +8,16 @@ query MatterById($id: UUID!) {
       name
       category
     }
+    matterContacts {
+      nodes {
+        id
+        role
+        contact {
+          id
+          name
+        }
+      }
+    }
     matterDocuments {
       nodes {
         id
