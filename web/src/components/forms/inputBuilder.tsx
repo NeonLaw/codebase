@@ -9,7 +9,7 @@ interface InputBuilderProps {
   resourceName: string;
   fields: Field[];
   errors: any;
-  register(any): void;
+  register(...any): void;
   currentValues: any;
   control: any;
 }
@@ -33,7 +33,7 @@ export const InputBuilder = ({
           type,
           options,
           required,
-          queryName,
+          collection,
           labelColumn
         } = (field as any);
         const dasherizedFieldName = kebabCase(name);
@@ -89,15 +89,10 @@ export const InputBuilder = ({
                 placeholder={intl.formatMessage({
                   id: `forms.${underscoreFieldName}.placeholder`,
                 })}
-                register={
-                  required
-                    ? register({
-                      required: intl.formatMessage({
-                        id: `forms.${underscoreFieldName}.required`,
-                      }),
-                    })
-                    : register({})
-                }
+                register={register}
+                required={intl.formatMessage({
+                  id: `forms.${underscoreFieldName}.required`,
+                })}
                 styles={{ marginBottom: gutters.xSmallOne }}
                 value={currentValues && currentValues[name]}
               />
@@ -135,7 +130,7 @@ export const InputBuilder = ({
                 key={i}
                 name={name}
                 label={label}
-                queryName={queryName}
+                collection={collection}
                 labelColumn={labelColumn}
                 errors={errors}
                 testId={testId}

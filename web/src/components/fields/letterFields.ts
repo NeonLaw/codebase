@@ -7,15 +7,15 @@ export const letterFields: Field[] = [
     type: 'textarea',
   },
   {
+    collection: 'addresses',
     labelColumn: 'name',
     name: 'addresseeId',
-    queryName: 'allPeople',
     type: 'selectWithQuery'
   },
   {
+    collection: 'addresses',
     labelColumn: 'name',
     name: 'addressorId',
-    queryName: 'allPeople',
     type: 'selectWithQuery'
   }
 ];

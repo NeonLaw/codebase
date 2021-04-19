@@ -17,7 +17,7 @@ export const SelectWithQuery = ({
   errors,
   label,
   labelColumn,
-  queryName,
+  collection,
   name,
   testId,
   defaultValue,
@@ -30,7 +30,7 @@ export const SelectWithQuery = ({
     data,
     loading,
     error
-  } = require('../../utils/api')[`use${capitalize(queryName)}Query`]();
+  } = require('../../utils/api')[`useAll${capitalize(collection)}Query`]();
 
   if (loading) {
     return (<h3>Loading</h3>);
@@ -38,7 +38,7 @@ export const SelectWithQuery = ({
   if (error) {
     return (<Box color="red">{JSON.stringify(error)}</Box>);
   }
-  const nodes = data && data[queryName]?.nodes || [];
+  const nodes = data && data[collection]?.nodes || [];
 
   const options = nodes.map((node) => ({
     label: node[labelColumn], value: node.id
