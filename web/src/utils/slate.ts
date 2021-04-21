@@ -2,7 +2,7 @@ import { Node, Text } from 'slate';
 import escapeHtml from 'escape-html';
 import { jsx } from 'slate-hyperscript';
 
-export const  convertSlateToPlaintext = (slateJson: any): string => {
+export const convertSlateToPlaintext = (slateJson: any): string => {
   if (Array.isArray(slateJson)) {
     return slateJson.map(n => Node.string(n)).join('\n');
   }
@@ -32,7 +32,7 @@ export const  convertSlateToHtml = (slateJson: any) => {
   return slateJson.map(n => serialize(n)).join('\n');
 };
 
-export const  convertHtmlToSlate = (html: string) => {
+export const convertHtmlToSlate = (html: string) => {
   const deserialize = el => {
     if (el.nodeType === 3) {
       return el.textContent;
