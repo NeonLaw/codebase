@@ -9,7 +9,7 @@ export const sendMatterDocumentEmail = async (
 
   const documentQuery = await helpers.query(
     'SELECT d.id as documentId, '+
-    'mc.email as matterContactEmail, '+
+    'mcp.email as matterContactEmail, '+
     'p.email as primaryContactEmail, '+
     'm.id as matterId, '+
     'mt.category as matterTemplateCategory '+
@@ -19,6 +19,7 @@ export const sendMatterDocumentEmail = async (
     'INNER JOIN matter_template mt ON (m.matter_template_id = mt.id) ' +
     'INNER JOIN person p ON (m.primary_contact_id = p.id) ' +
     'LEFT JOIN matter_contact mc ON (mc.matter_id = m.id) ' +
+    'INNER JOIN person mcp ON (mc.contact_id = p.id) ' +
     'WHERE md.id = $1',
     [matterDocumentId]
   );
