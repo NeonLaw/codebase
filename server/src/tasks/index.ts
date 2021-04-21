@@ -6,6 +6,7 @@ export {
 } from './addRelatedQuestionRelationship';
 export { createNeo4jRelationship } from './createNeo4jRelationship';
 export { downloadLobLetters } from './downloadLobLetters';
+export { sendDocumentEmail } from './sendDocumentEmail';
 export { saveDocumentInLongTermStorage } from './saveDocumentInLongTermStorage';
 export { sendWelcomeEmail } from './sendWelcomeEmail';
 export { slackReminders } from './slackReminders';
