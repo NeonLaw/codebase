@@ -7,38 +7,34 @@ export const sendMatterDocumentEmail = async (
   sgMail.setApiKey(process.env.SENDGRID_API_KEY as string);
   const { matterDocumentId } = payload;
 
-  const documentQuery = await helpers.query(
+  const { rows } = await helpers.query(
     'SELECT d.id as documentId, '+
-    'mcp.email as matterContactEmail, '+
-    'p.email as primaryContactEmail, '+
+    'p.email as email, '+
     'm.id as matterId, '+
     'mt.category as matterTemplateCategory '+
     'FROM document d ' +
     'INNER JOIN matter_document md ON (md.document_id = d.id) ' +
     'INNER JOIN matter m ON (md.matter_id = m.id) ' +
     'INNER JOIN matter_template mt ON (m.matter_template_id = mt.id) ' +
-    'INNER JOIN person p ON (m.primary_contact_id = p.id) ' +
     'LEFT JOIN matter_contact mc ON (mc.matter_id = m.id) ' +
-    'INNER JOIN person mcp ON (mc.contact_id = p.id) ' +
+    'INNER JOIN person p ON '+
+    '(m.primary_contact_id = p.id OR mc.contact_id = p.id) ' +
     'WHERE md.id = $1',
     [matterDocumentId]
   );
-  const { rows } = documentQuery;
 
   const {
     matterTemplateCategory,
     matterId,
-    primaryContactEmail
   } = rows[0];
 
   const recipients = new Set();
-  recipients.add(primaryContactEmail);
 
   for (const row of rows) {
-    const { matterContactEmail } = row;
+    const { email } = row;
 
-    if (!recipients.has(matterContactEmail)) {
-      recipients.add(matterContactEmail);
+    if (!recipients.has(email)) {
+      recipients.add(email);
     }
   }
 
