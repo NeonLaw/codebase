@@ -1,8 +1,11 @@
 import { default as sgMail } from '@sendgrid/mail';
 
-export const sendDocumentEmail = async (payload, helpers): Promise<void> => {
+export const sendMatterDocumentEmail = async (
+  payload,
+  helpers
+): Promise<void> => {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY as string);
-  const { documentId } = payload;
+  const { matterDocumentId } = payload;
 
   const documentQuery = await helpers.query(
     'SELECT d.id as documentId, '+
@@ -16,8 +19,8 @@ export const sendDocumentEmail = async (payload, helpers): Promise<void> => {
     'INNER JOIN matter_template mt ON (m.matter_template_id = mt.id)' +
     'INNER JOIN person p ON (m.primary_contact_id = p.id)' +
     'LEFT JOIN matter_contact mc ON (mc.matter_id = m.id)' +
-    'WHERE d.id = $1',
-    [documentId]
+    'WHERE md.id = $1',
+    [matterDocumentId]
   );
   const { rows } = documentQuery;
 
