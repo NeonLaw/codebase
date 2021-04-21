@@ -5,6 +5,13 @@ on:
   pull_request:
     branches:
       - main
+  workflow_run:
+    workflows:
+      - system_tests
+    branches:
+      - main
+    types:
+      - completed
 
   workflow_dispatch:
 
