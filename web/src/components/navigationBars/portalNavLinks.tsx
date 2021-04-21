@@ -23,7 +23,7 @@ export const portalNavLinks = ({ email }) => {
     {
       icon: <AiOutlineShop />,
       label: 'Businesses',
-      route: '/portal/businesses',
+      route: '/portal/business',
     },
     {
       icon: <MdGavel />,
