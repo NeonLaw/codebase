@@ -12,13 +12,13 @@ export const sendMatterDocumentEmail = async (
     'mc.email as matterContactEmail, '+
     'p.email as primaryContactEmail, '+
     'm.id as matterId, '+
-    'mt.category as matterTemplateCategory, '+
-    'FROM document d' +
-    'INNER JOIN matter_document md ON (md.document_id = d.id)' +
-    'INNER JOIN matter m ON (md.matter_id = m.id)' +
-    'INNER JOIN matter_template mt ON (m.matter_template_id = mt.id)' +
-    'INNER JOIN person p ON (m.primary_contact_id = p.id)' +
-    'LEFT JOIN matter_contact mc ON (mc.matter_id = m.id)' +
+    'mt.category as matterTemplateCategory '+
+    'FROM document d ' +
+    'INNER JOIN matter_document md ON (md.document_id = d.id) ' +
+    'INNER JOIN matter m ON (md.matter_id = m.id) ' +
+    'INNER JOIN matter_template mt ON (m.matter_template_id = mt.id) ' +
+    'INNER JOIN person p ON (m.primary_contact_id = p.id) ' +
+    'LEFT JOIN matter_contact mc ON (mc.matter_id = m.id) ' +
     'WHERE md.id = $1',
     [matterDocumentId]
   );
