@@ -17,7 +17,7 @@ export const publicLetterFields: Field[] = [
     type: 'id',
   },
   {
-    name: 'captcha',
+    name: 'captchaToken',
     required: true,
     type: 'captcha',
   }
