@@ -1,5 +1,4 @@
 import { Button } from '../button';
-import React from 'react';
 import { useDeleteMatterByIdMutation, } from '../../utils/api';
 
 export const DeleteMatterButton = ({ id }) => {
