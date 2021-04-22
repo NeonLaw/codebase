@@ -48,7 +48,7 @@ const ShookFamilyWeddingPage = () => {
 
     // Call your backend to create the Checkout Session
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URI}/api/create-checkout-session`,
+      'https://api.neonlaw.com/api/create-checkout-session',
       {
         body: JSON.stringify({ amount }),
         headers: { 'Content-Type': 'application/json'},
