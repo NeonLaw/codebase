@@ -2802,7 +2802,6 @@ export type PublicLetterInput = {
   addresseeId: Scalars['UUID'];
   addressorId: Scalars['UUID'];
   body: Scalars['String'];
-  id?: Maybe<Scalars['UUID']>;
 };
 
 export type PublicQueryNodes = {
