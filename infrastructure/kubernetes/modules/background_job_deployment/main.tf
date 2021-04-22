@@ -207,6 +207,16 @@ resource "kubernetes_deployment" "server" {
             }
           }
 
+          env {
+            name = "HCAPTCHA_SECRET_KEY"
+            value_from {
+              secret_key_ref {
+                key  = "HCAPTCHA_SECRET_KEY"
+                name = "application-secrets"
+              }
+            }
+          }
+
           volume_mount {
             name       = "gcp-credentials"
             read_only  = true

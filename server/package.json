@@ -36,6 +36,7 @@
     "graphile-utils": "^4.11.2",
     "graphile-worker": "^0.9.0",
     "graphile-worker-rate-limiter": "^0.0.1",
+    "hcaptcha": "^0.0.2",
     "ioredis": "^4.26.0",
     "js-yaml": "^4.1.0",
     "jsonwebtoken": "^8.5.1",

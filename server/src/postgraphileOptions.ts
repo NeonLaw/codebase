@@ -5,6 +5,7 @@ import PgSimplifyInflectorPlugin from '@graphile-contrib/pg-simplify-inflector';
 import { documentPlugin } from './resolvers/documentPlugin';
 import { fileUploadsPlugin } from './resolvers/fileUploadsPlugin';
 import { makeAddInflectorsPlugin } from 'graphile-utils';
+import { publicLetterPlugin } from './resolvers/publicLetterPlugin';
 import { questionPlugin } from './resolvers/questionPlugin';
 import { searchQueriesPlugin } from './resolvers/searchQueriesPlugin';
 import { slatePlugin } from './slateTypes';
@@ -58,6 +59,7 @@ export const postgraphileOptions: PostGraphileOptions = {
     schemaInflectorsPlugin,
     documentPlugin,
     fileUploadsPlugin,
+    publicLetterPlugin,
     questionPlugin,
     searchQueriesPlugin,
     slatePlugin
