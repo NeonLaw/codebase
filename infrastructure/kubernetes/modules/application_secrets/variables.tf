@@ -43,3 +43,6 @@ variable "neo4j_url" {
 
 variable "neon_bot_slack_token" {
 }
+
+variable "hcaptcha_secret_key" {
+}

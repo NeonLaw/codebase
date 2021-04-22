@@ -529,6 +529,12 @@ export type CreatePrimaryKeyIdIfNotExistsPayload = {
   query?: Maybe<Query>;
 };
 
+export type CreatePublicLetterInput = {
+  clientMutationId?: Maybe<Scalars['UUID']>;
+  letter: PublicLetterInput;
+  captchaToken: Scalars['String'];
+};
+
 /** All input for the create `Question` mutation. */
 export type CreateQuestionInput = {
   /**
@@ -2228,6 +2234,7 @@ export type Mutation = {
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
   updateQuestionnaireFromNeo4J?: Maybe<UpdateQuestionnaireFromNeo4JPayload>;
   createTransloaditToken?: Maybe<CreateTransloaditTokenPayload>;
+  createPublicLetter?: Maybe<Letter>;
 };
 
 
@@ -2632,6 +2639,12 @@ export type MutationUpdateQuestionnaireFromNeo4JArgs = {
   input: UpdateQuestionnaireFromNeo4JInput;
 };
 
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreatePublicLetterArgs = {
+  input: CreatePublicLetterInput;
+};
+
 /** An object with a globally unique `ID`. */
 export type Node = {
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -2783,6 +2796,13 @@ export type PersonPatch = {
   name?: Maybe<Scalars['String']>;
   sub?: Maybe<Scalars['String']>;
   flags?: Maybe<Scalars['String']>;
+};
+
+export type PublicLetterInput = {
+  addresseeId: Scalars['UUID'];
+  addressorId: Scalars['UUID'];
+  body: Scalars['String'];
+  id?: Maybe<Scalars['UUID']>;
 };
 
 export type PublicQueryNodes = {
