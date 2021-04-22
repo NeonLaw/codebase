@@ -1,3 +1,12 @@
+import { Node } from 'slate';
+
+const convertSlateToPlaintext = (slateJson: any): string => {
+  if (Array.isArray(slateJson)) {
+    return slateJson.map(n => Node.string(n)).join('\n');
+  }
+  return '';
+};
+
 export const sendLobLetter = async (payload, helpers) => {
   const { letterId } = payload;
 
@@ -22,7 +31,7 @@ export const sendLobLetter = async (payload, helpers) => {
     description: 'Public Letter to Rickie',
     file: '<html style="padding-top: 3in; margin: .5in;">{{body}}</html>',
     from,
-    merge_variables: { body },
+    merge_variables: { body: convertSlateToPlaintext(body) },
     to,
   });
 

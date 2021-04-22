@@ -49,7 +49,7 @@ export const publicLetterPlugin = makeExtendSchemaPlugin((build) => {
       input PublicLetterInput {
         addresseeId: UUID!
         addressorId: UUID!
-        body: String!
+        body: JSON!
       }
 
       input CreatePublicLetterInput {

@@ -1,5 +1,5 @@
 import {
-  useCreateLetterMutation,
+  useCreatePublicLetterMutation,
   usePublicAddressesByNameQuery
 } from '../../utils/api';
 import { useRef, useState } from 'react';
@@ -25,7 +25,7 @@ export const CreatePublicLetterForm = () => {
   const { colorMode } = useColorMode();
   const formRef = useRef<HTMLFormElement>(null);
 
-  const [createMutation, { loading }] = useCreateLetterMutation();
+  const [createMutation, { loading }] = useCreatePublicLetterMutation();
 
   const onSubmit = async (variables) => {
     await createMutation({

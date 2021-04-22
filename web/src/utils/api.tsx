@@ -2801,7 +2801,7 @@ export type PersonPatch = {
 export type PublicLetterInput = {
   addresseeId: Scalars['UUID'];
   addressorId: Scalars['UUID'];
-  body: Scalars['String'];
+  body: Scalars['JSON'];
 };
 
 export type PublicQueryNodes = {
@@ -4484,6 +4484,22 @@ export type CreateMatterTemplateMutation = (
   )> }
 );
 
+export type CreatePublicLetterMutationVariables = Exact<{
+  body: Scalars['JSON'];
+  addressorId: Scalars['UUID'];
+  addresseeId: Scalars['UUID'];
+  captchaToken: Scalars['String'];
+}>;
+
+
+export type CreatePublicLetterMutation = (
+  { __typename?: 'Mutation' }
+  & { createPublicLetter?: Maybe<(
+    { __typename?: 'Letter' }
+    & Pick<Letter, 'id' | 'createdAt' | 'body' | 'addressorId' | 'addresseeId'>
+  )> }
+);
+
 export type CreateQuestionMutationVariables = Exact<{
   options?: Maybe<Array<Maybe<Scalars['String']>> | Maybe<Scalars['String']>>;
   questionType: Scalars['String'];
@@ -5422,6 +5438,46 @@ export function useCreateMatterTemplateMutation(baseOptions?: Apollo.MutationHoo
 export type CreateMatterTemplateMutationHookResult = ReturnType<typeof useCreateMatterTemplateMutation>;
 export type CreateMatterTemplateMutationResult = Apollo.MutationResult<CreateMatterTemplateMutation>;
 export type CreateMatterTemplateMutationOptions = Apollo.BaseMutationOptions<CreateMatterTemplateMutation, CreateMatterTemplateMutationVariables>;
+export const CreatePublicLetterDocument = gql`
+    mutation CreatePublicLetter($body: JSON!, $addressorId: UUID!, $addresseeId: UUID!, $captchaToken: String!) {
+  createPublicLetter(input: {letter: {body: $body, addressorId: $addressorId, addresseeId: $addresseeId}, captchaToken: $captchaToken}) {
+    id
+    createdAt
+    body
+    addressorId
+    addresseeId
+  }
+}
+    `;
+export type CreatePublicLetterMutationFn = Apollo.MutationFunction<CreatePublicLetterMutation, CreatePublicLetterMutationVariables>;
+
+/**
+ * __useCreatePublicLetterMutation__
+ *
+ * To run a mutation, you first call `useCreatePublicLetterMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreatePublicLetterMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createPublicLetterMutation, { data, loading, error }] = useCreatePublicLetterMutation({
+ *   variables: {
+ *      body: // value for 'body'
+ *      addressorId: // value for 'addressorId'
+ *      addresseeId: // value for 'addresseeId'
+ *      captchaToken: // value for 'captchaToken'
+ *   },
+ * });
+ */
+export function useCreatePublicLetterMutation(baseOptions?: Apollo.MutationHookOptions<CreatePublicLetterMutation, CreatePublicLetterMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreatePublicLetterMutation, CreatePublicLetterMutationVariables>(CreatePublicLetterDocument, options);
+      }
+export type CreatePublicLetterMutationHookResult = ReturnType<typeof useCreatePublicLetterMutation>;
+export type CreatePublicLetterMutationResult = Apollo.MutationResult<CreatePublicLetterMutation>;
+export type CreatePublicLetterMutationOptions = Apollo.BaseMutationOptions<CreatePublicLetterMutation, CreatePublicLetterMutationVariables>;
 export const CreateQuestionDocument = gql`
     mutation CreateQuestion($options: [String], $questionType: String!, $prompt: String!, $helpText: JSON) {
   createQuestion(input: {question: {options: $options, questionType: $questionType, prompt: $prompt, helpText: $helpText}}) {
