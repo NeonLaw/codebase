@@ -8,6 +8,7 @@ export { createNeo4jRelationship } from './createNeo4jRelationship';
 export { downloadLobLetters } from './downloadLobLetters';
 export { sendMatterDocumentEmail } from './sendMatterDocumentEmail';
 export { saveDocumentInLongTermStorage } from './saveDocumentInLongTermStorage';
+export { sendLobLetter } from './sendLobLetter';
 export { sendWelcomeEmail } from './sendWelcomeEmail';
 export { slackReminders } from './slackReminders';
 export { updateQuestionnaireFromNeo4j } from './updateQuestionnaireFromNeo4j';
