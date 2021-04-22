@@ -29,16 +29,16 @@ export const MatterDetailView = ({ id }) => {
     return (
       <Box>
         <Heading>{data.matter.name}</Heading>
-        <Text>
-          {data.matter.description &&
-          convertSlateToPlaintext(data.matter.description)}
-        </Text>
+        {data.matter.description && (<Text>
+          {convertSlateToPlaintext(data.matter.description)}
+        </Text>)}
         <Heading as="h3">Documents</Heading>
         <MatterDocumentsList
           matterDocuments={data.matter.matterDocuments.nodes}
         />
         <Heading as="h3">Contacts</Heading>
         <MatterContactsList
+          primaryContact={data.matter.primaryContact}
           matterContacts={data.matter.matterContacts.nodes}
         />
         <AdminOnly>

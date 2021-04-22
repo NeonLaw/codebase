@@ -52,3 +52,5 @@ forms:
     label: Matter
   contact_id:
     label: Contact
+  description:
+    label: Description

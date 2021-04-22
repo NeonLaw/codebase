@@ -185,6 +185,10 @@ export type AddressCondition = {
   id?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `personId` field. */
   personId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `public` field. */
+  public?: Maybe<Scalars['Boolean']>;
 };
 
 /** A connection to a list of `Address` values. */
@@ -216,6 +220,10 @@ export enum AddressesOrderBy {
   IdDesc = 'ID_DESC',
   PersonIdAsc = 'PERSON_ID_ASC',
   PersonIdDesc = 'PERSON_ID_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  PublicAsc = 'PUBLIC_ASC',
+  PublicDesc = 'PUBLIC_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -4605,7 +4613,10 @@ export type MatterByIdQuery = (
   & { matter?: Maybe<(
     { __typename?: 'Matter' }
     & Pick<Matter, 'id' | 'name' | 'description'>
-    & { matterTemplate?: Maybe<(
+    & { primaryContact?: Maybe<(
+      { __typename?: 'Person' }
+      & Pick<Person, 'id' | 'name'>
+    )>, matterTemplate?: Maybe<(
       { __typename?: 'MatterTemplate' }
       & Pick<MatterTemplate, 'id' | 'name' | 'category'>
     )>, matterContacts: (
@@ -4636,6 +4647,22 @@ export type MatterByIdQuery = (
         )> }
       )> }
     ) }
+  )> }
+);
+
+export type PublicAddressesByNameQueryVariables = Exact<{
+  name: Scalars['String'];
+}>;
+
+
+export type PublicAddressesByNameQuery = (
+  { __typename?: 'Query' }
+  & { addresses?: Maybe<(
+    { __typename?: 'AddressesConnection' }
+    & { nodes: Array<(
+      { __typename?: 'Address' }
+      & Pick<Address, 'id' | 'city' | 'country' | 'name' | 'postalCode' | 'public' | 'route' | 'state' | 'streetNumber'>
+    )> }
   )> }
 );
 
@@ -5709,6 +5736,10 @@ export const MatterByIdDocument = gql`
     id
     name
     description
+    primaryContact {
+      id
+      name
+    }
     matterTemplate {
       id
       name
@@ -5774,6 +5805,51 @@ export function useMatterByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type MatterByIdQueryHookResult = ReturnType<typeof useMatterByIdQuery>;
 export type MatterByIdLazyQueryHookResult = ReturnType<typeof useMatterByIdLazyQuery>;
 export type MatterByIdQueryResult = Apollo.QueryResult<MatterByIdQuery, MatterByIdQueryVariables>;
+export const PublicAddressesByNameDocument = gql`
+    query PublicAddressesByName($name: String!) {
+  addresses(condition: {public: true, name: $name}) {
+    nodes {
+      id
+      city
+      country
+      name
+      postalCode
+      public
+      route
+      state
+      streetNumber
+    }
+  }
+}
+    `;
+
+/**
+ * __usePublicAddressesByNameQuery__
+ *
+ * To run a query within a React component, call `usePublicAddressesByNameQuery` and pass it any options that fit your needs.
+ * When your component renders, `usePublicAddressesByNameQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = usePublicAddressesByNameQuery({
+ *   variables: {
+ *      name: // value for 'name'
+ *   },
+ * });
+ */
+export function usePublicAddressesByNameQuery(baseOptions: Apollo.QueryHookOptions<PublicAddressesByNameQuery, PublicAddressesByNameQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<PublicAddressesByNameQuery, PublicAddressesByNameQueryVariables>(PublicAddressesByNameDocument, options);
+      }
+export function usePublicAddressesByNameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PublicAddressesByNameQuery, PublicAddressesByNameQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<PublicAddressesByNameQuery, PublicAddressesByNameQueryVariables>(PublicAddressesByNameDocument, options);
+        }
+export type PublicAddressesByNameQueryHookResult = ReturnType<typeof usePublicAddressesByNameQuery>;
+export type PublicAddressesByNameLazyQueryHookResult = ReturnType<typeof usePublicAddressesByNameLazyQuery>;
+export type PublicAddressesByNameQueryResult = Apollo.QueryResult<PublicAddressesByNameQuery, PublicAddressesByNameQueryVariables>;
 export const QuestionByIdDocument = gql`
     query QuestionById($id: UUID!) {
   question(id: $id) {

@@ -7,6 +7,9 @@ import {
   MatterTable
 } from '../../../../components/tables/matterTable';
 import { PortalLayout } from '../../../../components/layouts/portalLayout';
+import {
+  UpdateMatterModal
+} from '../../../../components/modals/updateMatterModal';
 import { gutters } from '../../../../styles/neonLaw';
 import { useState } from 'react';
 
@@ -16,6 +19,7 @@ const AdminMatters = () => {
     showCreateMatterModal,
     changeShowCreateMatterModal
   ] = useState(true);
+  const [currentRow, setCurrentRow] = useState({ values: [] });
 
   return (
     <PortalLayout>
@@ -24,7 +28,10 @@ const AdminMatters = () => {
           flash={false}
           buttonScheme="cyan"
           marginBottom={gutters.xSmall}
-          onClick={onOpen}
+          onClick={() => {
+            changeShowCreateMatterModal(true);
+            onOpen();
+          }}
         >
           Create Matter &nbsp;
           <Kbd
@@ -38,13 +45,22 @@ const AdminMatters = () => {
 
         <CreateMatterModal
           isOpen={isOpen && showCreateMatterModal}
-          onClose={() => {
-            changeShowCreateMatterModal(true);
-            onClose();
-          }}
+          onClose={onClose}
         />
 
-        <MatterTable />
+        <UpdateMatterModal
+          isOpen={isOpen && !showCreateMatterModal}
+          matter={currentRow.values}
+          onClose={onClose}
+        />
+
+        <MatterTable
+          onRowClick={(row) => {
+            changeShowCreateMatterModal(false);
+            setCurrentRow(row);
+            onOpen();
+          }}
+        />
       </Box>
     </PortalLayout>
   );

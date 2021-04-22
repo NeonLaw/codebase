@@ -1,10 +1,13 @@
+import {
+  useCreateLetterMutation,
+  usePublicAddressesByNameQuery
+} from '../../utils/api';
 import { useRef, useState } from 'react';
 import { CreateButton } from '../buttons/createButton';
 import { InputBuilder } from '../forms/inputBuilder';
 import { colors } from '../../styles/neonLaw';
-import { letterFields } from '../fields/letterFields';
+import { publicLetterFields } from '../fields/letterFields';
 import { useColorMode } from '@chakra-ui/react';
-import { useCreateLetterMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 
 export const CreateLetterForm = () => {
@@ -33,9 +36,18 @@ export const CreateLetterForm = () => {
     });
   };
 
+  const { data: addressee } = usePublicAddressesByNameQuery(
+    { variables: { name: 'rickie' } }
+  );
+  const addresseeId = addressee.addresses.nodes[0].id;
+
+  const { data: addressor } = usePublicAddressesByNameQuery(
+    { variables: { name: 'neon-law' } }
+  );
+  const addressorId = addressor.addresses.nodes[0].id;
+
   const { colorMode } = useColorMode();
   const formRef = useRef<HTMLFormElement>(null);
-
 
   return (
     <form
@@ -46,11 +58,14 @@ export const CreateLetterForm = () => {
       {formError}
       <InputBuilder
         resourceName="letter"
-        fields={letterFields}
+        fields={publicLetterFields}
         control={control}
         errors={errors}
         register={register}
-        currentValues={{}}
+        currentValues={{
+          addresseeId,
+          addressorId,
+        }}
       />
       <CreateButton
         dasherizedResourceName="letter"
