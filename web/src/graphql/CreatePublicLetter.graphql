@@ -1,0 +1,23 @@
+mutation CreatePublicLetter(
+  $body: JSON!
+  $addressorId: UUID!
+  $addresseeId: UUID!
+  $captchaToken: String!
+) {
+  createPublicLetter(
+    input: {
+      letter: {
+        body: $body
+        addressorId: $addressorId
+        addresseeId: $addresseeId
+      }
+      captchaToken: $captchaToken
+    }
+  ) {
+    id
+    createdAt
+    body
+    addressorId
+    addresseeId
+  }
+}
