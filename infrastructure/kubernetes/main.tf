@@ -75,6 +75,7 @@ module "application_secrets" {
   auth0_client_secret        = var.auth0_client_secret
   auth0_tenant               = var.auth0_tenant
   environment                = var.environment
+  hcaptcha_secret_key        = var.hcaptcha_secret_key
   lob_api_key                = var.lob_api_key
   lob_api_secret             = var.lob_api_secret
   neo4j_url                  = "bolt://${var.environment}-neo4j-neo4j:7687"

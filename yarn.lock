@@ -9182,7 +9182,7 @@ graphql-ws@^4.1.1:
   resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-4.1.5.tgz#03526b29acb54a424a9fbe300a4bd69ff65a50b3"
   integrity sha512-yUQ1AjegD1Y9jDS699kyw7Mw+9H+rILm2HoS8N5a5B5YTH93xy3yifFhAJpKGc2wb/8yGdlVy8gTcud0TPqi6Q==
 
-"graphql@>=0.9 <0.14 || ^14.0.2 || ^15.4.0", "graphql@>=0.9 <16", "graphql@^0.6.0 || ^0.7.0 || ^0.8.0-b || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.2 || ^15.0.0":
+"graphql@>=0.9 <0.14 || ^14.0.2 || ^15.4.0", "graphql@>=0.9 <16", "graphql@^0.6.0 || ^0.7.0 || ^0.8.0-b || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.2 || ^15.0.0", graphql@^14.0.1:
   version "14.7.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.7.0.tgz#7fa79a80a69be4a31c27dda824dc04dac2035a72"
   integrity sha512-l0xWZpoPKpppFzMfvVyFmp9vLN7w/ZZJPefUicMCepfJeQ8sMcztloGYY9DfjVPo6tIUDzU5Hw3MUbIjj9AVVA==
@@ -9412,6 +9412,11 @@ hastscript@^6.0.0:
     hast-util-parse-selector "^2.0.0"
     property-information "^5.0.0"
     space-separated-tokens "^1.0.0"
+
+hcaptcha@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/hcaptcha/-/hcaptcha-0.0.2.tgz#18f4c055a2315db9f732ac77f9d0e30026bb2eb7"
+  integrity sha512-wWOncj/sY+q8s7tV12tjn3cFNoQhSu3l/7nTJi4QkFKALQi9XnduoXrV/KFzLg5lnB+5560zSAoi9YdYPDw6Eg==
 
 he@1.2.0:
   version "1.2.0"

@@ -197,6 +197,16 @@ resource "kubernetes_deployment" "server" {
           }
 
           env {
+            name = "HCAPTCHA_SECRET_KEY"
+            value_from {
+              secret_key_ref {
+                key  = "HCAPTCHA_SECRET_KEY"
+                name = "application-secrets"
+              }
+            }
+          }
+
+          env {
             name = "NEO4J_URL"
             value_from {
               secret_key_ref {
