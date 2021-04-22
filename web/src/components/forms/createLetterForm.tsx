@@ -3,6 +3,7 @@ import {
   usePublicAddressesByNameQuery
 } from '../../utils/api';
 import { useRef, useState } from 'react';
+import { Box } from '@chakra-ui/react';
 import { CreateButton } from '../buttons/createButton';
 import { InputBuilder } from '../forms/inputBuilder';
 import { colors } from '../../styles/neonLaw';
@@ -65,7 +66,9 @@ export const CreateLetterForm = () => {
       style={{ color: colors.text[colorMode] }}
       ref={formRef}
     >
-      {formError}
+      <Box color="red">
+        {formError}
+      </Box>
       <InputBuilder
         resourceName="letter"
         fields={publicLetterFields}

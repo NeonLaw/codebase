@@ -1,3 +1,8 @@
+import {
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
+} from '@chakra-ui/react';
 import { Select, SelectWithQuery, StringInput, Textarea } from '../inputs';
 import { kebabCase, snakeCase } from 'voca';
 import { Controller } from 'react-hook-form';
@@ -142,7 +147,9 @@ export const InputBuilder = ({
             return (
               <Controller
                 control={control}
-                name="captcha"
+                key={i}
+                name={name}
+                rules={{ required: 'Captcha is required' }}
                 render={({ field: { onChange, ref } }) =>  {
                   const onExpire = () => {
                     console.log('hCaptcha Token Expired');
@@ -153,13 +160,19 @@ export const InputBuilder = ({
                   };
 
                   return (
-                    <HCaptcha
-                      sitekey="5965395f-bcf7-44f0-a273-8653fac15834"
-                      onVerify={onChange}
-                      onError={onError}
-                      onExpire={onExpire}
-                      ref={ref}
-                    />
+                    <FormControl isInvalid={errors[name]}>
+                      {label && (<FormLabel htmlFor={name}>{label}</FormLabel>)}
+                      <HCaptcha
+                        sitekey="5965395f-bcf7-44f0-a273-8653fac15834"
+                        onVerify={onChange}
+                        onError={onError}
+                        onExpire={onExpire}
+                        ref={ref}
+                      />
+                      {errors[name] && (<FormErrorMessage>
+                        {errors[name].message}
+                      </FormErrorMessage>)}
+                    </FormControl>
                   );
                 }}
               />

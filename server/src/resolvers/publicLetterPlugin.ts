@@ -10,12 +10,13 @@ export const publicLetterPlugin = makeExtendSchemaPlugin((build) => {
         createPublicLetter: async (
           _query,
           { input: { captchaToken, letter }},
-          { pgClient },
+          { pgClient, logger },
           resolveInfo
         ) => {
           const secret = process.env.HCAPTCHA_SECRET_KEY as string;
 
           await verify(secret, captchaToken)
+            .then((data) => logger.info(data))
             .catch((error) => { throw new Error(error); });
 
           const {
