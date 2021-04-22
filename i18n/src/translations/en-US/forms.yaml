@@ -54,5 +54,5 @@ forms:
     label: Contact
   description:
     label: Description
-  captcha:
+  captcha_token:
     label: Captcha

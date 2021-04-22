@@ -7,7 +7,7 @@ import { Box } from '@chakra-ui/react';
 import { CreateButton } from '../buttons/createButton';
 import { InputBuilder } from './inputBuilder';
 import { colors } from '../../styles/neonLaw';
-import { publicLetterFields } from '../fields/letterFields';
+import { publicLetterFields } from '../fields/publicLetterFields';
 import { useColorMode } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 
