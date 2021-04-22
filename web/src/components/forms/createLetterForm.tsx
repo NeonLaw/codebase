@@ -21,6 +21,9 @@ export const CreateLetterForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
 
+  const { colorMode } = useColorMode();
+  const formRef = useRef<HTMLFormElement>(null);
+
   const [createMutation, { loading }] = useCreateLetterMutation();
 
   const onSubmit = async (variables) => {
@@ -55,9 +58,6 @@ export const CreateLetterForm = () => {
 
   const addresseeId = addressee.addresses.nodes[0].id;
   const addressorId = addressor.addresses.nodes[0].id;
-
-  const { colorMode } = useColorMode();
-  const formRef = useRef<HTMLFormElement>(null);
 
   return (
     <form
