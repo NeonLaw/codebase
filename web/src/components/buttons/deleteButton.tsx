@@ -1,6 +1,5 @@
 import { Button } from '../button';
 import { Kbd } from '@chakra-ui/react';
-import React from 'react';
 import { SubmissionInProgress } from '../submissionInProgress';
 import { gutters } from '../../styles/neonLaw';
 

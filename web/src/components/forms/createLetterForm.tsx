@@ -21,6 +21,9 @@ export const CreateLetterForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
 
+  const { colorMode } = useColorMode();
+  const formRef = useRef<HTMLFormElement>(null);
+
   const [createMutation, { loading }] = useCreateLetterMutation();
 
   const onSubmit = async (variables) => {
@@ -36,18 +39,25 @@ export const CreateLetterForm = () => {
     });
   };
 
-  const { data: addressee } = usePublicAddressesByNameQuery(
+  const {
+    data: addressee,
+    loading: loadingAddressee
+  } = usePublicAddressesByNameQuery(
     { variables: { name: 'rickie' } }
   );
-  const addresseeId = addressee.addresses.nodes[0].id;
 
-  const { data: addressor } = usePublicAddressesByNameQuery(
+  const {
+    data: addressor,
+    loading: loadingAddressor
+  } = usePublicAddressesByNameQuery(
     { variables: { name: 'neon-law' } }
   );
-  const addressorId = addressor.addresses.nodes[0].id;
+  if (loadingAddressee || loadingAddressor) {
+    return <h1>loading</h1>;
+  }
 
-  const { colorMode } = useColorMode();
-  const formRef = useRef<HTMLFormElement>(null);
+  const addresseeId = addressee.addresses.nodes[0].id;
+  const addressorId = addressor.addresses.nodes[0].id;
 
   return (
     <form

@@ -1,9 +1,8 @@
 import { Box } from '@chakra-ui/react';
-import { Link } from '../../../components/link';
+import Link from 'next/link';
 import {
   PublicTrustLayout
 } from '../../../components/layouts/publicTrustLayout';
-import React from 'react';
 import { Seo } from '../../../components/seo';
 
 const ShookFamilyIndexPage = () => {
@@ -14,8 +13,8 @@ const ShookFamilyIndexPage = () => {
     <PublicTrustLayout>
       <Seo title={title} description={description} />
       <Box textDecoration="underline">
-        <Link to="/public-trusts/shook-family/wedding">
-        Shook Family Wedding, February 1, 2021
+        <Link href="/public-trusts/shook-family/wedding">
+          Shook Family Wedding, February 1, 2021
         </Link>
       </Box>
     </PublicTrustLayout>

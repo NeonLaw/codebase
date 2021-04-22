@@ -1,5 +1,4 @@
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import React from 'react';
 
 export const CodeBlock = ({ children }) => {
   return (
