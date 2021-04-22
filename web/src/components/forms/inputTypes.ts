@@ -35,10 +35,15 @@ interface TextareaInput extends BasicInput {
   type: 'textarea'
 }
 
+interface Captcha extends BasicInput {
+  type: 'captcha'
+}
+
 export type Field =
   Id |
   StringInput |
   CodeEditorInput |
   SelectInput |
   SelectWithQueryInput |
-  TextareaInput;
+  TextareaInput |
+  Captcha;

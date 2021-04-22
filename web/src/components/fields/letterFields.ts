@@ -1,21 +1,24 @@
 import { Field } from '../forms/inputTypes';
 
-export const letterFields: Field[] = [
+export const publicLetterFields: Field[] = [
   {
     name: 'body',
     required: true,
     type: 'textarea',
   },
   {
-    collection: 'addresses',
-    labelColumn: 'name',
-    name: 'addresseeId',
-    type: 'selectWithQuery'
+    name: 'addressorId',
+    required: true,
+    type: 'id',
   },
   {
-    collection: 'addresses',
-    labelColumn: 'name',
-    name: 'addressorId',
-    type: 'selectWithQuery'
+    name: 'addresseeId',
+    required: true,
+    type: 'id',
+  },
+  {
+    name: 'captcha',
+    required: true,
+    type: 'captcha',
   }
 ];

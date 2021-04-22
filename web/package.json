@@ -22,6 +22,7 @@
     "@chakra-ui/react": "^1.5.1",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
+    "@hcaptcha/react-hcaptcha": "^0.3.6",
     "@hookform/error-message": "^2.0.0",
     "@mdx-js/loader": "^1.6.22",
     "@moxy/next-intl": "^2.4.1",

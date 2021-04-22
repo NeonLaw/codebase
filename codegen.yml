@@ -1,6 +1,6 @@
 ---
 overwrite: true
-schema: https://api.neonlaw.net/graphql
+schema: http://api:3000/graphql
 documents: web/src/graphql/*.graphql
 config:
   scalars:

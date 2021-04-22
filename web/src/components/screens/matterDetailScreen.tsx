@@ -2,7 +2,6 @@ import {
   MatterDetailView
 } from '../detailViews/matterDetailView';
 import { PortalLayout } from '../layouts/portalLayout';
-import React from 'react';
 import { useRouter } from 'next/router';
 
 export const MatterDetailScreen = () => {

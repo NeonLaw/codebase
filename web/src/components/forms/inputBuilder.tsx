@@ -1,7 +1,8 @@
 import { Select, SelectWithQuery, StringInput, Textarea } from '../inputs';
 import { kebabCase, snakeCase } from 'voca';
+import { Controller } from 'react-hook-form';
 import { Field } from './inputTypes';
-import React from 'react';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { gutters } from '../../styles/neonLaw';
 import { useIntl } from 'react-intl';
 
@@ -48,10 +49,9 @@ export const InputBuilder = ({
             return (
               <input
                 key={i}
-                name={name}
                 type="hidden"
                 value={currentValues[name]}
-                ref={register}
+                {...register(name)}
               />
             );
           case 'codeEditor':
@@ -138,6 +138,33 @@ export const InputBuilder = ({
                 defaultValue={currentValues && currentValues[name]}
               />
             );
+          case 'captcha':
+            return (
+              <Controller
+                control={control}
+                name="captcha"
+                render={({ field: { onChange, ref } }) =>  {
+                  const onExpire = () => {
+                    console.log('hCaptcha Token Expired');
+                  };
+
+                  const onError = (err) => {
+                    console.log(`hCaptcha Error: ${err}`);
+                  };
+
+                  return (
+                    <HCaptcha
+                      sitekey="5965395f-bcf7-44f0-a273-8653fac15834"
+                      onVerify={onChange}
+                      onError={onError}
+                      onExpire={onExpire}
+                      ref={ref}
+                    />
+                  );
+                }}
+              />
+            );
+
           default:
             return null;
         }

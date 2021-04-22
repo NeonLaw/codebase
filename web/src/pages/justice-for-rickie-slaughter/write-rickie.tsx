@@ -6,7 +6,10 @@ export const WriteLetter = () => {
   return (
     <RickieLayout>
       <h1>Write Rickie a letter.</h1>
-      <Box>
+      <p>
+        Big thanks to our friends at Lob.org for sponsoring letters to Rickie!
+      </p>
+      <Box marginTop="1em">
         <CreateLetterForm />
       </Box>
     </RickieLayout>
