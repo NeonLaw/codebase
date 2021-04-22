@@ -5,13 +5,13 @@ import {
 import { useRef, useState } from 'react';
 import { Box } from '@chakra-ui/react';
 import { CreateButton } from '../buttons/createButton';
-import { InputBuilder } from '../forms/inputBuilder';
+import { InputBuilder } from './inputBuilder';
 import { colors } from '../../styles/neonLaw';
 import { publicLetterFields } from '../fields/letterFields';
 import { useColorMode } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 
-export const CreateLetterForm = () => {
+export const CreatePublicLetterForm = () => {
   const {
     control,
     handleSubmit,
@@ -70,7 +70,7 @@ export const CreateLetterForm = () => {
         {formError}
       </Box>
       <InputBuilder
-        resourceName="letter"
+        resourceName="publicLetter"
         fields={publicLetterFields}
         control={control}
         errors={errors}

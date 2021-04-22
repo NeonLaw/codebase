@@ -1,5 +1,7 @@
 import { Box } from '@chakra-ui/react';
-import { CreateLetterForm } from '../../components/forms/createLetterForm';
+import {
+  CreatePublicLetterForm
+} from '../../components/forms/createPublicLetterForm';
 import { RickieLayout } from '../../components/layouts/rickieLayout';
 
 export const WriteLetter = () => {
@@ -10,7 +12,7 @@ export const WriteLetter = () => {
         Big thanks to our friends at Lob.org for sponsoring letters to Rickie!
       </p>
       <Box marginTop="1em">
-        <CreateLetterForm />
+        <CreatePublicLetterForm />
       </Box>
     </RickieLayout>
   );
