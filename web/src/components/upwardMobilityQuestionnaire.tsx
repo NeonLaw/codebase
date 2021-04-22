@@ -7,7 +7,6 @@ import {
 import {
   FinishUpwardMobilityQuestionnaire
 } from '../components/finishUpwardMobilityQuestionnaire';
-import React from 'react';
 import { Section } from './section';
 import {
   SingleChoiceQuestion
