@@ -7,7 +7,6 @@ import {
 
 import { FormattedDate } from 'react-intl';
 import Link from 'next/link';
-import React from 'react';
 import { ReadMoreButton } from '../readMoreButton';
 import styled from '@emotion/styled';
 

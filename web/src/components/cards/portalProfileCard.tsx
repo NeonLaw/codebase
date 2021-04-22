@@ -1,6 +1,5 @@
 import { Skeleton, Text } from '@chakra-ui/react';
 import { colors, gutters, shadows } from '../../styles/neonLaw';
-import React from 'react';
 import { UserAvatar } from '../userAvatar';
 import styled from '@emotion/styled';
 import { useCurrentUserQuery } from '../../utils/api';
