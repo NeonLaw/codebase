@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    neon_postgres_tests (0.1.0)
+    neon_postgres (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -56,7 +56,7 @@ PLATFORMS
 
 DEPENDENCIES
   fixture_dependencies (~> 1.10)
-  neon_postgres_tests!
+  neon_postgres!
   pg (~> 1.2)
   rake (~> 12.0)
   rspec (~> 3.0)

@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in neon_postgres_tests.gemspec
+# Specify your gem's dependencies in neon_postgres.gemspec
 gemspec
 
 gem "rake", "~> 12.0"

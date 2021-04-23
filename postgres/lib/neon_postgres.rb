@@ -1,7 +1,7 @@
-require "neon_postgres_tests/version"
+require "neon_postgres/version"
 require "sequel"
 
-module NeonPostgresTests
+module NeonPostgres
   class Error < StandardError; end
 
   class Database

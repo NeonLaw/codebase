@@ -18,8 +18,8 @@ jobs:
         with:
           ruby-version: '3'
       - name: Install dependencies
-        working-directory: ./postgres_tests
+        working-directory: ./postgres
         run: bundle
       - name: Lint Ruby files.
-        working-directory: ./postgres_tests
+        working-directory: ./postgres
         run: bundle exec standardrb

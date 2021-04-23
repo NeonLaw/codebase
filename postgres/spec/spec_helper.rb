@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "neon_postgres_tests"
+require "neon_postgres"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

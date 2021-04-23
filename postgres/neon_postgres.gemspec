@@ -1,8 +1,8 @@
-require_relative "lib/neon_postgres_tests/version"
+require_relative "lib/neon_postgres/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "neon_postgres_tests"
-  spec.version = NeonPostgresTests::VERSION
+  spec.name = "neon_postgres"
+  spec.version = NeonPostgres::VERSION
   spec.authors = ["Neon Law"]
   spec.email = ["support@neonlaw.com"]
 
