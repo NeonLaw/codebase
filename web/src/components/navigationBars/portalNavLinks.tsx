@@ -1,5 +1,5 @@
-import { BiBook, BiHomeHeart } from 'react-icons/bi';
 import { AiOutlineShop } from 'react-icons/ai';
+import { BiHomeHeart } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
 import { FaHands } from 'react-icons/fa';
 import { MdGavel } from 'react-icons/md';
