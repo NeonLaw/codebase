@@ -44,14 +44,29 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-      - name: Install dependencies
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3'
+      - name: Install node dependencies
         run: yarn install --frozen-lockfile
+      - name: Install ruby dependencies
+        working-directory: ./postgres
+        run: bundle
       - name: Commit Graphile Migrate migrations
         run: doppler run -- yarn graphile-worker --schema-only
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Commit migrations
         run: doppler run -- yarn workspace @neonlaw/server migrate
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
+      - name: Start API Server
+        run: doppler run -- yarn workspace @neonlaw/server start &
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
+      - name: Run ruby postgres tests
+        run: doppler run -- bundle exec rspec
+        working-directory: ./postgres
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Seed the database
@@ -64,8 +79,6 @@ jobs:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Check api.tsx file against main server
         run: |
-          doppler run -- yarn workspace @neonlaw/server start &
-          sleep 30
           yarn graphql-codegen
           git diff -G. --exit-code ./web/src/utils/api.tsx
         env:
