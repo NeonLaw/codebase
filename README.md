@@ -132,8 +132,8 @@ doppler run -- yarn run neo4j-proxy-production
 ```
 
 With either command (both cannot be ran at the same time), you'll have a
-local Neo4j instance at `127.0.0.1:7474`, which you can then connect to with
-the GCP SQL credentials for staging and production.
+local Neo4j instance at `127.0.0.1:7474` if you have the proper GCP SQL
+credentials for staging and production.
 
 ## Third-Party SaaS Services
 
@@ -153,7 +153,6 @@ software:
 - Mercury Bank
 - PGRita
 - Postgraphile
-- Segment
 - SendGrid
 - Sentry
 - Slack
