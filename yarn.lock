@@ -2041,6 +2041,11 @@
   resolved "https://registry.yarnpkg.com/@graphile-contrib/pg-simplify-inflector/-/pg-simplify-inflector-6.1.0.tgz#5ecb842bd43af4d3ffdfcd25b1e7c452374f7440"
   integrity sha512-3eI2FP4ulu/fxwkJBNXhR6XEzqVz4wJWFr4LfeyUNNArUtLFx0DpP6YdcARCYgwLExFcIQNE8fnul3JKiciYIw==
 
+"@graphile/logger@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@graphile/logger/-/logger-0.2.0.tgz#e484ec420162157c6e6f0cfb080fa29ef3a714ba"
+  integrity sha512-jjcWBokl9eb1gVJ85QmoaQ73CQ52xAaOCF29ukRbYNl6lY+ts0ErTaDYOBlejcbUs2OpaiqYLO5uDhyLFzWw4w==
+
 "@graphile/lru@4.11.0":
   version "4.11.0"
   resolved "https://registry.yarnpkg.com/@graphile/lru/-/lru-4.11.0.tgz#dd805ee083063488796ec0eac5a8b50b21c076f9"
@@ -9105,11 +9110,12 @@ graphile-worker-rate-limiter@^0.0.1:
     "@types/ioredis" "^4.17.3"
     ioredis "^4.17.3"
 
-graphile-worker@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/graphile-worker/-/graphile-worker-0.9.0.tgz#aa1c794dea80acf7abeb68c5c8ce6a2c41675b1a"
-  integrity sha512-tb3zT0k3XCsVWUqReA1NlepkD4Pezmd1Ot9+9ItKxLLElK2T17eYpkMEsk48vH3yR7tMQSnwJHrEuirtn9z6fg==
+graphile-worker@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/graphile-worker/-/graphile-worker-0.11.0.tgz#eb9984440ebff76f0dd1d3d61c03664064ca255d"
+  integrity sha512-t3GHGQnafZEWNgBoPaAs0FcR4n4V9uGIY+OlmgBtVl+3zHwC80yBcjW0/yMuCGhOvdiC7Yw9MYlPXcodlypGYA==
   dependencies:
+    "@graphile/logger" "^0.2.0"
     "@types/debug" "^4.1.2"
     "@types/pg" "^7.14.3"
     chokidar "^3.4.0"
