@@ -60,17 +60,17 @@ jobs:
         run: doppler run -- yarn workspace @neonlaw/server migrate
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
+      - name: Run ruby postgres tests
+        run: doppler run -- bundle exec rspec
+        working-directory: ./postgres
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Seed the database
         run: doppler run -- yarn db:seed
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Run tests
         run: doppler run -- yarn test ./server
-        env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
-      - name: Run ruby tests
-        run: doppler run -- bundle exec rspec
-        working-directory: ./postgres
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Check api.tsx file against main server
