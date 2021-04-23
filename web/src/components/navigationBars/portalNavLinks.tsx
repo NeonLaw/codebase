@@ -32,18 +32,13 @@ export const portalNavLinks = ({ email }) => {
     },
     {
       icon: <FaHands />,
-      label: 'Estate & Trust',
+      label: 'Trust',
       route: '/portal/estate',
     },
     {
       icon: <TiDeleteOutline />,
       label: 'Data Deletion',
       route: '/portal/data-deletion',
-    },
-    {
-      icon: <BiBook />,
-      label: 'Bar Prep',
-      route: '/portal/bar-prep',
     },
     { icon: <CgProfile />, label: 'Settings', route: '/portal/settings' }
   ];

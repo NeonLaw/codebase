@@ -6,7 +6,7 @@ import Link from 'next/link';
 export const MatterContactsList = ({ primaryContact, matterContacts }) => {
   return (
     <UnorderedList spacing={3}>
-      <ListItem key="begin">
+      <ListItem>
         {primaryContact.name} is the primary contact.
         <AdminOnly>
           &nbsp;
@@ -20,8 +20,9 @@ export const MatterContactsList = ({ primaryContact, matterContacts }) => {
           <ListItem key={index}>
             {matterContact.contact.name} is a {matterContact.role}.
             <AdminOnly>
+              &nbsp;
               <Link href={`/portal/admin/people/${matterContact.contact.id}`}>
-                <Box as={FaPencilAlt} />
+                <Box cursor="pointer" display="inline" as={FaPencilAlt} />
               </Link>
             </AdminOnly>
           </ListItem>
