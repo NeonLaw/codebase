@@ -60,6 +60,10 @@ jobs:
         run: doppler run -- yarn workspace @neonlaw/server migrate
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
+      - name: Start API Server
+        run: doppler run -- yarn workspace @neonlaw/server start &
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Run ruby postgres tests
         run: doppler run -- bundle exec rspec
         working-directory: ./postgres
@@ -75,8 +79,6 @@ jobs:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Check api.tsx file against main server
         run: |
-          doppler run -- yarn workspace @neonlaw/server start &
-          sleep 30
           yarn graphql-codegen
           git diff -G. --exit-code ./web/src/utils/api.tsx
         env:
