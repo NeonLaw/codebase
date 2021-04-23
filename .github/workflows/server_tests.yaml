@@ -44,8 +44,14 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-      - name: Install dependencies
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3'
+      - name: Install node dependencies
         run: yarn install --frozen-lockfile
+      - name: Install ruby dependencies
+        working-directory: ./neon_postgres_tests
+        run: bundle
       - name: Commit Graphile Migrate migrations
         run: doppler run -- yarn graphile-worker --schema-only
         env:
@@ -60,6 +66,11 @@ jobs:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Run tests
         run: doppler run -- yarn test ./server
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
+      - name: Run ruby tests
+        run: doppler run -- bundle exec rspec
+        working-directory: ./neon_postgres_tests
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Check api.tsx file against main server

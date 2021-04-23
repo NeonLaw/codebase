@@ -14,6 +14,7 @@ deployed to our staging and production environment.
 |[i18n](./i18n)|![NPM](https://img.shields.io/npm/v/@neonlaw/i18n)|n/a|n/a|
 |[Neon NLP](./neon_nlp)|![Crates.io](https://img.shields.io/crates/v/neon_nlp)|n/a|n/a|
 |[Git Flow](./git_flow)|![Crates.io](https://img.shields.io/crates/v/git_flow)|n/a|n/a|
+|[Neon Postgres Tests](./neon_postgres_tests)|n/a|n/a|n/a|
 
 This repo also contains an `infrastructure` folder for managing cloud and
 SaaS resources with Terraform.
