@@ -6,8 +6,8 @@ export const matterTemplateFields: Field[] = [
     type: 'string',
   },
   {
-    name: 'javascriptModule',
-    type: 'codeEditor',
+    name: 'description',
+    type: 'textarea',
   },
   {
     name: 'category',
