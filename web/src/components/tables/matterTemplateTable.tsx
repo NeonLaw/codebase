@@ -26,10 +26,6 @@ export const MatterTemplateTable = (props: MatterTemplateTableProps) => {
       accessor: 'name',
     },
     {
-      Header: 'Javascript Module',
-      accessor: 'javascriptModule',
-    },
-    {
       Header: 'Category',
       accessor: 'category',
     },
