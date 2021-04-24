@@ -7,4 +7,10 @@ RSpec.describe "select from person" do
       expect(people.all.count).to eq 0
     end
   end
+
+  context "as an anonymous user" do
+    it "returns an empty collection" do
+      expect(people.all.count).to eq 0
+    end
+  end
 end
