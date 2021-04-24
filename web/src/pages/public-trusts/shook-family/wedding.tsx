@@ -23,7 +23,9 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
-const stripePromise = loadStripe(process.env.STRIPE_CLIENT_KEY as string);
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_CLIENT_KEY as string
+);
 
 const ShookFamilyWeddingPage = () => {
   const title = 'Shook Family Wedding';
@@ -46,7 +48,7 @@ const ShookFamilyWeddingPage = () => {
 
     // Call your backend to create the Checkout Session
     const response = await fetch(
-      `${process.env.GATSBY_API_URL}/api/create-checkout-session`,
+      'https://api.neonlaw.com/api/create-checkout-session',
       {
         body: JSON.stringify({ amount }),
         headers: { 'Content-Type': 'application/json'},

@@ -35,7 +35,7 @@ forms:
     required: The amount is required.
   body:
     label: Your text
-    placeholder: Enter your text here
+    placeholder: Type your letter here. Make sure to include your name!
   addressee_id:
     label: Addressee
   addressor_id:
@@ -44,3 +44,15 @@ forms:
     placeholder: What legal question do you have?
   document_template:
     label: Document Template
+  role:
+    required: The Role is required
+    label: Role
+    placeholder: e.g. lawyer
+  matter_id:
+    label: Matter
+  contact_id:
+    label: Contact
+  description:
+    label: Description
+  captcha_token:
+    label: Captcha

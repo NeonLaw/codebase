@@ -1,10 +1,7 @@
-import { Box } from '@chakra-ui/react';
-import { Breadcrumbs } from '../breadcrumbs';
 import {
   MatterDetailView
 } from '../detailViews/matterDetailView';
 import { PortalLayout } from '../layouts/portalLayout';
-import React from 'react';
 import { useRouter } from 'next/router';
 
 export const MatterDetailScreen = () => {
@@ -13,11 +10,7 @@ export const MatterDetailScreen = () => {
 
   return (
     <PortalLayout>
-      <Box>
-        <Breadcrumbs showHome={false} />
-
-        <MatterDetailView id={id} />
-      </Box>
+      <MatterDetailView id={id} />
     </PortalLayout>
   );
 };

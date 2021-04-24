@@ -1,5 +1,4 @@
 import { Button } from '../components/button';
-import React from 'react';
 import { Section } from './section';
 import { Text } from '@chakra-ui/react';
 import { decisionTree } from '../components/upwardMobilityQuestions';

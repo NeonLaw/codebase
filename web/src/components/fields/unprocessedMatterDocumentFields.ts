@@ -7,9 +7,9 @@ export const unprocessedMatterDocumentFields: Field[] = [
     type: 'id',
   },
   {
+    collection: 'documentTemplates',
     labelColumn: 'name',
     name: 'documentTemplateId',
-    queryName: 'allDocumentTemplates',
     type: 'selectWithQuery'
   }
 ];

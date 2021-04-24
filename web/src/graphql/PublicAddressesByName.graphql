@@ -1,0 +1,15 @@
+query PublicAddressesByName($name: String!) {
+  addresses(condition: { public: true, name: $name }) {
+    nodes {
+      id
+      city
+      country
+      name
+      postalCode
+      public
+      route
+      state
+      streetNumber
+    }
+  }
+}

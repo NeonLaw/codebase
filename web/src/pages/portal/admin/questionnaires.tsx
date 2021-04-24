@@ -1,7 +1,5 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/react';
 import React, { useState } from 'react';
-
-import { Breadcrumbs } from '../../../components/breadcrumbs';
 import { Button } from '../../../components/button';
 import {
   CreateQuestionnaireModal
@@ -26,7 +24,6 @@ const AdminQuestionnaires = () => {
   return (
     <PortalLayout>
       <Box textAlign="left">
-        <Breadcrumbs />
 
         <Button
           flash={false}

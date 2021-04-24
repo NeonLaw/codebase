@@ -1,28 +1,39 @@
-const sendLobLetter = async (payload, helpers) => {
-  const { addressee, addressor, mergeVariables, fileUrl } = payload;
+import { Node } from 'slate';
+
+const convertSlateToPlaintext = (slateJson: any): string => {
+  if (Array.isArray(slateJson)) {
+    return slateJson.map(n => Node.string(n)).join('\n');
+  }
+  return '';
+};
+
+export const sendLobLetter = async (payload, helpers) => {
+  const { letterId } = payload;
+
+  const { rows } = await helpers.query(
+    'SELECT l.id as id, '+
+    'l.body as body, '+
+    'addressor.lob_identifier as from, '+
+    'addressee.lob_identifier as to '+
+    'FROM letter l ' +
+    'INNER JOIN address addressee ON (addressee.id = l.addressee_id) ' +
+    'INNER JOIN address addressor ON (addressor.id = l.addressor_id) ' +
+    'WHERE letter.id = $1',
+    [letterId]
+  );
 
   const Lob = require('lob')(process.env.LOB_API_KEY);
 
-  const address = { locality: ',' };
+  const { body, from, to } = rows[0];
 
-  await Lob.letters.create({
+  const letter = await Lob.letters.create({
     color: false,
-    description: `${addressor.name} letter to ${addressee.name}`,
-    file: fileUrl,
-    from: 'adr_210a8d4b0b76d77b',
-    merge_variables: mergeVariables,
-    to: {
-      address_city: address.locality,
-      address_line1: '185 Berry St',
-      address_line2: '# 6100',
-      address_state: 'CA',
-      address_zip: '94107',
-      name: 'Harry Zhang',
-    },
+    description: 'Public Letter to Rickie',
+    file: '<html style="padding-top: 3in; margin: .5in;">{{body}}</html>',
+    from,
+    merge_variables: { body: convertSlateToPlaintext(body) },
+    to,
   });
 
-  helpers.logger.info(`Hi ${name}`);
+  helpers.logger.info(`Hi ${JSON.stringify(letter)}`);
 };
-
-/* eslint-disable-next-line import/no-default-export */
-export default sendLobLetter;

@@ -10,6 +10,7 @@ resource "kubernetes_secret" "application_secrets" {
     "AUTH0_CLIENT_SECRET"        = var.auth0_client_secret
     "AUTH0_TENANT"               = var.auth0_tenant
     "ENVIRONMENT"                = var.environment
+    "HCAPTCHA_SECRET_KEY"        = var.hcaptcha_secret_key
     "LOB_API_KEY"                = var.lob_api_key
     "LOB_API_SECRET"             = var.lob_api_secret
     "NEO4J_URL"                  = var.neo4j_url

@@ -1,10 +1,8 @@
 import React from 'react';
 import { Table } from './base';
 import { useAllMattersQuery } from '../../utils/api';
-import { useRouter } from 'next/router';
 
-export const MatterTable = () => {
-  const router = useRouter();
+export const MatterTable = ({ onRowClick }) => {
   const { loading, data, error } = useAllMattersQuery();
 
   if (loading) {
@@ -35,10 +33,7 @@ export const MatterTable = () => {
       columns={columns}
       data={nodes}
       testId="matters-table"
-      onRowClick={(row) => {
-        router.push(`/portal/admin/matters/${row.values.id}`);
-        return null;
-      }}
+      onRowClick={onRowClick}
     />
   );
 };

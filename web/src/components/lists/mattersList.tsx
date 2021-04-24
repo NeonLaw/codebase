@@ -2,7 +2,11 @@ import { Box, ListItem, Skeleton, UnorderedList } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useAllCurrentUserMattersQuery } from '../../utils/api';
 
-export const MattersList = ({ category, basePath }) => {
+interface MattersListProps {
+  category: string;
+}
+
+export const MattersList = ({ category }: MattersListProps) => {
   const { data, loading } = useAllCurrentUserMattersQuery();
 
   if (loading) {
@@ -15,10 +19,15 @@ export const MattersList = ({ category, basePath }) => {
     return (
       <UnorderedList spacing={3}>
         {matters.map((matter, key) => {
-          if (matter.matterTemplateCategory === category) {
+          const matterCategory = matter.matterTemplateCategory;
+          if ( matterCategory === category || category === 'all') {
             return (
-              <Box key={key} as="a" href={`${basePath}/${matter.id}`}>
-                <Link href={`${basePath}/${matter.id}`}>
+              <Box
+                key={key}
+                as="a"
+                href={`/portal/${matterCategory}/${matter.id}`}
+              >
+                <Link href={`/portal/${matterCategory}/${matter.id}`}>
                   <ListItem>
                     {matter.name}
                   </ListItem>

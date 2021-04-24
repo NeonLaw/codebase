@@ -1,21 +1,21 @@
 import { Field } from '../forms/inputTypes';
 
-export const letterFields: Field[] = [
+export const matterContactFields: Field[] = [
   {
-    name: 'body',
+    name: 'role',
     required: true,
-    type: 'textarea',
+    type: 'string',
   },
   {
+    collection: 'matters',
     labelColumn: 'name',
-    name: 'addresseeId',
-    queryName: 'allPeople',
+    name: 'matterId',
     type: 'selectWithQuery'
   },
   {
+    collection: 'people',
     labelColumn: 'name',
-    name: 'addressorId',
-    queryName: 'allPeople',
+    name: 'contactId',
     type: 'selectWithQuery'
-  }
+  },
 ];

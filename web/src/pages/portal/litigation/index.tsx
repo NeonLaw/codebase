@@ -18,7 +18,7 @@ const LitigationIndexPage = () => {
           {intl.formatMessage({ id: 'pages.litigation.text' })}
         </Text>
       </Box>
-      <MattersList category="litigation" basePath="/portal/litigation" />
+      <MattersList category="litigation" />
     </PortalLayout>
   );
 };

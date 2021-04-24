@@ -1,7 +1,13 @@
+import {
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
+} from '@chakra-ui/react';
 import { Select, SelectWithQuery, StringInput, Textarea } from '../inputs';
 import { kebabCase, snakeCase } from 'voca';
+import { Controller } from 'react-hook-form';
 import { Field } from './inputTypes';
-import React from 'react';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { gutters } from '../../styles/neonLaw';
 import { useIntl } from 'react-intl';
 
@@ -9,7 +15,7 @@ interface InputBuilderProps {
   resourceName: string;
   fields: Field[];
   errors: any;
-  register(any): void;
+  register(...any): void;
   currentValues: any;
   control: any;
 }
@@ -33,7 +39,7 @@ export const InputBuilder = ({
           type,
           options,
           required,
-          queryName,
+          collection,
           labelColumn
         } = (field as any);
         const dasherizedFieldName = kebabCase(name);
@@ -48,10 +54,9 @@ export const InputBuilder = ({
             return (
               <input
                 key={i}
-                name={name}
                 type="hidden"
                 value={currentValues[name]}
-                ref={register}
+                {...register(name)}
               />
             );
           case 'codeEditor':
@@ -89,15 +94,10 @@ export const InputBuilder = ({
                 placeholder={intl.formatMessage({
                   id: `forms.${underscoreFieldName}.placeholder`,
                 })}
-                register={
-                  required
-                    ? register({
-                      required: intl.formatMessage({
-                        id: `forms.${underscoreFieldName}.required`,
-                      }),
-                    })
-                    : register({})
-                }
+                register={register}
+                required={intl.formatMessage({
+                  id: `forms.${underscoreFieldName}.required`,
+                })}
                 styles={{ marginBottom: gutters.xSmallOne }}
                 value={currentValues && currentValues[name]}
               />
@@ -135,7 +135,7 @@ export const InputBuilder = ({
                 key={i}
                 name={name}
                 label={label}
-                queryName={queryName}
+                collection={collection}
                 labelColumn={labelColumn}
                 errors={errors}
                 testId={testId}
@@ -143,6 +143,41 @@ export const InputBuilder = ({
                 defaultValue={currentValues && currentValues[name]}
               />
             );
+          case 'captcha':
+            return (
+              <Controller
+                control={control}
+                key={i}
+                name={name}
+                rules={{ required: 'Captcha is required' }}
+                render={({ field: { onChange, ref } }) =>  {
+                  const onExpire = () => {
+                    console.log('hCaptcha Token Expired');
+                  };
+
+                  const onError = (err) => {
+                    console.log(`hCaptcha Error: ${err}`);
+                  };
+
+                  return (
+                    <FormControl isInvalid={errors[name]}>
+                      {label && (<FormLabel htmlFor={name}>{label}</FormLabel>)}
+                      <HCaptcha
+                        sitekey="5965395f-bcf7-44f0-a273-8653fac15834"
+                        onVerify={onChange}
+                        onError={onError}
+                        onExpire={onExpire}
+                        ref={ref}
+                      />
+                      {errors[name] && (<FormErrorMessage>
+                        {errors[name].message}
+                      </FormErrorMessage>)}
+                    </FormControl>
+                  );
+                }}
+              />
+            );
+
           default:
             return null;
         }

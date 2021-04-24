@@ -7,15 +7,15 @@ export const matterFields: Field[] = [
     type: 'string',
   },
   {
+    collection: 'matterTemplates',
     labelColumn: 'name',
     name: 'matterTemplateId',
-    queryName: 'allMatterTemplates',
     type: 'selectWithQuery'
   },
   {
+    collection: 'people',
     labelColumn: 'email',
     name: 'primaryContactId',
-    queryName: 'allPeople',
     type: 'selectWithQuery'
   },
   {

@@ -1,4 +1,12 @@
+import { Node } from 'slate';
 const { WebClient } = require('@slack/web-api');
+
+const convertSlateToPlaintext = (slateJson: any): string => {
+  if (Array.isArray(slateJson)) {
+    return slateJson.map(n => Node.string(n)).join('\n');
+  }
+  return '';
+};
 
 export const slackReminders = async (_, helpers) => {
   const apiCredential = process.env.NEON_BOT_SLACK_TOKEN as string;
@@ -18,15 +26,17 @@ export const slackReminders = async (_, helpers) => {
   });
 
   const { rows: matters } = await helpers.query(
-    'SELECT (name, description) FROM matter;'
+    'SELECT name, description FROM matter WHERE active = true;'
   );
 
-  helpers.logger.info(JSON.stringify(matters.rows));
+  helpers.logger.info(JSON.stringify(matters));
 
   matters.forEach(async (matter) => {
+    const description = convertSlateToPlaintext(matter.description);
+
     await web.chat.postMessage({
       channel: adminChannel,
-      text: `${matter.row}`,
+      text: `${matter.name} - ${description}`,
     });
   });
 };

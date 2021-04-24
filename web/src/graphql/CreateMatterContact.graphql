@@ -1,0 +1,26 @@
+mutation CreateMatterContact(
+  $role: String!
+  $contactId: UUID!
+  $matterId: UUID!
+) {
+  createMatterContact(
+    input: {
+      matterContact: { role: $role, contactId: $contactId, matterId: $matterId }
+    }
+  ) {
+    matterContact {
+      id
+      contact {
+        id
+        name
+      }
+      matter {
+        id
+        name
+      }
+      role
+      createdAt
+      updatedAt
+    }
+  }
+}

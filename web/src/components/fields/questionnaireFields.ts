@@ -7,9 +7,9 @@ export const questionnaireFields: Field[] = [
     type: 'string',
   },
   {
+    collection: 'matterTemplates',
     labelColumn: 'name',
     name: 'matterTemplateId',
-    queryName: 'allMatterTemplates',
     type: 'selectWithQuery'
   },
 ];

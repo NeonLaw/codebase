@@ -2,9 +2,7 @@
 // @ts-nocheck
 /* eslint-enable */
 import { Box, Flex } from '@chakra-ui/react';
-
 import { FaPencilAlt } from 'react-icons/fa';
-import React from 'react';
 
 interface EditOnGithubProps {
   filename: string;

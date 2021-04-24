@@ -1,13 +1,17 @@
+import {
+  useCreatePublicLetterMutation,
+  usePublicAddressesByNameQuery
+} from '../../utils/api';
 import { useRef, useState } from 'react';
+import { Box } from '@chakra-ui/react';
 import { CreateButton } from '../buttons/createButton';
-import { InputBuilder } from '../forms/inputBuilder';
+import { InputBuilder } from './inputBuilder';
 import { colors } from '../../styles/neonLaw';
-import { letterFields } from '../fields/letterFields';
+import { publicLetterFields } from '../fields/publicLetterFields';
 import { useColorMode } from '@chakra-ui/react';
-import { useCreateLetterMutation } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 
-export const CreateLetterForm = () => {
+export const CreatePublicLetterForm = () => {
   const {
     control,
     handleSubmit,
@@ -18,7 +22,10 @@ export const CreateLetterForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
 
-  const [createMutation, { loading }] = useCreateLetterMutation();
+  const { colorMode } = useColorMode();
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const [createMutation, { loading }] = useCreatePublicLetterMutation();
 
   const onSubmit = async (variables) => {
     await createMutation({
@@ -33,9 +40,25 @@ export const CreateLetterForm = () => {
     });
   };
 
-  const { colorMode } = useColorMode();
-  const formRef = useRef<HTMLFormElement>(null);
+  const {
+    data: addressee,
+    loading: loadingAddressee
+  } = usePublicAddressesByNameQuery(
+    { variables: { name: 'rickie' } }
+  );
 
+  const {
+    data: addressor,
+    loading: loadingAddressor
+  } = usePublicAddressesByNameQuery(
+    { variables: { name: 'neon-law' } }
+  );
+  if (loadingAddressee || loadingAddressor) {
+    return <h1>loading</h1>;
+  }
+
+  const addresseeId = addressee.addresses.nodes[0].id;
+  const addressorId = addressor.addresses.nodes[0].id;
 
   return (
     <form
@@ -43,14 +66,19 @@ export const CreateLetterForm = () => {
       style={{ color: colors.text[colorMode] }}
       ref={formRef}
     >
-      {formError}
+      <Box color="red">
+        {formError}
+      </Box>
       <InputBuilder
-        resourceName="letter"
-        fields={letterFields}
+        resourceName="publicLetter"
+        fields={publicLetterFields}
         control={control}
         errors={errors}
         register={register}
-        currentValues={{}}
+        currentValues={{
+          addresseeId,
+          addressorId,
+        }}
       />
       <CreateButton
         dasherizedResourceName="letter"

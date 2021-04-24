@@ -1,5 +1,5 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
-import { Link } from '../components/link';
+import Link from 'next/link';
 import { useIntl } from 'react-intl';
 import { useRouter } from 'next/router';
 
@@ -45,7 +45,6 @@ export const Breadcrumbs = ({ showHome = true }: BreadCrumbProps) => {
 
   if (
     !firstPath ||
-          firstPath === 'callback' ||
           firstPath === 'upward-mobility'
   ) {
     return null;
@@ -57,7 +56,7 @@ export const Breadcrumbs = ({ showHome = true }: BreadCrumbProps) => {
         <BreadcrumbLink
           className="breadcrumb outline-bordered"
           as={Link}
-          to="/"
+          href="/"
         >
           {intl.formatMessage({ id: 'breadcrumbs.home' })}
         </BreadcrumbLink>
@@ -73,7 +72,7 @@ export const Breadcrumbs = ({ showHome = true }: BreadCrumbProps) => {
               href={route}
               textTransform="capitalize"
             >
-              {path.replace(/-/g, ' ')}
+              {intl.formatMessage({ id: `breadcrumbs.${path}` })}
             </BreadcrumbLink>
           </BreadcrumbItem>
         );

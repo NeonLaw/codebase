@@ -148,6 +148,7 @@ export type Address = Node & {
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
   name?: Maybe<Scalars['String']>;
+  public: Scalars['Boolean'];
   /** Reads a single `Person` that is related to this `Address`. */
   person?: Maybe<Person>;
   /** Reads and enables pagination through a set of `Letter`. */
@@ -184,6 +185,10 @@ export type AddressCondition = {
   id?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `personId` field. */
   personId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `public` field. */
+  public?: Maybe<Scalars['Boolean']>;
 };
 
 /** A connection to a list of `Address` values. */
@@ -215,6 +220,10 @@ export enum AddressesOrderBy {
   IdDesc = 'ID_DESC',
   PersonIdAsc = 'PERSON_ID_ASC',
   PersonIdDesc = 'PERSON_ID_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
+  PublicAsc = 'PUBLIC_ASC',
+  PublicDesc = 'PUBLIC_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -233,6 +242,7 @@ export type AddressInput = {
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
   name?: Maybe<Scalars['String']>;
+  public?: Maybe<Scalars['Boolean']>;
 };
 
 /** Represents an update to a `Address`. Fields that are set will be updated. */
@@ -249,6 +259,7 @@ export type AddressPatch = {
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
   name?: Maybe<Scalars['String']>;
+  public?: Maybe<Scalars['Boolean']>;
 };
 
 /** All input for the create `AccountingBill` mutation. */
@@ -516,6 +527,12 @@ export type CreatePrimaryKeyIdIfNotExistsPayload = {
   clientMutationId?: Maybe<Scalars['String']>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+};
+
+export type CreatePublicLetterInput = {
+  clientMutationId?: Maybe<Scalars['UUID']>;
+  letter: PublicLetterInput;
+  captchaToken: Scalars['String'];
 };
 
 /** All input for the create `Question` mutation. */
@@ -2217,6 +2234,7 @@ export type Mutation = {
   createRoleIfNotExists?: Maybe<CreateRoleIfNotExistsPayload>;
   updateQuestionnaireFromNeo4J?: Maybe<UpdateQuestionnaireFromNeo4JPayload>;
   createTransloaditToken?: Maybe<CreateTransloaditTokenPayload>;
+  createPublicLetter?: Maybe<Letter>;
 };
 
 
@@ -2621,6 +2639,12 @@ export type MutationUpdateQuestionnaireFromNeo4JArgs = {
   input: UpdateQuestionnaireFromNeo4JInput;
 };
 
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreatePublicLetterArgs = {
+  input: CreatePublicLetterInput;
+};
+
 /** An object with a globally unique `ID`. */
 export type Node = {
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -2772,6 +2796,12 @@ export type PersonPatch = {
   name?: Maybe<Scalars['String']>;
   sub?: Maybe<Scalars['String']>;
   flags?: Maybe<Scalars['String']>;
+};
+
+export type PublicLetterInput = {
+  addresseeId: Scalars['UUID'];
+  addressorId: Scalars['UUID'];
+  body: Scalars['JSON'];
 };
 
 export type PublicQueryNodes = {
@@ -4411,6 +4441,31 @@ export type CreateMatterMutation = (
   )> }
 );
 
+export type CreateMatterContactMutationVariables = Exact<{
+  role: Scalars['String'];
+  contactId: Scalars['UUID'];
+  matterId: Scalars['UUID'];
+}>;
+
+
+export type CreateMatterContactMutation = (
+  { __typename?: 'Mutation' }
+  & { createMatterContact?: Maybe<(
+    { __typename?: 'CreateMatterContactPayload' }
+    & { matterContact?: Maybe<(
+      { __typename?: 'MatterContact' }
+      & Pick<MatterContact, 'id' | 'role' | 'createdAt' | 'updatedAt'>
+      & { contact?: Maybe<(
+        { __typename?: 'Person' }
+        & Pick<Person, 'id' | 'name'>
+      )>, matter?: Maybe<(
+        { __typename?: 'Matter' }
+        & Pick<Matter, 'id' | 'name'>
+      )> }
+    )> }
+  )> }
+);
+
 export type CreateMatterTemplateMutationVariables = Exact<{
   name: Scalars['String'];
   javascriptModule: Scalars['String'];
@@ -4426,6 +4481,22 @@ export type CreateMatterTemplateMutation = (
       { __typename?: 'MatterTemplate' }
       & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule' | 'category'>
     )> }
+  )> }
+);
+
+export type CreatePublicLetterMutationVariables = Exact<{
+  body: Scalars['JSON'];
+  addressorId: Scalars['UUID'];
+  addresseeId: Scalars['UUID'];
+  captchaToken: Scalars['String'];
+}>;
+
+
+export type CreatePublicLetterMutation = (
+  { __typename?: 'Mutation' }
+  & { createPublicLetter?: Maybe<(
+    { __typename?: 'Letter' }
+    & Pick<Letter, 'id' | 'createdAt' | 'body' | 'addressorId' | 'addresseeId'>
   )> }
 );
 
@@ -4577,10 +4648,23 @@ export type MatterByIdQuery = (
   & { matter?: Maybe<(
     { __typename?: 'Matter' }
     & Pick<Matter, 'id' | 'name' | 'description'>
-    & { matterTemplate?: Maybe<(
+    & { primaryContact?: Maybe<(
+      { __typename?: 'Person' }
+      & Pick<Person, 'id' | 'name'>
+    )>, matterTemplate?: Maybe<(
       { __typename?: 'MatterTemplate' }
       & Pick<MatterTemplate, 'id' | 'name' | 'category'>
-    )>, matterDocuments: (
+    )>, matterContacts: (
+      { __typename?: 'MatterContactsConnection' }
+      & { nodes: Array<(
+        { __typename?: 'MatterContact' }
+        & Pick<MatterContact, 'id' | 'role'>
+        & { contact?: Maybe<(
+          { __typename?: 'Person' }
+          & Pick<Person, 'id' | 'name'>
+        )> }
+      )> }
+    ), matterDocuments: (
       { __typename?: 'MatterDocumentsConnection' }
       & { nodes: Array<(
         { __typename?: 'MatterDocument' }
@@ -4598,6 +4682,22 @@ export type MatterByIdQuery = (
         )> }
       )> }
     ) }
+  )> }
+);
+
+export type PublicAddressesByNameQueryVariables = Exact<{
+  name: Scalars['String'];
+}>;
+
+
+export type PublicAddressesByNameQuery = (
+  { __typename?: 'Query' }
+  & { addresses?: Maybe<(
+    { __typename?: 'AddressesConnection' }
+    & { nodes: Array<(
+      { __typename?: 'Address' }
+      & Pick<Address, 'id' | 'city' | 'country' | 'name' | 'postalCode' | 'public' | 'route' | 'state' | 'streetNumber'>
+    )> }
   )> }
 );
 
@@ -5250,6 +5350,54 @@ export function useCreateMatterMutation(baseOptions?: Apollo.MutationHookOptions
 export type CreateMatterMutationHookResult = ReturnType<typeof useCreateMatterMutation>;
 export type CreateMatterMutationResult = Apollo.MutationResult<CreateMatterMutation>;
 export type CreateMatterMutationOptions = Apollo.BaseMutationOptions<CreateMatterMutation, CreateMatterMutationVariables>;
+export const CreateMatterContactDocument = gql`
+    mutation CreateMatterContact($role: String!, $contactId: UUID!, $matterId: UUID!) {
+  createMatterContact(input: {matterContact: {role: $role, contactId: $contactId, matterId: $matterId}}) {
+    matterContact {
+      id
+      contact {
+        id
+        name
+      }
+      matter {
+        id
+        name
+      }
+      role
+      createdAt
+      updatedAt
+    }
+  }
+}
+    `;
+export type CreateMatterContactMutationFn = Apollo.MutationFunction<CreateMatterContactMutation, CreateMatterContactMutationVariables>;
+
+/**
+ * __useCreateMatterContactMutation__
+ *
+ * To run a mutation, you first call `useCreateMatterContactMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateMatterContactMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createMatterContactMutation, { data, loading, error }] = useCreateMatterContactMutation({
+ *   variables: {
+ *      role: // value for 'role'
+ *      contactId: // value for 'contactId'
+ *      matterId: // value for 'matterId'
+ *   },
+ * });
+ */
+export function useCreateMatterContactMutation(baseOptions?: Apollo.MutationHookOptions<CreateMatterContactMutation, CreateMatterContactMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateMatterContactMutation, CreateMatterContactMutationVariables>(CreateMatterContactDocument, options);
+      }
+export type CreateMatterContactMutationHookResult = ReturnType<typeof useCreateMatterContactMutation>;
+export type CreateMatterContactMutationResult = Apollo.MutationResult<CreateMatterContactMutation>;
+export type CreateMatterContactMutationOptions = Apollo.BaseMutationOptions<CreateMatterContactMutation, CreateMatterContactMutationVariables>;
 export const CreateMatterTemplateDocument = gql`
     mutation CreateMatterTemplate($name: String!, $javascriptModule: String!, $category: String!) {
   createMatterTemplate(input: {matterTemplate: {name: $name, javascriptModule: $javascriptModule, category: $category}}) {
@@ -5290,6 +5438,46 @@ export function useCreateMatterTemplateMutation(baseOptions?: Apollo.MutationHoo
 export type CreateMatterTemplateMutationHookResult = ReturnType<typeof useCreateMatterTemplateMutation>;
 export type CreateMatterTemplateMutationResult = Apollo.MutationResult<CreateMatterTemplateMutation>;
 export type CreateMatterTemplateMutationOptions = Apollo.BaseMutationOptions<CreateMatterTemplateMutation, CreateMatterTemplateMutationVariables>;
+export const CreatePublicLetterDocument = gql`
+    mutation CreatePublicLetter($body: JSON!, $addressorId: UUID!, $addresseeId: UUID!, $captchaToken: String!) {
+  createPublicLetter(input: {letter: {body: $body, addressorId: $addressorId, addresseeId: $addresseeId}, captchaToken: $captchaToken}) {
+    id
+    createdAt
+    body
+    addressorId
+    addresseeId
+  }
+}
+    `;
+export type CreatePublicLetterMutationFn = Apollo.MutationFunction<CreatePublicLetterMutation, CreatePublicLetterMutationVariables>;
+
+/**
+ * __useCreatePublicLetterMutation__
+ *
+ * To run a mutation, you first call `useCreatePublicLetterMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreatePublicLetterMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createPublicLetterMutation, { data, loading, error }] = useCreatePublicLetterMutation({
+ *   variables: {
+ *      body: // value for 'body'
+ *      addressorId: // value for 'addressorId'
+ *      addresseeId: // value for 'addresseeId'
+ *      captchaToken: // value for 'captchaToken'
+ *   },
+ * });
+ */
+export function useCreatePublicLetterMutation(baseOptions?: Apollo.MutationHookOptions<CreatePublicLetterMutation, CreatePublicLetterMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreatePublicLetterMutation, CreatePublicLetterMutationVariables>(CreatePublicLetterDocument, options);
+      }
+export type CreatePublicLetterMutationHookResult = ReturnType<typeof useCreatePublicLetterMutation>;
+export type CreatePublicLetterMutationResult = Apollo.MutationResult<CreatePublicLetterMutation>;
+export type CreatePublicLetterMutationOptions = Apollo.BaseMutationOptions<CreatePublicLetterMutation, CreatePublicLetterMutationVariables>;
 export const CreateQuestionDocument = gql`
     mutation CreateQuestion($options: [String], $questionType: String!, $prompt: String!, $helpText: JSON) {
   createQuestion(input: {question: {options: $options, questionType: $questionType, prompt: $prompt, helpText: $helpText}}) {
@@ -5623,10 +5811,24 @@ export const MatterByIdDocument = gql`
     id
     name
     description
+    primaryContact {
+      id
+      name
+    }
     matterTemplate {
       id
       name
       category
+    }
+    matterContacts {
+      nodes {
+        id
+        role
+        contact {
+          id
+          name
+        }
+      }
     }
     matterDocuments {
       nodes {
@@ -5678,6 +5880,51 @@ export function useMatterByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type MatterByIdQueryHookResult = ReturnType<typeof useMatterByIdQuery>;
 export type MatterByIdLazyQueryHookResult = ReturnType<typeof useMatterByIdLazyQuery>;
 export type MatterByIdQueryResult = Apollo.QueryResult<MatterByIdQuery, MatterByIdQueryVariables>;
+export const PublicAddressesByNameDocument = gql`
+    query PublicAddressesByName($name: String!) {
+  addresses(condition: {public: true, name: $name}) {
+    nodes {
+      id
+      city
+      country
+      name
+      postalCode
+      public
+      route
+      state
+      streetNumber
+    }
+  }
+}
+    `;
+
+/**
+ * __usePublicAddressesByNameQuery__
+ *
+ * To run a query within a React component, call `usePublicAddressesByNameQuery` and pass it any options that fit your needs.
+ * When your component renders, `usePublicAddressesByNameQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = usePublicAddressesByNameQuery({
+ *   variables: {
+ *      name: // value for 'name'
+ *   },
+ * });
+ */
+export function usePublicAddressesByNameQuery(baseOptions: Apollo.QueryHookOptions<PublicAddressesByNameQuery, PublicAddressesByNameQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<PublicAddressesByNameQuery, PublicAddressesByNameQueryVariables>(PublicAddressesByNameDocument, options);
+      }
+export function usePublicAddressesByNameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PublicAddressesByNameQuery, PublicAddressesByNameQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<PublicAddressesByNameQuery, PublicAddressesByNameQueryVariables>(PublicAddressesByNameDocument, options);
+        }
+export type PublicAddressesByNameQueryHookResult = ReturnType<typeof usePublicAddressesByNameQuery>;
+export type PublicAddressesByNameLazyQueryHookResult = ReturnType<typeof usePublicAddressesByNameLazyQuery>;
+export type PublicAddressesByNameQueryResult = Apollo.QueryResult<PublicAddressesByNameQuery, PublicAddressesByNameQueryVariables>;
 export const QuestionByIdDocument = gql`
     query QuestionById($id: UUID!) {
   question(id: $id) {
