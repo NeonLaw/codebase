@@ -689,6 +689,72 @@ export type CreateRoleIfNotExistsPayload = {
   query?: Maybe<Query>;
 };
 
+/** All input for the create `Task` mutation. */
+export type CreateTaskInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Task` to be created by this mutation. */
+  task: TaskInput;
+};
+
+/** The output of our create `Task` mutation. */
+export type CreateTaskPayload = {
+  __typename?: 'CreateTaskPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Task` that was created by this mutation. */
+  task?: Maybe<Task>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Task`. May be used by Relay 1. */
+  taskEdge?: Maybe<TasksEdge>;
+};
+
+
+/** The output of our create `Task` mutation. */
+export type CreateTaskPayloadTaskEdgeArgs = {
+  orderBy?: Maybe<Array<TasksOrderBy>>;
+};
+
+/** All input for the create `TaskTemplate` mutation. */
+export type CreateTaskTemplateInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `TaskTemplate` to be created by this mutation. */
+  taskTemplate: TaskTemplateInput;
+};
+
+/** The output of our create `TaskTemplate` mutation. */
+export type CreateTaskTemplatePayload = {
+  __typename?: 'CreateTaskTemplatePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `TaskTemplate` that was created by this mutation. */
+  taskTemplate?: Maybe<TaskTemplate>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `TaskTemplate`. May be used by Relay 1. */
+  taskTemplateEdge?: Maybe<TaskTemplatesEdge>;
+};
+
+
+/** The output of our create `TaskTemplate` mutation. */
+export type CreateTaskTemplatePayloadTaskTemplateEdgeArgs = {
+  orderBy?: Maybe<Array<TaskTemplatesOrderBy>>;
+};
+
 export type CreateTransloaditTokenPayload = {
   __typename?: 'CreateTransloaditTokenPayload';
   expires?: Maybe<Scalars['String']>;
@@ -1424,6 +1490,94 @@ export type DeleteResponsePayloadResponseEdgeArgs = {
   orderBy?: Maybe<Array<ResponsesOrderBy>>;
 };
 
+/** All input for the `deleteTaskByNodeId` mutation. */
+export type DeleteTaskByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `Task` to be deleted. */
+  nodeId: Scalars['ID'];
+};
+
+/** All input for the `deleteTask` mutation. */
+export type DeleteTaskInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** The output of our delete `Task` mutation. */
+export type DeleteTaskPayload = {
+  __typename?: 'DeleteTaskPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Task` that was deleted by this mutation. */
+  task?: Maybe<Task>;
+  deletedTaskNodeId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Task`. May be used by Relay 1. */
+  taskEdge?: Maybe<TasksEdge>;
+};
+
+
+/** The output of our delete `Task` mutation. */
+export type DeleteTaskPayloadTaskEdgeArgs = {
+  orderBy?: Maybe<Array<TasksOrderBy>>;
+};
+
+/** All input for the `deleteTaskTemplateByNodeId` mutation. */
+export type DeleteTaskTemplateByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `TaskTemplate` to be deleted. */
+  nodeId: Scalars['ID'];
+};
+
+/** All input for the `deleteTaskTemplate` mutation. */
+export type DeleteTaskTemplateInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  id: Scalars['UUID'];
+};
+
+/** The output of our delete `TaskTemplate` mutation. */
+export type DeleteTaskTemplatePayload = {
+  __typename?: 'DeleteTaskTemplatePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `TaskTemplate` that was deleted by this mutation. */
+  taskTemplate?: Maybe<TaskTemplate>;
+  deletedTaskTemplateNodeId?: Maybe<Scalars['ID']>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `TaskTemplate`. May be used by Relay 1. */
+  taskTemplateEdge?: Maybe<TaskTemplatesEdge>;
+};
+
+
+/** The output of our delete `TaskTemplate` mutation. */
+export type DeleteTaskTemplatePayloadTaskTemplateEdgeArgs = {
+  orderBy?: Maybe<Array<TaskTemplatesOrderBy>>;
+};
+
 export type Document = Node & {
   __typename?: 'Document';
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -1995,11 +2149,10 @@ export type MatterTemplate = Node & {
   nodeId: Scalars['ID'];
   id: Scalars['UUID'];
   name: Scalars['String'];
-  javascriptModule: Scalars['String'];
   category: Scalars['String'];
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
-  active: Scalars['Boolean'];
+  description: Scalars['JSON'];
   /** Reads and enables pagination through a set of `Questionnaire`. */
   questionnaires: QuestionnairesConnection;
   /** Reads and enables pagination through a set of `Matter`. */
@@ -2039,30 +2192,26 @@ export type MatterTemplateCondition = {
   name?: Maybe<Scalars['String']>;
   /** Checks for equality with the object’s `category` field. */
   category?: Maybe<Scalars['String']>;
-  /** Checks for equality with the object’s `active` field. */
-  active?: Maybe<Scalars['Boolean']>;
 };
 
 /** An input for mutations affecting `MatterTemplate` */
 export type MatterTemplateInput = {
   id?: Maybe<Scalars['UUID']>;
   name: Scalars['String'];
-  javascriptModule: Scalars['String'];
   category?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
-  active?: Maybe<Scalars['Boolean']>;
+  description?: Maybe<Scalars['JSON']>;
 };
 
 /** Represents an update to a `MatterTemplate`. Fields that are set will be updated. */
 export type MatterTemplatePatch = {
   id?: Maybe<Scalars['UUID']>;
   name?: Maybe<Scalars['String']>;
-  javascriptModule?: Maybe<Scalars['String']>;
   category?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
-  active?: Maybe<Scalars['Boolean']>;
+  description?: Maybe<Scalars['JSON']>;
 };
 
 /** A connection to a list of `MatterTemplate` values. */
@@ -2096,8 +2245,6 @@ export enum MatterTemplatesOrderBy {
   NameDesc = 'NAME_DESC',
   CategoryAsc = 'CATEGORY_ASC',
   CategoryDesc = 'CATEGORY_DESC',
-  ActiveAsc = 'ACTIVE_ASC',
-  ActiveDesc = 'ACTIVE_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -2123,6 +2270,10 @@ export type Mutation = {
   createQuestionnaire?: Maybe<CreateQuestionnairePayload>;
   /** Creates a single `Response`. */
   createResponse?: Maybe<CreateResponsePayload>;
+  /** Creates a single `Task`. */
+  createTask?: Maybe<CreateTaskPayload>;
+  /** Creates a single `TaskTemplate`. */
+  createTaskTemplate?: Maybe<CreateTaskTemplatePayload>;
   /** Creates a single `UnprocessedDocument`. */
   createUnprocessedDocument?: Maybe<CreateUnprocessedDocumentPayload>;
   /** Creates a single `AccountingBill`. */
@@ -2167,6 +2318,14 @@ export type Mutation = {
   updateResponseByNodeId?: Maybe<UpdateResponsePayload>;
   /** Updates a single `Response` using a unique key and a patch. */
   updateResponse?: Maybe<UpdateResponsePayload>;
+  /** Updates a single `Task` using its globally unique id and a patch. */
+  updateTaskByNodeId?: Maybe<UpdateTaskPayload>;
+  /** Updates a single `Task` using a unique key and a patch. */
+  updateTask?: Maybe<UpdateTaskPayload>;
+  /** Updates a single `TaskTemplate` using its globally unique id and a patch. */
+  updateTaskTemplateByNodeId?: Maybe<UpdateTaskTemplatePayload>;
+  /** Updates a single `TaskTemplate` using a unique key and a patch. */
+  updateTaskTemplate?: Maybe<UpdateTaskTemplatePayload>;
   /** Updates a single `AccountingBill` using its globally unique id and a patch. */
   updateAccountingBillByNodeId?: Maybe<UpdateAccountingBillPayload>;
   /** Updates a single `AccountingBill` using a unique key and a patch. */
@@ -2223,6 +2382,14 @@ export type Mutation = {
   deleteResponseDocumentByNodeId?: Maybe<DeleteResponseDocumentPayload>;
   /** Deletes a single `ResponseDocument` using a unique key. */
   deleteResponseDocument?: Maybe<DeleteResponseDocumentPayload>;
+  /** Deletes a single `Task` using its globally unique id. */
+  deleteTaskByNodeId?: Maybe<DeleteTaskPayload>;
+  /** Deletes a single `Task` using a unique key. */
+  deleteTask?: Maybe<DeleteTaskPayload>;
+  /** Deletes a single `TaskTemplate` using its globally unique id. */
+  deleteTaskTemplateByNodeId?: Maybe<DeleteTaskTemplatePayload>;
+  /** Deletes a single `TaskTemplate` using a unique key. */
+  deleteTaskTemplate?: Maybe<DeleteTaskTemplatePayload>;
   /** Deletes a single `AccountingBill` using its globally unique id. */
   deleteAccountingBillByNodeId?: Maybe<DeleteAccountingBillPayload>;
   /** Deletes a single `AccountingBill` using a unique key. */
@@ -2289,6 +2456,18 @@ export type MutationCreateQuestionnaireArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateResponseArgs = {
   input: CreateResponseInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateTaskArgs = {
+  input: CreateTaskInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateTaskTemplateArgs = {
+  input: CreateTaskTemplateInput;
 };
 
 
@@ -2421,6 +2600,30 @@ export type MutationUpdateResponseByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateResponseArgs = {
   input: UpdateResponseInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTaskByNodeIdArgs = {
+  input: UpdateTaskByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTaskArgs = {
+  input: UpdateTaskInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTaskTemplateByNodeIdArgs = {
+  input: UpdateTaskTemplateByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTaskTemplateArgs = {
+  input: UpdateTaskTemplateInput;
 };
 
 
@@ -2589,6 +2792,30 @@ export type MutationDeleteResponseDocumentByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteResponseDocumentArgs = {
   input: DeleteResponseDocumentInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTaskByNodeIdArgs = {
+  input: DeleteTaskByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTaskArgs = {
+  input: DeleteTaskInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTaskTemplateByNodeIdArgs = {
+  input: DeleteTaskTemplateByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTaskTemplateArgs = {
+  input: DeleteTaskTemplateInput;
 };
 
 
@@ -2849,6 +3076,10 @@ export type Query = Node & {
   questionnaires?: Maybe<QuestionnairesConnection>;
   /** Reads and enables pagination through a set of `Response`. */
   responses?: Maybe<ResponsesConnection>;
+  /** Reads and enables pagination through a set of `Task`. */
+  tasks?: Maybe<TasksConnection>;
+  /** Reads and enables pagination through a set of `TaskTemplate`. */
+  taskTemplates?: Maybe<TaskTemplatesConnection>;
   /** Reads and enables pagination through a set of `AccountingBill`. */
   accountingBills?: Maybe<AccountingBillsConnection>;
   address?: Maybe<Address>;
@@ -2864,6 +3095,8 @@ export type Query = Node & {
   questionnaire?: Maybe<Questionnaire>;
   response?: Maybe<Response>;
   responseDocument?: Maybe<ResponseDocument>;
+  task?: Maybe<Task>;
+  taskTemplate?: Maybe<TaskTemplate>;
   unprocessedDocument?: Maybe<UnprocessedDocument>;
   accountingBill?: Maybe<AccountingBill>;
   getCurrentUser?: Maybe<Person>;
@@ -2894,6 +3127,10 @@ export type Query = Node & {
   responseByNodeId?: Maybe<Response>;
   /** Reads a single `ResponseDocument` using its globally unique `ID`. */
   responseDocumentByNodeId?: Maybe<ResponseDocument>;
+  /** Reads a single `Task` using its globally unique `ID`. */
+  taskByNodeId?: Maybe<Task>;
+  /** Reads a single `TaskTemplate` using its globally unique `ID`. */
+  taskTemplateByNodeId?: Maybe<TaskTemplate>;
   /** Reads a single `UnprocessedDocument` using its globally unique `ID`. */
   unprocessedDocumentByNodeId?: Maybe<UnprocessedDocument>;
   /** Reads a single `AccountingBill` using its globally unique `ID`. */
@@ -3040,6 +3277,30 @@ export type QueryResponsesArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryTasksArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<TasksOrderBy>>;
+  condition?: Maybe<TaskCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTaskTemplatesArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<TaskTemplatesOrderBy>>;
+  condition?: Maybe<TaskTemplateCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryAccountingBillsArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
@@ -3125,6 +3386,18 @@ export type QueryResponseArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QueryResponseDocumentArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTaskArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTaskTemplateArgs = {
   id: Scalars['UUID'];
 };
 
@@ -3222,6 +3495,18 @@ export type QueryResponseByNodeIdArgs = {
 
 /** The root query type which gives access points into the data universe. */
 export type QueryResponseDocumentByNodeIdArgs = {
+  nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTaskByNodeIdArgs = {
+  nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTaskTemplateByNodeIdArgs = {
   nodeId: Scalars['ID'];
 };
 
@@ -3590,6 +3875,150 @@ export enum ResponsesOrderBy {
   QuestionIdDesc = 'QUESTION_ID_DESC',
   PersonIdAsc = 'PERSON_ID_ASC',
   PersonIdDesc = 'PERSON_ID_DESC',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
+
+export type Task = Node & {
+  __typename?: 'Task';
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID'];
+  id: Scalars['UUID'];
+  matterId: Scalars['UUID'];
+  taskTemplateId: Scalars['UUID'];
+  ownerId: Scalars['UUID'];
+  createdAt: Scalars['Datetime'];
+  updatedAt: Scalars['Datetime'];
+  dueAt: Scalars['Datetime'];
+  status: Scalars['String'];
+};
+
+/** A condition to be used against `Task` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export type TaskCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+};
+
+/** An input for mutations affecting `Task` */
+export type TaskInput = {
+  id?: Maybe<Scalars['UUID']>;
+  matterId: Scalars['UUID'];
+  taskTemplateId: Scalars['UUID'];
+  ownerId: Scalars['UUID'];
+  createdAt?: Maybe<Scalars['Datetime']>;
+  updatedAt?: Maybe<Scalars['Datetime']>;
+  dueAt?: Maybe<Scalars['Datetime']>;
+  status: Scalars['String'];
+};
+
+/** Represents an update to a `Task`. Fields that are set will be updated. */
+export type TaskPatch = {
+  id?: Maybe<Scalars['UUID']>;
+  matterId?: Maybe<Scalars['UUID']>;
+  taskTemplateId?: Maybe<Scalars['UUID']>;
+  ownerId?: Maybe<Scalars['UUID']>;
+  createdAt?: Maybe<Scalars['Datetime']>;
+  updatedAt?: Maybe<Scalars['Datetime']>;
+  dueAt?: Maybe<Scalars['Datetime']>;
+  status?: Maybe<Scalars['String']>;
+};
+
+/** A connection to a list of `Task` values. */
+export type TasksConnection = {
+  __typename?: 'TasksConnection';
+  /** A list of `Task` objects. */
+  nodes: Array<Task>;
+  /** A list of edges which contains the `Task` and cursor to aid in pagination. */
+  edges: Array<TasksEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `Task` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `Task` edge in the connection. */
+export type TasksEdge = {
+  __typename?: 'TasksEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `Task` at the end of the edge. */
+  node: Task;
+};
+
+/** Methods to use when ordering `Task`. */
+export enum TasksOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
+  PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
+  PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
+}
+
+export type TaskTemplate = Node & {
+  __typename?: 'TaskTemplate';
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars['ID'];
+  id: Scalars['UUID'];
+  name: Scalars['String'];
+  description: Scalars['JSON'];
+  createdAt: Scalars['Datetime'];
+  updatedAt: Scalars['Datetime'];
+};
+
+/**
+ * A condition to be used against `TaskTemplate` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type TaskTemplateCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars['UUID']>;
+};
+
+/** An input for mutations affecting `TaskTemplate` */
+export type TaskTemplateInput = {
+  id?: Maybe<Scalars['UUID']>;
+  name: Scalars['String'];
+  description?: Maybe<Scalars['JSON']>;
+  createdAt?: Maybe<Scalars['Datetime']>;
+  updatedAt?: Maybe<Scalars['Datetime']>;
+};
+
+/** Represents an update to a `TaskTemplate`. Fields that are set will be updated. */
+export type TaskTemplatePatch = {
+  id?: Maybe<Scalars['UUID']>;
+  name?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['JSON']>;
+  createdAt?: Maybe<Scalars['Datetime']>;
+  updatedAt?: Maybe<Scalars['Datetime']>;
+};
+
+/** A connection to a list of `TaskTemplate` values. */
+export type TaskTemplatesConnection = {
+  __typename?: 'TaskTemplatesConnection';
+  /** A list of `TaskTemplate` objects. */
+  nodes: Array<TaskTemplate>;
+  /** A list of edges which contains the `TaskTemplate` and cursor to aid in pagination. */
+  edges: Array<TaskTemplatesEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `TaskTemplate` you could get from the connection. */
+  totalCount: Scalars['Int'];
+};
+
+/** A `TaskTemplate` edge in the connection. */
+export type TaskTemplatesEdge = {
+  __typename?: 'TaskTemplatesEdge';
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars['Cursor']>;
+  /** The `TaskTemplate` at the end of the edge. */
+  node: TaskTemplate;
+};
+
+/** Methods to use when ordering `TaskTemplate`. */
+export enum TaskTemplatesOrderBy {
+  Natural = 'NATURAL',
+  IdAsc = 'ID_ASC',
+  IdDesc = 'ID_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -4240,19 +4669,113 @@ export type UpdateResponsePayloadResponseEdgeArgs = {
   orderBy?: Maybe<Array<ResponsesOrderBy>>;
 };
 
+/** All input for the `updateTaskByNodeId` mutation. */
+export type UpdateTaskByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `Task` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `Task` being updated. */
+  patch: TaskPatch;
+};
 
-export type AllActiveMatterTemplatesByCategoryQueryVariables = Exact<{
+/** All input for the `updateTask` mutation. */
+export type UpdateTaskInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `Task` being updated. */
+  patch: TaskPatch;
+  id: Scalars['UUID'];
+};
+
+/** The output of our update `Task` mutation. */
+export type UpdateTaskPayload = {
+  __typename?: 'UpdateTaskPayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `Task` that was updated by this mutation. */
+  task?: Maybe<Task>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Task`. May be used by Relay 1. */
+  taskEdge?: Maybe<TasksEdge>;
+};
+
+
+/** The output of our update `Task` mutation. */
+export type UpdateTaskPayloadTaskEdgeArgs = {
+  orderBy?: Maybe<Array<TasksOrderBy>>;
+};
+
+/** All input for the `updateTaskTemplateByNodeId` mutation. */
+export type UpdateTaskTemplateByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The globally unique `ID` which will identify a single `TaskTemplate` to be updated. */
+  nodeId: Scalars['ID'];
+  /** An object where the defined keys will be set on the `TaskTemplate` being updated. */
+  patch: TaskTemplatePatch;
+};
+
+/** All input for the `updateTaskTemplate` mutation. */
+export type UpdateTaskTemplateInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** An object where the defined keys will be set on the `TaskTemplate` being updated. */
+  patch: TaskTemplatePatch;
+  id: Scalars['UUID'];
+};
+
+/** The output of our update `TaskTemplate` mutation. */
+export type UpdateTaskTemplatePayload = {
+  __typename?: 'UpdateTaskTemplatePayload';
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The `TaskTemplate` that was updated by this mutation. */
+  taskTemplate?: Maybe<TaskTemplate>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `TaskTemplate`. May be used by Relay 1. */
+  taskTemplateEdge?: Maybe<TaskTemplatesEdge>;
+};
+
+
+/** The output of our update `TaskTemplate` mutation. */
+export type UpdateTaskTemplatePayloadTaskTemplateEdgeArgs = {
+  orderBy?: Maybe<Array<TaskTemplatesOrderBy>>;
+};
+
+
+export type AllMatterTemplatesByCategoryQueryVariables = Exact<{
   category: Scalars['String'];
 }>;
 
 
-export type AllActiveMatterTemplatesByCategoryQuery = (
+export type AllMatterTemplatesByCategoryQuery = (
   { __typename?: 'Query' }
   & { matterTemplates?: Maybe<(
     { __typename?: 'MatterTemplatesConnection' }
     & { nodes: Array<(
       { __typename?: 'MatterTemplate' }
-      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule' | 'category'>
+      & Pick<MatterTemplate, 'id' | 'name' | 'category'>
       & { questionnaires: (
         { __typename?: 'QuestionnairesConnection' }
         & { nodes: Array<(
@@ -4315,7 +4838,7 @@ export type AllMatterTemplatesQuery = (
     { __typename?: 'MatterTemplatesConnection' }
     & { nodes: Array<(
       { __typename?: 'MatterTemplate' }
-      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule' | 'category'>
+      & Pick<MatterTemplate, 'id' | 'name' | 'description' | 'category'>
     )> }
   )> }
 );
@@ -4468,7 +4991,7 @@ export type CreateMatterContactMutation = (
 
 export type CreateMatterTemplateMutationVariables = Exact<{
   name: Scalars['String'];
-  javascriptModule: Scalars['String'];
+  description: Scalars['JSON'];
   category: Scalars['String'];
 }>;
 
@@ -4479,7 +5002,7 @@ export type CreateMatterTemplateMutation = (
     { __typename?: 'CreateMatterTemplatePayload' }
     & { matterTemplate?: Maybe<(
       { __typename?: 'MatterTemplate' }
-      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule' | 'category'>
+      & Pick<MatterTemplate, 'id' | 'name' | 'description' | 'category'>
     )> }
   )> }
 );
@@ -4770,7 +5293,7 @@ export type UpdateMatterByIdMutation = (
 export type UpdateMatterTemplateByIdMutationVariables = Exact<{
   id: Scalars['UUID'];
   name?: Maybe<Scalars['String']>;
-  javascriptModule?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['JSON']>;
   category?: Maybe<Scalars['String']>;
 }>;
 
@@ -4781,7 +5304,7 @@ export type UpdateMatterTemplateByIdMutation = (
     { __typename?: 'UpdateMatterTemplatePayload' }
     & { matterTemplate?: Maybe<(
       { __typename?: 'MatterTemplate' }
-      & Pick<MatterTemplate, 'id' | 'name' | 'javascriptModule' | 'category'>
+      & Pick<MatterTemplate, 'id' | 'name' | 'description' | 'category'>
     )> }
   )> }
 );
@@ -4858,13 +5381,12 @@ export type UpdateQuestionnaireFromNeo4JMutation = (
 );
 
 
-export const AllActiveMatterTemplatesByCategoryDocument = gql`
-    query AllActiveMatterTemplatesByCategory($category: String!) {
-  matterTemplates(condition: {category: $category, active: true}, orderBy: NAME_ASC) {
+export const AllMatterTemplatesByCategoryDocument = gql`
+    query AllMatterTemplatesByCategory($category: String!) {
+  matterTemplates(condition: {category: $category}, orderBy: NAME_ASC) {
     nodes {
       id
       name
-      javascriptModule
       category
       questionnaires {
         nodes {
@@ -4878,32 +5400,32 @@ export const AllActiveMatterTemplatesByCategoryDocument = gql`
     `;
 
 /**
- * __useAllActiveMatterTemplatesByCategoryQuery__
+ * __useAllMatterTemplatesByCategoryQuery__
  *
- * To run a query within a React component, call `useAllActiveMatterTemplatesByCategoryQuery` and pass it any options that fit your needs.
- * When your component renders, `useAllActiveMatterTemplatesByCategoryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useAllMatterTemplatesByCategoryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllMatterTemplatesByCategoryQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useAllActiveMatterTemplatesByCategoryQuery({
+ * const { data, loading, error } = useAllMatterTemplatesByCategoryQuery({
  *   variables: {
  *      category: // value for 'category'
  *   },
  * });
  */
-export function useAllActiveMatterTemplatesByCategoryQuery(baseOptions: Apollo.QueryHookOptions<AllActiveMatterTemplatesByCategoryQuery, AllActiveMatterTemplatesByCategoryQueryVariables>) {
+export function useAllMatterTemplatesByCategoryQuery(baseOptions: Apollo.QueryHookOptions<AllMatterTemplatesByCategoryQuery, AllMatterTemplatesByCategoryQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<AllActiveMatterTemplatesByCategoryQuery, AllActiveMatterTemplatesByCategoryQueryVariables>(AllActiveMatterTemplatesByCategoryDocument, options);
+        return Apollo.useQuery<AllMatterTemplatesByCategoryQuery, AllMatterTemplatesByCategoryQueryVariables>(AllMatterTemplatesByCategoryDocument, options);
       }
-export function useAllActiveMatterTemplatesByCategoryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllActiveMatterTemplatesByCategoryQuery, AllActiveMatterTemplatesByCategoryQueryVariables>) {
+export function useAllMatterTemplatesByCategoryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllMatterTemplatesByCategoryQuery, AllMatterTemplatesByCategoryQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<AllActiveMatterTemplatesByCategoryQuery, AllActiveMatterTemplatesByCategoryQueryVariables>(AllActiveMatterTemplatesByCategoryDocument, options);
+          return Apollo.useLazyQuery<AllMatterTemplatesByCategoryQuery, AllMatterTemplatesByCategoryQueryVariables>(AllMatterTemplatesByCategoryDocument, options);
         }
-export type AllActiveMatterTemplatesByCategoryQueryHookResult = ReturnType<typeof useAllActiveMatterTemplatesByCategoryQuery>;
-export type AllActiveMatterTemplatesByCategoryLazyQueryHookResult = ReturnType<typeof useAllActiveMatterTemplatesByCategoryLazyQuery>;
-export type AllActiveMatterTemplatesByCategoryQueryResult = Apollo.QueryResult<AllActiveMatterTemplatesByCategoryQuery, AllActiveMatterTemplatesByCategoryQueryVariables>;
+export type AllMatterTemplatesByCategoryQueryHookResult = ReturnType<typeof useAllMatterTemplatesByCategoryQuery>;
+export type AllMatterTemplatesByCategoryLazyQueryHookResult = ReturnType<typeof useAllMatterTemplatesByCategoryLazyQuery>;
+export type AllMatterTemplatesByCategoryQueryResult = Apollo.QueryResult<AllMatterTemplatesByCategoryQuery, AllMatterTemplatesByCategoryQueryVariables>;
 export const AllAddressesDocument = gql`
     query AllAddresses {
   addresses {
@@ -5026,7 +5548,7 @@ export const AllMatterTemplatesDocument = gql`
     nodes {
       id
       name
-      javascriptModule
+      description
       category
     }
   }
@@ -5399,12 +5921,12 @@ export type CreateMatterContactMutationHookResult = ReturnType<typeof useCreateM
 export type CreateMatterContactMutationResult = Apollo.MutationResult<CreateMatterContactMutation>;
 export type CreateMatterContactMutationOptions = Apollo.BaseMutationOptions<CreateMatterContactMutation, CreateMatterContactMutationVariables>;
 export const CreateMatterTemplateDocument = gql`
-    mutation CreateMatterTemplate($name: String!, $javascriptModule: String!, $category: String!) {
-  createMatterTemplate(input: {matterTemplate: {name: $name, javascriptModule: $javascriptModule, category: $category}}) {
+    mutation CreateMatterTemplate($name: String!, $description: JSON!, $category: String!) {
+  createMatterTemplate(input: {matterTemplate: {name: $name, description: $description, category: $category}}) {
     matterTemplate {
       id
       name
-      javascriptModule
+      description
       category
     }
   }
@@ -5426,7 +5948,7 @@ export type CreateMatterTemplateMutationFn = Apollo.MutationFunction<CreateMatte
  * const [createMatterTemplateMutation, { data, loading, error }] = useCreateMatterTemplateMutation({
  *   variables: {
  *      name: // value for 'name'
- *      javascriptModule: // value for 'javascriptModule'
+ *      description: // value for 'description'
  *      category: // value for 'category'
  *   },
  * });
@@ -6083,12 +6605,12 @@ export type UpdateMatterByIdMutationHookResult = ReturnType<typeof useUpdateMatt
 export type UpdateMatterByIdMutationResult = Apollo.MutationResult<UpdateMatterByIdMutation>;
 export type UpdateMatterByIdMutationOptions = Apollo.BaseMutationOptions<UpdateMatterByIdMutation, UpdateMatterByIdMutationVariables>;
 export const UpdateMatterTemplateByIdDocument = gql`
-    mutation UpdateMatterTemplateById($id: UUID!, $name: String, $javascriptModule: String, $category: String) {
-  updateMatterTemplate(input: {patch: {name: $name, javascriptModule: $javascriptModule, category: $category}, id: $id}) {
+    mutation UpdateMatterTemplateById($id: UUID!, $name: String, $description: JSON, $category: String) {
+  updateMatterTemplate(input: {patch: {name: $name, description: $description, category: $category}, id: $id}) {
     matterTemplate {
       id
       name
-      javascriptModule
+      description
       category
     }
   }
@@ -6111,7 +6633,7 @@ export type UpdateMatterTemplateByIdMutationFn = Apollo.MutationFunction<UpdateM
  *   variables: {
  *      id: // value for 'id'
  *      name: // value for 'name'
- *      javascriptModule: // value for 'javascriptModule'
+ *      description: // value for 'description'
  *      category: // value for 'category'
  *   },
  * });

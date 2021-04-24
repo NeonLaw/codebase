@@ -2,10 +2,10 @@ import { Box } from '@chakra-ui/react';
 import { default as Link } from 'next/link';
 import React from 'react';
 import { Skeleton } from '@chakra-ui/react';
-import { useAllActiveMatterTemplatesByCategoryQuery } from '../../utils/api';
+import { useAllMatterTemplatesByCategoryQuery } from '../../utils/api';
 
 export const MatterTemplateQuestionnairesList = ({ basePath, category }) => {
-  const { data, loading, error } = useAllActiveMatterTemplatesByCategoryQuery(
+  const { data, loading, error } = useAllMatterTemplatesByCategoryQuery(
     { variables: { category }}
   );
 
