@@ -1,13 +1,13 @@
 mutation CreateMatterTemplate(
   $name: String!
-  $javascriptModule: String!
+  $description: JSON!
   $category: String!
 ) {
   createMatterTemplate(
     input: {
       matterTemplate: {
         name: $name
-        javascriptModule: $javascriptModule
+        description: $description
         category: $category
       }
     }
@@ -15,7 +15,7 @@ mutation CreateMatterTemplate(
     matterTemplate {
       id
       name
-      javascriptModule
+      description
       category
     }
   }
