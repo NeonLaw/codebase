@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "neon_postgres"
+require "pry"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
