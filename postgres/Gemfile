@@ -10,3 +10,5 @@ gem "standard"
 gem "sequel", "~> 5.43"
 gem "fixture_dependencies", "~> 1.10"
 gem "pg", "~> 1.2"
+
+gem "pry", "~> 0.14.1"
