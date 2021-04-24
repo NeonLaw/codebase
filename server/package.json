@@ -40,7 +40,7 @@
     "ioredis": "^4.26.0",
     "js-yaml": "^4.1.0",
     "jsonwebtoken": "^8.5.1",
-    "jwks-rsa": "^2.0.2",
+    "jwks-rsa": "^2.0.3",
     "lob": "^6.1.1",
     "neo4j-driver": "^4.2.3",
     "pg": "^8.6.0",
