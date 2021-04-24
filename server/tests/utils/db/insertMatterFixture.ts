@@ -22,7 +22,7 @@ export const insertMatterFixture = async ({
     const { rows: matterTemplateRows } = await client.query(
       'INSERT INTO matter_template (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
-      ['delete-your-data', '{ deleteYourData: "deleteYourData"}']
+      ['delete-your-data', '{}']
     );
     matterTemplateIdForInsertingMatter = matterTemplateRows[0].id;
   }

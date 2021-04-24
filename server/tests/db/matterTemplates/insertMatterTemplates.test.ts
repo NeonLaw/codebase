@@ -15,7 +15,7 @@ describe('INSERT INTO matter_template;', () => {
         await expect(pgClient.query(
           'INSERT INTO matter_template (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
-          ['delete-your-data', '{ deleteYourData: "deleteYourData"}']
+          ['delete-your-data', '{}']
         )).rejects.toThrow(
           /permission denied for table matter_template/
         );
@@ -31,7 +31,7 @@ describe('INSERT INTO matter_template;', () => {
         await expect(pgClient.query(
           'INSERT INTO matter_template (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
-          ['delete-your-data', '{ deleteYourData: "deleteYourData"}']
+          ['delete-your-data', '{}']
         )).rejects.toThrow(
           /permission denied for table matter_template/
         );
@@ -47,7 +47,7 @@ describe('INSERT INTO matter_template;', () => {
         await expect(pgClient.query(
           'INSERT INTO matter_template (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
-          ['delete-your-data', '{ deleteYourData: "deleteYourData"}']
+          ['delete-your-data', '{}']
         )).rejects.toThrow(
           /permission denied for table matter_template/
         );

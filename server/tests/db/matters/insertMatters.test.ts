@@ -65,7 +65,7 @@ describe('INSERT INTO matter;', () => {
         const { rows: matterTemplateRows } = await pgClient.query(
           'INSERT INTO matter_template (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
-          ['delete-your-data', '{ deleteYourData: "deleteYourData"}']
+          ['delete-your-data', '{}']
         );
         const matterTemplateId = matterTemplateRows[0].id;
 
