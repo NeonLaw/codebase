@@ -13,9 +13,9 @@ describe('INSERT INTO matter_template;', () => {
         await startAnonymousSession(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO matter_template (name, javascript_module) '+
+          'INSERT INTO matter_template (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
-          ['delete-your-data', 'deleteYourData']
+          ['delete-your-data', '{ deleteYourData: "deleteYourData"}']
         )).rejects.toThrow(
           /permission denied for table matter_template/
         );
@@ -29,9 +29,9 @@ describe('INSERT INTO matter_template;', () => {
         await startPortalSession(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO matter_template (name, javascript_module) '+
+          'INSERT INTO matter_template (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
-          ['delete-your-data', 'deleteYourData']
+          ['delete-your-data', '{ deleteYourData: "deleteYourData"}']
         )).rejects.toThrow(
           /permission denied for table matter_template/
         );
@@ -45,9 +45,9 @@ describe('INSERT INTO matter_template;', () => {
         await startLawyerSession(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO matter_template (name, javascript_module) '+
+          'INSERT INTO matter_template (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
-          ['delete-your-data', 'deleteYourData']
+          ['delete-your-data', '{ deleteYourData: "deleteYourData"}']
         )).rejects.toThrow(
           /permission denied for table matter_template/
         );

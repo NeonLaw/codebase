@@ -63,9 +63,9 @@ describe('INSERT INTO matter;', () => {
     it('can create matters', () =>
       withRootDb(async (pgClient: any) => {
         const { rows: matterTemplateRows } = await pgClient.query(
-          'INSERT INTO matter_template (name, javascript_module) '+
+          'INSERT INTO matter_template (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
-          ['delete-your-data', 'deleteYourData']
+          ['delete-your-data', '{ deleteYourData: "deleteYourData"}']
         );
         const matterTemplateId = matterTemplateRows[0].id;
 
