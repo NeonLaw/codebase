@@ -1,5 +1,5 @@
-import { BiBook, BiHomeHeart } from 'react-icons/bi';
 import { AiOutlineShop } from 'react-icons/ai';
+import { BiHomeHeart } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
 import { FaHands } from 'react-icons/fa';
 import { MdGavel } from 'react-icons/md';
@@ -32,18 +32,13 @@ export const portalNavLinks = ({ email }) => {
     },
     {
       icon: <FaHands />,
-      label: 'Estate & Trust',
+      label: 'Trust',
       route: '/portal/estate',
     },
     {
       icon: <TiDeleteOutline />,
       label: 'Data Deletion',
       route: '/portal/data-deletion',
-    },
-    {
-      icon: <BiBook />,
-      label: 'Bar Prep',
-      route: '/portal/bar-prep',
     },
     { icon: <CgProfile />, label: 'Settings', route: '/portal/settings' }
   ];
