@@ -22,23 +22,23 @@ export const portalNavLinks = ({ email }) => {
     },
     {
       icon: <AiOutlineShop />,
-      label: 'Businesses',
+      label: 'Business',
       route: '/portal/business',
     },
     {
-      icon: <MdGavel />,
-      label: 'Litigation',
-      route: '/portal/litigation',
-    },
-    {
       icon: <FaHands />,
-      label: 'Trust',
+      label: 'Estate',
       route: '/portal/estate',
     },
     {
       icon: <TiDeleteOutline />,
       label: 'Data Deletion',
       route: '/portal/data-deletion',
+    },
+    {
+      icon: <MdGavel />,
+      label: 'Litigation',
+      route: '/portal/litigation',
     },
     { icon: <CgProfile />, label: 'Settings', route: '/portal/settings' }
   ];
