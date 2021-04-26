@@ -59,7 +59,7 @@
         "remark-toc": "^7.2.0",
         "remark-validate-links": "^10.0.4",
         "start-server-and-test": "^1.12.1",
-        "ts-jest": "^26.5.4"
+        "ts-jest": "^26.5.5"
     },
     "scripts": {
         "check-types": "tsc -p .",
