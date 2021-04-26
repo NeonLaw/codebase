@@ -101,3 +101,21 @@ jobs:
       - name: Publish @neonlaw/server
         run: npm publish --access public
         working-directory: ./web
+
+  update_neon_postgres_package:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/neon_postgres@')
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v1
+      - name: Build neon_postgres gem
+        run: gem build neon_postgres.gemspec
+        working-directory: ./postgres
+      - name: Publish neon_postgres gem
+        run: doppler run -- gem publish neon_postgres-$(echo $GITHUB_REF | awk '{gsub(/^neon_postgres\@v/,"")}1').gem
+        working-directory: ./postgres
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
