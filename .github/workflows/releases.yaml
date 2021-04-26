@@ -115,7 +115,7 @@ jobs:
         run: gem build neon_postgres.gemspec
         working-directory: ./postgres
       - name: Publish neon_postgres gem
-        run: doppler run -- gem publish neon_postgres-$(echo $GITHUB_REF | awk '{gsub(/^neon_postgres\@v/,"")}1').gem
+        run: doppler run -- gem publish neon_postgres-$(echo $GITHUB_REF | awk '{gsub(/^neon_postgres@v/,"")}1').gem
         working-directory: ./postgres
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
