@@ -8641,10 +8641,10 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
-framer-motion@^4.1.3:
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-4.1.3.tgz#fdde56885910f516233233073f8f0ed6aab6492e"
-  integrity sha512-WJ3iZiMgzR3cf/W5/o5OwGyNeXvjuIriItPnDtqbAGgd8rCq5ysAW3RS4cC2i2wVA9EfrlxWmosTt+lKhaVI3Q==
+framer-motion@^4.1.10:
+  version "4.1.10"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-4.1.10.tgz#dadba8f76381ac19a41289eec8ab1fa99a2ad0ca"
+  integrity sha512-fFm/iXcqAZOHiQnP98V3jjGXYlZoo9IPFbumA71Ev9KHMNIR1VBOg7wld8KqhfuzBDIZ9YSbPUB5pdKdWRZNPg==
   dependencies:
     framesync "5.3.0"
     hey-listen "^1.0.8"
@@ -14029,10 +14029,10 @@ react-svg@^13.0.3:
     "@types/prop-types" "^15.7.3"
     prop-types "^15.7.2"
 
-react-table@^7.6.3:
-  version "7.6.3"
-  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.6.3.tgz#76434392b3f62344bdb704f5b227c2f29c1ffb14"
-  integrity sha512-hfPF13zDLxPMpLKzIKCE8RZud9T/XrRTsaCIf8zXpWZIZ2juCl7qrGpo3AQw9eAetXV5DP7s2GDm+hht7qq5Dw==
+react-table@^7.7.0:
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.7.0.tgz#e2ce14d7fe3a559f7444e9ecfe8231ea8373f912"
+  integrity sha512-jBlj70iBwOTvvImsU9t01LjFjy4sXEtclBovl3mTiqjz23Reu0DKnRza4zlLtOPACx6j2/7MrQIthIK1Wi+LIA==
 
 react-transition-group@^4.3.0:
   version "4.4.1"
@@ -16361,10 +16361,10 @@ strip-json-comments@~2.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
 
-stripe@^8.143.0:
-  version "8.143.0"
-  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.143.0.tgz#647605f4faa0f2c731caee1f22046b8306f7ace0"
-  integrity sha512-MKdcJCNCc/eSCn+dvzHIEWaQi0l2rtKbz33V+jbIL6ao8zBQyeLeULYqsCEOV6wI//GSk2u1e3B0MratMhbf+w==
+stripe@^8.145.0:
+  version "8.145.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.145.0.tgz#5d5c18ffb86b247ef67d7a162bab3753f650ab10"
+  integrity sha512-znLtEdO/ZT9mKUWechzcDQNWySt0e1RxyOOx+GZXFq6pspPhsse9MIehXEd+QdYnf8kvSAg041Txdgq+1yZqOg==
   dependencies:
     "@types/node" ">=8.1.0"
     qs "^6.6.0"

@@ -6,6 +6,7 @@ import { gutters } from '../../../styles/neonLaw';
 import styled from '@emotion/styled';
 import { useIntl } from 'react-intl';
 import { useRouter } from 'next/router';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 
 const StyledAdminPortalOptions = styled.div`
   display: grid;
@@ -88,4 +89,4 @@ const AdminDashboard = () => {
 };
 
 /* eslint-disable-next-line import/no-default-export */
-export default AdminDashboard;
+export default withPageAuthRequired(AdminDashboard);
