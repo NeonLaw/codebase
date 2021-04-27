@@ -8,7 +8,6 @@ import { PortalLayout } from '../../components/layouts/portalLayout';
 import { useIntl } from 'react-intl';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 
-
 const PortalPage = () => {
   const intl = useIntl();
   return (
