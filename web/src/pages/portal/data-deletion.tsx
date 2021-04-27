@@ -7,8 +7,8 @@ import {
   DataDeletionDashborard
 } from '../../components/dashboards/dataDeletionDashboard';
 import { PortalLayout } from '../../components/layouts/portalLayout';
-import React from 'react';
 import { useIntl } from 'react-intl';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 
 const DataDeletionPage = () => {
   const intl = useIntl();
@@ -26,4 +26,4 @@ const DataDeletionPage = () => {
 };
 
 /* eslint-disable-next-line import/no-default-export */
-export default DataDeletionPage;
+export default withPageAuthRequired(DataDeletionPage);
