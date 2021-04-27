@@ -12,6 +12,7 @@ import { GiReceiveMoney } from 'react-icons/gi';
 import { PortalLayout } from '../../../components/layouts/portalLayout';
 import { ResponsiveBar } from '@nivo/bar';
 import { useIntl } from 'react-intl';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 
 const data = [
   {
@@ -207,4 +208,4 @@ const EstatePage = () => {
 };
 
 /* eslint-disable-next-line import/no-default-export */
-export default EstatePage;
+export default withPageAuthRequired(EstatePage);
