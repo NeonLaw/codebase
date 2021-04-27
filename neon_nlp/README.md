@@ -3,7 +3,7 @@
 ## Consumption
 
 A graphql server that exposes one `Query` to get recommendations about your
-text.
+text. These models are trained with the `./neon_nlp_training` library.
 
 ```graphql
 query {
