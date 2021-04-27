@@ -2,8 +2,8 @@ import { Box, Heading, Text } from '@chakra-ui/react';
 import { gutters, sizes } from '../../../styles/neonLaw';
 import { MattersList } from '../../../components/lists/mattersList';
 import { PortalLayout } from '../../../components/layouts/portalLayout';
-import React from 'react';
 import { useIntl } from 'react-intl';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 
 const LitigationIndexPage = () => {
   const intl = useIntl();
@@ -24,4 +24,4 @@ const LitigationIndexPage = () => {
 };
 
 /* eslint-disable-next-line import/no-default-export */
-export default LitigationIndexPage;
+export default withPageAuthRequired(LitigationIndexPage);
