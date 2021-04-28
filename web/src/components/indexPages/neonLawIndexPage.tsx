@@ -11,14 +11,12 @@ import {
 import { colors, gutters, sizes } from '../../styles/neonLaw';
 
 import { BaseFooter } from '../footer/baseFooter';
-import { Button } from '../button';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import { ReactSVG } from 'react-svg';
 import { Seo } from '../seo';
-import { StringInput } from '../inputs';
+import { TypeAhead } from '../typeAhead';
 import { useColorMode } from '@chakra-ui/react';
-import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 import { useRef } from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
@@ -26,17 +24,9 @@ import { useUser } from '@auth0/nextjs-auth0';
 export const NeonLawIndexPage = (): JSX.Element => {
   const { colorMode } = useColorMode();
   const intl = useIntl();
-  const {
-    handleSubmit,
-    formState: { errors },
-    register,
-  } = useForm();
+
   const { user } = useUser();
   const nextSectionRef = useRef(null);
-
-  const onSubmit = async ({ prompt }) => {
-    console.log(prompt);
-  };
 
   return (
     <>
@@ -64,7 +54,7 @@ export const NeonLawIndexPage = (): JSX.Element => {
               </Box>
               <Spacer />
             </Flex>
-            <form
+            {/* <form
               onSubmit={handleSubmit(onSubmit as any)}
               style={{ color: colors.text[colorMode] }}
             >
@@ -89,7 +79,8 @@ export const NeonLawIndexPage = (): JSX.Element => {
                   {intl.formatMessage({ id: 'auth.sign_up' })}
                 </Button>
               </Flex>
-            </form>
+            </form> */}
+            <TypeAhead />
             <Text
               margin={`${gutters.xSmall} 0 ${gutters.small}`}
               color={colors.text[colorMode]}
@@ -99,9 +90,7 @@ export const NeonLawIndexPage = (): JSX.Element => {
               }}
             />
             <Text>
-              <span>
-                {intl.formatMessage({ id: 'banner.client' })}
-              </span>
+              <span>{intl.formatMessage({ id: 'banner.client' })}</span>
               &nbsp;
               {user ? (
                 <>
