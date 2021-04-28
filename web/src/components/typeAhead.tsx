@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
 import { gql, useLazyQuery } from '@apollo/client';
-
-import styled from '@emotion/styled';
+import { Input } from '@chakra-ui/react';
+import Link from 'next/link';
 
 const QUERY = gql`
   query Questions {
     questions {
       nodes {
-        nodeId
+        id
         prompt
       }
     }
   }
 `;
-
-const Styled = styled.div``;
 
 export const TypeAhead = () => {
   const [getQuestions, { loading, data }] = useLazyQuery(QUERY);
@@ -24,7 +22,25 @@ export const TypeAhead = () => {
   if (loading) return <p>Loading...</p>;
 
   if (data) {
-    console.log(data);
+    const questions = data?.questions?.nodes;
+    return (
+      <ul>
+        {questions.map((question, index) => (
+          <>
+            <li key={index}>
+              <Link href={`/questions/${question.id}`}>
+                {question.prompt}
+              </Link>
+            </li>
+          </>
+        ))}
+        <li>
+          <em>
+            Don&apos;t see your question above? Ask us in the chat below!
+          </em>
+        </li>
+      </ul>
+    );
   }
 
   const onTextChange = (e) => {
@@ -40,27 +56,15 @@ export const TypeAhead = () => {
     setText(value);
   };
 
-  // const renderQuestions = () => {
-  //   const questions = questions;
-
-  //   return questions.length ? (
-  //     <ul>
-  //       {questions.map((q) => (
-  //         <li key={q}>{q}</li>
-  //       ))}
-  //     </ul>
-  //   ) : null;
-  // };
 
   return (
-    <Styled>
-      <input
+    <>
+      <Input
         type="text"
         value={text}
-        placeholder="What legal question do you have ?"
+        placeholder="What legal question do you have?"
         onChange={onTextChange}
       />
-      {/* {renderQuestions()} */}
-    </Styled>
+    </>
   );
 };

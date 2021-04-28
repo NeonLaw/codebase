@@ -15,7 +15,7 @@ import { ChevronDownIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import { ReactSVG } from 'react-svg';
 import { Seo } from '../seo';
-import { TypeAhead } from '../type-ahead-dropdown';
+import { TypeAhead } from '../typeAhead';
 import { useColorMode } from '@chakra-ui/react';
 import { useIntl } from 'react-intl';
 import { useRef } from 'react';

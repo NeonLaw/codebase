@@ -4,7 +4,6 @@ import { Container } from '../../components/container';
 import Image from 'next/image';
 import { PostBanner } from '../../components/blog/postBanner';
 import { PublicLayout } from '../../components/layouts/publicLayout';
-import React from 'react';
 import { Seo } from '../../components/seo';
 import styled from '@emotion/styled';
 

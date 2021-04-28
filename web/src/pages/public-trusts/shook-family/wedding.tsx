@@ -12,7 +12,6 @@ import { AiFillGift } from 'react-icons/ai';
 import { Button } from '../../../components/button';
 import { Carousel } from 'react-responsive-carousel';
 import { Container } from '../../../components/container';
-import Image from 'next/image';
 import {
   PublicTrustLayout
 } from '../../../components/layouts/publicTrustLayout';
@@ -140,11 +139,9 @@ const ShookFamilyWeddingPage = () => {
               border={`1px solid ${colors.borders[colorMode]}`}
             >
               <Box margin="0.5em" borderRadius="md" overflow="hidden">
-                <Image
+                <img
                   src="/images/polynesia.png"
                   alt="polynesia"
-                  height="100px"
-                  width="100px"
                 />
               </Box>
               <Box
