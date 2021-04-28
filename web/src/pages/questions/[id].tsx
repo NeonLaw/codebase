@@ -18,7 +18,9 @@ const QuestionScreen = () => {
         padding="9rem 0 4rem"
       >
         <Container>
-          Question {id}. More coming soon, contact us for details!
+          <>
+            Question {id}. More coming soon, contact us for details!
+          </>
         </Container>
       </Box>
     </PublicLayout>

@@ -10,8 +10,10 @@ export const sendMatterDocumentEmail = async (
   const { rows } = await helpers.query(
     'SELECT p.email as email, '+
     'm.id as matter, '+
+    'd.filename as filename, '+
     'mt.category as category '+
     'FROM matter_document md ' +
+    'INNER JOIN document d ON (md.document_id = d.id) ' +
     'INNER JOIN matter m ON (md.matter_id = m.id) ' +
     'INNER JOIN matter_template mt ON (m.matter_template_id = mt.id) ' +
     'LEFT JOIN matter_contact mc ON (mc.matter_id = m.id) ' +
@@ -40,8 +42,9 @@ export const sendMatterDocumentEmail = async (
     const subject = 'New Document Uploaded';
     const emailMessage = {
       from: 'support@neonlaw.com',
-      html: '<p>We uploaded a new document. To view it, please visit '+
-    `https://www.neonlaw.com/portal/${category}/${matter}.</p>`,
+      html: '<p>We uploaded a new document, ${filename} to your matter. '+
+      'To view it, please visit '+
+      `https://www.neonlaw.com/portal/${category}/${matter}.</p>`,
       subject,
       text: 'We uploaded a new document. To view it, please visit '+
     `https://www.neonlaw.com/portal/${category}/${matter}.`,
