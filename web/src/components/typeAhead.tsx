@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
 import { gql, useLazyQuery } from '@apollo/client';
+import { Box } from '@chakra-ui/react';
 import { Input } from '@chakra-ui/react';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const QUERY = gql`
   query Questions {
@@ -24,22 +25,29 @@ export const TypeAhead = () => {
   if (data) {
     const questions = data?.questions?.nodes;
     return (
-      <ul>
-        {questions.map((question, index) => (
-          <>
-            <li key={index}>
-              <Link href={`/questions/${question.id}`}>
-                {question.prompt}
-              </Link>
-            </li>
-          </>
-        ))}
-        <li>
-          <em>
+      <Box border="1px solid #bbb" padding="1em">
+        <ul style={{listStyleType: 'none'}}>
+          {questions.map((question, index) => {
+            if (index > 4) {
+              return null;
+            }
+            return (
+              <>
+                <li key={index}>
+                  <Link href={`/questions/${question.id}`}>
+                    {question.prompt}
+                  </Link>
+                </li>
+              </>
+            );
+          })}
+          <li>
+            <em>
             Don&apos;t see your question above? Ask us in the chat below!
-          </em>
-        </li>
-      </ul>
+            </em>
+          </li>
+        </ul>
+      </Box>
     );
   }
 

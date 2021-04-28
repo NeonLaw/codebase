@@ -4,7 +4,6 @@ import { Breadcrumbs } from '../breadcrumbs';
 import {
   PublicNavigationBar
 } from '../navigationBars/publicNavigationBar';
-import React from 'react';
 import { colors } from '../../styles/neonLaw';
 
 export const PublicLayout = ({
