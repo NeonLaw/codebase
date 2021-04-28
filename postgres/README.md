@@ -1,7 +1,8 @@
-# NeonPostgresTests
+# NeonPostgres
 
 This gem is mainly used to test the Neon Law database which is created and
-maintained by Graphile.
+maintained by Graphile. It is also consumed by other background-job ruby gems
+that handle non-web-request related processing.
 
 ## Contributing
 
