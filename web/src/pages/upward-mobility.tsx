@@ -1,12 +1,8 @@
 import { Button } from '../components/button';
 import { PublicLayout } from '../components/layouts/publicLayout';
-import React from 'react';
 import { Section } from '../components/section';
 import { Seo } from '../components/seo';
 import { Text } from '@chakra-ui/react';
-import {
-  UpwardMobilityQuestionnaire
-} from '../components/upwardMobilityQuestionnaire';
 import { useIntl } from 'react-intl';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -40,8 +36,7 @@ const UpwardMobilityHome = (props) => {
 const UpwardMobilityRouter = () => {
   return (
     <PublicLayout>
-      <UpwardMobilityQuestionnaire path=":questionId" />
-      <UpwardMobilityHome path="/" />
+      <UpwardMobilityHome />
     </PublicLayout>
   );
 };
