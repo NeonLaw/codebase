@@ -7,7 +7,6 @@ import {
   InputLeftAddon,
 } from '@chakra-ui/react';
 import { FaDollarSign } from 'react-icons/fa';
-import React from 'react';
 
 export const UsdInput = ({
   errors,

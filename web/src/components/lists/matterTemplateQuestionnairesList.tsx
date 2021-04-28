@@ -1,6 +1,5 @@
 import { Box } from '@chakra-ui/react';
 import { default as Link } from 'next/link';
-import React from 'react';
 import { Skeleton } from '@chakra-ui/react';
 import { useAllMatterTemplatesByCategoryQuery } from '../../utils/api';
 

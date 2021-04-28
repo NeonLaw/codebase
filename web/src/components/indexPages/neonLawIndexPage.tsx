@@ -54,32 +54,6 @@ export const NeonLawIndexPage = (): JSX.Element => {
               </Box>
               <Spacer />
             </Flex>
-            {/* <form
-              onSubmit={handleSubmit(onSubmit as any)}
-              style={{ color: colors.text[colorMode] }}
-            >
-              <Flex>
-                <StringInput
-                  testId="index-page-search"
-                  name="prompt"
-                  aria-label="prompt"
-                  errors={errors}
-                  placeholder={intl.formatMessage({
-                    id: 'forms.legal_question.placeholder',
-                  })}
-                  register={register}
-                />
-                <Button
-                  flash={false}
-                  borderRadius="5px"
-                  color="white"
-                  type="submit"
-                  aria-label="submit-prompt"
-                >
-                  {intl.formatMessage({ id: 'auth.sign_up' })}
-                </Button>
-              </Flex>
-            </form> */}
             <TypeAhead />
             <Text
               margin={`${gutters.xSmall} 0 ${gutters.small}`}

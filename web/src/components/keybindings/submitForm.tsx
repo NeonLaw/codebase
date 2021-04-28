@@ -1,5 +1,4 @@
 import { Kbd } from '@chakra-ui/react';
-import React from 'react';
 import { useOperatingSystem } from '../../utils/useOperatingSystem';
 
 export const SubmitForm = () => {
