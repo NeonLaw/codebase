@@ -26,6 +26,7 @@ export const sendMatterDocumentEmail = async (
   const {
     category,
     matter,
+    filename,
   } = rows[0];
 
   const recipients = new Set();
@@ -42,12 +43,12 @@ export const sendMatterDocumentEmail = async (
     const subject = 'New Document Uploaded';
     const emailMessage = {
       from: 'support@neonlaw.com',
-      html: '<p>We uploaded a new document, ${filename} to your matter. '+
-      'To view it, please visit '+
-      `https://www.neonlaw.com/portal/${category}/${matter}.</p>`,
+      html: `<p>We uploaded a new document, ${filename} to your matter. `+
+        'To view it, please visit '+
+        `https://www.neonlaw.com/portal/${category}/${matter}.</p>`,
       subject,
-      text: 'We uploaded a new document. To view it, please visit '+
-    `https://www.neonlaw.com/portal/${category}/${matter}.`,
+      text: `We uploaded a new document, ${filename}. To view it, please `+
+        `visit https://www.neonlaw.com/portal/${category}/${matter}.`,
       to: recipientEmail,
     };
     await sgMail.send(emailMessage).then((response) => {
