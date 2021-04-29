@@ -1,22 +1,10 @@
 import 'dotenv/config';
-import {
-  addQuestionToEndOfQuestionnaire,
-  addRelatedQuestionRelationship,
-  createNeo4jRelationship,
-  downloadLobLetters,
-  saveDocumentInLongTermStorage,
-  sendLobLetter,
-  sendMatterDocumentEmail,
-  sendWelcomeEmail,
-  slackReminders,
-  updateQuestionnaireFromNeo4j,
-  upsertQuestionToNeo4j,
-  upsertQuestionnaireToNeo4j,
-} from './tasks';
+
 import { default as neo4j } from 'neo4j-driver';
 import { postgresUrl } from './postgresUrl';
 import { run } from 'graphile-worker';
 import { default as sgMail } from '@sendgrid/mail';
+import { taskList } from './taskList';
 
 /**
  * This function starts graphile-worker
@@ -38,20 +26,7 @@ async function workers() {
     crontabFile: `${__dirname}/crontab.txt`,
     noHandleSignals: false,
     pollInterval: 1000,
-    taskList: {
-      addQuestionToEndOfQuestionnaire,
-      addRelatedQuestionRelationship,
-      createNeo4jRelationship,
-      downloadLobLetters,
-      saveDocumentInLongTermStorage,
-      sendLobLetter,
-      sendMatterDocumentEmail,
-      sendWelcomeEmail,
-      slackReminders,
-      updateQuestionnaireFromNeo4j,
-      upsertQuestionToNeo4j,
-      upsertQuestionnaireToNeo4j,
-    }
+    taskList,
   });
 }
 
