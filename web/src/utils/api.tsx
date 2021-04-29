@@ -1640,6 +1640,8 @@ export type DocumentUnprocessedDocumentsByProcessedDocumentIdArgs = {
 export type DocumentCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `filename` field. */
+  filename?: Maybe<Scalars['String']>;
   /** Checks for equality with the object’s `documentTemplateId` field. */
   documentTemplateId?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `gcpUrl` field. */
@@ -1673,6 +1675,8 @@ export enum DocumentsOrderBy {
   Natural = 'NATURAL',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  FilenameAsc = 'FILENAME_ASC',
+  FilenameDesc = 'FILENAME_DESC',
   DocumentTemplateIdAsc = 'DOCUMENT_TEMPLATE_ID_ASC',
   DocumentTemplateIdDesc = 'DOCUMENT_TEMPLATE_ID_DESC',
   GcpUrlAsc = 'GCP_URL_ASC',
