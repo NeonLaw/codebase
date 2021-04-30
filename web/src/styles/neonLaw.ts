@@ -51,10 +51,10 @@ export const colors = {
   textareaBackground: { dark: theme.colors.gray[800], light: 'white' },
   textareaToolbarActiveBackground: {
     dark: theme.colors.gray[600],
-    light: theme.colors.gray[600],
+    light: theme.colors.gray[700],
   },
   textareaToolbarBackground: {
-    dark: theme.colors.gray[600],
+    dark: theme.colors.gray[700],
     light: theme.colors.gray[600],
   },
 };
