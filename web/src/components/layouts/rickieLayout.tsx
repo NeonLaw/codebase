@@ -36,6 +36,7 @@ export const RickieLayout = ({
               <main role="main">{children}</main>
             </Box>
           </Container>
+          <Box height="7em" />
         </>
         <BaseFooter
           isWhite={isFooterWhite}
