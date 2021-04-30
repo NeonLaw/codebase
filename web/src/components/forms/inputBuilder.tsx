@@ -107,7 +107,6 @@ export const InputBuilder = ({
               <Textarea
                 key={i}
                 name={name}
-                testId={testId}
                 errors={errors}
                 placeholder={intl.formatMessage({
                   id: `forms.${underscoreFieldName}.placeholder`,

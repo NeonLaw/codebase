@@ -1,84 +1,36 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import { Alert, Stack } from '@chakra-ui/react';
-import Image from 'next/image';
+import { Alert, Heading } from '@chakra-ui/react';
+import { Carousel } from 'react-responsive-carousel';
 import { RickieLayout } from '../../components/layouts/rickieLayout';
 
 const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
   return (
     <RickieLayout>
-      <h1>Justice For Rickie</h1>
+      <Heading textAlign="center">
+        Justice For Rickie
+      </Heading>
 
-      <Image
-        src="/images/rickie.jpg"
-        alt="Rickie Slaughter"
-        width={800}
-        height={400}
-      />
 
-      <Image
-        src="/images/stars-and-stripes.png"
-        alt="Stars and Stripes"
-        width={800}
-        height={400}
-      />
+      <Carousel showArrows={true} showThumbs={false}>
+        <div>
+          <img src="/images/rickie.jpg" alt="Rickie Slaughter"/>
+        </div>
+        <div>
+          <img src="/images/stars-and-stripes.png" alt="stars and stripes"/>
+        </div>
+      </Carousel>
 
-      <h2>Rickie&apos;s Latest Poetry</h2>
-
-      <Stack spacing={3}>
-        <Alert status="info">
-          Use Spotify? Listen to Rickie&apos;s poetry&nbsp;
-          <a
-            href="https://open.spotify.com/show/30Q6Hu4WXe3MIqktx9MOse"
-            target="_blank"
-            rel="noreferrer"
-            style={{ textDecoration: 'underline' }}
-          >
-            here
-          </a>.
-        </Alert>
-
-        <Alert status="info">
-          Stop the Hate&nbsp;
-          <audio controls>
-            <source src="/audio/20210323-stop-the-hate.mp3" />
-          </audio>
-        </Alert>
-
-        <Alert status="info">
-          The Magic Bullet&nbsp;
-          <audio controls>
-            <source src="/audio/20210309-bullet-poem.mp3" />
-          </audio>
-        </Alert>
-
-        <Alert status="info">
-          Black Woman Magic&nbsp;
-          <audio controls>
-            <source src="/audio/20210309-a-black-womans-magic.mp3" />
-          </audio>
-        </Alert>
-
-        <Alert status="info">
-          Wrongfully Convicted&nbsp;
-          <audio controls>
-            <source src="/audio/20201116-wrongly-convicted.mp3" />
-          </audio>
-        </Alert>
-
-        <Alert status="info">
-          Stars and Stripes&nbsp;
-          <audio controls>
-            <source src="/audio/20201106-stars-and-stripes.mp3" />
-          </audio>
-        </Alert>
-
-        <Alert status="info">
-          Teargas&nbsp;
-          <audio controls>
-            <source src="/audio/20201018-teargas-poem.mp3" />
-          </audio>
-        </Alert>
-      </Stack>
+      <Alert status="info">
+          Use Spotify? Listen to&nbsp;
+        <a
+          href="https://open.spotify.com/show/30Q6Hu4WXe3MIqktx9MOse"
+          target="_blank"
+          rel="noreferrer"
+          style={{ textDecoration: 'underline' }}
+        >
+            Here, Rickie Speak
+        </a>.
+      </Alert>
 
       <h2>Rickie&apos;s Story of His Wrongful Conviction</h2>
 
