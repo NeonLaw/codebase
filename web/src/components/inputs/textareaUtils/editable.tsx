@@ -1,11 +1,10 @@
 import { AiOutlineOrderedList, AiOutlineUnorderedList } from 'react-icons/ai';
 import { Box, Divider, Kbd, useColorMode } from '@chakra-ui/react';
-import { Editor, Text, Transforms } from 'slate';
 import { FaBold, FaItalic, FaQuoteRight, FaUnderline } from 'react-icons/fa';
+import { MarkButton, toggleMark } from './markButton';
 import { BiCodeBlock } from 'react-icons/bi';
 import { BlockButton } from './blockButton';
 import { Editable as EditableSlate } from 'slate-react';
-import { MarkButton } from './markButton';
 import { Toolbar } from './toolbar';
 import { colors } from '../../../styles/neonLaw';
 import { useCallback } from 'react';
@@ -50,22 +49,9 @@ export const Editable = ({ editor }) => {
     }
   };
 
-  const isMarkActive = (editor, format) => {
-    const marks = Editor.marks(editor);
-    return marks ? marks[format] === true : false;
-  };
-
-  const toggleMark = (editor, format) => {
-    const isActive = isMarkActive(editor, format);
-
-    if (isActive) {
-      Editor.removeMark(editor, format);
-    } else {
-      Editor.addMark(editor, format, true);
-    }
-  };
-
   const renderLeaf = useCallback(props => <Leaf {...props} />, []);
+  const renderElement = useCallback(props => <Element {...props} />, []);
+
   const { colorMode } = useColorMode();
 
   return (
@@ -86,59 +72,30 @@ export const Editable = ({ editor }) => {
       <Divider />
       <Box padding="20px">
         <EditableSlate
+          renderElement={renderElement}
           renderLeaf={renderLeaf}
           onKeyDown={(event) => {
             if (!event.metaKey) {
               return;
             }
-            alert(event.key);
 
             switch (event.key) {
               case '`': {
                 event.preventDefault();
-
-                const match = Editor.nodes(editor, {
-                  match: n => (n as any).type === 'code',
-                });
-                Transforms.setNodes(
-                  editor,
-                  { type: match ? 'paragraph' : 'code' } as any,
-                  { match: n => Editor.isBlock(editor, n) }
-                );
-                break;
-              }
-
-              case 'b': {
-                event.preventDefault();
-
-                const match = Editor.nodes(editor, {
-                  match: n => (n as any).bold === true,
-                  universal: true,
-                });
-                Transforms.setNodes(
-                  editor,
-                  { bold: match ? null : true } as any,
-                  { match: n => Text.isText(n), split: true }
-                );
-                break;
-              }
-
-              case 'mod+`': {
-                event.preventDefault();
                 toggleMark(editor, 'code');
                 break;
               }
-              case 'mod+b': {
+              case 'b': {
                 event.preventDefault();
                 toggleMark(editor, 'bold');
                 break;
               }
-              case 'mod+i': {
+              case 'i': {
                 event.preventDefault();
                 toggleMark(editor, 'italic');
                 break;
               }
-              case 'mod+u': {
+              case 'u': {
                 event.preventDefault();
                 toggleMark(editor, 'underline');
                 break;
