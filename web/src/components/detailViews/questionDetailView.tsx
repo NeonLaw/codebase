@@ -96,6 +96,7 @@ export const QuestionDetailView = ({
           ref={formRef}
         >
           <Textarea
+            testId="flashcard-textarea"
             control={control}
             name="answer"
             placeholder="Type in the answer"
