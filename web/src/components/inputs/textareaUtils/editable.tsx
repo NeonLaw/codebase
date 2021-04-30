@@ -1,9 +1,7 @@
-import { AiOutlineOrderedList, AiOutlineUnorderedList } from 'react-icons/ai';
-import { Box, Divider, Kbd, useColorMode } from '@chakra-ui/react';
-import { FaBold, FaItalic, FaQuoteRight, FaUnderline } from 'react-icons/fa';
+import { Box, Divider, useColorMode } from '@chakra-ui/react';
+import { FaBold, FaItalic, FaUnderline } from 'react-icons/fa';
 import { MarkButton, toggleMark } from './markButton';
 import { BiCodeBlock } from 'react-icons/bi';
-import { BlockButton } from './blockButton';
 import { Editable as EditableSlate } from 'slate-react';
 import { Toolbar } from './toolbar';
 import { colors } from '../../../styles/neonLaw';
@@ -63,11 +61,6 @@ export const Editable = ({ editor }) => {
         <MarkButton format="italic" icon={<FaItalic />} />
         <MarkButton format="underline" icon={<FaUnderline />} />
         <MarkButton format="code" icon={<BiCodeBlock />} />
-        <BlockButton format="heading-one" icon={<Kbd children="1" />} />
-        <BlockButton format="heading-two" icon={<Kbd children="2" />} />
-        <BlockButton format="block-quote" icon={<FaQuoteRight />} />
-        <BlockButton format="numbered-list" icon={<AiOutlineOrderedList />} />
-        <BlockButton format="bulleted-list" icon={<AiOutlineUnorderedList />} />
       </Toolbar>
       <Divider />
       <Box padding="20px">
