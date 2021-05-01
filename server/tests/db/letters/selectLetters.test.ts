@@ -50,7 +50,7 @@ describe('SELECT * FROM matter;', () => {
   describe('a admin user', () => {
     it('can select all letter', () =>
       withRootDb(async (client: any) => {
-        await client.query('DELETE FROM letter;');
+        await client.query('DELETE FROM letters;');
         const { id: personId } = await insertPersonFixture({ client });
         const { id: addresseeId } = await insertAddressFixture({
           client: client,

@@ -21,7 +21,7 @@ export const createPerson = async (
   const { sub, email } = args;
 
   const currentPersonQuery = await client.query(
-    'SELECT * FROM person WHERE sub = $1 LIMIT 1',
+    'SELECT * FROM people WHERE sub = $1 LIMIT 1',
     [sub]
   );
   const currentPerson = currentPersonQuery.rows[0];
@@ -32,14 +32,14 @@ export const createPerson = async (
   }
 
   const currentPersonByEmailQuery = await client.query(
-    'SELECT * FROM person WHERE email = $1 LIMIT 1',
+    'SELECT * FROM people WHERE email = $1 LIMIT 1',
     [email]
   );
   const currentPersonByEmail = currentPersonByEmailQuery.rows[0];
 
   if (currentPersonByEmail) {
     await client.query(
-      'UPDATE person SET sub = $1 WHERE email = $2',
+      'UPDATE people SET sub = $1 WHERE email = $2',
       [sub, email]
     );
     await client.end();
@@ -47,7 +47,7 @@ export const createPerson = async (
   }
 
   const personQuery = await client.query(
-    'INSERT INTO person (sub, email) ' +
+    'INSERT INTO people (sub, email) ' +
     'VALUES ($1, $2) RETURNING id, email, sub, created_at',
     [
       sub,
