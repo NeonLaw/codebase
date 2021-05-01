@@ -95,6 +95,7 @@ breadcrumbs:
   litigation: Litigation
   home: Home
   'public-trusts': Public Trusts
+  'practice-areas': Practice Areas
   'shook-family': Shook Family
   portal: Portal Home
   admin: Admin
@@ -103,7 +104,8 @@ finishUpwardMQ:
   heading: Thank You for Taking the Upward Mobility Questionnaire
   text: 'You have completed the questionnaire. Your answers are:'
 upwardMQ:
-  missing_question: A question is missing from the questionnaire. Please contact support.
+  missing_question: |
+    A question is missing from the questionnaire. Please contact support.
 components_questions:
   submit: Submit
 components_navbar:
@@ -137,9 +139,6 @@ pages_portal:
     Contact us if you are interested in retaining our services.
 pages_pb:
   heading: Contact Rickie Slaughter
-  text1: 'You can send a letter to Rickie at Rickie Slaughter NV #85902 1250 E Arica
-    Road Eloy, AZ 85131'
-  text2: Or, if you fill out your info below, we will mail out a letter on your behalf.
   form:
     email: 'Your email:'
     email_ph: Enter Email
@@ -148,9 +147,10 @@ pages_pb:
     send: Send Information
 pages_upward_mobility:
   heading: Upward Mobility
-  text: Upward mobility refers to the come up, or improving your socio-economic situation
-    to a point where you can provide for others. No matter where you are today, we
-    can help you take care of those you love.
+  text: |
+    Upward mobility refers to the come up, or improving your socio-economic
+    situation to a point where you can provide for others. No matter where you
+    are today, we can help you take care of those you love.
   button_takeQ: Take Questionnaire
 navigation_public:
   services: Services
