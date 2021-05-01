@@ -30,26 +30,24 @@ RSpec.configure do |config|
   config.around(:each, portal: true) do |example|
     seed_data
 
-    Sequel::Model.db.run("SET ROLE 'portal';")
     Sequel::Model.db.run("SET \"person.id\" = '#{portal_user.id}';")
+    Sequel::Model.db.run("SET ROLE 'portal';")
     example.run
   end
 
   config.around(:each, lawyer: true) do |example|
     seed_data
 
-    user_id = load(:person__lawyer_user).id
-    Sequel::Model.db.run("SET ROLE 'lawyer';")
     Sequel::Model.db.run("SET \"person.id\" = '#{lawyer_user.id}';")
+    Sequel::Model.db.run("SET ROLE 'lawyer';")
     example.run
   end
 
   config.around(:each, admin: true) do |example|
     seed_data
 
-    user_id = load(:person__admin_user).id
-    Sequel::Model.db.run("SET ROLE 'admin';")
     Sequel::Model.db.run("SET \"person.id\" = '#{admin_user.id}';")
+    Sequel::Model.db.run("SET ROLE 'admin';")
     example.run
   end
 end
