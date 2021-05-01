@@ -1,10 +1,10 @@
 import { gql, useLazyQuery } from '@apollo/client';
+import { AiOutlineSearch } from 'react-icons/ai';
 import { Box } from '@chakra-ui/react';
 import Link from 'next/link';
-import { useState } from 'react';
-import styled from '@emotion/styled';
 import { gutters } from '../styles/neonLaw';
-import { AiOutlineSearch } from 'react-icons/ai';
+import styled from '@emotion/styled';
+import { useState } from 'react';
 
 
 const StyledInput = styled.input`
@@ -20,7 +20,7 @@ const StyledInput = styled.input`
     color: #555;
     font-weight: 300;
   }
-`
+`;
 
 const StyledInputWrapper = styled.div`
   position: relative;
@@ -32,7 +32,7 @@ const StyledInputWrapper = styled.div`
     transform: translateY(-50%);
     color: #bbb;
   }
-`
+`;
 
 const QUERY = gql`
   query Questions {
