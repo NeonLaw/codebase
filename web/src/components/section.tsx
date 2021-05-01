@@ -49,7 +49,7 @@ export const Section = ({
             title ? <h2
               style={{
                 ...titleStyles,
-                // textAlign: isTitleCentered ? 'center' : 'left',
+                textAlign: isTitleCentered ? 'center' : 'left',
               }}
               className={`${
                 isTitleNotUnderlined
