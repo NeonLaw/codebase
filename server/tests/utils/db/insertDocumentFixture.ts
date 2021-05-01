@@ -15,7 +15,7 @@ export const insertDocumentFixture = async ({
     `matters/${uuid}/${uuid}.txt`;
 
   const { rows } = await client.query(
-    'INSERT INTO document '+
+    'INSERT INTO documents '+
     '(filename, documentable_table_name, document_template_id, gcp_url) '+
     'VALUES ($1, $2, $3, $4) RETURNING (id)',
     [

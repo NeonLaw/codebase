@@ -11,7 +11,7 @@ export const insertDocumentTemplateFixture = async ({
   const description = faker.lorem.paragraphs(2);
 
   const { rows } = await client.query(
-    'INSERT INTO document_template (name, description) '+
+    'INSERT INTO document_templates (name, description) '+
     'VALUES ($1, $2) RETURNING (id)',
     [name, description]
   );
