@@ -22,7 +22,7 @@ export const publicLetterPlugin = makeExtendSchemaPlugin((build) => {
           const {
             rows: [createdLetter],
           } = await pgClient.query(
-            'INSERT INTO letter (body, addresseeId, addressorId) '+
+            'INSERT INTO letters (body, addresseeId, addressorId) '+
             'VALUES ($1, $2, $3) RETURNING *',
             [letter.body, letter.addresseeId, letter.addressorId]
           );

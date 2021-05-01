@@ -9,21 +9,21 @@ export const downloadLobLetters = async (_, helpers) => {
 
   letters.forEach(async (letter) => {
     await helpers.query(
-      'INSERT INTO lob.letter (lob_identifier) VALUES ($1) '+
+      'INSERT INTO lob.letters (lob_identifier) VALUES ($1) '+
       'ON CONFLICT DO NOTHING '+
       'RETURNING (id)',
       [letter.id]
     );
 
     await helpers.query(
-      'INSERT INTO lob.address (lob_identifier) VALUES ($1) '+
+      'INSERT INTO lob.addresses (lob_identifier) VALUES ($1) '+
       'ON CONFLICT DO NOTHING '+
       'RETURNING (id)',
       [letter.from.id]
     );
 
     await helpers.query(
-      'UPDATE lob.address SET description = $1, '+
+      'UPDATE lob.addresses SET description = $1, '+
       'created_at = $2, '+
       'updated_at = $3, '+
       'route = $4, '+
@@ -46,7 +46,7 @@ export const downloadLobLetters = async (_, helpers) => {
     );
 
     await helpers.query(
-      'UPDATE lob.address SET description = $1, '+
+      'UPDATE lob.addresses SET description = $1, '+
       'created_at = $2, '+
       'updated_at = $3, '+
       'route = $4, '+
@@ -69,14 +69,14 @@ export const downloadLobLetters = async (_, helpers) => {
     );
 
     await helpers.query(
-      'INSERT INTO lob.address (lob_identifier) VALUES ($1) '+
+      'INSERT INTO lob.addresses (lob_identifier) VALUES ($1) '+
       'ON CONFLICT DO NOTHING '+
       'RETURNING (id)',
       [letter.to.id]
     );
 
     await helpers.query(
-      'UPDATE lob.letter SET description = $1, '+
+      'UPDATE lob.letters SET description = $1, '+
       'created_at = $2, '+
       'updated_at = $3, '+
       'url = $4, '+

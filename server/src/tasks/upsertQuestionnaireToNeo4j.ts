@@ -7,7 +7,7 @@ export const upsertQuestionnaireToNeo4j = async (
   const { questionnaireId } = payload;
 
   const questionnaireQuery = await helpers.query(
-    'SELECT id, name FROM questionnaire WHERE id = $1 LIMIT 1',
+    'SELECT id, name FROM questionnaires WHERE id = $1 LIMIT 1',
     [questionnaireId]
   );
   const { name, id } = questionnaireQuery.rows[0];

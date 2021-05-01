@@ -17,7 +17,7 @@ export const findPersonBySubOrEmail = async (
   console.info(`An incoming request from sub: ${sub}`);
 
   const currentPersonQuery = await client.query(
-    'SELECT id, role FROM person WHERE sub = $1 LIMIT 1',
+    'SELECT id, role FROM people WHERE sub = $1 LIMIT 1',
     [sub]
   );
   const currentPerson = currentPersonQuery.rows[0];
@@ -34,14 +34,14 @@ export const findPersonBySubOrEmail = async (
   const { email } = userFromAuth0;
 
   const currentPersonByEmailQuery = await client.query(
-    'SELECT id, role FROM person WHERE email = $1 LIMIT 1',
+    'SELECT id, role FROM people WHERE email = $1 LIMIT 1',
     [email]
   );
   const currentPersonByEmail = currentPersonByEmailQuery.rows[0];
 
   if (currentPersonByEmail) {
     await client.query(
-      'UPDATE person SET sub = $1 WHERE email = $2',
+      'UPDATE people SET sub = $1 WHERE email = $2',
       [sub, email]
     );
     await client.end();
