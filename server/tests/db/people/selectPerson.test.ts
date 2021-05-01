@@ -15,7 +15,7 @@ describe('SELECT * FROM person;', () => {
       withRootDb(async (client: any) => {
         await startAnonymousSession(client);
 
-        await expect(client.query('select * from person;')).rejects.toThrow(
+        await expect(client.query('select * from people;')).rejects.toThrow(
           /permission denied for table person/
         );
       })
@@ -28,7 +28,7 @@ describe('SELECT * FROM person;', () => {
         await insertPersonFixture({ client });
         const email = faker.internet.email();
         await startPortalSession(client, email);
-        const { rows } = await client.query('select * from person;');
+        const { rows } = await client.query('select * from people;');
 
         expect(rows).toHaveLength(1);
         expect(rows[0].email).toEqual(email);
@@ -43,7 +43,7 @@ describe('SELECT * FROM person;', () => {
         const email = faker.internet.email();
         await startLawyerSession(client, email);
 
-        const { rows } = await client.query('select * from person;');
+        const { rows } = await client.query('select * from people;');
 
         expect(rows).toHaveLength(1);
         expect(rows[0].email).toEqual(email);
@@ -58,7 +58,7 @@ describe('SELECT * FROM person;', () => {
         const email = faker.internet.email();
         await startAdminSession(client, email);
 
-        const { rows } = await client.query('select * from person;');
+        const { rows } = await client.query('select * from people;');
 
         expect(rows.length).toBeGreaterThanOrEqual(2);
       })

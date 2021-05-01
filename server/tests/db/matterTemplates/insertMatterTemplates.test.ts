@@ -13,7 +13,7 @@ describe('INSERT INTO matter_template;', () => {
         await startAnonymousSession(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO matter_template (name, description) '+
+          'INSERT INTO matter_templates (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
           ['delete-your-data', '{}']
         )).rejects.toThrow(
@@ -29,7 +29,7 @@ describe('INSERT INTO matter_template;', () => {
         await startPortalSession(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO matter_template (name, description) '+
+          'INSERT INTO matter_templates (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
           ['delete-your-data', '{}']
         )).rejects.toThrow(
@@ -45,7 +45,7 @@ describe('INSERT INTO matter_template;', () => {
         await startLawyerSession(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO matter_template (name, description) '+
+          'INSERT INTO matter_templates (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
           ['delete-your-data', '{}']
         )).rejects.toThrow(

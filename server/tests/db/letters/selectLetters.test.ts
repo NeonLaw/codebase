@@ -16,7 +16,7 @@ describe('SELECT * FROM matter;', () => {
       withRootDb(async (pgClient: any) => {
         await startAnonymousSession(pgClient);
 
-        await expect(pgClient.query('select * from letter;')).rejects.toThrow(
+        await expect(pgClient.query('select * from letters;')).rejects.toThrow(
           /permission denied for table letter/
         );
       })
@@ -28,7 +28,7 @@ describe('SELECT * FROM matter;', () => {
       withRootDb(async (pgClient: any) => {
         await startPortalSession(pgClient);
 
-        await expect(pgClient.query('select * from letter;')).rejects.toThrow(
+        await expect(pgClient.query('select * from letters;')).rejects.toThrow(
           /permission denied for table letter/
         );
       })
@@ -40,7 +40,7 @@ describe('SELECT * FROM matter;', () => {
       withRootDb(async (pgClient: any) => {
         await startLawyerSession(pgClient);
 
-        await expect(pgClient.query('select * from letter;')).rejects.toThrow(
+        await expect(pgClient.query('select * from letters;')).rejects.toThrow(
           /permission denied for table letter/
         );
       })
@@ -69,7 +69,7 @@ describe('SELECT * FROM matter;', () => {
 
         await startAdminSession(client);
 
-        const { rows } = await client.query('select * from letter;');
+        const { rows } = await client.query('select * from letters;');
 
         expect(rows).toHaveLength(1);
       })
