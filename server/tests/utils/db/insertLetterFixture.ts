@@ -14,7 +14,7 @@ export const insertLetterFixture = async ({
   const body = { paragraph: faker.lorem.paragraph() };
 
   const { rows } = await client.query(
-    'INSERT INTO letter (body, addressor_id, addressee_id) '+
+    'INSERT INTO letters (body, addressor_id, addressee_id) '+
     'VALUES ($1, $2, $3) '+
       'RETURNING (id, body, addressor_id, addressee_id)',
     [

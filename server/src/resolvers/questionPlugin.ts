@@ -41,7 +41,7 @@ export const questionPlugin = makeExtendSchemaPlugin(() => {
           });
 
           const questionQuery = await pgClient.query(
-            'SELECT * FROM question WHERE id = ANY($1::uuid[]);',
+            'SELECT * FROM questions WHERE id = ANY($1::uuid[]);',
             [questionIds]
           );
 

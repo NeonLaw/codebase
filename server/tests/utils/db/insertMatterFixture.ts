@@ -20,7 +20,7 @@ export const insertMatterFixture = async ({
     matterTemplateIdForInsertingMatter = matterTemplateId;
   } else {
     const { rows: matterTemplateRows } = await client.query(
-      'INSERT INTO matter_template (name, description) '+
+      'INSERT INTO matter_templates (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
       ['delete-your-data', '{}']
     );
@@ -33,7 +33,7 @@ export const insertMatterFixture = async ({
     primaryContactIdForInsertingMatter = primaryContactId;
   } else {
     const { rows: primaryContactRows } = await client.query(
-      'INSERT INTO person (email, role, sub) ' +
+      'INSERT INTO people (email, role, sub) ' +
           'VALUES ($1, $2, $3) RETURNING (id)',
       [`example-contact-${uuid}@neonlaw.com`, 'portal', `portal-${uuid}`]
     );
@@ -41,7 +41,7 @@ export const insertMatterFixture = async ({
   }
 
   const { rows } = await client.query(
-    'INSERT INTO matter (name, primary_contact_id, '+
+    'INSERT INTO matters (name, primary_contact_id, '+
           'matter_template_id) VALUES ($1, $2, $3) '+
           'RETURNING (id, primary_contact_id, matter_template_id)',
     [

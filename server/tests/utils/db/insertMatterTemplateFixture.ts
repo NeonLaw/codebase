@@ -10,7 +10,7 @@ export const insertMatterTemplateFixture = async ({
   const uuid = faker.datatype.uuid();
 
   const { rows } = await client.query(
-    'INSERT INTO matter_template (name, description) '+
+    'INSERT INTO matter_templates (name, description) '+
     'VALUES ($1, $2) RETURNING (id)',
     [`delete-your-data-${uuid}`, '{}']
   );

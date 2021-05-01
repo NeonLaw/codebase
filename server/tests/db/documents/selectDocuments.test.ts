@@ -21,7 +21,7 @@ describe('SELECT * FROM matter_document;', () => {
         await startAnonymousSession(pgClient);
 
         await expect(
-          pgClient.query('select * from matter_document;')
+          pgClient.query('select * from matter_documents;')
         ).rejects.toThrow(
           /permission denied for table matter_document/
         );
@@ -78,7 +78,7 @@ describe('SELECT * FROM matter_document;', () => {
         });
 
         await startPortalSession(client);
-        const { rows } = await client.query('select * from matter_document;');
+        const { rows } = await client.query('select * from matter_documents;');
 
         expect(rows).toHaveLength(1);
         expect(JSON.stringify(rows)).toMatch(ownMatterDocumentId);
@@ -136,7 +136,7 @@ describe('SELECT * FROM matter_document;', () => {
         });
 
         await startAdminSession(client);
-        const { rows } = await client.query('select * from matter_document;');
+        const { rows } = await client.query('select * from matter_documents;');
 
         expect(rows).toHaveLength(2);
         expect(JSON.stringify(rows)).toMatch(ownMatterDocumentId);

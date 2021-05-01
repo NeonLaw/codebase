@@ -15,10 +15,10 @@ export const sendLobLetter = async (payload, helpers) => {
     'l.body as body, '+
     'addressor.lob_identifier as from, '+
     'addressee.lob_identifier as to '+
-    'FROM letter l ' +
+    'FROM letters l ' +
     'INNER JOIN address addressee ON (addressee.id = l.addressee_id) ' +
     'INNER JOIN address addressor ON (addressor.id = l.addressor_id) ' +
-    'WHERE letter.id = $1',
+    'WHERE l.id = $1',
     [letterId]
   );
 

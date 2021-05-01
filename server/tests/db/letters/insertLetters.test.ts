@@ -18,7 +18,7 @@ describe('INSERT INTO letter;', () => {
         await startAnonymousSession(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO letter (addressor_id, addressee_id, '+
+          'INSERT INTO letters (addressor_id, addressee_id, '+
           'lob_identifier) ' +
           'VALUES ($1, $2, $3) RETURNING (id)',
           [addressorId, addresseeId, lobIdentifier]
@@ -35,7 +35,7 @@ describe('INSERT INTO letter;', () => {
         await startPortalSession(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO letter (addressor_id, addressee_id, '+
+          'INSERT INTO letters (addressor_id, addressee_id, '+
           'lob_identifier) ' +
           'VALUES ($1, $2, $3) RETURNING (id)',
           [addressorId, addresseeId, lobIdentifier]
@@ -52,7 +52,7 @@ describe('INSERT INTO letter;', () => {
         await startLawyerSession(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO letter (addressor_id, addressee_id, '+
+          'INSERT INTO letters (addressor_id, addressee_id, '+
           'lob_identifier) ' +
           'VALUES ($1, $2, $3) RETURNING (id)',
           [addressorId, addresseeId, lobIdentifier]

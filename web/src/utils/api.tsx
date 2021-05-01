@@ -2262,22 +2262,22 @@ export type Mutation = {
   createDocumentTemplate?: Maybe<CreateDocumentTemplatePayload>;
   /** Creates a single `Letter`. */
   createLetter?: Maybe<CreateLetterPayload>;
-  /** Creates a single `Matter`. */
-  createMatter?: Maybe<CreateMatterPayload>;
   /** Creates a single `MatterContact`. */
   createMatterContact?: Maybe<CreateMatterContactPayload>;
   /** Creates a single `MatterTemplate`. */
   createMatterTemplate?: Maybe<CreateMatterTemplatePayload>;
-  /** Creates a single `Question`. */
-  createQuestion?: Maybe<CreateQuestionPayload>;
+  /** Creates a single `Matter`. */
+  createMatter?: Maybe<CreateMatterPayload>;
   /** Creates a single `Questionnaire`. */
   createQuestionnaire?: Maybe<CreateQuestionnairePayload>;
+  /** Creates a single `Question`. */
+  createQuestion?: Maybe<CreateQuestionPayload>;
   /** Creates a single `Response`. */
   createResponse?: Maybe<CreateResponsePayload>;
-  /** Creates a single `Task`. */
-  createTask?: Maybe<CreateTaskPayload>;
   /** Creates a single `TaskTemplate`. */
   createTaskTemplate?: Maybe<CreateTaskTemplatePayload>;
+  /** Creates a single `Task`. */
+  createTask?: Maybe<CreateTaskPayload>;
   /** Creates a single `UnprocessedDocument`. */
   createUnprocessedDocument?: Maybe<CreateUnprocessedDocumentPayload>;
   /** Creates a single `AccountingBill`. */
@@ -2294,10 +2294,6 @@ export type Mutation = {
   updateLetterByNodeId?: Maybe<UpdateLetterPayload>;
   /** Updates a single `Letter` using a unique key and a patch. */
   updateLetter?: Maybe<UpdateLetterPayload>;
-  /** Updates a single `Matter` using its globally unique id and a patch. */
-  updateMatterByNodeId?: Maybe<UpdateMatterPayload>;
-  /** Updates a single `Matter` using a unique key and a patch. */
-  updateMatter?: Maybe<UpdateMatterPayload>;
   /** Updates a single `MatterContact` using its globally unique id and a patch. */
   updateMatterContactByNodeId?: Maybe<UpdateMatterContactPayload>;
   /** Updates a single `MatterContact` using a unique key and a patch. */
@@ -2306,30 +2302,34 @@ export type Mutation = {
   updateMatterTemplateByNodeId?: Maybe<UpdateMatterTemplatePayload>;
   /** Updates a single `MatterTemplate` using a unique key and a patch. */
   updateMatterTemplate?: Maybe<UpdateMatterTemplatePayload>;
+  /** Updates a single `Matter` using its globally unique id and a patch. */
+  updateMatterByNodeId?: Maybe<UpdateMatterPayload>;
+  /** Updates a single `Matter` using a unique key and a patch. */
+  updateMatter?: Maybe<UpdateMatterPayload>;
   /** Updates a single `Person` using its globally unique id and a patch. */
   updatePersonByNodeId?: Maybe<UpdatePersonPayload>;
   /** Updates a single `Person` using a unique key and a patch. */
   updatePerson?: Maybe<UpdatePersonPayload>;
-  /** Updates a single `Question` using its globally unique id and a patch. */
-  updateQuestionByNodeId?: Maybe<UpdateQuestionPayload>;
-  /** Updates a single `Question` using a unique key and a patch. */
-  updateQuestion?: Maybe<UpdateQuestionPayload>;
   /** Updates a single `Questionnaire` using its globally unique id and a patch. */
   updateQuestionnaireByNodeId?: Maybe<UpdateQuestionnairePayload>;
   /** Updates a single `Questionnaire` using a unique key and a patch. */
   updateQuestionnaire?: Maybe<UpdateQuestionnairePayload>;
+  /** Updates a single `Question` using its globally unique id and a patch. */
+  updateQuestionByNodeId?: Maybe<UpdateQuestionPayload>;
+  /** Updates a single `Question` using a unique key and a patch. */
+  updateQuestion?: Maybe<UpdateQuestionPayload>;
   /** Updates a single `Response` using its globally unique id and a patch. */
   updateResponseByNodeId?: Maybe<UpdateResponsePayload>;
   /** Updates a single `Response` using a unique key and a patch. */
   updateResponse?: Maybe<UpdateResponsePayload>;
-  /** Updates a single `Task` using its globally unique id and a patch. */
-  updateTaskByNodeId?: Maybe<UpdateTaskPayload>;
-  /** Updates a single `Task` using a unique key and a patch. */
-  updateTask?: Maybe<UpdateTaskPayload>;
   /** Updates a single `TaskTemplate` using its globally unique id and a patch. */
   updateTaskTemplateByNodeId?: Maybe<UpdateTaskTemplatePayload>;
   /** Updates a single `TaskTemplate` using a unique key and a patch. */
   updateTaskTemplate?: Maybe<UpdateTaskTemplatePayload>;
+  /** Updates a single `Task` using its globally unique id and a patch. */
+  updateTaskByNodeId?: Maybe<UpdateTaskPayload>;
+  /** Updates a single `Task` using a unique key and a patch. */
+  updateTask?: Maybe<UpdateTaskPayload>;
   /** Updates a single `AccountingBill` using its globally unique id and a patch. */
   updateAccountingBillByNodeId?: Maybe<UpdateAccountingBillPayload>;
   /** Updates a single `AccountingBill` using a unique key and a patch. */
@@ -2338,22 +2338,18 @@ export type Mutation = {
   deleteAddressByNodeId?: Maybe<DeleteAddressPayload>;
   /** Deletes a single `Address` using a unique key. */
   deleteAddress?: Maybe<DeleteAddressPayload>;
-  /** Deletes a single `Document` using its globally unique id. */
-  deleteDocumentByNodeId?: Maybe<DeleteDocumentPayload>;
-  /** Deletes a single `Document` using a unique key. */
-  deleteDocument?: Maybe<DeleteDocumentPayload>;
   /** Deletes a single `DocumentTemplate` using its globally unique id. */
   deleteDocumentTemplateByNodeId?: Maybe<DeleteDocumentTemplatePayload>;
   /** Deletes a single `DocumentTemplate` using a unique key. */
   deleteDocumentTemplate?: Maybe<DeleteDocumentTemplatePayload>;
+  /** Deletes a single `Document` using its globally unique id. */
+  deleteDocumentByNodeId?: Maybe<DeleteDocumentPayload>;
+  /** Deletes a single `Document` using a unique key. */
+  deleteDocument?: Maybe<DeleteDocumentPayload>;
   /** Deletes a single `Letter` using its globally unique id. */
   deleteLetterByNodeId?: Maybe<DeleteLetterPayload>;
   /** Deletes a single `Letter` using a unique key. */
   deleteLetter?: Maybe<DeleteLetterPayload>;
-  /** Deletes a single `Matter` using its globally unique id. */
-  deleteMatterByNodeId?: Maybe<DeleteMatterPayload>;
-  /** Deletes a single `Matter` using a unique key. */
-  deleteMatter?: Maybe<DeleteMatterPayload>;
   /** Deletes a single `MatterContact` using its globally unique id. */
   deleteMatterContactByNodeId?: Maybe<DeleteMatterContactPayload>;
   /** Deletes a single `MatterContact` using a unique key. */
@@ -2366,34 +2362,38 @@ export type Mutation = {
   deleteMatterTemplateByNodeId?: Maybe<DeleteMatterTemplatePayload>;
   /** Deletes a single `MatterTemplate` using a unique key. */
   deleteMatterTemplate?: Maybe<DeleteMatterTemplatePayload>;
+  /** Deletes a single `Matter` using its globally unique id. */
+  deleteMatterByNodeId?: Maybe<DeleteMatterPayload>;
+  /** Deletes a single `Matter` using a unique key. */
+  deleteMatter?: Maybe<DeleteMatterPayload>;
   /** Deletes a single `Person` using its globally unique id. */
   deletePersonByNodeId?: Maybe<DeletePersonPayload>;
   /** Deletes a single `Person` using a unique key. */
   deletePerson?: Maybe<DeletePersonPayload>;
-  /** Deletes a single `Question` using its globally unique id. */
-  deleteQuestionByNodeId?: Maybe<DeleteQuestionPayload>;
-  /** Deletes a single `Question` using a unique key. */
-  deleteQuestion?: Maybe<DeleteQuestionPayload>;
   /** Deletes a single `Questionnaire` using its globally unique id. */
   deleteQuestionnaireByNodeId?: Maybe<DeleteQuestionnairePayload>;
   /** Deletes a single `Questionnaire` using a unique key. */
   deleteQuestionnaire?: Maybe<DeleteQuestionnairePayload>;
-  /** Deletes a single `Response` using its globally unique id. */
-  deleteResponseByNodeId?: Maybe<DeleteResponsePayload>;
-  /** Deletes a single `Response` using a unique key. */
-  deleteResponse?: Maybe<DeleteResponsePayload>;
+  /** Deletes a single `Question` using its globally unique id. */
+  deleteQuestionByNodeId?: Maybe<DeleteQuestionPayload>;
+  /** Deletes a single `Question` using a unique key. */
+  deleteQuestion?: Maybe<DeleteQuestionPayload>;
   /** Deletes a single `ResponseDocument` using its globally unique id. */
   deleteResponseDocumentByNodeId?: Maybe<DeleteResponseDocumentPayload>;
   /** Deletes a single `ResponseDocument` using a unique key. */
   deleteResponseDocument?: Maybe<DeleteResponseDocumentPayload>;
-  /** Deletes a single `Task` using its globally unique id. */
-  deleteTaskByNodeId?: Maybe<DeleteTaskPayload>;
-  /** Deletes a single `Task` using a unique key. */
-  deleteTask?: Maybe<DeleteTaskPayload>;
+  /** Deletes a single `Response` using its globally unique id. */
+  deleteResponseByNodeId?: Maybe<DeleteResponsePayload>;
+  /** Deletes a single `Response` using a unique key. */
+  deleteResponse?: Maybe<DeleteResponsePayload>;
   /** Deletes a single `TaskTemplate` using its globally unique id. */
   deleteTaskTemplateByNodeId?: Maybe<DeleteTaskTemplatePayload>;
   /** Deletes a single `TaskTemplate` using a unique key. */
   deleteTaskTemplate?: Maybe<DeleteTaskTemplatePayload>;
+  /** Deletes a single `Task` using its globally unique id. */
+  deleteTaskByNodeId?: Maybe<DeleteTaskPayload>;
+  /** Deletes a single `Task` using a unique key. */
+  deleteTask?: Maybe<DeleteTaskPayload>;
   /** Deletes a single `AccountingBill` using its globally unique id. */
   deleteAccountingBillByNodeId?: Maybe<DeleteAccountingBillPayload>;
   /** Deletes a single `AccountingBill` using a unique key. */
@@ -2428,12 +2428,6 @@ export type MutationCreateLetterArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateMatterArgs = {
-  input: CreateMatterInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateMatterContactArgs = {
   input: CreateMatterContactInput;
 };
@@ -2446,8 +2440,8 @@ export type MutationCreateMatterTemplateArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateQuestionArgs = {
-  input: CreateQuestionInput;
+export type MutationCreateMatterArgs = {
+  input: CreateMatterInput;
 };
 
 
@@ -2458,20 +2452,26 @@ export type MutationCreateQuestionnaireArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateQuestionArgs = {
+  input: CreateQuestionInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateResponseArgs = {
   input: CreateResponseInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateTaskArgs = {
-  input: CreateTaskInput;
+export type MutationCreateTaskTemplateArgs = {
+  input: CreateTaskTemplateInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateTaskTemplateArgs = {
-  input: CreateTaskTemplateInput;
+export type MutationCreateTaskArgs = {
+  input: CreateTaskInput;
 };
 
 
@@ -2524,18 +2524,6 @@ export type MutationUpdateLetterArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateMatterByNodeIdArgs = {
-  input: UpdateMatterByNodeIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateMatterArgs = {
-  input: UpdateMatterInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateMatterContactByNodeIdArgs = {
   input: UpdateMatterContactByNodeIdInput;
 };
@@ -2560,6 +2548,18 @@ export type MutationUpdateMatterTemplateArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateMatterByNodeIdArgs = {
+  input: UpdateMatterByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateMatterArgs = {
+  input: UpdateMatterInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdatePersonByNodeIdArgs = {
   input: UpdatePersonByNodeIdInput;
 };
@@ -2568,18 +2568,6 @@ export type MutationUpdatePersonByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdatePersonArgs = {
   input: UpdatePersonInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateQuestionByNodeIdArgs = {
-  input: UpdateQuestionByNodeIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateQuestionArgs = {
-  input: UpdateQuestionInput;
 };
 
 
@@ -2596,6 +2584,18 @@ export type MutationUpdateQuestionnaireArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateQuestionByNodeIdArgs = {
+  input: UpdateQuestionByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateQuestionArgs = {
+  input: UpdateQuestionInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateResponseByNodeIdArgs = {
   input: UpdateResponseByNodeIdInput;
 };
@@ -2608,18 +2608,6 @@ export type MutationUpdateResponseArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateTaskByNodeIdArgs = {
-  input: UpdateTaskByNodeIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateTaskArgs = {
-  input: UpdateTaskInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateTaskTemplateByNodeIdArgs = {
   input: UpdateTaskTemplateByNodeIdInput;
 };
@@ -2628,6 +2616,18 @@ export type MutationUpdateTaskTemplateByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateTaskTemplateArgs = {
   input: UpdateTaskTemplateInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTaskByNodeIdArgs = {
+  input: UpdateTaskByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateTaskArgs = {
+  input: UpdateTaskInput;
 };
 
 
@@ -2656,18 +2656,6 @@ export type MutationDeleteAddressArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDocumentByNodeIdArgs = {
-  input: DeleteDocumentByNodeIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteDocumentArgs = {
-  input: DeleteDocumentInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteDocumentTemplateByNodeIdArgs = {
   input: DeleteDocumentTemplateByNodeIdInput;
 };
@@ -2680,6 +2668,18 @@ export type MutationDeleteDocumentTemplateArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDocumentByNodeIdArgs = {
+  input: DeleteDocumentByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDocumentArgs = {
+  input: DeleteDocumentInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteLetterByNodeIdArgs = {
   input: DeleteLetterByNodeIdInput;
 };
@@ -2688,18 +2688,6 @@ export type MutationDeleteLetterByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteLetterArgs = {
   input: DeleteLetterInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteMatterByNodeIdArgs = {
-  input: DeleteMatterByNodeIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteMatterArgs = {
-  input: DeleteMatterInput;
 };
 
 
@@ -2740,6 +2728,18 @@ export type MutationDeleteMatterTemplateArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteMatterByNodeIdArgs = {
+  input: DeleteMatterByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteMatterArgs = {
+  input: DeleteMatterInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeletePersonByNodeIdArgs = {
   input: DeletePersonByNodeIdInput;
 };
@@ -2748,18 +2748,6 @@ export type MutationDeletePersonByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeletePersonArgs = {
   input: DeletePersonInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteQuestionByNodeIdArgs = {
-  input: DeleteQuestionByNodeIdInput;
-};
-
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteQuestionArgs = {
-  input: DeleteQuestionInput;
 };
 
 
@@ -2776,14 +2764,14 @@ export type MutationDeleteQuestionnaireArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteResponseByNodeIdArgs = {
-  input: DeleteResponseByNodeIdInput;
+export type MutationDeleteQuestionByNodeIdArgs = {
+  input: DeleteQuestionByNodeIdInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteResponseArgs = {
-  input: DeleteResponseInput;
+export type MutationDeleteQuestionArgs = {
+  input: DeleteQuestionInput;
 };
 
 
@@ -2800,14 +2788,14 @@ export type MutationDeleteResponseDocumentArgs = {
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteTaskByNodeIdArgs = {
-  input: DeleteTaskByNodeIdInput;
+export type MutationDeleteResponseByNodeIdArgs = {
+  input: DeleteResponseByNodeIdInput;
 };
 
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteTaskArgs = {
-  input: DeleteTaskInput;
+export type MutationDeleteResponseArgs = {
+  input: DeleteResponseInput;
 };
 
 
@@ -2820,6 +2808,18 @@ export type MutationDeleteTaskTemplateByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteTaskTemplateArgs = {
   input: DeleteTaskTemplateInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTaskByNodeIdArgs = {
+  input: DeleteTaskByNodeIdInput;
+};
+
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteTaskArgs = {
+  input: DeleteTaskInput;
 };
 
 
@@ -3066,75 +3066,75 @@ export type Query = Node & {
   documentTemplates?: Maybe<DocumentTemplatesConnection>;
   /** Reads and enables pagination through a set of `Letter`. */
   letters?: Maybe<LettersConnection>;
-  /** Reads and enables pagination through a set of `Matter`. */
-  matters?: Maybe<MattersConnection>;
   /** Reads and enables pagination through a set of `MatterContact`. */
   matterContacts?: Maybe<MatterContactsConnection>;
   /** Reads and enables pagination through a set of `MatterTemplate`. */
   matterTemplates?: Maybe<MatterTemplatesConnection>;
+  /** Reads and enables pagination through a set of `Matter`. */
+  matters?: Maybe<MattersConnection>;
   /** Reads and enables pagination through a set of `Person`. */
   people?: Maybe<PeopleConnection>;
-  /** Reads and enables pagination through a set of `Question`. */
-  questions?: Maybe<QuestionsConnection>;
   /** Reads and enables pagination through a set of `Questionnaire`. */
   questionnaires?: Maybe<QuestionnairesConnection>;
+  /** Reads and enables pagination through a set of `Question`. */
+  questions?: Maybe<QuestionsConnection>;
   /** Reads and enables pagination through a set of `Response`. */
   responses?: Maybe<ResponsesConnection>;
-  /** Reads and enables pagination through a set of `Task`. */
-  tasks?: Maybe<TasksConnection>;
   /** Reads and enables pagination through a set of `TaskTemplate`. */
   taskTemplates?: Maybe<TaskTemplatesConnection>;
+  /** Reads and enables pagination through a set of `Task`. */
+  tasks?: Maybe<TasksConnection>;
   /** Reads and enables pagination through a set of `AccountingBill`. */
   accountingBills?: Maybe<AccountingBillsConnection>;
   address?: Maybe<Address>;
-  document?: Maybe<Document>;
   documentTemplate?: Maybe<DocumentTemplate>;
+  document?: Maybe<Document>;
   letter?: Maybe<Letter>;
-  matter?: Maybe<Matter>;
   matterContact?: Maybe<MatterContact>;
   matterDocument?: Maybe<MatterDocument>;
   matterTemplate?: Maybe<MatterTemplate>;
+  matter?: Maybe<Matter>;
   person?: Maybe<Person>;
-  question?: Maybe<Question>;
   questionnaire?: Maybe<Questionnaire>;
-  response?: Maybe<Response>;
+  question?: Maybe<Question>;
   responseDocument?: Maybe<ResponseDocument>;
-  task?: Maybe<Task>;
+  response?: Maybe<Response>;
   taskTemplate?: Maybe<TaskTemplate>;
+  task?: Maybe<Task>;
   unprocessedDocument?: Maybe<UnprocessedDocument>;
   accountingBill?: Maybe<AccountingBill>;
   getCurrentUser?: Maybe<Person>;
   responsePersonMatch?: Maybe<Scalars['Boolean']>;
   /** Reads a single `Address` using its globally unique `ID`. */
   addressByNodeId?: Maybe<Address>;
-  /** Reads a single `Document` using its globally unique `ID`. */
-  documentByNodeId?: Maybe<Document>;
   /** Reads a single `DocumentTemplate` using its globally unique `ID`. */
   documentTemplateByNodeId?: Maybe<DocumentTemplate>;
+  /** Reads a single `Document` using its globally unique `ID`. */
+  documentByNodeId?: Maybe<Document>;
   /** Reads a single `Letter` using its globally unique `ID`. */
   letterByNodeId?: Maybe<Letter>;
-  /** Reads a single `Matter` using its globally unique `ID`. */
-  matterByNodeId?: Maybe<Matter>;
   /** Reads a single `MatterContact` using its globally unique `ID`. */
   matterContactByNodeId?: Maybe<MatterContact>;
   /** Reads a single `MatterDocument` using its globally unique `ID`. */
   matterDocumentByNodeId?: Maybe<MatterDocument>;
   /** Reads a single `MatterTemplate` using its globally unique `ID`. */
   matterTemplateByNodeId?: Maybe<MatterTemplate>;
+  /** Reads a single `Matter` using its globally unique `ID`. */
+  matterByNodeId?: Maybe<Matter>;
   /** Reads a single `Person` using its globally unique `ID`. */
   personByNodeId?: Maybe<Person>;
-  /** Reads a single `Question` using its globally unique `ID`. */
-  questionByNodeId?: Maybe<Question>;
   /** Reads a single `Questionnaire` using its globally unique `ID`. */
   questionnaireByNodeId?: Maybe<Questionnaire>;
-  /** Reads a single `Response` using its globally unique `ID`. */
-  responseByNodeId?: Maybe<Response>;
+  /** Reads a single `Question` using its globally unique `ID`. */
+  questionByNodeId?: Maybe<Question>;
   /** Reads a single `ResponseDocument` using its globally unique `ID`. */
   responseDocumentByNodeId?: Maybe<ResponseDocument>;
-  /** Reads a single `Task` using its globally unique `ID`. */
-  taskByNodeId?: Maybe<Task>;
+  /** Reads a single `Response` using its globally unique `ID`. */
+  responseByNodeId?: Maybe<Response>;
   /** Reads a single `TaskTemplate` using its globally unique `ID`. */
   taskTemplateByNodeId?: Maybe<TaskTemplate>;
+  /** Reads a single `Task` using its globally unique `ID`. */
+  taskByNodeId?: Maybe<Task>;
   /** Reads a single `UnprocessedDocument` using its globally unique `ID`. */
   unprocessedDocumentByNodeId?: Maybe<UnprocessedDocument>;
   /** Reads a single `AccountingBill` using its globally unique `ID`. */
@@ -3197,18 +3197,6 @@ export type QueryLettersArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryMattersArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<MattersOrderBy>>;
-  condition?: Maybe<MatterCondition>;
-};
-
-
-/** The root query type which gives access points into the data universe. */
 export type QueryMatterContactsArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
@@ -3233,6 +3221,18 @@ export type QueryMatterTemplatesArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryMattersArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<MattersOrderBy>>;
+  condition?: Maybe<MatterCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryPeopleArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
@@ -3241,18 +3241,6 @@ export type QueryPeopleArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<PeopleOrderBy>>;
   condition?: Maybe<PersonCondition>;
-};
-
-
-/** The root query type which gives access points into the data universe. */
-export type QueryQuestionsArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<QuestionsOrderBy>>;
-  condition?: Maybe<QuestionCondition>;
 };
 
 
@@ -3269,6 +3257,18 @@ export type QueryQuestionnairesArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
+export type QueryQuestionsArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<QuestionsOrderBy>>;
+  condition?: Maybe<QuestionCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
 export type QueryResponsesArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
@@ -3281,18 +3281,6 @@ export type QueryResponsesArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryTasksArgs = {
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
-  before?: Maybe<Scalars['Cursor']>;
-  after?: Maybe<Scalars['Cursor']>;
-  orderBy?: Maybe<Array<TasksOrderBy>>;
-  condition?: Maybe<TaskCondition>;
-};
-
-
-/** The root query type which gives access points into the data universe. */
 export type QueryTaskTemplatesArgs = {
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
@@ -3301,6 +3289,18 @@ export type QueryTaskTemplatesArgs = {
   after?: Maybe<Scalars['Cursor']>;
   orderBy?: Maybe<Array<TaskTemplatesOrderBy>>;
   condition?: Maybe<TaskTemplateCondition>;
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTasksArgs = {
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  before?: Maybe<Scalars['Cursor']>;
+  after?: Maybe<Scalars['Cursor']>;
+  orderBy?: Maybe<Array<TasksOrderBy>>;
+  condition?: Maybe<TaskCondition>;
 };
 
 
@@ -3323,25 +3323,19 @@ export type QueryAddressArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryDocumentArgs = {
-  id: Scalars['UUID'];
-};
-
-
-/** The root query type which gives access points into the data universe. */
 export type QueryDocumentTemplateArgs = {
   id: Scalars['UUID'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryLetterArgs = {
+export type QueryDocumentArgs = {
   id: Scalars['UUID'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryMatterArgs = {
+export type QueryLetterArgs = {
   id: Scalars['UUID'];
 };
 
@@ -3365,13 +3359,13 @@ export type QueryMatterTemplateArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryPersonArgs = {
+export type QueryMatterArgs = {
   id: Scalars['UUID'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryQuestionArgs = {
+export type QueryPersonArgs = {
   id: Scalars['UUID'];
 };
 
@@ -3383,7 +3377,7 @@ export type QueryQuestionnaireArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryResponseArgs = {
+export type QueryQuestionArgs = {
   id: Scalars['UUID'];
 };
 
@@ -3395,13 +3389,19 @@ export type QueryResponseDocumentArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryTaskArgs = {
+export type QueryResponseArgs = {
   id: Scalars['UUID'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
 export type QueryTaskTemplateArgs = {
+  id: Scalars['UUID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTaskArgs = {
   id: Scalars['UUID'];
 };
 
@@ -3432,25 +3432,19 @@ export type QueryAddressByNodeIdArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryDocumentByNodeIdArgs = {
-  nodeId: Scalars['ID'];
-};
-
-
-/** The root query type which gives access points into the data universe. */
 export type QueryDocumentTemplateByNodeIdArgs = {
   nodeId: Scalars['ID'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryLetterByNodeIdArgs = {
+export type QueryDocumentByNodeIdArgs = {
   nodeId: Scalars['ID'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryMatterByNodeIdArgs = {
+export type QueryLetterByNodeIdArgs = {
   nodeId: Scalars['ID'];
 };
 
@@ -3474,13 +3468,13 @@ export type QueryMatterTemplateByNodeIdArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryPersonByNodeIdArgs = {
+export type QueryMatterByNodeIdArgs = {
   nodeId: Scalars['ID'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryQuestionByNodeIdArgs = {
+export type QueryPersonByNodeIdArgs = {
   nodeId: Scalars['ID'];
 };
 
@@ -3492,7 +3486,7 @@ export type QueryQuestionnaireByNodeIdArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryResponseByNodeIdArgs = {
+export type QueryQuestionByNodeIdArgs = {
   nodeId: Scalars['ID'];
 };
 
@@ -3504,13 +3498,19 @@ export type QueryResponseDocumentByNodeIdArgs = {
 
 
 /** The root query type which gives access points into the data universe. */
-export type QueryTaskByNodeIdArgs = {
+export type QueryResponseByNodeIdArgs = {
   nodeId: Scalars['ID'];
 };
 
 
 /** The root query type which gives access points into the data universe. */
 export type QueryTaskTemplateByNodeIdArgs = {
+  nodeId: Scalars['ID'];
+};
+
+
+/** The root query type which gives access points into the data universe. */
+export type QueryTaskByNodeIdArgs = {
   nodeId: Scalars['ID'];
 };
 

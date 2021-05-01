@@ -20,6 +20,7 @@ RUN apt-get update -qqy &&\
   libxss1 \
   libasound2 \
   libxtst6 \
+  ruby-full \
   wget \
   xauth \
   xvfb &&\
@@ -31,12 +32,6 @@ RUN TEMP_DEB="$(mktemp)" &&\
   wget -O "$TEMP_DEB" https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-1-amd64.deb &&\
   dpkg -i "$TEMP_DEB" &&\
   rm -f "$TEMP_DEB"
-
-# Install neo4j - need to install openjdk
-# RUN TEMP_DEB="$(mktemp)" &&\
-#   wget -O "$TEMP_DEB" https://dist.neo4j.org/cypher-shell/cypher-shell_4.2.2_all.deb &&\
-#   dpkg -i "$TEMP_DEB" &&\
-#   rm -f "$TEMP_DEB"
 
 # Install yarn via NPM
 RUN npm i -g yarn

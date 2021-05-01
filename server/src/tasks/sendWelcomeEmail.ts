@@ -5,7 +5,7 @@ export const sendWelcomeEmail = async (payload, helpers): Promise<void> => {
   const { personId } = payload;
 
   const personQuery = await helpers.query(
-    'SELECT id, email FROM person WHERE id = $1 LIMIT 1',
+    'SELECT id, email FROM people WHERE id = $1 LIMIT 1',
     [personId]
   );
   const person = personQuery.rows[0];

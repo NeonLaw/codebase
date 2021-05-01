@@ -5,7 +5,7 @@ export const insertPersonFixture = async ({ client }) => {
   const sub = faker.datatype.uuid();
 
   const result = await client.query(
-    'INSERT INTO person (email, sub) ' +
+    'INSERT INTO people (email, sub) ' +
     'VALUES ($1, $2) RETURNING *',
     [email, sub]
   );

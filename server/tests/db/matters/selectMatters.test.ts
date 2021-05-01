@@ -15,7 +15,7 @@ describe('SELECT * FROM matter;', () => {
       withRootDb(async (client: any) => {
         await startAnonymousSession(client);
 
-        await expect(client.query('select * from matter;')).rejects.toThrow(
+        await expect(client.query('select * from matters;')).rejects.toThrow(
           /permission denied for table matter/
         );
       })
@@ -41,7 +41,7 @@ describe('SELECT * FROM matter;', () => {
         });
 
         await startPortalSession(client);
-        const { rows } = await client.query('select * from matter;');
+        const { rows } = await client.query('select * from matters;');
 
         expect(JSON.stringify(rows)).toMatch(userMatterId);
         expect(JSON.stringify(rows)).not.toMatch(otherMatterId);
@@ -52,7 +52,7 @@ describe('SELECT * FROM matter;', () => {
   describe('a admin user', () => {
     it('can select all matters', () =>
       withRootDb(async (client: any) => {
-        await client.query('DELETE FROM matter;');
+        await client.query('DELETE FROM matters;');
         const {
           id: matterTemplateId
         } = await insertMatterTemplateFixture({ client });
@@ -67,7 +67,7 @@ describe('SELECT * FROM matter;', () => {
 
         await startAdminSession(client);
 
-        const { rows } = await client.query('select * from matter;');
+        const { rows } = await client.query('select * from matters;');
 
         expect(rows).toHaveLength(2);
       })

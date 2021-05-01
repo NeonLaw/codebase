@@ -21,7 +21,9 @@ describe('SELECT * FROM document;', () => {
       withRootDb(async (pgClient: any) => {
         await startAnonymousSession(pgClient);
 
-        await expect(pgClient.query('select * from document;')).rejects.toThrow(
+        await expect(pgClient.query(
+          'select * from documents;'
+        )).rejects.toThrow(
           /permission denied for table document/
         );
       })
@@ -77,7 +79,7 @@ describe('SELECT * FROM document;', () => {
         });
 
         await startPortalSession(client);
-        const { rows } = await client.query('select * from document;');
+        const { rows } = await client.query('select * from documents;');
 
         expect(rows).toHaveLength(1);
         expect(JSON.stringify(rows)).toMatch(ownDocumentId);
@@ -91,7 +93,7 @@ describe('SELECT * FROM document;', () => {
       withRootDb(async (pgClient: any) => {
         await startLawyerSession(pgClient);
 
-        expect(pgClient.query('select * from document;')).rejects.toThrow(
+        expect(pgClient.query('select * from documents;')).rejects.toThrow(
           /permission denied for table document/
         );
       })
@@ -147,7 +149,7 @@ describe('SELECT * FROM document;', () => {
         });
 
         await startAdminSession(client);
-        const { rows } = await client.query('select * from document;');
+        const { rows } = await client.query('select * from documents;');
 
         expect(rows).toHaveLength(2);
         expect(JSON.stringify(rows)).toMatch(ownDocumentId);

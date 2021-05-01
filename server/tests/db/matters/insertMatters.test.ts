@@ -17,7 +17,7 @@ describe('INSERT INTO matter;', () => {
         await startAnonymousSession(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO matter (name, primary_contact_id, '+
+          'INSERT INTO matters (name, primary_contact_id, '+
           'matter_template_id) VALUES ($1, $2, $3) RETURNING (id)',
           ['a', randomId, randomId]
         )).rejects.toThrow(
@@ -33,7 +33,7 @@ describe('INSERT INTO matter;', () => {
         await startPortalSession(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO matter (name, primary_contact_id, '+
+          'INSERT INTO matters (name, primary_contact_id, '+
           'matter_template_id) VALUES ($1, $2, $3) RETURNING (id)',
           ['a', randomId, randomId]
         )).rejects.not.toThrow(
@@ -49,7 +49,7 @@ describe('INSERT INTO matter;', () => {
         await startLawyerSession(pgClient);
 
         await expect(pgClient.query(
-          'INSERT INTO matter (name, primary_contact_id, '+
+          'INSERT INTO matters (name, primary_contact_id, '+
           'matter_template_id) VALUES ($1, $2, $3) RETURNING (id)',
           ['a', randomId, randomId]
         )).rejects.not.toThrow(
@@ -63,14 +63,14 @@ describe('INSERT INTO matter;', () => {
     it('can create matters', () =>
       withRootDb(async (pgClient: any) => {
         const { rows: matterTemplateRows } = await pgClient.query(
-          'INSERT INTO matter_template (name, description) '+
+          'INSERT INTO matter_templates (name, description) '+
           'VALUES ($1, $2) RETURNING (id)',
           ['delete-your-data', '{}']
         );
         const matterTemplateId = matterTemplateRows[0].id;
 
         const { rows: primaryContactRows } = await pgClient.query(
-          'INSERT INTO person (email, role, sub) ' +
+          'INSERT INTO people (email, role, sub) ' +
           'VALUES ($1, $2, $3) RETURNING (id)',
           ['example-contact@sink.sendgrid.com', 'portal', 'portal-sub']
         );
@@ -79,7 +79,7 @@ describe('INSERT INTO matter;', () => {
         await startAdminSession(pgClient);
 
         const { rows } = await pgClient.query(
-          'INSERT INTO matter (name, primary_contact_id, '+
+          'INSERT INTO matters (name, primary_contact_id, '+
           'matter_template_id) VALUES ($1, $2, $3) '+
           'RETURNING (id, primary_contact_id, matter_template_id)',
           ['a', primaryContactId, matterTemplateId]

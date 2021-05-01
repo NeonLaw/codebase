@@ -7,7 +7,7 @@ export const selectPortalPerson = async ({
 }: SelectPortalPersonArgs) => {
   const email = 'portal@sink.sendgrid.com';
   const { rows } = await client.query(
-    'INSERT INTO person (email, role, sub) ' +
+    'INSERT INTO people (email, role, sub) ' +
     'VALUES ($1, \'portal\', \'portal-sub\') '+
     'ON CONFLICT("email") DO UPDATE SET email=EXCLUDED.email RETURNING id',
     [email]

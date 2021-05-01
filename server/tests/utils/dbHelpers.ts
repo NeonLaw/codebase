@@ -69,7 +69,7 @@ export const startPortalSession = async (
   email = 'portal@sink.sendgrid.com'
 ) => {
   const { rows } = await client.query(
-    'INSERT INTO person (email, role, sub) ' +
+    'INSERT INTO people (email, role, sub) ' +
     'VALUES ($1, \'portal\', \'portal-sub\') '+
     'ON CONFLICT("email") DO UPDATE SET email=EXCLUDED.email RETURNING id',
     [email]
@@ -89,7 +89,7 @@ export const startLawyerSession = async (
   email = 'lawyer@sink.sendgrid.com'
 ) => {
   const { rows } = await client.query(
-    'INSERT INTO person (email, role, sub) ' +
+    'INSERT INTO people (email, role, sub) ' +
     'VALUES ($1, \'lawyer\', \'lawyer-sub\') ' +
     'ON CONFLICT("email") DO UPDATE SET email=EXCLUDED.email RETURNING id',
     [email]
@@ -109,7 +109,7 @@ export const startAdminSession = async (
   email = 'admin@sink.sendgrid.com'
 ) => {
   const { rows } = await client.query(
-    'INSERT INTO person (email, role, sub) ' +
+    'INSERT INTO people (email, role, sub) ' +
     'VALUES ($1, \'admin\', \'admin-sub\') '+
     'ON CONFLICT("email") DO UPDATE SET email=EXCLUDED.email RETURNING id',
     [email]
