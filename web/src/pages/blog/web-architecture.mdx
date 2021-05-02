@@ -1,5 +1,5 @@
 export const meta = {
-  title: "Software Architecture",
+  title: "Web Architecture",
   slug: "/blog/web-architecture",
   updatedAt: "2019-09-15",
   featuredImage: "web_diagram.png",
@@ -12,3 +12,10 @@ The above diagram, generated
 [here](https://github.com/NeonLaw/codebase/blob/main/diagrams/neon_diagrams/web.py),
 details how we deploy our Next.JS app, aka the app you're currently interfacing
 with, with a git-flow managed my Vercel.
+
+Upon each push to a non-`main` branch, a Vercel deployment is created with
+environment variables that speak to our staging Kubernetes server and SaaS
+services. When a push to the `main` branch happens, our production Vercel
+deployment is updated with the latest commit.
+
+These Vercel hooks run no matter what code in our codebase is changed.
