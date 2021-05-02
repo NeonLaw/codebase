@@ -56,7 +56,7 @@ your machine, you can follow these two steps to start developing.
 
 ```bash
 doppler setup # development
-doppler run -- docker-compose up
+doppler run -- docker compose up
 ```
 
 This starts the following containers:
@@ -66,7 +66,6 @@ This starts the following containers:
   - Postgres
   - Neo4j
   - Elasticsearch
-  - Redis
   - Kafka Broker
   - Kafka Schema Registry
   - Confluent Connect
