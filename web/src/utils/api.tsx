@@ -1729,6 +1729,8 @@ export type DocumentTemplateUnprocessedDocumentsArgs = {
 export type DocumentTemplateCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `name` field. */
+  name?: Maybe<Scalars['String']>;
 };
 
 /** An input for mutations affecting `DocumentTemplate` */
@@ -1776,6 +1778,8 @@ export enum DocumentTemplatesOrderBy {
   Natural = 'NATURAL',
   IdAsc = 'ID_ASC',
   IdDesc = 'ID_DESC',
+  NameAsc = 'NAME_ASC',
+  NameDesc = 'NAME_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
