@@ -34,7 +34,7 @@ module "container_registry" {
 }
 
 module "kubernetes_cluster" {
-  source      = "./modules/google_container_cluster"
+  source      = "./modules/gke"
   region      = var.region
   project_id  = var.project_id
   environment = var.environment
