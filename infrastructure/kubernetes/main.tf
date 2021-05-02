@@ -68,10 +68,10 @@ module "fluentbit" {
   environment = var.environment
 }
 
-module "kafka" {
-  source      = "./modules/kafka_helm"
-  environment = var.environment
-}
+# module "kafka" {
+#   source      = "./modules/kafka_helm"
+#   environment = var.environment
+# }
 
 module "superset" {
   source      = "./modules/superset_helm"
