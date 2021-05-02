@@ -104,15 +104,6 @@ services:
       PROCESS_NAME: api
     volumes: *node-volumes
 
-  redis:
-    image: redis:6
-    container_name: redis
-    ports:
-      - 6379:6379
-    restart: unless-stopped
-    logging:
-      driver: none
-
   workers:
     build:
       context: ./
