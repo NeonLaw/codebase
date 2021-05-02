@@ -37,6 +37,10 @@ jobs:
           psql -d postgres://postgres:password@postgres:5432/postgres \
             -c "CREATE DATABASE neon_law_shadow;"
           psql -d postgres://postgres:password@postgres:5432/postgres \
+            -c "CREATE DATABASE production;"
+          psql -d postgres://postgres:password@postgres:5432/postgres \
+            -c "CREATE DATABASE staging;"
+          psql -d postgres://postgres:password@postgres:5432/postgres \
             -c "\set AUTOCOMMIT false"
       - uses: actions/checkout@v2
       - name: Install Doppler CLI
@@ -57,7 +61,9 @@ jobs:
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Commit migrations
-        run: doppler run -- yarn workspace @neonlaw/server migrate
+        run: |
+          doppler run -- yarn workspace @neonlaw/server migrate
+          doppler run -- yarn workspace @neonlaw/server migrate:for_copying
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Start API Server

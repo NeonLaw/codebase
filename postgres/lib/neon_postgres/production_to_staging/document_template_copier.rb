@@ -23,7 +23,7 @@ module NeonPostgres
           staging_document_templates_dataset
             .insert_conflict(
               target: :name,
-              update: { description: Sequel[:excluded][:description] }
+              update: {description: Sequel[:excluded][:description]}
             ).insert(prod_document_template)
         end
       end
