@@ -26,6 +26,7 @@ jobs:
         working-directory: ./diagrams
         run: poetry run black --check
       - name: Check that the diagrams are the latest
+        working-directory: ./diagrams
         run: |
           poetry run python -m neon_diagrams.web
           git diff -G. --exit-code .
