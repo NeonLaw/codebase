@@ -22,7 +22,11 @@ jobs:
           registry: docker.pkg.github.com
           username: ${{ secrets.GPR_USERNAME }}
           password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
+      - name: Pull Docker images
+        run: doppler run -- docker-compose pull
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Can start Docker Compose
-        run: doppler run -- docker compose up -d
+        run: doppler run -- docker-compose up -d
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
