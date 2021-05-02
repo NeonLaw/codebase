@@ -19,9 +19,16 @@ jobs:
           python-version: '3'
       - name: Install Poetry
         uses: snok/install-poetry@v1.1.4
+      - name: Setup Graphviz
+        uses: ts-graphviz/setup-graphviz@v1
       - name: Install dependencies
         working-directory: ./diagrams
         run: poetry install
       - name: Lint Python files.
         working-directory: ./diagrams
         run: poetry run black --check
+      - name: Check that the diagrams are the latest
+        working-directory: ./diagrams
+        run: |
+          poetry run python -m neon_diagrams.web
+          git diff -G. --exit-code .
