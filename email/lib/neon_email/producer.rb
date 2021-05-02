@@ -1,6 +1,6 @@
 require "kafka"
 
-module NeonLaw
+module NeonEmail
   class Producer
     def self.produce_greeting
       kafka = Kafka.new(["localhost:9092"])
@@ -9,4 +9,4 @@ module NeonLaw
   end
 end
 
-NeonLaw::Producer.produce_greeting
+NeonEmail::Producer.produce_greeting
