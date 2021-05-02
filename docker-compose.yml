@@ -67,7 +67,7 @@ services:
       driver: none
 
   superset:
-    image: apache:superset
+    image: apache/superset
     container_name: superset
     ports:
       - 8080:8088
