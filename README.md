@@ -101,23 +101,31 @@ required environment variables, ready for you.
 ### Cloud SQL Proxy
 
 If you need to access either the staging or production database on your local
-machine, you can connect to it via Google Cloud SQL Proxy. Before connecting,
-please ensure the Public IP is turned on for these instances (by default they're
-turned off).
-
-Then, you can connect to `staging` and `production` with these respective
-commands:
+machine, you can connect to it via Google Cloud SQL Proxy. First, ensure that
+you have access to the `gcp` project in Doppler.  Then, you can connect to
+`staging` and `production` with these respective commands:
 
 ```bash
-doppler setup # staging
-doppler run -- yarn run sql-proxy-staging
-doppler setup # production
-doppler run -- yarn run sql-proxy-production
+doppler setup # choose the GCP project
+yarn run copy-gcp-credentials
+yarn run sql-proxy-staging
+yarn run sql-proxy-production
 ```
 
-With either command (both cannot be ran at the same time), you'll have a
-PostgreSQL database running at `127.0.0.1:5432`, which you can then connect to
-with the GCP SQL credentials for staging and production.
+The staging database runs at `localhost:5433` and the production database runs
+at `localhost:5434`.
+
+#### Copying Postgres Data from Production to Staging
+
+To copy data from production to staging, run the following script:
+
+```bash
+doppler run -- bundle exec ruby lib/neon_postgres/production_to_staging/copy.rb
+```
+
+This will copy data over from production to staging while anonymizing client
+data so we can develop the app without exposing the attorney-client privilege of
+the firm.
 
 ### Neo4j Proxy
 

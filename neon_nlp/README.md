@@ -1,5 +1,6 @@
 # Neon NLP
 
+A GraphQL server for exposing trained models to help with legal drafting.
 ## Consumption
 
 A graphql server that exposes one `Query` to get recommendations about your

@@ -7,6 +7,8 @@ require "fixture_dependencies/rspec/sequel"
 Sequel::Model.db = NeonPostgres::Database.connection
 class Person < Sequel::Model; end
 
+class DocumentTemplate < Sequel::Model; end
+
 FixtureDependencies.fixture_path = "#{__dir__}/fixtures"
 
 RSpec.configure do |config|

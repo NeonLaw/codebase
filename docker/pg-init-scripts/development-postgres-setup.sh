@@ -25,7 +25,7 @@ function create_user_and_database() {
 EOSQL
 }
 
-for db in $(echo 'neon_law,shadow_neon_law' | tr ',' ' '); do
+for db in $(echo 'neon_law,shadow_neon_law,production,staging' | tr ',' ' '); do
   create_user_and_database $db
 done
 echo "Multiple databases created"

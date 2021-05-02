@@ -9,6 +9,7 @@
     "start:workers": "ts-node --transpile-only src/workers.ts",
     "commit": "graphile-migrate commit",
     "migrate": "graphile-migrate migrate",
+    "migrate:for_copying": "DATABASE_URL=$PRODUCTION_DATABASE_URL graphile-migrate migrate; DATABASE_URL=$STAGING_DATABASE_URL graphile-migrate migrate",
     "watch": "graphile-migrate watch",
     "test": "jest --forceExit --detectOpenHandles --coverage --coverageProvider=v8"
   },
