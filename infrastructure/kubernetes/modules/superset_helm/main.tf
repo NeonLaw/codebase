@@ -6,6 +6,6 @@ resource "helm_release" "superset" {
 
   set {
     name  = "additionalRequirements"
-    value = ["psycopg2", "elasticsearch-dbapi", "Authlib", "gevent"]
+    value = jsonencode(["psycopg2", "elasticsearch-dbapi", "Authlib", "gevent"])
   }
 }
