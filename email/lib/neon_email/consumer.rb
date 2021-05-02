@@ -1,6 +1,6 @@
 require "kafka"
 
-module NeonLaw
+module NeonEmail
   class Consumer
     def self.consume_messages
       kafka = Kafka.new(["localhost:9092"])
@@ -18,11 +18,13 @@ module NeonLaw
 
       # This will loop indefinitely, yielding each message in turn.
       consumer.each_message do |message|
-        puts message.topic, message.partition
-        puts message.offset, message.key, message.value
+        case message.topic
+        when "greetings"
+          NeonEmail::GreetingMailer.deliver(message: message.value)
+        end
       end
     end
   end
 end
 
-NeonLaw::Consumer.consume_messages
+NeonEmail::Consumer.consume_messages
