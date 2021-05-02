@@ -58,13 +58,19 @@ module NeonPostgres
     end
 
     def self.production_connection
-      @_production_connection ||=
-        Sequel.connect(ENV.fetch("PRODUCTION_DATABASE_URL"))
+      @_production_connection ||= Sequel.connect(
+        ENV.fetch("PRODUCTION_POSTGRES_URL") {
+          "postgres://postgres:password@localhost:5432/production"
+        }
+      )
     end
 
     def self.staging_connection
-      @_staging_connection ||=
-        Sequel.connect(ENV.fetch("STAGING_DATABASE_URL"))
+      @_staging_connection ||= Sequel.connect(
+        ENV.fetch("STAGING_POSTGRES_URL") {
+          "postgres://postgres:password@localhost:5432/staging"
+        }
+      )
     end
   end
 end
