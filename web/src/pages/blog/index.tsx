@@ -1,7 +1,6 @@
 import { Box, List, ListItem } from '@chakra-ui/react';
 import { gutters, sizes } from '../../styles/neonLaw';
 import { Container } from '../../components/container';
-import Image from 'next/image';
 import { PostBanner } from '../../components/blog/postBanner';
 import { PublicLayout } from '../../components/layouts/publicLayout';
 import { Seo } from '../../components/seo';
@@ -16,7 +15,6 @@ const StyledBlog = styled.div`
 `;
 
 const BlogIndex = () => {
-  const edges = [];
   return (
     <PublicLayout isBgLighter={true}>
       <StyledBlog>
@@ -28,38 +26,19 @@ const BlogIndex = () => {
             </h1>
 
             <List spacing="0.5rem" maxWidth={sizes.textContainerMedium}>
-              {edges.map(({ node: post }) => {
-                const { excerpt } = post;
-                const {
-                  title,
-                  slug,
-                  updatedAt,
-                  featuredImage,
-                } = post.frontmatter;
-
-                return (
-                  <ListItem key={post.id} className="list-item">
-                    <PostBanner
-                      title={title}
-                      slug={slug}
-                      date={updatedAt}
-                      excerpt={excerpt}
-                    >
-                      <div className="img">
-                        <Image
-                          src={featuredImage ?
-                            featuredImage :
-                            '/images/blog-featured-placeholder.jpg'
-                          }
-                          alt={title}
-                          width="100px"
-                          height="100px"
-                        />
-                      </div>
-                    </PostBanner>
-                  </ListItem>
-                );
-              })}
+              <ListItem className="list-item">
+                <PostBanner
+                  title="Web Architecture"
+                  date={new Date()}
+                  slug="/blog/web-architecture"
+                  excerpt="The web architecture of Neon Law"
+                >
+                  <img
+                    src="/images/web_diagram.png"
+                    alt="Architecture Blog Post"
+                  />
+                </PostBanner>
+              </ListItem>
             </List>
           </Box>
         </Container>

@@ -1,4 +1,4 @@
-import { Heading, Text, useColorMode } from '@chakra-ui/react';
+import { Box, Heading, Text, useColorMode } from '@chakra-ui/react';
 import {
   colors,
   gutters,
@@ -6,11 +6,10 @@ import {
 } from '../../styles/neonLaw';
 
 import { FormattedDate } from 'react-intl';
-import Link from 'next/link';
 import { ReadMoreButton } from '../readMoreButton';
 import styled from '@emotion/styled';
 
-const StyledPostBanner = styled(Link)`
+const StyledPostBanner = styled(Box)`
   display: flex;
   border: 1px solid;
   box-shadow: ${shadows.light2};
@@ -57,25 +56,28 @@ export const PostBanner = ({
 }: PostBannerProps): JSX.Element => {
   const { colorMode } = useColorMode();
   return (
-    <StyledPostBanner
-      href={slug}
-    >
-      {children}
-      <div className="text" style={{ borderColor: colors.borders[colorMode] }}>
-        <Heading
-          as="h2"
-          className="h3"
-          fontWeight="400"
-          marginBottom={gutters.xSmallOne}
+    <StyledPostBanner>
+      <>
+        {children}
+        <div
+          className="text"
+          style={{ borderColor: colors.borders[colorMode] }}
         >
-          {title}
-        </Heading>
-        <Text marginBottom={gutters.xSmallOne}>
-          <FormattedDate value={new Date(date)} />
-        </Text>
-        <Text>{excerpt}</Text>
-        <ReadMoreButton to={slug} />
-      </div>
+          <Heading
+            as="h2"
+            className="h3"
+            fontWeight="400"
+            marginBottom={gutters.xSmallOne}
+          >
+            {title}
+          </Heading>
+          <Text marginBottom={gutters.xSmallOne}>
+            <FormattedDate value={date} />
+          </Text>
+          <Text>{excerpt}</Text>
+          <ReadMoreButton href={slug} />
+        </div>
+      </>
     </StyledPostBanner>
   );
 };
