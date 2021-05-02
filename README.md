@@ -66,10 +66,23 @@ This starts the following containers:
   - Postgres
   - Neo4j
   - Elasticsearch
+  - Redis
+  - Kafka Broker
+  - Kafka Schema Registry
+  - Confluent Connect
+  - Confluent Control Center
+  - Kafka SQLDB Server
+  - Kafka SQLDB CLI
+  - Kafka SQLDB Datagen
+  - Kafka Rest Proxy
+  - Zookeepr
+  - Superset
 - Web Servers for:
   - our website (http://127.0.0.1:8000)
   - our API (http://127.0.0.1:3000/graphiql)
-- A background server for running jobs with Graphile Migrate
+- Background Servers for:
+  - Jobs on Graphile Migrate
+  - Email (TBD)
 
 2. `exec /bin/bash` in the shell container.
 
