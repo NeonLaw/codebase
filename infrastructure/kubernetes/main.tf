@@ -68,6 +68,16 @@ module "fluentbit" {
   environment = var.environment
 }
 
+module "kafka" {
+  source      = "./modules/kafka_helm"
+  environment = var.environment
+}
+
+module "superset" {
+  source      = "./modules/superset_helm"
+  environment = var.environment
+}
+
 module "application_secrets" {
   source                     = "./modules/application_secrets"
   api_url                    = var.api_url
