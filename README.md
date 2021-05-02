@@ -63,19 +63,22 @@ This starts the following containers:
 
 - A shell container (see step 2 for more)
 - Database Servers for:
-  - Postgres
-  - Neo4j
-  - Elasticsearch
-  - Kafka Broker
-  - Kafka Schema Registry
-  - Confluent Connect
-  - Confluent Control Center
-  - Kafka SQLDB Server
+  - Postgres (localhost:5432)
+  - Neo4j (localhost:7687)
+  - Elasticsearch (localhost:9200)
+  - Kafka Broker (localhost:9092)
+  - Kafka Schema Registry (localhost:8081)
+  - Confluent Connect (localhost:8083)
+  - Confluent Control Center (localhost:9021)
+  - Kafka SQLDB Server (localhost:8088)
   - Kafka SQLDB CLI
   - Kafka SQLDB Datagen
-  - Kafka Rest Proxy
-  - Zookeepr
-  - Superset
+  - Kafka Rest Proxy (localhost:8082)
+  - Zookeeper (localhost:2181)
+  - Superset (localhost:8080)
+    - Set up steps: https://hub.docker.com/r/apache/superset
+    - Username: admin
+    - Password: admin
 - Web Servers for:
   - our website (http://127.0.0.1:8000)
   - our API (http://127.0.0.1:3000/graphiql)
