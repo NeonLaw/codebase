@@ -82,6 +82,9 @@
         "neo4j-poll": "while true ; do nc -vz 127.0.0.1 7687 ; sleep 10 ; done",
         "neo4j-proxy-production": "gcloud container clusters get-credentials neon-law-production --region us-west4 --project neon-law-production && kubectl port-forward $(kubectl get pod --selector=\"app.kubernetes.io/component=core,app.kubernetes.io/instance=production-neo4j,app.kubernetes.io/name=neo4j\" --output jsonpath='{.items[0].metadata.name}') 7687:7687",
         "neo4j-proxy-staging": "gcloud container clusters get-credentials neon-law-staging --region us-west4 --project neon-law-staging && kubectl port-forward $(kubectl get pod --selector=\"app.kubernetes.io/component=core,app.kubernetes.io/instance=staging-neo4j,app.kubernetes.io/name=neo4j\" --output jsonpath='{.items[0].metadata.name}') 7687:7687",
+        "superset-poll": "while true ; do nc -vz 127.0.0.1 8088 ; sleep 10 ; done",
+        "superset-proxy-production": "gcloud container clusters get-credentials neon-law-production --region us-west4 --project neon-law-production && kubectl port-forward service/production-superset 8088:8088",
+        "superset-proxy-staging": "gcloud container clusters get-credentials neon-law-staging --region us-west4 --project neon-law-staging && kubectl port-forward service/staging-superset 8088:8088",
         "test": "jest --forceExit --detectOpenHandles --coverage --coverageProvider=v8"
     },
     "dependencies": {

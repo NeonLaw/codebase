@@ -161,7 +161,27 @@ doppler run -- yarn run neo4j-proxy-production
 
 With either command (both cannot be ran at the same time), you'll have a
 local Neo4j instance at `127.0.0.1:7474` if you have the proper GCP SQL
-credentials for staging and production.
+credentials for staging and production. To keep the connection alive, run
+`yarn neo4j-poll` to ping the neo4j server every 10 seconds.
+
+### Superset Proxy
+
+If you need to access either the staging or production Superset on your local
+machine, you can connect to it via GKE Service Port forwarding, similar to the
+Neo4j proxy above. You can connect to `staging` and `production` with these
+respective commands:
+
+```bash
+doppler setup # staging
+doppler run -- yarn run superset-proxy-staging
+doppler setup # production
+doppler run -- yarn run superset-proxy-production
+```
+
+With either command (both cannot be ran at the same time), you'll have a
+local Superset instance at `127.0.0.1:8088` if you have the proper GCP SQL
+credentials for staging and production. To keep the connection alive, run
+`yarn superset-poll` to ping the neo4j server every 10 seconds.
 
 ## Third-Party SaaS Services
 
