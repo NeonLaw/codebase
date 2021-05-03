@@ -13,7 +13,7 @@ import {
   MenuList,
   useDisclosure,
 } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { BlackLivesMatter } from './blackLivesMatter';
@@ -44,11 +44,18 @@ export const BaseNavigationBar = ({
 }: BaseNavigationBarProps) => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const [loginButtonDisabled, disableLoginButton] = useState(false);
+  const [hideSearch, setIsHideSearch] = useState(false);
   const intl = useIntl();
   const router = useRouter();
   const { isLoading, user } = useUser();
   const { locale } = useNextIntl();
   const dir = GetLayoutDirection();
+
+  useEffect(() => {
+    if(router.pathname === '/') {
+      setIsHideSearch(true)
+    }
+  })
 
   return (
     <>
@@ -80,11 +87,13 @@ export const BaseNavigationBar = ({
               </a>
             </NextLink>
 
-            <Search
-              version="desktop"
-              isRenderedOnDashboard={false}
-              background={colors.background.dark}
-            />
+            {!hideSearch ? (
+              <Search
+                version="desktop"
+                isRenderedOnDashboard={false}
+                background={colors.background.dark}
+              />
+            ) : null}
 
             <Flex flexGrow={1} align="center" justify="flex-end">
               {links.map((link, i) => (
@@ -118,7 +127,7 @@ export const BaseNavigationBar = ({
                           '&:after': {
                             background: colors.primaryColor400,
                             left: 0,
-                            right: 0 
+                            right: 0,
                           },
                           color: colors.primaryColor400,
                         } as any
