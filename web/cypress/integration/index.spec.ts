@@ -7,9 +7,9 @@ describe('Visiting /', function () {
     // cy.get('button.nav-content-mobile').click();
     // cy.get('nav[aria-label="Main navigation"]').contains('Contact').click();
   });
-  it("Pressing '/' focuses the search in the hero and shows the search results.", () => {
-    cy.get("body").type("/").type("123")
-    cy.wait(1000)
-    cy.get('[data-testId="question"]')
-  })
+  it('Pressing \'/\' focuses the search in the hero.', () => {
+    cy.get('body').type('/').type('123');
+    cy.wait(1000);
+    cy.get('[data-testId="question"]');
+  });
 });

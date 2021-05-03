@@ -53,9 +53,9 @@ export const BaseNavigationBar = ({
 
   useEffect(() => {
     if(router.pathname === '/') {
-      setIsHideSearch(true)
+      setIsHideSearch(true);
     }
-  })
+  });
 
   return (
     <>

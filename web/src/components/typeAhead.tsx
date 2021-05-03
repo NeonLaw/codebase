@@ -1,10 +1,10 @@
 import { gql, useLazyQuery } from '@apollo/client';
+import { useEffect, useRef, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Box } from '@chakra-ui/react';
 import Link from 'next/link';
 import { gutters } from '../styles/neonLaw';
 import styled from '@emotion/styled';
-import { useState, useRef, useEffect } from 'react';
 
 const StyledInput = styled.input`
   display: inline-block;
