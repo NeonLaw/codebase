@@ -157,7 +157,7 @@ jobs:
       - name: Publish to PyPi
         working-directory: ./diagrams
         run: |
-          doppler run -- poetry config http-basic.pypi "__token__" "${POETRY_PYPI_TOKEN_PYPI}"
+          poetry config http-basic.pypi "__token__" "$(doppler secrets get POETRY_PYPI_TOKEN_PYPI --plain)"
           poetry publish --build
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
