@@ -140,8 +140,12 @@ jobs:
 
   update_neon_diagrams_package:
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/neon_diagrams@')
+
     steps:
       - uses: actions/checkout@v2
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v1
       - uses: actions/setup-python@v1
         with:
           python-version: '3'
