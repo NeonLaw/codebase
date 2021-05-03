@@ -19,7 +19,9 @@ deployed to our staging and production environment.
 |[neon_diagrams](./diagrams)|![RubyGems.Org](https://img.shields.io/pypi/v/neon_diagrams)|n/a|n/a|
 
 This repo also contains an `infrastructure` folder for managing cloud and
-SaaS resources with Terraform.
+SaaS resources with Terraform and a `shell` folder containing our base docker
+image, which contains all the libraries necessary to work on any of the above
+packages.
 
 ## Developer Setup
 
