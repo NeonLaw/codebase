@@ -1,7 +1,5 @@
 import { Box, Center } from '@chakra-ui/react';
-
 import { Button } from '../components/button';
-import React from 'react';
 import { useIntl } from 'react-intl';
 
 export const EmailListButton = () => {

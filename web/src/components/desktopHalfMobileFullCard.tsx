@@ -5,7 +5,6 @@ import { Box, useColorMode } from '@chakra-ui/react';
 import { colors, shadows } from '../styles/neonLaw';
 
 import Link from 'next/link';
-import React from 'react';
 import styled from '@emotion/styled';
 
 const ContentWrapper = styled.a`
