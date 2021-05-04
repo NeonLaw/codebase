@@ -5,11 +5,9 @@ require "faker"
 require "fixture_dependencies/rspec/sequel"
 
 Sequel::Model.db = NeonPostgres::Database.connection
-class Person < Sequel::Model; end
-
-class DocumentTemplate < Sequel::Model; end
-
 FixtureDependencies.fixture_path = "#{__dir__}/fixtures"
+
+require_relative "sequel_models"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
