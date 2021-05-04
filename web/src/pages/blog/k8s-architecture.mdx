@@ -10,12 +10,56 @@ export default ({ children }) => <BlogLayout meta={meta}>{children}</BlogLayout>
 
 The above diagram, generated
 [here](https://github.com/NeonLaw/codebase/blob/main/diagrams/neon_diagrams/k8s_diagram.py),
-details how we deploy our Next.JS app, aka the app you're currently interfacing
-with, with a git-flow managed my Vercel.
+details our Kubernetes clusters. We maintain two, one for staging and one for
+production. Each cluster is deployed on GKE in the Las Vegas region in its own
+GCP project.
 
-Upon each push to a non-`main` branch, a Vercel deployment is created with
-environment variables that speak to our staging Kubernetes server and SaaS
-services. When a push to the `main` branch happens, our production Vercel
-deployment is updated with the latest commit.
+In the diagram above, we highlight the production GKE cluster and the processes
+deployed from packages built in this repo or vendor-managed software. Let's
+traverse this diagram starting from the Load Balancer, which is where users
+interface with Neon Law software.
 
-These Vercel hooks run no matter what code in our codebase is changed.
+The Load Balancer is managed by Google Cloud. By enforcing all ingress traffic
+to funnel through the Load Balancer we can leverage the benefits of this managed
+service including SSL encryption, WAF, and CDN support.
+
+### Kubernetes Ingress
+Kubernetes Ingress within our cluster is managed by Nginx, which is installed
+with its Helm Chart and managed in our Terraform scripts. With the Nginx helm
+chart installed, we can define various ingress files to map incoming DNS entries
+with Kubernetes services.
+
+We have two defined ingress rules, `@neonlaw/api` and `superset`.
+
+### @neonlaw/api
+This service points to a Kubernetes deployment we manage that serves our
+[GraphQL API](https://api.neonlaw.com/graphiql). Please refer to the `./server`
+directory of our [GitHub codebase](https://github.com/neonlaw/codebase) to learn
+more about what this package does.
+
+### Superset
+This service points to a managed Apache Superset offering. Like Nginx and every
+other external software ran in this Kubernetes cluster, it is installed with its
+Helm chart and managed in our Terraform scripts. You can visit our Superset
+instance at https://superset.neonlaw.com (our staging Superset exists at
+https://superset.neonlaw.net).
+
+Superset is an open-source business intelligence tool that provides us with
+internal data snapshots and visualizations. In each Superset instance, we plug
+in our datasources.
+
+### Databases
+We currently use Google Cloud's managed PostgreSQL offering. Everything else is
+deployed in Helm Charts in our database. We use Neo4j, Elasticsearch and Kafka.
+Each can be completely regenerated with data stored in our PostgreSQL database.
+
+### Logging
+We deploy Fluentd to collect STDOUT from each of our pods. Fluentd, then posts a
+subset of these logs to Logflare which then saves that data longterm in
+BigQuery and saves all of the logs in long-term storage in a separate GCP
+Project for auditing.
+
+### Authentication
+Some of our applications depend on authentication tokens which we use Auth0 for.
+After a user authenticates with Auth0, they have a limited-access token to
+access some of our resources.

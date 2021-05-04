@@ -7,8 +7,10 @@ from diagrams.k8s.ecosystem import Helm
 from diagrams.programming.language import NodeJS, Ruby
 from diagrams.onprem.database import PostgreSQL, Neo4J
 from diagrams.onprem.queue import Kafka
+from diagrams.gcp.network import LoadBalancing
 from diagrams.onprem.network import Nginx
 from diagrams.gcp.analytics import BigQuery
+from diagrams.gcp.storage import Storage
 from diagrams.elastic.elasticsearch import Elasticsearch
 import os
 
@@ -16,63 +18,81 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 web_images_path = f"{dir_path}/../../web/public/images"
 
 with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
-
-    postgres = PostgreSQL("GCP Postgres")
-    staging_postgres = PostgreSQL("GCP Staging Postgres")
-    big_query = BigQuery("BigQuery")
     logflare = Custom("Logflare", f"{dir_path}/images/logflare.png")
+    auth0 = Custom("Auth0", f"{dir_path}/images/auth0.png")
 
-    with Cluster("GKE"):
-        with Cluster("Kafka"):
-            kafka = Kafka("Kafka")
-            kafka << Helm("Confluent")
+    with Cluster("Separate Staging GCP Project"):
+        staging_postgres = PostgreSQL("GCP Staging Postgres")
 
-        with Cluster("Neo4j"):
-            neo4j = Neo4J("Neo4j")
-            neo4j << Helm("Neo4j")
+    with Cluster("Separate Audit GCP Project"):
+        audit_bucket = Storage("private_assets")
 
-        with Cluster("Elastic"):
-            search = Elasticsearch("Elasticsearch")
+    with Cluster("Production GCP Project"):
+        postgres = PostgreSQL("GCP Postgres")
+        big_query = BigQuery("BigQuery")
+        load_balancer = LoadBalancing("L7 Load Balancer")
+        private_asset_bucket = Storage("private_assets")
 
-        with Cluster("Fluentd"):
-            fluentd = Fluentd("Fluentd")
+        logflare >> big_query
 
-            fluentd >> logflare
-            fluentd >> Helm("Fluentd")
+        with Cluster("GKE"):
+            with Cluster("Kafka"):
+                kafka = Kafka("Kafka")
+                kafka << Helm("Confluent")
 
-        with Cluster("Nginx"):
-            nginx = Nginx("Nginx Ingress")
-            nginx << Helm("Nginx")
+            with Cluster("Neo4j"):
+                neo4j = Neo4J("Neo4j")
+                neo4j << Helm("Neo4j")
 
-        with Cluster("@neonlaw/api"):
-            api_package = NodeJS("@neonlaw/graphql")
-            api = (
-                api_package
-                << Deployment("@neonlaw/graphql")
-                << Service("@neonlaw/graphql")
-            )
+            with Cluster("Elastic"):
+                search = Elasticsearch("Elasticsearch")
 
-        with Cluster("neon_email"):
-            email_package = Ruby("email")
-            email_package << Deployment("Email")
+            with Cluster("Fluentd"):
+                fluentd = Fluentd("Fluentd")
 
-        ingress = Ingress("Nginx")
-        ingress >> nginx
+                fluentd >> audit_bucket
+                fluentd >> logflare
+                fluentd >> Helm("Fluentd")
 
-        superset = Custom("Superset", f"{dir_path}/images/superset.png")
+            with Cluster("Nginx"):
+                nginx = Nginx("Nginx Ingress")
+                nginx << Helm("Nginx")
 
-        worker_package = NodeJS("@neonlaw/worker")
-        worker = worker_package << Deployment("@neonlaw/worker")
+            with Cluster("@neonlaw/api"):
+                api_package = NodeJS("@neonlaw/api")
+                api = (
+                    api_package
+                    << Deployment("@neonlaw/api")
+                    << Service("@neonlawapigraphql")
+                )
 
-        data_copy_package = Ruby("neon_postgres (data copy)")
-        data_copy = data_copy_package << Cronjob("2AM PST everyday")
+            with Cluster("neon_email"):
+                email_package = Ruby("email")
+                email_package << Deployment("Email")
 
-        [api_package, worker_package, email_package] >> fluentd
-        [api_package, worker_package, data_copy_package] << postgres
-        [worker_package, email_package, data_copy_package] << kafka
-        [api_package] << neo4j
-        [api_package] << search
-        superset << [postgres, kafka, neo4j, search, big_query]
-        ingress >> [api, superset]
+            ingress = Ingress("Nginx")
+            ingress >> nginx
 
-        data_copy_package >> staging_postgres
+            superset = Custom("Superset", f"{dir_path}/images/superset.png")
+
+            with Cluster("@neonlaw/worker"):
+                worker_package = NodeJS("@neonlaw/worker")
+                worker = worker_package << Deployment("@neonlaw/worker")
+
+            with Cluster("production to staging data transfer"):
+                data_copy_package = Ruby("neon_email")
+                data_copy = data_copy_package << Cronjob("2AM PST everyday")
+
+            [api_package, nginx, superset] >> auth0
+            [api_package, worker_package, email_package] >> fluentd
+            [api_package, worker_package, data_copy_package] >> postgres
+            [api_package, worker_package, data_copy_package] >> private_asset_bucket
+            [worker_package, email_package, data_copy_package] >> kafka
+            [api_package] >> neo4j
+            [api_package] >> search
+            superset >> [postgres, kafka, neo4j, search, big_query]
+            nginx >> [api, superset]
+
+            load_balancer >> ingress
+
+            data_copy_package >> staging_postgres
