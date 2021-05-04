@@ -57,7 +57,12 @@ jobs:
         working-directory: ./postgres
         run: bundle
       - name: Commit Graphile Migrate migrations
-        run: doppler run -- yarn graphile-worker --schema-only
+        run: |
+          doppler run -- yarn graphile-worker --schema-only
+          DATABASE_URL=$(doppler secrets get PRODUCTION_DATABASE_URL --plain) \
+            yarn graphile-workr --schema-only
+          DATABASE_URL=$(doppler secrets get STAGING_DATABASE_URL --plain) \
+            yarn graphile-workr --schema-only
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Commit migrations
