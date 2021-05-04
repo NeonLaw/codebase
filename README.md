@@ -139,7 +139,7 @@ at `localhost:5434`.
 To copy data from production to staging, run the following script:
 
 ```bash
-doppler run -- bundle exec ruby lib/neon_postgres/production_to_staging/copy.rb
+doppler run -- bundle exec ruby lib/neon_postgres/inter_database_copy/copy.rb
 ```
 
 This will copy data over from production to staging while anonymizing client

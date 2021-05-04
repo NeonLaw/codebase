@@ -2,11 +2,11 @@ import {
   Box,
   Heading,
 } from '@chakra-ui/react';
-import { gutters, sizes } from '../../styles/neonLaw';
+import { gutters, sizes } from '../../../styles/neonLaw';
 import {
   DataDeletionDashborard
-} from '../../components/dashboards/dataDeletionDashboard';
-import { PortalLayout } from '../../components/layouts/portalLayout';
+} from '../../../components/dashboards/dataDeletionDashboard';
+import { PortalLayout } from '../../../components/layouts/portalLayout';
 import { useIntl } from 'react-intl';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 

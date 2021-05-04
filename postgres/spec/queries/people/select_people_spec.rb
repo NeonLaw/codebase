@@ -5,7 +5,7 @@ RSpec.describe "select from people;" do
   context "with no session" do
     it "returns all three people" do
       seed_data
-      expect(connection[:people].all.count).to eq 3
+      expect(connection[:people].all.count).to eq 6
     end
   end
 
@@ -38,7 +38,7 @@ RSpec.describe "select from people;" do
     let(:admin_user) { load(:person__admin_user) }
 
     it "loads all the people" do
-      expect(Person.all.count).to eq 3
+      expect(Person.all.count).to eq 6
       expect(Person.all).to include admin_user
     end
   end
