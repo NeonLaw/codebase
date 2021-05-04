@@ -1,5 +1,5 @@
 require_relative "../database"
-require "pry"
+require 'faker'
 
 module NeonPostgres
   module InterDatabaseCopy

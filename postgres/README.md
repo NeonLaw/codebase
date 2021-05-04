@@ -10,7 +10,8 @@ To copy data between two databases, start each, and set the environment
 variables `FROM_DATABASE_URL` and `TO_DATABASE_URL`. Then you can run:
 
 ```
-bundle exec ruby neon_postgres/inter_database_copy/copy.rb
+doppler setup # gcp
+doppler run - bundle exec ruby lib/neon_postgres/inter_database_copy/copy.rb
 ```
 
 We use this ruby script to copy data from `production` to `staging` so we can
