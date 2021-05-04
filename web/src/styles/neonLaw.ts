@@ -47,7 +47,7 @@ export const colors = {
   primaryColor400: theme.colors.cyan[400],
   primaryColor800: theme.colors.cyan[800],
   primaryColor900: theme.colors.cyan[900],
-  text: { dark: 'white', darkLight: '#eee', light: '#222' },
+  text: { dark: '#f4f4f4', darkLight: '#eee', light: '#222' },
   textareaBackground: { dark: theme.colors.gray[800], light: 'white' },
   textareaToolbarActiveBackground: {
     dark: theme.colors.gray[600],

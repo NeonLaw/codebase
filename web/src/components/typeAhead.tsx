@@ -1,24 +1,35 @@
+import { colors, gutters, theme } from '../styles/neonLaw';
 import { gql, useLazyQuery } from '@apollo/client';
 import { useEffect, useRef, useState } from 'react';
+
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Box } from '@chakra-ui/react';
+import { GetLayoutDirection } from '../../utils/getLayoutDirection';
 import Link from 'next/link';
-import { gutters } from '../styles/neonLaw';
 import styled from '@emotion/styled';
 
 const StyledInput = styled.input`
   display: inline-block;
   width: 100%;
   padding: ${gutters.xSmallOne} ${gutters.small};
-  border: 1px solid #ddd ;
+  border: 1px solid ${theme.colors.gray[300]};
   box-shadow: 0 10px 20px rgba(0,0,0, .10);
   border-radius: 3px;
   transition: all .2s;
+  color: ${colors.text.light};
+
+  @media(max-width: 440px) {
+    padding: ${gutters.xSmallOne};
+  }
 
   &::placeholder {
     font-size: 20px;
-    color: #555;
+    color: ${theme.colors.gray[900]};
     font-weight: 300;
+
+    @media(max-width: 445px) {
+      font-size: 17px;
+    }
   }
 
   &:focus {
@@ -26,15 +37,20 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledInputWrapper = styled.div`
+const StyledInputWrapper = styled.div<{dir: 'rtl' | 'ltr'}>`
   position: relative;
 
   .icon {
     position: absolute;
     top: 50%;
-    right: ${gutters.small};
+    right: ${({dir}) => dir === 'ltr' ? gutters.small : ''};
+    left: ${({dir}) => dir === 'rtl' ? gutters.small : ''};
     transform: translateY(-50%);
-    color: #bbb;
+    color: ${theme.colors.gray[500]};
+
+    @media(max-width: 445px) {
+      right: ${gutters.xSmallOne};
+    }
   }
 `;
 
@@ -54,6 +70,7 @@ export const TypeAhead = () => {
   const [questions, setQuestions] = useState([]);
   const [text, setText] = useState('');
   const inputRef = useRef<any>();
+  const dir = GetLayoutDirection();
 
   const handleSlashPress = (e) => {
     if (e.key === '/') {
@@ -122,7 +139,7 @@ export const TypeAhead = () => {
 
 
   return (
-    <StyledInputWrapper>
+    <StyledInputWrapper dir={dir}>
       <StyledInput
         name="type-ahead"
         ref={inputRef}
