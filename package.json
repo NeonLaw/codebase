@@ -85,6 +85,9 @@
         "superset-poll": "while true ; do nc -vz 127.0.0.1 8088 ; sleep 10 ; done",
         "superset-proxy-production": "gcloud container clusters get-credentials neon-law-production --region us-west4 --project neon-law-production && kubectl port-forward service/production-superset 8088:8088",
         "superset-proxy-staging": "gcloud container clusters get-credentials neon-law-staging --region us-west4 --project neon-law-staging && kubectl port-forward service/staging-superset 8088:8088",
+        "kafka-cc-poll": "while true ; do nc -vz 127.0.0.1 9021 ; sleep 10 ; done",
+        "kafka-cc-proxy-production": "gcloud container clusters get-credentials neon-law-production --region us-west4 --project neon-law-production && kubectl port-forward service/production-kafka-cp-control-center 9021:9021",
+        "kafka-cc-proxy-staging": "gcloud container clusters get-credentials neon-law-staging --region us-west4 --project neon-law-staging && kubectl port-forward service/staging-kafka-cp-control-center 9021:9021",
         "test": "jest --forceExit --detectOpenHandles --coverage --coverageProvider=v8"
     },
     "dependencies": {
