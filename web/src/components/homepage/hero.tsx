@@ -23,6 +23,7 @@ const StyledHeadline = styled.div`
   h1 {
     font-size: 4.5rem;
     font-weight: 400;
+    color: ${colors.text.dark};
 
     @media(max-width: 767px) {
       font-size: 3.8rem;
