@@ -1,7 +1,7 @@
-import { useNextIntl } from '@moxy/next-intl';
+import { useRouter } from 'next/router';
 
 export const GetLayoutDirection = () => {
-  const { locale } = useNextIntl();
+  const { locale  } = useRouter();
 
-  return locale.name === 'Urdu' ? 'rtl' : 'ltr';
+  return locale === 'ur' ? 'rtl' : 'ltr';
 };

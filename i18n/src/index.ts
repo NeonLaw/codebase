@@ -33,7 +33,7 @@ export const createFlattenedJson = (locale): any => {
   const flattenedMessages = flattenMessages(translations);
 
   fs.writeFileSync(
-    `${__dirname}/locales/${locale}.json`,
+    `${__dirname}/../../web/src/intl/${locale}.json`,
     JSON.stringify(flattenedMessages)
   );
 

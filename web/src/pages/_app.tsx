@@ -1,6 +1,8 @@
 import '../styles/globals.css';
 
+import { getIntlProps, withIntlApp } from '@moxy/next-intl';
 import { ApolloProvider } from '@apollo/client';
+import App from 'next/app';
 import { BaseStyles } from '../styles/baseStyles';
 import { ChakraProvider } from '@chakra-ui/react';
 import { GetLayoutDirection } from '../../utils/getLayoutDirection';
@@ -9,10 +11,8 @@ import { ShortcutsModal } from '../components/shortcuts-modal';
 import { UserProvider } from '@auth0/nextjs-auth0';
 import { getApolloClient } from '../utils/getApolloClient';
 import { handleFirstTab } from '../utils/accessibility';
-import nextIntlConfig from '../intl';
 import { theme } from '../styles/neonLaw';
 import { useEffect } from 'react';
-import { withNextIntlSetup } from '@moxy/next-intl';
 
 const NeonLawApp = ({ Component, pageProps }) => {
   useEffect(() => {
@@ -43,5 +43,27 @@ const NeonLawApp = ({ Component, pageProps }) => {
   );
 };
 
+NeonLawApp.getInitialProps = async (appCtx) => {
+  appCtx.ctx.locale = appCtx.router.locale;
+  appCtx.ctx.locales = appCtx.router.locales;
+  appCtx.ctx.defaultLocale = appCtx.router.defaultLocale;
+
+  const [intlProps, appProps] = await Promise.all([
+    getIntlProps(appCtx.router.locale),
+    App.getInitialProps(appCtx),
+  ]);
+
+  return {
+    ...appProps,
+    ...intlProps,
+  };
+};
+
+const loadLocale = async (locale) => {
+  const module = await import(`../intl/${locale}.json`);
+
+  return module.default;
+};
+
 /* eslint-disable-next-line import/no-default-export */
-export default withNextIntlSetup(nextIntlConfig)(NeonLawApp);
+export default withIntlApp(loadLocale)(NeonLawApp);

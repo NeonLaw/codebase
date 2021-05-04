@@ -1,0 +1,26 @@
+---
+name: translation_tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  translations_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Check that the translations are the latest
+        working-directory: ./i18n
+        run: |
+          yarn translations:create
+          git diff -G. --exit-code .
