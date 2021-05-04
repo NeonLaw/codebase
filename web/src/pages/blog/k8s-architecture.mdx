@@ -1,0 +1,21 @@
+export const meta = {
+  title: "K8s Architecture",
+  slug: "/blog/k8s-architecture",
+  updatedAt: "2019-09-15",
+  featuredImage: "k8s_diagram.png",
+  tags: "programming,gcp,vercel"
+}
+import { BlogLayout } from '../../components/layouts/blogLayout';
+export default ({ children }) => <BlogLayout meta={meta}>{children}</BlogLayout>
+
+The above diagram, generated
+[here](https://github.com/NeonLaw/codebase/blob/main/diagrams/neon_diagrams/web.py),
+details how we deploy our Next.JS app, aka the app you're currently interfacing
+with, with a git-flow managed my Vercel.
+
+Upon each push to a non-`main` branch, a Vercel deployment is created with
+environment variables that speak to our staging Kubernetes server and SaaS
+services. When a push to the `main` branch happens, our production Vercel
+deployment is updated with the latest commit.
+
+These Vercel hooks run no matter what code in our codebase is changed.

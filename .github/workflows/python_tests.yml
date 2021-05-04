@@ -30,5 +30,8 @@ jobs:
       - name: Check that the diagrams are the latest
         working-directory: ./diagrams
         run: |
-          poetry run python -m neon_diagrams.web
+          poetry run python -m neon_diagrams.web_diagram
+          poetry run python -m neon_diagrams.gcp_diagram
+          poetry run python -m neon_diagrams.k8s_diagram
+          poetry run python -m neon_diagrams.kafka_diagram
           git diff -G. --exit-code .
