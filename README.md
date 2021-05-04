@@ -12,7 +12,7 @@ deployed to our staging and production environment.
 |[@neonlaw/web](./web)|![NPM](https://img.shields.io/npm/v/@neonlaw/web)|deployed on pull requests by Vercel|latest `main` branch commit ([link](https://www.neonlaw.com))|
 |[@neonlaw/server](./server)|![NPM](https://img.shields.io/npm/v/@neonlaw/server)|latest `main` branch commit ([link](https://api.neonlaw.net/graphiql))|v0.1.0 ([link](https://api.neonlaw.com/graphiql))|
 |[@neonlaw/i18n](./i18n)|![NPM](https://img.shields.io/npm/v/@neonlaw/i18n)|n/a|n/a|
-|[neon_nlp](./neon_nlp)|![Crates.io](https://img.shields.io/crates/v/neon_nlp)|n/a|n/a|
+|[neon_nlp](./nlp_server)|![Crates.io](https://img.shields.io/crates/v/neon_nlp)|n/a|n/a|
 |[git_flow](./git_flow)|![Crates.io](https://img.shields.io/crates/v/git_flow)|n/a|n/a|
 |[neon_postgres](./postgres)|![RubyGems.Org](https://img.shields.io/gem/v/neon_postgres)|n/a|n/a|
 |[neon_email](./email)|![RubyGems.Org](https://img.shields.io/gem/v/neon_email)|n/a|n/a|
