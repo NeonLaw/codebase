@@ -29,7 +29,10 @@ const NeonLawApp = ({ Component, pageProps }) => {
       <ChakraProvider theme={theme}>
         <ApolloProvider client={apolloClient}>
           <Head>
-            <meta name="viewport" />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
           </Head>
           <BaseStyles dir={GetLayoutDirection()} />
           <ShortcutsModal />
