@@ -60,9 +60,9 @@ jobs:
         run: |
           doppler run -- yarn graphile-worker --schema-only
           DATABASE_URL=$(doppler secrets get PRODUCTION_DATABASE_URL --plain) \
-            yarn graphile-workr --schema-only
+            yarn graphile-worker --schema-only
           DATABASE_URL=$(doppler secrets get STAGING_DATABASE_URL --plain) \
-            yarn graphile-workr --schema-only
+            yarn graphile-worker --schema-only
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Commit migrations
