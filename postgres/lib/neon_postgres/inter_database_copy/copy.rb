@@ -14,6 +14,6 @@ NeonPostgres::Database.to_connection[:matters].all.each do |matter|
   NeonPostgres::Database.to_connection[:matter_contacts].insert_conflict.insert(
     matter_id: matter.fetch(:id),
     contact_id: admin_id,
-    role: 'lawyer'
+    role: "lawyer"
   )
 end
