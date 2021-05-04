@@ -16,7 +16,7 @@ deployed to our staging and production environment.
 |[git_flow](./git_flow)|![Crates.io](https://img.shields.io/crates/v/git_flow)|n/a|n/a|
 |[neon_postgres](./postgres)|![RubyGems.Org](https://img.shields.io/gem/v/neon_postgres)|n/a|n/a|
 |[neon_email](./email)|![RubyGems.Org](https://img.shields.io/gem/v/neon_email)|n/a|n/a|
-|[neon_diagrams](./diagrams)|![RubyGems.Org](https://img.shields.io/pypi/v/neon_diagrams)|n/a|n/a|
+|[neon_diagrams](./diagrams)|![PyPi](https://img.shields.io/pypi/v/neon_diagrams)|n/a|n/a|
 
 This repo also contains an `infrastructure` folder for managing cloud and
 SaaS resources with Terraform and a `shell` folder containing our base docker
@@ -145,6 +145,25 @@ doppler run -- bundle exec ruby lib/neon_postgres/inter_database_copy/copy.rb
 This will copy data over from production to staging while anonymizing client
 data so we can develop the app without exposing the attorney-client privilege of
 the firm.
+
+### Kafka Command Center Proxy
+
+If you need to access either the staging or production kafka on your local
+machine, you can connect to it via GKE Service Port forwarding. You can
+connect to `staging` and `production` with these respective commands:
+
+```bash
+doppler setup # staging
+doppler run -- yarn run kafka-cc-proxy-staging
+doppler setup # production
+doppler run -- yarn run kafka-cc-proxy-production
+```
+
+With either command (both cannot be ran at the same time), you'll have a
+local Kafka Command Center instance at `127.0.0.1:9021` if you have the proper
+GCP SQL credentials for staging and production. To keep the connection alive,
+run `yarn kafka-cc-poll` to ping the kafka command center web-app every 10
+seconds.
 
 ### Neo4j Proxy
 
