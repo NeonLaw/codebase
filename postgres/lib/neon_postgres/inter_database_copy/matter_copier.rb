@@ -1,4 +1,5 @@
 require_relative "../database"
+require "pry"
 
 module NeonPostgres
   module InterDatabaseCopy
@@ -20,11 +21,47 @@ module NeonPostgres
 
       def copy
         from_dataset.each do |row|
-          to_dataset
-            .insert_conflict(
-              target: :name,
-              update: {description: Sequel[:excluded][:description]}
-            ).insert(row)
+          to_connection[:matter_templates].insert_conflict(
+            target: :id,
+            update: {
+              category: Sequel[:excluded][:category],
+              name: Sequel[:excluded][:name],
+              description: Sequel[:excluded][:description]
+            }
+          ).insert({
+            id: row.fetch(:matter_template_id),
+            name: row.fetch(:matter_templates_name),
+            category: row.fetch(:category),
+            description: row.fetch(:matter_templates_description)
+          })
+
+          to_connection[:people].insert_conflict(
+            target: :id,
+            update: {
+              name: Sequel[:excluded][:name],
+              email: Sequel[:excluded][:email],
+              sub: Sequel[:excluded][:sub]
+            }
+          ).insert({
+            id: row.fetch(:people_id),
+            name: Faker::Name.name,
+            email: Faker::Internet.email,
+            sub: Faker::Internet.uuid
+          })
+
+          to_connection[:matters].insert_conflict(
+            target: :name,
+            update: {
+              matter_template_id: Sequel[:excluded][:matter_template_id],
+              primary_contact_id: Sequel[:excluded][:primary_contact_id],
+              description: Sequel[:excluded][:description]
+            }
+          ).insert({
+            name: "#{row.fetch(:matter_templates_name)} Matter",
+            matter_template_id: row.fetch(:matter_template_id),
+            description: JSON.generate({body: Faker::Lorem.paragraphs(3)}),
+            primary_contact_id: row.fetch(:primary_contact_id)
+          })
         end
       end
 
@@ -33,11 +70,13 @@ module NeonPostgres
       attr_reader :from_connection, :to_connection
 
       def from_dataset
-        @_from_dataset ||= from_connection[:matters]
-      end
-
-      def to_dataset
-        @_to_dataset ||= to_connection[:matters]
+        @_from_dataset ||= from_connection[:matters].graph(
+          :people,
+          id: :primary_contact_id
+        ).graph(
+          :matter_templates,
+          id: Sequel[:matters][:matter_template_id]
+        )
       end
     end
   end

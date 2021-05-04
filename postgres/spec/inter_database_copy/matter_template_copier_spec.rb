@@ -10,7 +10,11 @@ RSpec.describe NeonPostgres::InterDatabaseCopy::MatterTemplateCopier do
   before { load(:matter_templates) }
 
   describe "copy" do
-    before { to_connection[:matter_templates].delete }
+    before {
+      to_connection[:matters].delete
+      to_connection[:matter_templates].delete
+      to_connection[:people].delete
+    }
 
     it "copies matter templates to the staging environment" do
       expect(to_connection[:matter_templates].all.count).to eq 0
