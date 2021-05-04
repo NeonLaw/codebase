@@ -64,10 +64,11 @@ export const BaseStyles = ({ dir }: BaseStylesProps): JSX.Element => (
       h2,
       h3,
       h4 {
-        font-family: ${dir === 'rtl' ? 'Noto Naskh Arabic' : 'Jost'},
+        font-family: ${dir === 'rtl' ? 'Noto Naskh Arabic' : 'HK Grotesk'},
           sans-serif ${dir.length && '!important'};
         font-weight: 400;
         line-height: 1.35 !important;
+        color: ${theme.colors.white};
       }
 
       h1 {
