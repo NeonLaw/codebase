@@ -6,6 +6,8 @@ locals {
         "kubernetes.io/ingress.global-static-ip-name" = "neon-law"
         "ingress.gcp.kubernetes.io/pre-shared-cert"   = "neon-law-superset"
       }
+
+      hosts = var.environment == "production" ? ["superset.neonlaw.com"] : ["superset.neonlaw.net"]
     }
   }
 }
