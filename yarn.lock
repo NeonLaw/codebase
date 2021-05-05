@@ -2894,6 +2894,11 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
+"@opentelemetry/api-metrics@0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@opentelemetry/api-metrics/-/api-metrics-0.19.0.tgz#3b5944ce86f4551cbff1afdc1d064adf18a2db68"
+  integrity sha512-1JpnkwCkYgZvbcHkF0nNK6RkMqoEx7zxM3oyMEkFNT7F4nh4tFMDHJ+BRelMk8kzeYtnyZ0YCshhO9xS3SXSHQ==
+
 "@opentelemetry/api-metrics@^0.18.2":
   version "0.18.2"
   resolved "https://registry.yarnpkg.com/@opentelemetry/api-metrics/-/api-metrics-0.18.2.tgz#12ad987cb785e142508e6df3772b8908f2edd8de"
@@ -2908,10 +2913,15 @@
   dependencies:
     "@opentelemetry/context-base" "^0.14.0"
 
-"@opentelemetry/api@^0.18.0", "@opentelemetry/api@^0.18.1":
+"@opentelemetry/api@^0.18.1":
   version "0.18.1"
   resolved "https://registry.yarnpkg.com/@opentelemetry/api/-/api-0.18.1.tgz#fb499e07afa1f55acffc47b2469eb218dcdee2a2"
   integrity sha512-pKNxHe3AJ5T2N5G3AlT9gx6FyF5K2FS9ZNc+FipC+f1CpVF/EY+JHTJ749dnM2kWIgZTbDJFiGMuc0FYjNSCOg==
+
+"@opentelemetry/api@^1.0.0-rc.0":
+  version "1.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@opentelemetry/api/-/api-1.0.0-rc.0.tgz#0c7c3f5e1285f99cedb563d74ad1adb9822b5144"
+  integrity sha512-iXKByCMfrlO5S6Oh97BuM56tM2cIBB0XsL/vWF/AtJrJEKx4MC/Xdu0xDsGXMGcNWpqF7ujMsjjnp0+UHBwnDQ==
 
 "@opentelemetry/context-async-hooks@^0.18.2":
   version "0.18.2"
@@ -2945,21 +2955,31 @@
     "@opentelemetry/resources" "^0.18.2"
     "@opentelemetry/tracing" "^0.18.2"
 
-"@opentelemetry/instrumentation-graphql@^0.15.0":
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/@opentelemetry/instrumentation-graphql/-/instrumentation-graphql-0.15.0.tgz#a5c980f3edb09799c2574c31195b7612b59a81fe"
-  integrity sha512-idP1IMoqhQTTArjqyo5bna5V4IDvf/8dkdD3IdxcQS2CQLYFcEqgxhLsyldHTBLcYYhwyUWS7EgQXkehoBD6ng==
+"@opentelemetry/instrumentation-graphql@^0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@opentelemetry/instrumentation-graphql/-/instrumentation-graphql-0.16.0.tgz#9cccd540d7bcafbd66429b7b61c616f96acc347c"
+  integrity sha512-XwqLsk8ANbCRGg+4kPnh32xHrv2+vBo3tqU+LgDSoKBZ26/JN+NmaJ3rjKSsXpJ1g3FySwK3SRRs65gUcQG72A==
   dependencies:
-    "@opentelemetry/api" "^0.18.0"
-    "@opentelemetry/instrumentation" "^0.18.0"
+    "@opentelemetry/api" "^1.0.0-rc.0"
+    "@opentelemetry/instrumentation" "^0.19.0"
 
-"@opentelemetry/instrumentation@^0.18.0", "@opentelemetry/instrumentation@^0.18.2":
+"@opentelemetry/instrumentation@^0.18.2":
   version "0.18.2"
   resolved "https://registry.yarnpkg.com/@opentelemetry/instrumentation/-/instrumentation-0.18.2.tgz#c487180fae6d8ee77e3901ac0eadcbae85f64166"
   integrity sha512-FJ04HuBTrKtLdht5QlZtR/yW++WIptOCDpzm0/IrNU7SPqxvLCaOp5EKzSrz+Hwf8Lhj/dXD/PMrQInY9x+Clw==
   dependencies:
     "@opentelemetry/api" "^0.18.1"
     "@opentelemetry/api-metrics" "^0.18.2"
+    require-in-the-middle "^5.0.3"
+    semver "^7.3.2"
+    shimmer "^1.2.1"
+
+"@opentelemetry/instrumentation@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@opentelemetry/instrumentation/-/instrumentation-0.19.0.tgz#219015f82134c29e6aeab5e00235e6187a1cb1f4"
+  integrity sha512-rvbJZNzgqVDO7/lvKdXoS6WJviJyV+d0lb43tF4cgFyXBvqNGCg8imS/Si4tBF0md1OvOjU+qNvjBKr/whXWOg==
+  dependencies:
+    "@opentelemetry/api-metrics" "0.19.0"
     require-in-the-middle "^5.0.3"
     semver "^7.3.2"
     shimmer "^1.2.1"
@@ -3493,10 +3513,10 @@
     p-queue "^6.6.1"
     p-retry "^4.0.0"
 
-"@stripe/stripe-js@^1.13.2":
-  version "1.13.2"
-  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-1.13.2.tgz#bb2f561085b5dd091355df871d432b8e1fd467f6"
-  integrity sha512-fycUk7ECukNc31lD5apcrUgdRC1BfiIacs+CpacoCjOgo3ablolnWCvDQWMmVWtODYa8bBv2dlBla+Edc5OvZg==
+"@stripe/stripe-js@^1.14.0":
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-1.14.0.tgz#0eb8a185197948ab9ddb62ee28ae555e7d90bc72"
+  integrity sha512-Zw4EI+ph8RPxRpIX2uwKKDIbe7WM2OarasPjIPRulU1UCj8lRFqWWW/fTj79lZtnX3FNZkiTRM13UG1UZF7yjQ==
 
 "@styled-system/background@^5.1.2":
   version "5.1.2"
@@ -7881,10 +7901,10 @@ eslint-visitor-keys@^2.0.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-2.0.0.tgz#21fdc8fbcd9c795cc0321f0563702095751511a8"
   integrity sha512-QudtT6av5WXels9WjIM7qz1XD1cWGvX4gGXvp/zBn9nXG02D0utdU3Em2m/QjTnrsk6bBjmCygl3rmj118msQQ==
 
-eslint@^7.24.0:
-  version "7.24.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.24.0.tgz#2e44fa62d93892bfdb100521f17345ba54b8513a"
-  integrity sha512-k9gaHeHiFmGCDQ2rEfvULlSLruz6tgfA8DEn+rY9/oYPFFTlz55mM/Q/Rij1b2Y42jwZiK3lXvNTw6w6TXzcKQ==
+eslint@^7.25.0:
+  version "7.25.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.25.0.tgz#1309e4404d94e676e3e831b3a3ad2b050031eb67"
+  integrity sha512-TVpSovpvCNpLURIScDRB6g5CYu/ZFq9GfX2hLNIV4dSBKxIWojeDODvYl3t0k0VtMxYeR8OXPCFE5+oHMlGfhw==
   dependencies:
     "@babel/code-frame" "7.12.11"
     "@eslint/eslintrc" "^0.4.0"
