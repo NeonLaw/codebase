@@ -29,13 +29,19 @@ with its Helm Chart and managed in our Terraform scripts. With the Nginx helm
 chart installed, we can define various ingress files to map incoming DNS entries
 with Kubernetes services.
 
-We have two defined ingress rules, `@neonlaw/api` and `superset`.
+We have three defined ingress rules, `@neonlaw/api`, `Confluent Command Center`
+and `superset`.
 
 ### @neonlaw/api
 This service points to a Kubernetes deployment we manage that serves our
 [GraphQL API](https://api.neonlaw.com/graphiql). Please refer to the `./server`
 directory of our [GitHub codebase](https://github.com/neonlaw/codebase) to learn
 more about what this package does.
+
+### Confluent Command Center
+This service points to our managed Kafka instance and the Confluent Command
+Center which is used to analyze Kafka. You can visit this at
+https://kafka.neonlaw.com or https://kafka.neonlaw.net.
 
 ### Superset
 This service points to a managed Apache Superset offering. Like Nginx and every
@@ -59,7 +65,14 @@ subset of these logs to Logflare which then saves that data longterm in
 BigQuery and saves all of the logs in long-term storage in a separate GCP
 Project for auditing.
 
+We also use Logflare as a server for Webhooks for ingesting third-party data.
+
 ### Authentication
 Some of our applications depend on authentication tokens which we use Auth0 for.
 After a user authenticates with Auth0, they have a limited-access token to
-access some of our resources.
+access our service-based deployments.
+
+### Non-Service Deployments
+
+Deployments without services listen to changes in one of our Databases, namely
+Kafka and process data there. These include our `worker` and `email` processes.
