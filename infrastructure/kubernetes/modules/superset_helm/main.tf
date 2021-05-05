@@ -11,9 +11,9 @@ resource "helm_release" "superset" {
 
   set {
     name = "ingress.annotations"
-    value = {
+    value = jsonencode({
       "kubernetes.io/ingress.global-static-ip-name" = "neon-law"
       "ingress.gcp.kubernetes.io/pre-shared-cert"   = "neon-law-superset"
-    }
+    })
   }
 }
