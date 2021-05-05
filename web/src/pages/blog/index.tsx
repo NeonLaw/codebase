@@ -28,34 +28,6 @@ const BlogIndex = () => {
             <List spacing="0.5rem" maxWidth={sizes.textContainerMedium}>
               <ListItem className="list-item">
                 <PostBanner
-                  title="Web Architecture"
-                  date={new Date()}
-                  slug="/blog/web-architecture"
-                  excerpt="The web architecture of Neon Law"
-                >
-                  <img
-                    src="/images/web_diagram.png"
-                    alt="Web Architecture Blog Post"
-                  />
-                </PostBanner>
-              </ListItem>
-
-              <ListItem className="list-item">
-                <PostBanner
-                  title="GCP Architecture"
-                  date={new Date()}
-                  slug="/blog/gcp-architecture"
-                  excerpt="The GCP architecture of Neon Law"
-                >
-                  <img
-                    src="/images/gcp_diagram.png"
-                    alt="GCP Architecture Blog Post"
-                  />
-                </PostBanner>
-              </ListItem>
-
-              <ListItem className="list-item">
-                <PostBanner
                   title="Kubernetes Architecture"
                   date={new Date()}
                   slug="/blog/k8s-architecture"
@@ -64,20 +36,6 @@ const BlogIndex = () => {
                   <img
                     src="/images/k8s_diagram.png"
                     alt="Kubernetes Architecture Blog Post"
-                  />
-                </PostBanner>
-              </ListItem>
-
-              <ListItem className="list-item">
-                <PostBanner
-                  title="Kafka Architecture"
-                  date={new Date()}
-                  slug="/blog/kafka-architecture"
-                  excerpt="The kafka architecture of Neon Law"
-                >
-                  <img
-                    src="/images/kafka_diagram.png"
-                    alt="Kafka Architecture Blog Post"
                   />
                 </PostBanner>
               </ListItem>

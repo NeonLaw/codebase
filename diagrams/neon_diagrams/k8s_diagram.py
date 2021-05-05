@@ -38,7 +38,8 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
         with Cluster("GKE"):
             with Cluster("Kafka"):
                 kafka = Kafka("Kafka")
-                kafka << Helm("Confluent")
+                kafka_command_center = Deployment("CCC")
+                kafka_command_center << kafka << Helm("Confluent")
 
             with Cluster("Neo4j"):
                 neo4j = Neo4J("Neo4j")
@@ -91,7 +92,7 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
             [api_package] >> neo4j
             [api_package] >> search
             superset >> [postgres, kafka, neo4j, search, big_query]
-            nginx >> [api, superset]
+            nginx >> [api, superset, kafka_command_center]
 
             load_balancer >> ingress
 
