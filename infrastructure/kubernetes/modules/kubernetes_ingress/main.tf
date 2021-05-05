@@ -25,17 +25,5 @@ resource "kubernetes_ingress" "primary" {
         }
       }
     }
-
-    rule {
-      host = var.environment == "production" ? "superset.neonlaw.com" : "superset.neonlaw.net"
-      http {
-        path {
-          backend {
-            service_name = "${var.environment}-superset"
-            service_port = 8088
-          }
-        }
-      }
-    }
   }
 }
