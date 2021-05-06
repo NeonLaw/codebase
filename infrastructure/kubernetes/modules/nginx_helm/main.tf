@@ -32,3 +32,18 @@ resource "helm_release" "nginx" {
     type  = "string"
   }
 }
+
+resource "kubernetes_config_map" "nginx" {
+  metadata {
+    name = "nginx-configuration"
+    labels = {
+      "app.kubernetes.io/name"    = "ingress-nginx"
+      "app.kubernetes.io/part-of" = "ingress-nginx"
+    }
+  }
+
+  data = {
+    "upstream-keepalive-timeouts" = "650"
+    "upstream-keepalive-requests" = "1000000"
+  }
+}

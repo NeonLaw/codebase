@@ -1,6 +1,6 @@
 resource "kubernetes_ingress" "primary" {
   metadata {
-    name = "ingress"
+    name = "${var.environment}-ingress"
 
     annotations = {
       "kubernetes.io/ingress.allow-http"            = "false"
