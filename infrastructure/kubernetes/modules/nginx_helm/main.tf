@@ -1,3 +1,20 @@
+locals {
+  nginx_helm_chart_values = {
+    rbac = {
+      create = true
+    }
+
+    controller = {
+      publishService = {
+        enabled = true
+      }
+      service = {
+        type = "LoadBalancer"
+      }
+    }
+  }
+}
+
 resource "helm_release" "nginx" {
   name       = "${var.environment}-nginx"
   repository = "https://kubernetes.github.io/ingress-nginx"
@@ -5,23 +22,9 @@ resource "helm_release" "nginx" {
   version    = "3.23.0"
   namespace  = "default"
 
-  set {
-    name  = "rbac.create"
-    value = "true"
-    type  = "string"
-  }
-
-  set {
-    name  = "controller.service.type"
-    value = "LoadBalancer"
-    type  = "string"
-  }
-
-  set {
-    name  = "controller.publishService.enabled"
-    value = "true"
-    type  = "string"
-  }
+  values = [
+    yamlencode(local.nginx_helm_chart_values)
+  ]
 
   set {
     name  = "defaultBackend.nodeSelector\\.beta\\.kubernetes\\.io/os"
