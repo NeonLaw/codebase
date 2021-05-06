@@ -11,6 +11,12 @@ locals {
 
       hosts = var.environment == "production" ? ["superset.neonlaw.com"] : ["superset.neonlaw.net"]
     }
+
+    additionalRequirements = [
+      "pybigquery",
+      "elasticsearch-dbapi",
+      "psycopg2"
+    ]
   }
 }
 
