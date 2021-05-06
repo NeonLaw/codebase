@@ -96,7 +96,7 @@
         "@chakra-ui/react": "^1.6.0",
         "@stripe/stripe-js": "^1.14.0",
         "@typescript-eslint/parser": "^4.22.0",
-        "@uppy/core": "^1.17.0",
+        "@uppy/core": "^1.18.0",
         "@uppy/react": "^1.11.7",
         "@uppy/transloadit": "^1.6.23",
         "@uppy/tus": "^1.8.7",
