@@ -12,11 +12,14 @@ locals {
       hosts = var.environment == "production" ? ["superset.neonlaw.com"] : ["superset.neonlaw.net"]
     }
 
-    additionalRequirements = [
-      "pybigquery",
-      "elasticsearch-dbapi",
-      "psycopg2"
-    ]
+    bootstrapScript = <<EOF
+      #!/bin/bash
+      apt-get update -y &&\
+      apt-get install -y --no-install-recommends nano &&\
+      rm -rf /var/lib/apt/lists/*
+      pip install psycopg2==2.8.5 redis==3.2.1 pybigquery elasticsearch-dbapi
+      if [ ! -f ~/bootstrap ]; then echo "Running Superset with uid {{ .Values.runAsUser }}" > ~/bootstrap; fi"
+    EOF
   }
 }
 
