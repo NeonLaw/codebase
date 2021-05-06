@@ -10,6 +10,8 @@ locals {
       }
       service = {
         type = "LoadBalancer"
+        # Add the IP Address of the globally created IP
+        loadBalancerIp = "34.107.230.13"
       }
     }
   }
