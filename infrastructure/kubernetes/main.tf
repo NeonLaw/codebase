@@ -26,7 +26,7 @@ provider "google-beta" {
   credentials = data.terraform_remote_state.gcp.outputs.gcp_credentials
 }
 
-data "google_service_account_access_token" "my_kubernetes_sa" {
+data "google_service_account_access_token" "kubernetes_sa" {
   target_service_account = "application-user@neon-law-${var.environment}.iam.gserviceaccount.com"
   scopes                 = ["userinfo-email", "cloud-platform"]
   lifetime               = "3600s"
@@ -34,7 +34,7 @@ data "google_service_account_access_token" "my_kubernetes_sa" {
 
 provider "kubernetes" {
   host  = data.terraform_remote_state.gcp.outputs.gke_host
-  token = data.google_client_config.provider.access_token
+  token = data.google_service_account_access_token.kubernetes_sa.access_token
 
   cluster_ca_certificate = base64decode(data.terraform_remote_state.gcp.outputs.gke_cluster_ca_certificate)
 }
@@ -42,7 +42,7 @@ provider "kubernetes" {
 provider "helm" {
   kubernetes {
     host  = data.terraform_remote_state.gcp.outputs.gke_host
-    token = data.google_client_config.provider.access_token
+    token = data.google_service_account_access_token.kubernetes_sa.access_token
 
     cluster_ca_certificate = base64decode(data.terraform_remote_state.gcp.outputs.gke_cluster_ca_certificate)
   }
