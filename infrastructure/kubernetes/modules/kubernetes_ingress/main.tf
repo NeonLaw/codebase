@@ -4,7 +4,6 @@ resource "kubernetes_ingress" "primary" {
 
     annotations = {
       "kubernetes.io/ingress.allow-http"            = "false"
-      "kubernetes.io/ingress.class"                 = "nginx"
       "kubernetes.io/ingress.global-static-ip-name" = "neon-law"
       "ingress.gcp.kubernetes.io/pre-shared-cert"   = "neon-law-api,neon-law-superset,neon-law-kafka"
     }
