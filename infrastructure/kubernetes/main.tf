@@ -63,11 +63,6 @@ module "neo4j" {
   environment = var.environment
 }
 
-module "fluentbit" {
-  source      = "./modules/fluentbit_helm"
-  environment = var.environment
-}
-
 module "kafka" {
   source      = "./modules/kafka_helm"
   environment = var.environment
