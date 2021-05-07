@@ -28,7 +28,7 @@ output "project_id" {
 }
 
 output "region" {
-  value = "us-west4"
+  value = var.region
 }
 
 output "zone" {
@@ -36,37 +36,27 @@ output "zone" {
 }
 
 output "gcp_credentials" {
-  value = var.gcp_credentials
-  sensitive = true
-}
-
-output "gke_username" {
-  value     = module.kubernetes_cluster.master_username
-  sensitive = true
-}
-
-output "gke_password" {
-  value     = module.kubernetes_cluster.master_password
+  value     = var.gcp_credentials
   sensitive = true
 }
 
 output "database_admin_password" {
-  value = module.postgres.admin_password
+  value     = module.postgres.admin_password
   sensitive = true
 }
 
 output "database_admin_username" {
-  value = module.postgres.admin_username
+  value     = module.postgres.admin_username
   sensitive = true
 }
 
 output "upload_bucket_user_credentials" {
-  value = module.upload_bucket.gcp_credential_key
+  value     = module.upload_bucket.gcp_credential_key
   sensitive = true
 }
 
 output "application_user_account_key" {
-  value = module.application_user.account_key
+  value     = module.application_user.account_key
   sensitive = true
 }
 
