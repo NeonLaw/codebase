@@ -57,12 +57,8 @@ deployed in Helm Charts in our database. We use Neo4j, Elasticsearch and Kafka.
 Each can be completely regenerated with data stored in our PostgreSQL database.
 
 ### Logging
-We deploy Fluentd to collect STDOUT from each of our pods. Fluentd, then posts a
-subset of these logs to Logflare which then saves that data longterm in
-BigQuery and saves all of the logs in long-term storage in a separate GCP
-Project for auditing.
-
-We also use Logflare as a server for Webhooks for ingesting third-party data.
+We use Loglare to collect hooks from pods and post them to BigQuery.  We also
+use Logflare as a server for Webhooks for ingesting third-party data.
 
 ### Authentication
 Some of our applications depend on authentication tokens which we use Auth0 for.
