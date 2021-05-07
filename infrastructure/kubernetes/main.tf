@@ -27,9 +27,7 @@ provider "google-beta" {
 }
 
 provider "kubernetes" {
-  host     = data.terraform_remote_state.gcp.outputs.gke_host
-  username = data.terraform_remote_state.gcp.outputs.gke_username
-  password = data.terraform_remote_state.gcp.outputs.gke_password
+  host = data.terraform_remote_state.gcp.outputs.gke_host
 
   client_certificate     = base64decode(data.terraform_remote_state.gcp.outputs.gke_client_certificate)
   client_key             = base64decode(data.terraform_remote_state.gcp.outputs.gke_client_key)
@@ -38,9 +36,7 @@ provider "kubernetes" {
 
 provider "helm" {
   kubernetes {
-    host     = "https://${data.terraform_remote_state.gcp.outputs.gke_host}"
-    username = data.terraform_remote_state.gcp.outputs.gke_username
-    password = data.terraform_remote_state.gcp.outputs.gke_password
+    host = "https://${data.terraform_remote_state.gcp.outputs.gke_host}"
 
     client_certificate     = base64decode(data.terraform_remote_state.gcp.outputs.gke_client_certificate)
     client_key             = base64decode(data.terraform_remote_state.gcp.outputs.gke_client_key)
