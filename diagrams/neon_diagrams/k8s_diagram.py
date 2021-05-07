@@ -8,7 +8,6 @@ from diagrams.programming.language import NodeJS, Ruby
 from diagrams.onprem.database import PostgreSQL, Neo4J
 from diagrams.onprem.queue import Kafka
 from diagrams.gcp.network import LoadBalancing
-from diagrams.onprem.network import Nginx
 from diagrams.gcp.analytics import BigQuery
 from diagrams.gcp.storage import Storage
 from diagrams.elastic.elasticsearch import Elasticsearch
@@ -55,10 +54,6 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
                 fluentd >> logflare
                 fluentd >> Helm("Fluentd")
 
-            with Cluster("Nginx"):
-                nginx = Nginx("Nginx Ingress")
-                nginx << Helm("Nginx")
-
             with Cluster("@neonlaw/api"):
                 api_package = NodeJS("@neonlaw/api")
                 api = (
@@ -71,8 +66,7 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
                 email_package = Ruby("email")
                 email_package << Deployment("Email")
 
-            ingress = Ingress("Nginx")
-            ingress >> nginx
+            ingress = Ingress("GKE Ingress")
 
             superset = Custom("Superset", f"{dir_path}/images/superset.png")
 
@@ -84,7 +78,7 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
                 data_copy_package = Ruby("neon_email")
                 data_copy = data_copy_package << Cronjob("2AM PST everyday")
 
-            [api_package, nginx, superset] >> auth0
+            [api_package, superset] >> auth0
             [api_package, worker_package, email_package] >> fluentd
             [api_package, worker_package, data_copy_package] >> postgres
             [api_package, worker_package, data_copy_package] >> private_asset_bucket
@@ -92,7 +86,7 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
             [api_package] >> neo4j
             [api_package] >> search
             superset >> [postgres, kafka, neo4j, search, big_query]
-            nginx >> [api, superset, kafka_command_center]
+            ingress >> [api, superset, kafka_command_center]
 
             load_balancer >> ingress
 

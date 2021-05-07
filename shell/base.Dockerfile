@@ -1,15 +1,18 @@
 FROM python:buster
 
-# Add Node repositories
+# Add Node and postgres repositories
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN apt -y install vim bash-completion wget
+RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee  /etc/apt/sources.list.d/pgdg.list
 
 # Install dependencies from apt-get
 RUN apt-get update -qqy &&\
   apt-get -qqyy install \
   nodejs \
   ncat \
-  postgresql \
-  postgresql-contrib \
+  postgresql-13 \
+  postgresql-client-13 \
   libgtk2.0-0 \
   libgtk-3-0 \
   libgbm-dev \
