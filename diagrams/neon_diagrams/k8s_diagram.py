@@ -1,6 +1,5 @@
 from diagrams import Cluster, Diagram
 from diagrams.custom import Custom
-from diagrams.onprem.aggregator import Fluentd
 from diagrams.k8s.compute import Deployment, Cronjob
 from diagrams.k8s.network import Service, Ingress
 from diagrams.k8s.ecosystem import Helm
@@ -47,13 +46,6 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
             with Cluster("Elastic"):
                 search = Elasticsearch("Elasticsearch")
 
-            with Cluster("Fluentd"):
-                fluentd = Fluentd("Fluentd")
-
-                fluentd >> audit_bucket
-                fluentd >> logflare
-                fluentd >> Helm("Fluentd")
-
             with Cluster("@neonlaw/api"):
                 api_package = NodeJS("@neonlaw/api")
                 api = (
@@ -79,7 +71,7 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
                 data_copy = data_copy_package << Cronjob("2AM PST everyday")
 
             [api_package, superset] >> auth0
-            [api_package, worker_package, email_package] >> fluentd
+            [api_package, worker_package, email_package] >> logflare
             [api_package, worker_package, data_copy_package] >> postgres
             [api_package, worker_package, data_copy_package] >> private_asset_bucket
             [worker_package, email_package, data_copy_package] >> kafka
