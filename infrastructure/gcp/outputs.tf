@@ -1,5 +1,5 @@
 output "gke_host" {
-  value     = module.kubernetes_cluster.host
+  value     = "https://${module.kubernetes_cluster.host}"
   sensitive = true
 }
 
