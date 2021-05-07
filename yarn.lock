@@ -7398,6 +7398,11 @@ dotenv@^8.2.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
 
+dotenv@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-9.0.0.tgz#2408af4e39378375b7eebe30b7b54989e36d6e46"
+  integrity sha512-yy3x9XjojW8ROTBePD25AcMoHqGHsvHmtfw8QWlpEXyMMXXPj6brUA464AptUvHuTPRmNz6Sd3ZLNLeJl6dHJA==
+
 duplexer3@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
@@ -11522,10 +11527,10 @@ loader-utils@^1.1.0, loader-utils@^1.4.0:
     emojis-list "^3.0.0"
     json5 "^1.0.1"
 
-lob@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/lob/-/lob-6.1.1.tgz#70cdf300054cc94e3c1a7f47311021b0356a84aa"
-  integrity sha512-6c+Cn22OGlLbafBqsW3gf19KM7Yf4TlDWwMJBTkZ4Uyg6O6l8XsVOiPkf6ZtkiYyHlv470D/ELbL6s1OMV+3Hw==
+lob@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/lob/-/lob-6.2.0.tgz#cf8fa71d3baf165d48fe1c6e445af5c87fb8dfdd"
+  integrity sha512-lFIV9wgqTDLDS2fcIWqL/WDFpEZ6kjETos7nlnm1uAVfE4sP3S6u6kLoGL/OzmCRfdCGalwXiybwMq//ZuccCg==
   dependencies:
     bluebird "^3.0.6"
     request "^2.88.0"
