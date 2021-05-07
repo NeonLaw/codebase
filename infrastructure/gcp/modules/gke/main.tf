@@ -30,8 +30,5 @@ resource "google_container_cluster" "primary" {
     services_ipv4_cidr_block = ""
   }
 
-  enable_intranode_visibility = false
-
-  remove_default_node_pool = true
-  enable_autopilot         = true
+  enable_autopilot = true
 }
