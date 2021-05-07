@@ -55,10 +55,6 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
                 fluentd >> logflare
                 fluentd >> Helm("Fluentd")
 
-            with Cluster("Nginx"):
-                nginx = Nginx("Nginx Ingress")
-                nginx << Helm("Nginx")
-
             with Cluster("@neonlaw/api"):
                 api_package = NodeJS("@neonlaw/api")
                 api = (
@@ -71,7 +67,7 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
                 email_package = Ruby("email")
                 email_package << Deployment("Email")
 
-            ingress = Ingress("Nginx")
+            ingress = Ingress("GKE Ingress")
             ingress >> nginx
 
             superset = Custom("Superset", f"{dir_path}/images/superset.png")
@@ -92,7 +88,7 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
             [api_package] >> neo4j
             [api_package] >> search
             superset >> [postgres, kafka, neo4j, search, big_query]
-            nginx >> [api, superset, kafka_command_center]
+            ingress >> [api, superset, kafka_command_center]
 
             load_balancer >> ingress
 
