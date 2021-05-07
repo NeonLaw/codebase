@@ -11493,10 +11493,10 @@ loader-utils@^1.1.0, loader-utils@^1.4.0:
     emojis-list "^3.0.0"
     json5 "^1.0.1"
 
-lob@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/lob/-/lob-6.1.1.tgz#70cdf300054cc94e3c1a7f47311021b0356a84aa"
-  integrity sha512-6c+Cn22OGlLbafBqsW3gf19KM7Yf4TlDWwMJBTkZ4Uyg6O6l8XsVOiPkf6ZtkiYyHlv470D/ELbL6s1OMV+3Hw==
+lob@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/lob/-/lob-6.2.0.tgz#cf8fa71d3baf165d48fe1c6e445af5c87fb8dfdd"
+  integrity sha512-lFIV9wgqTDLDS2fcIWqL/WDFpEZ6kjETos7nlnm1uAVfE4sP3S6u6kLoGL/OzmCRfdCGalwXiybwMq//ZuccCg==
   dependencies:
     bluebird "^3.0.6"
     request "^2.88.0"
