@@ -26,8 +26,16 @@ provider "google-beta" {
   credentials = data.terraform_remote_state.gcp.outputs.gcp_credentials
 }
 
+data "google_client_config" "provider" {}
+
+data "google_container_cluster" "my_cluster" {
+  name     = "neon-law-${var.environment}"
+  location = data.terraform_remote_state.gcp.outputs.region
+}
+
 provider "kubernetes" {
-  host = data.terraform_remote_state.gcp.outputs.gke_host
+  host  = data.terraform_remote_state.gcp.outputs.gke_host
+  token = data.google_client_config.provider.access_token
 
   client_certificate     = base64decode(data.terraform_remote_state.gcp.outputs.gke_client_certificate)
   client_key             = base64decode(data.terraform_remote_state.gcp.outputs.gke_client_key)
@@ -36,7 +44,8 @@ provider "kubernetes" {
 
 provider "helm" {
   kubernetes {
-    host = "https://${data.terraform_remote_state.gcp.outputs.gke_host}"
+    host  = "https://${data.terraform_remote_state.gcp.outputs.gke_host}"
+    token = data.google_client_config.provider.access_token
 
     client_certificate     = base64decode(data.terraform_remote_state.gcp.outputs.gke_client_certificate)
     client_key             = base64decode(data.terraform_remote_state.gcp.outputs.gke_client_key)
