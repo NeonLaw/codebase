@@ -41,7 +41,7 @@ Center which is used to analyze Kafka. You can visit this at
 https://kafka.neonlaw.com or https://kafka.neonlaw.net.
 
 ### Superset
-This service points to a managed Apache Superset offering. Like Nginx and every
+This service points to a managed Apache Superset offering. Like Neo4j and every
 other external software ran in this Kubernetes cluster, it is installed with its
 Helm chart and managed in our Terraform scripts. You can visit our Superset
 instance at https://superset.neonlaw.com (our staging Superset exists at
@@ -54,7 +54,13 @@ in our datasources.
 ### Databases
 We currently use Google Cloud's managed PostgreSQL offering. Everything else is
 deployed in Helm Charts in our database. We use Neo4j, Elasticsearch and Kafka.
-Each can be completely regenerated with data stored in our PostgreSQL database.
+Each can be completely regenerated with data stored in our PostgreSQL database,
+except for files in Blob Storage.
+
+### Blob Storage
+We use Google Cloud Storage Buckets to store files. All access to this blob
+storage is stored in a separate GCP Audit account so we have a full accounting
+of who saw what file. This is important for conflicts.
 
 ### Logging
 We use Loglare to collect hooks from pods and post them to BigQuery.  We also
