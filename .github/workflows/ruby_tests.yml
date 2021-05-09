@@ -37,3 +37,20 @@ jobs:
       - name: Lint Ruby files.
         working-directory: ./email
         run: bundle exec standardrb
+
+  ruby_documents_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3'
+      - name: Install dependencies
+        working-directory: ./documents
+        run: bundle
+      - name: Lint Ruby files.
+        working-directory: ./documents
+        run: bundle exec standardrb
+      - name: Run RSpec
+        working-directory: ./documents
+        run: bundle exec rspec spec
