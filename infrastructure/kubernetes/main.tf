@@ -26,24 +26,24 @@ provider "google-beta" {
   credentials = data.terraform_remote_state.gcp.outputs.gcp_credentials
 }
 
-data "google_service_account_access_token" "kubernetes_sa" {
-  target_service_account = "application-user@neon-law-${var.environment}.iam.gserviceaccount.com"
-  scopes                 = ["userinfo-email", "cloud-platform"]
-  lifetime               = "3600s"
-}
-
 provider "kubernetes" {
-  host  = data.terraform_remote_state.gcp.outputs.gke_host
-  token = data.google_service_account_access_token.kubernetes_sa.access_token
+  host     = data.terraform_remote_state.gcp.outputs.gke_host
+  username = data.terraform_remote_state.gcp.outputs.gke_username
+  password = data.terraform_remote_state.gcp.outputs.gke_password
 
+  client_certificate     = base64decode(data.terraform_remote_state.gcp.outputs.gke_client_certificate)
+  client_key             = base64decode(data.terraform_remote_state.gcp.outputs.gke_client_key)
   cluster_ca_certificate = base64decode(data.terraform_remote_state.gcp.outputs.gke_cluster_ca_certificate)
 }
 
 provider "helm" {
   kubernetes {
-    host  = data.terraform_remote_state.gcp.outputs.gke_host
-    token = data.google_service_account_access_token.kubernetes_sa.access_token
+    host     = "https://${data.terraform_remote_state.gcp.outputs.gke_host}"
+    username = data.terraform_remote_state.gcp.outputs.gke_username
+    password = data.terraform_remote_state.gcp.outputs.gke_password
 
+    client_certificate     = base64decode(data.terraform_remote_state.gcp.outputs.gke_client_certificate)
+    client_key             = base64decode(data.terraform_remote_state.gcp.outputs.gke_client_key)
     cluster_ca_certificate = base64decode(data.terraform_remote_state.gcp.outputs.gke_cluster_ca_certificate)
   }
 }
@@ -60,6 +60,11 @@ provider "kubernetes-alpha" {
 
 module "neo4j" {
   source      = "./modules/neo4j_helm"
+  environment = var.environment
+}
+
+module "fluentbit" {
+  source      = "./modules/fluentbit_helm"
   environment = var.environment
 }
 

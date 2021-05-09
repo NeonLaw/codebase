@@ -4,6 +4,7 @@ locals {
       enabled = true
       annotations = {
         "kubernetes.io/ingress.global-static-ip-name" = "neon-law"
+        "kubernetes.io/ingress.allow-http"            = "false"
         "ingress.gcp.kubernetes.io/pre-shared-cert"   = "neon-law-superset"
       }
 
