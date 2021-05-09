@@ -42,7 +42,7 @@ resource "google_container_node_pool" "primary" {
   node_count = 1
   node_config {
     preemptible  = false
-    machine_type = "n2-standard-16"
+    machine_type = "e2-standard-16"
 
     metadata = {
       disable-legacy-endpoints = "true"
