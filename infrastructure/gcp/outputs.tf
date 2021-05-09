@@ -1,5 +1,5 @@
 output "gke_host" {
-  value     = "https://${module.kubernetes_cluster.host}"
+  value     = module.kubernetes_cluster.host
   sensitive = true
 }
 
@@ -28,7 +28,7 @@ output "project_id" {
 }
 
 output "region" {
-  value = var.region
+  value = "us-west4"
 }
 
 output "zone" {
@@ -37,6 +37,16 @@ output "zone" {
 
 output "gcp_credentials" {
   value     = var.gcp_credentials
+  sensitive = true
+}
+
+output "gke_username" {
+  value     = module.kubernetes_cluster.master_username
+  sensitive = true
+}
+
+output "gke_password" {
+  value     = module.kubernetes_cluster.master_password
   sensitive = true
 }
 
