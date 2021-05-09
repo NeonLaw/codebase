@@ -1,14 +1,7 @@
 locals {
   superset_helm_chart_values = {
     ingress = {
-      enabled = true
-      annotations = {
-        "kubernetes.io/ingress.global-static-ip-name" = "neon-law"
-        "kubernetes.io/ingress.allow-http"            = "false"
-        "ingress.gcp.kubernetes.io/pre-shared-cert"   = "neon-law-superset"
-      }
-
-      hosts = var.environment == "production" ? ["superset.neonlaw.com"] : ["superset.neonlaw.net"]
+      enabled = false
     }
 
     bootstrapScript = <<EOF
