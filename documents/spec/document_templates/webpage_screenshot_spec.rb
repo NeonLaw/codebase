@@ -1,7 +1,7 @@
 RSpec.describe NeonDocuments::DocumentTemplates::WebpageScreenshot do
   subject {
     described_class.processed_filename(
-      unprocessed_filename: unprocessed_filename,
+      unprocessed_filename: unprocessed_filename
     )
   }
 

@@ -3,8 +3,8 @@ module NeonDocuments
     class WebpageScreenshot
       def self.processed_filename(unprocessed_filename:)
         unprocessed_filename
-          .gsub(/\:\/\//, '___')
-          .gsub(/\./, '_')
+          .gsub(/:\/\//, "___")
+          .tr(".", "_")
       end
     end
   end
