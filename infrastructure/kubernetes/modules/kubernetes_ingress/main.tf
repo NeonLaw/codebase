@@ -10,6 +10,11 @@ resource "kubernetes_ingress" "primary" {
   }
 
   spec {
+    backend {
+      service_name = "${var.environment}-api"
+      service_port = 80
+    }
+
     rule {
       host = var.environment == "production" ? "api.neonlaw.com" : "api.neonlaw.net"
       http {

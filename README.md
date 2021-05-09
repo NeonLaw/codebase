@@ -26,6 +26,8 @@ packages.
 
 ## Developer Setup
 
+The following instructions are for you if you intend to work on this repository.
+
 ### Git Flow
 
 Our opinionated [git flow](./git_flow) is an essential part of working with this
