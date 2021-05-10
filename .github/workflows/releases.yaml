@@ -151,7 +151,7 @@ jobs:
         run: gem build neon_documents.gemspec
         working-directory: ./documents
       - name: Publish neon_documents gem to Rubygems
-        run: doppler run -- gem push neon_documents-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_email@/,"")}1').gem
+        run: doppler run -- gem push neon_documents-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_documents@/,"")}1').gem
         working-directory: ./documents
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
