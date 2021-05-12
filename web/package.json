@@ -30,7 +30,7 @@
     "@next/mdx": "^10.2.0",
     "@nivo/bar": "^0.67.0",
     "@nivo/core": "^0.67.0",
-    "@react-pdf-viewer/core": "2.4.2",
+    "@react-pdf-viewer/core": "2.4.3",
     "@react-pdf-viewer/default-layout": "^2.4.1",
     "framer-motion": "^4.1.13",
     "next": "^10.1.3",
