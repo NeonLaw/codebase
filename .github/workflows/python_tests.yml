@@ -26,7 +26,7 @@ jobs:
         run: poetry install
       - name: Lint Python files.
         working-directory: ./diagrams
-        run: poetry run black --check
+        run: poetry run black --check .
       - name: Check that the diagrams are the latest
         working-directory: ./diagrams
         run: |

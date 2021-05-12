@@ -9,14 +9,14 @@ module NeonDocuments
     end
 
     def initialize(unprocessed_document_id:)
-      @unprocessed_document_id = unprunprocessed_document_id
+      @unprocessed_document_id = unprocessed_document_id
     end
 
     def encode_and_store_document
       filename = case document_template.name
       when "Webpage Screenshot"
         NeonDocuments::DocumentTemplates::WebpageScreenshot.processed_filename(
-          unprocessed_filename: unprocessed_document.filename
+          unprocessed_filename: unprocessed_document
         )
       end
 
@@ -41,6 +41,21 @@ module NeonDocuments
       @_document_template ||= connection[:document_templates].find(
         id: unprocessed_document.fetch(:document_template_id)
       )
+    end
+
+    def processed_document_filename
+      "#{documentable_type}/#{documentable_id}/#{filename}"
+    end
+
+    def filename
+      case document_template.name
+      when "Webpage Screenshot"
+        NeonDocuments::DocumentTemplates::WebpageScreenshot.processed_filename(
+          unprocessed_filename: unprocessed_document
+        )
+      else
+        document_template.name
+      end
     end
   end
 end
