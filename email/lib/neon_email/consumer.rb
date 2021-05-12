@@ -14,6 +14,8 @@ module NeonEmail
 
       # Stop the consumer when the SIGTERM signal is sent to the process.
       # It's better to shut down gracefully than to kill the process.
+      # There is a difference between SIGTERM and SIGKILL specified as the
+      # terminationGracePeriod
       trap("TERM") { consumer.stop }
 
       # This will loop indefinitely, yielding each message in turn.
