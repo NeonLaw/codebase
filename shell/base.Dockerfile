@@ -30,6 +30,8 @@ RUN apt-get update -qqy &&\
   apt-get clean &&\
   rm -f /var/lib/apt/lists/*_*
 
+RUN gem install bundler
+
 # Install pandoc
 RUN TEMP_DEB="$(mktemp)" &&\
   wget -O "$TEMP_DEB" https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-1-amd64.deb &&\
