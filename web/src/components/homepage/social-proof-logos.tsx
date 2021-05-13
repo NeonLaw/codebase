@@ -1,4 +1,3 @@
-import React from 'react';
 import { Section } from '../section';
 import { gutters } from '../../styles/neonLaw';
 import styled from '@emotion/styled';

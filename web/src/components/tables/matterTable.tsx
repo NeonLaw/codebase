@@ -1,4 +1,3 @@
-import React from 'react';
 import { Table } from './base';
 import { useAllMattersQuery } from '../../utils/api';
 

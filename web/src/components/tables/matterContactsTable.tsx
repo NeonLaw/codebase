@@ -3,7 +3,7 @@ import { AdminOnly } from '../adminOnly';
 import { FaPencilAlt } from 'react-icons/fa';
 import Link from 'next/link';
 
-export const MatterContactsList = ({ primaryContact, matterContacts }) => {
+export const MatterContactsTable = ({ primaryContact, matterContacts }) => {
   return (
     <UnorderedList spacing={3}>
       <ListItem>
