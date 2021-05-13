@@ -1694,6 +1694,8 @@ export type DocumentTemplate = Node & {
   description: Scalars['String'];
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
+  abbreviation?: Maybe<Scalars['String']>;
+  jurisdiction?: Maybe<Scalars['String']>;
   /** Reads and enables pagination through a set of `Document`. */
   documents: DocumentsConnection;
   /** Reads and enables pagination through a set of `UnprocessedDocument`. */
@@ -1731,6 +1733,8 @@ export type DocumentTemplateCondition = {
   id?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `name` field. */
   name?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `abbreviation` field. */
+  abbreviation?: Maybe<Scalars['String']>;
 };
 
 /** An input for mutations affecting `DocumentTemplate` */
@@ -1740,6 +1744,8 @@ export type DocumentTemplateInput = {
   description: Scalars['String'];
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
+  abbreviation?: Maybe<Scalars['String']>;
+  jurisdiction?: Maybe<Scalars['String']>;
 };
 
 /** Represents an update to a `DocumentTemplate`. Fields that are set will be updated. */
@@ -1749,6 +1755,8 @@ export type DocumentTemplatePatch = {
   description?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
+  abbreviation?: Maybe<Scalars['String']>;
+  jurisdiction?: Maybe<Scalars['String']>;
 };
 
 /** A connection to a list of `DocumentTemplate` values. */
@@ -1780,6 +1788,8 @@ export enum DocumentTemplatesOrderBy {
   IdDesc = 'ID_DESC',
   NameAsc = 'NAME_ASC',
   NameDesc = 'NAME_DESC',
+  AbbreviationAsc = 'ABBREVIATION_ASC',
+  AbbreviationDesc = 'ABBREVIATION_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -5205,10 +5215,10 @@ export type MatterByIdQuery = (
           & Pick<Person, 'id' | 'name' | 'email'>
         )>, document?: Maybe<(
           { __typename?: 'Document' }
-          & Pick<Document, 'id' | 'filename' | 'gcpUrl' | 'downloadUrl'>
+          & Pick<Document, 'id' | 'filename' | 'createdAt' | 'updatedAt' | 'gcpUrl' | 'downloadUrl'>
           & { documentTemplate?: Maybe<(
             { __typename?: 'DocumentTemplate' }
-            & Pick<DocumentTemplate, 'name'>
+            & Pick<DocumentTemplate, 'id' | 'name' | 'abbreviation' | 'jurisdiction'>
           )> }
         )> }
       )> }
@@ -6371,10 +6381,15 @@ export const MatterByIdDocument = gql`
         document {
           id
           filename
+          createdAt
+          updatedAt
           gcpUrl
           downloadUrl
           documentTemplate {
+            id
             name
+            abbreviation
+            jurisdiction
           }
         }
       }

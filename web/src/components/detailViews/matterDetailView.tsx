@@ -9,10 +9,8 @@ import {
 } from '@chakra-ui/react';
 import { AdminOnly } from '../adminOnly';
 import { CreateMatterContactModal } from '../modals/createMatterContactModal';
-import { MatterContactsList } from '../../components/lists/matterContactsList';
-import {
-  MatterDocumentsList
-} from '../../components/lists/matterDocumentsList';
+import { MatterContactsTable } from '../tables/matterContactsTable';
+import { MatterDocumentsTable } from '../tables/matterDocumentsTable';
 import { convertSlateToPlaintext } from '../../utils/slate';
 import { gutters } from '../../styles/neonLaw';
 import { useMatterByIdQuery } from '../../utils/api';
@@ -33,11 +31,11 @@ export const MatterDetailView = ({ id }) => {
           {convertSlateToPlaintext(data.matter.description)}
         </Text>)}
         <Heading as="h3">Documents</Heading>
-        <MatterDocumentsList
+        <MatterDocumentsTable
           matterDocuments={data.matter.matterDocuments.nodes}
         />
         <Heading as="h3">Contacts</Heading>
-        <MatterContactsList
+        <MatterContactsTable
           primaryContact={data.matter.primaryContact}
           matterContacts={data.matter.matterContacts.nodes}
         />

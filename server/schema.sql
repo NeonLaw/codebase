@@ -775,7 +775,9 @@ CREATE TABLE public.document_templates (
     name text NOT NULL,
     description text NOT NULL,
     created_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    updated_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+    updated_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    abbreviation character varying,
+    jurisdiction character varying
 );
 
 
@@ -1092,6 +1094,13 @@ CREATE INDEX address_person_id ON public.addresses USING btree (person_id);
 --
 
 CREATE INDEX created_at_on_questionnaire ON public.questionnaires USING btree (created_at);
+
+
+--
+-- Name: docmuent_templates_abbreviation; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX docmuent_templates_abbreviation ON public.document_templates USING btree (abbreviation);
 
 
 --

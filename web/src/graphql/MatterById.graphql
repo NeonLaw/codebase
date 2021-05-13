@@ -33,10 +33,15 @@ query MatterById($id: UUID!) {
         document {
           id
           filename
+          createdAt
+          updatedAt
           gcpUrl
           downloadUrl
           documentTemplate {
+            id
             name
+            abbreviation
+            jurisdiction
           }
         }
       }

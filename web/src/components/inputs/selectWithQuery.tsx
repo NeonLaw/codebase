@@ -7,7 +7,6 @@ import {
 
 import { Controller } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
-import React from 'react';
 import { default as ReactSelect } from 'react-select';
 import { colors } from '../../styles/neonLaw';
 import { kebabCase } from 'voca';

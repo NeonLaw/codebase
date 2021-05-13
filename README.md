@@ -36,24 +36,38 @@ based on how you name your branches and your subsequent pull request to the
 `main` branch. Please refer to the package or the `git_flow` CLI available from
 crates.io for more information.
 
-### Configuration
+### Doppler Configuration
 
 We use [Doppler](https://www.doppler.com/) for storing and sharing configuration
 secrets like API keys. If you wish to work on the application, please email us
-at support@neonlaw.com to request test credentials.
+at support@neonlaw.com to request test credentials. In Doppler, we have the
+following projects, each with a `dev`, `stg`, and `prd` environment. `dev` is
+for development on your machine, whereas `stg` and `prd` refer to our
+cloud-based environments on GCP.
 
-### Web Development
+* Web, which can be used in the front-end development section below.
+
+### Front-End Development
 
 For developing the website you can do so locally and speak to our staging
 GraphQL server. To spin up a Next.JS server, enter the following commands.
 
 ```bash
 yarn
-doppler setup # staging
+doppler setup # web project, staging environment
 doppler run -- yarn workspace @neonlaw/web dev
 ```
 
-### Server Development
+If you want to test with a local server, please start the instructions in the
+`Back-End Development` section below and then run:
+
+```bash
+yarn
+doppler setup # web project, development environment
+doppler run -- yarn workspace @neonlaw/web dev
+```
+
+### Back-End Development
 
 We recommend developing with a containerized setup that best mimic our staging
 and production process. If you have docker and docker-compose installed on
