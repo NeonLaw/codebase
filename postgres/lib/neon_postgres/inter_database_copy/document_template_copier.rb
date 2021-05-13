@@ -22,8 +22,13 @@ module NeonPostgres
         from_dataset.each do |row|
           to_dataset
             .insert_conflict(
-              target: :name,
-              update: {description: Sequel[:excluded][:description]}
+              target: :id,
+              update: {
+                name: Sequel[:excluded][:name],
+                description: Sequel[:excluded][:description],
+                abbreviation: Sequel[:excluded][:abbreviation],
+                jurisdiction: Sequel[:excluded][:jurisdiction]
+              }
             ).insert(row)
         end
       end
