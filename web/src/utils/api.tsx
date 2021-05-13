@@ -1694,8 +1694,8 @@ export type DocumentTemplate = Node & {
   description: Scalars['String'];
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
-  abbreviation?: Maybe<Scalars['String']>;
-  jurisdiction?: Maybe<Scalars['String']>;
+  abbreviation: Scalars['String'];
+  jurisdiction: Scalars['String'];
   /** Reads and enables pagination through a set of `Document`. */
   documents: DocumentsConnection;
   /** Reads and enables pagination through a set of `UnprocessedDocument`. */
@@ -1744,8 +1744,8 @@ export type DocumentTemplateInput = {
   description: Scalars['String'];
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
-  abbreviation?: Maybe<Scalars['String']>;
-  jurisdiction?: Maybe<Scalars['String']>;
+  abbreviation: Scalars['String'];
+  jurisdiction: Scalars['String'];
 };
 
 /** Represents an update to a `DocumentTemplate`. Fields that are set will be updated. */
@@ -4931,6 +4931,8 @@ export type AllQuestionsQuery = (
 export type CreateDocumentTemplateMutationVariables = Exact<{
   name: Scalars['String'];
   description: Scalars['String'];
+  abbreviation: Scalars['String'];
+  jurisdiction: Scalars['String'];
 }>;
 
 
@@ -4940,7 +4942,7 @@ export type CreateDocumentTemplateMutation = (
     { __typename?: 'CreateDocumentTemplatePayload' }
     & { documentTemplate?: Maybe<(
       { __typename?: 'DocumentTemplate' }
-      & Pick<DocumentTemplate, 'id' | 'name' | 'description'>
+      & Pick<DocumentTemplate, 'id' | 'name' | 'description' | 'abbreviation' | 'jurisdiction'>
     )> }
   )> }
 );
@@ -5771,12 +5773,14 @@ export type AllQuestionsQueryHookResult = ReturnType<typeof useAllQuestionsQuery
 export type AllQuestionsLazyQueryHookResult = ReturnType<typeof useAllQuestionsLazyQuery>;
 export type AllQuestionsQueryResult = Apollo.QueryResult<AllQuestionsQuery, AllQuestionsQueryVariables>;
 export const CreateDocumentTemplateDocument = gql`
-    mutation CreateDocumentTemplate($name: String!, $description: String!) {
-  createDocumentTemplate(input: {documentTemplate: {name: $name, description: $description}}) {
+    mutation CreateDocumentTemplate($name: String!, $description: String!, $abbreviation: String!, $jurisdiction: String!) {
+  createDocumentTemplate(input: {documentTemplate: {name: $name, description: $description, abbreviation: $abbreviation, jurisdiction: $jurisdiction}}) {
     documentTemplate {
       id
       name
       description
+      abbreviation
+      jurisdiction
     }
   }
 }
@@ -5798,6 +5802,8 @@ export type CreateDocumentTemplateMutationFn = Apollo.MutationFunction<CreateDoc
  *   variables: {
  *      name: // value for 'name'
  *      description: // value for 'description'
+ *      abbreviation: // value for 'abbreviation'
+ *      jurisdiction: // value for 'jurisdiction'
  *   },
  * });
  */

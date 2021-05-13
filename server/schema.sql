@@ -776,8 +776,8 @@ CREATE TABLE public.document_templates (
     description text NOT NULL,
     created_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    abbreviation character varying,
-    jurisdiction character varying
+    abbreviation character varying NOT NULL,
+    jurisdiction character varying NOT NULL
 );
 
 
