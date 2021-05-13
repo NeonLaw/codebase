@@ -95,7 +95,6 @@ services:
     restart: always
     depends_on:
       - postgres
-      - neo4j
     container_name: api
     ports:
       - 3000:3000

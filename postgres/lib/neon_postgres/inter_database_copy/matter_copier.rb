@@ -59,7 +59,9 @@ module NeonPostgres
           ).insert({
             name: "#{row.fetch(:matter_templates_name)} Matter",
             matter_template_id: row.fetch(:matter_template_id),
-            description: JSON.generate({body: Faker::Lorem.paragraphs(3)}),
+            description: JSON.generate({
+              body: Faker::Lorem.paragraphs(number: 3)
+            }),
             primary_contact_id: row.fetch(:primary_contact_id)
           })
         end
