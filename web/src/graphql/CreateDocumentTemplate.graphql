@@ -1,11 +1,25 @@
-mutation CreateDocumentTemplate($name: String!, $description: String!) {
+mutation CreateDocumentTemplate(
+  $name: String!
+  $description: String!
+  $abbreviation: String!
+  $jurisdiction: String!
+) {
   createDocumentTemplate(
-    input: { documentTemplate: { name: $name, description: $description } }
+    input: {
+      documentTemplate: {
+        name: $name
+        description: $description
+        abbreviation: $abbreviation
+        jurisdiction: $jurisdiction
+      }
+    }
   ) {
     documentTemplate {
       id
       name
       description
+      abbreviation
+      jurisdiction
     }
   }
 }
