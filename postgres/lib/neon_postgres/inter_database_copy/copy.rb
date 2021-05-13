@@ -11,6 +11,7 @@ admin_id = NeonPostgres::Database.to_connection[:people]
   .where(email: "admin@sink.sendgrid.com").first.fetch(:id)
 
 NeonPostgres::Database.to_connection[:matters].all.each do |matter|
+  puts "Copying matter #{matter.fetch(:id)}"
   NeonPostgres::Database.to_connection[:matter_contacts].insert_conflict.insert(
     matter_id: matter.fetch(:id),
     contact_id: admin_id,
