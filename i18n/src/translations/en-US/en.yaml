@@ -91,6 +91,7 @@ beginUpwardMQ:
     Please contact us if you are interested in attaining our services.
   beginButton: Begin Questionnaire
 breadcrumbs:
+  'data-deletion': Data Deletion
   blog: Blog
   business: Business
   litigation: Litigation

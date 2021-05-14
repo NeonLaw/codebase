@@ -7,16 +7,23 @@ export const MatterDocumentsTable = ({ matterDocuments }) => {
       accessor: 'id',
     },
     {
-      Header: 'Document',
-      accessor: 'document.filename',
+      Header: 'Filename',
+      accessor: 'document.filename'
     },
     {
       Header: 'Created',
-      accessor: 'document.createdAt',
+      accessor: (row) => {
+        const date = new Date(row.document.createdAt);
+        return date.toISOString().split('T')[0];
+      },
     },
     {
       Header: 'Template',
       accessor: 'document.documentTemplate.abbreviation',
+    },
+    {
+      Header: 'Download Url',
+      accessor: 'document.downloadUrl',
     },
   ];
 
@@ -25,7 +32,7 @@ export const MatterDocumentsTable = ({ matterDocuments }) => {
       columns={columns}
       data={matterDocuments}
       testId="matters-table"
-      onRowClick={() => { return; }}
+      onRowClick={(row) => { window.open(row.values['document.downloadUrl']); }}
     />
   );
 };
