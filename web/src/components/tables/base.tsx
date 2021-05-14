@@ -71,7 +71,7 @@ export const Table = ({
       columns: tableColumns,
       data,
       initialState: {
-        hiddenColumns: ['id'],
+        hiddenColumns: ['id', 'document.downloadUrl'],
         pageIndex: 0,
         pageSize: defaultPageSize,
       },
