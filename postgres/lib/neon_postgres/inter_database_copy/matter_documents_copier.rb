@@ -48,7 +48,7 @@ module NeonPostgres
             target: :document_id,
             update: {
               matter_id: Sequel[:excluded][:matter_id],
-              author_id: Sequel[:excluded][:author_id],
+              author_id: Sequel[:excluded][:author_id]
             }
           }).insert({
             document_id: row.fetch(:document_id),
