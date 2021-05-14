@@ -45,7 +45,7 @@
     "neo4j-driver": "^4.2.3",
     "pg": "^8.6.0",
     "postgraphile": "^4.11.0",
-    "slate": "^0.62.0",
+    "slate": "^0.63.0",
     "stripe": "^8.148.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4",
