@@ -20,12 +20,8 @@ yarn copy-gcp-credentials
 yarn sql-proxy-production
 yarn sql-proxy-staging
 
-docker build -t inter_db_copy -f ./postgres/Dockerfile .
-docker run \
-  -e DATABASE_URL=$(doppler secrets get DATABASE_URL --plain) \
-  -e FROM_DATABASE_URL=$(doppler secrets get FROM_DATABASE_URL --plain) \
-  -e TO_DATABASE_URL=$(doppler secrets get TO_DATABASE_URL --plain) \
-  inter_db_copy
+# Then in this directory run
+doppler run - bundle exec ruby lib/neon_postgres/inter_database_copy/copy.rb
 ```
 
 We use this ruby script to copy data from `production` to `staging` so we can
