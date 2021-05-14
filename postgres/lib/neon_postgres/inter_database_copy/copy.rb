@@ -1,4 +1,4 @@
-require_relative "./document_sanitizer"
+require_relative "../document_sanitizer"
 require_relative "./document_template_copier"
 require_relative "./matter_copier"
 require_relative "./matter_template_copier"
@@ -25,6 +25,8 @@ end
 
 # Sanitize the documents in the to connection
 NeonPostgres::Database.to_connection[:documents].all.each do |document|
+  puts "sanitizing #{document.fetch(:id)}"
+
   NeonPostgres::DocumentSanitizer.sanitize(
     document: document,
     database_connection: NeonPostgres::Database.to_connection

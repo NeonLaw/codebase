@@ -44,7 +44,13 @@ module NeonPostgres
           matter_id = to_connection[:matters].select(:id).all.sample.fetch(:id)
           author_id = to_connection[:people].select(:id).all.sample.fetch(:id)
 
-          to_connection[:matter_documents].insert_conflict.insert({
+          to_connection[:matter_documents].insert_conflict({
+            target: :document_id,
+            update: {
+              matter_id: Sequel[:excluded][:matter_id],
+              author_id: Sequel[:excluded][:author_id]
+            }
+          }).insert({
             document_id: row.fetch(:document_id),
             matter_id: matter_id,
             author_id: author_id
