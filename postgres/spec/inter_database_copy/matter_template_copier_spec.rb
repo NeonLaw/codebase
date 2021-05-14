@@ -11,7 +11,13 @@ RSpec.describe NeonPostgres::InterDatabaseCopy::MatterTemplateCopier do
 
   describe "copy" do
     before {
+      to_connection[:matter_documents].delete
+
+      to_connection[:documents].delete
+      to_connection[:document_templates].delete
+
       to_connection[:matters].delete
+
       to_connection[:matter_templates].delete
       to_connection[:people].delete
     }
