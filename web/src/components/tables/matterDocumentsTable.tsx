@@ -33,6 +33,7 @@ export const MatterDocumentsTable = ({ matterDocuments }) => {
       data={matterDocuments}
       testId="matters-table"
       onRowClick={(row) => { window.open(row.values['document.downloadUrl']); }}
+      defaultPageSize={50}
     />
   );
 };
