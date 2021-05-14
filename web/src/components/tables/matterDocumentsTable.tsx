@@ -7,12 +7,16 @@ export const MatterDocumentsTable = ({ matterDocuments }) => {
       accessor: 'id',
     },
     {
-      Header: 'Name',
-      accessor: 'name',
+      Header: 'Document',
+      accessor: 'document.filename',
     },
     {
-      Header: 'Primary Contact',
-      accessor: 'primaryContact.name',
+      Header: 'Created',
+      accessor: 'document.createdAt',
+    },
+    {
+      Header: 'Template',
+      accessor: 'document.documentTemplate.abbreviation',
     },
   ];
 

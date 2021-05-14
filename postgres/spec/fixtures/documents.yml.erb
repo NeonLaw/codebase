@@ -1,0 +1,10 @@
+filed_summons:
+  filename: Summons
+  document_template: filed_document (DocumentTemplate)
+  documentable_table_name: matter_document
+  gcp_url: <%= "https://neon-law-staging-private-assets.storage.googleapis.com/matters/#{Faker::Internet.uuid}" %>
+filed_complaint:
+  filename: Complaint
+  document_template: filed_document (DocumentTemplate)
+  documentable_table_name: matter_document
+  gcp_url: <%= "https://neon-law-staging-private-assets.storage.googleapis.com/matters/#{Faker::Internet.uuid}" %>
