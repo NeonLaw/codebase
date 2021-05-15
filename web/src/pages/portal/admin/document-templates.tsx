@@ -1,4 +1,5 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/react';
+
 import { Button } from '../../../components/button';
 import {
   CreateDocumentTemplateModal
@@ -11,11 +12,13 @@ import {
   UpdateDocumentTemplateModal
 } from '../../../components/modals/updateDocumentTemplateModal';
 import { gutters } from '../../../styles/neonLaw';
+import { useAllDocumentTemplatesQuery } from '../../../utils/api';
 import { useState } from 'react';
 
 const AdminMatterDocumentTemplates = () => {
+  const { loading, data, error } = useAllDocumentTemplatesQuery();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [showCreateModal, changeShowCreateModal ] = useState(true);
+  const [showCreateModal, changeShowCreateModal] = useState(true);
   const [currentRow, setCurrentRow] = useState(undefined);
 
   return (
@@ -60,6 +63,9 @@ const AdminMatterDocumentTemplates = () => {
             setCurrentRow(row);
             onOpen();
           }}
+          loading={loading}
+          data={data}
+          error={error}
         />
       </Box>
     </PortalLayout>

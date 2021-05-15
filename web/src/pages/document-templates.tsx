@@ -1,14 +1,16 @@
 import { Box } from '@chakra-ui/layout';
 import { Container } from '../components/container';
+import {
+  DocumentTemplateTable
+} from '../components/tables/documentTemplateTable';
 import { PublicLayout } from '../components/layouts/publicLayout';
-import { QuestionTable } from '../components/tables/questionTable';
 import React from 'react';
 import { gutters } from '../styles/neonLaw';
 import styled from '@emotion/styled';
-import { useAllQuestionsQuery } from '../utils/api';
+import { useAllDocumentTemplatesQuery } from '../utils/api';
 import { useDisclosure } from '@chakra-ui/hooks';
 
-const StyledQuestionsPage = styled.div`
+const StyledDocumentTemplatesPage = styled.div`
   h1 {
     margin-bottom: ${gutters.small};
   }
@@ -18,18 +20,18 @@ const StyledQuestionsPage = styled.div`
   }
 `;
 
-const QuestionsPage = () => {
+const DocumentTemplatesPage = () => {
   const { onOpen } = useDisclosure();
-  const { loading, data, error } = useAllQuestionsQuery();
+  const { loading, data, error } = useAllDocumentTemplatesQuery();
 
   return (
-    <StyledQuestionsPage>
+    <StyledDocumentTemplatesPage>
       <PublicLayout>
         <Container>
           <Box padding="9rem 0 4rem">
-            <h1>Questions</h1>
+            <h1>Document Templates</h1>
             <div className="questions-container">
-              <QuestionTable
+              <DocumentTemplateTable
                 loading={loading}
                 data={data}
                 error={error}
@@ -41,9 +43,9 @@ const QuestionsPage = () => {
           </Box>
         </Container>
       </PublicLayout>
-    </StyledQuestionsPage>
+    </StyledDocumentTemplatesPage>
   );
 };
 
 /* eslint-disable-next-line import/no-default-export */
-export default QuestionsPage;
+export default DocumentTemplatesPage;

@@ -1,21 +1,27 @@
 import React from 'react';
 import { Table } from './base';
-import { useAllDocumentTemplatesQuery } from '../../utils/api';
 
 interface DocumentTemplateTableProps {
   onRowClick(row: any): void;
+  loading: boolean;
+  data: any;
+  error: any;
 }
 
 export const DocumentTemplateTable = (
-  props: DocumentTemplateTableProps
+  {
+    data,
+    error,
+    loading,
+    onRowClick,
+  }: DocumentTemplateTableProps
 ) => {
-  const { loading, data, error } = useAllDocumentTemplatesQuery();
 
   if (loading) {
-    return (<h1>Loading</h1>);
+    return (<p>Loading</p>);
   }
   if (error) {
-    return (<h1>{error}</h1>);
+    return (<p>{error}</p>);
   }
 
   const columns = [
@@ -35,7 +41,7 @@ export const DocumentTemplateTable = (
       columns={columns}
       data={nodes}
       testId="admin-document-template-table"
-      onRowClick={props.onRowClick}
+      onRowClick={onRowClick}
     />
   );
 };

@@ -15,10 +15,10 @@ export const QuestionTable = ({
   onRowClick,
 }: QuestionTableProps) => {
   if (loading) {
-    return <h1>Loading</h1>;
+    return <p>Loading...</p>;
   }
   if (error) {
-    return <h1>{error}</h1>;
+    return <p>{error}</p>;
   }
 
   const columns = [
