@@ -1,4 +1,5 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/react';
+
 import { Button } from '../../../components/button';
 import {
   CreateQuestionModal
@@ -11,12 +12,14 @@ import {
   UpdateQuestionModal
 } from '../../../components/modals/updateQuestionModal';
 import { gutters } from '../../../styles/neonLaw';
+import { useAllQuestionsQuery } from '../../../utils/api';
 import { useState } from 'react';
 
 const AdminQuestions = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [showCreateModal, changeShowCreateModal] = useState(true);
   const [currentRow, setCurrentRow] = useState(undefined);
+  const { loading, data, error } = useAllQuestionsQuery();
 
   return (
     <PortalLayout>
@@ -54,6 +57,9 @@ const AdminQuestions = () => {
         />
 
         <QuestionTable
+          loading={loading}
+          data={data}
+          error={error}
           onRowClick={(row) => {
             changeShowCreateModal(false);
             setCurrentRow(row);

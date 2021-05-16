@@ -1,19 +1,24 @@
 import React from 'react';
 import { Table } from './base';
-import { useAllQuestionsQuery } from '../../utils/api';
 
 interface QuestionTableProps {
   onRowClick(row: any): void;
+  loading: boolean;
+  data: any;
+  error: any;
 }
 
-export const QuestionTable = (props: QuestionTableProps) => {
-  const { loading, data, error } = useAllQuestionsQuery();
-
+export const QuestionTable = ({
+  data,
+  error,
+  loading,
+  onRowClick,
+}: QuestionTableProps) => {
   if (loading) {
-    return (<h1>Loading</h1>);
+    return <p>Loading...</p>;
   }
   if (error) {
-    return (<h1>{error}</h1>);
+    return <p>{error}</p>;
   }
 
   const columns = [
@@ -37,7 +42,7 @@ export const QuestionTable = (props: QuestionTableProps) => {
       columns={columns}
       data={nodes}
       testId="admin-questions-table"
-      onRowClick={props.onRowClick}
+      onRowClick={onRowClick}
       defaultPageSize={50}
     />
   );
