@@ -1,28 +1,26 @@
 import { Box, Flex, useColorMode } from '@chakra-ui/react';
+
 import { BaseFooter } from '../footer/baseFooter';
 import { Breadcrumbs } from '../breadcrumbs';
-import {
-  PublicNavigationBar
-} from '../navigationBars/publicNavigationBar';
+import { PublicNavigationBar } from '../navigationBars/publicNavigationBar';
 import { colors } from '../../styles/neonLaw';
 
 export const PublicLayout = ({
   children,
   isBgLighter,
-  isFooterWhite
+  isFooterWhite,
+  isFooterSectionHidden,
 }: {
   children: JSX.Element | JSX.Element[];
   currentSite?: string;
   isBgLighter?: boolean;
   isFooterWhite?: boolean;
+  isFooterSectionHidden?: boolean;
 }) => {
   const { colorMode } = useColorMode();
 
   return (
-    <Box
-      bg={colors.background[colorMode]}
-      color={colors.text[colorMode]}
-    >
+    <Box bg={colors.background[colorMode]} color={colors.text[colorMode]}>
       <Flex
         minHeight="100vh"
         direction="column"
@@ -35,7 +33,10 @@ export const PublicLayout = ({
             <main role="main">{children}</main>
           </Box>
         </>
-        <BaseFooter isWhite={isFooterWhite} />
+        <BaseFooter
+          isWhite={isFooterWhite}
+          hideTheSection={isFooterSectionHidden}
+        />
       </Flex>
     </Box>
   );
