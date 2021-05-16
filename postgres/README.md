@@ -21,7 +21,7 @@ yarn sql-proxy-production
 yarn sql-proxy-staging
 
 # Then in this directory run
-doppler run - bundle exec ruby lib/neon_postgres/inter_database_copy/copy.rb
+doppler run -- bundle exec ruby lib/neon_postgres/inter_database_copy/copy.rb
 ```
 
 We use this ruby script to copy data from `production` to `staging` so we can
