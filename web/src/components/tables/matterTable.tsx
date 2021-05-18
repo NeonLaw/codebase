@@ -21,6 +21,10 @@ export const MatterTable = ({ onRowClick }) => {
       accessor: 'name',
     },
     {
+      Header: 'Matter Template',
+      accessor: 'matterTemplate.name',
+    },
+    {
       Header: 'Primary Contact',
       accessor: 'primaryContact.name',
     },
