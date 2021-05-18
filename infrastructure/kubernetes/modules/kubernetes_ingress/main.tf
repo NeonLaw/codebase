@@ -5,7 +5,7 @@ resource "kubernetes_ingress" "primary" {
     annotations = {
       "kubernetes.io/ingress.allow-http"            = "false"
       "kubernetes.io/ingress.global-static-ip-name" = "neon-law"
-      "ingress.gcp.kubernetes.io/pre-shared-cert"   = "neon-law-api,neon-law-superset,neon-law-kafka"
+      "ingress.gcp.kubernetes.io/pre-shared-cert"   = "neon-law-api"
     }
   }
 
@@ -22,30 +22,6 @@ resource "kubernetes_ingress" "primary" {
           backend {
             service_name = "${var.environment}-api"
             service_port = 80
-          }
-        }
-      }
-    }
-
-    rule {
-      host = var.environment == "production" ? "kafka.neonlaw.com" : "kafka.neonlaw.net"
-      http {
-        path {
-          backend {
-            service_name = "${var.environment}-kafka-cp-control-center"
-            service_port = 9021
-          }
-        }
-      }
-    }
-
-    rule {
-      host = var.environment == "production" ? "superset.neonlaw.com" : "superset.neonlaw.net"
-      http {
-        path {
-          backend {
-            service_name = "${var.environment}-superset"
-            service_port = 8088
           }
         }
       }
