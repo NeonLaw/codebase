@@ -21,7 +21,7 @@ export const UpdateButton = ({
 }: UpdateButtonProps) => {
   return (
     <Button
-      flash={true}
+      flash={false}
       type="submit"
       data-testid={`update-${dasherizedResourceName}-form-submit`}
       isDisabled={
