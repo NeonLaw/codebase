@@ -73,7 +73,7 @@ We recommend developing with a containerized setup that best mimic our staging
 and production process. If you have docker and docker-compose installed on
 your machine, you can follow these two steps to start developing.
 
-1. Start Docker Compose
+1. Start Docker Compose and the GCP Pub/Sub Emulator
 
 ```bash
 doppler setup # development
@@ -87,25 +87,18 @@ This starts the following containers:
   - Postgres (localhost:5432)
   - Neo4j (localhost:7687)
   - Elasticsearch (localhost:9200)
-  - Kafka Broker (localhost:9092)
-  - Kafka Schema Registry (localhost:8081)
-  - Confluent Connect (localhost:8083)
-  - Confluent Control Center (localhost:9021)
-  - Kafka SQLDB Server (localhost:8088)
-  - Kafka SQLDB CLI
-  - Kafka SQLDB Datagen
-  - Kafka Rest Proxy (localhost:8082)
-  - Zookeeper (localhost:2181)
-  - Superset (localhost:8080)
-    - Set up steps: https://hub.docker.com/r/apache/superset
-    - Username: admin
-    - Password: admin
 - Web Servers for:
   - our website (http://127.0.0.1:8000)
   - our API (http://127.0.0.1:3000/graphiql)
 - Background Servers for:
   - Jobs on Graphile Migrate
   - Email (TBD)
+
+Then, start the GCP Pub/Sub Emulator with:
+
+```bash
+gcloud beta emulators pubsub start
+```
 
 2. `exec /bin/bash` in the shell container.
 

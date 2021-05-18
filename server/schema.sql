@@ -1723,10 +1723,10 @@ CREATE POLICY admin_delete_matter ON public.matters FOR DELETE TO admin USING (t
 
 
 --
--- Name: matters admin_insert_matter; Type: POLICY; Schema: public; Owner: -
+-- Name: matters admin_modify_matters; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY admin_insert_matter ON public.matters FOR INSERT TO admin WITH CHECK (true);
+CREATE POLICY admin_modify_matters ON public.matters TO admin USING (true) WITH CHECK (true);
 
 
 --
@@ -1758,24 +1758,10 @@ CREATE POLICY admin_select_document ON public.documents FOR SELECT TO admin USIN
 
 
 --
--- Name: matters admin_select_matter; Type: POLICY; Schema: public; Owner: -
---
-
-CREATE POLICY admin_select_matter ON public.matters FOR SELECT TO admin USING (true);
-
-
---
 -- Name: matter_documents admin_select_matter_document; Type: POLICY; Schema: public; Owner: -
 --
 
 CREATE POLICY admin_select_matter_document ON public.matter_documents FOR SELECT TO admin USING (true);
-
-
---
--- Name: matters admin_update_matters; Type: POLICY; Schema: public; Owner: -
---
-
-CREATE POLICY admin_update_matters ON public.matters FOR UPDATE TO admin WITH CHECK (true);
 
 
 --

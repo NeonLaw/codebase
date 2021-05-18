@@ -46,18 +46,6 @@ module "neon-law-api-ssl-certificate" {
   domain_name      = var.neon_law_api_url
 }
 
-module "suprset-ssl-certificate" {
-  source           = "./modules/ssl_certificate"
-  certificate_name = "neon-law-superset"
-  domain_name      = var.environment == "staging" ? "superset.neonlaw.net" : "superset.neonlaw.com"
-}
-
-module "kafka-ssl-certificate" {
-  source           = "./modules/ssl_certificate"
-  certificate_name = "neon-law-kafka"
-  domain_name      = var.environment == "staging" ? "kafka.neonlaw.net" : "kafka.neonlaw.com"
-}
-
 module "upload_bucket" {
   source      = "./modules/write_only_bucket"
   bucket_name = "${var.project_id}-unprocessed-uploads"
