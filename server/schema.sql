@@ -3,7 +3,7 @@
 --
 
 -- Dumped from database version 13.2 (Debian 13.2-1.pgdg100+1)
--- Dumped by pg_dump version 13.2 (Debian 13.2-1.pgdg100+1)
+-- Dumped by pg_dump version 13.3 (Debian 13.3-1.pgdg100+1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -1769,6 +1769,13 @@ CREATE POLICY admin_select_matter ON public.matters FOR SELECT TO admin USING (t
 --
 
 CREATE POLICY admin_select_matter_document ON public.matter_documents FOR SELECT TO admin USING (true);
+
+
+--
+-- Name: matters admin_update_matters; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY admin_update_matters ON public.matters FOR UPDATE TO admin WITH CHECK (true);
 
 
 --

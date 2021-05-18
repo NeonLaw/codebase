@@ -1,5 +1,9 @@
 import { BaseEditor, Descendant, createEditor } from 'slate';
-import { Box, FormControl, FormErrorMessage } from '@chakra-ui/react';
+import {
+  Box,
+  FormControl,
+  FormErrorMessage,
+} from '@chakra-ui/react';
 import { HistoryEditor, withHistory } from 'slate-history';
 import { ReactEditor, Slate, withReact } from 'slate-react';
 import { Controller } from 'react-hook-form';
