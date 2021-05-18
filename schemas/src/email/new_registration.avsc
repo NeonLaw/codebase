@@ -1,0 +1,11 @@
+{
+  "type" : "record",
+  "name" : "new_registration",
+  "namespace" : "com.neon_law.email",
+  "fields" : [{
+    "name" : "person_id",
+    "type" : "string",
+    "doc"  : "The ID of the person record."
+  }],
+  "doc:" : "Subscribers to this message can send a welcome email."
+}
