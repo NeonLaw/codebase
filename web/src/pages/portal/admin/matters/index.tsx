@@ -50,7 +50,7 @@ const AdminMatters = () => {
 
         <UpdateMatterModal
           isOpen={isOpen && !showCreateMatterModal}
-          matter={currentRow.values}
+          currentValues={currentRow.values}
           onClose={onClose}
         />
 
