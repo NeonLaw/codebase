@@ -1,0 +1,10 @@
+{
+  "name": "@neonlaw/mdx",
+  "version": "0.0.1",
+  "description": "A superset of mdx for neon law components.",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn test"
+  },
+  "license": "Apache-2.0"
+}

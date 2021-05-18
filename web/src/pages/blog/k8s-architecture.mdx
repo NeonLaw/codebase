@@ -35,27 +35,15 @@ This service points to a Kubernetes deployment we manage that serves our
 directory of our [GitHub codebase](https://github.com/neonlaw/codebase) to learn
 more about what this package does.
 
-### Confluent Command Center
-This service points to our managed Kafka instance and the Confluent Command
-Center which is used to analyze Kafka. You can visit this at
-https://kafka.neonlaw.com or https://kafka.neonlaw.net.
-
-### Superset
-This service points to a managed Apache Superset offering. Like Neo4j and every
-other external software ran in this Kubernetes cluster, it is installed with its
-Helm chart and managed in our Terraform scripts. You can visit our Superset
-instance at https://superset.neonlaw.com (our staging Superset exists at
-https://superset.neonlaw.net).
-
-Superset is an open-source business intelligence tool that provides us with
-internal data snapshots and visualizations. In each Superset instance, we plug
-in our datasources.
-
 ### Databases
-We currently use Google Cloud's managed PostgreSQL offering. Everything else is
-deployed in Helm Charts in our database. We use Neo4j, Elasticsearch and Kafka.
-Each can be completely regenerated with data stored in our PostgreSQL database,
-except for files in Blob Storage.
+We use Google Cloud's managed PostgreSQL offering. We also use Neo4j,
+Elasticsearch, each can be completely regenerated with data stored in our
+PostgreSQL database.
+
+### PubSub
+We use Google Cloud's managed Pub/Sub offering. Our `@neonlaw/workers` and
+`web_hooks` packages publish to pub sub, and many of our other services
+subscribe to those messages.
 
 ### Blob Storage
 We use Google Cloud Storage Buckets to store files. All access to this blob
@@ -63,8 +51,9 @@ storage is stored in a separate GCP Audit account so we have a full accounting
 of who saw what file. This is important for conflicts.
 
 ### Logging
-We use Loglare to collect hooks from pods and post them to BigQuery.  We also
-use Logflare as a server for Webhooks for ingesting third-party data.
+We use Loglare to collect hooks from pods and post them to BigQuery in our
+separate Data GCP Project.  We also use Logflare as a server for Webhooks for
+ingesting third-party data.
 
 ### Authentication
 Some of our applications depend on authentication tokens which we use Auth0 for.
@@ -72,6 +61,5 @@ After a user authenticates with Auth0, they have a limited-access token to
 access our service-based deployments.
 
 ### Non-Service Deployments
-
 Deployments without services listen to changes in one of our Databases, namely
 Kafka and process data there. These include our `worker` and `email` processes.

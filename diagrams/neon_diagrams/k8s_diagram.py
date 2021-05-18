@@ -7,6 +7,7 @@ from diagrams.programming.language import NodeJS, Ruby
 from diagrams.onprem.database import PostgreSQL, Neo4J
 from diagrams.onprem.queue import Kafka
 from diagrams.gcp.network import LoadBalancing
+from diagrams.gcp.analytics import PubSub
 from diagrams.gcp.analytics import BigQuery
 from diagrams.gcp.storage import Storage
 from diagrams.elastic.elasticsearch import Elasticsearch
@@ -33,12 +34,9 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
 
         logflare >> big_query
 
-        with Cluster("GKE"):
-            with Cluster("Kafka"):
-                kafka = Kafka("Kafka")
-                kafka_command_center = Deployment("CCC")
-                kafka_command_center << kafka << Helm("Confluent")
+        pub_sub = PubSub("PubSub")
 
+        with Cluster("GKE"):
             with Cluster("Neo4j"):
                 neo4j = Neo4J("Neo4j")
                 neo4j << Helm("Neo4j")
@@ -49,9 +47,15 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
             with Cluster("@neonlaw/api"):
                 api_package = NodeJS("@neonlaw/api")
                 api = (
+                    api_package << Deployment("@neonlaw/api") << Service("@neonlaw/api")
+                )
+
+            with Cluster("neon_webhooks"):
+                webhooks = Ruby("neon_webhooks")
+                api = (
                     api_package
-                    << Deployment("@neonlaw/api")
-                    << Service("@neonlawapigraphql")
+                    << Deployment("neon_webhooks")
+                    << Service("neon_webhooks")
                 )
 
             with Cluster("neon_email"):
@@ -59,8 +63,6 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
                 email_package << Deployment("Email")
 
             ingress = Ingress("GKE Ingress")
-
-            superset = Custom("Superset", f"{dir_path}/images/superset.png")
 
             with Cluster("@neonlaw/worker"):
                 worker_package = NodeJS("@neonlaw/worker")
@@ -70,15 +72,21 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
                 data_copy_package = Ruby("neon_email")
                 data_copy = data_copy_package << Cronjob("2AM PST everyday")
 
-            [api_package, superset] >> auth0
+            [api_package] >> auth0
             [api_package, worker_package, email_package] >> logflare
             [api_package, worker_package, data_copy_package] >> postgres
             [api_package, worker_package, data_copy_package] >> private_asset_bucket
-            [worker_package, email_package, data_copy_package] >> kafka
+
             [api_package] >> neo4j
             [api_package] >> search
-            superset >> [postgres, kafka, neo4j, search, big_query]
-            ingress >> [api, superset, kafka_command_center]
+
+            # Publishers
+            [worker_package, webhooks] >> pub_sub
+
+            # Consumers
+            [email_package, data_copy_package] << pub_sub
+
+            ingress >> [api, webhooks]
 
             load_balancer >> ingress
 

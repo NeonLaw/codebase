@@ -2,6 +2,7 @@
     "private": true,
     "workspaces": [
         "i18n",
+        "mdx",
         "server",
         "web"
     ],
