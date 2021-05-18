@@ -24,7 +24,7 @@
     "@opentelemetry/node": "^0.18.2",
     "@opentelemetry/tracing": "^0.18.0",
     "@sendgrid/mail": "^7.4.4",
-    "@slack/web-api": "^6.1.0",
+    "@slack/web-api": "^6.2.3",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "dotenv": "^9.0.2",
