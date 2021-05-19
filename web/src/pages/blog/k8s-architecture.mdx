@@ -23,6 +23,9 @@ The Load Balancer is managed by Google Cloud. By enforcing all ingress traffic
 to funnel through the Load Balancer we can leverage the benefits of this managed
 service including SSL encryption, WAF, and CDN support.
 
+The Cluster itself is managed using GKE Autopilot. Since we only have stateless
+deployments, this lessens our DevOps burden.
+
 ### Kubernetes Ingress
 Kubernetes Ingress within our cluster is managed by GKE and GCP. This way we can
 leverage GCP SSL Certs and IAP for accessing internal company resources.  We
