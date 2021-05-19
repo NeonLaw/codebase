@@ -17,9 +17,6 @@ resource "google_container_cluster" "primary" {
   subnetwork = "default"
 
   master_auth {
-    username = random_string.random.result
-    password = random_password.password.result
-
     client_certificate_config {
       issue_client_certificate = true
     }
