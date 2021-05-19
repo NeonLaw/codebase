@@ -58,16 +58,6 @@ provider "kubernetes-alpha" {
   cluster_ca_certificate = base64decode(data.terraform_remote_state.gcp.outputs.gke_cluster_ca_certificate)
 }
 
-module "neo4j" {
-  source      = "./modules/neo4j_helm"
-  environment = var.environment
-}
-
-module "fluentbit" {
-  source      = "./modules/fluentbit_helm"
-  environment = var.environment
-}
-
 module "application_secrets" {
   source                     = "./modules/application_secrets"
   api_url                    = var.api_url
