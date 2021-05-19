@@ -53,9 +53,4 @@ jobs:
         run: poetry run black --check .
       - name: Run Schema Tests
         working-directory: ./schemas
-        run: |
-          poetry run python -m neon_diagrams.web_diagram
-          poetry run python -m neon_diagrams.gcp_diagram
-          poetry run python -m neon_diagrams.k8s_diagram
-          poetry run python -m neon_diagrams.kafka_diagram
-          git diff -G. --exit-code .
+        run: poetry run pytest .
