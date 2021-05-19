@@ -1,7 +1,5 @@
 import { colors, gutters } from '../../styles/deleteYourData';
-
 import Link from 'next/link';
-import React from 'react';
 import { links } from './links';
 import styled from '@emotion/styled';
 
