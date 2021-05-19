@@ -3,7 +3,6 @@ import {
   Heading,
 } from '@chakra-ui/react';
 import { PortalLayout } from '../../../components/layouts/portalLayout';
-import React from 'react';
 import { useIntl } from 'react-intl';
 
 const LawyersFirmSettings = () => {

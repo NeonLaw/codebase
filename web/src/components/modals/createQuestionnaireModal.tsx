@@ -1,5 +1,4 @@
 import { CreateModalFormBuilder } from '../forms/createModalFormBuilder';
-import React from 'react';
 import { questionnaireFields } from '../fields/questionnaireFields';
 
 export const CreateQuestionnaireModal = ({ isOpen, onClose }) => {

@@ -20,7 +20,6 @@ import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Container } from '../container';
 import { Link } from '../link';
 import { MdDehaze } from 'react-icons/md';
-import React from 'react';
 import { Search } from './search';
 import styled from '@emotion/styled';
 

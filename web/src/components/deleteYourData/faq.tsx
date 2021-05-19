@@ -5,8 +5,6 @@ import {
   gutters
 } from '../../styles/deleteYourData';
 import { useColorMode, useColorModeValue } from '@chakra-ui/react';
-
-import React from 'react';
 import styled from '@emotion/styled';
 
 const StyledFAQ = styled.div`

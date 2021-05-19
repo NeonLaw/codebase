@@ -2,7 +2,6 @@ import { Box } from '@chakra-ui/layout';
 import { Container } from '../components/container';
 import { PublicLayout } from '../components/layouts/publicLayout';
 import { QuestionTable } from '../components/tables/questionTable';
-import React from 'react';
 import { gutters } from '../styles/neonLaw';
 import styled from '@emotion/styled';
 import { useAllQuestionsQuery } from '../utils/api';

@@ -1,5 +1,4 @@
 import { Avatar } from '@chakra-ui/react';
-import React from 'react';
 import styled from '@emotion/styled';
 import { useUser } from '@auth0/nextjs-auth0';
 

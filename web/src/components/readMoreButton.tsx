@@ -1,9 +1,7 @@
 import { Box, useColorMode } from '@chakra-ui/react';
 import { colors, gutters, shadows } from '../styles/neonLaw';
-
 import { GetLayoutDirection } from '../../utils/getLayoutDirection';
 import { default as Link } from 'next/link';
-import React from 'react';
 
 export const ReadMoreButton = ({ children, ...props }: any) => {
   const { colorMode } = useColorMode();

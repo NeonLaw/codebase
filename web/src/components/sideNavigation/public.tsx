@@ -1,5 +1,4 @@
 import { PublicLinks } from '../navigation/publicLinks';
-import React from 'react';
 import { SideNavContainer } from './sideNavContainer';
 import { SideNavContent } from './sideNavContent';
 

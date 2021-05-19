@@ -5,8 +5,6 @@ import {
   justifyContent,
   space
 } from 'styled-system';
-
-import React from 'react';
 import styled from '@emotion/styled';
 
 export const StyledTable = styled.div<SpaceProps>`

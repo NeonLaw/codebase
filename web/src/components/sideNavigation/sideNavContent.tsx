@@ -1,7 +1,6 @@
 import { Box, useColorMode } from '@chakra-ui/react';
 import { colors, gutters } from '../../styles/neonLaw';
 import Link from 'next/link';
-import React from 'react';
 import { Search } from '../navigationBars/search';
 import styled from '@emotion/styled';
 

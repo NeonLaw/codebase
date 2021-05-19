@@ -1,7 +1,6 @@
 import { Box, useColorMode } from '@chakra-ui/react';
 import { BaseFooter } from '../footer/baseFooter';
 import { DeleteYourDataStyles } from '../../styles/deleteYourDataStyles';
-import React from 'react';
 import { colors } from '../../styles/deleteYourData';
 
 export const DeleteYourDataLayout = ({ children }) => {

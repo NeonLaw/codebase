@@ -1,5 +1,4 @@
 import { Box } from '@chakra-ui/react';
-import React from 'react';
 import { Section } from '../section';
 import { UnderlineLink } from '../mdxComponents';
 import { sizes } from '../../styles/neonLaw';

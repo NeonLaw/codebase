@@ -6,10 +6,8 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { colors, sizes } from '../../styles/neonLaw';
-
 import { FooterLinks } from './footerLinks';
 import { GetLayoutDirection } from '../../../utils/getLayoutDirection';
-import React from 'react';
 import { Section } from '../section';
 import { useIntl } from 'react-intl';
 

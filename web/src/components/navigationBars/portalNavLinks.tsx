@@ -3,7 +3,6 @@ import { BiHomeHeart } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
 import { FaHands } from 'react-icons/fa';
 import { MdGavel } from 'react-icons/md';
-import React from 'react';
 import { RiAdminLine } from 'react-icons/ri';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { VscLaw } from 'react-icons/vsc';

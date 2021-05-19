@@ -7,7 +7,6 @@ import {
   useColorMode
 } from '@chakra-ui/react';
 import { Link } from '../../components/link';
-import React from 'react';
 import { UserAvatar } from '../userAvatar';
 import { useIntl } from 'react-intl';
 import { useRouter } from 'next/router';
