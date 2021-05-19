@@ -14,7 +14,6 @@ import {
 import { CodeBlock } from '../components/codeBlock';
 import { DesktopHalfMobileFullCard } from './desktopHalfMobileFullCard';
 import { default as Link } from 'next/link';
-import React from 'react';
 import { colors } from '../styles/neonLaw';
 
 const Pre = (props) => <Box my="2em" rounded="sm" {...props} />;

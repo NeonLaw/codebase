@@ -25,7 +25,7 @@ export const DeleteButton = ({
     <Button
       flash={true}
       data-testid={`delete-${dasherizedResourceName}-button`}
-      isDisabled={
+      disabled={
         isSubmitting || updateMutationLoading || deleteMutationLoading
       }
       containerStyles={{

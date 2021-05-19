@@ -1,7 +1,5 @@
 import { colors, gutters } from '../../styles/deleteYourData';
-
 import { FAQ } from './faq';
-import React from 'react';
 import { Section } from '../section';
 import { faqs } from './contents';
 import styled from '@emotion/styled';

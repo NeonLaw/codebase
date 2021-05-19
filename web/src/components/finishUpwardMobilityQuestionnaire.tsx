@@ -1,6 +1,4 @@
 import { Heading, List, ListItem, Text } from '@chakra-ui/react';
-
-import React from 'react';
 import { Section } from './section';
 import { questions } from '../components/upwardMobilityQuestions';
 import { useIntl } from 'react-intl';
