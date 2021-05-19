@@ -11,13 +11,16 @@ import { AdminOnly } from '../adminOnly';
 import { CreateMatterContactModal } from '../modals/createMatterContactModal';
 import { MatterContactsTable } from '../tables/matterContactsTable';
 import { MatterDocumentsTable } from '../tables/matterDocumentsTable';
+import { UpdateMatterModal } from '../modals/updateMatterModal';
 import { convertSlateToPlaintext } from '../../utils/slate';
 import { gutters } from '../../styles/neonLaw';
 import { useMatterByIdQuery } from '../../utils/api';
+import { useState } from 'react';
 
 export const MatterDetailView = ({ id }) => {
   const { data, loading } = useMatterByIdQuery({ variables: { id }});
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [showUpdateModal, changeShowUpdateModal] = useState(true);
 
   if (loading)  {
     return <Skeleton height="20px" />;
@@ -43,7 +46,10 @@ export const MatterDetailView = ({ id }) => {
           <Button
             flash={true}
             marginBottom={gutters.xSmall}
-            onClick={onOpen}
+            onClick={() => {
+              changeShowUpdateModal(false);
+              onOpen();
+            }}
           >
               Create Matter Contact&nbsp;
             <Kbd
@@ -54,8 +60,23 @@ export const MatterDetailView = ({ id }) => {
                C
             </Kbd>
           </Button>
+          <Button
+            flash={true}
+            marginBottom={gutters.xSmall}
+            onClick={() => {
+              changeShowUpdateModal(true);
+              onOpen();
+            }}
+          >
+              Update Matter
+          </Button>
           <CreateMatterContactModal
             isOpen={isOpen}
+            onClose={onClose}
+          />
+          <UpdateMatterModal
+            isOpen={isOpen && showUpdateModal}
+            currentValues={data.matter}
             onClose={onClose}
           />
         </AdminOnly>
