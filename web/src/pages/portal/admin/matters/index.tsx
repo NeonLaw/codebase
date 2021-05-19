@@ -7,10 +7,8 @@ import {
   MatterTable
 } from '../../../../components/tables/matterTable';
 import { PortalLayout } from '../../../../components/layouts/portalLayout';
-import {
-  UpdateMatterModal
-} from '../../../../components/modals/updateMatterModal';
 import { gutters } from '../../../../styles/neonLaw';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 const AdminMatters = () => {
@@ -19,7 +17,7 @@ const AdminMatters = () => {
     showCreateMatterModal,
     changeShowCreateMatterModal
   ] = useState(true);
-  const [currentRow, setCurrentRow] = useState({ values: [] });
+  const router = useRouter();
 
   return (
     <PortalLayout>
@@ -48,17 +46,10 @@ const AdminMatters = () => {
           onClose={onClose}
         />
 
-        <UpdateMatterModal
-          isOpen={isOpen && !showCreateMatterModal}
-          currentValues={currentRow.values}
-          onClose={onClose}
-        />
-
         <MatterTable
           onRowClick={(row) => {
-            changeShowCreateMatterModal(false);
-            setCurrentRow(row);
-            onOpen();
+            const { id } = row.values;
+            router.push(`/portal/admin/matters/${id}`);
           }}
         />
       </Box>

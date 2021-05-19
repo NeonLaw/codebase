@@ -56,7 +56,7 @@ export const MatterDetailView = ({ id }) => {
           </Button>
           <CreateMatterContactModal
             isOpen={isOpen}
-            onClose={() => { onClose(); }}
+            onClose={onClose}
           />
         </AdminOnly>
       </Box>
