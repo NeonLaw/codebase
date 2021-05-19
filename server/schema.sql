@@ -442,26 +442,6 @@ $$;
 
 
 --
--- Name: send_welcome_email(); Type: FUNCTION; Schema: public; Owner: -
---
-
-CREATE FUNCTION public.send_welcome_email() RETURNS trigger
-    LANGUAGE plpgsql
-    AS $$
-BEGIN
-  PERFORM graphile_worker.add_job(
-    'sendWelcomeEmail',
-    json_build_object('personId', NEW.id),
-    flags => ARRAY[
-      'sendSendgridEmail'
-    ]
-  );
-  RETURN NEW;
-END;
-$$;
-
-
---
 -- Name: set_updated_at(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -1360,13 +1340,6 @@ CREATE TRIGGER send_lob_mail_on_create_letter AFTER INSERT ON public.letters FOR
 --
 
 CREATE TRIGGER send_matter_document_email_on_create_document BEFORE INSERT ON public.matter_documents FOR EACH ROW EXECUTE FUNCTION public.send_matter_document_email();
-
-
---
--- Name: people send_welcome_email_on_create_person; Type: TRIGGER; Schema: public; Owner: -
---
-
-CREATE TRIGGER send_welcome_email_on_create_person BEFORE INSERT ON public.people FOR EACH ROW EXECUTE FUNCTION public.send_welcome_email();
 
 
 --

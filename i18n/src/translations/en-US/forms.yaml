@@ -57,3 +57,5 @@ forms:
     placeholder: Enter the matter description
   captcha_token:
     label: Captcha
+  id:
+    label: Label

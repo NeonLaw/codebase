@@ -7,7 +7,6 @@ import {
 import { colors, sizes } from '../../styles/neonLaw';
 import { Breadcrumbs } from '../../components/breadcrumbs';
 import { FooterLinks } from './footerLinks';
-import React from 'react';
 import { Section } from '../section';
 import { useIntl } from 'react-intl';
 

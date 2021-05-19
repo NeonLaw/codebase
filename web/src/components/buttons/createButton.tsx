@@ -22,7 +22,7 @@ export const CreateButton = ({
       flash={false}
       type="submit"
       data-testid={`create-${dasherizedResourceName}-form-submit`}
-      isDisabled={isSubmitting || createMutationLoading}
+      disabled={isSubmitting || createMutationLoading}
       containerStyles={{
         margin: `${gutters.xSmallOne} 0`,
       }}

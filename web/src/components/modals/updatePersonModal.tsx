@@ -7,15 +7,14 @@ import {
   ModalOverlay,
   useColorMode,
 } from '@chakra-ui/react';
-import React, { useState } from 'react';
 import { StringInput, Switch } from '../../components/inputs';
 import { colors, gutters, theme } from '../../styles/neonLaw';
-
 import { Button } from '../../components/button';
 import { SubmissionInProgress } from '../../components/submissionInProgress';
 import { useCurrentUserQuery } from '../../utils/api';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
+import { useState } from 'react';
 import { useUpdatePersonByIdMutation } from '../../utils/api';
 
 export const UpdatePersonModal = ({ isOpen, onClose }) => {
@@ -88,7 +87,7 @@ export const UpdatePersonModal = ({ isOpen, onClose }) => {
                 flash={true}
                 type="submit"
                 data-testid="update-person-form-submit"
-                isDisabled={isSubmitting || loading}
+                disabled={isSubmitting || loading}
                 containerStyles={{ margin: `${gutters.xSmallOne} 0` }}
               >
                 Update Person <SubmissionInProgress loading={loading} />

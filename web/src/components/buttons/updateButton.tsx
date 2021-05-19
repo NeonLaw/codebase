@@ -1,5 +1,4 @@
 import { Button } from '../button';
-import React from 'react';
 import { SubmissionInProgress } from '../submissionInProgress';
 import { SubmitForm } from '../keybindings/submitForm';
 import { gutters } from '../../styles/neonLaw';
@@ -24,7 +23,7 @@ export const UpdateButton = ({
       flash={false}
       type="submit"
       data-testid={`update-${dasherizedResourceName}-form-submit`}
-      isDisabled={
+      disabled={
         isSubmitting || updateMutationLoading || deleteMutationLoading
       }
       containerStyles={{
