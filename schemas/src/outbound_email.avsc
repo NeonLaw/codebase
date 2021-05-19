@@ -4,9 +4,9 @@
   "type": "record",
   "fields": [
     {
-      "name": "person_id",
+      "name": "email",
       "type": "string",
-      "doc": "The ID of the person record."
+      "doc": "The 'to' email to send the email to."
     },
     {
       "name": "email_type",
