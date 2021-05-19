@@ -5,7 +5,6 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 import {
   FaFacebookF, FaLinkedinIn, FaTwitter
 } from 'react-icons/fa';
-import React from 'react';
 
 export const ShareButtons = ({ siteUrl, slug }) => {
   const url = `${siteUrl}${slug}`;

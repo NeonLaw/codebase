@@ -1,7 +1,6 @@
 import { Box, Heading } from '@chakra-ui/react';
 import { Button } from '../../../components/button';
 import { PortalLayout } from '../../../components/layouts/portalLayout';
-import React from 'react';
 import { gutters } from '../../../styles/neonLaw';
 import styled from '@emotion/styled';
 import { useIntl } from 'react-intl';

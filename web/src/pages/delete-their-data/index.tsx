@@ -3,7 +3,6 @@ import {
 } from '../../components/layouts/deleteYourDataLayout';
 import { FAQs } from '../../components/deleteYourData/faqs';
 import { Hero } from '../../components/deleteYourData/hero';
-import React from 'react';
 import { Seo } from '../../components/seo';
 
 const HomePage = () => {

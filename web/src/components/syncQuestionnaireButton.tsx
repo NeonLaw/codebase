@@ -1,6 +1,4 @@
 import { Button, Skeleton } from '@chakra-ui/react';
-
-import React from 'react';
 import { gutters } from '../styles/neonLaw';
 import { useUpdateQuestionnaireFromNeo4JMutation } from '../utils/api';
 

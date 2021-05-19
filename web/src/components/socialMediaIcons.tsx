@@ -5,7 +5,6 @@ import {
 import { BiPhone } from 'react-icons/bi';
 import { Button } from '../components/button';
 import { MdEmail } from 'react-icons/md';
-import React from 'react';
 
 export const SocialMediaIcons = () => {
   return (

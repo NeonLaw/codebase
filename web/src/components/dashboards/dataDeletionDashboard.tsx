@@ -1,7 +1,6 @@
 import {
   DataDeletionDetailView
 } from '../detailViews/dataDeletionMatterDetailView';
-import React from 'react';
 import { Skeleton } from '@chakra-ui/react';
 import { useAllCurrentUserMattersQuery } from '../../utils/api';
 

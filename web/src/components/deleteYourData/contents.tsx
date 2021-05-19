@@ -1,7 +1,5 @@
 import { RiDeleteBinLine, RiHammerLine, RiLock2Line } from 'react-icons/ri';
-
 import { FAQProps } from './faq';
-import React from 'react';
 import { VscRocket } from 'react-icons/vsc';
 
 export const faqs: FAQProps[] = [

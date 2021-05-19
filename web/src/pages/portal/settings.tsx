@@ -6,7 +6,6 @@ import { PortalLayout } from '../../components/layouts/portalLayout';
 import {
   PortalProfileCard
 } from '../../components/cards/portalProfileCard';
-import React from 'react';
 import { ThemeSwitcher } from '../../components/themeSwitcher';
 import {
   UpdatePersonModal

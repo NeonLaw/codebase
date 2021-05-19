@@ -3,7 +3,6 @@ import {
   PeopleTable
 } from '../../../components/tables/peopleTable';
 import { PortalLayout } from '../../../components/layouts/portalLayout';
-import React from 'react';
 
 const AdminPeople = () => {
   return (

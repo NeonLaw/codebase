@@ -1,9 +1,7 @@
 import { Global, css } from '@emotion/react';
 import { colors, gutters, sizes } from './neonLaw';
 import { theme, useColorMode } from '@chakra-ui/react';
-
 import { colors as DydColors } from './deleteYourData';
-import React from 'react';
 
 interface BaseStylesProps {
   dir?: 'ltr' | 'rtl';

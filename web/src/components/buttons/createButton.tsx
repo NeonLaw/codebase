@@ -1,5 +1,4 @@
 import { Button } from '../button';
-import React from 'react';
 import { SubmissionInProgress } from '../submissionInProgress';
 import { SubmitForm } from '../keybindings/submitForm';
 import { gutters } from '../../styles/neonLaw';

@@ -3,9 +3,7 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/react';
-
 import { PortalLayout } from '../../../components/layouts/portalLayout';
-import React from 'react';
 import { gutters } from '../../../styles/neonLaw';
 import { useIntl } from 'react-intl';
 

@@ -1,7 +1,5 @@
 import { gutters, shadows, sizes } from '../../styles/neonLaw';
-
 import { GetLayoutDirection } from '../../../utils/getLayoutDirection';
-import React from 'react';
 import { ReadMoreButton } from '../readMoreButton';
 import styled from '@emotion/styled';
 import { useIntl } from 'react-intl';

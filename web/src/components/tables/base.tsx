@@ -25,9 +25,9 @@ import {
 import { usePagination, useSortBy, useTable } from 'react-table';
 import { Card } from '../cards/base';
 import { CardFooter } from '../cards/cardFooter';
-import React from 'react';
 import { colors } from '../../styles/neonLaw';
 import { useMediaQuery } from 'react-responsive';
+import { useMemo } from 'react';
 
 interface TableInterface {
   columns: any;
@@ -46,7 +46,7 @@ export const Table = ({
     return;
   },
 }: TableInterface) => {
-  const tableColumns = React.useMemo(() => columns, [columns]);
+  const tableColumns = useMemo(() => columns, [columns]);
 
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 40em)' });
 

@@ -4,7 +4,6 @@ import {
   DocumentTemplateTable
 } from '../components/tables/documentTemplateTable';
 import { PublicLayout } from '../components/layouts/publicLayout';
-import React from 'react';
 import { gutters } from '../styles/neonLaw';
 import styled from '@emotion/styled';
 import { useAllDocumentTemplatesQuery } from '../utils/api';
