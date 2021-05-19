@@ -40,12 +40,8 @@ crates.io for more information.
 
 We use [Doppler](https://www.doppler.com/) for storing and sharing configuration
 secrets like API keys. If you wish to work on the application, please email us
-at support@neonlaw.com to request test credentials. In Doppler, we have the
-following projects, each with a `dev`, `stg`, and `prd` environment. `dev` is
-for development on your machine, whereas `stg` and `prd` refer to our
-cloud-based environments on GCP.
-
-* Web, which can be used in the front-end development section below.
+at support@neonlaw.com to request a Doppler account. Please refer to the
+individual package README files for more information on how to use Doppler.
 
 ### Front-End Development
 

@@ -1,0 +1,29 @@
+{
+  "namespace": "com.neon_law.email",
+  "name": "outbound_email",
+  "type": "record",
+  "fields": [
+    {
+      "name": "person_id",
+      "type": "string",
+      "doc": "The ID of the person record."
+    },
+    {
+      "name": "email_type",
+      "type": [
+        {
+          "type" : "record",
+          "name" : "new_registration",
+          "namespace" : "com.neon_law.email",
+          "fields" : [
+            {
+              "type" : "string",
+              "name" : "sub"
+            }
+          ],
+          "doc:" : "Subscribers to this message can send a welcome email."
+        }
+      ]
+    }
+  ]
+}

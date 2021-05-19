@@ -11,6 +11,7 @@ from diagrams.gcp.analytics import PubSub
 from diagrams.gcp.analytics import BigQuery
 from diagrams.gcp.storage import Storage
 from diagrams.elastic.elasticsearch import Elasticsearch
+
 import os
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
