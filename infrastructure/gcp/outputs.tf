@@ -1,5 +1,5 @@
 output "gke_host" {
-  value     = module.kubernetes_cluster.host
+  value     = "https://${module.kubernetes_cluster.host}"
   sensitive = true
 }
 
@@ -37,16 +37,6 @@ output "zone" {
 
 output "gcp_credentials" {
   value     = var.gcp_credentials
-  sensitive = true
-}
-
-output "gke_username" {
-  value     = module.kubernetes_cluster.master_username
-  sensitive = true
-}
-
-output "gke_password" {
-  value     = module.kubernetes_cluster.master_password
   sensitive = true
 }
 
