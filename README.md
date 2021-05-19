@@ -43,85 +43,12 @@ secrets like API keys. If you wish to work on the application, please email us
 at support@neonlaw.com to request a Doppler account. Please refer to the
 individual package README files for more information on how to use Doppler.
 
-### Front-End Development
+### Package Development
 
-For developing the website you can do so locally and speak to our staging
-GraphQL server. To spin up a Next.JS server, enter the following commands.
-
-```bash
-yarn
-doppler setup # web project, staging environment
-doppler run -- yarn workspace @neonlaw/web dev
-```
-
-If you want to test with a local server, please start the instructions in the
-`Back-End Development` section below and then run:
-
-```bash
-yarn
-doppler setup # web project, development environment
-doppler run -- yarn workspace @neonlaw/web dev
-```
-
-### Back-End Development
-
-We recommend developing with a containerized setup that best mimic our staging
-and production process. If you have docker and docker-compose installed on
-your machine, you can follow these two steps to start developing.
-
-1. Start Docker Compose and the GCP Pub/Sub Emulator
-
-```bash
-doppler setup # development
-doppler run -- docker compose up
-```
-
-This starts the following containers:
-
-- A shell container (see step 2 for more)
-- Database Servers for:
-  - Postgres (localhost:5432)
-  - Neo4j (localhost:7687)
-  - Elasticsearch (localhost:9200)
-- Web Servers for:
-  - our website (http://127.0.0.1:8000)
-  - our API (http://127.0.0.1:3000/graphiql)
-- Background Servers for:
-  - Jobs on Graphile Migrate
-  - Email (TBD)
-
-Then, start the GCP Pub/Sub Emulator with:
-
-```bash
-gcloud beta emulators pubsub start
-```
-
-2. `exec /bin/bash` in the shell container.
-
-You are encouraged to do work from the shell container, which contains all of
-the third party dependencies and libraries to run all of the code defined
-herein. You can access a shell with:
-
-```
-docker exec -it shell /bin/bash
-```
-
-3. VSCode settings (optional)
-
-If you don't already have a favorite editor, we recommend [VSCode by
-Microsoft](https://code.visualstudio.com/). Using VSCode with Docker Compose
-as outlined in the previous step, you can edit files directly in the `shell`
-container. By doing so, you don't need to install _anything_ on your host
-machine except for Docker. Node, Python, Postgres, and anything else we
-may add in the future will all run within Docker containers managed by Docker
-Compose.
-
-To edit within a container, [follow this
-tutorial](https://code.visualstudio.com/docs/remote/containers), which
-assumes that you have the `Remote - Containers` extension installed. Then
-after starting `docker-compose up`, you can attach to the `shell` container,
-which already has node, psql, and python, with our third-party libraries, and
-required environment variables, ready for you.
+For each of our packages, consult the `README` file located in each top-level
+directory of this repository. There, you will find instructions on how to
+develop. We believe developing each in isolation is a great developer experience
+because you should not have to load a bunch of stuff in your head whilst coding.
 
 ### Cloud SQL Proxy
 
@@ -151,62 +78,6 @@ doppler run -- bundle exec ruby lib/neon_postgres/inter_database_copy/copy.rb
 This will copy data over from production to staging while anonymizing client
 data so we can develop the app without exposing the attorney-client privilege of
 the firm.
-
-### Kafka Command Center Proxy
-
-If you need to access either the staging or production kafka on your local
-machine, you can connect to it via GKE Service Port forwarding. You can
-connect to `staging` and `production` with these respective commands:
-
-```bash
-doppler setup # staging
-doppler run -- yarn run kafka-cc-proxy-staging
-doppler setup # production
-doppler run -- yarn run kafka-cc-proxy-production
-```
-
-With either command (both cannot be ran at the same time), you'll have a
-local Kafka Command Center instance at `127.0.0.1:9021` if you have the proper
-GCP SQL credentials for staging and production. To keep the connection alive,
-run `yarn kafka-cc-poll` to ping the kafka command center web-app every 10
-seconds.
-
-### Neo4j Proxy
-
-If you need to access either the staging or production neo4j on your local
-machine, you can connect to it via GKE Service Port forwarding. You can
-connect to `staging` and `production` with these respective commands:
-
-```bash
-doppler setup # staging
-doppler run -- yarn run neo4j-proxy-staging
-doppler setup # production
-doppler run -- yarn run neo4j-proxy-production
-```
-
-With either command (both cannot be ran at the same time), you'll have a
-local Neo4j instance at `127.0.0.1:7474` if you have the proper GCP SQL
-credentials for staging and production. To keep the connection alive, run
-`yarn neo4j-poll` to ping the neo4j server every 10 seconds.
-
-### Superset Proxy
-
-If you need to access either the staging or production Superset on your local
-machine, you can connect to it via GKE Service Port forwarding, similar to the
-Neo4j proxy above. You can connect to `staging` and `production` with these
-respective commands:
-
-```bash
-doppler setup # staging
-doppler run -- yarn run superset-proxy-staging
-doppler setup # production
-doppler run -- yarn run superset-proxy-production
-```
-
-With either command (both cannot be ran at the same time), you'll have a
-local Superset instance at `127.0.0.1:8088` if you have the proper GCP SQL
-credentials for staging and production. To keep the connection alive, run
-`yarn superset-poll` to ping the neo4j server every 10 seconds.
 
 ## Third-Party SaaS Services
 
