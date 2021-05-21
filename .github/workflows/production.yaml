@@ -121,9 +121,6 @@ jobs:
 
       - name: Update the base image
         run: |-
-          kubectl set image deployment production-api \
-             api=us.gcr.io/neon-law-production/webhooks:$GITHUB_SHA
-
-          kubectl set image deployment production-workers \
-             workers=us.gcr.io/neon-law-production/webhooks:$GITHUB_SHA
+          kubectl set image deployment production-webhooks
+             webhooks=us.gcr.io/neon-law-production/webhooks:$GITHUB_SHA
         if: github.ref == 'refs/heads/main'
