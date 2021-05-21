@@ -33,8 +33,6 @@ resource "kubernetes_deployment" "server" {
 
         container {
           image = var.image_url
-          name  = var.process_name
-          args  = var.args
 
           env {
             name  = "RACK_ENV"
@@ -67,8 +65,6 @@ resource "kubernetes_deployment" "server" {
 }
 
 resource "kubernetes_service" "primary" {
-  count = var.process_name == "api" ? 1 : 0
-
   metadata {
     name = "${var.environment}-webhooks"
   }
@@ -80,7 +76,7 @@ resource "kubernetes_service" "primary" {
     port {
       protocol    = "TCP"
       port        = 80
-      target_port = 3000
+      target_port = 8282
     }
 
     type = "NodePort"
