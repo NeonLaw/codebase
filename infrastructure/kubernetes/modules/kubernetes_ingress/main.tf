@@ -26,5 +26,17 @@ resource "kubernetes_ingress" "primary" {
         }
       }
     }
+
+    rule {
+      host = var.environment == "production" ? "webhooks.neonlaw.com" : "webhooks.neonlaw.net"
+      http {
+        path {
+          backend {
+            service_name = "${var.environment}-webhooks"
+            service_port = 80
+          }
+        }
+      }
+    }
   }
 }
