@@ -252,11 +252,11 @@ resource "kubernetes_service" "primary" {
   count = var.process_name == "api" ? 1 : 0
 
   metadata {
-    name = "${var.environment}-${var.process_name}"
+    name = "${var.environment}-api"
   }
   spec {
     selector = {
-      app = "${var.environment}-${var.process_name}"
+      app = "${var.environment}-api"
     }
     session_affinity = "ClientIP"
     port {
