@@ -122,5 +122,5 @@ jobs:
       - name: Deploy latest container with kubectl
         run: |-
           kubectl set image deployment staging-webhooks \
-             api=us.gcr.io/neon-law-staging/webhooks:$GITHUB_SHA
+            webhooks=us.gcr.io/neon-law-staging/webhooks:$GITHUB_SHA
         if: github.ref == 'refs/heads/main'
