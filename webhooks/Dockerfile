@@ -2,11 +2,11 @@ FROM ruby:3
 
 WORKDIR /app
 
-ADD Gemfile .
-ADD Gemfile.lock .
+ADD ./webhooks/Gemfile .
+ADD ./webhooks/Gemfile.lock .
 RUN bundle install
 
-COPY . .
+COPY ./webhooks .
 
 ENTRYPOINT [ "bundle", "exec" ]
 CMD [ "rackup" ]
