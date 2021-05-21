@@ -24,15 +24,18 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
+    webrick (1.7.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   neon_webhooks!
+  rack (~> 2.2)
   rake (~> 12.0)
   roda (~> 3.44)
   rspec (~> 3.0)
+  webrick (~> 1.7)
 
 BUNDLED WITH
    2.1.4
