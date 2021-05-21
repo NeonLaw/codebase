@@ -4,13 +4,12 @@ from diagrams.k8s.compute import Deployment, Cronjob
 from diagrams.k8s.network import Service, Ingress
 from diagrams.k8s.ecosystem import Helm
 from diagrams.programming.language import NodeJS, Ruby
-from diagrams.onprem.database import PostgreSQL, Neo4J
+from diagrams.onprem.database import PostgreSQL
 from diagrams.onprem.queue import Kafka
 from diagrams.gcp.network import LoadBalancing
 from diagrams.gcp.analytics import PubSub
 from diagrams.gcp.analytics import BigQuery
 from diagrams.gcp.storage import Storage
-from diagrams.elastic.elasticsearch import Elasticsearch
 
 import os
 
@@ -38,13 +37,6 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
         pub_sub = PubSub("PubSub")
 
         with Cluster("GKE"):
-            with Cluster("Neo4j"):
-                neo4j = Neo4J("Neo4j")
-                neo4j << Helm("Neo4j")
-
-            with Cluster("Elastic"):
-                search = Elasticsearch("Elasticsearch")
-
             with Cluster("@neonlaw/api"):
                 api_package = NodeJS("@neonlaw/api")
                 api = (
@@ -77,9 +69,6 @@ with Diagram("Kubernetes", filename=f"{web_images_path}/k8s_diagram"):
             [api_package, worker_package, email_package] >> logflare
             [api_package, worker_package, data_copy_package] >> postgres
             [api_package, worker_package, data_copy_package] >> private_asset_bucket
-
-            [api_package] >> neo4j
-            [api_package] >> search
 
             # Publishers
             [worker_package, webhooks] >> pub_sub
