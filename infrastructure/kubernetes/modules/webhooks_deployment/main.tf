@@ -54,7 +54,7 @@ resource "kubernetes_deployment" "server" {
           readiness_probe {
             http_get {
               path = "/"
-              port = 3000
+              port = 9292
             }
             initial_delay_seconds = 30
             period_seconds        = 1
