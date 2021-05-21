@@ -32,6 +32,7 @@ resource "kubernetes_deployment" "server" {
         }
 
         container {
+          name = "${var.environment}-webhooks"
           image = var.image_url
 
           env {
