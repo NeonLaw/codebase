@@ -77,7 +77,7 @@ resource "kubernetes_service" "primary" {
     port {
       protocol    = "TCP"
       port        = 80
-      target_port = 8282
+      target_port = 9292
     }
 
     type = "NodePort"
