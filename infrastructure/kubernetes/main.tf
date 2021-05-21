@@ -100,6 +100,15 @@ module "api_deployment" {
   ]
 }
 
+module "webhooks_deployment" {
+  source       = "./modules/webhooks_deployment"
+  environment  = var.environment
+  image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/webhooks:latest"
+
+  project_id              = data.terraform_remote_state.gcp.outputs.project_id
+  region                  = data.terraform_remote_state.gcp.outputs.region
+}
+
 module "worker_deployment" {
   source       = "./modules/background_job_deployment"
   environment  = var.environment
