@@ -19,6 +19,28 @@
             {
               "type" : "string",
               "name" : "sub"
+            },
+            {
+              "type" : "string",
+              "name" : "template",
+              "pattern": "^new_registration$"
+            }
+          ],
+          "doc:" : "Subscribers to this message can send a welcome email."
+        },
+        {
+          "type" : "record",
+          "name" : "new_document",
+          "namespace" : "com.neon_law.email",
+          "fields" : [
+            {
+              "type" : "string",
+              "name" : "document_filename"
+            },
+            {
+              "type" : "string",
+              "name" : "template",
+              "pattern": "^new_document$"
             }
           ],
           "doc:" : "Subscribers to this message can send a welcome email."
