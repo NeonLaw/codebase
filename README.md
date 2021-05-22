@@ -18,6 +18,7 @@ deployed to our staging and production environment.
 |[neon_documents](./documents)|![RubyGems.Org](https://img.shields.io/gem/v/neon_documents)|n/a|n/a|
 |[neon_email](./email)|![RubyGems.Org](https://img.shields.io/gem/v/neon_email)|n/a|n/a|
 |[neon_diagrams](./diagrams)|![PyPi](https://img.shields.io/pypi/v/neon_diagrams)|n/a|n/a|
+|[neon_schemas](./schemas)|![PyPi](https://img.shields.io/pypi/v/neon_schemas)![RubyGems.Org](https://img.shields.io/gem/v/neon_schemas)![NPM](https://img.shields.io/npm/v/@neonlaw/schemas)|n/a|n/a|
 
 This repo also contains an `infrastructure` folder for managing cloud and
 SaaS resources with Terraform and a `shell` folder containing our base docker
@@ -49,6 +50,12 @@ For each of our packages, consult the `README` file located in each top-level
 directory of this repository. There, you will find instructions on how to
 develop. We believe developing each in isolation is a great developer experience
 because you should not have to load a bunch of stuff in your head whilst coding.
+
+### Schemas
+
+The `schemas` package is built in Python, Ruby, and Node and contains Avro
+schemas for the messages that travel through our message bus, which is Google
+Pub/Sub.
 
 ### Cloud SQL Proxy
 
