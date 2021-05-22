@@ -3,6 +3,7 @@ provider "google" {
   region  = var.region
   zone    = var.zone
 
+  # The Terraform Service Credentials
   credentials = var.gcp_credentials
 }
 
@@ -43,7 +44,7 @@ module "kubernetes_cluster" {
 module "neon-law-api-ssl-certificate" {
   source           = "./modules/ssl_certificate"
   certificate_name = "neon-law-api"
-  domain_name      = var.neon_law_api_url
+  domain_name      = var.environment == "production" ? "api.neonlaw.com" : "api.neonlaw.net"
 }
 
 module "neon-law-webhooks-ssl-certificate" {

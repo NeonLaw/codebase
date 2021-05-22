@@ -109,6 +109,12 @@ module "webhooks_deployment" {
   region                  = data.terraform_remote_state.gcp.outputs.region
 }
 
+module "outbound_emails_deployment" {
+  source       = "./modules/outbound_emails_deployment"
+  environment  = var.environment
+  image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/outbound_emails:latest"
+}
+
 module "worker_deployment" {
   source       = "./modules/background_job_deployment"
   environment  = var.environment

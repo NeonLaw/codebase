@@ -11,7 +11,6 @@ import {
 } from './tasks/saveDocumentInLongTermStorage';
 import { sendLobLetter } from './tasks/sendLobLetter';
 import { sendMatterDocumentEmail } from './tasks/sendMatterDocumentEmail';
-import { sendWelcomeEmail } from './tasks/sendWelcomeEmail';
 import { slackReminders } from './tasks/slackReminders';
 import {
   updateQuestionnaireFromNeo4j
@@ -27,7 +26,6 @@ export const taskList = {
   saveDocumentInLongTermStorage,
   sendLobLetter,
   sendMatterDocumentEmail,
-  sendWelcomeEmail,
   slackReminders,
   updateQuestionnaireFromNeo4j,
   upsertQuestionToNeo4j,

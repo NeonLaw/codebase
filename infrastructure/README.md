@@ -34,8 +34,3 @@ On Terraform Cloud, we have the following workspaces:
 * Production GCP, for creating a managed storage and GKE
 * Production Kubernetes, for running our server workloads on Kubernetes
 * Data GCP, for creating and managing a BigQuery cluster and its ingestions
-
-## Non-Terraform
-
-With each of the `staging` and `production` clusters set as the
-`current_context` run `./bootstrap.sh`
