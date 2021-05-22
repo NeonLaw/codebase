@@ -27,14 +27,6 @@ module "postgres" {
   environment = var.environment
 }
 
-module "pub_sub" {
-  source      = "./modules/pub_sub"
-  zone        = var.zone
-  region      = var.region
-  project_id  = var.project_id
-  environment = var.environment
-}
-
 module "container_registry" {
   source     = "./modules/container_registry"
   admin_user = "nick@neonlaw.com"

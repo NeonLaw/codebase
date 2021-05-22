@@ -51,7 +51,6 @@
     "react-spring": "^9.1.2",
     "react-svg": "^13.0.4",
     "react-table": "^7.7.0",
-    "sharp": "^0.28.2",
     "styled-system": "^5.1.5",
     "webpack": "^5.37.0"
   },

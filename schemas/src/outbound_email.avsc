@@ -35,12 +35,12 @@
           "fields" : [
             {
               "type" : "string",
-              "name" : "document_filename"
+              "name" : "sub"
             },
             {
               "type" : "string",
               "name" : "template",
-              "pattern": "^new_document$"
+              "pattern": "^new_registration$"
             }
           ],
           "doc:" : "Subscribers to this message can send a welcome email."
