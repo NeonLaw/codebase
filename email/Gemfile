@@ -22,3 +22,5 @@ gem "sendgrid-ruby", "~> 6.4"
 gem "avro", "~> 1.10"
 
 gem "google-cloud-pubsub", "~> 2.6"
+
+gem "avro_turf", "~> 1.3"
