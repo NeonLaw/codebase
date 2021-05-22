@@ -4,6 +4,7 @@
         "i18n",
         "mdx",
         "server",
+        "schemas",
         "web"
     ],
     "optionalDependencies": {

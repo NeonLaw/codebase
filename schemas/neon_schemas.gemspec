@@ -1,12 +1,12 @@
-require_relative "lib/neon_email/version"
+require_relative "lib/neon_schemas/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "neon_email"
-  spec.version = NeonEmail::VERSION
+  spec.name = "neon_schemas"
+  spec.version = NeonSchemas::VERSION
   spec.authors = ["Neon Law"]
   spec.email = ["support@neonlaw.com"]
 
-  spec.summary = "A gem to handle outbound_email messages in Neon Law software space."
+  spec.summary = "A gem containing schemas and encoding/decoding Avro classes"
   spec.description = spec.summary
   spec.homepage = "https://github.com/neonlaw/codebase"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")

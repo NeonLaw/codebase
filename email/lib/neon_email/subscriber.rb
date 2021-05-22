@@ -14,7 +14,6 @@ module NeonEmail
 
       subscription = pubsub.subscription "outbound_email"
       subscriber = subscription.listen do |received_message|
-        received_message.acknowledge!
         avro_schema = Avro::Schema.parse File.read("#{__dir__}/../../../schemas/src/outbound_email.avsc")
         buffer = StringIO.new received_message.data
         decoder = Avro::IO::BinaryDecoder.new buffer
