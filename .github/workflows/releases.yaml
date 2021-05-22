@@ -102,6 +102,23 @@ jobs:
         run: npm publish --access public
         working-directory: ./web
 
+  update_mdx_package:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/mdx@')
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v1
+      - name: Login to NPM
+        run: doppler run -- npm config set //registry.npmjs.org/:_authToken $(doppler secrets get NPM_AUTH_TOKEN --plain)
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+      - name: Publish @neonlaw/mdx
+        run: npm publish --access public
+        working-directory: ./mdx
+
   update_neon_postgres_package:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/neon_postgres@')
