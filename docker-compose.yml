@@ -69,7 +69,6 @@ services:
     restart: always
     depends_on:
       - postgres
-      - neo4j
     container_name: workers
     environment:
       <<: *environment-variables
