@@ -4,7 +4,7 @@ RUN (curl -Ls https://cli.doppler.com/install.sh || wget -qO- https://cli.dopple
 
 WORKDIR /app
 
-COPY ./email .
+COPY ./emails .
 RUN bundle install
 
 ENTRYPOINT [ "doppler", "run", "--" ]
