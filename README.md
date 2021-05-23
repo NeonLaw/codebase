@@ -4,8 +4,9 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/6e1cdb1d024d0f092903/maintainability)](https://codeclimate.com/github/NeonLaw/codebase/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6e1cdb1d024d0f092903/test_coverage)](https://codeclimate.com/github/NeonLaw/codebase/test_coverage)
 
-This is a monorepo containing the following packages, some of which are
-deployed to our staging and production environment.
+This is a monorepo containing the software packages used by Neon Law to deliver
+our services to our clients. You are welcome to use this library pursuant to
+the Neon License as long as you promise not to use our Neon Law trademark.
 
 |Package|Latest Version|Staging|Production|
 |-------|--------------|-----------|-------|
