@@ -79,7 +79,6 @@ module "application_secrets" {
 module "doppler_secrets" {
   source = "./modules/doppler_secrets"
   email_doppler_token = var.email_doppler_token
-  environment         = var.environment
 }
 
 module "gcp_credentials_kubernetes_secret" {

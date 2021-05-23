@@ -57,7 +57,7 @@ module "upload_bucket" {
   source      = "./modules/write_only_bucket"
   bucket_name = "${var.project_id}-unprocessed-uploads"
   allowed_origins = [
-    var.neon_law_url
+    var.environment == "production" ? "www.neonlaw.com" : "www.neonlaw.net"
   ]
 }
 
@@ -65,7 +65,7 @@ module "user_bucket" {
   source      = "./modules/private_bucket"
   bucket_name = "${var.project_id}-private-assets"
   allowed_origins = [
-    var.neon_law_url
+    var.environment == "production" ? "www.neonlaw.com" : "www.neonlaw.net"
   ]
 }
 
