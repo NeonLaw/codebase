@@ -32,7 +32,7 @@ resource "kubernetes_deployment" "outbound_emails" {
         }
 
         container {
-          name = "outbound-emails"
+          name  = "subscriber"
           image = var.image_url
 
           env {
