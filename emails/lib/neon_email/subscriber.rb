@@ -4,15 +4,16 @@ require "neon_schemas"
 module NeonEmail
   class Subscriber
     def self.subscribe_to_outbound_email
-      pubsub = Google::Cloud::PubSub.new(
-        project_id: ENV.fetch("GCP_PROJECT_ID"),
-        credentials: JSON.parse(ENV.fetch("GCP_CREDENTIALS"))
-      )
+      Google::Cloud::PubSub.configure do |config|
+        config.project_id = ENV.fetch("GCP_PROJECT_ID")
+        config.credentials = JSON.parse(ENV.fetch("GCP_CREDENTIALS"))
+      end
 
-      puts "subscribing to outbound_email"
+      pubsub = Google::Cloud::PubSub.new
 
       subscription = pubsub.subscription "outbound_email"
       subscriber = subscription.listen do |received_message|
+        puts received_message
         message_data = NeonSchemas::Avro.decode(
           string: received_message.data,
           schema_name: "outbound_email"
@@ -24,14 +25,16 @@ module NeonEmail
       end
 
       subscriber.start
-      # Let the main thread sleep for 60 seconds so the thread for listening
-      # messages does not quit
-      sleep 60
+
+      puts "subscribing to outbound_email"
+
+      # Sleep indefinitely for the child processes to run
+      sleep
+    rescue SignalException => e
       subscriber.stop.wait!
+      puts "Received Signal #{e} shutting down the subscriber"
+      exit
     end
-  rescue SignalException => e
-    puts "Received Signal #{e}"
-    exit
   end
 end
 
