@@ -17,7 +17,7 @@ deployed to our staging and production environment.
 |[git_flow](./git_flow)|![Crates.io](https://img.shields.io/crates/v/git_flow)|n/a|n/a|
 |[neon_postgres](./postgres)|![RubyGems.Org](https://img.shields.io/gem/v/neon_postgres)|n/a|n/a|
 |[neon_documents](./documents)|![RubyGems.Org](https://img.shields.io/gem/v/neon_documents)|n/a|n/a|
-|[neon_email](./email)|![RubyGems.Org](https://img.shields.io/gem/v/neon_email)|n/a|n/a|
+|[neon_email](./emails)|![RubyGems.Org](https://img.shields.io/gem/v/neon_email)|n/a|n/a|
 |[neon_diagrams](./diagrams)|![PyPi](https://img.shields.io/pypi/v/neon_diagrams)|n/a|n/a|
 |[neon_schemas](./schemas)|![PyPi](https://img.shields.io/pypi/v/neon_schemas)![RubyGems.Org](https://img.shields.io/gem/v/neon_schemas)![NPM](https://img.shields.io/npm/v/@neonlaw/schemas)|n/a|n/a|
 
