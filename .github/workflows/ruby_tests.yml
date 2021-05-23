@@ -24,7 +24,7 @@ jobs:
         working-directory: ./postgres
         run: bundle exec standardrb
 
-  ruby_email_tests:
+  ruby_emails_tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -32,10 +32,10 @@ jobs:
         with:
           ruby-version: '3'
       - name: Install dependencies
-        working-directory: ./email
+        working-directory: ./emails
         run: bundle
       - name: Lint Ruby files.
-        working-directory: ./email
+        working-directory: ./emails
         run: bundle exec standardrb
 
   ruby_documents_tests:

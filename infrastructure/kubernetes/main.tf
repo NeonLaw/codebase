@@ -76,6 +76,11 @@ module "application_secrets" {
   transloadit_secret         = var.transloadit_secret
 }
 
+module "doppler_secrets" {
+  source = "./modules/doppler_secrets"
+  email_doppler_token = var.email_doppler_token
+}
+
 module "gcp_credentials_kubernetes_secret" {
   source       = "./modules/kubernetes_secret"
   secret_name  = "gcp-credentials"
@@ -107,6 +112,12 @@ module "webhooks_deployment" {
 
   project_id              = data.terraform_remote_state.gcp.outputs.project_id
   region                  = data.terraform_remote_state.gcp.outputs.region
+}
+
+module "outbound_emails_deployment" {
+  source       = "./modules/outbound_emails_deployment"
+  environment  = var.environment
+  image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/outbound_emails:latest"
 }
 
 module "worker_deployment" {
