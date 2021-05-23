@@ -6,7 +6,7 @@ module NeonEmail
     def self.subscribe_to_outbound_email
       pubsub = Google::Cloud::PubSub.new(
         project_id: ENV.fetch("GCP_PROJECT_ID"),
-        credentials: ENV.fetch("GCP_CREDENTIALS")
+        credentials: JSON.parse(ENV.fetch("GCP_CREDENTIALS"))
       )
 
       puts "subscribing to outbound_email"
