@@ -40,10 +40,14 @@ resource "kubernetes_deployment" "outbound_emails" {
             value = "outbound-emails"
           }
 
-          volume_mount {
-            name       = "gcp-credentials"
-            read_only  = true
-            mount_path = "/credentials/"
+          env {
+            name = "DOPPLER_TOKEN"
+            value_from {
+              secret_key_ref {
+                key  = "EMAIL_TOKEN"
+                name = "doppler-secrets"
+              }
+            }
           }
         }
       }

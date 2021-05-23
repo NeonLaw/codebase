@@ -76,6 +76,12 @@ module "application_secrets" {
   transloadit_secret         = var.transloadit_secret
 }
 
+module "doppler_secrets" {
+  source = "./modules/doppler_secrets"
+  email_doppler_token = var.email_doppler_token
+  environment         = var.environment
+}
+
 module "gcp_credentials_kubernetes_secret" {
   source       = "./modules/kubernetes_secret"
   secret_name  = "gcp-credentials"

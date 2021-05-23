@@ -81,6 +81,7 @@ GEM
     method_source (1.0.0)
     multi_json (1.15.0)
     multipart-post (2.1.1)
+    neon_schemas (0.1.0)
     os (1.1.1)
     parallel (1.20.1)
     parser (3.0.1.0)
@@ -149,6 +150,7 @@ DEPENDENCIES
   fixture_dependencies (~> 1.10)
   google-cloud-pubsub (~> 2.6)
   neon_email!
+  neon_schemas (~> 0.1.0)
   pg (~> 1.2)
   pry (~> 0.14.1)
   rake (~> 12.0)

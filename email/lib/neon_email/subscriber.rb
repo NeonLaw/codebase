@@ -1,24 +1,22 @@
 require "google/cloud/pubsub"
-require "avro"
-require "avro_turf"
+require "neon_schemas"
 
 module NeonEmail
   class Subscriber
     def self.subscribe_to_outbound_email
       pubsub = Google::Cloud::PubSub.new(
         project_id: ENV.fetch("GCP_PROJECT_ID"),
-        credentials: ENV.fetch("CREDENTIALS_FILENAME")
+        credentials: ENV.fetch("GCP_CREDENTIALS")
       )
 
       puts "subscribing to outbound_email"
 
       subscription = pubsub.subscription "outbound_email"
       subscriber = subscription.listen do |received_message|
-        avro_schema = Avro::Schema.parse File.read("#{__dir__}/../../../schemas/src/outbound_email.avsc")
-        buffer = StringIO.new received_message.data
-        decoder = Avro::IO::BinaryDecoder.new buffer
-        reader = Avro::IO::DatumReader.new avro_schema
-        message_data = reader.read decoder
+        message_data = NeonSchemas::Avro.decode(
+          string: received_message.data,
+          schema_name: "outbound_email"
+        )
 
         puts "Received a binary-encoded message:\n#{message_data}"
 
