@@ -121,7 +121,7 @@ jobs:
 
       - name: Update the base image
         run: |-
-          kubectl set image deployment production-webhooks
+          kubectl set image deployment production-webhooks \
              webhooks=us.gcr.io/neon-law-production/webhooks:$GITHUB_SHA
         if: github.ref == 'refs/heads/main'
 
@@ -153,7 +153,7 @@ jobs:
         with:
           project_id: neon-law-production
           service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
-          service_account_key: ${{ secrets.STAGING_GCP_CREDENTIALS }}
+          service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
           export_default_credentials: true
 
       - name: |-
