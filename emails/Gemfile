@@ -19,4 +19,4 @@ gem "sendgrid-ruby", "~> 6.4"
 
 gem "google-cloud-pubsub", "~> 2.6"
 
-gem "neon_schemas", "~> 0.1.0"
+gem "neon_schemas", "~> 0.1.1"
