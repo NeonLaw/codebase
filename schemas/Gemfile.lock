@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    neon_schemas (0.1.0)
+    neon_schemas (0.1.1)
+      avro (~> 1.10)
 
 GEM
   remote: https://rubygems.org/
@@ -62,7 +63,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  avro (~> 1.10)
   neon_schemas!
   pry (~> 0.14.1)
   rake (~> 12.0)
