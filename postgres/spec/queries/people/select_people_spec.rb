@@ -29,8 +29,9 @@ RSpec.describe "select from people;" do
   context "as a lawyer user", :lawyer do
     let(:lawyer_user) { load(:person__lawyer_user) }
 
-    it "returns the current person" do
-      expect(Person.all).to eq [lawyer_user]
+    it "returns all the people" do
+      expect(Person.all.count).to eq 6
+      expect(Person.all).to include lawyer_user
     end
   end
 

@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 13.2 (Debian 13.2-1.pgdg100+1)
+-- Dumped from database version 13.3 (Debian 13.3-1.pgdg100+1)
 -- Dumped by pg_dump version 13.3 (Debian 13.3-1.pgdg100+1)
 
 SET statement_timeout = 0;
@@ -1765,6 +1765,13 @@ CREATE POLICY lawyer_insert_response ON public.responses FOR INSERT TO lawyer WI
 
 
 --
+-- Name: people lawyer_modify_people; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY lawyer_modify_people ON public.people TO lawyer USING (true) WITH CHECK (true);
+
+
+--
 -- Name: addresses lawyer_select_address; Type: POLICY; Schema: public; Owner: -
 --
 
@@ -1780,24 +1787,10 @@ CREATE POLICY lawyer_select_matter ON public.matters FOR SELECT TO lawyer USING 
 
 
 --
--- Name: people lawyer_select_person; Type: POLICY; Schema: public; Owner: -
---
-
-CREATE POLICY lawyer_select_person ON public.people FOR SELECT TO lawyer USING ((id = (NULLIF(current_setting('person.id'::text, true), ''::text))::uuid));
-
-
---
 -- Name: responses lawyer_select_response; Type: POLICY; Schema: public; Owner: -
 --
 
 CREATE POLICY lawyer_select_response ON public.responses FOR SELECT TO lawyer USING (public.response_person_match(id, (NULLIF(current_setting('person.id'::text, true), ''::text))::uuid));
-
-
---
--- Name: people lawyer_update_person; Type: POLICY; Schema: public; Owner: -
---
-
-CREATE POLICY lawyer_update_person ON public.people FOR UPDATE TO lawyer USING ((id = (NULLIF(current_setting('person.id'::text, true), ''::text))::uuid)) WITH CHECK ((id = (NULLIF(current_setting('person.id'::text, true), ''::text))::uuid));
 
 
 --
@@ -1948,7 +1941,7 @@ GRANT ALL ON FUNCTION public.create_relationship(relationship text, from_id uuid
 --
 
 GRANT SELECT,UPDATE ON TABLE public.people TO portal;
-GRANT SELECT,UPDATE ON TABLE public.people TO lawyer;
+GRANT ALL ON TABLE public.people TO lawyer;
 GRANT ALL ON TABLE public.people TO admin;
 
 
@@ -1998,6 +1991,8 @@ GRANT SELECT ON TABLE public.documents TO portal;
 --
 
 GRANT ALL ON TABLE public.matter_contacts TO admin;
+GRANT SELECT ON TABLE public.matter_contacts TO portal;
+GRANT SELECT ON TABLE public.matter_contacts TO lawyer;
 
 
 --
