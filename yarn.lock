@@ -9197,7 +9197,7 @@ graphql-ws@^4.1.1:
   resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-4.1.5.tgz#03526b29acb54a424a9fbe300a4bd69ff65a50b3"
   integrity sha512-yUQ1AjegD1Y9jDS699kyw7Mw+9H+rILm2HoS8N5a5B5YTH93xy3yifFhAJpKGc2wb/8yGdlVy8gTcud0TPqi6Q==
 
-"graphql@>=0.9 <0.14 || ^14.0.2 || ^15.4.0", "graphql@>=0.9 <16", "graphql@^0.6.0 || ^0.7.0 || ^0.8.0-b || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.2 || ^15.0.0":
+"graphql@>=0.9 <0.14 || ^14.0.2 || ^15.4.0", "graphql@>=0.9 <16", "graphql@^0.6.0 || ^0.7.0 || ^0.8.0-b || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.2 || ^15.0.0", graphql@^14.0.1:
   version "14.7.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.7.0.tgz#7fa79a80a69be4a31c27dda824dc04dac2035a72"
   integrity sha512-l0xWZpoPKpppFzMfvVyFmp9vLN7w/ZZJPefUicMCepfJeQ8sMcztloGYY9DfjVPo6tIUDzU5Hw3MUbIjj9AVVA==
@@ -13778,10 +13778,10 @@ react-focus-lock@2.5.0:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
-react-hook-form@^7.3.5:
-  version "7.3.5"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.3.5.tgz#8154fdf0401ddb6e8a5f8787f162a26839258f0d"
-  integrity sha512-T7PgHpFa4lPfVVnqm5+nDMB/CCrZ7OUBQC17ZXQ2QAZMxfc8qDbETo+Nrsd2TE5mszg6fT0bjb3EeE2DAzv7lQ==
+react-hook-form@^7.6.6:
+  version "7.6.6"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.6.6.tgz#74cd999a9db972f7848663529acf54cc5a4a837d"
+  integrity sha512-vmvrp/foLeWV1+g0IADvXc5xoJj8UMBIlN8PqgmbCD70oGFcNkQPc2FGfqOoJr6oL0EHkCpLizXWDqYOz/mvjw==
 
 react-icons@^4.2.0:
   version "4.2.0"
