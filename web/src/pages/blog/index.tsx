@@ -39,6 +39,16 @@ const BlogIndex = () => {
                   />
                 </PostBanner>
               </ListItem>
+
+              <ListItem className="list-item">
+                <PostBanner
+                  title="Information Technology"
+                  date={new Date()}
+                  slug="/blog/information-technology"
+                  excerpt="The Information Technology setup of Neon Law."
+                >
+                </PostBanner>
+              </ListItem>
             </List>
           </Box>
         </Container>
