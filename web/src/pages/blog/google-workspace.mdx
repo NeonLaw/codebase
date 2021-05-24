@@ -1,0 +1,38 @@
+export const meta = {
+  title: "Google Workspace",
+  slug: "/blog/google-workspace",
+  updatedAt: "2021-05-23",
+  tags: "business,startups",
+};
+import { BlogLayout } from '../../components/layouts/blogLayout';
+export default ({ children }) => <BlogLayout meta={meta}>{children}</BlogLayout>
+
+Our company uses Google Workspace for email, calendar, and docs.
+
+### Admin configuration
+
+Since we do not use all of Google Workspace, we turn off the apps we do not use
+[here](https://admin.google.com/ac/appslist/core) and only turn on Calendar,
+Drive, Gmail, and Google Meet.
+
+### Multi-Factor Authentication
+
+At Neon Law, client confidentiality is of the upmost importance and MFA is a
+very necessary step in improving our security. We use [these
+settings](https://admin.google.com/ac/security/2sv) to apply MFA to all users.
+New user accounts have one week to enable MFA before they are locked out.
+
+### Organizational Units
+
+We define organizational units which we can then define more refined rules like
+email delivery defined below. We currently have organizational units for
+`lawyers` and `clerks`.
+
+### Email
+
+Only lawyers of our law firm can send outbound email. This means that all other
+staff can only send emails to internal Neon Law users, or users with a
+`@neonlaw.com` email address. We accopmlish this with [these
+settings](https://support.google.com/a/answer/2640542)
+in Google Workplace that add restrictions to outbound email addresses to an
+orginazitonal unit, like the `clerks` organizational unit defined above.
