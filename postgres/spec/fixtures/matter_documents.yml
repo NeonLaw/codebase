@@ -1,8 +1,8 @@
 litigation_matter_summons:
-  document: filed_summons (Document)
-  matter: nevada_divorce_matter (Matter)
-  author: admin_user (Person)
+  document: filed_summons (NeonPostgres::Models::Document)
+  matter: nevada_divorce_matter (NeonPostgres::Models::Matter)
+  author: admin_user (NeonPostgres::Models::Person)
 taxes_for_2021:
-  document: filed_complaint (Document)
-  matter: internal_housekeeping (Matter)
-  author: admin_user (Person)
+  document: filed_complaint (NeonPostgres::Models::Document)
+  matter: internal_housekeeping (NeonPostgres::Models::Matter)
+  author: admin_user (NeonPostgres::Models::Person)

@@ -1,11 +1,11 @@
 RSpec.describe NeonPostgres::DocumentSanitizer do
   before { load(:documents) }
-  let!(:document_count) { Document.count }
+  let!(:document_count) { NeonPostgres::Models::Document.count }
 
   subject { described_class }
 
   describe "sanitize" do
-    let(:document) { Document.first }
+    let(:document) { NeonPostgres::Models::Document.first }
 
     it "anonymizes the filename and changes the gcp_url" do
       original_filename = document.filename
@@ -15,7 +15,7 @@ RSpec.describe NeonPostgres::DocumentSanitizer do
 
       document.reload
 
-      expect(Document.count).to eq document_count
+      expect(NeonPostgres::Models::Document.count).to eq document_count
       expect(document.filename).to_not eq original_filename
       expect(document.gcp_url).to_not eq original_gcp_url
     end
