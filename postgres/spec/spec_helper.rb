@@ -2,7 +2,7 @@ require "bundler/setup"
 require "neon_postgres"
 require "pry"
 require "faker"
-require_relative './support/fixture_dependencies'
+require_relative "./support/fixture_dependencies"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
