@@ -11,7 +11,7 @@ RSpec.describe "select from people;" do
 
   context "as an anonymous user", :anonymous do
     it "denies access to the person table" do
-      expect { Person.all }.to raise_error(
+      expect { NeonPostgres::Models::Person.all }.to raise_error(
         Sequel::DatabaseError,
         /(PG::InsufficientPrivilege).*(permission denied for table people)/
       )
@@ -22,7 +22,7 @@ RSpec.describe "select from people;" do
     let(:portal_user) { load(:person__portal_user) }
 
     it "returns the current person" do
-      expect(Person.all).to eq [portal_user]
+      expect(NeonPostgres::Models::Person.all).to eq [portal_user]
     end
   end
 
@@ -30,8 +30,8 @@ RSpec.describe "select from people;" do
     let(:lawyer_user) { load(:person__lawyer_user) }
 
     it "returns all the people" do
-      expect(Person.all.count).to eq 6
-      expect(Person.all).to include lawyer_user
+      expect(NeonPostgres::Models::Person.all.count).to eq 6
+      expect(NeonPostgres::Models::Person.all).to include lawyer_user
     end
   end
 
@@ -39,8 +39,8 @@ RSpec.describe "select from people;" do
     let(:admin_user) { load(:person__admin_user) }
 
     it "loads all the people" do
-      expect(Person.all.count).to eq 6
-      expect(Person.all).to include admin_user
+      expect(NeonPostgres::Models::Person.all.count).to eq 6
+      expect(NeonPostgres::Models::Person.all).to include admin_user
     end
   end
 end
