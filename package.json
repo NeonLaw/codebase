@@ -30,7 +30,7 @@
         "@types/yup": "^0.29.11",
         "@typescript-eslint/eslint-plugin": "^4.22.0",
         "axe-core": "^4.2.0",
-        "babel-jest": "^26.6.3",
+        "babel-jest": "^27.0.1",
         "babel-plugin-add-react-displayname": "^0.0.5",
         "cypress-axe": "^0.12.2",
         "cypress-plugin-tab": "^1.0.5",
