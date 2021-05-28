@@ -10,7 +10,7 @@ import {
   theme,
   useColorMode,
 } from '@chakra-ui/react';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { CreateButton } from '../buttons/createButton';
 import { InputBuilder } from '../forms/inputBuilder';
 import Transloadit from '@uppy/transloadit';

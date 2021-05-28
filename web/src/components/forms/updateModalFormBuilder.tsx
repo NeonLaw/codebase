@@ -9,10 +9,10 @@ import {
   theme,
   useColorMode
 } from '@chakra-ui/react';
-import React, { useEffect, useRef, useState } from 'react';
 import { colors, gutters } from '../../styles/neonLaw';
 import { kebabCase, titleCase } from 'voca';
 import { submitOnMetaEnter, submitOnShiftEnter } from '../../utils/keyboard';
+import { useEffect, useRef, useState } from 'react';
 import { DeleteButton } from '../buttons/deleteButton';
 import { Field } from './inputTypes';
 import { InputBuilder } from './inputBuilder';
