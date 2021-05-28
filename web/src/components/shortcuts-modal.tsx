@@ -9,11 +9,10 @@ import {
   useColorMode,
   useDisclosure,
 } from '@chakra-ui/react';
-import React, { useEffect } from 'react';
 import { colors, shadows, theme } from '../styles/neonLaw';
-
 import { Button } from './button';
 import styled from '@emotion/styled';
+import { useEffect } from 'react';
 
 const StyledShortCut = styled.li`
   display: flex;

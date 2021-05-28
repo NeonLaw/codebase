@@ -7,7 +7,6 @@ import {
   Text,
   useColorMode
 } from '@chakra-ui/react';
-import React, { useRef } from 'react';
 import { AiFillGift } from 'react-icons/ai';
 import { Button } from '../../../components/button';
 import { Carousel } from 'react-responsive-carousel';
@@ -21,6 +20,7 @@ import { colors } from '../../../styles/neonLaw';
 import { loadStripe } from '@stripe/stripe-js';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
+import { useRef } from 'react';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_CLIENT_KEY as string
