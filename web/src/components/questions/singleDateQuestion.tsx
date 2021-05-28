@@ -1,12 +1,11 @@
 import { Heading, useColorMode } from '@chakra-ui/react';
-import React, { useState } from 'react';
-
 import { Button } from '../button';
 import DatePicker from 'react-datepicker';
 import { Section } from '../section';
 import { gutters } from '../../styles/neonLaw';
 import styled from '@emotion/styled';
 import { useIntl } from 'react-intl';
+import { useState } from 'react';
 
 interface SingleDateInterface {
   prompt: string;

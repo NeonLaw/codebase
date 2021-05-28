@@ -1,11 +1,9 @@
 import { Heading, Radio, RadioGroup } from '@chakra-ui/react';
-import React, { useState } from 'react';
-
 import { Button } from '../../components/button';
 import { Section } from '../section';
 import { gutters } from '../../styles/neonLaw';
 import { useIntl } from 'react-intl';
-
+import { useState } from 'react';
 interface SingleChoiceQuestionInterface {
   prompt: string;
   choices: string[];

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import { colors, gutters, theme } from '../../styles/deleteYourData';
 import { Box } from '@chakra-ui/react';
 import { Nav } from './nav';
 import styled from '@emotion/styled';
+import { useState } from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
 
 const StyledHero = styled.header`

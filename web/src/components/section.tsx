@@ -1,6 +1,6 @@
 import { Box, useColorMode } from '@chakra-ui/react';
-import React, { CSSProperties } from 'react';
 import { colors, gutters } from '../styles/neonLaw';
+import { CSSProperties } from 'react';
 
 import { Container } from './container';
 import styled from '@emotion/styled';
