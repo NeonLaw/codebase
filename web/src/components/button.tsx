@@ -3,7 +3,7 @@
 /* eslint-enable */
 import { Box, Button as ChakraButton, useColorMode } from '@chakra-ui/react';
 import { Global, css, keyframes } from '@emotion/react';
-import React, { CSSProperties } from 'react';
+import { CSSProperties } from 'react';
 
 import { colors } from '../styles/neonLaw';
 import styled from '@emotion/styled';
