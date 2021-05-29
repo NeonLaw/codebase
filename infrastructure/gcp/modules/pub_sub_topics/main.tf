@@ -13,7 +13,7 @@ resource "google_pubsub_topic" "welcome_email" {
 
   depends_on = [google_pubsub_schema.welcome_email]
   schema_settings {
-    schema = "projects/my-project-name/schemas/welcome-email-${var.schema_version}"
+    schema = "projects/${var.project_id}/schemas/welcome-email-${var.schema_version}"
     encoding = "JSON"
   }
 }
