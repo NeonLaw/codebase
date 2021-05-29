@@ -5,7 +5,7 @@ data "http" "welcome_email" {
 resource "google_pubsub_schema" "welcome_email" {
   name = "welcome-email-${var.version}"
   type = "AVRO"
-  definition = http.welcome_email.body
+  definition = http.welcome_email.outputs.body
 }
 
 resource "google_pubsub_topic" "welcome_email" {
