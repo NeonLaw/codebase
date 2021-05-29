@@ -170,7 +170,7 @@ CREATE TABLE public.questions (
     created_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
     help_text json,
-    slug public.slug,
+    slug public.slug NOT NULL,
     CONSTRAINT question_question_type_check CHECK (((question_type)::text = ANY ((ARRAY['single-choice'::character varying, 'single-date'::character varying, 'single-file-upload'::character varying, 'single-line-text'::character varying, 'text'::character varying, 'date-range'::character varying, 'number'::character varying, 'multiple-file-upload'::character varying])::text[])))
 );
 
@@ -687,7 +687,7 @@ CREATE TABLE public.matters (
     matter_template_id uuid NOT NULL,
     description json DEFAULT '{}'::json NOT NULL,
     active boolean DEFAULT true NOT NULL,
-    slug public.slug
+    slug public.slug NOT NULL
 );
 
 
@@ -1290,6 +1290,13 @@ CREATE UNIQUE INDEX unique_gcp_url ON public.documents USING btree (gcp_url);
 
 
 --
+-- Name: unique_matters_slug; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX unique_matters_slug ON public.matters USING btree (slug);
+
+
+--
 -- Name: unique_person_email; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1301,6 +1308,13 @@ CREATE UNIQUE INDEX unique_person_email ON public.people USING btree (email);
 --
 
 CREATE UNIQUE INDEX unique_public_addresses ON public.addresses USING btree (public, name);
+
+
+--
+-- Name: unique_questions_slug; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX unique_questions_slug ON public.questions USING btree (slug);
 
 
 --

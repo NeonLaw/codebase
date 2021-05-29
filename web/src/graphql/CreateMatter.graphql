@@ -3,6 +3,7 @@ mutation CreateMatter(
   $description: JSON!
   $matterTemplateId: UUID!
   $primaryContactId: UUID!
+  $slug: Slug!
 ) {
   createMatter(
     input: {
@@ -11,6 +12,7 @@ mutation CreateMatter(
         description: $description
         matterTemplateId: $matterTemplateId
         primaryContactId: $primaryContactId
+        slug: $slug
       }
     }
   ) {
