@@ -77,6 +77,7 @@ module "pub_sub_topics" {
   source      = "./modules/pub_sub_topics"
   environment = var.environment
   schema_version     = "0.1.1"
+  project_id = var.project_id
 }
 
 module "functions" {
