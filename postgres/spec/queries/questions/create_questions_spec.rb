@@ -5,7 +5,7 @@ RSpec.describe "insert into questions;" do
   let(:insert_question) {
     NeonPostgres::Models::Question.insert(
       prompt: prompt,
-      question_type: 'single-choice'
+      question_type: "single-choice"
     )
   }
 
@@ -43,12 +43,12 @@ RSpec.describe "insert into questions;" do
   context "as an admin user", :admin do
     let(:admin_user) { load(:person__admin_user) }
 
-    context 'with a correct slug' do
+    context "with a correct slug" do
       ["oeuoau-aoeu", "OEU-aoeuA"].each do |slug|
         it "creates a question with the slug #{slug}" do
           NeonPostgres::Models::Question.insert(
             prompt: prompt,
-            question_type: 'single-choice',
+            question_type: "single-choice",
             slug: slug
           )
           expect(NeonPostgres::Models::Question.count).to eq 1
@@ -57,13 +57,13 @@ RSpec.describe "insert into questions;" do
       end
     end
 
-    context 'with an incorrect slug' do
+    context "with an incorrect slug" do
       ["-oeuoau-aoeu", "O2U-aoeuA"].each do |slug|
         it "cannot create a question with the slug #{slug}" do
           expect do
             NeonPostgres::Models::Question.insert(
               prompt: prompt,
-              question_type: 'single-choice',
+              question_type: "single-choice",
               slug: slug
             )
           end.to raise_error(
