@@ -1,5 +1,5 @@
-variable "environment" {
+variable environment {
 }
 
-variable "version" {
+variable version {
 }
