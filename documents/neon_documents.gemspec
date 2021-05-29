@@ -23,5 +23,5 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "functions-framework-ruby", "~> 9001.0"
+  spec.add_runtime_dependency "functions_framework", "0.9.0"
 end
