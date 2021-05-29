@@ -19,7 +19,7 @@ resource "google_cloudfunctions_function" "welcome_email" {
   source_archive_bucket = google_storage_bucket.function_bucket.name
   source_archive_object = "emails-${var.emails_version}"
   trigger_http          = false
-  event_trigger = {
+  event_trigger {
     event_type = "google.pub_sub.topic"
     resource = "projects/${var.project_id}/topics/welcome-email-${var.schema_version}"
   }
