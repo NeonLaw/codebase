@@ -23,8 +23,8 @@ resource "google_cloudfunctions_function" "welcome_email" {
     event_type = "google.pub_sub.topic"
     resource = "projects/${var.project_id}/topics/welcome-email-${var.schema_version}"
   }
-  timeout               = 60
-  entry_point           = "lib.neon_email"
+  timeout      = 60
+  entry_point  = "neon_emails.welcome_email"
 
   labels = {
     environment = var.environment
