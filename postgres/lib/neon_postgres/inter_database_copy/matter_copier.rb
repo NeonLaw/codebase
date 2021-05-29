@@ -54,7 +54,8 @@ module NeonPostgres
             update: {
               matter_template_id: Sequel[:excluded][:matter_template_id],
               primary_contact_id: Sequel[:excluded][:primary_contact_id],
-              description: Sequel[:excluded][:description]
+              description: Sequel[:excluded][:description],
+              slug: Sequel[:excluded][:slug]
             }
           ).insert({
             name: "#{row.fetch(:matter_templates_name)} Matter",
