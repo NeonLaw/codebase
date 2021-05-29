@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     neon_email (0.0.1)
+      functions-framework-ruby (~> 9001.0)
       neon_schemas (= 0.1.1)
 
 GEM

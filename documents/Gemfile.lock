@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     neon_documents (0.0.1)
+      functions-framework-ruby (~> 9001.0)
 
 GEM
   remote: https://rubygems.org/
@@ -76,7 +77,6 @@ PLATFORMS
 DEPENDENCIES
   faker (~> 2.17)
   fixture_dependencies (~> 1.10)
-  functions-framework-ruby (~> 9001.0)
   neon_documents!
   neon_postgres (~> 0.0.1)
   pg (~> 1.2)

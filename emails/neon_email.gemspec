@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "neon_schemas", "0.1.1"
+  spec.add_runtime_dependency "functions-framework-ruby", "~> 9001.0"
 end
