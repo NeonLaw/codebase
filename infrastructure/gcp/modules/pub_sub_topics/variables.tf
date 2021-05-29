@@ -1,5 +1,5 @@
 variable environment {
 }
 
-variable version {
+variable schema_version {
 }

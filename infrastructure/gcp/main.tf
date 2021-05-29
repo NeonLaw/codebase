@@ -76,5 +76,5 @@ module "application_user" {
 module "pub_sub_topics" {
   source      = "./modules/pub_sub_topics"
   environment = var.environment
-  version     = "0.1.1"
+  schema_version     = "0.1.1"
 }
