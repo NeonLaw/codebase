@@ -34,3 +34,8 @@ On Terraform Cloud, we have the following workspaces:
 * Production GCP, for creating a managed storage and GKE
 * Production Kubernetes, for running our server workloads on Kubernetes
 * Data GCP, for creating and managing a BigQuery cluster and its ingestions
+
+## What is not managed in Terraform
+
+GCP Pub/Sub and the topics, schemas, GCP Cloud Functions, and their triggers
+from GCP Pub/Sub are managed in the [Schemas](../schemas/README.md) package.
