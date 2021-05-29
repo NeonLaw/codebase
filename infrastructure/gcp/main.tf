@@ -7,6 +7,14 @@ provider "google" {
   credentials = var.gcp_credentials
 }
 
+data "null_data_source" "versions" {
+  inputs = {
+    staging_schemas = "0.1.1"
+    production_schemas = "0.1.1"
+  }
+}
+
+
 provider "google-beta" {
   project = var.project_id
   region  = var.region
@@ -71,4 +79,10 @@ module "user_bucket" {
 
 module "application_user" {
   source = "./modules/application_user"
+}
+
+module "pub_sub_topics" {
+  source      = "./modules/pub_sub_topics"
+  environment = var.environment
+  version = data.null_data_source.versions.outputs["${var.environment}_schemas"]
 }
