@@ -78,3 +78,10 @@ module "pub_sub_topics" {
   environment = var.environment
   schema_version     = "0.1.1"
 }
+
+module "functions" {
+  source      = "./modules/functions"
+  environment = var.environment
+  schema_version     = "0.1.1"
+  bucket_name = "${var.project_id}-function-code"
+}
