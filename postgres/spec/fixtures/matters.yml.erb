@@ -2,23 +2,28 @@ nevada_llc_matter:
   name: <%= Faker::Name.name %> LLC
   matter_template: nevada_llc (NeonPostgres::Models::MatterTemplate)
   primary_contact: member_manager_portal_user (NeonPostgres::Models::Person)
+  slug: nv-llc
 
 nevada_divorce_matter:
   name: <%= Faker::Name.name %> Divorce
   matter_template: nevada_divorce (NeonPostgres::Models::MatterTemplate)
   primary_contact: divorcee_portal_user (NeonPostgres::Models::Person)
+  slug: nv-divorce
 
 nevada_appeal_matter:
   name: <%= Faker::Name.name %> Appeal
   matter_template: nevada_appeal (NeonPostgres::Models::MatterTemplate)
   primary_contact: appellant_portal_user (NeonPostgres::Models::Person)
+  slug: nv-appeal
 
 nevada_appeal_matter_2:
   name: <%= Faker::Name.name %> Appeal 2
   matter_template: nevada_appeal (NeonPostgres::Models::MatterTemplate)
   primary_contact: appellant_portal_user (NeonPostgres::Models::Person)
+  slug: nv-appeal-2
 
 internal_housekeeping:
   name: Neon Law Internal Business
   matter_template: nevada_llc (NeonPostgres::Models::MatterTemplate)
   primary_contact: admin_user (NeonPostgres::Models::Person)
+  slug: internal-housekeeping

@@ -32,3 +32,9 @@ freely showcase our software without fear of disclosing client interests.
 Bug reports and pull requests are welcome on GitHub at
 https://github.com/neonlaw/codebase.
 
+
+## Getting a Sequel database
+
+1. Start the SQL proxy for staging or production
+2. Use the inter_db_copy doppler project
+3. `bundle exec sequel $(doppler secrets get FROM_DATABASE_URL --plain)`
