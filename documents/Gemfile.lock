@@ -15,6 +15,7 @@ GEM
     faker (2.17.0)
       i18n (>= 1.6, < 2)
     fixture_dependencies (1.10.0)
+    functions-framework-ruby (9001.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     method_source (1.0.0)
@@ -75,6 +76,7 @@ PLATFORMS
 DEPENDENCIES
   faker (~> 2.17)
   fixture_dependencies (~> 1.10)
+  functions-framework-ruby (~> 9001.0)
   neon_documents!
   neon_postgres (~> 0.0.1)
   pg (~> 1.2)

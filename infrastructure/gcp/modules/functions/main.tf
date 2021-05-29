@@ -19,11 +19,11 @@ resource "google_cloudfunctions_function" "welcome_email" {
   source_archive_bucket = google_storage_bucket.function_bucket.name
   source_archive_object = "emails-${var.emails_version}"
   event_trigger {
-    event_type = "google.pub_sub.topic"
+    event_type = "google.pubsub.topic.publish"
     resource = "projects/${var.project_id}/topics/welcome-email-${var.schema_version}"
   }
   timeout      = 60
-  entry_point  = "neon_emails.welcome_email"
+  entry_point  = "lib/neon_emails/handler"
 
   labels = {
     environment = var.environment
