@@ -63,7 +63,8 @@ module NeonPostgres
             description: JSON.generate({
               body: Faker::Lorem.paragraphs(number: 3)
             }),
-            primary_contact_id: row.fetch(:primary_contact_id)
+            primary_contact_id: row.fetch(:primary_contact_id),
+            slug: row.fetch(:matter_templates_name).downcase.gsub(' ', '-'),
           })
         end
       end
