@@ -32,5 +32,8 @@ module NeonPostgres
       many_to_one :matter
       many_to_one :author, class: :person, key: :author_id
     end
+
+    class Question < Sequel::Model
+    end
   end
 end
