@@ -84,5 +84,5 @@ module "application_user" {
 module "pub_sub_topics" {
   source      = "./modules/pub_sub_topics"
   environment = var.environment
-  version = data.null_data_source.versions.outputs["${var.environment}_schemas"]
+  version = "${data.null_data_source.versions.outputs["${var.environment}_schemas"]}"
 }
