@@ -64,7 +64,7 @@ module NeonPostgres
               body: Faker::Lorem.paragraphs(number: 3)
             }),
             primary_contact_id: row.fetch(:primary_contact_id),
-            slug: row.fetch(:matter_templates_name).downcase.gsub(' ', '-'),
+            slug: row.fetch(:matter_templates_name).downcase.tr(" ", "-")
           })
         end
       end
