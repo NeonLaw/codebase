@@ -38,3 +38,8 @@ gcloud pubsub subscriptions create outbound_email \
     --dead-letter-topic=outbound_email_dlq \
     --max-delivery-attempts=10
 ```
+
+## Schemas
+
+* Outbound Emails
+  * Welcome Email
