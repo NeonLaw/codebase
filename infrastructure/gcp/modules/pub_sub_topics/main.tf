@@ -1,5 +1,5 @@
 data "http" "welcome_email" {
-  url = "https://github.com/NeonLaw/codebase/blob/neon_schemas%40${var.environment}/schemas/src/outbound_email.avsc"
+  url = "https://github.com/NeonLaw/codebase/blob/neon_schemas%40${var.schema_version}/schemas/src/outbound_email.avsc"
 }
 
 resource "google_pubsub_schema" "welcome_email" {
