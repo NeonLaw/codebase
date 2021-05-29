@@ -10,26 +10,26 @@ resource "google_storage_bucket" "function_bucket" {
   }
 }
 
-resource "google_cloudfunctions_function" "welcome_email" {
-  name = "welcome-email"
-  description = "A function for sending out emails"
-  runtime     = "ruby27"
+# resource "google_cloudfunctions_function" "welcome_email" {
+#   name = "welcome-email"
+#   description = "A function for sending out emails"
+#   runtime     = "ruby27"
 
-  available_memory_mb   = 128
-  source_archive_bucket = google_storage_bucket.function_bucket.name
-  source_archive_object = "emails-${var.emails_version}"
-  event_trigger {
-    event_type = "google.pubsub.topic.publish"
-    resource = "projects/${var.project_id}/topics/welcome-email-${var.schema_version}"
-  }
-  timeout      = 60
-  entry_point  = "lib/neon_emails/handler"
+#   available_memory_mb   = 128
+#   source_archive_bucket = google_storage_bucket.function_bucket.name
+#   source_archive_object = "emails-${var.emails_version}"
+#   event_trigger {
+#     event_type = "google.pubsub.topic.publish"
+#     resource = "projects/${var.project_id}/topics/welcome-email-${var.schema_version}"
+#   }
+#   timeout      = 60
+#   entry_point  = "lib/neon_emails/handler"
 
-  labels = {
-    environment = var.environment
-  }
+#   labels = {
+#     environment = var.environment
+#   }
 
-  environment_variables = {
-    ENVIRONMENT = var.environment
-  }
-}
+#   environment_variables = {
+#     ENVIRONMENT = var.environment
+#   }
+# }
