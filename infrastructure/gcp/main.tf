@@ -115,6 +115,6 @@ module "pub_sub_topics_blue" {
   environment      = var.environment
   topic_name       = each.key
   function_version = each.value
-  schema_version   = "0.1.0"
+  schema_version   = data.terraform_remote_state.versions.outputs.staging_blue_schemas
   project_id       = var.project_id
 }
