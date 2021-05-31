@@ -1,8 +1,8 @@
-variable environment {
+variable "environment" {
 }
 
-variable schema_version {
+variable "schema_version" {
 }
 
-variable project_id {
+variable "project_id" {
 }
