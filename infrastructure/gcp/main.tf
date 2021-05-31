@@ -93,9 +93,10 @@ module "application_user" {
 
 module "pub_sub_topics" {
   for_each = {
-    welcome_email = "emails@0.1.1"
-    slack_message = "slack@0.1.1"
+    "welcome-email" = "emails@0.1.1"
+    "slack-message" = "slack@0.1.1"
   }
+
   source           = "./modules/pubsub"
   environment      = var.environment
   topic_name       = each.key
