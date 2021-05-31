@@ -1,0 +1,17 @@
+{
+  "namespace": "com.neon_law.outbound_email",
+  "name": "welcome_email",
+  "type": "record",
+  "fields": [
+    {
+      "name": "email",
+      "type": "string",
+      "doc": "The 'to' email to send the email to."
+    },
+    {
+      "type" : "string",
+      "name" : "sub",
+      "doc": "The 'sub' from Auth0."
+    }
+  ]
+}

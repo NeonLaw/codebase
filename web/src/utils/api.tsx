@@ -23,6 +23,7 @@ export type Scalars = {
   Datetime: string;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: { [key: string]: any };
+  Slug: any;
   /** the GCP Storage URL of the private file. */
   GcpUrl: any;
 };
@@ -1894,6 +1895,7 @@ export type Matter = Node & {
   matterTemplateId: Scalars['UUID'];
   description: Scalars['JSON'];
   active: Scalars['Boolean'];
+  slug: Scalars['Slug'];
   /** Reads a single `Person` that is related to this `Matter`. */
   primaryContact?: Maybe<Person>;
   /** Reads a single `MatterTemplate` that is related to this `Matter`. */
@@ -1942,6 +1944,8 @@ export type MatterCondition = {
   primaryContactId?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `matterTemplateId` field. */
   matterTemplateId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `slug` field. */
+  slug?: Maybe<Scalars['Slug']>;
 };
 
 export type MatterContact = Node & {
@@ -2106,6 +2110,7 @@ export type MatterInput = {
   matterTemplateId: Scalars['UUID'];
   description?: Maybe<Scalars['JSON']>;
   active?: Maybe<Scalars['Boolean']>;
+  slug: Scalars['Slug'];
 };
 
 /** Represents an update to a `Matter`. Fields that are set will be updated. */
@@ -2118,6 +2123,7 @@ export type MatterPatch = {
   matterTemplateId?: Maybe<Scalars['UUID']>;
   description?: Maybe<Scalars['JSON']>;
   active?: Maybe<Scalars['Boolean']>;
+  slug?: Maybe<Scalars['Slug']>;
 };
 
 /** A connection to a list of `Matter` values. */
@@ -2157,6 +2163,8 @@ export enum MattersOrderBy {
   PrimaryContactIdDesc = 'PRIMARY_CONTACT_ID_DESC',
   MatterTemplateIdAsc = 'MATTER_TEMPLATE_ID_ASC',
   MatterTemplateIdDesc = 'MATTER_TEMPLATE_ID_DESC',
+  SlugAsc = 'SLUG_ASC',
+  SlugDesc = 'SLUG_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -3560,6 +3568,7 @@ export type Question = Node & {
   createdAt: Scalars['Datetime'];
   updatedAt: Scalars['Datetime'];
   helpText?: Maybe<Scalars['JSON']>;
+  slug: Scalars['Slug'];
   /** Reads and enables pagination through a set of `Response`. */
   responses: ResponsesConnection;
   isLinkedToQuestionnaire?: Maybe<Scalars['Boolean']>;
@@ -3586,6 +3595,8 @@ export type QuestionCondition = {
   id?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `prompt` field. */
   prompt?: Maybe<Scalars['String']>;
+  /** Checks for equality with the object’s `slug` field. */
+  slug?: Maybe<Scalars['Slug']>;
 };
 
 /** An input for mutations affecting `Question` */
@@ -3599,6 +3610,7 @@ export type QuestionInput = {
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
   helpText?: Maybe<Scalars['JSON']>;
+  slug: Scalars['Slug'];
 };
 
 export type Questionnaire = Node & {
@@ -3705,6 +3717,7 @@ export type QuestionPatch = {
   createdAt?: Maybe<Scalars['Datetime']>;
   updatedAt?: Maybe<Scalars['Datetime']>;
   helpText?: Maybe<Scalars['JSON']>;
+  slug?: Maybe<Scalars['Slug']>;
 };
 
 /** A connection to a list of `Question` values. */
@@ -3736,6 +3749,8 @@ export enum QuestionsOrderBy {
   IdDesc = 'ID_DESC',
   PromptAsc = 'PROMPT_ASC',
   PromptDesc = 'PROMPT_DESC',
+  SlugAsc = 'SLUG_ASC',
+  SlugDesc = 'SLUG_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
@@ -3896,6 +3911,7 @@ export enum ResponsesOrderBy {
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }
+
 
 export type Task = Node & {
   __typename?: 'Task';
@@ -4970,6 +4986,7 @@ export type CreateMatterMutationVariables = Exact<{
   description: Scalars['JSON'];
   matterTemplateId: Scalars['UUID'];
   primaryContactId: Scalars['UUID'];
+  slug: Scalars['Slug'];
 }>;
 
 
@@ -5048,6 +5065,7 @@ export type CreateQuestionMutationVariables = Exact<{
   questionType: Scalars['String'];
   prompt: Scalars['String'];
   helpText?: Maybe<Scalars['JSON']>;
+  slug: Scalars['Slug'];
 }>;
 
 
@@ -5856,8 +5874,8 @@ export type CreateLetterMutationHookResult = ReturnType<typeof useCreateLetterMu
 export type CreateLetterMutationResult = Apollo.MutationResult<CreateLetterMutation>;
 export type CreateLetterMutationOptions = Apollo.BaseMutationOptions<CreateLetterMutation, CreateLetterMutationVariables>;
 export const CreateMatterDocument = gql`
-    mutation CreateMatter($name: String!, $description: JSON!, $matterTemplateId: UUID!, $primaryContactId: UUID!) {
-  createMatter(input: {matter: {name: $name, description: $description, matterTemplateId: $matterTemplateId, primaryContactId: $primaryContactId}}) {
+    mutation CreateMatter($name: String!, $description: JSON!, $matterTemplateId: UUID!, $primaryContactId: UUID!, $slug: Slug!) {
+  createMatter(input: {matter: {name: $name, description: $description, matterTemplateId: $matterTemplateId, primaryContactId: $primaryContactId, slug: $slug}}) {
     matter {
       id
       description
@@ -5886,6 +5904,7 @@ export type CreateMatterMutationFn = Apollo.MutationFunction<CreateMatterMutatio
  *      description: // value for 'description'
  *      matterTemplateId: // value for 'matterTemplateId'
  *      primaryContactId: // value for 'primaryContactId'
+ *      slug: // value for 'slug'
  *   },
  * });
  */
@@ -6025,8 +6044,8 @@ export type CreatePublicLetterMutationHookResult = ReturnType<typeof useCreatePu
 export type CreatePublicLetterMutationResult = Apollo.MutationResult<CreatePublicLetterMutation>;
 export type CreatePublicLetterMutationOptions = Apollo.BaseMutationOptions<CreatePublicLetterMutation, CreatePublicLetterMutationVariables>;
 export const CreateQuestionDocument = gql`
-    mutation CreateQuestion($options: [String], $questionType: String!, $prompt: String!, $helpText: JSON) {
-  createQuestion(input: {question: {options: $options, questionType: $questionType, prompt: $prompt, helpText: $helpText}}) {
+    mutation CreateQuestion($options: [String], $questionType: String!, $prompt: String!, $helpText: JSON, $slug: Slug!) {
+  createQuestion(input: {question: {options: $options, questionType: $questionType, prompt: $prompt, helpText: $helpText, slug: $slug}}) {
     question {
       id
       options
@@ -6056,6 +6075,7 @@ export type CreateQuestionMutationFn = Apollo.MutationFunction<CreateQuestionMut
  *      questionType: // value for 'questionType'
  *      prompt: // value for 'prompt'
  *      helpText: // value for 'helpText'
+ *      slug: // value for 'slug'
  *   },
  * });
  */

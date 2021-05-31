@@ -1,5 +1,4 @@
 import { Box, Kbd, useDisclosure } from '@chakra-ui/react';
-import React, { useState } from 'react';
 import { Button } from '../../../components/button';
 import {
   CreateQuestionnaireModal
@@ -15,6 +14,7 @@ import {
   UpdateQuestionnaireModal
 } from '../../../components/modals/updateQuestionnaireModal';
 import { gutters } from '../../../styles/neonLaw';
+import { useState } from 'react';
 
 const AdminQuestionnaires = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

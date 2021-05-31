@@ -1,5 +1,4 @@
 import { Box, Divider, Flex, Heading, useColorMode } from '@chakra-ui/react';
-import React, { ReactChildren } from 'react';
 import { colors, gutters } from '../../styles/neonLaw';
 import { BaseFooter } from '../footer/baseFooter';
 import { Breadcrumbs } from '../breadcrumbs';
@@ -11,6 +10,7 @@ import { MDXProvider } from '@mdx-js/react';
 import {
   PublicNavigationBar
 } from '../navigationBars/publicNavigationBar';
+import { ReactChildren } from 'react';
 import { Seo } from '../seo';
 import { ShareButtons } from '../shareButtons';
 

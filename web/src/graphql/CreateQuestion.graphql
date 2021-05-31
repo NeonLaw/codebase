@@ -3,6 +3,7 @@ mutation CreateQuestion(
   $questionType: String!
   $prompt: String!
   $helpText: JSON
+  $slug: Slug!
 ) {
   createQuestion(
     input: {
@@ -11,6 +12,7 @@ mutation CreateQuestion(
         questionType: $questionType
         prompt: $prompt
         helpText: $helpText
+        slug: $slug
       }
     }
   ) {

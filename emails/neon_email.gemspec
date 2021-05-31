@@ -21,4 +21,7 @@ Gem::Specification.new do |spec|
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
   spec.require_paths = ["lib"]
+
+  spec.add_runtime_dependency "neon_schemas", "0.1.1"
+  spec.add_runtime_dependency "functions_framework", "0.9.0"
 end

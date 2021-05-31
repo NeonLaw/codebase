@@ -1,6 +1,6 @@
 import { Global, css } from '@emotion/react';
 import { Input, theme, useColorMode } from '@chakra-ui/react';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { colors } from '../../styles/neonLaw';
 import styled from '@emotion/styled';
