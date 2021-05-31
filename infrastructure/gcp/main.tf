@@ -15,17 +15,17 @@ provider "google-beta" {
   credentials = var.gcp_credentials
 }
 
-# data "terraform_remote_state" "versions" {
-#   backend = "remote"
+data "terraform_remote_state" "versions" {
+  backend = "remote"
 
-#   config = {
-#     hostname     = "app.terraform.io"
-#     organization = "neon-law"
-#     workspaces = {
-#       name = "versions"
-#     }
-#   }
-# }
+  config = {
+    hostname     = "app.terraform.io"
+    organization = "neon-law"
+    workspaces = {
+      name = "versions"
+    }
+  }
+}
 
 module "networking_service_connection" {
   source     = "./modules/networking_service_connection"
@@ -101,7 +101,7 @@ module "pub_sub_topics_green" {
   environment      = var.environment
   topic_name       = each.key
   function_version = each.value
-  schema_version   = "0.1.1"
+  schema_version   = data.terraform_remote_state.versions.outputs.staging_green_schemas
   project_id       = var.project_id
 }
 
