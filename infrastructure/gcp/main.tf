@@ -87,34 +87,19 @@ module "function_bucket" {
   allowed_origins = []
 }
 
-module "application_user" {
-  source = "./modules/application_user"
+module "service_accounts" {
+  source = "./modules/service_accounts"
 }
 
-module "pub_sub_topics_green" {
+module "pub_sub_topics" {
   for_each = {
-    "welcome-email" = "emails@0.1.1"
-    "slack-message" = "slack@0.1.1"
+    "green" = data.terraform_remote_state.versions.outputs.staging_green_schemas
+    "blue"  = data.terraform_remote_state.versions.outputs.staging_blue_schemas
   }
 
-  source           = "./modules/pubsub"
-  environment      = var.environment
-  topic_name       = each.key
-  function_version = each.value
-  schema_version   = data.terraform_remote_state.versions.outputs.staging_green_schemas
-  project_id       = var.project_id
-}
-
-module "pub_sub_topics_blue" {
-  for_each = {
-    "welcome-email" = "emails@0.1.1"
-    "slack-message" = "slack@0.1.1"
-  }
-
-  source           = "./modules/pubsub"
-  environment      = var.environment
-  topic_name       = each.key
-  function_version = each.value
-  schema_version   = data.terraform_remote_state.versions.outputs.staging_blue_schemas
-  project_id       = var.project_id
+  source         = "./modules/pubsub"
+  environment    = var.environment
+  color          = each.key
+  schema_version = each.value
+  project_id     = var.project_id
 }
