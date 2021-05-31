@@ -91,7 +91,7 @@ module "application_user" {
   source = "./modules/application_user"
 }
 
-module "pub_sub_topics" {
+module "pub_sub_topics_green" {
   for_each = {
     "welcome-email" = "emails@0.1.1"
     "slack-message" = "slack@0.1.1"
@@ -102,5 +102,19 @@ module "pub_sub_topics" {
   topic_name       = each.key
   function_version = each.value
   schema_version   = "0.1.1"
+  project_id       = var.project_id
+}
+
+module "pub_sub_topics_blue" {
+  for_each = {
+    "welcome-email" = "emails@0.1.1"
+    "slack-message" = "slack@0.1.1"
+  }
+
+  source           = "./modules/pubsub"
+  environment      = var.environment
+  topic_name       = each.key
+  function_version = each.value
+  schema_version   = "0.1.0"
   project_id       = var.project_id
 }
