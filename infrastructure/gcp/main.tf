@@ -69,22 +69,22 @@ module "user_bucket" {
   ]
 }
 
+module "function_bucket" {
+  source      = "./modules/private_bucket"
+  bucket_name = "${var.project_id}-function-code"
+  allowed_origins = []
+}
+
 module "application_user" {
   source = "./modules/application_user"
 }
 
 module "pub_sub_topics" {
-  source      = "./modules/pub_sub_topics"
-  environment = var.environment
-  schema_version     = "0.1.1"
-  project_id = var.project_id
-}
+  each {
 
-module "functions" {
-  source      = "./modules/functions"
+  }
+  source      = "./modules/pub_sub"
   environment = var.environment
-  schema_version     = "0.1.1"
-  bucket_name = "${var.project_id}-function-code"
-  emails_version = "0.1.0"
+  services_versions  = "0.1.1"
   project_id = var.project_id
 }

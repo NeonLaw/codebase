@@ -37,5 +37,4 @@ On Terraform Cloud, we have the following workspaces:
 
 ## What is not managed in Terraform
 
-GCP Pub/Sub and the topics, schemas, GCP Cloud Functions, and their triggers
-from GCP Pub/Sub are managed in the [Schemas](../schemas/README.md) package.
+GCP Marketplace apps including, Neo4j.
