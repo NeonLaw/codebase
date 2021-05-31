@@ -23,19 +23,9 @@ This gem works based on the value of `NEON_ENV`, which should either be
 `development`, `staging`, or `production`. If this is not set,
 `NeonSecrets::Getter.get` will throw an error.
 
-## Doppler Setup
-
-In the `GCP` Doppler Project, we manage three environments. The development
-environment (`dev`), which points to a locally running postgres, pubsub, and
-staging/test third-party credentials; the staging environment (`stg`), which
-uses GCP staging credentials and staging/test third-party credentials; and the
-production environment (`prd`), which uses GCP production and third-party
-production credentials. The `stg` and `prd` Doppler environments are each synced
-with the Google Secret, `application-secrets` in each cloud environment
-respectively.
-
-The Doppler Environment should correspond to the `NEON_ENV` environment
-variable.
+If the `NEON_ENV` is `staging` or `production`, you will also need the
+`NEON_PROJECT` set so that this library can find the proper GCP Secret
+containing the environment variables.
 
 ## Contributing
 

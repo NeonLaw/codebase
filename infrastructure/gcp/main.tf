@@ -91,6 +91,10 @@ module "service_accounts" {
   source = "./modules/service_accounts"
 }
 
+module "secrets" {
+  source = "./modules/secrets"
+}
+
 module "pub_sub_topics" {
   for_each = {
     "green" = data.terraform_remote_state.versions.outputs.staging_green_schemas

@@ -1,0 +1,41 @@
+export const meta = {
+  title: "Doppler",
+  slug: "/blog/doppler",
+  updatedAt: "2021-05-31",
+  tags: "programming,secrets"
+}
+import { BlogLayout } from '../../components/layouts/blogLayout';
+export default ({ children }) => <BlogLayout meta={meta}>{children}</BlogLayout>
+
+We use Doppler as a centralized secrets management store for sensitive data like
+application passwords, third-party credentials, and server locations. The
+biggest benefit of Doppler is that it is the *only* place we upload this
+sensitive data. These secrets are then securely shared with the rest of our
+software ecosystem via Doppler's integrations with Vercel, GCP, GitHub, and
+Terraform.
+
+## Projects
+
+We organize our Doppler environment with projects that correspond to the
+packages you see listed in our [GitHub
+readme](https://github.com/neonlaw/codebase). These include:
+
+* web
+* email
+* postgres
+
+Each of these projects correspond with a GCP Secret in each of our application
+GCP accounts. These are managed by Terraform in our repo.
+
+## Environments
+
+In each project listed above, we have three environments:
+
+* `dev`, or development, which is for local development, uses only local
+  ports for application and database processes, and contains test/staging
+  credentials for third-party services.
+* `stg`, or staging, which is for our staging servers running on our staging GCP
+  account.
+* `prd`, or production, which is for our production servers running on our
+  staging GCP account.
+
