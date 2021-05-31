@@ -96,10 +96,10 @@ module "pub_sub_topics" {
     welcome_email = "emails@0.1.1"
     slack_message = "slack@0.1.1"
   }
-  source           = "./modules/pub_sub"
+  source           = "./modules/pubsub"
   environment      = var.environment
   topic_name       = each.key
-  function         = each.value
-  services_version = data.terraform_remote_state.versions.outputs["${var.environment}_version"]
+  function_version = each.value
+  schema_version   = data.terraform_remote_state.versions.outputs["${var.environment}_version"]
   project_id       = var.project_id
 }
