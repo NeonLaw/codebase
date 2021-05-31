@@ -859,12 +859,12 @@ CREATE TABLE public.tasks (
 
 CREATE TABLE public.unprocessed_documents (
     id uuid DEFAULT public.uuid_generate_v4() NOT NULL,
-    filename text NOT NULL,
     documentable_type character varying(255) NOT NULL,
     documentable_id uuid NOT NULL,
     document_template_id uuid NOT NULL,
     processed_document_id uuid,
-    person_id uuid NOT NULL
+    person_id uuid NOT NULL,
+    gcp_url public.gcp_url NOT NULL
 );
 
 
@@ -1329,6 +1329,13 @@ CREATE INDEX unprocessed_document_document_template_id ON public.unprocessed_doc
 --
 
 CREATE INDEX unprocessed_document_processed_document_id ON public.unprocessed_documents USING btree (processed_document_id);
+
+
+--
+-- Name: unprocessed_documents_gcp_urls; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX unprocessed_documents_gcp_urls ON public.unprocessed_documents USING btree (gcp_url);
 
 
 --

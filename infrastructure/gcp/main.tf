@@ -15,6 +15,18 @@ provider "google-beta" {
   credentials = var.gcp_credentials
 }
 
+# data "terraform_remote_state" "versions" {
+#   backend = "remote"
+
+#   config = {
+#     hostname     = "app.terraform.io"
+#     organization = "neon-law"
+#     workspaces = {
+#       name = "versions"
+#     }
+#   }
+# }
+
 module "networking_service_connection" {
   source     = "./modules/networking_service_connection"
   project_id = var.project_id
@@ -69,22 +81,26 @@ module "user_bucket" {
   ]
 }
 
+module "function_bucket" {
+  source          = "./modules/private_bucket"
+  bucket_name     = "${var.project_id}-function-code"
+  allowed_origins = []
+}
+
 module "application_user" {
   source = "./modules/application_user"
 }
 
 module "pub_sub_topics" {
-  source      = "./modules/pub_sub_topics"
-  environment = var.environment
-  schema_version     = "0.1.1"
-  project_id = var.project_id
-}
+  for_each = {
+    "welcome-email" = "emails@0.1.1"
+    "slack-message" = "slack@0.1.1"
+  }
 
-module "functions" {
-  source      = "./modules/functions"
-  environment = var.environment
-  schema_version     = "0.1.1"
-  bucket_name = "${var.project_id}-function-code"
-  emails_version = "0.1.0"
-  project_id = var.project_id
+  source           = "./modules/pubsub"
+  environment      = var.environment
+  topic_name       = each.key
+  function_version = each.value
+  schema_version   = "0.1.1"
+  project_id       = var.project_id
 }

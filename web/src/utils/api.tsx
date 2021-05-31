@@ -4062,12 +4062,12 @@ export type UnprocessedDocument = Node & {
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars['ID'];
   id: Scalars['UUID'];
-  filename: Scalars['String'];
   documentableType: Scalars['String'];
   documentableId: Scalars['UUID'];
   documentTemplateId: Scalars['UUID'];
   processedDocumentId?: Maybe<Scalars['UUID']>;
   personId: Scalars['UUID'];
+  gcpUrl: Scalars['GcpUrl'];
   /** Reads a single `DocumentTemplate` that is related to this `UnprocessedDocument`. */
   documentTemplate?: Maybe<DocumentTemplate>;
   /** Reads a single `Document` that is related to this `UnprocessedDocument`. */
@@ -4085,17 +4085,19 @@ export type UnprocessedDocumentCondition = {
   documentTemplateId?: Maybe<Scalars['UUID']>;
   /** Checks for equality with the object’s `processedDocumentId` field. */
   processedDocumentId?: Maybe<Scalars['UUID']>;
+  /** Checks for equality with the object’s `gcpUrl` field. */
+  gcpUrl?: Maybe<Scalars['GcpUrl']>;
 };
 
 /** An input for mutations affecting `UnprocessedDocument` */
 export type UnprocessedDocumentInput = {
   id?: Maybe<Scalars['UUID']>;
-  filename: Scalars['String'];
   documentableType: Scalars['String'];
   documentableId: Scalars['UUID'];
   documentTemplateId: Scalars['UUID'];
   processedDocumentId?: Maybe<Scalars['UUID']>;
   personId: Scalars['UUID'];
+  gcpUrl: Scalars['GcpUrl'];
 };
 
 /** A connection to a list of `UnprocessedDocument` values. */
@@ -4129,6 +4131,8 @@ export enum UnprocessedDocumentsOrderBy {
   DocumentTemplateIdDesc = 'DOCUMENT_TEMPLATE_ID_DESC',
   ProcessedDocumentIdAsc = 'PROCESSED_DOCUMENT_ID_ASC',
   ProcessedDocumentIdDesc = 'PROCESSED_DOCUMENT_ID_DESC',
+  GcpUrlAsc = 'GCP_URL_ASC',
+  GcpUrlDesc = 'GCP_URL_DESC',
   PrimaryKeyAsc = 'PRIMARY_KEY_ASC',
   PrimaryKeyDesc = 'PRIMARY_KEY_DESC'
 }

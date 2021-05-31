@@ -1,0 +1,37 @@
+{
+  "namespace": "com.neon_law.documents",
+  "name": "process_unprocessed_document",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": "The id of the unprocessed document."
+    },
+    {
+      "name" : "gcp_url",
+      "type": "string",
+      "doc": "The gcp url of the uploaded document."
+    },
+    {
+      "name" : "person_id",
+      "type": "string",
+      "doc": "The id of the person who uploaded the document."
+    },
+    {
+      "name" : "documentable_type",
+      "type": "string",
+      "doc": "The type of document like a matter_document or response_document"
+    },
+    {
+      "name" : "documentable_id",
+      "type": "string",
+      "doc": "The id of the row associated with the polymorphic association"
+    },
+    {
+      "name" : "document_template_id",
+      "type": "string",
+      "doc": "The id of the document_template that should be applied to the document"
+    }
+  ]
+}

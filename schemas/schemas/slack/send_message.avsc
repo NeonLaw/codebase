@@ -1,0 +1,17 @@
+{
+  "namespace": "com.neon_law.slack",
+  "name": "send_message",
+  "type": "record",
+  "fields": [
+    {
+      "name": "body",
+      "type": "string",
+      "doc": "The body of the message, formatted with Slack text."
+    },
+    {
+      "name" : "channel",
+      "type": "string",
+      "doc": "The channel to send the message to."
+    }
+  ]
+}

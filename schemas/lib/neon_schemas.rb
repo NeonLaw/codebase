@@ -5,7 +5,7 @@ module NeonSchemas
   class Error < StandardError; end
 
   class Avro
-    SCHEMA_DIRECTORY = "#{__dir__}/../src"
+    SCHEMA_DIRECTORY = "#{__dir__}/../schemas"
 
     def self.encode(record:, schema_name:)
       avro_schema = ::Avro::Schema.parse(
