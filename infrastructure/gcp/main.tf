@@ -27,6 +27,11 @@ data "terraform_remote_state" "versions" {
   }
 }
 
+module "service_accounts" {
+  source = "./modules/service_accounts"
+  project_id = var.project_id
+}
+
 module "networking_service_connection" {
   source     = "./modules/networking_service_connection"
   project_id = var.project_id
@@ -85,11 +90,6 @@ module "function_bucket" {
   source          = "./modules/private_bucket"
   bucket_name     = "${var.project_id}-function-code"
   allowed_origins = []
-}
-
-module "service_accounts" {
-  source = "./modules/service_accounts"
-  project_id = var.project_id
 }
 
 module "secrets" {
