@@ -6,8 +6,7 @@ resource "google_container_registry" "registry" {
 resource "google_storage_bucket_iam_member" "viewer" {
   bucket = google_container_registry.registry.id
   role   = "roles/storage.objectViewer"
-  members = [
-    "serviceAccount:application-user@${var.project_id}.iam.gserviceaccount.com",
-    "user:${var.admin_user}",
+  member = [
+    "serviceAccount:application-user@${var.project_id}.iam.gserviceaccount.com"
   ]
 }
