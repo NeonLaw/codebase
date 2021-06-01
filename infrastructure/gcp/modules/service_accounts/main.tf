@@ -14,6 +14,7 @@ resource "google_service_account_iam_binding" "nick_iam_binding" {
 
   members = [
     "user:nick@neonlaw.com",
+    "serviceAccount:terraform@${var.project_id}.iam.gserviceaccount.com",
   ]
 }
 
