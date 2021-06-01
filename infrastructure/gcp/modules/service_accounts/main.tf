@@ -16,3 +16,12 @@ resource "google_service_account_iam_binding" "nick_iam_binding" {
     "user:nick@neonlaw.com",
   ]
 }
+
+resource "google_project_iam_binding" "project" {
+  project = var.project_id
+  role    = "roles/editor"
+
+  members = [
+    "serviceAccount:application-user@${var.project_id}.iam.gserviceaccount.com",
+  ]
+}
