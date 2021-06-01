@@ -11,6 +11,7 @@ the Neon License as long as you promise not to use our Neon Law trademark.
 |Package|Latest Version|Staging|Production|
 |-------|--------------|-----------|-------|
 |[Web](./web)|![NPM](https://img.shields.io/npm/v/@neonlaw/web)|deployed on pull requests by Vercel|latest `main` branch commit ([link](https://www.neonlaw.com))|
+|[Schemas](./schemas)|![PyPi](https://img.shields.io/pypi/v/neon_schemas)![RubyGems.Org](https://img.shields.io/gem/v/neon_schemas)![NPM](https://img.shields.io/npm/v/@neonlaw/schemas)|n/a|n/a|
 |[Postgraphile](./server)|![NPM](https://img.shields.io/npm/v/@neonlaw/server)|latest `main` branch commit ([link](https://api.neonlaw.net/graphiql))|v0.1.0 ([link](https://api.neonlaw.com/graphiql))|
 |[I18n](./i18n)|![NPM](https://img.shields.io/npm/v/@neonlaw/i18n)|n/a|n/a|
 |[Mdx](./mdx)|![NPM](https://img.shields.io/npm/v/@neonlaw/mdx)|n/a|n/a|
@@ -20,7 +21,6 @@ the Neon License as long as you promise not to use our Neon Law trademark.
 |[Documents](./documents)|![RubyGems.Org](https://img.shields.io/gem/v/neon_documents)|n/a|n/a|
 |[Email](./emails)|![RubyGems.Org](https://img.shields.io/gem/v/neon_email)|n/a|n/a|
 |[Diagrams](./diagrams)|![PyPi](https://img.shields.io/pypi/v/neon_diagrams)|n/a|n/a|
-|[Schemas](./schemas)|![PyPi](https://img.shields.io/pypi/v/neon_schemas)![RubyGems.Org](https://img.shields.io/gem/v/neon_schemas)![NPM](https://img.shields.io/npm/v/@neonlaw/schemas)|n/a|n/a|
 
 This repo also contains an `infrastructure` folder for managing cloud and
 SaaS resources with Terraform and a `shell` folder containing our base docker
@@ -56,8 +56,8 @@ because you should not have to load a bunch of stuff in your head whilst coding.
 ### Schemas
 
 The `schemas` package is built in Python, Ruby, and Node and contains Avro
-schemas for the messages that travel through our message bus, which is Google
-Pub/Sub. You can also run a local Google Pub/Sub with the emulator with:
+schemas for the messages that travel through our message bus, Google Pub/Sub.
+You can also run a local Google Pub/Sub with the emulator with:
 
 ```bash
 gcloud beta emulators pubsub start --project=neon-law-staging
@@ -71,7 +71,7 @@ you have access to the `gcp` project in Doppler.  Then, you can connect to
 `staging` and `production` with these respective commands:
 
 ```bash
-doppler setup # choose the GCP project
+doppler setup # choose the cloud-sql proxy project
 yarn run copy-gcp-credentials
 yarn run sql-proxy-staging
 yarn run sql-proxy-production
