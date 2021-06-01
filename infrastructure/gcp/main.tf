@@ -3,7 +3,7 @@ provider "google" {
   region  = var.region
   zone    = var.zone
 
-  # The Terraform Service Credentials
+  # The Terraform Service Account credentials
   credentials = var.gcp_credentials
 }
 
@@ -27,9 +27,13 @@ data "terraform_remote_state" "versions" {
   }
 }
 
+data "google_project" "project" {
+}
+
 module "service_accounts" {
   source = "./modules/service_accounts"
   project_id = var.project_id
+  project_number = data.google_project.project.number
 }
 
 module "networking_service_connection" {
