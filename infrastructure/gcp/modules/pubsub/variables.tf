@@ -4,10 +4,7 @@ variable "environment" {
 variable "schema_version" {
 }
 
-variable "function_version" {
-}
-
-variable "topic_name" {
+variable "color" {
 }
 
 variable "project_id" {

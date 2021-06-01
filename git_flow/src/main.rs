@@ -81,7 +81,12 @@ fn main() {
             let head_ref: String = t.head_ref;
             println!("Validating Branch {}", head_ref);
             let re = Regex::new(r"^(feature|improvement|bugfix|hotfix|hotfix-base|release|deployment|dependabot|version-bump)/.*$").unwrap();
-            assert!(re.is_match(&head_ref), "the head ref branch name must begin with feature, improvement, bugfix, hotfix, hotfix-base, release, deployment, or dependabot and then have a forward slash in the name.");
+            assert!(
+                re.is_match(&head_ref),
+                "the head ref branch name must begin with feature, improvement, bugfix, hotfix, hotfix-base, release, deployment, or dependabot and then have a forward slash in the name."
+            );
+
+            // invoke feature branch method
 
             let base_ref: String = t.base_ref;
             println!("Validating main {}", base_ref);
