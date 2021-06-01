@@ -89,6 +89,7 @@ module "function_bucket" {
 
 module "service_accounts" {
   source = "./modules/service_accounts"
+  project_id = var.project_id
 }
 
 module "secrets" {
