@@ -56,7 +56,7 @@ output "upload_bucket_user_credentials" {
 }
 
 output "application_user_account_key" {
-  value     = module.application_user.account_key
+  value     = module.service_accounts.application_user_account_key
   sensitive = true
 }
 
