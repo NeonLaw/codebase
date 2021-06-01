@@ -4,4 +4,8 @@ resource "google_secret_manager_secret" "emails" {
   labels = {
     environment = var.environment
   }
+
+  replication {
+    automatic = true
+  }
 }
