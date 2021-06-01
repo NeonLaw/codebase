@@ -98,8 +98,8 @@ module "secrets" {
 
 module "pub_sub_topics" {
   for_each = {
-    "green" = data.terraform_remote_state.versions.outputs.staging_green_schemas
-    "blue"  = data.terraform_remote_state.versions.outputs.staging_blue_schemas
+    "green" = data.terraform_remote_state.versions.outputs["${var.environment}_green_schemas"]
+    "blue"  = data.terraform_remote_state.versions.outputs["${var.environment}_blue_schemas"]
   }
 
   source         = "./modules/pubsub"
