@@ -93,6 +93,7 @@ module "service_accounts" {
 
 module "secrets" {
   source = "./modules/secrets"
+  environment = var.environment
 }
 
 module "pub_sub_topics" {
