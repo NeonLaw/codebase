@@ -39,6 +39,8 @@ resource "google_project_iam_binding" "compute_admin_bindings" {
   ]
 }
 
+# This allows any of the following roles to assume a service account and act as
+# another account.
 resource "google_project_iam_binding" "service_account_user_bindings" {
   project = var.project_id
   role    = "roles/iam.serviceAccountUser"
