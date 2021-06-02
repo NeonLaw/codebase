@@ -85,23 +85,23 @@ module "gcp_credentials_kubernetes_secret" {
   secret_value = base64decode(data.terraform_remote_state.gcp.outputs.application_user_account_key)
 }
 
-module "api_deployment" {
-  source       = "./modules/server_deployment"
-  environment  = var.environment
-  process_name = "api"
-  image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/server:latest"
+# module "api_deployment" {
+#   source       = "./modules/server_deployment"
+#   environment  = var.environment
+#   process_name = "api"
+#   image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/server:latest"
 
-  database_admin_password = data.terraform_remote_state.gcp.outputs.database_admin_password
-  database_admin_username = data.terraform_remote_state.gcp.outputs.database_admin_username
-  database_name           = "neon-law"
-  project_id              = data.terraform_remote_state.gcp.outputs.project_id
-  region                  = data.terraform_remote_state.gcp.outputs.region
+#   database_admin_password = data.terraform_remote_state.gcp.outputs.database_admin_password
+#   database_admin_username = data.terraform_remote_state.gcp.outputs.database_admin_username
+#   database_name           = "neon-law"
+#   project_id              = data.terraform_remote_state.gcp.outputs.project_id
+#   region                  = data.terraform_remote_state.gcp.outputs.region
 
-  args = [
-    "yarn",
-    "start:api",
-  ]
-}
+#   args = [
+#     "yarn",
+#     "start:api",
+#   ]
+# }
 
 module "webhooks_deployment" {
   source       = "./modules/webhooks_deployment"
@@ -112,25 +112,25 @@ module "webhooks_deployment" {
   region                  = data.terraform_remote_state.gcp.outputs.region
 }
 
-module "worker_deployment" {
-  source       = "./modules/background_job_deployment"
-  environment  = var.environment
-  process_name = "workers"
-  image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/server:latest"
+# module "worker_deployment" {
+#   source       = "./modules/background_job_deployment"
+#   environment  = var.environment
+#   process_name = "workers"
+#   image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/server:latest"
 
-  database_admin_password = data.terraform_remote_state.gcp.outputs.database_admin_password
-  database_admin_username = data.terraform_remote_state.gcp.outputs.database_admin_username
-  database_name           = "neon-law"
-  project_id              = data.terraform_remote_state.gcp.outputs.project_id
-  region                  = data.terraform_remote_state.gcp.outputs.region
+#   database_admin_password = data.terraform_remote_state.gcp.outputs.database_admin_password
+#   database_admin_username = data.terraform_remote_state.gcp.outputs.database_admin_username
+#   database_name           = "neon-law"
+#   project_id              = data.terraform_remote_state.gcp.outputs.project_id
+#   region                  = data.terraform_remote_state.gcp.outputs.region
 
-  args = [
-    "yarn",
-    "start:workers",
-  ]
-}
+#   args = [
+#     "yarn",
+#     "start:workers",
+#   ]
+# }
 
-module "ingress" {
-  source      = "./modules/kubernetes_ingress"
-  environment = var.environment
-}
+# module "ingress" {
+#   source      = "./modules/kubernetes_ingress"
+#   environment = var.environment
+# }
