@@ -35,18 +35,16 @@ resource "google_project_iam_binding" "kubernetes_admin_bindings" {
 
   members = [
     "serviceAccount:application-user@${var.project_id}.iam.gserviceaccount.com",
-    "serviceAccount:terraform@${var.project_id}.iam.gserviceaccount.com",
     "serviceAccount:${var.project_number}-compute@developer.gserviceaccount.com"
   ]
 }
 
 resource "google_service_account_iam_binding" "compute_user_iam_binding" {
-  service_account_id = "projects/${var.project_number}/serviceAccounts/${var.project_number}-compute@developer.gserviceaccount.com"
+  service_account_id = "${var.project_number}-compute@developer.gserviceaccount.com"
   role               = "roles/iam.serviceAccountUser"
 
   members = [
     "user:nick@neonlaw.com",
-    "serviceAccount:terraform@${var.project_id}.iam.gserviceaccount.com",
     "serviceAccount:${var.project_number}@cloudservices.gserviceaccount.com"
   ]
 }
