@@ -9,23 +9,23 @@ resource "random_password" "password" {
   override_special = "_"
 }
 
-resource "google_container_cluster" "primary" {
-  provider   = google-beta
-  name       = "neon-law-${var.environment}"
-  location   = var.region
-  network    = "projects/${var.project_id}/global/networks/default"
-  subnetwork = "default"
+# resource "google_container_cluster" "primary" {
+#   provider   = google-beta
+#   name       = "neon-law-${var.environment}"
+#   location   = var.region
+#   network    = "projects/${var.project_id}/global/networks/default"
+#   subnetwork = "default"
 
-  master_auth {
-    client_certificate_config {
-      issue_client_certificate = true
-    }
-  }
+#   master_auth {
+#     client_certificate_config {
+#       issue_client_certificate = true
+#     }
+#   }
 
-  ip_allocation_policy {
-    cluster_ipv4_cidr_block  = ""
-    services_ipv4_cidr_block = ""
-  }
+#   ip_allocation_policy {
+#     cluster_ipv4_cidr_block  = ""
+#     services_ipv4_cidr_block = ""
+#   }
 
-  enable_autopilot = true
-}
+#   enable_autopilot = true
+# }
