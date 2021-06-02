@@ -1,22 +1,22 @@
-output "gke_host" {
-  value     = "https://${module.kubernetes_cluster.host}"
-  sensitive = true
-}
+# output "gke_host" {
+#   value     = "https://${module.kubernetes_cluster.host}"
+#   sensitive = true
+# }
 
-output "gke_client_certificate" {
-  value     = module.kubernetes_cluster.client_certificate
-  sensitive = true
-}
+# output "gke_client_certificate" {
+#   value     = module.kubernetes_cluster.client_certificate
+#   sensitive = true
+# }
 
-output "gke_client_key" {
-  value     = module.kubernetes_cluster.client_key
-  sensitive = true
-}
+# output "gke_client_key" {
+#   value     = module.kubernetes_cluster.client_key
+#   sensitive = true
+# }
 
-output "gke_cluster_ca_certificate" {
-  value     = module.kubernetes_cluster.cluster_ca_certificate
-  sensitive = true
-}
+# output "gke_cluster_ca_certificate" {
+#   value     = module.kubernetes_cluster.cluster_ca_certificate
+#   sensitive = true
+# }
 
 output "container_registry" {
   value     = module.container_registry.name

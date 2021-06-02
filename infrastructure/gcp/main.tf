@@ -3,7 +3,7 @@ provider "google" {
   region  = var.region
   zone    = var.zone
 
-  # The Terraform Service Credentials
+  # The Terraform Service Account credentials
   credentials = var.gcp_credentials
 }
 
@@ -27,6 +27,15 @@ data "terraform_remote_state" "versions" {
   }
 }
 
+data "google_project" "project" {
+}
+
+module "service_accounts" {
+  source = "./modules/service_accounts"
+  project_id = var.project_id
+  project_number = data.google_project.project.number
+}
+
 module "networking_service_connection" {
   source     = "./modules/networking_service_connection"
   project_id = var.project_id
@@ -46,12 +55,13 @@ module "container_registry" {
   project_id = var.project_id
 }
 
-module "kubernetes_cluster" {
-  source      = "./modules/gke"
-  region      = var.region
-  project_id  = var.project_id
-  environment = var.environment
-}
+# module "kubernetes_cluster" {
+#   depends_on = [module.service_accounts]
+#   source      = "./modules/gke"
+#   region      = var.region
+#   project_id  = var.project_id
+#   environment = var.environment
+# }
 
 module "neon-law-api-ssl-certificate" {
   source           = "./modules/ssl_certificate"
@@ -87,10 +97,6 @@ module "function_bucket" {
   allowed_origins = []
 }
 
-module "service_accounts" {
-  source = "./modules/service_accounts"
-}
-
 module "secrets" {
   source = "./modules/secrets"
   environment = var.environment
@@ -98,8 +104,8 @@ module "secrets" {
 
 module "pub_sub_topics" {
   for_each = {
-    "green" = data.terraform_remote_state.versions.outputs.staging_green_schemas
-    "blue"  = data.terraform_remote_state.versions.outputs.staging_blue_schemas
+    "green" = data.terraform_remote_state.versions.outputs["${var.environment}_green_schemas"]
+    "blue"  = data.terraform_remote_state.versions.outputs["${var.environment}_blue_schemas"]
   }
 
   source         = "./modules/pubsub"
