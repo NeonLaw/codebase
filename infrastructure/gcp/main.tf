@@ -55,12 +55,12 @@ module "container_registry" {
   project_id = var.project_id
 }
 
-# module "kubernetes_cluster" {
-#   source      = "./modules/gke"
-#   region      = var.region
-#   project_id  = var.project_id
-#   environment = var.environment
-# }
+module "kubernetes_cluster" {
+  source      = "./modules/gke"
+  region      = var.region
+  project_id  = var.project_id
+  environment = var.environment
+}
 
 module "neon-law-api-ssl-certificate" {
   source           = "./modules/ssl_certificate"
