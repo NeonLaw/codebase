@@ -40,7 +40,7 @@ resource "google_project_iam_binding" "kubernetes_admin_bindings" {
   ]
 }
 
-resource "google_project_iam_binding" "kubernetes_admin_bindings" {
+resource "google_project_iam_binding" "compute_admin_bindings" {
   project = var.project_id
   role    = "roles/compute.admin"
 
