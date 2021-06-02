@@ -56,6 +56,7 @@ module "container_registry" {
 }
 
 module "kubernetes_cluster" {
+  depends_on = [module.service_accounts]
   source      = "./modules/gke"
   region      = var.region
   project_id  = var.project_id
