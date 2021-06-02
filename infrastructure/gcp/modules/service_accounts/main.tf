@@ -45,7 +45,8 @@ resource "google_project_iam_binding" "compute_admin_bindings" {
   role    = "roles/compute.admin"
 
   members = [
-    "serviceAccount:${var.project_number}-compute@developer.gserviceaccount.com"
+    "serviceAccount:${var.project_number}-compute@developer.gserviceaccount.com",
+    "serviceAccount:${var.project_number}@cloudservices.gserviceaccount.com"
   ]
 }
 
