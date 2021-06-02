@@ -41,7 +41,7 @@ resource "google_project_iam_binding" "kubernetes_admin_bindings" {
 }
 
 resource "google_service_account_iam_binding" "compute_user_iam_binding" {
-  service_account_id = "${var.project_number}-compute"
+  service_account_id = "projects/${var.project_number}/serviceAccounts/${var.project_number}-compute@developer.gserviceaccount.com"
   role               = "roles/iam.serviceAccountUser"
 
   members = [
