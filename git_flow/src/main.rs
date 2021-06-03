@@ -1,5 +1,7 @@
 use clap::Clap;
 use regex::Regex;
+mod pull_requests;
+use pull_requests::feature_branch::validate_feature_branch;
 
 /// This doc string acts as a help message when the user runs '--help'
 /// as do all doc strings on fields
@@ -80,13 +82,19 @@ fn main() {
         SubCommands::ValidatePullRequest(t) => {
             let head_ref: String = t.head_ref;
             println!("Validating Branch {}", head_ref);
+
             let re = Regex::new(r"^(feature|improvement|bugfix|hotfix|hotfix-base|release|deployment|dependabot|version-bump)/.*$").unwrap();
+            let caps = re.captures(&head_ref).unwrap();
+            let branch_type = caps.get(1).map_or("", |m| m.as_str());
+
             assert!(
                 re.is_match(&head_ref),
                 "the head ref branch name must begin with feature, improvement, bugfix, hotfix, hotfix-base, release, deployment, or dependabot and then have a forward slash in the name."
             );
 
-            // invoke feature branch method
+            if branch_type == "feature" {
+                validate_feature_branch(&head_ref);
+            }
 
             let base_ref: String = t.base_ref;
             println!("Validating main {}", base_ref);
