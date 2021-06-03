@@ -1,0 +1,22 @@
+---
+name: rust
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  rust_git_flow_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: Install dependencies and build app
+        working-directory: ./git_flow
+        run: cargo build --release

@@ -2,6 +2,7 @@ use clap::Clap;
 use regex::Regex;
 mod pull_requests;
 use pull_requests::feature_branch::validate_feature_branch;
+use tokio::runtime;
 
 /// This doc string acts as a help message when the user runs '--help'
 /// as do all doc strings on fields
@@ -93,7 +94,13 @@ fn main() {
             );
 
             if branch_type == "feature" {
-                validate_feature_branch(&head_ref);
+                let future = validate_feature_branch(&head_ref);
+                let rt = runtime::Builder::new_multi_thread()
+                    .enable_all()
+                    .build()
+                    .unwrap();
+
+                rt.block_on(future);
             }
 
             let base_ref: String = t.base_ref;
