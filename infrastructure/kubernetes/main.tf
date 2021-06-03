@@ -133,6 +133,7 @@ module "worker_deployment" {
 module "web_deployment" {
   source = "./modules/web_deployment"
   secret_name = "web-secrets"
+  environment = var.environment
 }
 
 module "ingress" {
