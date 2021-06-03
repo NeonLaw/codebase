@@ -1,0 +1,17 @@
+{
+  "namespace": "com.neon_law.authentication",
+  "name": "successful_login",
+  "type": "record",
+  "fields": [
+    {
+      "name": "email",
+      "type": "string",
+      "doc": "The email of the logged in user."
+    },
+    {
+      "type" : "string",
+      "name" : "sub",
+      "doc": "The 'sub' from Auth0 of the logged in user."
+    }
+  ]
+}
