@@ -4,6 +4,14 @@
 
 An opinionated CLI for doing git-flow with GitHub for Cargo and Yarn workspaces.
 
+## Developing
+
+```bash
+doppler setup # git_flow project
+doppler run -- \
+  cargo run -- validate-pull-request --head-ref feature/rar --base-ref main
+```
+
 ## Installation
 
 ```bash
