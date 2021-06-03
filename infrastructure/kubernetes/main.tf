@@ -134,6 +134,7 @@ module "web_deployment" {
   source = "./modules/web_deployment"
   secret_name = "web-secrets"
   environment = var.environment
+  image_url   = "${data.terraform_remote_state.gcp.outputs.container_registry}/web:latest"
 }
 
 module "ingress" {
