@@ -125,7 +125,7 @@ jobs:
             webhooks=us.gcr.io/neon-law-staging/webhooks:$GITHUB_SHA
         if: github.ref == 'refs/heads/main'
 
-  deploy_staging_outbound_emails:
+  deploy_staging_web:
     runs-on: ubuntu-latest
 
     steps:
@@ -143,9 +143,9 @@ jobs:
       - name: Build the Docker image
         run: |-
           docker build \
-            --tag "us.gcr.io/neon-law-staging/outbound_emails:$GITHUB_SHA" \
-            --tag "us.gcr.io/neon-law-staging/outbound_emails:latest" \
-            -f ./emails/Dockerfile \
+            --tag "us.gcr.io/neon-law-staging/web:$GITHUB_SHA" \
+            --tag "us.gcr.io/neon-law-staging/web:latest" \
+            -f ./web/Dockerfile \
             .
 
       - uses: google-github-actions/setup-gcloud@master
@@ -165,8 +165,8 @@ jobs:
 
       - name: Push the Docker image to Google Container Registry
         run: |-
-          docker push "us.gcr.io/neon-law-staging/outbound_emails:$GITHUB_SHA"
-          docker push "us.gcr.io/neon-law-staging/outbound_emails:latest"
+          docker push "us.gcr.io/neon-law-staging/web:$GITHUB_SHA"
+          docker push "us.gcr.io/neon-law-staging/web:latest"
         if: github.ref == 'refs/heads/main'
 
       - name: Get the GKE credentials so we can deploy to the cluster
@@ -176,6 +176,6 @@ jobs:
 
       - name: Deploy latest container with kubectl
         run: |-
-          kubectl set image deployment staging-outbound-emails \
-            subscriber=us.gcr.io/neon-law-staging/outbound_emails:$GITHUB_SHA
+          kubectl set image deployment staging-web \
+            subscriber=us.gcr.io/neon-law-staging/web:$GITHUB_SHA
         if: github.ref == 'refs/heads/main'

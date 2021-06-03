@@ -70,8 +70,6 @@ export const Hero = () => {
                 }}
               />
               <Text marginTop={gutters.small}>
-                <span>{intl.formatMessage({ id: 'banner.client' })}</span>
-                &nbsp;
                 {user ? (
                   <>
                     <Link href="/portal" passHref={true}>
@@ -90,14 +88,18 @@ export const Hero = () => {
                     </Link>
                   </>
                 ) : (
-                  <Link href="/api/auth/login">
-                    <a
-                      href="/api/auth/login"
-                      style={{ textDecoration: 'underline' }}
-                    >
-                      {intl.formatMessage({ id: 'banner.signin' })}
-                    </a>
-                  </Link>
+                  <>
+                    <span>{intl.formatMessage({ id: 'banner.client' })}</span>
+                    &nbsp;
+                    <Link href="/api/auth/login">
+                      <a
+                        href="/api/auth/login"
+                        style={{ textDecoration: 'underline' }}
+                      >
+                        {intl.formatMessage({ id: 'banner.signin' })}
+                      </a>
+                    </Link>
+                  </>
                 )}
                 .
               </Text>

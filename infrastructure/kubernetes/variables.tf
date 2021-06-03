@@ -46,5 +46,5 @@ variable "neon_bot_slack_token" {
 variable "hcaptcha_secret_key" {
 }
 
-variable "email_doppler_token" {
+variable "web_doppler_token" {
 }
