@@ -17,6 +17,6 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - name: Install dependencies
+      - name: Install dependencies and build app
         working-directory: ./git_flow
-        run: cargo build
+        run: cargo build --release
