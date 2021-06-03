@@ -1,2 +1,2 @@
-variable "email_doppler_token" {
+variable "web_doppler_token" {
 }

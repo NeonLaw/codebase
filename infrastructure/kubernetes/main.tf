@@ -76,7 +76,7 @@ module "application_secrets" {
 
 module "doppler_secrets" {
   source = "./modules/doppler_secrets"
-  email_doppler_token = var.email_doppler_token
+  web_doppler_token = var.web_doppler_token
 }
 
 module "gcp_credentials_kubernetes_secret" {
@@ -113,9 +113,9 @@ module "webhooks_deployment" {
 }
 
 module "worker_deployment" {
-  source       = "./modules/background_job_deployment"
+  source       = "./modules/graphile_worker_deployment"
   environment  = var.environment
-  process_name = "workers"
+  process_name = "postgres-to-pubsub"
   image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/server:latest"
 
   database_admin_password = data.terraform_remote_state.gcp.outputs.database_admin_password
@@ -128,6 +128,13 @@ module "worker_deployment" {
     "yarn",
     "start:workers",
   ]
+}
+
+module "web_deployment" {
+  source = "./modules/web_deployment"
+  secret_name = "web-secrets"
+  environment = var.environment
+  image_url   = "${data.terraform_remote_state.gcp.outputs.container_registry}/web:latest"
 }
 
 module "ingress" {
