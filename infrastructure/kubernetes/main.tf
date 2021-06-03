@@ -113,7 +113,7 @@ module "webhooks_deployment" {
 }
 
 module "worker_deployment" {
-  source       = "./modules/background_job_deployment"
+  source       = "./modules/graphile_worker_deployment"
   environment  = var.environment
   process_name = "postgres-to-pubsub"
   image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/server:latest"
