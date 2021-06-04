@@ -17,7 +17,7 @@
     "@google-cloud/storage": "^5.8.5",
     "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
     "@graphile/pg-pubsub": "^4.11.0",
-    "@graphile/pro": "^1.0.2",
+    "@graphile/pro": "^1.0.3",
     "@opentelemetry/exporter-collector": "^0.19.0",
     "@opentelemetry/instrumentation": "^0.18.2",
     "@opentelemetry/instrumentation-graphql": "^0.16.0",

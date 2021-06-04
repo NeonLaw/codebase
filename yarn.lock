@@ -2052,12 +2052,12 @@
     graphql-subscriptions "^1.1.0"
     tslib "^2.0.1"
 
-"@graphile/pro@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@graphile/pro/-/pro-1.0.2.tgz#6258e9a4fe8b085c89a069dddc609a40313b2773"
-  integrity sha512-d3M+6cLFXCr37d0MpuPeALg5/hXMCG4OyHcc8TpeTV0IkcYrIUn/rTGTaf8QydyXTPWDQGhLaD5WQENBvZhBJg==
+"@graphile/pro@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@graphile/pro/-/pro-1.0.3.tgz#ee865ea8eb769bd77fa6da515a17009fcc802a06"
+  integrity sha512-T0/eFeaOQjw0+urOytqW9AyWF9QFqx4VVVmh2nON+9X7Qr0PmXZgAUOIUtfPvndeya/Sfweb+9FZmXCJdHQ01Q==
   dependencies:
-    "@types/pg" "^7.4.14"
+    "@types/pg" ">=6 <9"
     graphql ">=0.9 <16"
     graphql-depth-limit "^1.1.0"
     pg ">=6.1.0 <9"
@@ -4144,6 +4144,15 @@
   integrity sha512-ThTOEwOvYM++zRSGiajRqKyTQboCEJE2VI+30d93WX94sQ7CnrcJ7CICT9oC+QD8Co9JTYJkKEfEXSb5DjUOFA==
   dependencies:
     "@types/node" "*"
+    pg-types "^2.2.0"
+
+"@types/pg@>=6 <9":
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/@types/pg/-/pg-8.6.0.tgz#34233b891a127d6caaad28e177b1baec1a2958d4"
+  integrity sha512-3JXFrsl8COoqVB1+2Pqelx6soaiFVXzkT3fkuSNe7GB40ysfT0FHphZFPiqIXpMyTHSFRdLTyZzrFBrJRPAArA==
+  dependencies:
+    "@types/node" "*"
+    pg-protocol "*"
     pg-types "^2.2.0"
 
 "@types/prettier@^2.0.0":
@@ -13430,7 +13439,7 @@ pg-pool@^3.3.0:
   resolved "https://registry.yarnpkg.com/pg-pool/-/pg-pool-3.3.0.tgz#12d5c7f65ea18a6e99ca9811bd18129071e562fc"
   integrity sha512-0O5huCql8/D6PIRFAlmccjphLYWC+JIzvUhSzXSpGaf+tjTZc4nn+Lr7mLXBbFJfvwbP0ywDv73EiaBsxn7zdg==
 
-pg-protocol@^1.5.0:
+pg-protocol@*, pg-protocol@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/pg-protocol/-/pg-protocol-1.5.0.tgz#b5dd452257314565e2d54ab3c132adc46565a6a0"
   integrity sha512-muRttij7H8TqRNu/DxrAJQITO4Ac7RmX3Klyr/9mJEOBeIpgnF8f9jAfRz5d3XwQZl5qBjF9gLsUtMPJE0vezQ==
