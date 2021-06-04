@@ -20,7 +20,7 @@ jobs:
         working-directory: ./git_flow
         run: |
           doppler run -- \
-            cargo run --
+            cargo run -- \
               validate-pull-request \
                 --head-ref ${GITHUB_HEAD_REF#refs/heads/} \
                 --base-ref ${GITHUB_BASE_REF#refs/heads/} \
