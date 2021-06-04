@@ -19,6 +19,11 @@ jobs:
       - name: Install Git Flow
         run: cargo install git_flow
       - name: Validate pull request.
-        run: doppler run -- git_flow validate-pull-request --head-ref ${GITHUB_HEAD_REF#refs/heads/} --base-ref ${GITHUB_BASE_REF#refs/heads/}
+        run: |
+          doppler run -- \
+            git_flow validate-pull-request \
+              --head-ref ${GITHUB_HEAD_REF#refs/heads/} \
+              --base-ref ${GITHUB_BASE_REF#refs/heads/} \
+              --pr-number ${{github.event.number}}
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_STAGING }}
