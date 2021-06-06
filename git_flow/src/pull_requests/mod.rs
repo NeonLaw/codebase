@@ -4,3 +4,4 @@ pub mod deployment_branch;
 pub mod feature_branch;
 pub mod improvement_branch;
 pub mod release_branch;
+pub mod version_bump_branch;

@@ -9,6 +9,7 @@ use pull_requests::deployment_branch::validate_deployment_branch;
 use pull_requests::feature_branch::validate_feature_branch;
 use pull_requests::improvement_branch::validate_improvement_branch;
 use pull_requests::release_branch::validate_release_branch;
+use pull_requests::version_bump_branch::validate_version_bump_branch;
 use tokio::runtime;
 
 /// This doc string acts as a help message when the user runs '--help'
@@ -149,33 +150,43 @@ fn main() {
             }
 
             if branch_type == "release" {
-                let bugfix_future = validate_release_branch(pr_number);
+                let release_future = validate_release_branch(pr_number);
                 let rt = runtime::Builder::new_multi_thread()
                     .enable_all()
                     .build()
                     .unwrap();
 
-                rt.block_on(bugfix_future);
+                rt.block_on(release_future);
+            }
+
+            if branch_type == "version-bump" {
+                let version_bump_future = validate_version_bump_branch(pr_number);
+                let rt = runtime::Builder::new_multi_thread()
+                    .enable_all()
+                    .build()
+                    .unwrap();
+
+                rt.block_on(version_bump_future);
             }
 
             if branch_type == "deployment" {
-                let bugfix_future = validate_deployment_branch(pr_number);
+                let deployment_future = validate_deployment_branch(pr_number);
                 let rt = runtime::Builder::new_multi_thread()
                     .enable_all()
                     .build()
                     .unwrap();
 
-                rt.block_on(bugfix_future);
+                rt.block_on(deployment_future);
             }
 
             if branch_type == "dependabot" {
-                let bugfix_future = validate_dependabot_branch(pr_number);
+                let dependabot_future = validate_dependabot_branch(pr_number);
                 let rt = runtime::Builder::new_multi_thread()
                     .enable_all()
                     .build()
                     .unwrap();
 
-                rt.block_on(bugfix_future);
+                rt.block_on(dependabot_future);
             }
         }
     }

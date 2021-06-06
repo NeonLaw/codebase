@@ -10,22 +10,22 @@ assignees: '@shicholas'
 
 
 
-## Packages
+## Packages Affected
 
 This feature affects (delete the unaffected packages below)
 
-- [ ] Web
-- [ ] Server
-- [ ] Infrastructure
-- [ ] Git Flow
-- [ ] Neon NLP
-- [ ] Email
-- [ ] Documents
-- [ ] Postgres
+- Web
+- Server
+- Infrastructure
+- Git Flow
+- Neon NLP
+- Emails
+- Documents
+- Postgres
+- Schemas
 
 ## For the Assignee
 
-- [ ] Create a branch or branches prefixed `feature/` that solves the issue
-  above.
-- [ ] Add this issue to one or more Milestones corresponding to the next
-  versioned release of a package you develop in.
+Create a branch or branches prefixed `feature/` that solves the issue above.
+Make sure that you tag this issue in the PR description with the phrase
+`fixes #`.
