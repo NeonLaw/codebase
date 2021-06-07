@@ -35,7 +35,7 @@
     "graphile-build-pg": "^4.11.2",
     "graphile-migrate": "^1.0.2",
     "graphile-utils": "^4.11.2",
-    "graphile-worker": "^0.11.1",
+    "graphile-worker": "^0.11.3",
     "graphile-worker-rate-limiter": "^0.0.1",
     "hcaptcha": "^0.0.2",
     "js-yaml": "^4.1.0",
