@@ -3,20 +3,16 @@ use std::env;
 use std::error::Error;
 
 pub async fn validate_deployment_branch(pr_number: u64) -> Result<(), Box<dyn Error>> {
-  let token = env::var("GITHUB_PAT")?;
-  let github = Github::new("github-application", Credentials::Token(token))?;
+  let token = std::env::var("GITHUB_PAT").expect("GITHUB_PAT env variable is required");
 
-  println!("comments");
-  for c in github
-    .repo("neonlaw", "codebase")
-    .pulls()
-    .get(pr_number)
-    .comments()
-    .list(&Default::default())
-    .await?
-  {
-    println!("{:#?}", c);
-  }
+  let octocrab = Octocrab::builder().personal_token(token).build()?;
+
+  let diff = octocrab::instance()
+    .pulls("rust-lang", "rust")
+    .get_diff(72033)
+    .await?;
+
+  println!("{}", diff);
 
   Ok(())
 }
