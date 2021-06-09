@@ -117,7 +117,7 @@ module "function_bucket" {
 
 resource "google_storage_bucket_object" "default_function_zip" {
   name   = "default_function.zip"
-  bucket = google_storage_bucket.bucket.name
+  bucket = module.function_bucket.name
   source = "${path.module}/default_function.zip"
 }
 
