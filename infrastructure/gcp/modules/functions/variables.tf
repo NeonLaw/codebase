@@ -9,3 +9,6 @@ variable schema_version {
 
 variable project_id {
 }
+
+variable color {
+}

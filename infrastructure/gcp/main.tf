@@ -122,9 +122,15 @@ resource "google_storage_bucket_object" "default_function_zip" {
 }
 
 module "functions" {
+  for_each = {
+    "green" = data.terraform_remote_state.versions.outputs["${var.environment}_green_schemas"]
+    "blue"  = data.terraform_remote_state.versions.outputs["${var.environment}_blue_schemas"]
+  }
+
   source = "./modules/functions"
   source_archive_bucket = module.function_bucket.name
   source_archive_object = google_storage_bucket_object.default_function_zip.name
-  schema_version = data.terraform_remote_state.versions.outputs["${var.environment}_green_schemas"]
+  color = each.key
+  schema_version = each.value
   project_id     = var.project_id
 }

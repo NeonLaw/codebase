@@ -1,9 +1,9 @@
-resource "google_cloudfunctions_function" "function" {
-  name        = "welcome-email"
+resource "google_cloudfunctions_function" "welcome_email" {
+  name        = "welcome-email-${var.color}"
   description = "Send Welcome Email"
   runtime     = "ruby27"
 
-  available_memory_mb   = 128
+  available_memory_mb   = 256
   source_archive_bucket = var.source_archive_bucket
   source_archive_object = var.source_archive_object
   entry_point           = "emails/handlers/welcome_email_handler"
