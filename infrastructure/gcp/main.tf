@@ -123,6 +123,6 @@ resource "google_storage_bucket_object" "default_function_zip" {
 
 module "functions" {
   source = "./modules/functions"
-  source_archive_bucket = google_storage_bucket.bucket.name
-  source_archive_file = google_storage_bucket_object.default_function_zip.name
+  source_archive_bucket = module.function_bucket.name
+  source_archive_object = google_storage_bucket_object.default_function_zip.name
 }
