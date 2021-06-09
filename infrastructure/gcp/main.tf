@@ -91,12 +91,6 @@ module "user_bucket" {
   ]
 }
 
-module "function_bucket" {
-  source          = "./modules/private_bucket"
-  bucket_name     = "${var.project_id}-function-code"
-  allowed_origins = []
-}
-
 module "secrets" {
   source = "./modules/secrets"
   environment = var.environment
@@ -113,4 +107,22 @@ module "pub_sub_topics" {
   color          = each.key
   schema_version = each.value
   project_id     = var.project_id
+}
+
+module "function_bucket" {
+  source          = "./modules/private_bucket"
+  bucket_name     = "${var.project_id}-function-code"
+  allowed_origins = []
+}
+
+resource "google_storage_bucket_object" "default_function_zip" {
+  name   = "default_function.zip"
+  bucket = google_storage_bucket.bucket.name
+  source = "${path.module}/default_function.zip"
+}
+
+module "functions" {
+  source = "./modules/functions"
+  source_archive_bucket = google_storage_bucket.bucket.name
+  source_archive_file = google_storage_bucket_object.default_function_zip.name
 }

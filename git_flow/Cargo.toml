@@ -12,6 +12,7 @@ description = "A CLI for an opiniated git flow for monorepos on GitHub"
 
 [dependencies]
 clap = "3.0.0-beta.2"
+octocrab = "0.9"
 hubcaps = { git = "https://github.com/softprops/hubcaps", branch = "master" }
 regex = "1"
 futures = "0.3"
