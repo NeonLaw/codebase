@@ -26,7 +26,8 @@ resource "google_project_iam_binding" "editor_bindings" {
     "serviceAccount:application-user@${var.project_id}.iam.gserviceaccount.com",
     "serviceAccount:github-actions@${var.project_id}.iam.gserviceaccount.com",
     "serviceAccount:terraform@${var.project_id}.iam.gserviceaccount.com",
-    "serviceAccount:${var.project_number}-compute@developer.gserviceaccount.com"
+    "serviceAccount:${var.project_number}-compute@developer.gserviceaccount.com",
+    "serviceAccount:${var.project_number}@cloudservices.gserviceaccount.com"
   ]
 }
 
