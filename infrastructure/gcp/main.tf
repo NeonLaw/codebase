@@ -115,12 +115,6 @@ module "function_bucket" {
   allowed_origins = []
 }
 
-resource "google_storage_bucket_object" "default_function_zip" {
-  name   = "default_function.zip"
-  bucket = module.function_bucket.name
-  source = "${path.module}/default_function.zip"
-}
-
 module "functions" {
   for_each = {
     "green" = data.terraform_remote_state.versions.outputs["${var.environment}_green_schemas"]
@@ -129,7 +123,7 @@ module "functions" {
 
   source = "./modules/functions"
   source_archive_bucket = module.function_bucket.name
-  source_archive_object = google_storage_bucket_object.default_function_zip.name
+  source_archive_object = "emails/0.1.0.zip"
   color = each.key
   schema_version = each.value
   project_id     = var.project_id
