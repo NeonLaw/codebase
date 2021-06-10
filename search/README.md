@@ -1,7 +1,7 @@
 # Neon Search
 
 This gem is used to create, update, and delete records in
-[meilisearch](meilisearch.com).
+[meilisearch](https://meilisearch.com).
 
 ## Interface
 
