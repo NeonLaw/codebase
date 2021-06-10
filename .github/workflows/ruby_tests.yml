@@ -97,8 +97,22 @@ jobs:
         with:
           ruby-version: '3'
       - name: Install dependencies
-        working-directory: ./secrets
+        working-directory: ./webhooks
         run: bundle
       - name: Lint Ruby files.
-        working-directory: ./secrets
+        working-directory: ./webhooks
+        run: bundle exec standardrb
+
+  ruby_search_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3'
+      - name: Install dependencies
+        working-directory: ./search
+        run: bundle
+      - name: Lint Ruby files.
+        working-directory: ./search
         run: bundle exec standardrb
