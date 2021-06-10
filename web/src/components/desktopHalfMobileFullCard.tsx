@@ -8,9 +8,15 @@ import Link from 'next/link';
 import styled from '@emotion/styled';
 
 const ContentWrapper = styled.a`
+  text-decoration: none;
   img {
     max-height: 350px;
     object-fit: cover;
+  }
+
+  &:hover,
+  &:focus {
+    color: inherit;
   }
 `;
 

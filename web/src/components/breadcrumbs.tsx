@@ -1,12 +1,14 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
+
 import Link from 'next/link';
+import { colors } from '../styles/neonLaw';
 import { useIntl } from 'react-intl';
 import { useRouter } from 'next/router';
 
 const getRouteFromPath = (
   path: string,
   paths: string[],
-  index: number
+  index: number,
 ): string => {
   if (index == 0) {
     return `/${path}`;
@@ -18,6 +20,23 @@ const getRouteFromPath = (
 interface BreadCrumbProps {
   showHome?: boolean;
 }
+
+const StyledBreadcrumbLink = ({ children, props }: any) => (
+  <BreadcrumbLink
+    {...props}
+    className="breadcrumb outline-bordered"
+    _hover={{
+      color: colors.primaryColor400,
+      textDecoration: 'underline'
+    }}
+    _focus={{
+      color: colors.primaryColor400,
+      textDecoration: 'underline'
+    }}
+  >
+    {children}
+  </BreadcrumbLink>
+);
 
 export const Breadcrumbs = ({ showHome = true }: BreadCrumbProps) => {
   const intl = useIntl();
@@ -43,44 +62,38 @@ export const Breadcrumbs = ({ showHome = true }: BreadCrumbProps) => {
     paths.shift();
   }
 
-  if (
-    !firstPath ||
-          firstPath === 'upward-mobility'
-  ) {
+  if (!firstPath || firstPath === 'upward-mobility') {
     return null;
   }
 
   return (
     <Breadcrumb mb="2em">
-      {showHome && <BreadcrumbItem cursor="pointer">
-        <BreadcrumbLink
-          className="breadcrumb outline-bordered"
-          as={Link}
-          href="/"
-        >
-          {intl.formatMessage({ id: 'breadcrumbs.home' })}
-        </BreadcrumbLink>
-      </BreadcrumbItem>}
+      {showHome && (
+        <BreadcrumbItem>
+          <StyledBreadcrumbLink as={Link} href="/">
+            {intl.formatMessage({ id: 'breadcrumbs.home' })}
+          </StyledBreadcrumbLink>
+        </BreadcrumbItem>
+      )}
       {paths.map((path, i) => {
         const route = getRouteFromPath(path, paths, i);
 
         return (
-          <BreadcrumbItem key={i} cursor="pointer">
-            <BreadcrumbLink
-              className="breadcrumb outline-bordered"
+          <BreadcrumbItem key={i}>
+            <StyledBreadcrumbLink
               as={Link}
               href={route}
               textTransform="capitalize"
             >
               {intl.formatMessage({ id: `breadcrumbs.${path}` })}
-            </BreadcrumbLink>
+            </StyledBreadcrumbLink>
           </BreadcrumbItem>
         );
       })}
       <BreadcrumbItem isCurrentPage={true} textTransform="capitalize">
-        <BreadcrumbLink className="breadcrumb outline-bordered">
+        <StyledBreadcrumbLink>
           {currentPath.replace(/-/g, ' ')}
-        </BreadcrumbLink>
+        </StyledBreadcrumbLink>
       </BreadcrumbItem>
     </Breadcrumb>
   );

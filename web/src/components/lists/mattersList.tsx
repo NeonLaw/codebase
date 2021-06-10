@@ -1,6 +1,19 @@
-import { Box, ListItem, Skeleton, UnorderedList } from '@chakra-ui/react';
+import { Box, Skeleton } from '@chakra-ui/react';
+
 import Link from 'next/link';
+import { gutters } from '../../styles/neonLaw';
+import styled from '@emotion/styled';
 import { useAllCurrentUserMattersQuery } from '../../utils/api';
+
+const StyledMattersList = styled.div`
+  ul {
+    margin: ${gutters.xSmall} 0;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: ${gutters.micro};
+  }
+`;
 
 interface MattersListProps {
   category: string;
@@ -17,27 +30,29 @@ export const MattersList = ({ category }: MattersListProps) => {
     const matters = data?.currentUserMatters?.nodes || [];
 
     return (
-      <UnorderedList spacing={3}>
-        {matters.map((matter, key) => {
-          const matterCategory = matter.matterTemplateCategory;
-          if ( matterCategory === category || category === 'all') {
-            return (
-              <Box
-                key={key}
-                as="a"
-                href={`/portal/${matterCategory}/${matter.id}`}
-              >
-                <Link href={`/portal/${matterCategory}/${matter.id}`}>
-                  <ListItem>
-                    {matter.name}
-                  </ListItem>
-                </Link>
-              </Box>
-            );
-          }
-          return null;
-        })}
-      </UnorderedList>
+      <StyledMattersList>
+        <ul>
+          {matters.map((matter, key) => {
+            const matterCategory = matter.matterTemplateCategory;
+            if (matterCategory === category || category === 'all') {
+              return (
+                <li>
+                  <Box
+                    key={key}
+                    as="a"
+                    href={`/portal/${matterCategory}/${matter.id}`}
+                  >
+                    <Link href={`/portal/${matterCategory}/${matter.id}`}>
+                      {matter.name}
+                    </Link>
+                  </Box>
+                </li>
+              );
+            }
+            return null;
+          })}
+        </ul>
+      </StyledMattersList>
     );
   }
 

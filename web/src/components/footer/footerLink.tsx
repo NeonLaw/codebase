@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 const Anchor = styled.a`
   display: block;
   padding: 7px 0;
+  text-decoration: none;
 `;
 
 export const FooterLink = ({ path, i18nMessage }) => {

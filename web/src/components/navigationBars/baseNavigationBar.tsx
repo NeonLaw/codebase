@@ -14,6 +14,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
+
 import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { BlackLivesMatter } from './blackLivesMatter';
 import { ChevronDownIcon } from '@chakra-ui/icons';
@@ -108,8 +109,8 @@ export const BaseNavigationBar = ({
                       cursor="pointer"
                       margin="0 10px"
                       paddingBottom="0.5em"
+                      textDecoration="none"
                       position="relative"
-                      transition="all .2s"
                       _after={{
                         background: 'white',
                         bottom: 0,

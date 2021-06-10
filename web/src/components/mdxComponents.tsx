@@ -11,10 +11,24 @@ import {
   Text,
   useColorMode,
 } from '@chakra-ui/react';
+import { colors, gutters } from '../styles/neonLaw';
+
 import { CodeBlock } from '../components/codeBlock';
 import { DesktopHalfMobileFullCard } from './desktopHalfMobileFullCard';
 import { default as Link } from 'next/link';
-import { colors } from '../styles/neonLaw';
+import styled from '@emotion/styled';
+
+const StyledUl = styled(Box)`
+  margin: ${gutters.xSmall} 0;
+
+  li:not(:last-child) {
+    margin-bottom: ${gutters.micro};
+
+    p {
+      margin: 0;
+    }
+  }
+`;
 
 const Pre = (props) => <Box my="2em" rounded="sm" {...props} />;
 
@@ -62,7 +76,7 @@ export const UnderlineLink = ({ href, children }) => {
       _focus={{ boxShadow: 'outline' }}
       href={href}
     >
-      <a href={href} style={{textDecoration: 'underline'}}>
+      <a href={href}>
         {children}
       </a>
     </Box>
@@ -87,7 +101,6 @@ export const MDXComponents = {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          style={{ cursor: 'pointer', textDecoration: 'underline' }}
         >
           {props.children}
         </a>
@@ -97,8 +110,6 @@ export const MDXComponents = {
       return (
         <a
           href={href}
-          style={{ cursor: 'pointer', textDecoration: 'underline' }}
-
         >
           {props.children}
         </a>
@@ -140,12 +151,12 @@ export const MDXComponents = {
     <Code color="black" backgroundColor="black" fontSize="0.84em" {...props} />
   ),
   kbd: Kbd,
-  li: (props) => <Box as="li" pb="4px" {...props} />,
+  li: (props) => <Box as="li" {...props} />,
   ol: (props) => <Box as="ol" pt="8px" pl="16px" {...props} />,
   p: (props) => <Text as="p" mt={4} lineHeight="tall" {...props} />,
   pre: Pre,
   table: Table,
   td: TData,
   th: THead,
-  ul: (props) => <Box as="ul" pt="8px" pl="16px" {...props} />,
+  ul: (props) => <StyledUl as="ul" {...props} />,
 };

@@ -1,7 +1,8 @@
 import { Global, css } from '@emotion/react';
-import { colors, gutters, sizes } from './neonLaw';
-import { theme, useColorMode } from '@chakra-ui/react';
+import { colors, gutters, sizes, theme } from './neonLaw';
+
 import { colors as DydColors } from './deleteYourData';
+import { useColorMode } from '@chakra-ui/react';
 
 interface BaseStylesProps {
   dir?: 'ltr' | 'rtl';
@@ -134,6 +135,17 @@ export const BaseStyles = ({ dir }: BaseStylesProps): JSX.Element => {
         /* ----- Links & Buttons ----- */
         /* ---------------------------------- */
 
+        a {
+          cursor: pointer;
+          text-decoration: underline;
+          transition: all .2s;
+
+          &:hover,
+          &:focus {
+            color: ${colors.primaryColor400};
+          }
+        }
+
         .nav-link {
           &--active {
             color: ${colors.primaryColor400};
@@ -142,6 +154,26 @@ export const BaseStyles = ({ dir }: BaseStylesProps): JSX.Element => {
               right: 0;
               background: ${colors.primaryColor400};
             }
+          }
+        }
+
+        /* ---------------------------------- */
+        /* ----- Lists ----- */
+        /* ---------------------------------- */
+
+        ul {
+          list-style: none;
+        }
+
+        ul > li {
+          position: relative;
+          margin-left: ${gutters.small};
+          
+          &::before {
+            position: absolute;
+            content: "—";
+            color: ${theme.colors.cyan[400]};
+            left: calc(${gutters.small} * -1);
           }
         }
 
