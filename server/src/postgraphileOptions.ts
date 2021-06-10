@@ -22,6 +22,8 @@ const tracingPlugin = {
 
 const pluginHook = makePluginHook([
   PgPubsub,
+  // interested in a Postgraphile license? Join the Discord channel!
+  // https://discord.com/invite/graphile
   ...(process.env.GRAPHILE_LICENSE ? [GraphilePro] : []),
   tracingPlugin,
 ]);
