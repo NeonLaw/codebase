@@ -149,11 +149,34 @@ jobs:
       - name: Build neon_email gem
         run: gem build neon_email.gemspec
         working-directory: ./email
-      - name: Publish neon_email gem to Rubygems
+      - name: Publish neon_email gem to Ruby Gems
         run: doppler run -- gem push neon_email-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_email@/,"")}1').gem
         working-directory: ./email
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+
+      - uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: neon-law-staging
+          service_account_email: github-actions@neon-law-staging.iam.gserviceaccount.com
+          service_account_key: ${{ secrets.STAGING_GCP_CREDENTIALS }}
+          export_default_credentials: true
+      - name: Upload zip file to GCP Staging
+        run: |
+          zip emails.zip -r emails/*
+          gsutil cp s3://neon-law-staging-function-code/emails/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_email@/,"")}1').zip emails.zip
+
+      - uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: neon-law-production
+          service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
+          service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
+          export_default_credentials: true
+      - name: Upload zip file to GCP Production
+        run: |
+          zip emails.zip -r emails/*
+          gsutil cp s3://neon-law-production-function-code/emails/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_email@/,"")}1').zip emails.zip
+
 
   update_neon_documents_package:
     runs-on: ubuntu-latest
@@ -172,6 +195,27 @@ jobs:
         working-directory: ./documents
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+      - uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: neon-law-staging
+          service_account_email: github-actions@neon-law-staging.iam.gserviceaccount.com
+          service_account_key: ${{ secrets.STAGING_GCP_CREDENTIALS }}
+          export_default_credentials: true
+      - name: Upload zip file to GCP Storage
+        run: |
+          zip emails.zip -r emails/*
+          gsutil cp s3://neon-law-staging-function-code/emails/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_email@/,"")}1').zip emails.zip
+
+      - uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: neon-law-production
+          service_account_email: github-actions@neon-law-production.iam.gserviceaccount.com
+          service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
+          export_default_credentials: true
+      - name: Upload zip file to GCP Production
+        run: |
+          zip documents.zip -r documents/*
+          gsutil cp s3://neon-law-production-function-code/documents/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_documents@/,"")}1').zip emails.zip
 
   update_neon_diagrams_package:
     runs-on: ubuntu-latest
