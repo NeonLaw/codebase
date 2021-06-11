@@ -58,42 +58,35 @@ jobs:
         run: bundle
       - name: Commit Graphile Migrate migrations
         run: |
-          doppler run -- yarn graphile-worker --schema-only
+          DATABASE_URL=$(doppler secrets get DATABASE_URL --plain) \
+            yarn graphile-worker --schema-only
           DATABASE_URL=$(doppler secrets get PRODUCTION_DATABASE_URL --plain) \
             yarn graphile-worker --schema-only
           DATABASE_URL=$(doppler secrets get STAGING_DATABASE_URL --plain) \
             yarn graphile-worker --schema-only
-        env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Commit migrations
         run: |
-          doppler run -- yarn workspace @neonlaw/server migrate
-          doppler run -- yarn workspace @neonlaw/server migrate:for_copying
+          yarn workspace @neonlaw/server migrate
+          yarn workspace @neonlaw/server migrate:for_copying
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          PRODUCTION_DATABASE_URL: ${{ secrets.PRODUCTION_DATABASE_URL }}
+          STAGING_DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
       - name: Start API Server
-        run: doppler run -- yarn workspace @neonlaw/server start &
+        run: yarn workspace @neonlaw/server start &
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
       - name: Run ruby postgres tests
-        run: doppler run -- bundle exec rspec
+        run: bundle exec rspec
         working-directory: ./postgres
-        env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Seed the database
-        run: doppler run -- yarn db:seed
-        env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
+        run: yarn db:seed
       - name: Run tests
-        run: doppler run -- yarn test ./server
-        env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
+        run: yarn test ./server
       - name: Check api.tsx file against main server
         run: |
           yarn graphql-codegen
           git diff -G. --exit-code ./web/src/utils/api.tsx
-        env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Run PGRita checks
         uses: pgrita/action@main
         env:
