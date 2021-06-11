@@ -58,12 +58,16 @@ jobs:
         run: bundle
       - name: Commit Graphile Migrate migrations
         run: |
-          DATABASE_URL=$(doppler secrets get DATABASE_URL --plain) \
+          DATABASE_URL=$DATABASE_URL \
             yarn graphile-worker --schema-only
-          DATABASE_URL=$(doppler secrets get PRODUCTION_DATABASE_URL --plain) \
+          DATABASE_URL=$PRODUCTION_DATABASE_URL \
             yarn graphile-worker --schema-only
-          DATABASE_URL=$(doppler secrets get STAGING_DATABASE_URL --plain) \
+          DATABASE_URL=$STAGING_DATABASE_URL \
             yarn graphile-worker --schema-only
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          PRODUCTION_DATABASE_URL: ${{ secrets.PRODUCTION_DATABASE_URL }}
+          STAGING_DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
       - name: Commit migrations
         run: |
           yarn workspace @neonlaw/server migrate
