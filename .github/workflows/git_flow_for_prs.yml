@@ -25,4 +25,4 @@ jobs:
               --base-ref ${GITHUB_BASE_REF#refs/heads/} \
               --pr-number ${{github.event.number}}
         env:
-          DOPPLER_TOKEN: ${{ secrets.GITHUB_PAT }}
+          DOPPLER_TOKEN: ${{ secrets.GIT_PERSONAL_ACCESS_TOKEN }}
