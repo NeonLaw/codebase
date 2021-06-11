@@ -26,7 +26,7 @@ jobs:
         with:
           registry: docker.pkg.github.com
           username: ${{ secrets.GPR_USERNAME }}
-          password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
+          password: ${{ secrets.GITHUB_PAT }}
 
       - name: Build the Docker image
         run: |-
@@ -81,7 +81,7 @@ jobs:
         with:
           registry: docker.pkg.github.com
           username: ${{ secrets.GPR_USERNAME }}
-          password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
+          password: ${{ secrets.GITHUB_PAT }}
 
       - name: Build the Docker image
         run: |-
@@ -133,7 +133,7 @@ jobs:
         with:
           registry: docker.pkg.github.com
           username: ${{ secrets.GPR_USERNAME }}
-          password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
+          password: ${{ secrets.GITHUB_PAT }}
 
       - name: Build the Docker image
         run: |-

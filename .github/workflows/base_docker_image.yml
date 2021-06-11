@@ -32,7 +32,7 @@ jobs:
         with:
           registry: docker.pkg.github.com
           username: ${{ secrets.GPR_USERNAME }}
-          password: ${{ secrets.GPR_PERSONAL_ACCESS_TOKEN }}
+          password: ${{ secrets.GITHUB_PAT }}
         if: github.ref == 'refs/heads/main'
 
       - name: Push Image to GitHub Package Registry
