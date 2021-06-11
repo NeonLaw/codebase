@@ -85,8 +85,12 @@ jobs:
         working-directory: ./postgres
       - name: Seed the database
         run: yarn db:seed
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
       - name: Run tests
         run: yarn test ./server
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
       - name: Check api.tsx file against main server
         run: |
           yarn graphql-codegen
