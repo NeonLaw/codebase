@@ -5,9 +5,9 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+  # pull_request:
+  #   branches:
+  #     - main
 
 jobs:
   system_tests:
@@ -19,14 +19,12 @@ jobs:
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
         with:
-          registry: docker.pkg.github.com
+          registry: ghcr.io
           username: ${{ secrets.GIT_USERNAME }}
           password: ${{ secrets.GIT_PERSONAL_ACCESS_TOKEN }}
       - name: Pull Docker images
-        run: doppler run -- docker-compose pull
+        run: docker-compose pull
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
       - name: Can start Docker Compose
-        run: doppler run -- docker-compose up -d
-        env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_DEVELOPMENT }}
+        run: docker-compose up -d
