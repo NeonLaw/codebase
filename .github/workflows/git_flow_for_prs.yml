@@ -19,11 +19,10 @@ jobs:
       - name: Validate pull request.
         working-directory: ./git_flow
         run: |
-          doppler run -- \
-            cargo run -- \
-              validate-pull-request \
-                --head-ref ${GITHUB_HEAD_REF#refs/heads/} \
-                --base-ref ${GITHUB_BASE_REF#refs/heads/} \
-                --pr-number ${{github.event.number}}
+          cargo run -- \
+            validate-pull-request \
+              --head-ref ${GITHUB_HEAD_REF#refs/heads/} \
+              --base-ref ${GITHUB_BASE_REF#refs/heads/} \
+              --pr-number ${{github.event.number}}
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_GIT_FLOW }}
+          DOPPLER_TOKEN: ${{ secrets.GITHUB_PAT }}

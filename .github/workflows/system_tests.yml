@@ -20,7 +20,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: docker.pkg.github.com
-          username: ${{ secrets.GPR_USERNAME }}
+          username: ${{ secrets.GITHUB_USERNAME }}
           password: ${{ secrets.GITHUB_PAT }}
       - name: Pull Docker images
         run: doppler run -- docker-compose pull
