@@ -21,9 +21,8 @@ jobs:
       - name: Run Cypress tests for @neonlaw/web against staging server
         uses: cypress-io/github-action@v2
         with:
-          command-prefix: doppler run -- npx
-          start: doppler run -- yarn dev
+          start: yarn dev
           wait-on: 'http://localhost:3000'
           working-directory: ./web
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_STAGING }}
+          AUTH0_SECRET: ${{ secrets.AUTH0_SECRET }}
