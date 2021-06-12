@@ -164,10 +164,10 @@ jobs:
       - uses: actions/setup-ruby@v1
       - name: Build neon_email gem
         run: gem build neon_email.gemspec
-        working-directory: ./email
+        working-directory: ./emails
       - name: Publish neon_email gem to Ruby Gems
         run: gem push neon_email-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/email@/,"")}1').gem
-        working-directory: ./email
+        working-directory: ./emails
         env:
           GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
 

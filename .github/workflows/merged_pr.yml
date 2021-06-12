@@ -17,11 +17,9 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
       - name: Install Git Flow
         run: cargo install git_flow
       - name: Print branch name
-        run: doppler run -- git_flow merged-pull-request-hook --head-ref ${GITHUB_HEAD_REF#refs/heads/} --base-ref ${GITHUB_BASE_REF#refs/heads/}
+        run: git_flow merged-pull-request-hook --head-ref ${GITHUB_HEAD_REF#refs/heads/} --base-ref ${GITHUB_BASE_REF#refs/heads/}
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_STAGING }}
+          GIT_PERSONAL_ACCESS_TOKEN: ${{ secrets.GIT_PERSONAL_ACCESS_TOKEN }}
