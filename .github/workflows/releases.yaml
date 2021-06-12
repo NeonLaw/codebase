@@ -67,11 +67,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
+      - name: Login to NPM
+        run: npm set //registry.npmjs.org/:_authToken $NODE_AUTH_TOKEN
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
       - name: Publish @neonlaw/web
         run: npm publish --access public
         working-directory: ./web
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
@@ -129,11 +131,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
+      - name: Login to NPM
+        run: npm set //registry.npmjs.org/:_authToken $NODE_AUTH_TOKEN
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
       - name: Publish @neonlaw/mdx
         run: npm publish --access public
         working-directory: ./mdx
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
   update_neon_postgres_package:
     runs-on: ubuntu-latest
@@ -213,8 +217,8 @@ jobs:
           export_default_credentials: true
       - name: Upload zip file to GCP Storage
         run: |
-          zip emails.zip -r emails/*
-          gsutil cp s3://neon-law-staging-function-code/emails/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_email@/,"")}1').zip emails.zip
+          zip documents.zip -r documents/*
+          gsutil cp s3://neon-law-staging-function-code/documents/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_documents@/,"")}1').zip emails.zip
 
       - uses: google-github-actions/setup-gcloud@master
         with:
@@ -278,8 +282,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
       - name: Build neon_schemas gem
         run: gem build neon_schemas.gemspec
         working-directory: ./schemas
@@ -317,3 +319,36 @@ jobs:
         working-directory: ./secrets
         env:
           GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
+
+  update_neon_webhooks_ruby_package:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/webhooks@')
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+      - name: Build neon_webhooks gem
+        run: gem build neon_webhooks.gemspec
+        working-directory: ./secrets
+      - name: Publish neon_webhooks gem to Rubygems
+        run: gem push neon_webhooks-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/webhooks@/,"")}1').gem
+        working-directory: ./secrets
+        env:
+          GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.GIT_USERNAME }}
+          password: ${{ secrets.GIT_PERSONAL_ACCESS_TOKEN }}
+
+      - name: Build the Docker image
+        run: |-
+          docker build \
+            --tag "ghcr.io/neonlaw/webhooks:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/webhooks@/,"")}1')" \
+            -f ./webhooks/Dockerfile \
+            .
+
+      - name: Push the Docker image to GitHub Registry
+        run: docker push ghcr.io/neonlaw/webhooks:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/webhooks@/,"")}1')
