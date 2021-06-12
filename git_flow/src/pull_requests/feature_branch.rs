@@ -3,7 +3,7 @@ use std::env;
 use std::error::Error;
 
 pub async fn validate_feature_branch(pr_number: u64) -> Result<(), Box<dyn Error>> {
-    let token = env::var("GITHUB_PAT")?;
+    let token = env::var("GIT_PERSONAL_ACCESS_TOKEN")?;
     let github = Github::new("github-application", Credentials::Token(token))?;
 
     println!("comments");
