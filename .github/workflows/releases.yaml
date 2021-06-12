@@ -86,7 +86,7 @@ jobs:
         run: |-
           docker build \
             --tag "ghcr.io/neonlaw/web:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_postgres@/,"")}1')" \
-            -f ./server/Dockerfile \
+            -f ./web/Dockerfile \
             .
 
       - name: Push the Docker image to GitHub Registry
@@ -103,7 +103,7 @@ jobs:
         run: npm config set //registry.npmjs.org/:_authToken $NODE_AUTH_TOKEN
       - name: Publish @neonlaw/server
         run: npm publish --access public
-        working-directory: ./web
+        working-directory: ./server
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
