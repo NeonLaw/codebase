@@ -89,7 +89,7 @@ module "api_deployment" {
   source       = "./modules/server_deployment"
   environment  = var.environment
   process_name = "api"
-  image_url    = "${data.terraform_remote_state.gcp.outputs.container_registry}/server:latest"
+  image_url    = "ghcr.io/neonlaw/codebase/server:0.1.1"
 
   database_admin_password = data.terraform_remote_state.gcp.outputs.database_admin_password
   database_admin_username = data.terraform_remote_state.gcp.outputs.database_admin_username
@@ -106,7 +106,7 @@ module "api_deployment" {
 module "webhooks_deployment" {
   source       = "./modules/webhooks_deployment"
   environment  = var.environment
-  image_url    = "ghcr.io/neonlaw/codebase/webhooks:latest"
+  image_url    = "ghcr.io/neonlaw/codebase/webhooks:0.1.0"
 
   project_id              = data.terraform_remote_state.gcp.outputs.project_id
   region                  = data.terraform_remote_state.gcp.outputs.region
@@ -116,7 +116,7 @@ module "worker_deployment" {
   source       = "./modules/graphile_worker_deployment"
   environment  = var.environment
   process_name = "postgres-to-pubsub"
-  image_url    = "ghcr.io/neonlaw/codebase/server:latest"
+  image_url    = "ghcr.io/neonlaw/codebase/server:0.1.1"
 
   database_admin_password = data.terraform_remote_state.gcp.outputs.database_admin_password
   database_admin_username = data.terraform_remote_state.gcp.outputs.database_admin_username
@@ -135,15 +135,7 @@ module "web_deployment" {
   site = "neon-law"
   secret_name = "web-secrets"
   environment = var.environment
-  image_url    = "ghcr.io/neonlaw/codebase/web:latest"
-}
-
-module "delete_your_data_deployment" {
-  source = "./modules/web_deployment"
-  site = "neon-law"
-  secret_name = "delete-your-data-secrets"
-  environment = var.environment
-  image_url    = "ghcr.io/neonlaw/codebase/delete-your-data:latest"
+  image_url    = "ghcr.io/neonlaw/codebase/web:0.1.1"
 }
 
 module "ingress" {
