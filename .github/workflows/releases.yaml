@@ -85,12 +85,12 @@ jobs:
       - name: Build the Docker image
         run: |-
           docker build \
-            --tag "ghcr.io/neonlaw/web:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/web@/,"")}1')" \
+            --tag "ghcr.io/neonlaw/codebase/web:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/web@/,"")}1')" \
             -f ./web/Dockerfile \
             .
 
       - name: Push the Docker image to GitHub Registry
-        run: docker push ghcr.io/neonlaw/web:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/web@/,"")}1')
+        run: docker push ghcr.io/neonlaw/codebase/web:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/web@/,"")}1')
 
   update_server_package:
     runs-on: ubuntu-latest
@@ -117,12 +117,12 @@ jobs:
       - name: Build the Docker image
         run: |-
           docker build \
-            --tag "ghcr.io/neonlaw/server:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/server@/,"")}1')" \
+            --tag "ghcr.io/neonlaw/codebase/server:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/server@/,"")}1')" \
             -f ./server/Dockerfile \
             .
 
       - name: Push the Docker image to GitHub Registry
-        run: docker push ghcr.io/neonlaw/server:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/server@/,"")}1')
+        run: docker push ghcr.io/neonlaw/codebase/server:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/server@/,"")}1')
 
   update_mdx_package:
     runs-on: ubuntu-latest
@@ -346,9 +346,9 @@ jobs:
       - name: Build the Docker image
         run: |-
           docker build \
-            --tag "ghcr.io/neonlaw/webhooks:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/webhooks@/,"")}1')" \
+            --tag "ghcr.io/neonlaw/codebase/webhooks:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/webhooks@/,"")}1')" \
             -f ./webhooks/Dockerfile \
             .
 
       - name: Push the Docker image to GitHub Registry
-        run: docker push ghcr.io/neonlaw/webhooks:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/webhooks@/,"")}1')
+        run: docker push ghcr.io/neonlaw/codebase/webhooks:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/webhooks@/,"")}1')

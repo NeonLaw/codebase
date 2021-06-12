@@ -1,7 +1,7 @@
 {
   "name": "@neonlaw/server",
   "license": "Apache-2.0",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "@neonlaw",
   "scripts": {
     "start": "ts-node --transpile-only src/server.ts",
