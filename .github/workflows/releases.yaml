@@ -83,12 +83,12 @@ jobs:
       - name: Build the Docker image
         run: |-
           docker build \
-            --tag "ghcr.io/neonlaw/web:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_postgres@/,"")}1')" \
+            --tag "ghcr.io/neonlaw/web:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/web@/,"")}1')" \
             -f ./web/Dockerfile \
             .
 
       - name: Push the Docker image to GitHub Registry
-        run: docker push ghcr.io/neonlaw/web:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_postgres@/,"")}1')
+        run: docker push ghcr.io/neonlaw/web:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/web@/,"")}1')
 
   update_server_package:
     runs-on: ubuntu-latest
@@ -115,12 +115,12 @@ jobs:
       - name: Build the Docker image
         run: |-
           docker build \
-            --tag "ghcr.io/neonlaw/server:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_postgres@/,"")}1')" \
+            --tag "ghcr.io/neonlaw/server:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/server@/,"")}1')" \
             -f ./server/Dockerfile \
             .
 
       - name: Push the Docker image to GitHub Registry
-        run: docker push ghcr.io/neonlaw/server:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_postgres@/,"")}1')
+        run: docker push ghcr.io/neonlaw/server:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/server@/,"")}1')
 
   update_mdx_package:
     runs-on: ubuntu-latest
