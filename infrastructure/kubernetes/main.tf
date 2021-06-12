@@ -36,7 +36,7 @@ provider "kubernetes" {
   host                   = data.terraform_remote_state.gcp.outputs.gke_host
   token                  = data.google_service_account_access_token.kubernetes_sa.access_token
   cluster_ca_certificate = base64decode(data.terraform_remote_state.gcp.outputs.gke_cluster_ca_certificate)
-
+}
 
 provider "helm" {
   kubernetes {
