@@ -52,14 +52,14 @@ class MyDocument extends Document {
           <NextScript />
           {process.env.NEXT_PUBLIC_API_URI !==
             'https://api.neonlaw.com/graphql' && (
-              <script
-                id="ze-snippet"
-                key="zendesk"
-                src={
-                  `https://static.zdassets.com/ekr/snippet.js?key=${zendeskKey}`
-                }
-              />
-            )}
+            <script
+              id="ze-snippet"
+              key="zendesk"
+              src={
+                `https://static.zdassets.com/ekr/snippet.js?key=${zendeskKey}`
+              }
+            />
+          )}
         </body>
       </Html>
     );
