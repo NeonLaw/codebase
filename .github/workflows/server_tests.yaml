@@ -91,6 +91,7 @@ jobs:
         run: yarn test ./server
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
       - name: Check api.tsx file against main server
         run: |
           yarn graphql-codegen
