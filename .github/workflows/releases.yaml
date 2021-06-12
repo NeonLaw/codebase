@@ -16,13 +16,11 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
 
       - name: Login to Crates
-        run: doppler run -- cargo login $(doppler secrets get CRATES_API_KEY --plain)
+        run: cargo login $(doppler secrets get CRATES_API_KEY --plain)
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+          CRATES_API_KEY: ${{ secrets.CRATES_API_KEY }}
 
       - name: Publish Git Flow
         run: cargo publish
@@ -35,12 +33,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
       - name: Login to NPM
-        run: doppler run -- npm config set //registry.npmjs.org/:_authToken $(doppler secrets get NPM_AUTH_TOKEN --plain)
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_AUTH_TOKEN
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       - name: Publish @neonlaw/i18n
         run: npm publish --access public
         working-directory: ./i18n
@@ -54,13 +50,11 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
 
       - name: Login to Crates
-        run: doppler run -- cargo login $(doppler secrets get CRATES_API_KEY --plain)
+        run: cargo login $CRATES_API_KEY
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+          CRATES_API_KEY: ${{ secrets.CRATES_API_KEY }}
         if: startsWith(github.ref, 'refs/tags/neon_nlp@')
 
       - name: Publish Neon NLP
@@ -75,12 +69,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
       - name: Login to NPM
-        run: doppler run -- npm config set //registry.npmjs.org/:_authToken $(doppler secrets get NPM_AUTH_TOKEN --plain)
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_AUTH_TOKEN
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       - name: Publish @neonlaw/web
         run: npm publish --access public
         working-directory: ./web
@@ -109,12 +101,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
       - name: Login to NPM
-        run: doppler run -- npm config set //registry.npmjs.org/:_authToken $(doppler secrets get NPM_AUTH_TOKEN --plain)
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_AUTH_TOKEN
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       - name: Publish @neonlaw/server
         run: npm publish --access public
         working-directory: ./web
@@ -143,12 +133,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
       - name: Login to NPM
-        run: doppler run -- npm config set //registry.npmjs.org/:_authToken $(doppler secrets get NPM_AUTH_TOKEN --plain)
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_AUTH_TOKEN
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       - name: Publish @neonlaw/mdx
         run: npm publish --access public
         working-directory: ./mdx
@@ -160,16 +148,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
       - name: Build neon_postgres gem
         run: gem build neon_postgres.gemspec
         working-directory: ./postgres
       - name: Publish neon_postgres gem
-        run: doppler run -- gem push neon_postgres-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_postgres@/,"")}1').gem
+        run: gem push neon_postgres-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_postgres@/,"")}1').gem
         working-directory: ./postgres
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+          GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
 
   update_neon_email_package:
     runs-on: ubuntu-latest
@@ -178,16 +164,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
       - name: Build neon_email gem
         run: gem build neon_email.gemspec
         working-directory: ./email
       - name: Publish neon_email gem to Ruby Gems
-        run: doppler run -- gem push neon_email-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_email@/,"")}1').gem
+        run: gem push neon_email-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_email@/,"")}1').gem
         working-directory: ./email
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+          GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
 
       - uses: google-github-actions/setup-gcloud@master
         with:
@@ -219,16 +203,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
       - name: Build neon_documents gem
         run: gem build neon_documents.gemspec
         working-directory: ./documents
       - name: Publish neon_documents gem to Rubygems
-        run: doppler run -- gem push neon_documents-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_documents@/,"")}1').gem
+        run: gem push neon_documents-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_documents@/,"")}1').gem
         working-directory: ./documents
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+          GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
       - uses: google-github-actions/setup-gcloud@master
         with:
           project_id: neon-law-staging
@@ -257,8 +239,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
       - uses: actions/setup-python@v1
         with:
           python-version: '3'
@@ -270,10 +250,10 @@ jobs:
       - name: Publish to PyPi
         working-directory: ./diagrams
         run: |
-          poetry config http-basic.pypi "__token__" "$(doppler secrets get POETRY_PYPI_TOKEN_PYPI --plain)"
+          poetry config http-basic.pypi "__token__" "$POETRY_PYPI_TOKEN_PYPI"
           poetry publish --build
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.POETRY_PYPI_TOKEN_PYPI }}
 
   update_neon_schemas_python_package:
     runs-on: ubuntu-latest
@@ -281,8 +261,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
       - uses: actions/setup-python@v1
         with:
           python-version: '3'
@@ -294,10 +272,10 @@ jobs:
       - name: Publish to PyPi
         working-directory: ./schemas
         run: |
-          poetry config http-basic.pypi "__token__" "$(doppler secrets get POETRY_PYPI_TOKEN_PYPI --plain)"
+          poetry config http-basic.pypi "__token__" "$POETRY_PYPI_TOKEN_PYPI"
           poetry publish --build
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.POETRY_PYPI_TOKEN_PYPI }}
 
   update_neon_schemas_ruby_package:
     runs-on: ubuntu-latest
@@ -312,10 +290,10 @@ jobs:
         run: gem build neon_schemas.gemspec
         working-directory: ./schemas
       - name: Publish neon_schemas gem to Rubygems
-        run: doppler run -- gem push neon_schemas-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_schemas@/,"")}1').gem
+        run: gem push neon_schemas-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_schemas@/,"")}1').gem
         working-directory: ./schemas
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+          GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
 
   update_neon_schemas_javascript_package:
     runs-on: ubuntu-latest
@@ -341,13 +319,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
       - name: Build neon_secrets gem
         run: gem build neon_secrets.gemspec
         working-directory: ./secrets
       - name: Publish neon_secrets gem to Rubygems
-        run: doppler run -- gem push neon_secrets-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_secrets@/,"")}1').gem
+        run: gem push neon_secrets-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_secrets@/,"")}1').gem
         working-directory: ./secrets
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_PRODUCTION }}
+          GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
