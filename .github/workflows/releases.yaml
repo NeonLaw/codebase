@@ -329,10 +329,10 @@ jobs:
       - uses: actions/setup-ruby@v1
       - name: Build neon_webhooks gem
         run: gem build neon_webhooks.gemspec
-        working-directory: ./secrets
+        working-directory: ./webhooks
       - name: Publish neon_webhooks gem to Rubygems
         run: gem push neon_webhooks-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/webhooks@/,"")}1').gem
-        working-directory: ./secrets
+        working-directory: ./webhooks
         env:
           GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
 
