@@ -23,6 +23,15 @@ resource "google_project_iam_binding" "object_creator_bindings" {
   ]
 }
 
+resource "google_project_iam_binding" "object_viewer_bindings" {
+  project = var.project_id
+  role    = "roles/storage.objectViewer"
+
+  members = [
+    "serviceAccount:github-actions@${var.project_id}.iam.gserviceaccount.com",
+  ]
+}
+
 resource "google_project_iam_binding" "editor_bindings" {
   project = var.project_id
   role    = "roles/editor"
