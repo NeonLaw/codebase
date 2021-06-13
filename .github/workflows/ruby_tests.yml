@@ -37,6 +37,9 @@ jobs:
       - name: Lint Ruby files.
         working-directory: ./emails
         run: bundle exec standardrb
+      - name: Run specs
+        working-directory: ./emails
+        run: bundle exec rspec spec
 
   ruby_documents_tests:
     runs-on: ubuntu-latest
