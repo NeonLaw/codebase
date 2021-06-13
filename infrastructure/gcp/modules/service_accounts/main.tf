@@ -4,10 +4,6 @@ resource "google_service_account" "github_actions_account" {
   description  = "GCP Credentials used in GitHub Actions"
 }
 
-resource "google_service_account_key" "github_actions_account_key" {
-  service_account_id = google_service_account.github_actions_account.name
-}
-
 resource "google_service_account" "application_user_account" {
   account_id   = "application-user"
   display_name = "Application User"
@@ -18,13 +14,21 @@ resource "google_service_account_key" "application_user_account_key" {
   service_account_id = google_service_account.application_user_account.name
 }
 
+resource "google_project_iam_binding" "object_creator_bindings" {
+  project = var.project_id
+  role    = "roles/storage.objectCreator"
+
+  members = [
+    "serviceAccount:github-actions@${var.project_id}.iam.gserviceaccount.com",
+  ]
+}
+
 resource "google_project_iam_binding" "editor_bindings" {
   project = var.project_id
   role    = "roles/editor"
 
   members = [
     "serviceAccount:application-user@${var.project_id}.iam.gserviceaccount.com",
-    "serviceAccount:github-actions@${var.project_id}.iam.gserviceaccount.com",
     "serviceAccount:terraform@${var.project_id}.iam.gserviceaccount.com",
     "serviceAccount:${var.project_number}-compute@developer.gserviceaccount.com",
     "serviceAccount:${var.project_number}@cloudservices.gserviceaccount.com"
