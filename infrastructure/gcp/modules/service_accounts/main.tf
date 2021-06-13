@@ -14,7 +14,7 @@ resource "google_service_account_key" "application_user_account_key" {
   service_account_id = google_service_account.application_user_account.name
 }
 
-resource "google_project_iam_binding" "editor_bindings" {
+resource "google_project_iam_binding" "object_creator_bindings" {
   project = var.project_id
   role    = "roles/storage.objectCreator"
 
