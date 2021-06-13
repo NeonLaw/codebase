@@ -123,7 +123,7 @@ module "functions" {
 
   source = "./modules/functions"
   source_archive_bucket = module.function_bucket.name
-  source_archive_object = "emails/0.1.0.zip"
+  source_archive_object = "emails/${data.terraform_remote_state.versions.outputs["${var.environment}_blue_schemas"]}.zip"
   color = each.key
   schema_version = each.value
   project_id     = var.project_id
