@@ -6,7 +6,7 @@ resource "google_cloudfunctions_function" "welcome_email" {
   available_memory_mb   = 256
   source_archive_bucket = var.source_archive_bucket
   source_archive_object = var.email_source_archive_object
-  entry_point           = "emails/app.rb"
+  entry_point           = "welcome_email"
 
 
   event_trigger {
