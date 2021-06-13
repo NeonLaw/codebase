@@ -182,7 +182,7 @@ jobs:
           service_account_key: ${{ secrets.STAGING_GCP_CREDENTIALS }}
           export_default_credentials: true
       - name: Upload zip file to GCP Staging
-        run: gsutil cp s3://neon-law-staging-function-code/emails/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/email@/,"")}1').zip emails.zip
+        run: gsutil cp gs://neon-law-staging-function-code/emails/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/email@/,"")}1').zip emails.zip
 
       - uses: google-github-actions/setup-gcloud@master
         with:
@@ -191,7 +191,7 @@ jobs:
           service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
           export_default_credentials: true
       - name: Upload zip file to GCP Production
-        run: gsutil cp s3://neon-law-production-function-code/emails/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/email@/,"")}1').zip emails.zip
+        run: gsutil cp gs://neon-law-production-function-code/emails/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/email@/,"")}1').zip emails.zip
 
 
   update_neon_documents_package:
@@ -218,7 +218,7 @@ jobs:
       - name: Upload zip file to GCP Storage
         run: |
           zip documents.zip -r documents/*
-          gsutil cp s3://neon-law-staging-function-code/documents/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_documents@/,"")}1').zip emails.zip
+          gsutil cp gs://neon-law-staging-function-code/documents/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_documents@/,"")}1').zip emails.zip
 
       - uses: google-github-actions/setup-gcloud@master
         with:
@@ -229,7 +229,7 @@ jobs:
       - name: Upload zip file to GCP Production
         run: |
           zip documents.zip -r documents/*
-          gsutil cp s3://neon-law-production-function-code/documents/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_documents@/,"")}1').zip emails.zip
+          gsutil cp gs://neon-law-production-function-code/documents/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_documents@/,"")}1').zip emails.zip
 
   update_neon_diagrams_package:
     runs-on: ubuntu-latest
