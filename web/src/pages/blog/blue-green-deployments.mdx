@@ -2,7 +2,7 @@ export const meta = {
   title: "Blue Green Deployments",
   slug: "/blog/blue-green-deployments",
   updatedAt: "2021-06-01",
-  tags: "programming,authorization,postgres"
+  tags: "programming,gcp,dev-ops,build-and-release"
 }
 import { BlogLayout } from '../../components/layouts/blogLayout';
 export default ({ children }) => <BlogLayout meta={meta}>{children}</BlogLayout>
@@ -11,8 +11,11 @@ Since we have a narrowly defined architecture of just stateless Kubernetes
 deployments, GCP Pub/Sub, and GCP Cloud Functions we follow these blue/green
 deployment practices for zero-downtime deployments.
 
-1. Our web services and the postgres-to-pubsub service only use the `green`
-  version listed in the Versions file
+> Check out our [Versions Terraform module](https://github.com/NeonLaw/codebase/blob/main/infrastructure/versions/main.tf)!
+
+1. Our stateless Kubernetes servers only have one version deployed per project.
+  These services interact with the `green` version of our schema and serverless
+  microservices.
 2. Our schemas and functions are deployed with both the `green` and `blue`
   schemas. These deployments are named with their version in Terraform so a
   versioned schema or function deploy can switch between `green` and `blue` with
