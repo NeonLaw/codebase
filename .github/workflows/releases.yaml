@@ -172,8 +172,7 @@ jobs:
           GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
 
       - name: Create Zip file for Emails
-        run: |
-          zip emails.zip -r emails/*
+        run: cd emails && zip -r ../emails.zip *
 
       - uses: google-github-actions/setup-gcloud@master
         with:
