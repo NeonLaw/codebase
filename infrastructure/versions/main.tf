@@ -5,7 +5,7 @@ data "null_data_source" "versions" {
     staging_webhooks = "0.1.0"
     staging_web = "0.1.1"
 
-    staging_green_schemas = "0.1.0"
+    staging_green_schemas = "0.1.1"
     staging_green_emails = "0.0.8"
 
     staging_blue_schemas = "0.1.1"
