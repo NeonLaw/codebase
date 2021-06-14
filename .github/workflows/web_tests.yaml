@@ -16,8 +16,17 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Changed Web Files
+        id: web-files
+        uses: tj-actions/changed-files@v7
+        with:
+          files: |
+            web/*
+            web/**
+            web/**/*
       - name: Run Cypress tests for @neonlaw/web against staging server
         uses: cypress-io/github-action@v2
+        if: steps.web-files.outputs.any_changed == 'true'
         with:
           start: yarn dev
           wait-on: 'http://localhost:3000'
