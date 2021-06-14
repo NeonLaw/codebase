@@ -89,6 +89,7 @@ module "application_secrets" {
 module "doppler_secrets" {
   source = "./modules/doppler_secrets"
   web_doppler_token = var.web_doppler_token
+  secret_name = "web-secrets"
 }
 
 module "gcp_credentials_kubernetes_secret" {
@@ -148,6 +149,7 @@ module "web_deployment" {
   secret_name = "web-secrets"
   environment = var.environment
   image_url    = "ghcr.io/neonlaw/codebase/web:${data.terraform_remote_state.versions.outputs["${var.environment}_web_version"]}"
+  doppler_secret = "web-secrets"
 }
 
 module "ingress" {

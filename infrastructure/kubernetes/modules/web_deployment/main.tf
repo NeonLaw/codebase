@@ -32,6 +32,16 @@ resource "kubernetes_deployment" "web" {
             value = "production"
           }
 
+          env {
+            name = "DOPPLER_TOKEN"
+            value_from {
+              secret_key_ref {
+                key  = "DOPPLER_TOKEN"
+                name = var.doppler_secret
+              }
+            }
+          }
+
           readiness_probe {
             http_get {
               path = "/"
