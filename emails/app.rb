@@ -4,6 +4,8 @@ require "logger"
 
 logger = Logger.new($stdout)
 
-FunctionsFramework.cloud_event "neon_law.welcome_email" do |event|
-  logger.info event
+WELCOME_EMAIL_TOPIC = "com.neon_law.outbound_email.welcome_email".freeze
+
+FunctionsFramework.cloud_event WELCOME_EMAIL_TOPIC do |event|
+  logger.info event.data
 end
