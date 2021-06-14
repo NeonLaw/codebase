@@ -97,15 +97,11 @@ module "secrets" {
 }
 
 module "pub_sub_topics" {
-  for_each = {
-    "green" = data.terraform_remote_state.versions.outputs["${var.environment}_green_schemas"]
-    "blue"  = data.terraform_remote_state.versions.outputs["${var.environment}_blue_schemas"]
-  }
+  for_each = toset( ["0.1.0", "0.1.1"] )
 
   source         = "./modules/pubsub"
   environment    = var.environment
-  color          = each.key
-  schema_version = each.value
+  schema_version = each.key
   project_id     = var.project_id
 }
 
