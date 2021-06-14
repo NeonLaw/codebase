@@ -97,7 +97,7 @@ module "secrets" {
 }
 
 module "pub_sub_topics" {
-  for_each = toset( ["0.1.2"] )
+  for_each = toset( [] )
 
   source         = "./modules/pubsub"
   environment    = var.environment
@@ -111,16 +111,16 @@ module "function_bucket" {
   allowed_origins = []
 }
 
-module "functions" {
-  for_each = {
-    "green" = data.terraform_remote_state.versions.outputs["${var.environment}_green_schemas"]
-    "blue"  = data.terraform_remote_state.versions.outputs["${var.environment}_blue_schemas"]
-  }
+# module "functions" {
+#   for_each = {
+#     "green" = data.terraform_remote_state.versions.outputs["${var.environment}_green_schemas"]
+#     "blue"  = data.terraform_remote_state.versions.outputs["${var.environment}_blue_schemas"]
+#   }
 
-  source = "./modules/functions"
-  source_archive_bucket = module.function_bucket.name
-  email_source_archive_object = "emails/${data.terraform_remote_state.versions.outputs["${var.environment}_${each.key}_emails"]}.zip"
-  color = each.key
-  schema_version = each.value
-  project_id     = var.project_id
-}
+#   source = "./modules/functions"
+#   source_archive_bucket = module.function_bucket.name
+#   email_source_archive_object = "emails/${data.terraform_remote_state.versions.outputs["${var.environment}_${each.key}_emails"]}.zip"
+#   color = each.key
+#   schema_version = each.value
+#   project_id     = var.project_id
+# }
