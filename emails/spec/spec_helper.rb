@@ -3,6 +3,8 @@ require "neon_email"
 require "pry"
 require "faker"
 require "functions_framework/testing"
+require "functions_framework"
+require "base64"
 
 RSpec.configure do |config|
   config.include FunctionsFramework::Testing
