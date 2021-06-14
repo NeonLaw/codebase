@@ -254,7 +254,7 @@ jobs:
 
   update_neon_schemas_python_package:
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/neon_schemas@')
+    if: startsWith(github.ref, 'refs/tags/schemas@')
 
     steps:
       - uses: actions/checkout@v2
@@ -276,7 +276,7 @@ jobs:
 
   update_neon_schemas_ruby_package:
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/neon_schemas@')
+    if: startsWith(github.ref, 'refs/tags/schemas@')
 
     steps:
       - uses: actions/checkout@v2
@@ -292,16 +292,18 @@ jobs:
 
   update_neon_schemas_javascript_package:
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/neon_schemas@')
+    if: startsWith(github.ref, 'refs/tags/schemas@')
 
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
+      - name: Login to NPM
+        run: npm set //registry.npmjs.org/:_authToken $NODE_AUTH_TOKEN
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
       - name: Publish @neonlaw/schemas
         run: npm publish --access public
         working-directory: ./schemas
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
   update_neon_secrets_ruby_package:
     runs-on: ubuntu-latest
