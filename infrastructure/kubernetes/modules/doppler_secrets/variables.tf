@@ -1,5 +1,5 @@
 variable "web_doppler_token" {
 }
 
-variable "name" {
+variable "secret_name" {
 }
