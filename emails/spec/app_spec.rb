@@ -6,12 +6,14 @@ RSpec.describe "app.rb" do
       load_temporary "${__dir__}/../app.rb" do
         event = make_cloud_event(
           {yes: "yes"}.to_json,
-          type: "neon_law.welcome_email"
+          type: "com.neon_law.outbound_email.welcome_email"
         )
 
-        expect_any_instance_of(Logger).to receive(:info).with(event)
+        expect_any_instance_of(Logger).to(
+          receive(:info).with({yes: "yes"}.to_json)
+        )
 
-        call_event("neon_law.welcome_email", event)
+        call_event("com.neon_law.outbound_email.welcome_email", event)
       end
     end
   end
