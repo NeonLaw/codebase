@@ -97,7 +97,7 @@ module "secrets" {
 }
 
 module "pub_sub_topics" {
-  for_each = toset( ["0.1.0", "0.1.1"] )
+  for_each = toset( ["0.1.2"] )
 
   source         = "./modules/pubsub"
   environment    = var.environment
