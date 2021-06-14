@@ -101,7 +101,7 @@ module "api_deployment" {
   source       = "./modules/server_deployment"
   environment  = var.environment
   process_name = "api"
-  image_url    = "ghcr.io/neonlaw/codebase/server:${data.terraform_remote_state.versions.outputs["${var.environment}_server"]}"
+  image_url    = "ghcr.io/neonlaw/codebase/server:${data.terraform_remote_state.versions.outputs["${var.environment}_server_version"]}"
 
   database_admin_password = data.terraform_remote_state.gcp.outputs.database_admin_password
   database_admin_username = data.terraform_remote_state.gcp.outputs.database_admin_username
@@ -118,7 +118,7 @@ module "api_deployment" {
 module "webhooks_deployment" {
   source       = "./modules/webhooks_deployment"
   environment  = var.environment
-  image_url    = "ghcr.io/neonlaw/codebase/webhooks:${data.terraform_remote_state.versions.outputs["${var.environment}_webhooks"]}"
+  image_url    = "ghcr.io/neonlaw/codebase/webhooks:${data.terraform_remote_state.versions.outputs["${var.environment}_webhooks_version"]}"
 
   project_id              = data.terraform_remote_state.gcp.outputs.project_id
   region                  = data.terraform_remote_state.gcp.outputs.region
@@ -128,7 +128,7 @@ module "worker_deployment" {
   source       = "./modules/graphile_worker_deployment"
   environment  = var.environment
   process_name = "postgres-to-pubsub"
-  image_url    = "ghcr.io/neonlaw/codebase/server:${data.terraform_remote_state.versions.outputs["${var.environment}_server"]}"
+  image_url    = "ghcr.io/neonlaw/codebase/server:${data.terraform_remote_state.versions.outputs["${var.environment}_server_version"]}"
 
   database_admin_password = data.terraform_remote_state.gcp.outputs.database_admin_password
   database_admin_username = data.terraform_remote_state.gcp.outputs.database_admin_username
@@ -147,7 +147,7 @@ module "web_deployment" {
   site = "neon-law"
   secret_name = "web-secrets"
   environment = var.environment
-  image_url    = "ghcr.io/neonlaw/codebase/web:${data.terraform_remote_state.versions.outputs["${var.environment}_web"]}"
+  image_url    = "ghcr.io/neonlaw/codebase/web:${data.terraform_remote_state.versions.outputs["${var.environment}_web_version"]}"
 }
 
 module "ingress" {
