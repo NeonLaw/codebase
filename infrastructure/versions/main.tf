@@ -8,7 +8,7 @@ data "null_data_source" "versions" {
     staging_green_schemas = "0.1.5"
     staging_green_emails = "0.0.8"
 
-    staging_blue_schemas = "0.1.3"
+    staging_blue_schemas = "0.1.4"
     staging_blue_emails = "0.0.8"
 
     # Production Versions
@@ -19,7 +19,7 @@ data "null_data_source" "versions" {
     production_green_schemas = "0.1.5"
     production_green_emails = "0.0.8"
 
-    production_blue_schemas = "0.1.3"
+    production_blue_schemas = "0.1.4"
     production_blue_emails = "0.0.8"
   }
 }
