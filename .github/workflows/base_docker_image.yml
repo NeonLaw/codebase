@@ -20,7 +20,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Changed Shell Files
+        id: shell-files
+        uses: tj-actions/changed-files@v7
+        with:
+          files: |
+            shell/*
+            shell/**
+            shell/**/*
       - name: Build the Docker image
+        if: steps.shell-files.outputs.any_changed == 'true'
         run: |-
           docker build \
             --tag "ghcr.io/neonlaw/codebase/base:latest" \
@@ -28,6 +37,7 @@ jobs:
             .
 
       - name: Login to GitHub Container Registry
+        if: steps.shell-files.outputs.any_changed == 'true'
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
@@ -36,5 +46,6 @@ jobs:
         if: github.ref == 'refs/heads/main'
 
       - name: Push Image to GitHub Package Registry
+        if: steps.shell-files.outputs.any_changed == 'true'
         run: docker push ghcr.io/neonlaw/codebase/base:latest
         if: github.ref == 'refs/heads/main'
