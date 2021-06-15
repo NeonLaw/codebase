@@ -82,14 +82,28 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: '3'
+      - name: Changed Secrets Files
+        id: secrets-files
+        uses: tj-actions/changed-files@v7
+        with:
+          files: |
+            secrets/*
+            secrets/**
+            secrets/**/*
+      - name: Install dependencies
+        if: steps.secrets-files.outputs.any_changed == 'true'
+        run: yarn install --frozen-lockfile
       - name: Install dependencies
         working-directory: ./secrets
+        if: steps.secrets-files.outputs.any_changed == 'true'
         run: bundle
       - name: Lint Ruby files.
         working-directory: ./secrets
+        if: steps.secrets-files.outputs.any_changed == 'true'
         run: bundle exec standardrb
       - name: Run RSpec
         working-directory: ./secrets
+        if: steps.secrets-files.outputs.any_changed == 'true'
         run: bundle exec rspec spec
 
   ruby_webhooks_tests:
