@@ -10,6 +10,12 @@ resource "google_service_account" "application_user_account" {
   description  = "GCP Credentials used in Kubernetes apps"
 }
 
+resource "google_service_account" "doppler_account" {
+  account_id   = "doppler-secrets-manager"
+  display_name = "Doppler Secrets Manager"
+  description  = "The service account used by Doppler"
+}
+
 resource "google_service_account_key" "application_user_account_key" {
   service_account_id = google_service_account.application_user_account.name
 }
@@ -29,6 +35,15 @@ resource "google_project_iam_binding" "object_viewer_bindings" {
 
   members = [
     "serviceAccount:github-actions@${var.project_id}.iam.gserviceaccount.com",
+  ]
+}
+
+resource "google_project_iam_binding" "secret_manager_admin_bindings" {
+  project = var.project_id
+  role    = "roles/secretmanager.admin"
+
+  members = [
+    "serviceAccount:doppler-secrets-manager@${var.project_id}.iam.gserviceaccount.com",
   ]
 }
 
