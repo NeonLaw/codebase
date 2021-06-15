@@ -2,9 +2,6 @@
 name: ruby
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
