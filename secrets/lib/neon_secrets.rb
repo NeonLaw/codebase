@@ -6,7 +6,10 @@ module NeonSecrets
 
   class Getter
     def self.get(secret_name:, gcp_secret_name: nil)
-      new(secret_name: secret_name).secret_value
+      new(
+        secret_name: secret_name,
+        gcp_secret_name: gcp_secret_name
+      ).secret_value
     end
 
     def initialize(secret_name:, gcp_secret_name:)
