@@ -47,6 +47,15 @@ resource "google_project_iam_binding" "secret_manager_admin_bindings" {
   ]
 }
 
+resource "google_project_iam_binding" "secret_manager_accessor_bindings" {
+  project = var.project_id
+  role    = "roles/secretmanager.secretAccesor"
+
+  members = [
+    "${var.project_id}@appspot.gserviceaccount.com",
+  ]
+}
+
 resource "google_project_iam_binding" "editor_bindings" {
   project = var.project_id
   role    = "roles/editor"
