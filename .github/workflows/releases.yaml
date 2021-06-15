@@ -18,7 +18,7 @@ jobs:
           toolchain: stable
 
       - name: Login to Crates
-        run: cargo login $(doppler secrets get CRATES_API_KEY --plain)
+        run: cargo login $CRATES_API_KEY
         env:
           CRATES_API_KEY: ${{ secrets.CRATES_API_KEY }}
 
