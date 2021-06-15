@@ -20,6 +20,10 @@ jobs:
       - name: Install Git Flow
         run: cargo install git_flow
       - name: Print branch name
-        run: git_flow merged-pull-request-hook --head-ref ${GITHUB_HEAD_REF#refs/heads/} --base-ref ${GITHUB_BASE_REF#refs/heads/}
+        run: |
+          git_flow \
+            merged-pull-request-hook \
+              --head-ref ${GITHUB_HEAD_REF#refs/heads/} \
+              --base-ref ${GITHUB_BASE_REF#refs/heads/}
         env:
           GIT_PERSONAL_ACCESS_TOKEN: ${{ secrets.GIT_PERSONAL_ACCESS_TOKEN }}
