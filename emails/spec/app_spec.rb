@@ -11,7 +11,7 @@ RSpec.describe "app.rb" do
         }
 
         event = make_cloud_event(
-          data,
+          JSON.parse(data.to_json),
           type: "com.neon_law.outbound_email.welcome_email"
         )
 
