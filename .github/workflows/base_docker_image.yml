@@ -20,6 +20,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Changed Shell Files
         id: shell-files
         uses: tj-actions/changed-files@v7
