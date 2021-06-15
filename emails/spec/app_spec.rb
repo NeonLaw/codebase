@@ -15,6 +15,7 @@ RSpec.describe "app.rb" do
           type: "com.neon_law.outbound_email.welcome_email"
         )
 
+        allow_any_instance_of(Logger).to receive(:info).with("hey you!")
         expect_any_instance_of(Logger).to receive(:info).with(message)
 
         call_event("com.neon_law.outbound_email.welcome_email", event)
