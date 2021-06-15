@@ -4,7 +4,11 @@ RSpec.describe "app.rb" do
       load_temporary "${__dir__}/../app.rb" do
         message = {"yes" => "yes"}
 
-        data = {"data": Base64.encode64(message.to_json).strip}
+        data = {
+          "message": {
+            "data": Base64.encode64(message.to_json).strip
+          }
+        }
 
         event = make_cloud_event(
           data,
