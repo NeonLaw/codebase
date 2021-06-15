@@ -52,7 +52,7 @@ resource "google_project_iam_binding" "secret_manager_accessor_bindings" {
   role    = "roles/secretmanager.secretAccesor"
 
   members = [
-    "${var.project_id}@appspot.gserviceaccount.com",
+    "serviceAccount:${var.project_id}@appspot.gserviceaccount.com",
   ]
 }
 
