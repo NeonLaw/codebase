@@ -1,5 +1,5 @@
 {
-  "name": "@neonlaw/mdx",
+  "name": "@neonlaw/components",
   "version": "0.0.1",
   "description": "A superset of mdx for neon law components.",
   "main": "index.js",

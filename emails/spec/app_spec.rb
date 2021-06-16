@@ -12,12 +12,12 @@ RSpec.describe "app.rb" do
 
         event = make_cloud_event(
           JSON.parse(data.to_json),
-          type: "com.neon_law.outbound_email.welcome_email"
+          type: "outbound_emails.welcome_email"
         )
 
         expect_any_instance_of(Logger).to receive(:info).with(message)
 
-        call_event("com.neon_law.outbound_email.welcome_email", event)
+        call_event("outbound_emails.welcome_email", event)
       end
     end
   end

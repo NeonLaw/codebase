@@ -6,12 +6,12 @@ require "json"
 
 logger = Logger.new($stdout)
 
-WELCOME_EMAIL_TOPIC = "com.neon_law.outbound_email.welcome_email".freeze
-
-FunctionsFramework.cloud_event WELCOME_EMAIL_TOPIC do |event|
+FunctionsFramework.cloud_event "outbound_emails.welcome_email" do |event|
   data = JSON.parse(
     Base64.strict_decode64(event.data.fetch("message").fetch("data"))
   )
+  to = data.fetch("to")
+  sub = data.fetch("sub")
 
   logger.info(data)
 end
