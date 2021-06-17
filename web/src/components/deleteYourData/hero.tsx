@@ -1,4 +1,5 @@
 import { colors, gutters, theme } from '../../styles/deleteYourData';
+
 import { Box } from '@chakra-ui/react';
 import { Nav } from './nav';
 import styled from '@emotion/styled';
@@ -68,7 +69,7 @@ export const Hero = () => {
       <div aria-hidden={true} className="gradient"></div>
       <Box className="row" zIndex="1">
         <div className="text-box">
-          <h1>Delete Your Data</h1>
+          <Box as="h1" color={theme.colors.white}>Delete Your Data</Box>
           <p>
           Hundereds of data brokers are buying and selling your online data{' '}
             <span aria-hidden="true">&mdash;</span> without your consent. Do you
