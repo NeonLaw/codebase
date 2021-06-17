@@ -7,6 +7,8 @@ require "json"
 logger = Logger.new($stdout)
 
 FunctionsFramework.cloud_event "outbound_emails.welcome_email" do |event|
+  logger.info "hey you!"
+
   data = JSON.parse(
     Base64.strict_decode64(event.data.fetch("message").fetch("data"))
   )
