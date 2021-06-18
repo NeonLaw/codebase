@@ -6,14 +6,15 @@ require "json"
 
 logger = Logger.new($stdout)
 
-WELCOME_EMAIL_TOPIC = "com.neon_law.outbound_email.welcome_email".freeze
-
-FunctionsFramework.cloud_event WELCOME_EMAIL_TOPIC do |event|
+FunctionsFramework.cloud_event "outbound_emails.welcome_email" do |event|
   logger.info "hey you!"
 
   data = JSON.parse(
     Base64.strict_decode64(event.data.fetch("message").fetch("data"))
   )
+  to_email = data.fetch("to")
+
+  NeonEmail::GreetingMailer.deliver(to_email: to_email)
 
   logger.info(data)
 end

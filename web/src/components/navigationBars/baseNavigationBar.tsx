@@ -17,7 +17,7 @@ import { useEffect, useState } from 'react';
 import { AuthenticatedDropdown } from './authenticatedDropdown';
 import { BlackLivesMatter } from './blackLivesMatter';
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import { Container } from '../container';
+import { Container } from '@neonlaw/components';
 import { GetLayoutDirection } from '../../../utils/getLayoutDirection';
 import Link from 'next/link';
 import { MdDehaze } from 'react-icons/md';

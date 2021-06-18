@@ -7,7 +7,7 @@ import {
   theme,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import { Container } from '../container';
+import { Container } from '@neonlaw/components';
 import { EmailListButton } from '../emailListButton';
 import { FooterLink } from './footerLink';
 import { LanguageDropdown } from '../languageDropdown';

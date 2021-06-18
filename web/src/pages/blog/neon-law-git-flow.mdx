@@ -1,6 +1,7 @@
 export const meta = {
   title: "Neon Law Git Flow",
   slug: "/blog/neon-law-git-flow",
+  filename: "/blog/neon-law-git-flow",
   updatedAt: "2021-06-01",
   tags: "programming,git-flow",
   widescreen: "true",
@@ -23,16 +24,8 @@ website. As a result, we do everything from one `main` branch, which you
 can see in our [GitHub repository](https://github.com/neonlaw/codebase). We
 implement Continuous Deployment in a much simpler way than GitFlow.
 
-First, every push to the `main` branch automatically pushes new web code
-to our staging environment, www.neonlaw.net. And second, `production` is just
-a commit on `main` that has been previously deployed to `staging`. By
-keeping our production and staging deploys in sync with the linear history of
-the `development` branch, we implement ["roll forward
-deployment"](https://www.openmakesoftware.com/rolling-forward-deployment-version/).
-
-This keeps our development cycles tight so we can ensure our latest software
-innovations are used by our team to give our clients the best legal
-representation possible. As a corallarly to our simpler version of GitFlow, we
-encourage our team to put new features behind [feature
-flags](https://www.split.io/product/feature-flags/), so new code can still be
-continuously checked-in.
+We then enforce conventions with our Git Flow CLI, which you can
+see in our codebase. This CLI enforces branch names, what files are in a
+supposed branch, GitHub labels, releases, and more. In our opinion we want
+developers to have *more* rules because these rules can be automated and
+subsequently remove ambiguity while working on a team.
