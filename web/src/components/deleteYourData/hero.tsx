@@ -1,4 +1,5 @@
 import { colors, gutters, theme } from '../../styles/deleteYourData';
+
 import { Box } from '@chakra-ui/react';
 import { DeleteYourDataNavigation } from './nav';
 import styled from '@emotion/styled';
@@ -70,7 +71,7 @@ export const Hero = () => {
       <div aria-hidden={true} className="gradient"></div>
       <Box className="row" zIndex="1">
         <div className="text-box">
-          <h1>Delete Your Data</h1>
+          <Box as="h1" color={theme.colors.white}>Delete Your Data</Box>
           <p>
             Tired of data brokers buying and selling your data? Reclaim your
             privacy with Delete Your Data. Sign Up Today or email us at
