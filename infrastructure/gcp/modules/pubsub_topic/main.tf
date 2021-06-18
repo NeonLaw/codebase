@@ -5,7 +5,7 @@ data "http" "schema_definition" {
 resource "google_pubsub_schema" "main" {
   name       = "${var.topic_name}-${var.schema_version}"
   type       = "AVRO"
-  definition = data.http.welcome_email.body
+  definition = data.http.schema_definition.body
 }
 
 resource "google_pubsub_topic" "main" {
