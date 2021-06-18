@@ -1,6 +1,6 @@
 # Neon Email
 
-This gem is used to listen to email messages to Kafka and then interact with the
+This gem is used to listen to email Pubsub messages and then interact with the
 Sendgrid API.
 
 ## Doppler Setup

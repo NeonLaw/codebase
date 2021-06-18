@@ -1,5 +1,5 @@
 {
-  "namespace": "com.neon_law.outbound_email",
+  "namespace": "com.neon_law.outbound_emails",
   "name": "welcome_email",
   "type": "record",
   "fields": [

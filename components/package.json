@@ -1,0 +1,16 @@
+{
+  "name": "@neonlaw/components",
+  "version": "0.0.1",
+  "description": "A collection of Neon Law react components.",
+  "main": "dist-temp/index.js",
+  "scripts": {
+    "build": "yarn run tsc -p ./tsconfig.json",
+    "test": "yarn test"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@chakra-ui/react": "^1.6.3",
+    "react": "^17.0.2",
+    "typescript": "^4.3.4"
+  }
+}
