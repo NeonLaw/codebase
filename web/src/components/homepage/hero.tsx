@@ -1,6 +1,6 @@
 import { Box, Flex, Text, VStack } from '@chakra-ui/react';
 import { colors, gutters } from '../../styles/neonLaw';
-import { Container } from '../container';
+import { Container } from '@neonlaw/components/src/container';
 import Link from 'next/link';
 import { TypeAhead } from '../typeAhead';
 import styled from '@emotion/styled';

@@ -10,7 +10,7 @@ import {
 import { AiFillGift } from 'react-icons/ai';
 import { Button } from '../../../components/button';
 import { Carousel } from 'react-responsive-carousel';
-import { Container } from '../../../components/container';
+import { Container } from '@neonlaw/components/src/container';
 import {
   PublicTrustLayout
 } from '../../../components/layouts/publicTrustLayout';

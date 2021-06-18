@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/layout';
-import { Container } from '../components/container';
+import { Container } from '@neonlaw/components/src/container';
 import { PublicLayout } from '../components/layouts/publicLayout';
 import { QuestionTable } from '../components/tables/questionTable';
 import { gutters } from '../styles/neonLaw';
