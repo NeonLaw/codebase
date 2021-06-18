@@ -3,7 +3,7 @@ RSpec.describe "outbound_emails/welcome_email schema" do
 
   describe "encode" do
     context "with a valid outbound email message in hash format" do
-      let(:schema_name) { "outbound_emails/welcome_email" }
+      let(:schema_name) { "outbound_emails.welcome_email" }
       let(:record) {
         {
           email: "hello@rar",
@@ -23,7 +23,7 @@ RSpec.describe "outbound_emails/welcome_email schema" do
 
   describe "decode" do
     context "with a valid outbound email message in binary format" do
-      let(:schema_name) { "outbound_emails/welcome_email" }
+      let(:schema_name) { "outbound_emails.welcome_email" }
       let(:string) { "\x12hello@rar rar" }
       let(:decoded) {
         subject.decode(string: string, schema_name: schema_name)

@@ -10,7 +10,7 @@ export const DeleteYourDataLayout = ({ children }) => {
     <>
       <DeleteYourDataStyles />
       <>
-        <Box color={colorMode === 'dark' ? colors.white : ''}>
+        <Box color={colorMode === 'dark' ? colors.white : 'inherit'}>
           {children}
         </Box>
         <BaseFooter isWhite={true} />

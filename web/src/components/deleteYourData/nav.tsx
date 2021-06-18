@@ -57,7 +57,7 @@ const StyledNav = styled.nav`
   }
 `;
 
-export const Nav = () => (
+export const DeleteYourDataNavigation = () => (
   <div className="row">
     <StyledNav role="navigation">
       {links.map(({ label, route }) => (

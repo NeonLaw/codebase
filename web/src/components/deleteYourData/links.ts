@@ -4,15 +4,11 @@ export const links = [
     route: '#faqs'
   },
   {
-    label: 'About',
-    route: '/'
+    label: 'Services',
+    route: '/delete-your-data/services'
   },
   {
-    label: 'Blog',
-    route: '/blog'
+    label: 'Sign Up',
+    route: '/delete-your-data/onboarding'
   },
-  {
-    label: 'Contact',
-    route: '/contact'
-  }
 ];

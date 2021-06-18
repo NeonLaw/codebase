@@ -1,7 +1,8 @@
 import { colors, gutters, theme } from '../../styles/deleteYourData';
 import { Box } from '@chakra-ui/react';
-import { Nav } from './nav';
+import { DeleteYourDataNavigation } from './nav';
 import styled from '@emotion/styled';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
 
@@ -61,18 +62,19 @@ const StyledHero = styled.header`
 export const Hero = () => {
   const [loginButtonDisabled, disableLoginButton] = useState(false);
   const { isLoading } = useUser();
+  const router = useRouter();
 
   return (
     <StyledHero>
-      <Nav />
+      <DeleteYourDataNavigation />
       <div aria-hidden={true} className="gradient"></div>
       <Box className="row" zIndex="1">
         <div className="text-box">
           <h1>Delete Your Data</h1>
           <p>
-          Hundereds of data brokers are buying and selling your online data{' '}
-            <span aria-hidden="true">&mdash;</span> without your consent. Do you
-          want that to be removed? We can help.
+            Tired of data brokers buying and selling your data? Reclaim your
+            privacy with Delete Your Data. Sign Up Today or email us at
+            support@neonlaw.com to learn more.
           </p>
           {isLoading ? null :
             (
@@ -90,6 +92,7 @@ export const Hero = () => {
                 disabled={loginButtonDisabled}
                 onClick={() => {
                   disableLoginButton(true);
+                  router.push('/api/auth/login');
                 }}
               >
                   Sign Up Today
