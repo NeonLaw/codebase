@@ -124,9 +124,9 @@ jobs:
       - name: Push the Docker image to GitHub Registry
         run: docker push ghcr.io/neonlaw/codebase/server:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/server@/,"")}1')
 
-  update_mdx_package:
+  update_components_package:
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/mdx@')
+    if: startsWith(github.ref, 'refs/tags/components@')
 
     steps:
       - uses: actions/checkout@v2
@@ -135,9 +135,9 @@ jobs:
         run: npm set //registry.npmjs.org/:_authToken $NODE_AUTH_TOKEN
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-      - name: Publish @neonlaw/mdx
+      - name: Publish @neonlaw/components
         run: npm publish --access public
-        working-directory: ./mdx
+        working-directory: ./components
 
   update_neon_postgres_package:
     runs-on: ubuntu-latest
@@ -195,7 +195,7 @@ jobs:
 
   update_neon_documents_package:
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/neon_documents@')
+    if: startsWith(github.ref, 'refs/tags/documents@')
 
     steps:
       - uses: actions/checkout@v2
@@ -204,7 +204,7 @@ jobs:
         run: gem build neon_documents.gemspec
         working-directory: ./documents
       - name: Publish neon_documents gem to Rubygems
-        run: gem push neon_documents-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_documents@/,"")}1').gem
+        run: gem push neon_documents-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/documents@/,"")}1').gem
         working-directory: ./documents
         env:
           GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
@@ -217,7 +217,7 @@ jobs:
       - name: Upload zip file to GCP Storage
         run: |
           zip documents.zip -r documents/*
-          gsutil cp gs://neon-law-staging-function-code/documents/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_documents@/,"")}1').zip emails.zip
+          gsutil cp gs://neon-law-staging-function-code/documents/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/documents@/,"")}1').zip emails.zip
 
       - uses: google-github-actions/setup-gcloud@master
         with:
@@ -228,7 +228,7 @@ jobs:
       - name: Upload zip file to GCP Production
         run: |
           zip documents.zip -r documents/*
-          gsutil cp gs://neon-law-production-function-code/documents/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/neon_documents@/,"")}1').zip emails.zip
+          gsutil cp gs://neon-law-production-function-code/documents/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/documents@/,"")}1').zip emails.zip
 
   update_neon_diagrams_package:
     runs-on: ubuntu-latest
@@ -353,3 +353,40 @@ jobs:
         working-directory: ./secrets
         env:
           GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
+
+  update_neon_slack_package:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/slack@')
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+      - name: Build neon_slack gem
+        run: gem build neon_slack.gemspec
+        working-directory: ./slack
+      - name: Publish neon_slack gem to Ruby Gems
+        run: gem push neon_slack-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/slack@/,"")}1').gem
+        working-directory: ./slack
+        env:
+          GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
+
+      - name: Create Zip file for Slack
+        run: cd slack && zip -r ../slack.zip *
+
+      - uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: neon-law-staging
+          service_account_slack: github-actions@neon-law-staging.iam.gserviceaccount.com
+          service_account_key: ${{ secrets.STAGING_GCP_CREDENTIALS }}
+          export_default_credentials: true
+      - name: Upload zip file to GCP Staging
+        run: gsutil cp slack.zip gs://neon-law-staging-function-code/slack/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/slack@/,"")}1').zip
+
+      - uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: neon-law-production
+          service_account_slack: github-actions@neon-law-production.iam.gserviceaccount.com
+          service_account_key: ${{ secrets.PRODUCTION_GCP_CREDENTIALS }}
+          export_default_credentials: true
+      - name: Upload zip file to GCP Production
+        run: gsutil cp slack.zip gs://neon-law-production-function-code/slack/$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/slack@/,"")}1').zip

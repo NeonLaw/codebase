@@ -30,6 +30,13 @@ data "terraform_remote_state" "versions" {
 data "google_project" "project" {
 }
 
+module "dns" {
+  source = "./modules/dns"
+
+  neon_law_url = var.environment == "production" ? "neonlaw.com" : "neonlaw.net"
+  delete_your_data_url = var.environment == "production" ? "deleteyourdata.com" : "deleteyourdata.info"
+}
+
 module "service_accounts" {
   source = "./modules/service_accounts"
   project_id = var.project_id
@@ -96,7 +103,7 @@ module "secrets" {
   environment = var.environment
 }
 
-module "pub_sub_topics" {
+module "pubsub" {
   for_each = toset( ["0.1.4", "0.1.5"] )
 
   source         = "./modules/pubsub"

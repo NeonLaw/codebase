@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import { Container } from '../../../components/container';
+import { Container } from '@neonlaw/components';
 import { PublicLayout } from '../../../components/layouts/publicLayout';
 import {
   QuestionDetailView
