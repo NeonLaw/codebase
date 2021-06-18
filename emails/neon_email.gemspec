@@ -24,4 +24,5 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "neon_schemas", "0.1.1"
   spec.add_runtime_dependency "functions_framework", "0.9.0"
+  spec.add_runtime_dependency "neon_secrets", "0.0.1"
 end

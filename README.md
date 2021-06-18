@@ -14,8 +14,8 @@ the Neon License as long as you promise not to use our Neon Law trademark.
 |[Schemas](./schemas)|![PyPi](https://img.shields.io/pypi/v/neon_schemas)![RubyGems.Org](https://img.shields.io/gem/v/neon_schemas)![NPM](https://img.shields.io/npm/v/@neonlaw/schemas)|n/a|n/a|
 |[Postgraphile](./server)|![NPM](https://img.shields.io/npm/v/@neonlaw/server)|latest `main` branch commit ([link](https://api.neonlaw.net/graphiql))|v0.1.0 ([link](https://api.neonlaw.com/graphiql))|
 |[I18n](./i18n)|![NPM](https://img.shields.io/npm/v/@neonlaw/i18n)|n/a|n/a|
-|[Mdx](./mdx)|![NPM](https://img.shields.io/npm/v/@neonlaw/mdx)|n/a|n/a|
-|[Neon_nlp (server)](./nlp_server)|![Crates.io](https://img.shields.io/crates/v/neon_nlp)|n/a|n/a|
+|[Components](./components)|![NPM](https://img.shields.io/npm/v/@neonlaw/components)|n/a|n/a|
+|[Nlp server](./nlp_server)|![Crates.io](https://img.shields.io/crates/v/neon_nlp)|n/a|n/a|
 |[Git_flow](./git_flow)|![Crates.io](https://img.shields.io/crates/v/git_flow)|n/a|n/a|
 |[Postgres](./postgres)|![RubyGems.Org](https://img.shields.io/gem/v/neon_postgres)|n/a|n/a|
 |[Documents](./documents)|![RubyGems.Org](https://img.shields.io/gem/v/neon_documents)|n/a|n/a|

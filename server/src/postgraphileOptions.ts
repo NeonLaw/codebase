@@ -7,8 +7,7 @@ import { fileUploadsPlugin } from './resolvers/fileUploadsPlugin';
 import { makeAddInflectorsPlugin } from 'graphile-utils';
 import { publicLetterPlugin } from './resolvers/publicLetterPlugin';
 import { questionPlugin } from './resolvers/questionPlugin';
-import { searchQueriesPlugin } from './resolvers/searchQueriesPlugin';
-import { slatePlugin } from './slateTypes';
+import { slatePlugin } from './slatePlugin';
 
 const tracingPlugin = {
   withPostGraphileContext: (originalContext) => {
@@ -55,7 +54,7 @@ export const postgraphileOptions: PostGraphileOptions = {
 
     return {};
   },
-  allowExplain: process.env.SHOW_GRAPHIQL === 'true' ? true : false,
+  allowExplain: process.env.NODE_ENV === 'true' ? false : true,
   appendPlugins: [
     PgSimplifyInflectorPlugin,
     schemaInflectorsPlugin,
@@ -63,7 +62,6 @@ export const postgraphileOptions: PostGraphileOptions = {
     fileUploadsPlugin,
     publicLetterPlugin,
     questionPlugin,
-    searchQueriesPlugin,
     slatePlugin
   ],
   defaultPaginationCap:

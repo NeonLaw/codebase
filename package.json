@@ -2,7 +2,7 @@
     "private": true,
     "workspaces": [
         "i18n",
-        "mdx",
+        "components",
         "server",
         "schemas",
         "web"
