@@ -1,6 +1,6 @@
 import { Box, Heading, Text } from '@chakra-ui/react';
 import { gutters, sizes } from '../../styles/neonLaw';
-import { Container } from '@neonlaw/components/src/container';
+import { Container } from '@neonlaw/components';
 import {
   MatterTemplateQuestionnairesList
 } from '../../components/lists/matterTemplateQuestionnairesList';

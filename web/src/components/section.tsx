@@ -2,7 +2,7 @@ import { Box, useColorMode } from '@chakra-ui/react';
 import { colors, gutters } from '../styles/neonLaw';
 import { CSSProperties } from 'react';
 
-import { Container } from '@neonlaw/components/src/container';
+import { Container } from '@neonlaw/components';
 import styled from '@emotion/styled';
 
 const StyledSection = styled(Box)`

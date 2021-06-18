@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import { Container } from '@neonlaw/components/src/container';
+import { Container } from '@neonlaw/components';
 import { PublicLayout } from '../../components/layouts/publicLayout';
 import { Seo } from '../../components/seo';
 import { useRouter } from 'next/router';

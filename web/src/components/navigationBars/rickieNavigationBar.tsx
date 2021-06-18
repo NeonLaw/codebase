@@ -10,7 +10,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { BlackLivesMatter } from './blackLivesMatter';
-import { Container } from '@neonlaw/components/src/container';
+import { Container } from '@neonlaw/components';
 import Link from 'next/link';
 import { MdDehaze } from 'react-icons/md';
 import { SideNavContent } from '../sideNavigation/sideNavContent';
