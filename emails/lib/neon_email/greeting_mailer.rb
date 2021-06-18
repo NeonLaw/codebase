@@ -10,14 +10,14 @@ module NeonEmail
     end
 
     def initialize(to_email:)
-      @message = message
+      @to_email = to_email
     end
 
     def deliver
       from = SendGrid::Email.new(email: "support@neonlaw.com")
       to = SendGrid::Email.new(email: to_email)
       subject = "Welcome to Neon Law!"
-      content = SendGrid::Content.new(type: "text/plain", value: message)
+      content = SendGrid::Content.new(type: "text/plain", value: "Welcome")
       mail = SendGrid::Mail.new(from, subject, to, content)
 
       sg = SendGrid::API.new(
