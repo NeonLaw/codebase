@@ -16,19 +16,6 @@ import { colors, gutters } from '../styles/neonLaw';
 import { CodeBlock } from '../components/codeBlock';
 import { DesktopHalfMobileFullCard } from './desktopHalfMobileFullCard';
 import { default as Link } from 'next/link';
-import styled from '@emotion/styled';
-
-const StyledUl = styled(Box)`
-  margin: ${gutters.xSmall} 0;
-
-  li:not(:last-child) {
-    margin-bottom: ${gutters.micro};
-
-    p {
-      margin: 0;
-    }
-  }
-`;
 
 const Pre = (props) => <Box my="2em" rounded="sm" {...props} />;
 
@@ -76,9 +63,7 @@ export const UnderlineLink = ({ href, children }) => {
       _focus={{ boxShadow: 'outline' }}
       href={href}
     >
-      <a href={href}>
-        {children}
-      </a>
+      <a href={href}>{children}</a>
     </Box>
   );
 };
@@ -97,30 +82,18 @@ export const MDXComponents = {
     const mailRegex = new RegExp('^mail');
     if (outsideLink.test(href)) {
       return (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href={href} target="_blank" rel="noopener noreferrer">
           {props.children}
         </a>
       );
     }
     if (telRegex.test(href)) {
-      return (
-        <a
-          href={href}
-        >
-          {props.children}
-        </a>
-      );
+      return <a href={href}>{props.children}</a>;
     }
     if (mailRegex.test(href)) {
       return <a href={href}>{props.children}</a>;
     }
-    return (
-      <UnderlineLink href={href} children={props.children} />
-    );
+    return <UnderlineLink href={href} children={props.children} />;
   },
   blockquote: (props) => (
     <Alert
@@ -151,12 +124,14 @@ export const MDXComponents = {
     <Code color="black" backgroundColor="black" fontSize="0.84em" {...props} />
   ),
   kbd: Kbd,
-  li: (props) => <Box as="li" {...props} />,
+  li: (props) => (
+    <Box as="li" _notLast={{ marginBottom: gutters.micro }} {...props} />
+  ),
   ol: (props) => <Box as="ol" pt="8px" pl="16px" {...props} />,
   p: (props) => <Text as="p" mt={4} lineHeight="tall" {...props} />,
   pre: Pre,
   table: Table,
   td: TData,
   th: THead,
-  ul: (props) => <StyledUl as="ul" {...props} />,
+  ul: (props) => <Box as="ul" margin={`${gutters.xSmall} 0`} {...props} />,
 };

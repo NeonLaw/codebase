@@ -21,18 +21,21 @@ interface BreadCrumbProps {
   showHome?: boolean;
 }
 
-const StyledBreadcrumbLink = ({ children, props }: any) => (
+const StyledBreadcrumbLink = ({ children, href, as }: any) => (
   <BreadcrumbLink
-    {...props}
+    as={as}
+    href={href}
     className="breadcrumb outline-bordered"
     _hover={{
       color: colors.primaryColor400,
-      textDecoration: 'underline'
+      textDecoration: 'underline',
     }}
     _focus={{
       color: colors.primaryColor400,
-      textDecoration: 'underline'
+      textDecoration: 'underline',
     }}
+    pointerEvents={!href ? 'none' : 'initial'}
+    tabIndex={!href ? -1 : 0}
   >
     {children}
   </BreadcrumbLink>

@@ -158,26 +158,6 @@ export const BaseStyles = ({ dir }: BaseStylesProps): JSX.Element => {
         }
 
         /* ---------------------------------- */
-        /* ----- Lists ----- */
-        /* ---------------------------------- */
-
-        ul {
-          list-style: none;
-        }
-
-        ul > li {
-          position: relative;
-          margin-left: ${gutters.small};
-          
-          &::before {
-            position: absolute;
-            content: "—";
-            color: ${theme.colors.cyan[400]};
-            left: calc(${gutters.small} * -1);
-          }
-        }
-
-        /* ---------------------------------- */
         /* ----- Images ----- */
         /* ---------------------------------- */
 

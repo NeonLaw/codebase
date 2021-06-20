@@ -7,16 +7,10 @@ import { colors, shadows } from '../styles/neonLaw';
 import Link from 'next/link';
 import styled from '@emotion/styled';
 
-const ContentWrapper = styled.a`
-  text-decoration: none;
+const ContentWrapper = styled(Box)`
   img {
     max-height: 350px;
     object-fit: cover;
-  }
-
-  &:hover,
-  &:focus {
-    color: inherit;
   }
 `;
 
@@ -40,7 +34,12 @@ export const DesktopHalfMobileFullCard = ({ children, to }) => {
         href={to}
         passHref
       >
-        <ContentWrapper>{children}</ContentWrapper>
+        <ContentWrapper
+          as="a"
+          textDecoration="none"
+          _hover={{color: 'inherit'}}
+          _focus={{color: 'inherit'}}
+        >{children}</ContentWrapper>
       </Box>
     </Box>
   );
