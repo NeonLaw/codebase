@@ -14,16 +14,17 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: Install Git Flow
+        run: cargo install git_flow
       - name: Validate pull request.
-        working-directory: ./git_flow
         run: |
-          doppler run -- \
-            cargo run -- \
-              validate-pull-request \
-                --head-ref ${GITHUB_HEAD_REF#refs/heads/} \
-                --base-ref ${GITHUB_BASE_REF#refs/heads/} \
-                --pr-number ${{github.event.number}}
+          git_flow \
+            validate-pull-request \
+              --head-ref ${GITHUB_HEAD_REF#refs/heads/} \
+              --base-ref ${GITHUB_BASE_REF#refs/heads/} \
+              --pr-number ${{github.event.number}}
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_GIT_FLOW }}
+          GIT_PERSONAL_ACCESS_TOKEN: ${{ secrets.GIT_PERSONAL_ACCESS_TOKEN }}

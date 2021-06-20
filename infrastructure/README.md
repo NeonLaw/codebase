@@ -37,4 +37,5 @@ On Terraform Cloud, we have the following workspaces:
 
 ## What is not managed in Terraform
 
-GCP Marketplace apps including, Neo4j.
+- Mellisearch
+- Adding GCP Service Account Keys to Terraform

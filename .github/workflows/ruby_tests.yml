@@ -2,9 +2,6 @@
 name: ruby
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -37,6 +34,9 @@ jobs:
       - name: Lint Ruby files.
         working-directory: ./emails
         run: bundle exec standardrb
+      - name: Run specs
+        working-directory: ./emails
+        run: bundle exec rspec spec
 
   ruby_documents_tests:
     runs-on: ubuntu-latest
@@ -79,14 +79,28 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: '3'
+      - name: Changed Secrets Files
+        id: secrets-files
+        uses: tj-actions/changed-files@v7
+        with:
+          files: |
+            secrets/*
+            secrets/**
+            secrets/**/*
+      - name: Install dependencies
+        if: steps.secrets-files.outputs.any_changed == 'true'
+        run: yarn install --frozen-lockfile
       - name: Install dependencies
         working-directory: ./secrets
+        if: steps.secrets-files.outputs.any_changed == 'true'
         run: bundle
       - name: Lint Ruby files.
         working-directory: ./secrets
+        if: steps.secrets-files.outputs.any_changed == 'true'
         run: bundle exec standardrb
       - name: Run RSpec
         working-directory: ./secrets
+        if: steps.secrets-files.outputs.any_changed == 'true'
         run: bundle exec rspec spec
 
   ruby_webhooks_tests:
@@ -115,4 +129,18 @@ jobs:
         run: bundle
       - name: Lint Ruby files.
         working-directory: ./search
+        run: bundle exec standardrb
+
+  ruby_slack_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3'
+      - name: Install dependencies
+        working-directory: ./slack
+        run: bundle
+      - name: Lint Ruby files.
+        working-directory: ./slack
         run: bundle exec standardrb

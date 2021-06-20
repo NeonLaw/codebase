@@ -17,7 +17,6 @@ export const DeleteYourDataStyles = () => (
       }
 
       body {
-        font-family: "HK Grotesk", sans-serif;
         line-height: 1.6;
         box-sizing: border-box;
         overflow-x: hidden;

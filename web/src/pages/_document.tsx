@@ -50,7 +50,8 @@ class MyDocument extends Document {
           <NextIntlScript />
           <Main />
           <NextScript />
-          {process.env.environment !== 'development' && (
+          {process.env.NEXT_PUBLIC_API_URI !==
+            'https://api.neonlaw.com/graphql' && (
             <script
               id="ze-snippet"
               key="zendesk"

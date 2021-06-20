@@ -9,7 +9,7 @@ module NeonSchemas
 
     def self.encode(record:, schema_name:)
       avro_schema = ::Avro::Schema.parse(
-        File.read("#{SCHEMA_DIRECTORY}/#{schema_name}.avsc")
+        File.read("#{SCHEMA_DIRECTORY}/#{schema_name.tr(".", "/")}.avsc")
       )
       writer = ::Avro::IO::DatumWriter.new avro_schema
       buffer = ::StringIO.new
@@ -22,7 +22,7 @@ module NeonSchemas
 
     def self.decode(string:, schema_name:)
       avro_schema = ::Avro::Schema.parse(
-        File.read("#{SCHEMA_DIRECTORY}/#{schema_name}.avsc")
+        File.read("#{SCHEMA_DIRECTORY}/#{schema_name.tr(".", "/")}.avsc")
       )
       buffer = ::StringIO.new string
       decoder = ::Avro::IO::BinaryDecoder.new buffer

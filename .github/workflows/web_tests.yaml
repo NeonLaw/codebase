@@ -11,19 +11,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install Doppler CLI
-        uses: dopplerhq/cli-action@v1
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
+      - name: Changed Web Files
+        id: web-files
+        uses: tj-actions/changed-files@v7
+        with:
+          files: |
+            web/*
+            web/**
+            web/**/*
       - name: Install dependencies
+        if: steps.web-files.outputs.any_changed == 'true'
         run: yarn install --frozen-lockfile
       - name: Run Cypress tests for @neonlaw/web against staging server
         uses: cypress-io/github-action@v2
+        if: steps.web-files.outputs.any_changed == 'true'
         with:
-          command-prefix: doppler run -- npx
-          start: doppler run -- yarn dev
+          start: yarn dev
           wait-on: 'http://localhost:3000'
           working-directory: ./web
         env:
-          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN_STAGING }}
+          AUTH0_AUDIENCE: ${{secrets.AUTH0_AUDIENCE}}
+          AUTH0_BASE_URL: ${{secrets.AUTH0_BASE_URL}}
+          AUTH0_CLIENT_ID: ${{secrets.AUTH0_CLIENT_ID}}
+          AUTH0_CLIENT_SECRET: ${{secrets.AUTH0_CLIENT_SECRET}}
+          AUTH0_ISSUER_BASE_URL: ${{secrets.AUTH0_ISSUER_BASE_URL}}
+          AUTH0_SCOPE: ${{secrets.AUTH0_SCOPE}}
+          AUTH0_SECRET: ${{secrets.AUTH0_SECRET}}
+          AUTH0_TENANT: ${{secrets.AUTH0_TENANT}}
+          CYPRESS_ADMIN_USER_PASSWORD: ${{ secrets.CYPRESS_ADMIN_USER_PASSWORD }}
+          CYPRESS_AUTH0_CLIENT_ID: ${{ secrets.CYPRESS_AUTH0_CLIENT_ID }}
+          CYPRESS_AUTH0_CLIENT_SECRET: ${{ secrets.CYPRESS_AUTH0_CLIENT_SECRET }}
+          CYPRESS_AUTH0_SECRET: ${{ secrets.CYPRESS_AUTH0_SECRET }}
+          CYPRESS_AUTH0_URL: ${{ secrets.CYPRESS_AUTH0_URL }}
+          CYPRESS_LAWYER_USER_PASSWORD: ${{ secrets.CYPRESS_LAWYER_USER_PASSWORD }}
+          CYPRESS_PORTAL_USER_PASSWORD: ${{ secrets.CYPRESS_PORTAL_USER_PASSWORD }}
+          NEXT_PUBLIC_API_URI: ${{secrets.NEXT_PUBLIC_API_URI}}
+          NEXT_PUBLIC_SITE_URL: ${{secrets.NEXT_PUBLIC_SITE_URL}}

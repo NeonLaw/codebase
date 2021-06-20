@@ -97,3 +97,5 @@ target
 .vscode/
 
 **/.rspec_status
+
+*.zip

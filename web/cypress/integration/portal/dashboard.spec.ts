@@ -32,16 +32,16 @@ describe('Visiting /portal', () => {
   //   });
   // });
 
-  context('logged in as an admin user', () => {
-    it('renders the /portal', () => {
-      cy.login({
-        password: Cypress.env('ADMIN_USER_PASSWORD'),
-        username: 'admin@sink.sendgrid.com',
-      }).then(() => {
-        cy.visit('/portal');
-        cy.url().should('include', '/portal');
-        cy.contains('Settings').click();
-      });
-    });
-  });
+  // context('logged in as an admin user', () => {
+  //   it('renders the /portal', () => {
+  //     cy.login({
+  //       password: Cypress.env('ADMIN_USER_PASSWORD'),
+  //       username: 'admin@sink.sendgrid.com',
+  //     }).then(() => {
+  //       cy.visit('/portal');
+  //       cy.url().should('include', '/portal');
+  //       cy.contains('Settings').click();
+  //     });
+  //   });
+  // });
 });

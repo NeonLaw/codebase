@@ -1,4 +1,4 @@
-FROM docker.pkg.github.com/neonlaw/codebase/base:latest
+FROM ghcr.io/neonlaw/codebase/base:latest
 
 RUN (curl -Ls https://cli.doppler.com/install.sh || wget -qO- https://cli.doppler.com/install.sh) | sh
 

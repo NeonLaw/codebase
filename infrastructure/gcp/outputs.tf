@@ -60,11 +60,6 @@ output "application_user_account_key" {
   sensitive = true
 }
 
-output "github_actions_account_key" {
-  value     = module.service_accounts.github_actions_account_key
-  sensitive = true
-}
-
 output "database_name" {
   value = "neon-law"
 }

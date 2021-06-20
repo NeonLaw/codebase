@@ -1,6 +1,8 @@
 # Neon Law Website
 
-Our website written with React, Next.js, and Chakra-UI.
+Our website written with React, Next.js, MDX, Chakra-UI, React Hook Form, and
+Relay.
+
 ## Getting Started
 
 Run the development server:

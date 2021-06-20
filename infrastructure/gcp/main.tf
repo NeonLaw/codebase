@@ -30,6 +30,13 @@ data "terraform_remote_state" "versions" {
 data "google_project" "project" {
 }
 
+module "dns" {
+  source = "./modules/dns"
+
+  neon_law_url = var.environment == "production" ? "neonlaw.com" : "neonlaw.net"
+  delete_your_data_url = var.environment == "production" ? "deleteyourdata.com" : "deleteyourdata.info"
+}
+
 module "service_accounts" {
   source = "./modules/service_accounts"
   project_id = var.project_id
@@ -96,16 +103,12 @@ module "secrets" {
   environment = var.environment
 }
 
-module "pub_sub_topics" {
-  for_each = {
-    "green" = data.terraform_remote_state.versions.outputs["${var.environment}_green_schemas"]
-    "blue"  = data.terraform_remote_state.versions.outputs["${var.environment}_blue_schemas"]
-  }
+module "pubsub" {
+  for_each = toset( ["0.1.4", "0.1.5"] )
 
   source         = "./modules/pubsub"
   environment    = var.environment
-  color          = each.key
-  schema_version = each.value
+  schema_version = each.key
   project_id     = var.project_id
 }
 
@@ -123,7 +126,7 @@ module "functions" {
 
   source = "./modules/functions"
   source_archive_bucket = module.function_bucket.name
-  source_archive_object = "emails/0.1.0.zip"
+  email_source_archive_object = "emails/${data.terraform_remote_state.versions.outputs["${var.environment}_${each.key}_emails"]}.zip"
   color = each.key
   schema_version = each.value
   project_id     = var.project_id

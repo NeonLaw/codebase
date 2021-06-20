@@ -1,8 +1,8 @@
 resource "kubernetes_deployment" "web" {
   metadata {
-    name = "${var.environment}-web"
+    name = "${var.environment}-${var.site}-web"
     labels = {
-      app = "${var.environment}-web"
+      app = "${var.environment}-${var.site}-eb"
     }
   }
 
@@ -11,14 +11,14 @@ resource "kubernetes_deployment" "web" {
 
     selector {
       match_labels = {
-        app = "${var.environment}-web"
+        app = "${var.environment}-${var.site}-web"
       }
     }
 
     template {
       metadata {
         labels = {
-          app = "${var.environment}-web"
+          app = "${var.environment}-${var.site}-web"
         }
       }
 
@@ -30,6 +30,16 @@ resource "kubernetes_deployment" "web" {
           env {
             name  = "NODE_ENV"
             value = "production"
+          }
+
+          env {
+            name = "DOPPLER_TOKEN"
+            value_from {
+              secret_key_ref {
+                key  = "DOPPLER_TOKEN"
+                name = var.doppler_secret
+              }
+            }
           }
 
           readiness_probe {
@@ -48,11 +58,11 @@ resource "kubernetes_deployment" "web" {
 
 resource "kubernetes_service" "primary" {
   metadata {
-    name = "${var.environment}-web"
+    name = "${var.environment}-${var.site}-web"
   }
   spec {
     selector = {
-      app = "${var.environment}-web"
+      app = "${var.environment}-${var.site}-web"
     }
     session_affinity = "ClientIP"
     port {

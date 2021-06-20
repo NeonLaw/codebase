@@ -1,4 +1,4 @@
-FROM docker.pkg.github.com/neonlaw/codebase/base:latest
+FROM ghcr.io/neonlaw/codebase/base:latest
 
 ENV DATABASE_URL $DATABASE_URL
 ENV FROM_DATABASE_URL $FROM_DATABASE_URL

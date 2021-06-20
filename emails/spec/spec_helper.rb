@@ -2,10 +2,12 @@ require "bundler/setup"
 require "neon_email"
 require "pry"
 require "faker"
-
-FixtureDependencies.fixture_path = "#{__dir__}/fixtures"
+require "functions_framework/testing"
+require "functions_framework"
+require "base64"
 
 RSpec.configure do |config|
+  config.include FunctionsFramework::Testing
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"
 

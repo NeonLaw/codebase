@@ -1,6 +1,6 @@
 resource "kubernetes_secret" "doppler_secrets" {
   metadata {
-    name = "web-secrets"
+    name = var.secret_name
   }
 
   data = {

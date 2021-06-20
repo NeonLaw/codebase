@@ -1,19 +1,14 @@
-data "http" "welcome_email" {
-  url = "https://raw.githubusercontent.com/NeonLaw/codebase/neon_schemas%40${var.schema_version}/schemas/src/outbound_email.avsc"
-}
+module "pubsub_topics" {
+  for_each = toset([
+    "authentication.successful_login",
+    "documents.process_document",
+    "outbound_emails.welcome_email",
+    "slack.send_message",
+  ])
 
-resource "google_pubsub_schema" "welcome_email" {
-  name       = "welcome-email-${var.schema_version}"
-  type       = "AVRO"
-  definition = data.http.welcome_email.body
-}
-
-resource "google_pubsub_topic" "welcome_email" {
-  name = "welcome-email-${var.schema_version}"
-
-  depends_on = [google_pubsub_schema.welcome_email]
-  schema_settings {
-    schema   = "projects/${var.project_id}/schemas/welcome-email-${var.schema_version}"
-    encoding = "JSON"
-  }
+  source         = "../pubsub_topic"
+  environment    = var.environment
+  schema_version = var.schema_version
+  project_id     = var.project_id
+  topic_name     = each.key
 }

@@ -1,7 +1,7 @@
 {
   "name": "@neonlaw/server",
   "license": "Apache-2.0",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "author": "@neonlaw",
   "scripts": {
     "start": "ts-node --transpile-only src/server.ts",
@@ -27,7 +27,7 @@
     "@slack/web-api": "^6.2.3",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
-    "dotenv": "^9.0.2",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-jwt": "^6.0.0",
     "express-rate-limit": "^5.2.6",

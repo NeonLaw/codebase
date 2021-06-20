@@ -1,7 +1,7 @@
 variable source_archive_bucket {
 }
 
-variable source_archive_object {
+variable email_source_archive_object {
 }
 
 variable schema_version {
