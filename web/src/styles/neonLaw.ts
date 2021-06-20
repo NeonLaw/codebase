@@ -31,29 +31,6 @@ export const theme = Object.assign(chakraTheme, {
     heading: '"Jost", sans-serif',
     mono: '"Fira Mono", monospace',
   },
-}, {
-  styles: {
-    global: {
-      'li': {
-        listStyle: 'none',
-      },
-      'ul': {
-        'li': {
-          '&::before': {
-            color: chakraTheme.colors.cyan[400],
-            content: '"—"',
-            left: `calc(${gutters.small} * -1)`,
-            position: 'absolute',
-          },
-          marginLeft: gutters.small,
-          'p': {
-            margin: 0,
-          },
-          position: 'relative',
-        }
-      }
-    }
-  }
 });
 
 export const colors = {

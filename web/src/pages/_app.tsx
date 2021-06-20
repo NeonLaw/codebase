@@ -8,6 +8,7 @@ import Head from 'next/head';
 import { ShortcutsModal } from '../components/shortcuts-modal';
 import { UserProvider } from '@auth0/nextjs-auth0';
 import { getApolloClient } from '../utils/getApolloClient';
+import { globalStyles } from '../styles/globalStyles';
 import { handleFirstTab } from '../utils/accessibility';
 import nextIntlConfig from '../intl';
 import { theme } from '../styles/neonLaw';
@@ -23,10 +24,11 @@ const NeonLawApp = ({ Component, pageProps }) => {
     };
   }, []);
   const apolloClient = getApolloClient();
+  const appTheme = Object.assign(theme, globalStyles);
 
   return (
     <UserProvider>
-      <ChakraProvider theme={theme}>
+      <ChakraProvider theme={appTheme}>
         <ApolloProvider client={apolloClient}>
           <Head>
             <meta
