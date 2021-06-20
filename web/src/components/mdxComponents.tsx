@@ -133,5 +133,7 @@ export const MDXComponents = {
   table: Table,
   td: TData,
   th: THead,
-  ul: (props) => <Box as="ul" margin={`${gutters.xSmall} 0`} {...props} />,
+  ul: (props) => (
+    <Box as="ul" className="mdx-ul" margin={`${gutters.xSmall} 0`} {...props} />
+  ),
 };

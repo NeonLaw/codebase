@@ -9,6 +9,13 @@ export const globalStyles = {
           objectFit: 'cover'
         }
       },
+      '.mdx-ul': {
+        'li': {
+          'p': {
+            marginTop: '0'
+          }
+        }
+      },
       'a': {
         '&:focus': {
           color: colors.primaryColor400
@@ -32,9 +39,6 @@ export const globalStyles = {
             position: 'absolute',
           },
           marginLeft: gutters.small,
-          'p': {
-            margin: 0,
-          },
           position: 'relative',
         }
       },
