@@ -3,6 +3,12 @@ import { colors, gutters, theme } from './neonLaw';
 export const globalStyles = {
   styles: {
     global: {
+      '.desktop-half-mobile-full-card-link': {
+        'img': {
+          maxHeight: '350px',
+          objectFit: 'cover'
+        }
+      },
       'a': {
         '&::focus': {
           color: colors.primaryColor400
@@ -31,7 +37,7 @@ export const globalStyles = {
           },
           position: 'relative',
         }
-      }
+      },
     }
   }
 };

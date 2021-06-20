@@ -5,14 +5,6 @@ import { Box, useColorMode } from '@chakra-ui/react';
 import { colors, shadows } from '../styles/neonLaw';
 
 import Link from 'next/link';
-import styled from '@emotion/styled';
-
-const ContentWrapper = styled(Box)`
-  img {
-    max-height: 350px;
-    object-fit: cover;
-  }
-`;
 
 export const DesktopHalfMobileFullCard = ({ children, to }) => {
   const { colorMode } = useColorMode();
@@ -34,12 +26,13 @@ export const DesktopHalfMobileFullCard = ({ children, to }) => {
         href={to}
         passHref
       >
-        <ContentWrapper
+        <Box
           as="a"
+          className="desktop-half-mobile-full-card-link"
           textDecoration="none"
           _hover={{color: 'inherit'}}
           _focus={{color: 'inherit'}}
-        >{children}</ContentWrapper>
+        >{children}</Box>
       </Box>
     </Box>
   );
