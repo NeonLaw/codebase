@@ -135,17 +135,6 @@ export const BaseStyles = ({ dir }: BaseStylesProps): JSX.Element => {
         /* ----- Links & Buttons ----- */
         /* ---------------------------------- */
 
-        a {
-          cursor: pointer;
-          text-decoration: underline;
-          transition: all .2s;
-
-          &:hover,
-          &:focus {
-            color: ${colors.primaryColor400};
-          }
-        }
-
         .nav-link {
           &--active {
             color: ${colors.primaryColor400};

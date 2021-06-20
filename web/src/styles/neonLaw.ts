@@ -7,19 +7,6 @@ import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
 import { theme as chakraTheme } from '@chakra-ui/react';
 
-export const gutters = {
-  huge: '10rem',
-  large: '7.5rem',
-  largeOne: '6.25rem',
-  largeTwo: '5rem',
-  medium: '3.5rem',
-  micro: '.5rem',
-  small: '1.875rem',
-  xSmall: '1.25rem',
-  xSmallOne: '1rem',
-};
-
-
 export const theme = Object.assign(chakraTheme, {
   fontSizes: {
     xl0: '2.50rem',
@@ -79,6 +66,18 @@ export const sizes = {
   textContainerSmallOne: '600px',
   textContainerSmallTwo: '620px',
   textContainerXSmall: '580px',
+};
+
+export const gutters = {
+  huge: '10rem',
+  large: '7.5rem',
+  largeOne: '6.25rem',
+  largeTwo: '5rem',
+  medium: '3.5rem',
+  micro: '.5rem',
+  small: '1.875rem',
+  xSmall: '1.25rem',
+  xSmallOne: '1rem',
 };
 
 export const shadows = {

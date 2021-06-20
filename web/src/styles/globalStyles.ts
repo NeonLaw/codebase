@@ -10,10 +10,10 @@ export const globalStyles = {
         }
       },
       'a': {
-        '&::focus': {
+        '&:focus': {
           color: colors.primaryColor400
         },
-        '&::hover': {
+        '&:hover': {
           color: colors.primaryColor400,
         },
         cursor: 'pointer',
