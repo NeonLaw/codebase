@@ -4142,7 +4142,7 @@
   resolved "https://registry.yarnpkg.com/@types/parse5/-/parse5-5.0.3.tgz#e7b5aebbac150f8b5fdd4a46e7f0bd8e65e19109"
   integrity sha512-kUNnecmtkunAoQ3CnjmMkzNU/gtxG8guhi+Fk2U/kOpIKjIMKnXGp4IJCgQJrXSgMsWYimYG4TGjz/UzbGEBTw==
 
-"@types/pg@>=6 <8", "@types/pg@^7.14.1", "@types/pg@^7.4.10", "@types/pg@^7.4.14":
+"@types/pg@>=6 <8", "@types/pg@^7.4.10", "@types/pg@^7.4.14":
   version "7.14.9"
   resolved "https://registry.yarnpkg.com/@types/pg/-/pg-7.14.9.tgz#5f09544d0b5b19fca48b63dd15644c475555ba60"
   integrity sha512-ThTOEwOvYM++zRSGiajRqKyTQboCEJE2VI+30d93WX94sQ7CnrcJ7CICT9oC+QD8Co9JTYJkKEfEXSb5DjUOFA==
@@ -6164,7 +6164,7 @@ chokidar@^2.1.2, chokidar@^2.1.8:
   optionalDependencies:
     fsevents "^1.2.7"
 
-chokidar@^3.0.0, chokidar@^3.3.1, chokidar@^3.4.0, chokidar@^3.4.1, chokidar@^3.5.1:
+chokidar@^3.0.0, chokidar@^3.4.0, chokidar@^3.4.1, chokidar@^3.5.1:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.2.tgz#dba3976fcadb016f66fd365021d91600d01c1e75"
   integrity sha512-ekGhOnNVPgT77r4K/U3GDhu+FQ2S8TnK/s2KbIGXi0SZWuwkZ2QNyfWdZW+TVfn84DpEP7rLeCt2UI6bJ8GwbQ==
@@ -9269,16 +9269,17 @@ graphile-build@4.12.0:
     pluralize "^7.0.0"
     semver "^6.0.0"
 
-graphile-migrate@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/graphile-migrate/-/graphile-migrate-1.0.2.tgz#88cef401bf5d26651d5224757e34b88e4b1aa1fd"
-  integrity sha512-/k0azhuJFstcvqydVGei0w+VtXBrt5pzqJkTxVEEvHKSMDuyoBn0cNeXPIqvX/T4M8HZdoyX13aa5zrXCWViCw==
+graphile-migrate@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/graphile-migrate/-/graphile-migrate-1.2.0.tgz#6f3dc13848b8fdb93a1d1efd4eb3e7fc74e9afc4"
+  integrity sha512-GFEdmULjo+HEucS8ECdCYsup7IHY/pP9KOiHLwmA949c4lZUdGbwP6XXJ5Cp1I2lRk4s/1BV1mh54GIK1CBljw==
   dependencies:
+    "@graphile/logger" "^0.2.0"
     "@types/json5" "^0.0.30"
     "@types/node" "^14.6.0"
-    "@types/pg" "^7.14.1"
+    "@types/pg" ">=6 <9"
     chalk "^3.0.0"
-    chokidar "^3.3.1"
+    chokidar "^3.5.1"
     json5 "^2.1.2"
     pg ">=6.5 <9"
     pg-connection-string "^2.1.0"
