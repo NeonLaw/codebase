@@ -3,8 +3,8 @@
 /* eslint-enable */
 import { Box, Button as ChakraButton, useColorMode } from '@chakra-ui/react';
 import { Global, css, keyframes } from '@emotion/react';
-import { CSSProperties } from 'react';
 
+import { CSSProperties } from 'react';
 import { colors } from '../styles/neonLaw';
 import styled from '@emotion/styled';
 
@@ -120,13 +120,14 @@ export const Button = ({
         }
         boxShadow={'none !important'}
         {...props}
-        _hover={
-          shouldHaveCyanStyles
+        _hover={{
+          ...(shouldHaveCyanStyles
             ? { background: colors.primaryButtonBgOnHover[colorMode] }
-            : { background: props._hover && props._hover.bg }
-        }
-        _focus={
-          shouldHaveCyanStyles
+            : { background: props._hover && props._hover.bg }),
+          ...(props.as == 'a' && { color: 'inherit' }),
+        }}
+        _focus={{
+          ...(shouldHaveCyanStyles
             ? {
               backgroundColor: colors.primaryButtonBg.lightBlue,
               color: colors.primaryButtonColor.light,
@@ -134,8 +135,9 @@ export const Button = ({
             }
             : {
               boxShadow: 'none',
-            }
-        }
+            }),
+          ...(props.as == 'a' && { color: 'inherit' }),
+        }}
       >
         <>
           {flash ? (
