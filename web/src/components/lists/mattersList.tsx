@@ -1,5 +1,7 @@
-import { Box, ListItem, Skeleton, UnorderedList } from '@chakra-ui/react';
+import { Box, Skeleton } from '@chakra-ui/react';
+
 import Link from 'next/link';
+import { gutters } from '../../styles/neonLaw';
 import { useAllCurrentUserMattersQuery } from '../../utils/api';
 
 interface MattersListProps {
@@ -17,27 +19,27 @@ export const MattersList = ({ category }: MattersListProps) => {
     const matters = data?.currentUserMatters?.nodes || [];
 
     return (
-      <UnorderedList spacing={3}>
+      <Box as="ul" margin={`${gutters.xSmall} 0`}>
         {matters.map((matter, key) => {
           const matterCategory = matter.matterTemplateCategory;
-          if ( matterCategory === category || category === 'all') {
+          if (matterCategory === category || category === 'all') {
             return (
-              <Box
-                key={key}
-                as="a"
-                href={`/portal/${matterCategory}/${matter.id}`}
-              >
-                <Link href={`/portal/${matterCategory}/${matter.id}`}>
-                  <ListItem>
+              <Box as="li" _notLast={{ marginBottom: gutters.micro }}>
+                <Box
+                  key={key}
+                  as="a"
+                  href={`/portal/${matterCategory}/${matter.id}`}
+                >
+                  <Link href={`/portal/${matterCategory}/${matter.id}`}>
                     {matter.name}
-                  </ListItem>
-                </Link>
+                  </Link>
+                </Box>
               </Box>
             );
           }
           return null;
         })}
-      </UnorderedList>
+      </Box>
     );
   }
 
