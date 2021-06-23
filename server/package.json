@@ -42,7 +42,7 @@
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^2.0.3",
     "lob": "^6.2.0",
-    "neo4j-driver": "^4.3.0",
+    "neo4j-driver": "^4.3.1",
     "pg": "^8.6.0",
     "postgraphile": "^4.11.0",
     "slate": "^0.63.0",
