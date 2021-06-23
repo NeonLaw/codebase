@@ -13,10 +13,6 @@ module NeonSchemas
           key.failure("has invalid format")
         end
       end
-
-      rule(:sub) do
-        key.failure("must be greater than 18") if value <= 18
-      end
     end
   end
 end

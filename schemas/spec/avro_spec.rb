@@ -19,6 +19,22 @@ RSpec.describe NeonSchemas::Avro do
         expect(encoded.string).to eq("\u0012hello@rar\u0006rar")
       end
     end
+
+    context "with an invalid outbound email message in hash format" do
+      let(:schema_name) { "outbound_emails.welcome_email" }
+      let(:record) {
+        {
+          sub: "rar"
+        }
+      }
+      let(:encoded) {
+        subject.encode(record: record, schema_name: schema_name)
+      }
+
+      it "returns an Avro::Io::AvroTypeError" do
+        expect { encoded }.to raise_error Avro::IO::AvroTypeError
+      end
+    end
   end
 
   describe "decode" do
