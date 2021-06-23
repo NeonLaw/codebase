@@ -5,7 +5,7 @@ module NeonSchemas
     class WelcomeEmailContract < Dry::Validation::Contract
       json do
         required(:email).filled(:string)
-        required(:age).value(:integer)
+        required(:sub).value(:string)
       end
 
       rule(:email) do
@@ -14,7 +14,7 @@ module NeonSchemas
         end
       end
 
-      rule(:age) do
+      rule(:sub) do
         key.failure("must be greater than 18") if value <= 18
       end
     end
