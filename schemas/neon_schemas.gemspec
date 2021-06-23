@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "avro", "~> 1.10"
+  spec.add_runtime_dependency "dry-validation", "1.6"
 end

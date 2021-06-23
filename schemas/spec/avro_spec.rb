@@ -1,9 +1,9 @@
-RSpec.describe "authentication/successful_login schema" do
-  subject { NeonSchemas::Avro }
-  let(:schema_name) { "authentication/successful_login" }
+RSpec.describe NeonSchemas::Avro do
+  subject { described_class }
 
   describe "encode" do
-    context "with a valid successful_login message in hash format" do
+    context "with a valid outbound email message in hash format" do
+      let(:schema_name) { "outbound_emails.welcome_email" }
       let(:record) {
         {
           email: "hello@rar",
@@ -22,7 +22,8 @@ RSpec.describe "authentication/successful_login schema" do
   end
 
   describe "decode" do
-    context "with a valid successful_login message in binary format" do
+    context "with a valid outbound email message in binary format" do
+      let(:schema_name) { "outbound_emails.welcome_email" }
       let(:string) { "\x12hello@rar rar" }
       let(:decoded) {
         subject.decode(string: string, schema_name: schema_name)
