@@ -46,9 +46,9 @@
     "pg": "^8.6.0",
     "postgraphile": "^4.11.0",
     "slate": "^0.63.0",
-    "stripe": "^8.148.0",
+    "stripe": "^8.156.0",
     "ts-node": "^9.1.1",
-    "typescript": "^4.2.4",
+    "typescript": "^4.3.4",
     "uuid": "^8.3.2",
     "winston": "^3.3.3"
   },

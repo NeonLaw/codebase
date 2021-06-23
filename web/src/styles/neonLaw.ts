@@ -74,6 +74,7 @@ export const gutters = {
   largeOne: '6.25rem',
   largeTwo: '5rem',
   medium: '3.5rem',
+  micro: '.5rem',
   small: '1.875rem',
   xSmall: '1.25rem',
   xSmallOne: '1rem',

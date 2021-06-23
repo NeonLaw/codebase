@@ -2,6 +2,7 @@
 // @ts-nocheck
 /* eslint-enable */
 import { Box, Flex } from '@chakra-ui/react';
+
 import { FaPencilAlt } from 'react-icons/fa';
 
 interface EditOnGithubProps {
@@ -21,6 +22,7 @@ export const EditOnGithub = ({ filename }: EditOnGithubProps) => {
       target="_blank"
       rel="noopener noreferrer"
       data-cy="edit-on-github"
+      textDecoration="none"
     >
       <Box display={['none', 'none', 'inherit']}>
         Edit this page on GitHub &nbsp;
