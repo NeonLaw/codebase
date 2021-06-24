@@ -58,24 +58,20 @@ jobs:
         run: bundle
       - name: Commit Graphile Migrate migrations
         run: |
-          DATABASE_URL=$DATABASE_URL \
+          DATABASE_URL=postgres://postgres:password@postgres:5432/neon_law \
             yarn graphile-worker --schema-only
-          DATABASE_URL=$PRODUCTION_DATABASE_URL \
+          DATABASE_URL=postgres://postgres:password@postgres:5432/production \
             yarn graphile-worker --schema-only
-          DATABASE_URL=$STAGING_DATABASE_URL \
+          DATABASE_URL=postgres://postgres:password@postgres:5432/staging \
             yarn graphile-worker --schema-only
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          PRODUCTION_DATABASE_URL: ${{ secrets.PRODUCTION_DATABASE_URL }}
-          STAGING_DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
       - name: Commit migrations
         run: |
           yarn workspace @neonlaw/server migrate
           yarn workspace @neonlaw/server migrate:for_copying
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          PRODUCTION_DATABASE_URL: ${{ secrets.PRODUCTION_DATABASE_URL }}
-          STAGING_DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
+          DATABASE_URL: postgres://postgres:password@postgres:5432/neon_law
+          PRODUCTION_DATABASE_URL: postgres://postgres:password@postgres:5432/production
+          STAGING_DATABASE_URL: postgres://postgres:password@postgres:5432/staging
       - name: Start API Server
         run: yarn workspace @neonlaw/server start &
         env:
