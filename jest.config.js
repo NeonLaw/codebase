@@ -7,8 +7,6 @@ module.exports = {
   },
   moduleNameMapper: {
     '.+\\.(css)$': 'identity-obj-proxy',
-    '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|)$':
-      '<rootDir>/__mocks__/fileMock.js',
   },
   preset: 'ts-jest',
   testEnvironment: 'node',
@@ -20,6 +18,5 @@ module.exports = {
     '<rootDir>.*/public',
     '<rootDir>.*/cypress'
   ],
-  testURL: 'http://localhost',
-  transformIgnorePatterns: ['node_modules/(?!(gatsby)/)'],
+  testURL: 'http://localhost'
 };

@@ -1,6 +1,6 @@
+require "dry/monads"
 require "neon_email/version"
-require "neon_email/greeting_mailer"
+Dir["#{__dir__}/neon_email/operations/**/*.rb"].sort.each { |f| require f }
 
 module NeonEmail
-  class Error < StandardError; end
 end

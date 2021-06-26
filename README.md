@@ -6,21 +6,27 @@
 
 This is a monorepo containing the software packages used by Neon Law to deliver
 our services to our clients. You are welcome to use this library pursuant to
-the Neon License as long as you promise not to use our Neon Law trademark.
+the Neon License as long as you promise not to use our Neon Law trademark
+without express written consent.
 
 |Package|Latest Version|Staging|Production|
 |-------|--------------|-----------|-------|
-|[Web](./web)|![NPM](https://img.shields.io/npm/v/@neonlaw/web)|deployed on pull requests by Vercel|latest `main` branch commit ([link](https://www.neonlaw.com))|
-|[Schemas](./schemas)|![PyPi](https://img.shields.io/pypi/v/neon_schemas)![RubyGems.Org](https://img.shields.io/gem/v/neon_schemas)![NPM](https://img.shields.io/npm/v/@neonlaw/schemas)|n/a|n/a|
-|[Postgraphile](./server)|![NPM](https://img.shields.io/npm/v/@neonlaw/server)|latest `main` branch commit ([link](https://api.neonlaw.net/graphiql))|v0.1.0 ([link](https://api.neonlaw.com/graphiql))|
-|[I18n](./i18n)|![NPM](https://img.shields.io/npm/v/@neonlaw/i18n)|n/a|n/a|
 |[Components](./components)|![NPM](https://img.shields.io/npm/v/@neonlaw/components)|n/a|n/a|
-|[Nlp server](./nlp_server)|![Crates.io](https://img.shields.io/crates/v/neon_nlp)|n/a|n/a|
-|[Git_flow](./git_flow)|![Crates.io](https://img.shields.io/crates/v/git_flow)|n/a|n/a|
-|[Postgres](./postgres)|![RubyGems.Org](https://img.shields.io/gem/v/neon_postgres)|n/a|n/a|
+|[Diagrams](./diagrams)|![PyPi](https://img.shields.io/pypi/v/neon_diagrams)|n/a|n/a|
 |[Documents](./documents)|![RubyGems.Org](https://img.shields.io/gem/v/neon_documents)|n/a|n/a|
 |[Email](./emails)|![RubyGems.Org](https://img.shields.io/gem/v/neon_email)|n/a|n/a|
-|[Diagrams](./diagrams)|![PyPi](https://img.shields.io/pypi/v/neon_diagrams)|n/a|n/a|
+|[Git_flow](./git_flow)|![Crates.io](https://img.shields.io/crates/v/git_flow)|n/a|n/a|
+|[I18n](./i18n)|![NPM](https://img.shields.io/npm/v/@neonlaw/i18n)|n/a|n/a|
+|[NLP server](./nlp_server)|![Crates.io](https://img.shields.io/crates/v/neon_nlp)|n/a|n/a|
+|[Operations](./operations)|![RubyGems.Org](https://img.shields.io/gem/v/neon_operations)|n/a|n/a|
+|[Postgraphile](./server)|![NPM](https://img.shields.io/npm/v/@neonlaw/server)|latest `main` branch commit ([link](https://api.neonlaw.net/graphiql))|v0.1.0 ([link](https://api.neonlaw.com/graphiql))|
+|[Postgres](./postgres)|![RubyGems.Org](https://img.shields.io/gem/v/neon_postgres)|n/a|n/a|
+|[Schemas](./schemas)|![PyPi](https://img.shields.io/pypi/v/neon_schemas)![RubyGems.Org](https://img.shields.io/gem/v/neon_schemas)![NPM](https://img.shields.io/npm/v/@neonlaw/schemas)|n/a|n/a|
+|[Search](./search)|![RubyGems.org](https://img.shields.io/gem/v/neon_search)|n/a|n/a|
+|[Secrets](./secrets)|![RubyGems.org](https://img.shields.io/gem/v/neon_secrets)|n/a|n/a|
+|[Slack](./slack)|![RubyGems.org](https://img.shields.io/gem/v/neon_slack)|n/a|n/a|
+|[Web](./web)|![NPM](https://img.shields.io/npm/v/@neonlaw/web)|deployed on pull requests by Vercel|latest `main` branch commit ([link](https://www.neonlaw.com))|
+|[Webhooks](./webhooks)|![RubyGems.org](https://img.shields.io/gem/v/neon_webhooks)|n/a|n/a|
 
 This repo also contains an `infrastructure` folder for managing cloud and
 SaaS resources with Terraform and a `shell` folder containing our base docker
@@ -60,7 +66,7 @@ schemas for the messages that travel through our message bus, Google Pub/Sub.
 You can also run a local Google Pub/Sub with the emulator with:
 
 ```bash
-gcloud beta emulators pubsub start --project=neon-law-staging
+gcloud beta emulators pubsub start --project=neon-law-development
 ```
 
 ### Cloud SQL Proxy
@@ -85,6 +91,7 @@ at `localhost:5434`.
 To copy data from production to staging, run the following script:
 
 ```bash
+doppler setup # choose the cloud-sql proxy project
 doppler run -- bundle exec ruby lib/neon_postgres/inter_database_copy/copy.rb
 ```
 
@@ -101,11 +108,11 @@ software:
 - Casetext
 - Code Climate
 - Doppler
-- G Suite
+- Google Workplace
 - GitHub
-- Google Cloud Platform (GKE and Managed PostgreSQL)
+- Google Cloud Platform
 - Grammarly
-- Lexis Nexis
+- Lob
 - Logflare
 - Mercury Bank
 - PGRita
