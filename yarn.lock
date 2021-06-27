@@ -2079,13 +2079,13 @@
   dependencies:
     tslib "^2.0.1"
 
-"@graphile/pg-pubsub@^4.11.0":
-  version "4.11.0"
-  resolved "https://registry.yarnpkg.com/@graphile/pg-pubsub/-/pg-pubsub-4.11.0.tgz#a3542545d84290c40b03bedf3a2dbd5a557d4525"
-  integrity sha512-7U2J/QpSu+hsn3bAvEZb8RmS/rYmgY3G1c+TGl+9ZXVVyaQ3sXNACoOnCaF0oAzRak2YTVYuc/o8iIAWxPEv2A==
+"@graphile/pg-pubsub@^4.12.1":
+  version "4.12.1"
+  resolved "https://registry.yarnpkg.com/@graphile/pg-pubsub/-/pg-pubsub-4.12.1.tgz#c47e1bafde6227f53304ea9ce70558c76fd0578a"
+  integrity sha512-0HR7HN/CZcwkw+pLrmcxGcEkk7U9TvB+rhknjoN8M7agMeYNP/yMgJ2L+4Rgcsnu8a+vszx+AYNFdkGtKE/edw==
   dependencies:
     "@types/debug" "^4.1.4"
-    "@types/pg" "^7.4.14"
+    "@types/pg" ">=6 <9"
     debug "^4.1.1"
     graphql-subscriptions "^1.1.0"
     tslib "^2.0.1"
@@ -4120,10 +4120,10 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.30.tgz#44cb52f32a809734ca562e685c6473b5754a7818"
   integrity sha512-sqm9g7mHlPY/43fcSNrCYfOeX9zkTTK+euO5E6+CVijSMm5tTjkVdwdqRkY3ljjIAf8679vps5jKUoJBCLsMDA==
 
-"@types/jsonwebtoken@^8.3.2", "@types/jsonwebtoken@^8.5.0", "@types/jsonwebtoken@^8.5.1":
-  version "8.5.1"
-  resolved "https://registry.yarnpkg.com/@types/jsonwebtoken/-/jsonwebtoken-8.5.1.tgz#56958cb2d80f6d74352bd2e501a018e2506a8a84"
-  integrity sha512-rNAPdomlIUX0i0cg2+I+Q1wOUr531zHBQ+cV/28PJ39bSPKjahatZZ2LMuhiguETkCgLVzfruw/ZvNMNkKoSzw==
+"@types/jsonwebtoken@^8.3.2", "@types/jsonwebtoken@^8.5.0", "@types/jsonwebtoken@^8.5.2":
+  version "8.5.2"
+  resolved "https://registry.yarnpkg.com/@types/jsonwebtoken/-/jsonwebtoken-8.5.2.tgz#eb71c717b3b8681bb85fbd2950c9c4c5d4506748"
+  integrity sha512-X8BOCkp+WJVNYCYIBugREtVZa4Y09Or9HDx6xqRZem5F8jJV8FuJgNessXyMuv9+U8pjnvdezASwU28uw+1scw==
   dependencies:
     "@types/node" "*"
 
@@ -4193,7 +4193,7 @@
   resolved "https://registry.yarnpkg.com/@types/parse5/-/parse5-5.0.3.tgz#e7b5aebbac150f8b5fdd4a46e7f0bd8e65e19109"
   integrity sha512-kUNnecmtkunAoQ3CnjmMkzNU/gtxG8guhi+Fk2U/kOpIKjIMKnXGp4IJCgQJrXSgMsWYimYG4TGjz/UzbGEBTw==
 
-"@types/pg@>=6 <8", "@types/pg@^7.4.10", "@types/pg@^7.4.14":
+"@types/pg@>=6 <8", "@types/pg@^7.4.10":
   version "7.14.9"
   resolved "https://registry.yarnpkg.com/@types/pg/-/pg-7.14.9.tgz#5f09544d0b5b19fca48b63dd15644c475555ba60"
   integrity sha512-ThTOEwOvYM++zRSGiajRqKyTQboCEJE2VI+30d93WX94sQ7CnrcJ7CICT9oC+QD8Co9JTYJkKEfEXSb5DjUOFA==
@@ -16099,10 +16099,10 @@ slate-hyperscript@^0.62.0:
   dependencies:
     is-plain-object "^3.0.0"
 
-slate-react@^0.63.0:
-  version "0.63.0"
-  resolved "https://registry.yarnpkg.com/slate-react/-/slate-react-0.63.0.tgz#45d929c3fbd812e1bb749023a0f2bfdcdf5d26c0"
-  integrity sha512-gjUvRCFoLZHifiCH+7wZtNXFzxYWCPbxk4ZT8+bB0DW+eAHkbbXO66qzHeY0U4OqQbtTtcao8kvowxVcNtlkBA==
+slate-react@^0.65.2:
+  version "0.65.2"
+  resolved "https://registry.yarnpkg.com/slate-react/-/slate-react-0.65.2.tgz#71ca66f7b9c6d4ffaffb291494b85ce0398c1530"
+  integrity sha512-EweSDd7zehKsirLzwr6iPRArVMr8RgSm3DPboeUEdCBTawdQddXHt1niUmXtb+XzefCqGdOybKkkiXGAOKel8Q==
   dependencies:
     "@types/is-hotkey" "^0.1.1"
     "@types/lodash" "^4.14.149"
