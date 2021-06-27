@@ -82,8 +82,9 @@ jobs:
       - name: Seed the database
         run: yarn db:seed
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL: postgres://postgres:password@postgres:5432/neon_law
       - name: Run tests
+        if: github.actor != 'dependabot[bot]'
         run: yarn test ./server
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
@@ -93,6 +94,7 @@ jobs:
           yarn graphql-codegen
           git diff -G. --exit-code ./web/src/utils/api.tsx
       - name: Run PGRita checks
+        if: github.actor != 'dependabot[bot]'
         uses: pgrita/action@main
         env:
           PGRITA_TOKEN: ${{ secrets.PGRITA_TOKEN }}
