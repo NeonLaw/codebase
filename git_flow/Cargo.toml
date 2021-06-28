@@ -12,7 +12,7 @@ description = "A CLI for an opiniated git flow for monorepos on GitHub"
 
 [dependencies]
 clap = "3.0.0-beta.2"
-octocrab = "0.9"
+octocrab = "0.10"
 regex = "1"
 futures = "0.3"
 tokio = { version = "1", features = ["full"] }
