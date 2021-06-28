@@ -3199,10 +3199,10 @@
   resolved "https://registry.yarnpkg.com/@react-pdf-viewer/core/-/core-2.4.1.tgz#307227703f64ae479a0ee66f0eaa0b18adfd8f57"
   integrity sha512-K1wmjYdp6Df0WLT2sSUnHIpXP2usSediYUWZoc2CC2GMo8ZPLNZuhvYckd9LNbdEicHv5NQxoE0tRtjPEd0jXQ==
 
-"@react-pdf-viewer/core@2.5.0":
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/@react-pdf-viewer/core/-/core-2.5.0.tgz#8d7ad4966dacb8d79c8f28bf82362de07a822658"
-  integrity sha512-No4ibooHFMlAgVxBrbDiXmcKf9u1ZImVlsEVsFDtNC9gBt8mt7Fw2pC9mj/uurlLKnjyKtJGCZpPOp3GpPqiEQ==
+"@react-pdf-viewer/core@2.6.0":
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/@react-pdf-viewer/core/-/core-2.6.0.tgz#57bf8f67afe54ac93508311459bea1b4918df5a9"
+  integrity sha512-Zct6IkpyGPXs/34ziCWhLTuZULRO1hrZYOc/pPWQrlPze2WEld5ahh6suJuGDXJMjxDJIDOobCmmm/oJeSKNjQ==
 
 "@react-pdf-viewer/default-layout@^2.4.1":
   version "2.4.1"
