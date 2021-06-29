@@ -110,11 +110,21 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: '3'
+      - name: Changed Webhooks Files
+        id: webhooks-files
+        uses: tj-actions/changed-files@v7
+        with:
+          files: |
+            webhooks/*
+            webhooks/**
+            webhooks/**/*
       - name: Install dependencies
         working-directory: ./webhooks
+        if: steps.webhooks-files.outputs.any_changed == 'true'
         run: bundle
       - name: Lint Ruby files.
         working-directory: ./webhooks
+        if: steps.webhooks-files.outputs.any_changed == 'true'
         run: bundle exec standardrb
 
   ruby_search_tests:
@@ -124,11 +134,21 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: '3'
+      - name: Changed Search Files
+        id: search-files
+        uses: tj-actions/changed-files@v7
+        with:
+          files: |
+            search/*
+            search/**
+            search/**/*
       - name: Install dependencies
         working-directory: ./search
+        if: steps.search-files.outputs.any_changed == 'true'
         run: bundle
       - name: Lint Ruby files.
         working-directory: ./search
+        if: steps.search-files.outputs.any_changed == 'true'
         run: bundle exec standardrb
 
   ruby_slack_tests:
@@ -138,9 +158,43 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: '3'
+      - name: Changed Slack Files
+        id: slack-files
+        uses: tj-actions/changed-files@v7
+        with:
+          files: |
+            slack/*
+            slack/**
+            slack/**/*
       - name: Install dependencies
         working-directory: ./slack
+        if: steps.slack-files.outputs.any_changed == 'true'
         run: bundle
       - name: Lint Ruby files.
         working-directory: ./slack
+        if: steps.slack-files.outputs.any_changed == 'true'
+        run: bundle exec standardrb
+
+  ruby_operations_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3'
+      - name: Changed Operations Files
+        id: slack-files
+        uses: tj-actions/changed-files@v7
+        with:
+          files: |
+            operations/*
+            operations/**
+            operations/**/*
+      - name: Install dependencies
+        working-directory: ./operations
+        if: steps.operations-files.outputs.any_changed == 'true'
+        run: bundle
+      - name: Lint Ruby files.
+        working-directory: ./operations
+        if: steps.operations-files.outputs.any_changed == 'true'
         run: bundle exec standardrb
