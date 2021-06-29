@@ -30,7 +30,7 @@
     "@neonlaw/i18n": "0.0.1",
     "@next/mdx": "^11.0.0",
     "@nivo/bar": "^0.67.0",
-    "@nivo/core": "^0.67.0",
+    "@nivo/core": "^0.71.0",
     "@react-pdf-viewer/core": "2.6.0",
     "@react-pdf-viewer/default-layout": "^2.4.1",
     "framer-motion": "^4.1.11",
