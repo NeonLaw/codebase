@@ -1,5 +1,5 @@
-require 'bundler/setup'
-require 'webhooks'
+require "bundler/setup"
+require "webhooks"
 
 RSpec.configure do |config|
   # Disable RSpec exposing methods globally on `Module` and `main`

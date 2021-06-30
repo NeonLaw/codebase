@@ -1,7 +1,7 @@
-require 'bundler/setup'
-require 'neon_documents'
-require 'pry'
-require 'faker'
+require "bundler/setup"
+require "neon_documents"
+require "pry"
+require "faker"
 
 RSpec.configure do |config|
   # Disable RSpec exposing methods globally on `Module` and `main`
