@@ -1,4 +1,4 @@
-require 'dry-validation'
+require "dry-validation"
 
 module NeonSchemas::Contracts::OutboundEmails
   class WelcomeEmailContract < Dry::Validation::Contract
@@ -11,7 +11,7 @@ module NeonSchemas::Contracts::OutboundEmails
 
       return if email_regex.match?(value)
 
-      key.failure('has invalid format')
+      key.failure("has invalid format")
     end
   end
 end

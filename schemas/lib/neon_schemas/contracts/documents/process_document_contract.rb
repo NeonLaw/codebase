@@ -1,4 +1,4 @@
-require 'dry-validation'
+require "dry-validation"
 
 module NeonSchemas::Contracts::Documents
   class ProcessDocumentContract < Dry::Validation::Contract
@@ -9,7 +9,7 @@ module NeonSchemas::Contracts::Documents
     rule(:email) do
       return if EMAIL_REGEX.match?(value)
 
-      key.failure('has invalid format')
+      key.failure("has invalid format")
     end
   end
 end

@@ -1,4 +1,4 @@
-require 'dry-validation'
+require "dry-validation"
 
 module NeonSchemas::Contracts::Slack
   class SendMessageContract < Dry::Validation::Contract
@@ -8,9 +8,9 @@ module NeonSchemas::Contracts::Slack
     end
 
     rule(:channel) do
-      return if channel == 'devops'
+      return if channel == "devops"
 
-      key.failure('invalid channel')
+      key.failure("invalid channel")
     end
   end
 end

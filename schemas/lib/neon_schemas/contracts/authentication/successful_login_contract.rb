@@ -1,4 +1,4 @@
-require 'dry-validation'
+require "dry-validation"
 
 module NeonSchemas::Contracts::Authentication
   class SuccessfulLoginContract < Dry::Validation::Contract
@@ -10,7 +10,7 @@ module NeonSchemas::Contracts::Authentication
     rule(:email) do
       return if EMAIL_REGEX.match?(value)
 
-      key.failure('has invalid format')
+      key.failure("has invalid format")
     end
   end
 end
