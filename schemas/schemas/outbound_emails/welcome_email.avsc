@@ -9,8 +9,8 @@
       "doc": "The 'to' email to send the email to."
     },
     {
-      "type" : "string",
-      "name" : "sub",
+      "type": "string",
+      "name": "sub",
       "doc": "The 'sub' from Auth0."
     }
   ]

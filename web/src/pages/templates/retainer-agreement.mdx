@@ -1,6 +1,7 @@
 export const meta = {
   title: "Retainer Agreement",
   slug: "/templates/retainer-agreement",
+  filename: "/templates/retainer-agreement",
   updatedAt: "2020-07-25",
   tags: "templates,retainer-agreement",
   layout: "letter",
@@ -16,8 +17,8 @@ export const matter = {
     email: "jane.smith@example.com"
   },
   primaryAttorney: {
-    name: "Nicholas Shook",
-    email: "nick@neonlaw.com",
+    name: "Neon Lawyer",
+    email: "neon@neonlaw.com",
     hourlyRate: "$300"
   },
   jurisdictionCourt: 'the 8th District Court of the State of Nevada',
@@ -52,7 +53,8 @@ We will undertake the following work on your behalf:
 ## Payment and Invoicing
 
 You have agreed to pay for our services based on the time we spend working on
-the case. My current hourly rate is <Interpolation text={matter.primaryAttorney.hourlyRate} />.
+the case. My current hourly rate is
+<Interpolation text={matter.primaryAttorney.hourlyRate} />.
 The rates of our associates currently range between $200 and $300 per hour.
 Legal assistants, who will be utilized where appropriate to avoid unnecessary
 attorney fees are charged at $100 per hour. These rates are subject to change
@@ -64,12 +66,14 @@ spent on your matter, including telephone calls and emails.
 Any dispute, claim or controversy arising out of or relating to this
 Agreement or the breach, termination, enforcement, interpretation or validity
 thereof, including the determination of the scope or applicability of this
-agreement to arbitrate, shall be determined by arbitration in <Interpolation text={matter.jurisdiction} />&nbsp;
-before three arbitrators. The arbitration shall be administered by JAMS
-pursuant to its [Comprehensive Arbitration Rules and
+agreement to arbitrate, shall be determined by arbitration in
+<Interpolation text={matter.jurisdiction} /> before three arbitrators. The
+arbitration shall be administered by JAMS pursuant to its [Comprehensive
+Arbitration Rules and
 Procedures](https://www.jamsadr.com/rules-comprehensive-arbitration/)
 and in accordance with the
-[Expedited Procedures in those Rules](https://www.jamsadr.com/rules-comprehensive-arbitration/#Rule-16-1).
+[Expedited Procedures in those
+Rules](https://www.jamsadr.com/rules-comprehensive-arbitration/#Rule-16-1).
 Judgment on the Award may be entered in
 <Interpolation text={matter.jurisdictionCourt} />&nbsp;
 This clause shall not preclude parties from seeking provisional remedies in
