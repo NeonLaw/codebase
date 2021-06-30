@@ -3,14 +3,14 @@ require 'dry-validation'
 module NeonSchemas::Contracts::Slack
   class SendMessageContract < Dry::Validation::Contract
     json do
-      required(:email).filled(:string)
-      required(:sub).value(:string)
+      required(:message).filled(:string)
+      required(:channel).value(:string)
     end
 
-    rule(:email) do
-      return if EMAIL_REGEX.match?(value)
+    rule(:channel) do
+      return if channel == 'devops'
 
-      key.failure('has invalid format')
+      key.failure('invalid channel')
     end
   end
 end

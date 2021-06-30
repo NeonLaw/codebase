@@ -4,7 +4,6 @@ module NeonSchemas::Contracts::OutboundEmails
   class WelcomeEmailContract < Dry::Validation::Contract
     json do
       required(:email).filled(:string)
-      required(:sub).value(:string)
     end
 
     rule(:email) do

@@ -3,8 +3,7 @@ require 'dry-validation'
 module NeonSchemas::Contracts::Documents
   class ProcessDocumentContract < Dry::Validation::Contract
     json do
-      required(:email).filled(:string)
-      required(:sub).value(:string)
+      required(:filename).filled(:string)
     end
 
     rule(:email) do
