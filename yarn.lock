@@ -33,10 +33,10 @@
   dependencies:
     tslib "~2.0.1"
 
-"@auth0/nextjs-auth0@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@auth0/nextjs-auth0/-/nextjs-auth0-1.3.0.tgz#26b19359581fe16dd1e3a1366e53b80a67fdfba6"
-  integrity sha512-yWIhOmA2cI2jSF/pD8c/BxtKboUH2DsE3ksNJO7bW2mwa4p7NOa5rVTKcDBi0/PBwKBjiX9UnE+JyYAZgL+o3Q==
+"@auth0/nextjs-auth0@^1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@auth0/nextjs-auth0/-/nextjs-auth0-1.4.2.tgz#6270fc5b424f95879a81517d6870bdeb271b41dd"
+  integrity sha512-NIVcI0hsyAmQaufl+9IgzsvbQ9m/dH7ezt0Kqdq1NiSIZjifUWLJj6og1Lm5eHfPEfKi3Pk3BS5V90vU6YOM2g==
   dependencies:
     base64url "^3.0.1"
     cookie "^0.4.1"
@@ -44,7 +44,7 @@
     futoin-hkdf "^1.3.2"
     http-errors "^1.8.0"
     joi "^17.4.0"
-    jose "^2.0.4"
+    jose "^2.0.5"
     on-headers "^1.0.2"
     openid-client "^4.2.3"
     tslib "^2.1.0"
