@@ -2,14 +2,18 @@ require "dry-validation"
 
 module NeonSchemas
   module Contracts
-    class WelcomeEmailContract < Dry::Validation::Contract
-      json do
-        required(:email).filled(:string)
-        required(:sub).value(:string)
-      end
+    module OutboundEmails
+      class WelcomeEmailContract < Dry::Validation::Contract
+        json do
+          required(:email).filled(:string)
+          required(:sub).value(:string)
+        end
 
-      rule(:email) do
-        unless /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.match?(value)
+        rule(:email) do
+          email_regex = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+
+          return if email_regex.match?(value)
+
           key.failure("has invalid format")
         end
       end

@@ -4,6 +4,7 @@ PATH
     neon_schemas (0.1.5)
       avro (~> 1.10)
       dry-validation (= 1.6)
+      neon_operations (= 0.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -28,7 +29,7 @@ GEM
     dry-logic (1.2.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.5, >= 0.5)
-    dry-schema (1.6.2)
+    dry-schema (1.7.0)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.8, >= 0.8.3)
       dry-core (~> 0.5, >= 0.5)
@@ -50,6 +51,7 @@ GEM
       dry-schema (~> 1.5, >= 1.5.2)
     method_source (1.0.0)
     multi_json (1.15.0)
+    neon_operations (0.0.1)
     parallel (1.20.1)
     parser (3.0.1.1)
       ast (~> 2.4.1)
