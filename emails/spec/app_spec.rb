@@ -15,12 +15,9 @@ RSpec.describe "app.rb" do
           type: "outbound_emails.welcome_email"
         )
 
-        allow_any_instance_of(Logger).to receive(:info).with("hey you!")
-        expect_any_instance_of(Logger).to receive(:info).with(message)
-        allow(ENV).to receive(:fetch)
-          .with("NEON_ENV").and_return("development")
-        allow(ENV).to receive(:fetch)
-          .with("SENDGRID_API_KEY").and_return("yes")
+        expect(
+          NeonOperations::GCPFunctionsManager
+        ).to receive(:invoke_operation)
 
         call_event("outbound_emails.welcome_email", event)
       end

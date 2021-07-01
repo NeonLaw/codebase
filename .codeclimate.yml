@@ -9,4 +9,5 @@ exclude_patterns:
   - "web/src/utils/api.tsx"
   - "web/cypress/**/*"
   - "server/tests/utils/**/*"
-  - "postgres/spec/**/*"
+  - "**/spec_helper.rb"
+  - "**/*_spec.rb"

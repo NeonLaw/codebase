@@ -1,15 +1,10 @@
 require "functions_framework"
-require "neon_slac"
-require "logger"
-require "base64"
-require "json"
-
-logger = Logger.new($stdout)
+require "neon_slack"
+require "neon_operations"
 
 FunctionsFramework.cloud_event "slack.send_message" do |event|
-  data = JSON.parse(
-    Base64.strict_decode64(event.data.fetch("message").fetch("data"))
+  NeonOperations::GCPFunctionsManager.invoke_operation(
+    NeonSlack::Operations::Messeger,
+    event
   )
-
-  logger.info(data)
 end
