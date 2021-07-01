@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "sendgrid-ruby", "6.4"
   spec.add_runtime_dependency "neon_operations", "0.0.1"
 
-  spec.add_development_dependency "rake", "12.0"
+  spec.add_development_dependency "rake", "12.3.3"
   spec.add_development_dependency "rspec", "3.0"
   spec.add_development_dependency "standard", "1.0.5"
   spec.add_development_dependency "pry", "0.14.1"
