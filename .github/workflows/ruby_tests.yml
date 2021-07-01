@@ -198,3 +198,7 @@ jobs:
         working-directory: ./operations
         if: steps.operations-files.outputs.any_changed == 'true'
         run: bundle exec standardrb
+      - name: Run RSpec
+        working-directory: ./operations
+        if: steps.operations-files.outputs.any_changed == 'true'
+        run: bundle exec rspec spec

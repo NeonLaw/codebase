@@ -1,3 +1,4 @@
+require "dry/monads"
 require "neon_operations/version"
 
 module NeonOperations
@@ -14,6 +15,8 @@ module NeonOperations
   end
 
   class Operation
+    include Dry::Monads[:maybe, :result]
+
     def self.call(input:)
       new(input: input).call
     end
