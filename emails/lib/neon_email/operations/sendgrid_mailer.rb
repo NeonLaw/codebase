@@ -3,26 +3,17 @@ require "neon_secrets"
 
 module NeonEmail
   module Operations
-    class SendgridMailer
-      def self.run(to:, from:, subject:, content:)
-        new(to: to, from: from, subject: subject, content: content).run
-      end
+    class SendgridMailer < NeonOperations::Operation
+      def initialize; end
 
-      def initialize(to:, from:, subject:, content:)
-        @to = to
-        @from = from
-        @subject = subject
-        @content = content
-      end
-
-      def send_email
-        from = SendGrid::Email.new(email: "support@neonlaw.com")
-        to = SendGrid::Email.new(email: to_email)
+      def call(to:, from:, subject:, content:)
+        from_email = SendGrid::Email.new(email: "support@neonlaw.com")
+        to_email = SendGrid::Email.new(email: to)
         sendgrid_content = SendGrid::Content.new(
           type: "text/plain",
           value: content
         )
-        SendGrid::Mail.new(from, subject, to, sendgrid_content)
+        SendGrid::Mail.new(from_email, subject, to_email, sendgrid_content)
 
         Success
       rescue

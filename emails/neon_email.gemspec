@@ -33,5 +33,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "standard", "1.0.5"
   spec.add_development_dependency "pry", "0.14.1"
   spec.add_development_dependency "faker", "2.17"
-  spec.add_development_dependency "dry-monads", "~> 1.3"
 end
