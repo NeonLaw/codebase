@@ -11,7 +11,6 @@ without express written consent.
 
 |Package|Latest Version|Staging|Production|
 |-------|--------------|-----------|-------|
-|[Components](./components)|![NPM](https://img.shields.io/npm/v/@neonlaw/components)|n/a|n/a|
 |[Diagrams](./diagrams)|![PyPi](https://img.shields.io/pypi/v/neon_diagrams)|n/a|n/a|
 |[Documents](./documents)|![RubyGems.Org](https://img.shields.io/gem/v/neon_documents)|n/a|n/a|
 |[Email](./emails)|![RubyGems.Org](https://img.shields.io/gem/v/neon_email)|n/a|n/a|
