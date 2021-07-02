@@ -1,8 +1,7 @@
 import { Box, useColorMode } from '@chakra-ui/react';
 import { colors, gutters } from '../styles/neonLaw';
 import { CSSProperties } from 'react';
-
-import { Container } from '@neonlaw/components';
+import { Container } from './container';
 import styled from '@emotion/styled';
 
 const StyledSection = styled(Box)`
@@ -51,13 +50,11 @@ export const Section = ({
                 ...titleStyles,
                 textAlign: isTitleCentered ? 'center' : 'left',
               }}
-              className={`${
-                isTitleNotUnderlined
-                  ? ''
-                  : 'heading__underlined heading__underlined--cyan'
-              } ${
-                underlineColor === 'orange' ? 'heading__underlined--orange' : ''
-              } ${isTitleCentered ? 'heading__underlined--centered' : ''}`}
+              className={`${isTitleNotUnderlined
+                ? ''
+                : 'heading__underlined heading__underlined--cyan'
+                } ${underlineColor === 'orange' ? 'heading__underlined--orange' : ''
+                } ${isTitleCentered ? 'heading__underlined--centered' : ''}`}
               data-testid={titleTestId}
             >
               {title}

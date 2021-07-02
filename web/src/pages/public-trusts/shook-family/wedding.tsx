@@ -10,7 +10,7 @@ import {
 import { AiFillGift } from 'react-icons/ai';
 import { Button } from '../../../components/button';
 import { Carousel } from 'react-responsive-carousel';
-import { Container } from '@neonlaw/components';
+import { Container } from '../../../components/container';
 import {
   PublicTrustLayout
 } from '../../../components/layouts/publicTrustLayout';
@@ -50,7 +50,7 @@ const ShookFamilyWeddingPage = () => {
       'https://api.neonlaw.com/api/create-checkout-session',
       {
         body: JSON.stringify({ amount }),
-        headers: { 'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         method: 'POST',
       }
     );
@@ -85,13 +85,13 @@ const ShookFamilyWeddingPage = () => {
         >
           <Carousel showArrows={true} showThumbs={false}>
             <div>
-              <img src="/images/wedding-photo-1.png" alt="oakland wedding"/>
+              <img src="/images/wedding-photo-1.png" alt="oakland wedding" />
             </div>
             <div>
-              <img src="/images/wedding-photo-2.png" alt="oakland wedding"/>
+              <img src="/images/wedding-photo-2.png" alt="oakland wedding" />
             </div>
             <div>
-              <img src="/images/wedding-photo-3.png" alt="oakland wedding"/>
+              <img src="/images/wedding-photo-3.png" alt="oakland wedding" />
             </div>
           </Carousel>
         </Box>
@@ -110,7 +110,7 @@ const ShookFamilyWeddingPage = () => {
           'repeat(5, 1fr)',
           'repeat(2, 1fr)',
         ]} >
-          <GridItem colSpan={[1,1,3,1]}>
+          <GridItem colSpan={[1, 1, 3, 1]}>
             <Text margin="0.5em">
               We met at Pegasus Books in Berekeley and got tacos thereafter.
               Despite being Nick&apos;s favorite college taqueria, Michelle
@@ -133,7 +133,7 @@ const ShookFamilyWeddingPage = () => {
               Until then, please get in touch at family@shook.family.
             </Text>
           </GridItem>
-          <GridItem colSpan={[1,1,2,1]}>
+          <GridItem colSpan={[1, 1, 2, 1]}>
             <Box
               borderRadius="md"
               border={`1px solid ${colors.borders[colorMode]}`}
@@ -170,14 +170,14 @@ const ShookFamilyWeddingPage = () => {
                   />
                   <Box width="100%" padding="1em 0">
                     <Button type="submit" width="100%" color="white">
-                      <AiFillGift/>
+                      <AiFillGift />
                       &nbsp;Donate Now
                     </Button>
                   </Box>
                   <Text width="100%" fontSize="0.7em">
-                  Please do not feel any pressure to give at all.
-                  Michelle and Nick would love to spend time in Polynesia, a
-                  place neither has been.
+                    Please do not feel any pressure to give at all.
+                    Michelle and Nick would love to spend time in Polynesia, a
+                    place neither has been.
                   </Text>
                   <Text paddingBottom="1em" width="100%" fontSize="0.5em">
                     *Gifts are handled by Neon Law and will show up on your bank

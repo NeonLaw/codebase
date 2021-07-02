@@ -6,7 +6,7 @@ import {
 } from '../../styles/neonLaw';
 import { BaseFooter } from '../footer/baseFooter';
 import { Breadcrumbs } from '../breadcrumbs';
-import { Container } from '@neonlaw/components';
+import { Container } from '../container';
 import { EditOnGithub } from '../editOnGithub';
 import { Image } from '../image';
 import { MDXComponents } from '../mdxComponents';

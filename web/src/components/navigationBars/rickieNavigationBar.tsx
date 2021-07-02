@@ -10,7 +10,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { BlackLivesMatter } from './blackLivesMatter';
-import { Container } from '@neonlaw/components';
+import { Container } from '../container';
 import Link from 'next/link';
 import { MdDehaze } from 'react-icons/md';
 import { SideNavContent } from '../sideNavigation/sideNavContent';
@@ -93,13 +93,13 @@ export const RickieNavigationBar = () => {
                       transition: 'all 0.4s cubic-bezier(0, 0.5, 0, 1)',
                     }}
                     _hover={
-                        {
-                          '&:after': {
-                            background: colors.primaryColor400,
-                            right: 0,
-                          },
-                          color: colors.primaryColor400,
-                        } as any
+                      {
+                        '&:after': {
+                          background: colors.primaryColor400,
+                          right: 0,
+                        },
+                        color: colors.primaryColor400,
+                      } as any
                     }
                   >
                     {link.label}
@@ -121,7 +121,7 @@ export const RickieNavigationBar = () => {
                     color: 'black',
                   }}
                 >
-                Sign Rickie&apos;s Change.org Petition
+                  Sign Rickie&apos;s Change.org Petition
                 </Button>
               </a>
               <IconButton

@@ -124,21 +124,6 @@ jobs:
       - name: Push the Docker image to GitHub Registry
         run: docker push ghcr.io/neonlaw/codebase/server:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/server@/,"")}1')
 
-  update_components_package:
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/components@')
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - name: Login to NPM
-        run: npm set //registry.npmjs.org/:_authToken $NODE_AUTH_TOKEN
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-      - name: Publish @neonlaw/components
-        run: npm publish --access public
-        working-directory: ./components
-
   update_neon_postgres_package:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/neon_postgres@')

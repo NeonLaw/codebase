@@ -1,6 +1,6 @@
 import { Box, Flex, useColorMode } from '@chakra-ui/react';
 import { BaseFooter } from '../footer/baseFooter';
-import { Container } from '@neonlaw/components';
+import { Container } from '../container';
 import {
   RickieNavigationBar
 } from '../navigationBars/rickieNavigationBar';
