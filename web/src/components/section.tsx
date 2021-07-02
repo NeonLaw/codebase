@@ -52,9 +52,9 @@ export const Section = ({
               }}
               className={`${isTitleNotUnderlined
                 ? ''
-                : 'heading__underlined heading__underlined--cyan'
-                } ${underlineColor === 'orange' ? 'heading__underlined--orange' : ''
-                } ${isTitleCentered ? 'heading__underlined--centered' : ''}`}
+                : 'heading__underlined heading__underlined--cyan'}
+                ${underlineColor === 'orange' && 'heading__underlined--orange'}
+              ${isTitleCentered ? 'heading__underlined--centered' : ''}`}
               data-testid={titleTestId}
             >
               {title}
