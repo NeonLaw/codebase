@@ -43,3 +43,10 @@ gcloud pubsub subscriptions create outbound_email \
 
 * Outbound Emails
   * Welcome Email
+
+## Developing
+
+```bash
+bundle
+bundle exec guard
+```

@@ -1,0 +1,7 @@
+directories %w[lib/neon_schemas spec] \
+  .select { |d| Dir.exist?(d) ? d : UI.warning("Directory #{d} does not exist") }
+
+guard :rspec, cmd: "rspec" do
+  watch(%r{^spec/.+_spec\.rb})
+  watch(%r{^lib/neon_schemas/(.+)\.rb}) { |m| "spec/#{m[1]}_spec.rb" }
+end
