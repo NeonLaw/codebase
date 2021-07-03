@@ -13,23 +13,34 @@ const JusticeForRickieSlaughterIndexPage = (): JSX.Element => {
 
       <Carousel showArrows={true} showThumbs={false}>
         <div>
-          <img src="/images/rickie.jpg" alt="Rickie Slaughter"/>
+          <img src="/images/rickie.jpg" alt="Rickie Slaughter" />
         </div>
         <div>
-          <img src="/images/stars-and-stripes.png" alt="stars and stripes"/>
+          <img src="/images/stars-and-stripes.png" alt="stars and stripes" />
         </div>
       </Carousel>
 
       <Alert status="info">
-          Use Spotify? Listen to&nbsp;
+        Use Spotify? Listen to&nbsp;
         <a
           href="https://open.spotify.com/show/30Q6Hu4WXe3MIqktx9MOse"
           target="_blank"
           rel="noreferrer"
           style={{ textDecoration: 'underline' }}
         >
-            Here, Rickie Speak
-        </a>.
+          Here, Rickie Speak
+        </a>.&nbsp;
+        You can also listen on
+        <a
+          href="https://podcasts.google.com/search/here%2C%20rickie%20speak"
+          target="_blank"
+          rel="noreferrer"
+          style={{ textDecoration: 'underline' }}
+        >
+          Google Podcasts
+        </a>
+        and
+        Apple Podcasts.
       </Alert>
 
       <h2>Rickie&apos;s Story of His Wrongful Conviction</h2>

@@ -9,6 +9,10 @@ export const WriteLetter = () => {
     <RickieLayout>
       <h1>Write Rickie a letter.</h1>
       <p>
+        You can also write Rickie by sending a letter to Rickie Slaughter
+        #85902, PO Box 650, Indian Spring, NV 89070.
+      </p>
+      <p>
         Big thanks to our friends at Lob.org for sponsoring letters to Rickie!
       </p>
       <Box marginTop="1em">
