@@ -7,6 +7,11 @@ export const matterFields: Field[] = [
     type: 'string',
   },
   {
+    name: 'slug',
+    required: true,
+    type: 'string',
+  },
+  {
     collection: 'matterTemplates',
     labelColumn: 'name',
     name: 'matterTemplateId',
