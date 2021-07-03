@@ -33,7 +33,7 @@ module NeonEmail
       attr_reader :input, :schema_contract
 
       def validate_input
-        schema_contract.call(data)
+        schema_contract.call(input)
       end
     end
   end

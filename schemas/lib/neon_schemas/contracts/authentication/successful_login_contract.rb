@@ -8,9 +8,11 @@ module NeonSchemas::Contracts::Authentication
     end
 
     rule(:email) do
-      return if EMAIL_REGEX.match?(value)
+      email_regex = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
-      key.failure("has invalid format")
+      if email_regex.match?(value) == false
+        key.failure("has invalid format")
+      end
     end
   end
 end

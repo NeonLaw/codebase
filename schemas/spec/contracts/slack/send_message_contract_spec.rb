@@ -1,8 +1,8 @@
-RSpec.describe NeonSchemas::Contracts::Documents::ProcessDocumentContract do
+RSpec.describe NeonSchemas::Contracts::Slack::SendMessageContract do
   let(:result) { described_class.new.call(input) }
 
   context "with correctly formatted input" do
-    let(:input) { {filename: "Yes.csv"} }
+    let(:input) { {message: "Hey There", channel: "devops"} }
 
     it "returns true" do
       expect(result).to be_a_kind_of Dry::Validation::Result
@@ -11,12 +11,12 @@ RSpec.describe NeonSchemas::Contracts::Documents::ProcessDocumentContract do
   end
 
   context "with incorrectly formatted input" do
-    let(:input) { {filename: 1} }
+    let(:input) { {message: "Hey There", channel: "general"} }
 
     it "contains errors" do
       expect(result).to be_a_kind_of Dry::Validation::Result
       expect(result.errors.messages.count).to eq 1
-      expect(result.errors.messages.first.path).to eq %i[filename]
+      expect(result.errors.messages.first.path).to eq %i[channel]
     end
   end
 end

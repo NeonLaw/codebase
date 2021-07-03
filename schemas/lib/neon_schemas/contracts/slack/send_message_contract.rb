@@ -8,9 +8,9 @@ module NeonSchemas::Contracts::Slack
     end
 
     rule(:channel) do
-      return if channel == "devops"
-
-      key.failure("invalid channel")
+      if value != "devops"
+        key.failure("invalid channel")
+      end
     end
   end
 end
