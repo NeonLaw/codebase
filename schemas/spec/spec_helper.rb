@@ -1,6 +1,9 @@
 require "bundler/setup"
 require "neon_schemas"
 require "pry"
+require "simplecov"
+
+SimpleCov.start
 
 RSpec.configure do |config|
   # Disable RSpec exposing methods globally on `Module` and `main`
