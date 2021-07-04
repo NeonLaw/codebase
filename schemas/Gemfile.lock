@@ -4,7 +4,7 @@ PATH
     neon_schemas (0.1.8)
       avro (~> 1.10)
       dry-validation (= 1.6)
-      neon_operations (= 0.0.3)
+      neon_operations (= 0.0.4)
 
 GEM
   remote: https://rubygems.org/
@@ -81,7 +81,7 @@ GEM
     method_source (1.0.0)
     multi_json (1.15.0)
     nenv (0.3.0)
-    neon_operations (0.0.3)
+    neon_operations (0.0.4)
       dry-monads (~> 1.3)
     notiffany (0.1.3)
       nenv (~> 0.1)
