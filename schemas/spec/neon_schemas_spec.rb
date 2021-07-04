@@ -7,7 +7,7 @@ RSpec.describe NeonSchemas do
     gemfile_lines = File.readlines("#{__dir__}/../Gemfile")
 
     expect(gemfile_lines.count).to eq 2
-    expect(gemfile_lines.first).to eq 'source "https://rubygems.org"'
-    expect(gemfile_lines.last).to eq "gemspec"
+    expect(gemfile_lines.first).to eq "source \"https://rubygems.org\"\n"
+    expect(gemfile_lines.last).to eq "gemspec\n"
   end
 end
