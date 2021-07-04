@@ -17,10 +17,6 @@ module NeonOperations
   class Operation
     include Dry::Monads[:maybe, :result]
 
-    def self.call(input:)
-      new(input: input).call
-    end
-
     def initialize(input:, schema_contract: nil)
       @input = input
       @schema_contract = schema_contract
@@ -35,7 +31,11 @@ module NeonOperations
     attr_reader :input, :schema_contract
 
     def validate_input
-      schema_contract.validate(input)
+      validation_result = schema_contract.call(input)
+
+      return Failure(validation_result) if validation_result.errors.any?
+
+      Success(validate_input)
     end
   end
 end
