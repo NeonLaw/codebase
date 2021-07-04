@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "avro", "~> 1.10"
   spec.add_runtime_dependency "dry-validation", "1.6"
-  spec.add_runtime_dependency "neon_operations", "0.0.3"
+  spec.add_runtime_dependency "neon_operations", "0.0.4"
 
   spec.add_development_dependency "rake", "12.3.3"
   spec.add_development_dependency "rspec", "3.0"
