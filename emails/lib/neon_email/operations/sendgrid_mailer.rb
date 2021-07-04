@@ -6,8 +6,7 @@ module NeonEmail
     class SendgridMailer < NeonOperations::Operation
       def initialize(
         input:,
-        schema_contract: NeonSchemas::Contracts::OutboundEmails::SendgridMailContract,
-        mailer_operation: NeonEmail::Operations::SendgridMailer
+        schema_contract: NeonSchemas::Contracts::OutboundEmails::SendgridMailContract
       )
         @input = input
         @schema_contract = schema_contract
@@ -30,8 +29,6 @@ module NeonEmail
       end
 
       private
-
-      attr_reader :to, :from, :subject, :content
 
       def sendgrid_api_key
         @_sendgrid_api_key ||= SendGrid::API.new(

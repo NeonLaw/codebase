@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    neon_schemas (0.1.11)
+    neon_schemas (0.1.12)
       avro (~> 1.10)
       dry-validation (= 1.6)
       neon_operations (= 0.0.6)
