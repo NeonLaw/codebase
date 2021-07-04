@@ -5,7 +5,7 @@ module NeonEmail
     class GreetingMailer < NeonOperations::Operation
       def initialize(
         input:,
-        schema_contract: NeonSchemas::Contracts::OutboundEmails::WelcomeEmailContract.new,
+        schema_contract: NeonSchemas::Contracts::OutboundEmails::WelcomeEmailContract,
         mailer_operation: NeonEmail::Operations::SendgridMailer
       )
         @input = input
