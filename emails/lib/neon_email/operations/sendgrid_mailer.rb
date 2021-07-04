@@ -6,7 +6,7 @@ module NeonEmail
     class SendgridMailer < NeonOperations::Operation
       def initialize(
         input:,
-        schema_contract: NeonSchemas::Contracts::OutboundEmails::SendgridMailContract,
+        schema_contract: NeonSchemas::Contracts::OutboundEmails::SendgridMailContract
       )
         @input = input
         @schema_contract = schema_contract
