@@ -4,7 +4,7 @@ RSpec.describe NeonEmail::Operations::GreetingMailer do
   describe ".call" do
     context "with valid data" do
       let(:email) { Faker::Internet.email }
-      let(:data) { {to: email, sub: "123abc"} }
+      let(:input) { {email: email} }
       let(:sendgrid) { instance_double(NeonEmail::Operations::SendgridMailer) }
 
       context "with a successful Sendgrid#send_email monad" do
@@ -16,9 +16,9 @@ RSpec.describe NeonEmail::Operations::GreetingMailer do
           #     subject: "Welcome to Neon Law!",
           #     content: "Welcome, please email us if you have any questions."
           #   }
-          # ).and_return(Success)
+          # ).and_return(Success(email))
 
-          # expect(subject.run(data)).to be_successful
+          # expect(subject.call(input: input)).to be_successful
         end
       end
 
