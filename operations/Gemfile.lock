@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    neon_operations (0.0.4)
+    neon_operations (0.0.5)
       dry-monads (~> 1.3)
 
 GEM

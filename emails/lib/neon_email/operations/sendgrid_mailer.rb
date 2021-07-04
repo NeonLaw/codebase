@@ -4,10 +4,7 @@ require "neon_secrets"
 module NeonEmail
   module Operations
     class SendgridMailer < NeonOperations::Operation
-      def initialize
-      end
-
-      def call(to:, from:, subject:, content:)
+      def call
         from_email = SendGrid::Email.new(email: "support@neonlaw.com")
         to_email = SendGrid::Email.new(email: to)
         sendgrid_content = SendGrid::Content.new(

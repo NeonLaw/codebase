@@ -35,7 +35,7 @@ module NeonOperations
     attr_reader :input, :schema_contract
 
     def validate_input
-      validation_result = schema_contract.call(input)
+      validation_result = schema_contract.new.call(input)
 
       return Failure(validation_result) if validation_result.errors.any?
 
