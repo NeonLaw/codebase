@@ -22,11 +22,11 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "neon_schemas", "0.1.7"
+  spec.add_runtime_dependency "neon_schemas", "0.1.8"
   spec.add_runtime_dependency "functions_framework", "0.9.0"
   spec.add_runtime_dependency "neon_secrets", "0.0.1"
   spec.add_runtime_dependency "sendgrid-ruby", "6.4"
-  spec.add_runtime_dependency "neon_operations", "0.0.1"
+  spec.add_runtime_dependency "neon_operations", "0.0.3"
 
   spec.add_development_dependency "rake", "12.3.3"
   spec.add_development_dependency "rspec", "3.0"

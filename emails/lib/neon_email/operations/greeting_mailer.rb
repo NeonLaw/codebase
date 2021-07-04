@@ -3,6 +3,10 @@ require_relative "./sendgrid_mailer"
 module NeonEmail
   module Operations
     class GreetingMailer < NeonOperations::Operation
+      def self.call(input:)
+        new(input: input).call
+      end
+
       def initialize(
         input:,
         schema_contract: NeonSchemas::Contracts::OutboundEmails::WelcomeEmailContract.new,
@@ -13,7 +17,7 @@ module NeonEmail
       end
 
       def call
-        Success(validate_input).bind do |validated_input|
+        validate_input.bind do |validated_input|
           mailer_operation.call(
             from: "support@neonlaw.com",
             to: validated_input.fetch("to"),
