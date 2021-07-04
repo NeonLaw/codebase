@@ -39,7 +39,7 @@ module NeonOperations
 
       return Failure(validation_result) if validation_result.errors.any?
 
-      Success(validate_result)
+      Success(validation_result)
     end
   end
 end
