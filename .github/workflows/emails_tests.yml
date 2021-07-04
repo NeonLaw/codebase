@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  emails_tests:
+  ruby_emails_tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
