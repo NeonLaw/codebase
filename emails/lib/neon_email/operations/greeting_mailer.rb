@@ -1,4 +1,3 @@
-require "neon_schemas"
 require_relative "./sendgrid_mailer"
 
 module NeonEmail

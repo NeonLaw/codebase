@@ -26,6 +26,11 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "dry-validation", "1.6"
   spec.add_runtime_dependency "neon_operations", "0.0.1"
 
+  spec.add_development_dependency "rake", "12.3.3"
+  spec.add_development_dependency "rspec", "3.0"
+  spec.add_development_dependency "standard", "1.0.5"
+  spec.add_development_dependency "pry", "0.14.1"
+  spec.add_development_dependency "faker", "2.17"
   spec.add_development_dependency "guard", "2.17.0"
   spec.add_development_dependency "guard-rspec", "4.7.3"
   spec.add_development_dependency "simplecov", "0.21.2"
