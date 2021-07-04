@@ -1,8 +1,8 @@
 import '../styles/globals.css';
-
 import { ApolloProvider } from '@apollo/client';
 import { BaseStyles } from '../styles/baseStyles';
 import { ChakraProvider } from '@chakra-ui/react';
+import { DefaultSeo } from 'next-seo';
 import { GetLayoutDirection } from '../../utils/getLayoutDirection';
 import Head from 'next/head';
 import { ShortcutsModal } from '../components/shortcuts-modal';
@@ -36,6 +36,7 @@ const NeonLawApp = ({ Component, pageProps }) => {
               content="width=device-width, initial-scale=1"
             />
           </Head>
+          <DefaultSeo canonical="https://www.neonlaw.com" />
           <BaseStyles dir={GetLayoutDirection()} />
           <ShortcutsModal />
           <Component {...pageProps} />
