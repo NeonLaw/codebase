@@ -1,0 +1,39 @@
+---
+name: emails
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  emails_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Changed Operations Files
+        id: emails-files
+        uses: tj-actions/changed-files@v7
+        with:
+          files: |
+            emails/*
+            emails/**
+            emails/**/*
+      - uses: actions/setup-ruby@v1
+        if: steps.emails-files.outputs.any_changed == 'true'
+        with:
+          ruby-version: '3'
+      - name: Install dependencies
+        working-directory: ./emails
+        if: steps.emails-files.outputs.any_changed == 'true'
+        run: bundle
+      - name: Lint Ruby files.
+        working-directory: ./emails
+        if: steps.emails-files.outputs.any_changed == 'true'
+        run: bundle exec standardrb
+      - name: Run specs
+        working-directory: ./emails
+        if: steps.emails-files.outputs.any_changed == 'true'
+        run: bundle exec rspec spec
+        env:
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
