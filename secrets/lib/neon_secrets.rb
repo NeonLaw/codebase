@@ -22,7 +22,6 @@ module NeonSecrets
         ENV.fetch(secret_name)
       else
         client = Google::Cloud::SecretManager.secret_manager_service
-        secret_name = "#{gcp_secret_name}.latest"
 
         version_path = client.secret_version_path(
           project: "neon-law-#{neon_env.downcase}",
