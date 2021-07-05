@@ -16,4 +16,8 @@ resource "google_cloudfunctions_function" "main" {
       retry = false
     }
   }
+
+  environment_variables = {
+    NEON_ENV = var.environment
+  }
 }

@@ -12,3 +12,6 @@ variable project_id {
 
 variable color {
 }
+
+variable environment {
+}
