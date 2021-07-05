@@ -1,11 +1,11 @@
 PATH
   remote: .
   specs:
-    neon_email (0.1.9)
+    neon_email (0.1.10)
       functions_framework (= 0.9.0)
       neon_operations (= 0.0.6)
       neon_schemas (= 0.1.13)
-      neon_secrets (= 0.0.2)
+      neon_secrets (= 0.0.3)
       sendgrid-ruby (= 6.4)
 
 GEM
@@ -162,7 +162,7 @@ GEM
       avro (~> 1.10)
       dry-validation (= 1.6)
       neon_operations (= 0.0.6)
-    neon_secrets (0.0.2)
+    neon_secrets (0.0.3)
       google-cloud-secret_manager (~> 1.1)
     nio4r (2.5.7)
     notiffany (0.1.3)
