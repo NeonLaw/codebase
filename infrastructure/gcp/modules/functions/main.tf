@@ -10,7 +10,7 @@ resource "google_cloudfunctions_function" "main" {
 
   event_trigger {
     event_type = "google.pubsub.topic.publish"
-    resource   = "projects/${var.project_id}/topics/outbound_emails-welcome_email-${var.schema_version}"
+    resource   = "projects/${var.project_id}/topics/outbound-emails-welcome-email-${var.schema_version}"
 
     failure_policy {
       retry = false
