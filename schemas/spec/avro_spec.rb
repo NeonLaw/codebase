@@ -6,8 +6,7 @@ RSpec.describe NeonSchemas::Avro do
       let(:schema_name) { "outbound_emails.welcome_email" }
       let(:record) {
         {
-          email: "hello@rar",
-          sub: "rar"
+          email: "hello@rar"
         }
       }
       let(:encoded) {
@@ -16,7 +15,7 @@ RSpec.describe NeonSchemas::Avro do
 
       it "returns Avro formatted binary" do
         expect(encoded).to be_a_kind_of StringIO
-        expect(encoded.string).to eq("\u0012hello@rar\u0006rar")
+        expect(encoded.string).to eq("\u0012hello@rar")
       end
     end
 
@@ -40,7 +39,7 @@ RSpec.describe NeonSchemas::Avro do
   describe "decode" do
     context "with a valid outbound email message in binary format" do
       let(:schema_name) { "outbound_emails.welcome_email" }
-      let(:string) { "\x12hello@rar rar" }
+      let(:string) { "\x12hello@rar" }
       let(:decoded) {
         subject.decode(string: string, schema_name: schema_name)
       }
@@ -48,8 +47,7 @@ RSpec.describe NeonSchemas::Avro do
       it "returns a ruby hash" do
         expect(decoded).to be_a_kind_of Hash
         expect(decoded).to eq({
-          email: "hello@rar",
-          sub: "rar"
+          email: "hello@rar"
         })
       end
     end
