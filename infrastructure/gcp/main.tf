@@ -33,13 +33,13 @@ data "google_project" "project" {
 module "dns" {
   source = "./modules/dns"
 
-  neon_law_url = var.environment == "production" ? "neonlaw.com" : "neonlaw.net"
+  neon_law_url         = var.environment == "production" ? "neonlaw.com" : "neonlaw.net"
   delete_your_data_url = var.environment == "production" ? "deleteyourdata.com" : "deleteyourdata.info"
 }
 
 module "service_accounts" {
-  source = "./modules/service_accounts"
-  project_id = var.project_id
+  source         = "./modules/service_accounts"
+  project_id     = var.project_id
   project_number = data.google_project.project.number
 }
 
@@ -63,7 +63,7 @@ module "container_registry" {
 }
 
 module "kubernetes_cluster" {
-  depends_on = [module.service_accounts]
+  depends_on  = [module.service_accounts]
   source      = "./modules/gke"
   region      = var.region
   project_id  = var.project_id
@@ -99,12 +99,12 @@ module "user_bucket" {
 }
 
 module "secrets" {
-  source = "./modules/secrets"
+  source      = "./modules/secrets"
   environment = var.environment
 }
 
 module "pubsub" {
-  for_each = toset( ["0.1.11"] )
+  for_each = toset(["0.1.11"])
 
   source         = "./modules/pubsub"
   environment    = var.environment
@@ -124,10 +124,10 @@ module "functions" {
     "blue"  = data.terraform_remote_state.versions.outputs["${var.environment}_blue_schemas"]
   }
 
-  source = "./modules/functions"
-  source_archive_bucket = module.function_bucket.name
+  source                      = "./modules/functions"
+  source_archive_bucket       = module.function_bucket.name
   email_source_archive_object = "emails/${data.terraform_remote_state.versions.outputs["${var.environment}_${each.key}_emails"]}.zip"
-  color = each.key
-  schema_version = each.value
-  project_id     = var.project_id
+  color                       = each.key
+  schema_version              = each.value
+  project_id                  = var.project_id
 }
