@@ -7,7 +7,6 @@ RSpec.describe NeonSchemas::Avro do
       let(:record) {
         {
           email: "hello@rar",
-          sub: "rar"
         }
       }
       let(:encoded) {
