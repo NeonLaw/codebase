@@ -130,4 +130,5 @@ module "functions" {
   color                       = each.key
   schema_version              = each.value
   project_id                  = var.project_id
+  environment                 = var.environment
 }
