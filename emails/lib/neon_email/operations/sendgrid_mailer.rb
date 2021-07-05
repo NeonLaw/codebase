@@ -42,7 +42,10 @@ module NeonEmail
 
       def sendgrid_client
         @_sendgrid_client ||= SendGrid::API.new(
-          api_key: NeonSecrets::Getter.get(secret_name: "sendgrid_api_key")
+          api_key: NeonSecrets::Getter.get(
+            secret_name: "sendgrid_api_key",
+            gcp_secret_name: "emails"
+          )
         ).client
       end
     end
