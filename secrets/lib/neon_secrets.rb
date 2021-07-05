@@ -24,9 +24,15 @@ module NeonSecrets
         client = Google::Cloud::SecretManager.secret_manager_service
         secret_name = "#{gcp_secret_name}.latest"
 
-        secrets = client.access_secret_version name: secret_name
+        version_path = client.secret_version_path(
+          project: "neon-law-#{neon_env.downcase}",
+          secret: gcp_secret_name,
+          secret_version: "latest"
+        )
 
-        JSON.parse(secrets).fetch(secret_name)
+        secret_values = client.access_secret_version name: version_path
+
+        JSON.parse(secret_values.payload.data).fetch(secret_name)
       end
     end
 
