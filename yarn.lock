@@ -4520,7 +4520,7 @@
     "@typescript-eslint/types" "4.27.0"
     eslint-visitor-keys "^2.0.0"
 
-"@uppy/companion-client@^1.10.1", "@uppy/companion-client@^1.10.2":
+"@uppy/companion-client@^1.10.2":
   version "1.10.2"
   resolved "https://registry.yarnpkg.com/@uppy/companion-client/-/companion-client-1.10.2.tgz#a640b3ef90b91751c49bf4b6a7a63c2ebac294f6"
   integrity sha512-5RmsNF9UBvUqmqQz48SoiLvkpGmvQTgwNM4bJX8xwVozv/6goRpFrsMJGLwqFcHS/9xj6STKOqrM582g8exVwQ==
@@ -4596,15 +4596,6 @@
     "@uppy/utils" "^3.6.2"
     preact "8.2.9"
 
-"@uppy/provider-views@^1.12.2":
-  version "1.12.2"
-  resolved "https://registry.yarnpkg.com/@uppy/provider-views/-/provider-views-1.12.2.tgz#e1370afcee747b2b28c8b82ea0b3c35e2dc0e5ad"
-  integrity sha512-AMLFj/6NWQhBMfVo1DRAWfAHqDuvuFNL+hkTWnouvX/7luNTy20R+p+CgOL0y/51/MGylylspEQUZPlzz2+byQ==
-  dependencies:
-    "@uppy/utils" "^3.6.1"
-    classnames "^2.2.6"
-    preact "8.2.9"
-
 "@uppy/provider-views@^1.12.3":
   version "1.12.3"
   resolved "https://registry.yarnpkg.com/@uppy/provider-views/-/provider-views-1.12.3.tgz#aecfed615bc174abc548539a3c17b39e455aed0e"
@@ -4652,20 +4643,20 @@
     exifr "^6.0.0"
     math-log2 "^1.0.1"
 
-"@uppy/transloadit@^1.6.25":
-  version "1.6.25"
-  resolved "https://registry.yarnpkg.com/@uppy/transloadit/-/transloadit-1.6.25.tgz#c7a571310c9d44da0293d91b0bf44a0bed27d864"
-  integrity sha512-esJpMhhQvhmjdXcyyNJfSjTW3ZmB/tMaZTO59GLVEVcQJTBZBRWbat7L7Jsyzs17hHMU+PVTunEolpk9neQ7nA==
+"@uppy/transloadit@^1.6.26":
+  version "1.6.26"
+  resolved "https://registry.yarnpkg.com/@uppy/transloadit/-/transloadit-1.6.26.tgz#9e401c3648c28138014e5bf0b8bd7aae0db114d7"
+  integrity sha512-fACQUEBJIHXrDBKoyrbmzDO8rr2CniJqBLQVQgUkMDMyjUiZgUrR1XB+r4j4Vu1ITAl3YH0ibCiWMT2CrFzAtg==
   dependencies:
-    "@uppy/companion-client" "^1.10.1"
-    "@uppy/provider-views" "^1.12.2"
-    "@uppy/tus" "^1.9.1"
-    "@uppy/utils" "^3.6.1"
+    "@uppy/companion-client" "^1.10.2"
+    "@uppy/provider-views" "^1.12.3"
+    "@uppy/tus" "^1.9.2"
+    "@uppy/utils" "^3.6.2"
     component-emitter "^1.2.1"
     socket.io-client "~2.2.0"
     url-parse "^1.4.7"
 
-"@uppy/tus@^1.9.1", "@uppy/tus@^1.9.2":
+"@uppy/tus@^1.9.2":
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/@uppy/tus/-/tus-1.9.2.tgz#d6e4fa715bc386daa8e7be6e80eb93e4f2abb46e"
   integrity sha512-ejaczrrh6w514XGd3kiDD1PJ8tIgmnV50fuyRwsybDj8HQheKAEu6GsJjxcnctP8NcSx4HNDhazVLPj6+A4p9Q==
