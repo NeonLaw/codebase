@@ -44,7 +44,7 @@
     "lob": "^6.2.0",
     "neo4j-driver": "^4.3.1",
     "pg": "^8.6.0",
-    "postgraphile": "^4.11.0",
+    "postgraphile": "^4.12.3",
     "slate": "^0.63.0",
     "stripe": "^8.156.0",
     "ts-node": "^9.1.1",
