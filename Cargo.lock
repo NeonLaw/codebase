@@ -1300,9 +1300,9 @@ checksum = "a9a7ab5d64814df0fe4a4b5ead45ed6c5f181ee3ff04ba344313a6c80446c5d4"
 
 [[package]]
 name = "octocrab"
-version = "0.10.0"
+version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2299b0dac78041bb082eaa97cf241d36031b80209dd855145e0297c9c4f0531d"
+checksum = "9a3aea1c6afa120766731ad296f5a679f70cbe359396213f4aba685d00cdb461"
 dependencies = [
  "arc-swap",
  "async-trait",
