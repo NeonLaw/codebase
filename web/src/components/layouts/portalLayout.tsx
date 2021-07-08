@@ -1,4 +1,5 @@
 import { colors, gutters, theme } from '../../styles/neonLaw';
+
 import { BaseFooter } from '../footer/baseFooter';
 import { Breadcrumbs } from '../breadcrumbs';
 import { LoadingPage } from '../loadingPage';
@@ -35,10 +36,6 @@ const StyledPortalLayout = styled.div`
     @media (min-height: 1100px) {
       grid-template-rows: auto minmax(100vh, auto);
     }
-  }
-
-  h2 {
-    font-size: 2.5rem;
   }
 
   .portal-hamburger {
@@ -94,7 +91,7 @@ export const PortalLayout = ({ children }) => {
 
     return (
       <>
-        <StyledPortalLayout>
+        <StyledPortalLayout className="portal-layout">
           <div className="wrapper">
             <Aside
               style={{

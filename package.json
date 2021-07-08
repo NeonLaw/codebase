@@ -13,7 +13,7 @@
     "devDependencies": {
         "@graphql-codegen/cli": "^1.21.5",
         "@graphql-codegen/typescript-operations": "^1.18.3",
-        "@graphql-codegen/typescript-react-apollo": "^2.2.4",
+        "@graphql-codegen/typescript-react-apollo": "^2.3.0",
         "@testing-library/cypress": "^7.0.6",
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^12.0.0",
@@ -30,7 +30,7 @@
         "@types/yup": "^0.29.12",
         "@typescript-eslint/eslint-plugin": "^4.27.0",
         "axe-core": "^4.2.3",
-        "babel-jest": "^27.0.2",
+        "babel-jest": "^27.0.6",
         "babel-plugin-add-react-displayname": "^0.0.5",
         "cypress-axe": "^0.12.2",
         "cypress-plugin-tab": "^1.0.5",
