@@ -68,33 +68,6 @@ export const BaseStyles = ({ dir }: BaseStylesProps): JSX.Element => {
         h4 {
           font-family: ${dir === 'rtl' ? 'Noto Naskh Arabic' : 'Jost'},
             sans-serif ${dir.length && '!important'};
-          font-weight: 400;
-          line-height: 1.35 !important;
-          color: ${colorMode === 'light'
-      ? colors.text.light
-      : theme.colors.white};
-        }
-
-        h1 {
-          font-size: ${theme.fontSizes['xl2']};
-        }
-
-        h2 {
-          font-size: ${theme.fontSizes['xl']};
-
-          @media (max-width: 767px) {
-            font-size: 2rem;
-          }
-        }
-
-        h3,
-        .h3 {
-          font-size: 2rem;
-          margin-bottom: ${gutters.xSmall};
-
-          @media (max-width: 767px) {
-            font-size: 1.5rem;
-          }
         }
 
         code {
