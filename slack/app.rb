@@ -4,7 +4,7 @@ require "neon_operations"
 
 FunctionsFramework.cloud_event "slack.send_message" do |event|
   NeonOperations::GCPFunctionsManager.invoke_operation(
-    NeonSlack::Operations::Messeger,
+    NeonSlack::Operations::Messenger,
     event
   )
 end
