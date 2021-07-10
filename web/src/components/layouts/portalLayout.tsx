@@ -33,7 +33,7 @@ const StyledPortalLayout = styled.div`
       grid-template-columns: 1fr;
     }
 
-    @media (min-height: 1100px) {
+    @media (min-height: 940px) {
       grid-template-rows: auto minmax(100vh, auto);
     }
   }
