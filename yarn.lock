@@ -4544,14 +4544,14 @@
     qs-stringify "^1.1.0"
     url-parse "^1.4.7"
 
-"@uppy/core@^1.19.1":
-  version "1.19.1"
-  resolved "https://registry.yarnpkg.com/@uppy/core/-/core-1.19.1.tgz#30b23cfb0fd85f96b5fbbb97300e7c25fd0d59f0"
-  integrity sha512-mAOXZjpwChD15+74f6M2FrkrYf+w35y/02o6P9ojZpj7NNkNIcqNAj05ksnuY5O+34BwUUOz7XvKthQr0fnHTw==
+"@uppy/core@^1.19.2":
+  version "1.19.2"
+  resolved "https://registry.yarnpkg.com/@uppy/core/-/core-1.19.2.tgz#0db125586bc663921066d9098a4c9b39355b8135"
+  integrity sha512-2aHvUMdH8fs2eFn30LzNZDHCKoUNAyC+MXwM2NQeO858o0gj2R4axZbrheXnpXrI9dB6RGELGIGkS+ZhnjQAmA==
   dependencies:
     "@transloadit/prettier-bytes" "0.0.7"
     "@uppy/store-default" "^1.2.7"
-    "@uppy/utils" "^3.6.1"
+    "@uppy/utils" "^3.6.2"
     cuid "^2.1.1"
     lodash.throttle "^4.1.1"
     mime-match "^1.0.2"
@@ -4679,7 +4679,7 @@
     "@uppy/utils" "^3.6.2"
     tus-js-client "^2.1.1"
 
-"@uppy/utils@^3.6.1", "@uppy/utils@^3.6.2":
+"@uppy/utils@^3.6.2":
   version "3.6.2"
   resolved "https://registry.yarnpkg.com/@uppy/utils/-/utils-3.6.2.tgz#78b02455b9c469d927d22736be5b68cda2600826"
   integrity sha512-wGTZma7eywIojfuE1vXlT0fxPSpmCRMkfgFWYc+6TL2FfGqWInmePoB+yal6/M2AnjeKHz6XYMhIpZkjOxFvcw==
