@@ -1,18 +1,16 @@
 export const meta = {
   title: "Kafka Architecture",
-  slug: "/blog/kafka-architecture",
-  filename: "/blog/kafka-architecture",
+  slug: "/blog/queueing-architecture",
+  filename: "/blog/queueing-architecture",
   updatedAt: "2019-09-15",
   featuredImage: "kafka_diagram.png",
-  tags: "programming,kafka"
+  tags: "programming,queueing"
 }
 import { BlogLayout } from '../../components/layouts/blogLayout';
 export default ({ children }) => <BlogLayout meta={meta}>{children}</BlogLayout>
 
-The above diagram, generated
-[here](https://github.com/NeonLaw/codebase/blob/main/diagrams/neon_diagrams/kafka_diagram.py),
-details how we deploy our Next.JS app, aka the app you're currently interfacing
-with, with a git-flow managed my Vercel.
+The above diagram, generated here details how we deploy our Next.JS app, aka the
+app you're currently interfacing with, with a git-flow managed my Vercel.
 
 Upon each push to a non-`main` branch, a Vercel deployment is created with
 environment variables that speak to our staging Kubernetes server and SaaS
