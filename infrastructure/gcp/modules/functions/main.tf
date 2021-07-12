@@ -23,7 +23,7 @@ resource "google_cloudfunctions_function" "welcome_email" {
 }
 
 resource "google_cloudfunctions_function" "send_slack_message" {
-  name        = "welcome-email-${var.color}"
+  name        = "slack-send-message-${var.color}"
   description = "Send Slack Message"
   runtime     = "ruby27"
 
