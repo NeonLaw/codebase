@@ -96,7 +96,7 @@
       {
         "_": "command",
         "shadow": true,
-        "command": "/usr/lib/postgresql/13/bin/pg_dump --schema-only --no-owner --file=schema.sql \"$GM_DBURL\"",
+        "command": "pg_dump --schema-only --no-owner --file=schema.sql \"$GM_DBURL\"",
       },
     ],
 

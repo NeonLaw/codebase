@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    neon_slack (0.1.0)
+    neon_slack (0.1.1)
       functions_framework (= 0.9.0)
       neon_schemas (= 0.1.1)
       neon_secrets (= 0.0.1)
@@ -14,7 +14,7 @@ GEM
     ast (2.4.2)
     avro (1.10.2)
       multi_json (~> 1)
-    cloud_events (0.4.0)
+    cloud_events (0.5.1)
     coderay (1.1.3)
     concurrent-ruby (1.1.8)
     diff-lcs (1.4.4)
@@ -56,10 +56,10 @@ GEM
       gapic-common (~> 0.3)
       google-cloud-errors (~> 1.0)
       grpc-google-iam-v1 (>= 0.6.10, < 2.0)
-    google-cloud-secret_manager (1.1.0)
-      google-cloud-core (~> 1.5)
-      google-cloud-secret_manager-v1 (~> 0.1)
-      google-cloud-secret_manager-v1beta1 (~> 0.3)
+    google-cloud-secret_manager (1.1.1)
+      google-cloud-core (~> 1.6)
+      google-cloud-secret_manager-v1 (>= 0.1, < 2.a)
+      google-cloud-secret_manager-v1beta1 (>= 0.3, < 2.a)
     google-cloud-secret_manager-v1 (0.10.0)
       gapic-common (~> 0.4)
       google-cloud-errors (~> 1.0)
