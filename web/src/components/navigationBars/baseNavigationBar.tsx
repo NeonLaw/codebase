@@ -77,8 +77,8 @@ export const BaseNavigationBar = ({
                 <img
                   src="/images/logo.svg"
                   style={{
-                    marginLeft: locale.name === 'Urdu' ? '1.25rem' : 0,
-                    marginRight: locale.name !== 'Urdu' ? '1.25rem' : 0,
+                    marginLeft: locale === 'ur' ? '1.25rem' : 0,
+                    marginRight: locale !== 'ur' ? '1.25rem' : 0,
                     width: '48px',
                   }}
                   alt="Neon Law"
