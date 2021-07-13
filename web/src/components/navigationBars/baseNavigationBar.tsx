@@ -26,7 +26,6 @@ import { default as NextLink } from 'next/link';
 import { Search } from './search';
 import { colors } from '../../styles/neonLaw';
 import { useIntl } from 'react-intl';
-import { useNextIntl } from '@moxy/next-intl';
 import { useRouter } from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 
@@ -48,7 +47,7 @@ export const BaseNavigationBar = ({
   const intl = useIntl();
   const router = useRouter();
   const { isLoading, user } = useUser();
-  const { locale } = useNextIntl();
+  const { locale } = router;
   const dir = GetLayoutDirection();
 
   useEffect(() => {

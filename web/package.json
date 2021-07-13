@@ -25,7 +25,6 @@
     "@hcaptcha/react-hcaptcha": "^0.3.6",
     "@hookform/error-message": "^2.0.0",
     "@mdx-js/loader": "^1.6.22",
-    "@moxy/next-intl": "^3.1.0",
     "@neonlaw/i18n": "0.0.1",
     "@next/mdx": "^11.0.1",
     "@nivo/bar": "^0.67.0",

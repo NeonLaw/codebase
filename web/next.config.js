@@ -1,12 +1,15 @@
 const withPlugins = require('next-compose-plugins');
-const withNextIntl = require('@moxy/next-intl/plugin');
 const withMDX = require('@next/mdx');
 
-module.exports = withPlugins([withMDX(), withNextIntl()], {
+module.exports = withPlugins([withMDX()], {
   env: {
     environment: process.env.NODE_ENV,
   },
   eslint: { ignoreDuringBuilds: true },
+  i18n: {
+    defaultLocale: 'en-US',
+    locales: ['en-US', 'es-419', 'ur'],
+  },
   pageExtensions: ['mdx', 'jsx', 'js', 'ts', 'tsx'],
   webpack(config) {
     config.module.rules.push({
