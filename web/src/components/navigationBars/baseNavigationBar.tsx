@@ -55,7 +55,7 @@ export const BaseNavigationBar = ({
     if (router.pathname === '/') {
       setIsHideSearch(true);
     }
-  });
+  }, [router.pathname]);
 
   return (
     <>
@@ -101,7 +101,7 @@ export const BaseNavigationBar = ({
                   <Link
                     href={link.route}
                     passHref
-                  // activeClassName="nav-link--active"
+                    // activeClassName="nav-link--active"
                   >
                     <Box
                       as="a"
