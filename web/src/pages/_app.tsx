@@ -12,12 +12,10 @@ import { UserProvider } from '@auth0/nextjs-auth0';
 import { getApolloClient } from '../utils/getApolloClient';
 import { globalStyles } from '../styles/globalStyles';
 import { handleFirstTab } from '../utils/accessibility';
-import nextIntlConfig from '../intl';
 import { theme } from '../styles/neonLaw';
 import { useEffect } from 'react';
 
 const NeonLawApp = (props) => {
-  const { Component, pageProps } = props;
   useEffect(() => {
     window.addEventListener('keydown', handleFirstTab);
 
