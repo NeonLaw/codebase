@@ -57,8 +57,8 @@ export const CreatePublicLetterForm = () => {
     return <h1>loading</h1>;
   }
 
-  const addresseeId = addressee.addresses.nodes[0].id;
-  const addressorId = addressor.addresses.nodes[0].id;
+  const addresseeId = addressee?.addresses.nodes[0].id;
+  const addressorId = addressor?.addresses.nodes[0].id;
 
   return (
     <form
