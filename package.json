@@ -89,7 +89,7 @@
         "@auth0/nextjs-auth0": "^1.4.2",
         "@chakra-ui/icons": "^1.0.14",
         "@chakra-ui/react": "^1.6.4",
-        "@stripe/stripe-js": "^1.15.1",
+        "@stripe/stripe-js": "^1.16.0",
         "@typescript-eslint/parser": "^4.25.0",
         "@uppy/core": "^1.19.2",
         "@uppy/react": "^1.12.0",
