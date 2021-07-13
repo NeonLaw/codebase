@@ -3866,10 +3866,10 @@
     "@turf/helpers" "^6.4.0"
     "@turf/invariant" "^6.4.0"
 
-"@turf/helpers@^6.4.0":
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-6.4.0.tgz#e263d960ab1caed3bfe86a7f2f4b2096dbbf0635"
-  integrity sha512-7vVpWZwHP0Qn8DDSlM++nhs3/6zfPt+GODjvLVZ+sWIG4S3vOtUUOfO5eIjRzxsUHHqhgiIL0QA17u79uLM+mQ==
+"@turf/helpers@^6.4.0", "@turf/helpers@^6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-6.5.0.tgz#f79af094bd6b8ce7ed2bd3e089a8493ee6cae82e"
+  integrity sha512-VbI1dV5bLFzohYYdgqwikdMVpe7pJ9X3E+dlr425wa2/sMJqYDhTO++ec38/pcPvPE6oD9WEEeU3Xu3gza+VPw==
 
 "@turf/invariant@^6.4.0":
   version "6.4.0"
@@ -4131,10 +4131,10 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@*", "@types/jest@^26.0.23":
-  version "26.0.23"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.23.tgz#a1b7eab3c503b80451d019efb588ec63522ee4e7"
-  integrity sha512-ZHLmWMJ9jJ9PTiT58juykZpL7KjwJywFN3Rr2pTSkyQfydf/rk22yS7W8p5DaVUMQ2BQC7oYiU3FjbTM/mYrOA==
+"@types/jest@*", "@types/jest@^26.0.24":
+  version "26.0.24"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.24.tgz#943d11976b16739185913a1936e0de0c4a7d595a"
+  integrity sha512-E/X5Vib8BWqZNRlDxj9vYXhsDwPYbPINqKF9BsnSoon4RQ0D9moEuLD8txgyypFLH7J4+Lho9Nr/c8H0Fi+17w==
   dependencies:
     jest-diff "^26.0.0"
     pretty-format "^26.0.0"
