@@ -1,15 +1,14 @@
-import styled from '@emotion/styled';
-
-const StyledBackgroundImage = styled.div`
-    min-height: 300px;
-    background-size: cover;
-    background-position: center;
-`;
+import { Image } from '@chakra-ui/react';
 
 interface BackgroundImageProps {
   src: string;
 }
 
 export const BackgroundImage = ({ src }: BackgroundImageProps) => (
-  <StyledBackgroundImage style={{ backgroundImage: `url(/images/${src})` }} />
+  <Image
+    minH="300px"
+    backgroundSize="cover"
+    backgroundPosition="center"
+    backgroundImage={`url(/images/${src})`}
+  />
 );
