@@ -1,0 +1,41 @@
+---
+name: webhooks_release
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  update_neon_webhooks_ruby_package:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/webhooks@')
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+      - name: Build neon_webhooks gem
+        run: gem build neon_webhooks.gemspec
+        working-directory: ./webhooks
+      - name: Publish neon_webhooks gem to Rubygems
+        run: gem push neon_webhooks-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/webhooks@/,"")}1').gem
+        working-directory: ./webhooks
+        env:
+          GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.GIT_USERNAME }}
+          password: ${{ secrets.GIT_PERSONAL_ACCESS_TOKEN }}
+
+      - name: Build the Docker image
+        run: |-
+          docker build \
+            --tag "ghcr.io/neonlaw/codebase/webhooks:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/webhooks@/,"")}1')" \
+            -f ./webhooks/Dockerfile \
+            .
+
+      - name: Push the Docker image to GitHub Registry
+        run: docker push ghcr.io/neonlaw/codebase/webhooks:$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/webhooks@/,"")}1')
