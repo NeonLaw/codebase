@@ -1,0 +1,61 @@
+---
+name: schemas_release
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  update_neon_schemas_python_package:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/schemas@')
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3'
+      - name: Install Poetry
+        uses: snok/install-poetry@v1.1.4
+      - name: Install dependencies
+        working-directory: ./schemas
+        run: poetry install
+      - name: Publish to PyPi
+        working-directory: ./schemas
+        run: |
+          poetry config http-basic.pypi "__token__" "$POETRY_PYPI_TOKEN_PYPI"
+          poetry publish --build
+        env:
+          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.POETRY_PYPI_TOKEN_PYPI }}
+
+  update_neon_schemas_ruby_package:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/schemas@')
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+      - name: Build neon_schemas gem
+        run: gem build neon_schemas.gemspec
+        working-directory: ./schemas
+      - name: Publish neon_schemas gem to Rubygems
+        run: gem push neon_schemas-$(echo $GITHUB_REF | awk '{gsub(/^refs\/tags\/schemas@/,"")}1').gem
+        working-directory: ./schemas
+        env:
+          GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
+
+  update_neon_schemas_javascript_package:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/schemas@')
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - name: Login to NPM
+        run: npm set //registry.npmjs.org/:_authToken $NODE_AUTH_TOKEN
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+      - name: Publish @neonlaw/schemas
+        run: npm publish --access public
+        working-directory: ./schemas

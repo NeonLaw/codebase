@@ -1,0 +1,30 @@
+---
+name: diagrams_release
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  update_neon_diagrams_package:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/neon_diagrams@')
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3'
+      - name: Install Poetry
+        uses: snok/install-poetry@v1.1.4
+      - name: Install dependencies
+        working-directory: ./diagrams
+        run: poetry install
+      - name: Publish to PyPi
+        working-directory: ./diagrams
+        run: |
+          poetry config http-basic.pypi "__token__" "$POETRY_PYPI_TOKEN_PYPI"
+          poetry publish --build
+        env:
+          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.POETRY_PYPI_TOKEN_PYPI }}
