@@ -13,7 +13,7 @@
     "devDependencies": {
         "@graphql-codegen/cli": "^1.21.5",
         "@graphql-codegen/typescript-operations": "^1.18.4",
-        "@graphql-codegen/typescript-react-apollo": "^2.3.0",
+        "@graphql-codegen/typescript-react-apollo": "^2.3.1",
         "@testing-library/cypress": "^7.0.6",
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^12.0.0",
@@ -38,7 +38,7 @@
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-import": "^2.23.4",
         "eslint-plugin-jest": "^24.3.6",
-        "eslint-plugin-jsdoc": "^35.4.1",
+        "eslint-plugin-jsdoc": "^35.5.0",
         "eslint-plugin-jsx-a11y": "^6.4.1",
         "eslint-plugin-prettier": "^3.4.0",
         "eslint-plugin-react": "^7.24.0",
