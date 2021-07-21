@@ -50,7 +50,7 @@
     "react-responsive": "^8.2.0",
     "react-select": "^4.3.1",
     "react-spring": "^9.2.4",
-    "react-svg": "^14.0.3",
+    "react-svg": "^14.0.5",
     "react-table": "^7.7.0",
     "styled-system": "^5.1.5",
     "webpack": "^5.45.1"
@@ -64,7 +64,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-jest": "^24.3.6",
-    "eslint-plugin-jsdoc": "^35.4.1",
+    "eslint-plugin-jsdoc": "^35.5.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
