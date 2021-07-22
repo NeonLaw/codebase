@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.3.21",
-    "@auth0/nextjs-auth0": "^1.4.2",
+    "@auth0/nextjs-auth0": "^1.5.0",
     "@chakra-ui/react": "^1.6.5",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
