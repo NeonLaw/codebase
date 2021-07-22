@@ -5,6 +5,7 @@ Gem::Specification.new do |spec|
   spec.version = NeonPostgres::VERSION
   spec.authors = ["Neon Law"]
   spec.email = ["support@neonlaw.com"]
+  spec.licenses = ["Apache-2.0"]
 
   spec.summary = "A gem to test the Neon Law Postgres database."
   spec.description = 'This gem contains tests and sequel setup to speak to
