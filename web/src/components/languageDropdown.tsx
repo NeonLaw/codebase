@@ -1,38 +1,37 @@
-import { useNextIntl, withNextIntl } from '@moxy/next-intl';
-
 import { ChevronUpIcon } from '@chakra-ui/icons';
 import { Select } from '@chakra-ui/react';
-import { useCallback } from 'react';
 import { useIntl } from 'react-intl';
+import { useRouter } from 'next/router';
 
-const getLanguageId = (name) => {
-  if (name === 'English') {
-    return 'en';
-  } else if (name === 'Spanish (Latin America)') {
-    return 'es';
-  } else if (name === 'Urdu') {
-    return 'ur';
+const getLocaleInfo = (locale) => {
+  if (locale === 'en-US') {
+    return ['English', 'en'];
+  } else if (locale === 'es-419') {
+    return ['Spanish (Latin America)', 'es'];
+  } else if (locale === 'ur') {
+    return ['Urdu', 'ur'];
   }
 };
 
 const Dropdown = () => {
-  const { locales, locale, changeLocale } = useNextIntl();
+  const router = useRouter();
+  const { locale, locales } = router;
   const intl = useIntl();
 
-  const handleChange = useCallback(
-    (event) => changeLocale(event.target.value),
-    [changeLocale],
-  );
+  const handleChange = (e) => {
+    const loc = e.target.value;
+    router.push('/', '/', { locale: loc });
+  };
 
   return (
-    <Select icon={<ChevronUpIcon />} value={locale.id} onChange={handleChange}>
-      {locales.map(({ id, name }) => (
-        <option key={id} value={id}>
-          {intl.formatMessage({id: `languages.${getLanguageId(name)}`})}
+    <Select icon={<ChevronUpIcon />} value={locale} onChange={handleChange}>
+      {locales.map((locale) => (
+        <option key={locale} value={locale}>
+          {intl.formatMessage({ id: `languages.${getLocaleInfo(locale)[1]}` })}
         </option>
       ))}
     </Select>
   );
 };
 
-export const LanguageDropdown = withNextIntl(Dropdown);
+export const LanguageDropdown = Dropdown;

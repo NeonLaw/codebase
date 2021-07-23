@@ -1,5 +1,7 @@
 import '../styles/globals.css';
+import { getIntlProps, withIntlApp } from '@moxy/next-intl';
 import { ApolloProvider } from '@apollo/client';
+import App from 'next/app';
 import { BaseStyles } from '../styles/baseStyles';
 import { ChakraProvider } from '@chakra-ui/react';
 import { DefaultSeo } from 'next-seo';
@@ -10,12 +12,10 @@ import { UserProvider } from '@auth0/nextjs-auth0';
 import { getApolloClient } from '../utils/getApolloClient';
 import { globalStyles } from '../styles/globalStyles';
 import { handleFirstTab } from '../utils/accessibility';
-import nextIntlConfig from '../intl';
 import { theme } from '../styles/neonLaw';
 import { useEffect } from 'react';
-import { withNextIntlSetup } from '@moxy/next-intl';
 
-const NeonLawApp = ({ Component, pageProps }) => {
+const NeonLawApp = (props) => {
   useEffect(() => {
     window.addEventListener('keydown', handleFirstTab);
 
@@ -39,12 +39,27 @@ const NeonLawApp = ({ Component, pageProps }) => {
           <DefaultSeo canonical="https://www.neonlaw.com" />
           <BaseStyles dir={GetLayoutDirection()} />
           <ShortcutsModal />
-          <Component {...pageProps} />
+          <App {...props} />
         </ApolloProvider>
       </ChakraProvider>
     </UserProvider>
   );
 };
+const loadLocale = async (locale) => {
+  const module = await import(`@neonlaw/i18n/src/locales/${locale}.json`);
+  return module.default;
+};
 
+NeonLawApp.getInitialProps = async (appCtx) => {
+  const [intlProps, appProps] = await Promise.all([
+    getIntlProps(appCtx.router.locale),
+    App.getInitialProps(appCtx),
+  ]);
+
+  return {
+    ...intlProps,
+    ...appProps,
+  };
+};
 /* eslint-disable-next-line import/no-default-export */
-export default withNextIntlSetup(nextIntlConfig)(NeonLawApp);
+export default withIntlApp(loadLocale)(NeonLawApp);

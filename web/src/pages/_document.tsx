@@ -1,7 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 
 import { ColorModeScript } from '@chakra-ui/react';
-import { NextIntlScript } from '@moxy/next-intl';
 import { theme } from '../styles/neonLaw';
 
 const APP_NAME = 'Neon Law';
@@ -47,7 +46,6 @@ class MyDocument extends Document {
         </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-          <NextIntlScript />
           <Main />
           <NextScript />
           {process.env.NEXT_PUBLIC_API_URI !==

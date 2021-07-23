@@ -26,7 +26,6 @@ import { default as NextLink } from 'next/link';
 import { Search } from './search';
 import { colors } from '../../styles/neonLaw';
 import { useIntl } from 'react-intl';
-import { useNextIntl } from '@moxy/next-intl';
 import { useRouter } from 'next/router';
 import { useUser } from '@auth0/nextjs-auth0';
 
@@ -48,14 +47,14 @@ export const BaseNavigationBar = ({
   const intl = useIntl();
   const router = useRouter();
   const { isLoading, user } = useUser();
-  const { locale } = useNextIntl();
+  const { locale } = router;
   const dir = GetLayoutDirection();
 
   useEffect(() => {
     if (router.pathname === '/') {
       setIsHideSearch(true);
     }
-  });
+  }, [router.pathname]);
 
   return (
     <>
@@ -78,8 +77,8 @@ export const BaseNavigationBar = ({
                 <img
                   src="/images/logo.svg"
                   style={{
-                    marginLeft: locale.name === 'Urdu' ? '1.25rem' : 0,
-                    marginRight: locale.name !== 'Urdu' ? '1.25rem' : 0,
+                    marginLeft: locale === 'ur' ? '1.25rem' : 0,
+                    marginRight: locale !== 'ur' ? '1.25rem' : 0,
                     width: '48px',
                   }}
                   alt="Neon Law"
@@ -101,7 +100,7 @@ export const BaseNavigationBar = ({
                   <Link
                     href={link.route}
                     passHref
-                  // activeClassName="nav-link--active"
+                    // activeClassName="nav-link--active"
                   >
                     <Box
                       as="a"
