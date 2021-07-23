@@ -6,7 +6,7 @@
 
 This is a monorepo containing the software packages used by Neon Law to deliver
 our services to our clients. You are welcome to use this library pursuant to
-the Neon License as long as you promise not to use our Neon Law trademark
+the Apache-2 License as long as you promise not to use our Neon Law trademark
 without express written consent.
 
 |Package|Latest Version|Staging|Production|
@@ -127,8 +127,7 @@ software:
 
 ## Legal
 
-Copyright 2021 Neon Law. Licensed under the [Neon License](LICENSE.md). The Neon
-License is the same as the Apache License Version 2 with the additional
-disclaimer that nothing provided herein is legal advice.
+Copyright 2021 Neon Law. Licensed under the [Apache License
+Version 2](LICENSE.md).
 
 Please contact us if you have any questions at support@neonlaw.com.

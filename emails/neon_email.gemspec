@@ -5,6 +5,7 @@ Gem::Specification.new do |spec|
   spec.version = NeonEmail::VERSION
   spec.authors = ["Neon Law"]
   spec.email = ["support@neonlaw.com"]
+  spec.licenses = ["Apache-2.0"]
 
   spec.summary = "A gem to handle outbound_email messages in Neon Law software space."
   spec.description = spec.summary
@@ -30,7 +31,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "rake", "12.3.3"
   spec.add_development_dependency "rspec", "3.0"
-  spec.add_development_dependency "standard", "1.0.5"
+  spec.add_development_dependency "standard", "1.1.5"
   spec.add_development_dependency "pry", "0.14.1"
   spec.add_development_dependency "faker", "2.17"
   spec.add_development_dependency "guard", "2.17.0"

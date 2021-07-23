@@ -5,8 +5,8 @@ RSpec.describe "app.rb" do
         message = {"to" => "nick@neonlaw.com"}
 
         data = {
-          "message": {
-            "data": Base64.encode64(message.to_json).strip
+          message: {
+            data: Base64.encode64(message.to_json).strip
           }
         }
 

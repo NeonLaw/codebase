@@ -5,6 +5,7 @@ Gem::Specification.new do |spec|
   spec.version = NeonSearch::VERSION
   spec.authors = ["Neon Law"]
   spec.email = ["support@neonlaw.com"]
+  spec.licenses = ["Apache-2.0"]
 
   spec.summary = "A gem to handle CRUDding Neon Law data to Melisearch."
   spec.description = spec.summary

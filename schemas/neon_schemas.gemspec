@@ -5,6 +5,7 @@ Gem::Specification.new do |spec|
   spec.version = NeonSchemas::VERSION
   spec.authors = ["Neon Law"]
   spec.email = ["support@neonlaw.com"]
+  spec.licenses = ["Apache-2.0"]
 
   spec.summary = "A gem containing schemas and encoding/decoding Avro classes"
   spec.description = spec.summary

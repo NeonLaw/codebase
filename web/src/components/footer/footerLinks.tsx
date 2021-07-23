@@ -124,7 +124,7 @@ export const FooterLinks = () => {
               target="_blank"
               rel="noreferrer"
             >
-              Neon License
+              Apache License v2
             </a>.
           </Text>
           <Divider color="white" margin="1.5em auto" width="240px" />
